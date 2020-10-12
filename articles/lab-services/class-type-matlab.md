@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: 137959f51b08dceee150962f77110ee2ac1dc193
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85445003"
 ---
 # <a name="setup-a-lab-to-teach-matlab"></a>Criar um laboratório para ensinar o MATLAB
@@ -102,12 +102,12 @@ Vamos cobrir uma possível estimativa de custos para esta aula.  Esta estimativa
 
 Aqui está um exemplo de uma possível estimativa de custos para esta classe:
 
-25 alunos \* (20 horas programadas + 10 horas de quota) \* 55 unidades de laboratório \* 0,01 USD por hora = 412,50 USD
+25 alunos \* (20 horas programadas + 10 horas de quota) \* 55 unidades de laboratório \*  0,01 USD por hora = 412,50 USD
 
 >[!IMPORTANT]
 > A estimativa de custos é apenas para fins.  Para obter detalhes atuais sobre os preços, consulte [o Preço dos Serviços do Laboratório Azure.](https://azure.microsoft.com/pricing/details/lab-services/)  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Os próximos passos são comuns para montar qualquer laboratório.
 

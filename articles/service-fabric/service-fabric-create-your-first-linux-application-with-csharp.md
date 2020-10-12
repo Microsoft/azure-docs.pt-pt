@@ -4,10 +4,10 @@ description: Saiba como criar e implementar uma aplicação de Tecido de Serviç
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.openlocfilehash: 556d8dee4efd492fa98755f1ffd1cdc1c9887856
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82193654"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Criar a sua primeira aplicação do Azure Service Fabric
@@ -118,7 +118,7 @@ Os projetos de ator não fazem nada só por si. Precisam de outro serviço ou cl
 
 Para adicionar outro serviço a uma aplicação já criada com o `yo`, execute os seguintes passos:
 1. Altere o diretório para a raiz da aplicação existente.  Por exemplo, `cd ~/YeomanSamples/MyApplication`, se `MyApplication` é a aplicação criada por Yeoman.
-2. Execute `yo azuresfcsharp:AddService`
+2. Executar `yo azuresfcsharp:AddService`
 
 ## <a name="next-steps"></a>Passos seguintes
 

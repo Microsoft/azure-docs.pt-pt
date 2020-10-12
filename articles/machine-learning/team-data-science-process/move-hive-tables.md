@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 7cce0a927c2ffd69252a22ea4459f789d22721c2
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86080742"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Criar tabelas de Colmeia e carregar dados a partir do armazenamento do Blob Azure
@@ -86,7 +86,7 @@ hive -S -e "<Hive queries>"
 ```
 
 #### <a name="submit-hive-queries-in-hive-command-console"></a>Submeta consultas de Colmeia na consola de comando da Hive.
-Também pode primeiro introduzir a consola de comando da Colmeia executando o comando `hive` na Linha de Comando Hadoop e, em seguida, submeter consultas de Colmeia na consola de comando da Hive. Eis um exemplo. Neste exemplo, as duas caixas vermelhas destacam os comandos utilizados para entrar na consola de comando da Colmeia, e a consulta hive submetida na consola de comando da Hive, respectivamente. A caixa verde destaca a saída da consulta hive.
+Também pode primeiro introduzir a consola de comando da Colmeia executando o comando `hive` na Linha de Comando Hadoop e, em seguida, submeter consultas de Colmeia na consola de comando da Hive. Segue-se um exemplo. Neste exemplo, as duas caixas vermelhas destacam os comandos utilizados para entrar na consola de comando da Colmeia, e a consulta hive submetida na consola de comando da Hive, respectivamente. A caixa verde destaca a saída da consulta hive.
 
 ![Abra a consola de comando da Colmeia e insira o comando, veja a saída da consulta da Hive](./media/move-hive-tables/run-hive-queries-2.png)
 

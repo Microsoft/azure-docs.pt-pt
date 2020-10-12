@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 06/23/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 573ea96437cf6cb76854ffa417fd3ad3fb86138b
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88861066"
 ---
 # <a name="move-an-azure-service-bus-namespace-to-another-region"></a>Mova um espaço de nome de ônibus de serviço Azure para outra região
@@ -48,19 +48,19 @@ Implemente o modelo para criar um espaço de nome de ônibus de serviço na regi
 1. No portal Azure, selecione **Criar um recurso**.
 2. Em **Search the Marketplace**, **digite a implementação** do modelo para o texto de pesquisa, selecione **a implementação do modelo (implementar usando modelos personalizados)** e, em seguida, prima **ENTER**.
 
-    :::image type="content" source="./media/move-across-regions/new-template-deployment.png" alt-text="Nova implementação do modelo":::    
+    :::image type="content" source="./media/move-across-regions/new-template-deployment.png" alt-text="Baixar modelo de Gestor de Recursos":::    
 1. Na página de implementação do **modelo,** selecione **Criar**.
 
-    :::image type="content" source="./media/move-across-regions/template-deployment-create-button.png" alt-text="Nova implementação do modelo - crie botão":::        
+    :::image type="content" source="./media/move-across-regions/template-deployment-create-button.png" alt-text="Baixar modelo de Gestor de Recursos":::        
 1. Na página **de implementação personalizada,** selecione **Construa o seu próprio modelo no editor**.
 
-    :::image type="content" source="./media/move-across-regions/build-template-link.png" alt-text="Construa o seu próprio modelo no editor - link":::            
+    :::image type="content" source="./media/move-across-regions/build-template-link.png" alt-text="Baixar modelo de Gestor de Recursos":::            
 1. Na página do **modelo editar,** selecione Carregar o **ficheiro** na barra de ferramentas e, em seguida, seguir as instruções para carregar o **template.jsno** ficheiro que descarregou na última secção.
 
-    :::image type="content" source="./media/move-across-regions/select-template.png" alt-text="Selecione o modelo":::                
+    :::image type="content" source="./media/move-across-regions/select-template.png" alt-text="Baixar modelo de Gestor de Recursos":::                
 1. **Selecione Guardar** para guardar o modelo. 
 
-    :::image type="content" source="./media/move-across-regions/save-template.png" alt-text="Modelo de poupança":::                    
+    :::image type="content" source="./media/move-across-regions/save-template.png" alt-text="Baixar modelo de Gestor de Recursos":::                    
 1. Na página **de implementação personalizada,** siga estes passos: 
     1. Selecione uma **subscrição Azure**. 
     2. Selecione um grupo de **recursos** existente ou crie um. 
@@ -68,26 +68,26 @@ Implemente o modelo para criar um espaço de nome de ônibus de serviço na regi
     4. Introduza um novo **nome para o espaço de nomes.**
     1. Selecione **Rever + criar**. 
 
-        :::image type="content" source="./media/move-across-regions/deploy-template.png" alt-text="Implementar o modelo do Gestor de Recursos":::
+        :::image type="content" source="./media/move-across-regions/deploy-template.png" alt-text="Baixar modelo de Gestor de Recursos":::
     1. Na página **'Rever + criar',** selecione **Criar** na parte inferior da página. 
     
 ## <a name="verify"></a>Verificação
 1. Depois de a implementação ter sido bem sucedida, selecione **Ir para o grupo de recursos**.
 
-    :::image type="content" source="./media/move-across-regions/resource-group-navigation-link.png" alt-text="Ir para a ligação de grupo de recursos":::    
+    :::image type="content" source="./media/move-across-regions/resource-group-navigation-link.png" alt-text="Baixar modelo de Gestor de Recursos":::    
 1. Na página do **grupo Recursos,** selecione o espaço de nomes do Service Bus. 
 
-    :::image type="content" source="./media/move-across-regions/select-namespace.png" alt-text="Selecione o espaço de nomes do ônibus de serviço":::    
+    :::image type="content" source="./media/move-across-regions/select-namespace.png" alt-text="Baixar modelo de Gestor de Recursos":::    
 1. Na página de **espaço de nomes do Service Bus,** verifique se vê as filas, tópicos e subscrições da região de origem. 
     1. **Vê-se filas** no espaço de nomes na parte inferior do painel direito.         
     
-        :::image type="content" source="./media/move-across-regions/queue-namespace.png" alt-text="Filas no espaço de nomes":::
+        :::image type="content" source="./media/move-across-regions/queue-namespace.png" alt-text="Baixar modelo de Gestor de Recursos":::
     2. Mude para o **separador Tópicos** para ver tópicos no espaço de nomes
     
-        :::image type="content" source="./media/move-across-regions/topics-namespace.png" alt-text="Tópicos no espaço de nomes":::
+        :::image type="content" source="./media/move-across-regions/topics-namespace.png" alt-text="Baixar modelo de Gestor de Recursos":::
     3. Selecione o tópico para verificar se as subscrições são criadas. 
 
-        :::image type="content" source="./media/move-across-regions/topic-subscriptions.png" alt-text="Assinaturas de tópicos":::      
+        :::image type="content" source="./media/move-across-regions/topic-subscriptions.png" alt-text="Baixar modelo de Gestor de Recursos":::      
     
     
 

@@ -14,10 +14,10 @@ ms.author: shoatman
 ms.custom: aaddev, devx-track-java
 ms.reviewer: shoatman
 ms.openlocfilehash: 404ffbc09a69b623a421bd0c01550d72e5c03158
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88115990"
 ---
 # <a name="accounts--tenant-profiles-android"></a>Contas e perfis de inquilino (Android)
@@ -48,7 +48,7 @@ Uma conta na plataforma de identidade da Microsoft consiste em:
 - Como uma conta pode estar presente em um ou mais inquilinos, uma conta pode ter mais do que um perfil.
 
 > [!NOTE]
-> A MSAL trata o sistema de conta microsoft (Live, MSA) como outro inquilino dentro da plataforma de identidade da Microsoft. O id do inquilino do inquilino da conta da Microsoft é:`9188040d-6c67-4c5b-b112-36a304b66dad`
+> A MSAL trata o sistema de conta microsoft (Live, MSA) como outro inquilino dentro da plataforma de identidade da Microsoft. O id do inquilino do inquilino da conta da Microsoft é: `9188040d-6c67-4c5b-b112-36a304b66dad`
 
 ## <a name="account-overview-diagram"></a>Diagrama de visão geral da conta
 
@@ -58,12 +58,12 @@ No diagrama acima:
 
 - A conta `bob@contoso.com` é criada no Windows Server Ative Directory (sistema de registo de origem no local).
 - A conta `tom@live.com` é criada no inquilino da conta da Microsoft.
-- `bob@contoso.com`tem acesso a pelo menos um recurso nos seguintes inquilinos do Azure Ative Directory:
+- `bob@contoso.com` tem acesso a pelo menos um recurso nos seguintes inquilinos do Azure Ative Directory:
   - contoso.com (sistema de registo em nuvem - ligado ao sistema de registo no local)
   - fabrikam.com
   - woodgrovebank.com
   - Um perfil de inquilino para `bob@contoso.com` existir em cada um destes inquilinos.
-- `tom@live.com`tem acesso a recursos nos seguintes inquilinos da Microsoft:
+- `tom@live.com` tem acesso a recursos nos seguintes inquilinos da Microsoft:
   - contoso.com
   - fabrikam.com
   - Um perfil de inquilino para `tom@live.com` existir em cada um destes inquilinos.
@@ -99,7 +99,7 @@ Além de solicitar um token de acesso, a MSAL também pede sempre um sinal de id
 - openid
 - perfil
 
-O símbolo de identificação contém uma lista de reclamações. `Claims`são pares de nome/valor sobre a conta, e são usados para fazer o pedido.
+O símbolo de identificação contém uma lista de reclamações. `Claims` são pares de nome/valor sobre a conta, e são usados para fazer o pedido.
 
 Como mencionado anteriormente, cada inquilino onde exista uma conta pode armazenar diferentes informações sobre a conta, incluindo, mas não se limitando a atributos como: título de emprego, localização de escritório, e assim por diante.
 

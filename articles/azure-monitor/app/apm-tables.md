@@ -6,10 +6,10 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/09/2020
 ms.openlocfilehash: 1d7275c928b4d25e200a3a8d3d690c7575c056e7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87323184"
 ---
 # <a name="workspace-based-resource-changes-preview"></a>Alterações de recursos baseadas no espaço de trabalho (pré-visualização)
@@ -18,7 +18,7 @@ Antes da introdução dos recursos de [Insights de Aplicação baseados no espa�
 
 Com os dados de recursos de aplicações baseados no espaço de trabalho, os dados de recursos do Log Analytics são armazenados num espaço de trabalho do Log Analytics com outros dados de monitorização e dados de aplicações. Isto simplifica a sua configuração, permitindo-lhe analisar mais facilmente dados em várias soluções e alavancar as capacidades dos espaços de trabalho.
 
-## <a name="table-structure"></a>Estrutura de mesa
+## <a name="table-structure"></a>Estrutura da tabela
 
 | Nome da mesa do legado | Novo nome de mesa | Descrição |
 |:---|:---|:---|
@@ -45,43 +45,43 @@ Tabela legado: disponibilidade
 
 |ApplicationInsights|Tipo|LogAnalytics|Tipo|
 |:---|:---|:---|:---|
-|appId|cadeia|\_Guia de Recursos|cadeia|
-|application_Version|cadeia|AppVersão|cadeia|
-|appName|cadeia|\_ResourceId|cadeia|
-|client_Browser|cadeia|ClientBrowser|cadeia|
-|client_City|cadeia|ClientCity|cadeia|
-|client_CountryOrRegion|cadeia|Região de ClientCountryOr|cadeia|
-|client_IP|cadeia|ClientIP|cadeia|
-|client_Model|cadeia|Modelo de Cliente|cadeia|
-|client_OS|cadeia|ClienteOS|cadeia|
-|client_StateOrProvince|cadeia|ClientStateOrProvince|cadeia|
-|client_Type|cadeia|ClientType|cadeia|
-|cloud_RoleInstance|cadeia|Aparição de Apensa|cadeia|
-|cloud_RoleName|cadeia|Nome do apreoia|cadeia|
+|appId|string|\_Guia de Recursos|string|
+|application_Version|string|AppVersão|string|
+|appName|string|\_ResourceId|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|Região de ClientCountryOr|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|Modelo de Cliente|string|
+|client_OS|string|ClienteOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|ClientType|string|
+|cloud_RoleInstance|string|Aparição de Apensa|string|
+|cloud_RoleName|string|Nome do apreoia|string|
 |customDimensionais|dynamic|Propriedades|Dinâmica|
 |medidas de medidas personalizadas|dynamic|Medições|Dinâmica|
 |duration|real|DurationMs|real|
-|`id`|string|`Id`|cadeia|
-|iKey|cadeia|IKey|cadeia|
+|`id`|string|`Id`|string|
+|iKey|string|IKey|string|
 |itemOconse|int|ItemCount|int|
-|itemId|cadeia|\_ItemId|cadeia|
-|itemType|cadeia|Tipo|Cadeia|
-|localização|cadeia|Localização|cadeia|
-|message|cadeia|Mensagem|cadeia|
-|name|cadeia|Nome|cadeia|
-|operation_Id|cadeia|OperationId|cadeia|
-|operation_Name|cadeia|OperationName|cadeia|
-|operation_ParentId|cadeia|OperaçãoParentId|cadeia|
-|operation_SyntheticSource|cadeia|OperaçãoSssyntheticSource|cadeia|
-|performanceBucket|cadeia|PerformanceBucket|cadeia|
-|sdkVersion|cadeia|SdkVersion|cadeia|
-|session_Id|cadeia|SessionId|cadeia|
+|itemId|string|\_ItemId|string|
+|itemType|string|Tipo|Cadeia|
+|localização|string|Localização|string|
+|message|string|Mensagem|string|
+|name|string|Nome|string|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperaçãoParentId|string|
+|operation_SyntheticSource|string|OperaçãoSssyntheticSource|string|
+|performanceBucket|string|PerformanceBucket|string|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
 |size|real|Tamanho|real|
-|exito|cadeia|Success|Booleano|
+|exito|string|Success|Booleano|
 |carimbo de data/hora|datetime|TimeGenerated|datetime|
-|user_AccountId|cadeia|UserAccountId|cadeia|
-|user_AuthenticatedId|cadeia|UserAuthenticatedId|cadeia|
-|user_Id|cadeia|IDUtilizador|cadeia|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|IDUtilizador|string|
 
 ### <a name="appbrowsertimings"></a>AppBrowserTimings
 
@@ -89,43 +89,43 @@ Tabela legado: browserTimings
 
 |ApplicationInsights|Tipo|LogAnalytics|Tipo|
 |:---|:---|:---|:---|
-|appId|cadeia|\_Guia de Recursos|cadeia|
-|application_Version|cadeia|AppVersão|cadeia|
-|appName|cadeia|\_ResourceId|cadeia|
-|client_Browser|cadeia|ClientBrowser|cadeia|
-|client_City|cadeia|ClientCity|cadeia|
-|client_CountryOrRegion|cadeia|Região de ClientCountryOr|cadeia|
-|client_IP|cadeia|ClientIP|cadeia|
-|client_Model|cadeia|Modelo de Cliente|cadeia|
-|client_OS|cadeia|ClienteOS|cadeia|
-|client_StateOrProvince|cadeia|ClientStateOrProvince|cadeia|
-|client_Type|cadeia|ClientType|cadeia|
-|cloud_RoleInstance|cadeia|Aparição de Apensa|cadeia|
-|cloud_RoleName|cadeia|Nome do apreoia|cadeia|
+|appId|string|\_Guia de Recursos|string|
+|application_Version|string|AppVersão|string|
+|appName|string|\_ResourceId|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|Região de ClientCountryOr|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|Modelo de Cliente|string|
+|client_OS|string|ClienteOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|ClientType|string|
+|cloud_RoleInstance|string|Aparição de Apensa|string|
+|cloud_RoleName|string|Nome do apreoia|string|
 |customDimensionais|dynamic|Propriedades|Dinâmica|
 |medidas de medidas personalizadas|dynamic|Medições|Dinâmica|
-|iKey|cadeia|IKey|cadeia|
+|iKey|string|IKey|string|
 |itemOconse|int|ItemCount|int|
-|itemId|cadeia|\_ItemId|cadeia|
-|itemType|cadeia|Tipo|string|
-|name|cadeia|Nome|datetime|
+|itemId|string|\_ItemId|string|
+|itemType|string|Tipo|string|
+|name|string|Nome|datetime|
 |redeDuração|real|NetworkDurationMs|real|
-|operation_Id|cadeia|OperationId|cadeia|
-|operation_Name|cadeia|OperationName|cadeia|
-|operation_ParentId|cadeia|OperaçãoParentId|cadeia|
-|operation_SyntheticSource|cadeia|OperaçãoSssyntheticSource|cadeia|
-|performanceBucket|cadeia|PerformanceBucket|cadeia|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperaçãoParentId|string|
+|operation_SyntheticSource|string|OperaçãoSssyntheticSource|string|
+|performanceBucket|string|PerformanceBucket|string|
 |processamentoDuração|real|ProcessamentoDurationMs|real|
 |receberDuration|real|ReceberDurationMs|real|
-|sdkVersion|cadeia|SdkVersion|cadeia|
+|sdkVersion|string|SdkVersion|string|
 |sendDuration|real|SendDurationMs|real|
-|session_Id|cadeia|SessionId|cadeia|
+|session_Id|string|SessionId|string|
 |carimbo de data/hora|datetime|TimeGenerated|datetime|
 |totalDuração|real|TotaldurationMs|real|
-|url|cadeia|Url|cadeia|
-|user_AccountId|cadeia|UserAccountId|cadeia|
-|user_AuthenticatedId|cadeia|UserAuthenticatedId|cadeia|
-|user_Id|cadeia|IDUtilizador|cadeia|
+|url|string|Url|string|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|IDUtilizador|string|
 
 ### <a name="appdependencies"></a>AppDependencies
 
@@ -133,44 +133,44 @@ Tabela legado: dependências
 
 |ApplicationInsights|Tipo|LogAnalytics|Tipo|
 |:---|:---|:---|:---|
-|appId|cadeia|\_Guia de Recursos|cadeia|
-|application_Version|cadeia|AppVersão|cadeia|
-|appName|cadeia|\_ResourceId|cadeia|
-|client_Browser|cadeia|ClientBrowser|cadeia|
-|client_City|cadeia|ClientCity|cadeia|
-|client_CountryOrRegion|cadeia|Região de ClientCountryOr|cadeia|
-|client_IP|cadeia|ClientIP|cadeia|
-|client_Model|cadeia|Modelo de Cliente|cadeia|
-|client_OS|cadeia|ClienteOS|cadeia|
-|client_StateOrProvince|cadeia|ClientStateOrProvince|cadeia|
-|client_Type|cadeia|ClientType|cadeia|
-|cloud_RoleInstance|cadeia|Aparição de Apensa|cadeia|
-|cloud_RoleName|cadeia|Nome do apreoia|cadeia|
+|appId|string|\_Guia de Recursos|string|
+|application_Version|string|AppVersão|string|
+|appName|string|\_ResourceId|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|Região de ClientCountryOr|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|Modelo de Cliente|string|
+|client_OS|string|ClienteOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|ClientType|string|
+|cloud_RoleInstance|string|Aparição de Apensa|string|
+|cloud_RoleName|string|Nome do apreoia|string|
 |customDimensionais|dynamic|Propriedades|Dinâmica|
 |medidas de medidas personalizadas|dynamic|Medições|Dinâmica|
-|dados|cadeia|Dados|cadeia|
+|dados|string|Dados|string|
 |duration|real|DurationMs|real|
-|`id`|string|`Id`|cadeia|
-|iKey|cadeia|IKey|cadeia|
+|`id`|string|`Id`|string|
+|iKey|string|IKey|string|
 |itemOconse|int|ItemCount|int|
-|itemId|cadeia|\_ItemId|cadeia|
-|itemType|cadeia|Tipo|Cadeia|
-|name|cadeia|Nome|cadeia|
-|operation_Id|cadeia|OperationId|cadeia|
-|operation_Name|cadeia|OperationName|cadeia|
-|operation_ParentId|cadeia|OperaçãoParentId|cadeia|
-|operation_SyntheticSource|cadeia|OperaçãoSssyntheticSource|cadeia|
-|performanceBucket|cadeia|PerformanceBucket|cadeia|
-|resultadosDesco|cadeia|Resultados Código|cadeia|
-|sdkVersion|cadeia|SdkVersion|cadeia|
-|session_Id|cadeia|SessionId|cadeia|
-|exito|cadeia|Success|Booleano|
-|alvo|cadeia|Destino|cadeia|
+|itemId|string|\_ItemId|string|
+|itemType|string|Tipo|Cadeia|
+|name|string|Nome|string|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperaçãoParentId|string|
+|operation_SyntheticSource|string|OperaçãoSssyntheticSource|string|
+|performanceBucket|string|PerformanceBucket|string|
+|resultadosDesco|string|Resultados Código|string|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
+|exito|string|Success|Booleano|
+|alvo|string|Destino|string|
 |carimbo de data/hora|datetime|TimeGenerated|datetime|
-|tipo|cadeia|Tipo de Dependência|cadeia|
-|user_AccountId|cadeia|UserAccountId|cadeia|
-|user_AuthenticatedId|cadeia|UserAuthenticatedId|cadeia|
-|user_Id|cadeia|IDUtilizador|cadeia|
+|tipo|string|Tipo de Dependência|string|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|IDUtilizador|string|
 
 ### <a name="appevents"></a>Eventos AppEvents
 
@@ -178,36 +178,36 @@ Tabela legado: costumesEvents
 
 |ApplicationInsights|Tipo|LogAnalytics|Tipo|
 |:---|:---|:---|:---|
-|appId|cadeia|\_Guia de Recursos|cadeia|
-|application_Version|cadeia|AppVersão|cadeia|
-|appName|cadeia|\_ResourceId|cadeia|
-|client_Browser|cadeia|ClientBrowser|cadeia|
-|client_City|cadeia|ClientCity|cadeia|
-|client_CountryOrRegion|cadeia|Região de ClientCountryOr|cadeia|
-|client_IP|cadeia|ClientIP|cadeia|
-|client_Model|cadeia|Modelo de Cliente|cadeia|
-|client_OS|cadeia|ClienteOS|cadeia|
-|client_StateOrProvince|cadeia|ClientStateOrProvince|cadeia|
-|client_Type|cadeia|ClientType|cadeia|
-|cloud_RoleInstance|cadeia|Aparição de Apensa|cadeia|
-|cloud_RoleName|cadeia|Nome do apreoia|cadeia|
+|appId|string|\_Guia de Recursos|string|
+|application_Version|string|AppVersão|string|
+|appName|string|\_ResourceId|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|Região de ClientCountryOr|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|Modelo de Cliente|string|
+|client_OS|string|ClienteOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|ClientType|string|
+|cloud_RoleInstance|string|Aparição de Apensa|string|
+|cloud_RoleName|string|Nome do apreoia|string|
 |customDimensionais|dynamic|Propriedades|Dinâmica|
 |medidas de medidas personalizadas|dynamic|Medições|Dinâmica|
-|iKey|cadeia|IKey|cadeia|
+|iKey|string|IKey|string|
 |itemOconse|int|ItemCount|int|
-|itemId|cadeia|\_ItemId|cadeia|
-|itemType|cadeia|Tipo|string|
-|name|cadeia|Nome|cadeia|
-|operation_Id|cadeia|OperationId|cadeia|
-|operation_Name|cadeia|OperationName|cadeia|
-|operation_ParentId|cadeia|OperaçãoParentId|cadeia|
-|operation_SyntheticSource|cadeia|OperaçãoSssyntheticSource|cadeia|
-|sdkVersion|cadeia|SdkVersion|cadeia|
-|session_Id|cadeia|SessionId|cadeia|
+|itemId|string|\_ItemId|string|
+|itemType|string|Tipo|string|
+|name|string|Nome|string|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperaçãoParentId|string|
+|operation_SyntheticSource|string|OperaçãoSssyntheticSource|string|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
 |carimbo de data/hora|datetime|TimeGenerated|datetime|
-|user_AccountId|cadeia|UserAccountId|cadeia|
-|user_AuthenticatedId|cadeia|UserAuthenticatedId|cadeia|
-|user_Id|cadeia|IDUtilizador|cadeia|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|IDUtilizador|string|
 
 ### <a name="appmetrics"></a>AppMetrics
 
@@ -215,34 +215,34 @@ Tabela legado: costumesMetrics
 
 |ApplicationInsights|Tipo|LogAnalytics|Tipo|
 |:---|:---|:---|:---|
-|appId|cadeia|\_Guia de Recursos|cadeia|
-|application_Version|cadeia|AppVersão|cadeia|
-|appName|cadeia|\_ResourceId|cadeia|
-|client_Browser|cadeia|ClientBrowser|cadeia|
-|client_City|cadeia|ClientCity|cadeia|
-|client_CountryOrRegion|cadeia|Região de ClientCountryOr|cadeia|
-|client_IP|cadeia|ClientIP|cadeia|
-|client_Model|cadeia|Modelo de Cliente|cadeia|
-|client_OS|cadeia|ClienteOS|cadeia|
-|client_StateOrProvince|cadeia|ClientStateOrProvince|cadeia|
-|client_Type|cadeia|ClientType|cadeia|
-|cloud_RoleInstance|cadeia|Aparição de Apensa|cadeia|
-|cloud_RoleName|cadeia|Nome do apreoia|cadeia|
+|appId|string|\_Guia de Recursos|string|
+|application_Version|string|AppVersão|string|
+|appName|string|\_ResourceId|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|Região de ClientCountryOr|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|Modelo de Cliente|string|
+|client_OS|string|ClienteOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|ClientType|string|
+|cloud_RoleInstance|string|Aparição de Apensa|string|
+|cloud_RoleName|string|Nome do apreoia|string|
 |customDimensionais|dynamic|Propriedades|Dinâmica|
-|iKey|cadeia|IKey|cadeia|
-|itemId|cadeia|\_ItemId|cadeia|
-|itemType|cadeia|Tipo|string|
-|name|cadeia|Nome|cadeia|
-|operation_Id|cadeia|OperationId|cadeia|
-|operation_Name|cadeia|OperationName|cadeia|
-|operation_ParentId|cadeia|OperaçãoParentId|cadeia|
-|operation_SyntheticSource|cadeia|OperaçãoSssyntheticSource|cadeia|
-|sdkVersion|cadeia|SdkVersion|cadeia|
-|session_Id|cadeia|SessionId|cadeia|
+|iKey|string|IKey|string|
+|itemId|string|\_ItemId|string|
+|itemType|string|Tipo|string|
+|name|string|Nome|string|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperaçãoParentId|string|
+|operation_SyntheticSource|string|OperaçãoSssyntheticSource|string|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
 |carimbo de data/hora|datetime|TimeGenerated|datetime|
-|user_AccountId|cadeia|UserAccountId|cadeia|
-|user_AuthenticatedId|cadeia|UserAuthenticatedId|cadeia|
-|user_Id|cadeia|IDUtilizador|cadeia|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|IDUtilizador|string|
 |valor|real|(removido)||
 |valorCount|int|ValorCount|int|
 |valorMax|real|ValueMax|real|
@@ -256,40 +256,40 @@ Tabela legado: pageViews
 
 |ApplicationInsights|Tipo|LogAnalytics|Tipo|
 |:---|:---|:---|:---|
-|appId|cadeia|\_Guia de Recursos|cadeia|
-|application_Version|cadeia|AppVersão|cadeia|
-|appName|cadeia|\_ResourceId|cadeia|
-|client_Browser|cadeia|ClientBrowser|cadeia|
-|client_City|cadeia|ClientCity|cadeia|
-|client_CountryOrRegion|cadeia|Região de ClientCountryOr|cadeia|
-|client_IP|cadeia|ClientIP|cadeia|
-|client_Model|cadeia|Modelo de Cliente|cadeia|
-|client_OS|cadeia|ClienteOS|cadeia|
-|client_StateOrProvince|cadeia|ClientStateOrProvince|cadeia|
-|client_Type|cadeia|ClientType|cadeia|
-|cloud_RoleInstance|cadeia|Aparição de Apensa|cadeia|
-|cloud_RoleName|cadeia|Nome do apreoia|cadeia|
+|appId|string|\_Guia de Recursos|string|
+|application_Version|string|AppVersão|string|
+|appName|string|\_ResourceId|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|Região de ClientCountryOr|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|Modelo de Cliente|string|
+|client_OS|string|ClienteOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|ClientType|string|
+|cloud_RoleInstance|string|Aparição de Apensa|string|
+|cloud_RoleName|string|Nome do apreoia|string|
 |customDimensionais|dynamic|Propriedades|Dinâmica|
 |medidas de medidas personalizadas|dynamic|Medições|Dinâmica|
 |duration|real|DurationMs|real|
-|`id`|string|`Id`|cadeia|
-|iKey|cadeia|IKey|cadeia|
+|`id`|string|`Id`|string|
+|iKey|string|IKey|string|
 |itemOconse|int|ItemCount|int|
-|itemId|cadeia|\_ItemId|cadeia|
-|itemType|cadeia|Tipo|Cadeia|
-|name|cadeia|Nome|cadeia|
-|operation_Id|cadeia|OperationId|cadeia|
-|operation_Name|cadeia|OperationName|cadeia|
-|operation_ParentId|cadeia|OperaçãoParentId|cadeia|
-|operation_SyntheticSource|cadeia|OperaçãoSssyntheticSource|cadeia|
-|performanceBucket|cadeia|PerformanceBucket|cadeia|
-|sdkVersion|cadeia|SdkVersion|cadeia|
-|session_Id|cadeia|SessionId|cadeia|
+|itemId|string|\_ItemId|string|
+|itemType|string|Tipo|Cadeia|
+|name|string|Nome|string|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperaçãoParentId|string|
+|operation_SyntheticSource|string|OperaçãoSssyntheticSource|string|
+|performanceBucket|string|PerformanceBucket|string|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
 |carimbo de data/hora|datetime|TimeGenerated|datetime|
-|url|cadeia|Url|cadeia|
-|user_AccountId|cadeia|UserAccountId|cadeia|
-|user_AuthenticatedId|cadeia|UserAuthenticatedId|cadeia|
-|user_Id|cadeia|IDUtilizador|cadeia|
+|url|string|Url|string|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|IDUtilizador|string|
 
 ### <a name="appperformancecounters"></a>AppPerformanceCounters
 
@@ -297,37 +297,37 @@ Tabela legado: performanceCounters
 
 |ApplicationInsights|Tipo|LogAnalytics|Tipo|
 |:---|:---|:---|:---|
-|appId|cadeia|\_Guia de Recursos|cadeia|
-|application_Version|cadeia|AppVersão|cadeia|
-|appName|cadeia|\_ResourceId|cadeia|
-|categoria|cadeia|Categoria|cadeia|
-|client_Browser|cadeia|ClientBrowser|cadeia|
-|client_City|cadeia|ClientCity|cadeia|
-|client_CountryOrRegion|cadeia|Região de ClientCountryOr|cadeia|
-|client_IP|cadeia|ClientIP|cadeia|
-|client_Model|cadeia|Modelo de Cliente|cadeia|
-|client_OS|cadeia|ClienteOS|cadeia|
-|client_StateOrProvince|cadeia|ClientStateOrProvince|cadeia|
-|client_Type|cadeia|ClientType|cadeia|
-|cloud_RoleInstance|cadeia|Aparição de Apensa|cadeia|
-|cloud_RoleName|cadeia|Nome do apreoia|cadeia|
-|counter|cadeia|(removido)||
+|appId|string|\_Guia de Recursos|string|
+|application_Version|string|AppVersão|string|
+|appName|string|\_ResourceId|string|
+|categoria|string|Categoria|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|Região de ClientCountryOr|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|Modelo de Cliente|string|
+|client_OS|string|ClienteOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|ClientType|string|
+|cloud_RoleInstance|string|Aparição de Apensa|string|
+|cloud_RoleName|string|Nome do apreoia|string|
+|counter|string|(removido)||
 |customDimensionais|dynamic|Propriedades|Dinâmica|
-|iKey|cadeia|IKey|cadeia|
-|exemplo|cadeia|Instância|cadeia|
-|itemId|cadeia|\_ItemId|cadeia|
-|itemType|cadeia|Tipo|string|
-|name|cadeia|Nome|cadeia|
-|operation_Id|cadeia|OperationId|cadeia|
-|operation_Name|cadeia|OperationName|cadeia|
-|operation_ParentId|cadeia|OperaçãoParentId|cadeia|
-|operation_SyntheticSource|cadeia|OperaçãoSssyntheticSource|cadeia|
-|sdkVersion|cadeia|SdkVersion|cadeia|
-|session_Id|cadeia|SessionId|cadeia|
+|iKey|string|IKey|string|
+|exemplo|string|Instância|string|
+|itemId|string|\_ItemId|string|
+|itemType|string|Tipo|string|
+|name|string|Nome|string|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperaçãoParentId|string|
+|operation_SyntheticSource|string|OperaçãoSssyntheticSource|string|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
 |carimbo de data/hora|datetime|TimeGenerated|datetime|
-|user_AccountId|cadeia|UserAccountId|cadeia|
-|user_AuthenticatedId|cadeia|UserAuthenticatedId|cadeia|
-|user_Id|cadeia|IDUtilizador|cadeia|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|IDUtilizador|string|
 |valor|real|Valor|real|
 
 ### <a name="apprequests"></a>Recorrentes
@@ -336,43 +336,43 @@ Tabela legado: pedidos
 
 |ApplicationInsights|Tipo|LogAnalytics|Tipo|
 |:---|:---|:---|:---|
-|appId|cadeia|\_Guia de Recursos|cadeia|
-|application_Version|cadeia|AppVersão|cadeia|
-|appName|cadeia|\_ResourceId|cadeia|
-|client_Browser|cadeia|ClientBrowser|cadeia|
-|client_City|cadeia|ClientCity|cadeia|
-|client_CountryOrRegion|cadeia|Região de ClientCountryOr|cadeia|
-|client_IP|cadeia|ClientIP|cadeia|
-|client_Model|cadeia|Modelo de Cliente|cadeia|
-|client_OS|cadeia|ClienteOS|cadeia|
-|client_StateOrProvince|cadeia|ClientStateOrProvince|cadeia|
-|client_Type|cadeia|ClientType|cadeia|
-|cloud_RoleInstance|cadeia|Aparição de Apensa|cadeia|
-|cloud_RoleName|cadeia|Nome do apreoia|cadeia|
+|appId|string|\_Guia de Recursos|string|
+|application_Version|string|AppVersão|string|
+|appName|string|\_ResourceId|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|Região de ClientCountryOr|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|Modelo de Cliente|string|
+|client_OS|string|ClienteOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|ClientType|string|
+|cloud_RoleInstance|string|Aparição de Apensa|string|
+|cloud_RoleName|string|Nome do apreoia|string|
 |customDimensionais|dynamic|Propriedades|Dinâmica|
 |medidas de medidas personalizadas|dynamic|Medições|Dinâmica|
 |duration|real|DurationMs|Real|
-|`id`|cadeia|`Id`|Cadeia|
-|iKey|cadeia|IKey|cadeia|
+|`id`|string|`Id`|Cadeia|
+|iKey|string|IKey|string|
 |itemOconse|int|ItemCount|int|
-|itemId|cadeia|\_ItemId|cadeia|
-|itemType|cadeia|Tipo|Cadeia|
-|name|cadeia|Nome|Cadeia|
-|operation_Id|cadeia|OperationId|cadeia|
-|operation_Name|cadeia|OperationName|cadeia|
-|operation_ParentId|cadeia|OperaçãoParentId|cadeia|
-|operation_SyntheticSource|cadeia|OperaçãoSssyntheticSource|cadeia|
-|performanceBucket|cadeia|PerformanceBucket|Cadeia|
-|resultadosDesco|cadeia|Resultados Código|Cadeia|
-|sdkVersion|cadeia|SdkVersion|cadeia|
-|session_Id|cadeia|SessionId|cadeia|
-|source|cadeia|Origem|Cadeia|
-|exito|cadeia|Success|Booleano|
+|itemId|string|\_ItemId|string|
+|itemType|string|Tipo|Cadeia|
+|name|string|Nome|Cadeia|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperaçãoParentId|string|
+|operation_SyntheticSource|string|OperaçãoSssyntheticSource|string|
+|performanceBucket|string|PerformanceBucket|Cadeia|
+|resultadosDesco|string|Resultados Código|Cadeia|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
+|source|string|Origem|Cadeia|
+|exito|string|Success|Booleano|
 |carimbo de data/hora|datetime|TimeGenerated|datetime|
-|url|cadeia|Url|Cadeia|
-|user_AccountId|cadeia|UserAccountId|cadeia|
-|user_AuthenticatedId|cadeia|UserAuthenticatedId|cadeia|
-|user_Id|cadeia|IDUtilizador|cadeia|
+|url|string|Url|Cadeia|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|IDUtilizador|string|
 
 ### <a name="appsystemevents"></a>Eventos AppSystemEvents
 
@@ -380,51 +380,51 @@ Tabela legado: exceções
 
 |ApplicationInsights|Tipo|LogAnalytics|Tipo|
 |:---|:---|:---|:---|
-|appId|cadeia|\_Guia de Recursos|cadeia|
-|application_Version|cadeia|AppVersão|cadeia|
-|appName|cadeia|\_ResourceId|cadeia|
-|montagem|cadeia|Assemblagem|cadeia|
-|client_Browser|cadeia|ClientBrowser|cadeia|
-|client_City|cadeia|ClientCity|cadeia|
-|client_CountryOrRegion|cadeia|Região de ClientCountryOr|cadeia|
-|client_IP|cadeia|ClientIP|cadeia|
-|client_Model|cadeia|Modelo de Cliente|cadeia|
-|client_OS|cadeia|ClienteOS|cadeia|
-|client_StateOrProvince|cadeia|ClientStateOrProvince|cadeia|
-|client_Type|cadeia|ClientType|cadeia|
-|cloud_RoleInstance|cadeia|Aparição de Apensa|cadeia|
-|cloud_RoleName|cadeia|Nome do apreoia|cadeia|
+|appId|string|\_Guia de Recursos|string|
+|application_Version|string|AppVersão|string|
+|appName|string|\_ResourceId|string|
+|montagem|string|Assemblagem|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|Região de ClientCountryOr|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|Modelo de Cliente|string|
+|client_OS|string|ClienteOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|ClientType|string|
+|cloud_RoleInstance|string|Aparição de Apensa|string|
+|cloud_RoleName|string|Nome do apreoia|string|
 |customDimensionais|dynamic|Propriedades|dynamic|
 |medidas de medidas personalizadas|dynamic|Medições|dynamic|
 |detalhes|dynamic|Detalhes|dynamic|
-|handledAt|cadeia|HandledAt|cadeia|
-|iKey|cadeia|IKey|cadeia|
-|mais internamente Montagem|cadeia|Mais internamente|cadeia|
-|innerstMessage|cadeia|InternamenteMessage|cadeia|
-|innermostMethod|cadeia|InnermostMethod|cadeia|
-|Mais íntimosTipo|cadeia|Mais innertType|cadeia|
+|handledAt|string|HandledAt|string|
+|iKey|string|IKey|string|
+|mais internamente Montagem|string|Mais internamente|string|
+|innerstMessage|string|InternamenteMessage|string|
+|innermostMethod|string|InnermostMethod|string|
+|Mais íntimosTipo|string|Mais innertType|string|
 |itemOconse|int|ItemCount|int|
-|itemId|cadeia|\_ItemId|cadeia|
-|itemType|cadeia|Tipo|string|
-|message|cadeia|Mensagem|cadeia|
-|método|cadeia|Método|cadeia|
-|operation_Id|cadeia|OperationId|cadeia|
-|operation_Name|cadeia|OperationName|cadeia|
-|operation_ParentId|cadeia|OperaçãoParentId|cadeia|
-|operation_SyntheticSource|cadeia|OperaçãoSssyntheticSource|cadeia|
-|exteriorEssaconly|cadeia|ExteriorEseto|cadeia|
-|outerMessage|cadeia|OuterMessage|cadeia|
-|outerMethod|cadeia|OuterMethod|cadeia|
-|outerType|cadeia|OuterType|cadeia|
-|problemId|cadeia|ProblemaId|cadeia|
-|sdkVersion|cadeia|SdkVersion|cadeia|
-|session_Id|cadeia|SessionId|cadeia|
+|itemId|string|\_ItemId|string|
+|itemType|string|Tipo|string|
+|message|string|Mensagem|string|
+|método|string|Método|string|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperaçãoParentId|string|
+|operation_SyntheticSource|string|OperaçãoSssyntheticSource|string|
+|exteriorEssaconly|string|ExteriorEseto|string|
+|outerMessage|string|OuterMessage|string|
+|outerMethod|string|OuterMethod|string|
+|outerType|string|OuterType|string|
+|problemId|string|ProblemaId|string|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
 |severidadeLevel|int|SeveridadeLevel|int|
 |carimbo de data/hora|datetime|TimeGenerated|datetime|
-|tipo|cadeia|ExcepçãoType|cadeia|
-|user_AccountId|cadeia|UserAccountId|cadeia|
-|user_AuthenticatedId|cadeia|UserAuthenticatedId|cadeia|
-|user_Id|cadeia|IDUtilizador|cadeia|
+|tipo|string|ExcepçãoType|string|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|IDUtilizador|string|
 
 ### <a name="apptraces"></a>AppTraces
 
@@ -432,37 +432,37 @@ Tabela do legado: vestígios
 
 |ApplicationInsights|Tipo|LogAnalytics|Tipo|
 |:---|:---|:---|:---|
-|appId|cadeia|\_Guia de Recursos|cadeia|
-|application_Version|cadeia|AppVersão|cadeia|
-|appName|cadeia|\_ResourceId|cadeia|
-|client_Browser|cadeia|ClientBrowser|cadeia|
-|client_City|cadeia|ClientCity|cadeia|
-|client_CountryOrRegion|cadeia|Região de ClientCountryOr|cadeia|
-|client_IP|cadeia|ClientIP|cadeia|
-|client_Model|cadeia|Modelo de Cliente|cadeia|
-|client_OS|cadeia|ClienteOS|cadeia|
-|client_StateOrProvince|cadeia|ClientStateOrProvince|cadeia|
-|client_Type|cadeia|ClientType|cadeia|
-|cloud_RoleInstance|cadeia|Aparição de Apensa|cadeia|
-|cloud_RoleName|cadeia|Nome do apreoia|cadeia|
+|appId|string|\_Guia de Recursos|string|
+|application_Version|string|AppVersão|string|
+|appName|string|\_ResourceId|string|
+|client_Browser|string|ClientBrowser|string|
+|client_City|string|ClientCity|string|
+|client_CountryOrRegion|string|Região de ClientCountryOr|string|
+|client_IP|string|ClientIP|string|
+|client_Model|string|Modelo de Cliente|string|
+|client_OS|string|ClienteOS|string|
+|client_StateOrProvince|string|ClientStateOrProvince|string|
+|client_Type|string|ClientType|string|
+|cloud_RoleInstance|string|Aparição de Apensa|string|
+|cloud_RoleName|string|Nome do apreoia|string|
 |customDimensionais|dynamic|Propriedades|dynamic|
 |medidas de medidas personalizadas|dynamic|Medições|dynamic|
-|iKey|cadeia|IKey|cadeia|
+|iKey|string|IKey|string|
 |itemOconse|int|ItemCount|int|
-|itemId|cadeia|\_ItemId|cadeia|
-|itemType|cadeia|Tipo|string|
-|message|cadeia|Mensagem|cadeia|
-|operation_Id|cadeia|OperationId|cadeia|
-|operation_Name|cadeia|OperationName|cadeia|
-|operation_ParentId|cadeia|OperaçãoParentId|cadeia|
-|operation_SyntheticSource|cadeia|OperaçãoSssyntheticSource|cadeia|
-|sdkVersion|cadeia|SdkVersion|cadeia|
-|session_Id|cadeia|SessionId|cadeia|
+|itemId|string|\_ItemId|string|
+|itemType|string|Tipo|string|
+|message|string|Mensagem|string|
+|operation_Id|string|OperationId|string|
+|operation_Name|string|OperationName|string|
+|operation_ParentId|string|OperaçãoParentId|string|
+|operation_SyntheticSource|string|OperaçãoSssyntheticSource|string|
+|sdkVersion|string|SdkVersion|string|
+|session_Id|string|SessionId|string|
 |severidadeLevel|int|SeveridadeLevel|int|
 |carimbo de data/hora|datetime|TimeGenerated|datetime|
-|user_AccountId|cadeia|UserAccountId|cadeia|
-|user_AuthenticatedId|cadeia|UserAuthenticatedId|cadeia|
-|user_Id|cadeia|IDUtilizador|cadeia|
+|user_AccountId|string|UserAccountId|string|
+|user_AuthenticatedId|string|UserAuthenticatedId|string|
+|user_Id|string|IDUtilizador|string|
 
 ## <a name="next-steps"></a>Passos seguintes
 

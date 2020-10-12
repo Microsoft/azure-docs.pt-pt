@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.custom: seodec18
 ms.openlocfilehash: b186c2d2c4b5efc8e1e052a63505549e860b5619
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91460833"
 ---
 # <a name="data-storage"></a>Armazenamento de Dados
@@ -121,7 +121,7 @@ Os eventos da Azure Time Series Insights Gen2 estão mapeados para os conteúdos
 * Todas as outras propriedades enviadas como dados de telemetria são mapeadas para nomes de colunas que terminam com `_bool` (boolean), `_datetime` (carimbo de `_long` tempo), `_double` (longo), `_string` (duplo), (cadeia) ou `dynamic` (dinâmico), dependendo do tipo de propriedade.  Para mais informações, leia sobre [os tipos de dados suportados.](./concepts-supported-data-types.md)
 * Este esquema de mapeamento aplica-se à primeira versão do formato de ficheiro, referenciada como **V=1** e armazenada na pasta base com o mesmo nome. À medida que esta funcionalidade evolui, este esquema de mapeamento pode mudar e o nome de referência incrementado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Leia sobre [modelação de dados.](./time-series-insights-update-tsm.md)
 
