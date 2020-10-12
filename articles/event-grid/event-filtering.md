@@ -4,10 +4,10 @@ description: Descreve como filtrar eventos ao criar uma subscrição da Azure Ev
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 837209d4197c271598155776b8d171a705e1f454
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86120097"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Compreender a filtragem do evento para subscrições de Grade de Eventos
@@ -145,7 +145,7 @@ Os valores podem ser:
 * número
 * string
 * boolean
-* array
+* matriz
 
 ### <a name="limitations"></a>Limitações
 
@@ -307,7 +307,7 @@ A mesma chave pode ser utilizada em mais de um filtro.
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para conhecer os eventos de filtragem com PowerShell e Azure CLI, consulte [os eventos filter para a Grade de Eventos.](how-to-filter-events.md)
 * Para começar rapidamente a utilizar a Grade de Eventos, consulte [Criar e encaminhar eventos personalizados com a Azure Event Grid](custom-event-quickstart.md).

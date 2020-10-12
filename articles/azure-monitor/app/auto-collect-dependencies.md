@@ -7,10 +7,10 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/06/2020
 ms.openlocfilehash: ca1c63f042bd06c19f232c2ff8170d23741e73f2
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88936440"
 ---
 # <a name="dependency-auto-collection"></a>Coleção automática da dependência
@@ -24,7 +24,7 @@ Abaixo está a lista de chamadas de dependência atualmente suportadas que são 
 | formas web ASP.NET | 4.5+ |
 | ASP.NET MVC | 4+ |
 | ASP.NET WebAPI | 4.5+ |
-| ASP.NET Core | 1.1+ |
+| Núcleo de ASP.NET | 1.1+ |
 | <b> Bibliotecas de comunicação</b> |
 | [HttpClient](https://www.microsoft.com/net/) | 4.5+, .NET Core 1.1+ |
 | [SqlClient](https://www.nuget.org/packages/System.Data.SqlClient) | .NET Core 1.0+, NuGet 4.3.0 |
@@ -54,7 +54,7 @@ Abaixo está a lista de chamadas de dependência atualmente suportadas que são 
 | [SQL Server]( https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc) | 1+<sup>†</sup> |
 | [Postgresql (Suporte Beta)](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/CHANGELOG.md#version-240-beta) | |
 | [Oracle]( https://www.oracle.com/technetwork/database/application-development/jdbc/downloads/index.html) | 1+<sup>†</sup> |
-| [MySQL]( https://mvnrepository.com/artifact/mysql/mysql-connector-java) | 1+<sup>†</sup> |
+| [MySql]( https://mvnrepository.com/artifact/mysql/mysql-connector-java) | 1+<sup>†</sup> |
 | <b>Bibliotecas de exploração madeireira</b> | |
 | [Logback](https://logback.qos.ch/) | 1+ |
 | [Log4j](https://logging.apache.org/log4j/) | 1.2+ |
@@ -63,7 +63,7 @@ Abaixo está a lista de chamadas de dependência atualmente suportadas que são 
 
 > [!NOTE]
 > *Exceto suporte de programação reativo.
-> <br>†Requer a instalação do [Agente JVM.](./java-agent.md#install-the-application-insights-agent-for-java)
+> <br>†Requires instalação do [Agente JVM](./java-agent.md#install-the-application-insights-agent-for-java).
 
 ## <a name="nodejs"></a>Node.js
 

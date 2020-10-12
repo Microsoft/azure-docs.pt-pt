@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
 ms.openlocfilehash: 9c2160a241243b59ca7adda99fe2100d416c55be
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91335267"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutorial: Criar um localizador de loja usando Azure Maps
@@ -78,7 +78,7 @@ Olhando para a imagem dos dados, podemos fazer as seguintes observações:
 
 * As informações de localização são armazenadas utilizando as **colunas AddressLine**, **City**, **Município** (concelho), **AdminDivision** (estado/província), **Código Postal** (código postal) e colunas **country.**  
 * As colunas **Latitude** e **Longitude** contêm as coordenadas para cada café Contoso. Se não tiver informações de coordenadas, pode utilizar os serviços de Pesquisa no Azure Maps para determinar as coordenadas de localização.
-* Algumas colunas adicionais contêm metadados relacionados com os cafés: um número de telefone, colunas Boolean e horários de abertura e fecho de loja em formato 24 horas. As colunas Boolean são para acesso wi-fi e cadeira de rodas. Pode criar as suas próprias colunas que contenham metadados mais relevantes para os seus dados de localização.
+* Algumas colunas adicionais contêm metadados relacionados com os cafés: um número de telefone, colunas Boolean e horários de abertura e fecho de loja em formato 24 horas. As colunas Boolean são para Wi-Fi e acessibilidade em cadeira de rodas. Pode criar as suas próprias colunas que contenham metadados mais relevantes para os seus dados de localização.
 
 > [!NOTE]
 > O Azure Maps produz dados na projeção esférica do Mercator "EPSG:3857" mas lê dados em "EPSG:4325" que usam o datum WGS84.

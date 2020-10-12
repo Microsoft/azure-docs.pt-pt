@@ -16,15 +16,15 @@ ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 634e1111c9374a1749e7dbb0666740ce2833a688
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84790981"
 ---
 # <a name="list-azure-role-assignments-using-the-rest-api"></a>ListE Azure atribui funções utilizando a API REST
 
-[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]Este artigo descreve como listar atribuições de funções usando a API REST.
+[!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] Este artigo descreve como listar atribuições de funções usando a API REST.
 
 > [!NOTE]
 > Se a sua organização tiver funções de gestão subcontratadas a um prestador de serviços que utilize [a Azure delegada em gestão de recursos,](../lighthouse/concepts/azure-delegated-resource-management.md)as atribuições de funções autorizadas por esse prestador de serviços não serão mostradas aqui.
@@ -90,7 +90,7 @@ O seguinte mostra um exemplo da saída:
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Adicione ou remova atribuições de funções Azure usando a API REST](role-assignments-rest.md)
-- [Referência AZURE REST API](/rest/api/azure/)
+- [Utilizar a API REST para adicionar ou remover atribuições de funções do Azure](role-assignments-rest.md)
+- [Referência à API REST do Azure](/rest/api/azure/)

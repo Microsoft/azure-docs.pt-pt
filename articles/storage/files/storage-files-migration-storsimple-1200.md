@@ -8,10 +8,10 @@ ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: d9cf7b3cf996e41f90e3a40a6ee08d0fd51c8457
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85510344"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>StorSimple migração 1200 para Azure File Sync
@@ -210,7 +210,7 @@ Terminou de migrar uma parte/grupo de ações numa raiz ou volume comum. (Depend
 Podes tentar executar algumas destas cópias em paralelo. Recomendamos o processamento do âmbito de uma partilha de ficheiros Azure de cada vez.
 
 > [!WARNING]
-> Depois de ter transferido todos os dados do seu StorSimple para o Windows Server, e a sua migração estiver completa: Volte a ***todos os*** grupos de sincronização no portal Azure e ajuste o valor de espaço livre de nível de cloud para algo mais adequado para a utilização da cache, digamos 20%. 
+> Depois de ter transferido todos os dados do seu StorSimple para o Windows Server, e a sua migração estiver completa: Volte a ***todos os***  grupos de sincronização no portal Azure e ajuste o valor de espaço livre de nível de cloud para algo mais adequado para a utilização da cache, digamos 20%. 
 
 A política de espaço livre de nível de nivelamento da nuvem atua a nível de volume com pontos finais potencialmente múltiplos do servidor sincronizados a partir dele. Se se esquecer de ajustar o espaço livre num ponto final de um servidor, a sincronização continuará a aplicar a regra mais restritiva e tentará manter 99% de espaço livre em disco, fazendo com que a cache local não esteja a funcionar como seria de esperar. A menos que o seu objetivo seja ter apenas o espaço de nome para um volume que apenas contém dados de arquivo raramente acedidos.
 

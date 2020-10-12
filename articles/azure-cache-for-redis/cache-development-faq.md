@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/06/2020
 ms.openlocfilehash: ef85b6f9e4595e7b4ff367da415fad777de68679
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88211310"
 ---
 # <a name="azure-cache-for-redis-development-faqs"></a>Cache Azure para redis desenvolvimento FAQs
@@ -34,7 +34,7 @@ Esta secção abrange as seguintes PERGUNTAS Frequentes:
 Há várias maneiras de começar com Azure Cache para Redis.
 
 * Pode consultar um dos nossos tutoriais disponíveis para [.NET,](cache-dotnet-how-to-use-azure-redis-cache.md) [ASP.NET,](cache-web-app-howto.md) [Java,](cache-java-get-started.md) [Node.js](cache-nodejs-get-started.md)e [Python.](cache-python-get-started.md)
-* Pode ver [Como Construir Aplicações de Alto Desempenho utilizando o Microsoft Azure Cache para Redis](https://azure.microsoft.com/documentation/videos/how-to-build-high-performance-apps-using-microsoft-azure-cache/).
+* Pode ver [Como Construir High-Performance aplicações Usando o Microsoft Azure Cache para Redis](https://azure.microsoft.com/documentation/videos/how-to-build-high-performance-apps-using-microsoft-azure-cache/).
 * Pode consultar a documentação do cliente para os clientes que correspondam à linguagem de desenvolvimento do seu projeto para ver como usar o Redis. Há muitos clientes Redis que podem ser usados com Azure Cache para Redis. Para uma lista de clientes redis, [https://redis.io/clients](https://redis.io/clients) veja.
 
 Se ainda não tem uma conta Azure, pode:

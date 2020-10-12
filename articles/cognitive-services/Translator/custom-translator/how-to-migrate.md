@@ -10,10 +10,10 @@ ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
 ms.openlocfilehash: 5334168081ea18650bd6afd2411e076952e08749
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86537991"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrar espaço de trabalho do Hub e projetos para Tradutor Personalizado
@@ -143,7 +143,7 @@ Esta tabela compara as funcionalidades entre o Microsoft Tradutor Hub e o Custom
 
 Se você é uma comunidade ou organização que trabalha na criação de um novo sistema linguístico para tradutor, procure [custommt@microsoft.com](mailto:custommt@microsoft.com) mais informações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Treine um modelo.](how-to-train-model.md)
 - Comece a utilizar o seu modelo de tradução personalizado implantado através [do Tradutor V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).

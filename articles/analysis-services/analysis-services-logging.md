@@ -8,10 +8,10 @@ ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 7e1eab20a8e315b977c21de46dd4f6ea2fec9f5d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83701486"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurar registo de diagnósticos
@@ -154,7 +154,7 @@ Os registos estão normalmente disponíveis dentro de algumas horas após a inst
 
 As métricas e os eventos de servidor são integrados com xEvents no seu recurso de espaço de trabalho Log Analytics para análise lado a lado. O log Analytics workspace também pode ser configurado para receber eventos de outros serviços Azure fornecendo uma visão holística de dados de registo de diagnóstico em toda a sua arquitetura.
 
-Para visualizar os seus dados de diagnóstico, no espaço de trabalho Log Analytics, abra **os Registos** a partir do menu esquerdo.
+Para visualizar os seus dados de diagnóstico, no espaço de trabalho Log Analytics, abra **os Registos**  a partir do menu esquerdo.
 
 ![Registar opções de pesquisa no portal Azure](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
@@ -213,7 +213,7 @@ Há centenas de consultas que pode utilizar. Para saber mais sobre consultas, co
 
 ## <a name="turn-on-logging-by-using-powershell"></a>Ligue o registo através da utilização do PowerShell
 
-Neste tutorial rápido, cria uma conta de armazenamento no mesmo grupo de subscrição e recursos que o servidor do Serviço de Análise. Em seguida, utilize o Set-AzDiagnosticSetting para ligar o registo de diagnósticos, enviando a saída para a nova conta de armazenamento.
+Neste tutorial rápido, cria uma conta de armazenamento no mesmo grupo de subscrição e recursos que o servidor do Serviço de Análise. Em seguida, utiliza-se Set-AzDiagnosticSetting para ligar o registo de diagnósticos, enviando a saída para a nova conta de armazenamento.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 Para completar este tutorial, deve ter os seguintes recursos:
@@ -269,7 +269,7 @@ $account = Get-AzResource -ResourceGroupName awsales_resgroup `
 
 ### <a name="enable-logging"></a>Ativar registo
 
-Para ativar o registo, utilize o cmdlet Set-AzDiagnosticSetting juntamente com as variáveis para a nova conta de armazenamento, conta de servidor e categoria. Executar o seguinte comando, definindo a bandeira **ativada** para **$true:**
+Para ativar o registo, utilize o Set-AzDiagnosticSetting cmdlet juntamente com as variáveis para a nova conta de armazenamento, conta de servidor e categoria. Executar o seguinte comando, definindo a bandeira **ativada** para **$true:**
 
 ```powershell
 Set-AzDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine
@@ -324,7 +324,7 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
   -RetentionEnabled $true -RetentionInDays 90
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [a registo de recursos do Azure Monitor.](../azure-monitor/platform/platform-logs-overview.md)
 

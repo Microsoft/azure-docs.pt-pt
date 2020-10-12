@@ -7,17 +7,17 @@ ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: cynthn
 ms.openlocfilehash: 34f43d51bf0df488e04605f7f7c77e9c6dcfe9a4
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87374087"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Localizar imagens de VM do Linux no Azure Marketplace com o CLI do Azure
 
 Este tópico descreve como usar o CLI Azure para encontrar imagens VM no Mercado Azure. Utilize estas informações para especificar uma imagem do Marketplace quando criar um VM programáticamente com os modelos CLI, Gestor de Recursos ou outras ferramentas.
 
-Navegue também nas imagens disponíveis e nas ofertas utilizando a montra do [Azure Marketplace,](https://azuremarketplace.microsoft.com/) o [portal Azure](https://portal.azure.com), ou [Azure PowerShell](../windows/cli-ps-findimage.md). 
+Navegue também nas imagens disponíveis e nas ofertas utilizando a montra do [Azure Marketplace,](https://azuremarketplace.microsoft.com/) o [portal Azure](https://portal.azure.com), ou  [Azure PowerShell](../windows/cli-ps-findimage.md). 
 
 Certifique-se de que instalou o mais recente [Azure CLI](/cli/azure/install-azure-cli) e está registado numa conta Azure ( `az login` ).
 
@@ -192,7 +192,7 @@ Utilize estas informações para encontrar ofertas de um editor específico. Por
 az vm image list-offers --location westus --publisher Canonical --output table
 ```
 
-Saída:
+Resultado:
 
 ```
 Location    Name
@@ -209,7 +209,7 @@ Como vê, na região oeste dos EUA, a Canonical publica a oferta *da UbuntuServe
 az vm image list-skus --location westus --publisher Canonical --offer UbuntuServer --output table
 ```
 
-Saída:
+Resultado:
 
 ```
 Location    Name
@@ -284,7 +284,7 @@ Por exemplo, a imagem Canonical Ubuntu Server 18.04 LTS não tem termos adiciona
 az vm image show --location westus --urn Canonical:UbuntuServer:18.04-LTS:latest
 ```
 
-Saída:
+Resultado:
 
 ```
 {
@@ -305,7 +305,7 @@ Executar um comando semelhante para a imagem RabbitMQ Certified by Bitnami mostr
 ```azurecli
 az vm image show --location westus --urn bitnami:rabbitmq:rabbitmq:latest
 ```
-Saída:
+Resultado:
 
 ```
 {

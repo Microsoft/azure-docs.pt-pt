@@ -4,10 +4,10 @@ description: Saiba como implantar instâncias de contentores Azure para executar
 ms.topic: article
 ms.date: 07/22/2020
 ms.openlocfilehash: 19240560baa0cebdb6777d7b63d8c91832b12e1a
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87387099"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Implementar instâncias de contentores que utilizem recursos da GPU
@@ -103,7 +103,7 @@ A conclusão da implementação demora vários minutos. Em seguida, o recipiente
 az container logs --resource-group myResourceGroup --name gpucontainergroup --container-name gpucontainer
 ```
 
-Saída:
+Resultado:
 
 ```Console
 [Vector addition of 50000 elements]
@@ -180,7 +180,7 @@ A conclusão da implementação demora vários minutos. Em seguida, o recipiente
 az container logs --resource-group myResourceGroup --name gpucontainergrouprm --container-name gpucontainer
 ```
 
-Saída:
+Resultado:
 
 ```Console
 2018-10-25 18:31:10.155010: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
@@ -222,7 +222,7 @@ az container delete --resource-group myResourceGroup --name gpucontainergroup -y
 az container delete --resource-group myResourceGroup --name gpucontainergrouprm -y
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre a implantação de um grupo de contentores utilizando um [ficheiro YAML](container-instances-multi-container-yaml.md) ou [um modelo de Gestor de Recursos](container-instances-multi-container-group.md).
 * Saiba mais sobre [os tamanhos de VM otimizados](../virtual-machines/sizes-gpu.md) da GPU em Azure.

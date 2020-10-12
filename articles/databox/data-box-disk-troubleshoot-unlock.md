@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 08/05/2020
 ms.author: alkohli
 ms.openlocfilehash: 866cf01243983863292ada0b086f8f5b2f94e412
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87925566"
 ---
 # <a name="troubleshoot-disk-unlocking-issues-in-azure-data-box-disk"></a>Resolução de problemas de desbloqueio de discos no disco da caixa de dados do Azure

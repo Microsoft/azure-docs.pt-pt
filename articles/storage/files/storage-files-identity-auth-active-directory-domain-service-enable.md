@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: contperfq1
 ms.openlocfilehash: f64e3459863cc7b7ffddfae824f9c4012802a457
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89500322"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Ativar a autenticação dos Serviços de Domínio do Diretório Ativo do Azure em Ficheiros Azure
@@ -144,7 +144,7 @@ az storage account update -n <storage-account-name> -g <resource-group-name> --e
 
 Você agora ativou com sucesso a autenticação Azure AD DS sobre SMB e atribuiu uma função personalizada que fornece acesso a uma partilha de ficheiros Azure com uma identidade AD Azure. Para conceder aos utilizadores acesso adicionais à sua partilha de ficheiros, siga as instruções nas [permissões de acesso atribuir](#assign-access-permissions-to-an-identity) para utilizar uma identidade e [configurar permissões NTFS através das secções SMB](#configure-ntfs-permissions-over-smb).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre os Ficheiros Azure e como utilizar o Azure AD em SMB, consulte estes recursos:
 

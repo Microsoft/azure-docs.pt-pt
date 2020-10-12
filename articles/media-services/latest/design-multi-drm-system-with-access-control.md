@@ -15,10 +15,10 @@ ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: seodec18
 ms.openlocfilehash: 58edf1e0257cf9de8d8f3a3b56f295dcaf1f6cbf
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89298203"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Conceção de um sistema de proteção de conteúdos multi-DRM com controlo de acesso
@@ -192,11 +192,11 @@ A implementação inclui as seguintes etapas:
 
 7. Crie uma aplicação MVC ASP.NET para hospedar o seu leitor de vídeo. Esta ASP.NET aplicação está protegida com autenticação do utilizador contra o inquilino AZURE AD. As reclamações adequadas estão incluídas nos tokens de acesso obtidos após a autenticação do utilizador. Recomendamos a API OpenID Connect para este passo. Instale os seguintes pacotes NuGet:
 
-   * Pacote de instalação Microsoft.Azure.ActiveDirectory.GraphClient
-   * Pacote de instalação Microsoft.Owin.Security.OpenIdConnect
-   * Pacote de instalação Microsoft.Owin.Security.Cookies
-   * Pacote de instalação Microsoft.Owin.Host.SystemWeb
-   * Pacote de instalação Microsoft.IdentityModel.Clientes.ActiveDirectory
+   * Install-Package Microsoft.Azure.ActiveDirectory.GraphClient
+   * Install-Package Microsoft.Owin.Security.OpenIdConnect
+   * Install-Package Microsoft.Owin.Security.Cookies
+   * Install-Package Microsoft.Owin.Host.SystemWeb
+   * Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
 8. Criar um leitor utilizando a API do [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/). Utilize o [Azure Media Player ProtectionInfo API](https://amp.azure.net/libs/amp/latest/docs/) para especificar qual a tecnologia DRM a utilizar em diferentes plataformas DE DRM.
 
@@ -358,7 +358,7 @@ A imagem a seguir mostra um cenário que usa uma chave assimétrica através de 
 
 Em ambos os casos anteriores, a autenticação do utilizador mantém-se a mesma. Passa-se através do Azure AD. A única diferença é que os JWTs são emitidos pela STS personalizada em vez de Azure AD. Ao configurar uma proteção dinâmica do CENC, a restrição do serviço de entrega de licença especifica o tipo de JWT, seja uma chave simétrica ou assimétrica.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Perguntas mais frequentes](frequently-asked-questions.md)
 * [Visão geral da proteção de conteúdos](content-protection-overview.md)

@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: 52cb701312f598b1b8492226709a7d2767db9600
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86187273"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Starting a Runbook in Azure Automation (Iniciar um Runbook na Automatização do Azure)
@@ -151,7 +151,7 @@ Pode utilizar o [Start-AzAutomationRunbook](/powershell/module/az.automation/sta
 Start-AzAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook" -ResourceGroupName "ResourceGroup01"
 ```
 
-`Start-AzAutomationRunbook`retorna um objeto de trabalho que pode usar para rastrear o estado uma vez que o livro de execução é iniciado. Em seguida, pode utilizar este objeto de trabalho com [a Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) para determinar o estado do trabalho e [a Get-AzAutomationJobOutput](/powershell/module/az.automation/get-azautomationjoboutput?view=azps-3.7.0) para recuperar a sua saída. O exemplo a seguir inicia um livro de ensaios chamado **Test-Runbook,** espera até estar concluído e, em seguida, exibe a sua saída.
+`Start-AzAutomationRunbook` retorna um objeto de trabalho que pode usar para rastrear o estado uma vez que o livro de execução é iniciado. Em seguida, pode utilizar este objeto de trabalho com [a Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) para determinar o estado do trabalho e [a Get-AzAutomationJobOutput](/powershell/module/az.automation/get-azautomationjoboutput?view=azps-3.7.0) para recuperar a sua saída. O exemplo a seguir inicia um livro de ensaios chamado **Test-Runbook,** espera até estar concluído e, em seguida, exibe a sua saída.
 
 ```azurepowershell-interactive
 $runbookName = "Test-Runbook"

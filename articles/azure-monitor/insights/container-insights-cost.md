@@ -4,10 +4,10 @@ description: Este artigo descreve o custo de monitorização das métricas & dad
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.openlocfilehash: a03e94fa7650c56a4d3b3beda3c27283329aebbe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84204655"
 ---
 # <a name="understand-monitoring-costs-for-azure-monitor-for-containers"></a>Compreender os custos de monitorização do Monitor Azure para contentores
@@ -112,7 +112,7 @@ Pode ver as tabelas e o volume de dados gerados por hora no espaço de trabalho 
 
 |Tabela | Estimativa de tamanho (MB/hora) |
 |------|---------------|
-|Des | 12.9 |
+|Des | 12,9 |
 |InsightsMetrics | 11.3 |
 |KubePodInventory | 1.5 |
 |KubeNodeInventory | 0,75 |
@@ -196,6 +196,6 @@ Se estiver a utilizar [a raspagem métrica de Prometheus,](container-insights-pr
 
 - Ao raspar as anotações de pod, certifique-se de que filtra pelo espaço de nomes para que exclua a raspagem de métricas de pod de espaços de nome que não utiliza (por exemplo, espaço de nome **de teste dev).**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre como compreender quais os custos que provavelmente serão baseados em padrões de utilização recentes a partir de dados recolhidos com o Azure Monitor para contentores, consulte [Gerir os custos de utilização e estimar](../platform/manage-cost-storage.md).

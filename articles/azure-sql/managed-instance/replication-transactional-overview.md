@@ -13,10 +13,10 @@ ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 04/20/2020
 ms.openlocfilehash: a335f6ac015397ba2b2634d0d604c194a768260a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91283246"
 ---
 # <a name="transactional-replication-with-azure-sql-managed-instance-preview"></a>Replicação transacional com Azure SQL Gestded Instance (Preview)
@@ -45,10 +45,10 @@ Os componentes-chave na replicação transacional são o **Editor,** **Distribui
 
 | Função | Base de Dados SQL do Azure | Instância Gerida do Azure SQL |
 | :----| :------------- | :--------------- |
-| **Publisher** | No | Yes |
-| **Distribuidor** | No | Yes|
-| **Puxe o assinante** | No | Yes|
-| **Empurre o assinante**| Yes | Yes|
+| **Publisher** | Não | Sim |
+| **Distribuidor** | Não | Sim|
+| **Puxe o assinante** | Não | Sim|
+| **Empurre o assinante**| Sim | Sim|
 | &nbsp; | &nbsp; | &nbsp; |
 
 A **Editora** publica alterações feitas em algumas tabelas (artigos) enviando as atualizações para o Distribuidor. O editor pode ser um Azure SQL Managed Instance ou uma instância sql Server.
@@ -74,12 +74,12 @@ Existem diferentes [tipos de replicação:](https://docs.microsoft.com/sql/relat
 
 | Replicação | Base de Dados SQL do Azure | Instância Gerida do Azure SQL |
 | :----| :------------- | :--------------- |
-| [**Transação Padrão**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Sim (apenas como assinante) | Yes |
-| [**Instantâneo**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Sim (apenas como assinante) | Yes|
-| [**Fusão de replicação**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | No | No|
-| [**Ponto a ponto**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | No | No|
-| [**Bidirecional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | No | Yes|
-| [**Assinaturas updatable**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | No | No|
+| [**Transação Padrão**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Sim (apenas como assinante) | Sim |
+| [**Instantâneo**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Sim (apenas como assinante) | Sim|
+| [**Fusão de replicação**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Não | Não|
+| [**Ponto a ponto**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Não | Não|
+| [**Bidirecional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Não | Sim|
+| [**Assinaturas updatable**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Não | Não|
 | &nbsp; | &nbsp; | &nbsp; |
 
 ### <a name="supportability-matrix"></a>Matriz de Apoio
@@ -199,7 +199,7 @@ Para obter mais informações sobre a configuração da replicação transaciona
 - [Criar uma publicação.](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [Crie uma subscrição push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) utilizando o nome do servidor como assinante (por `N'azuresqldbdns.database.windows.net` exemplo, e a base de dados no nome Azure SQL Database como base de dados de destino (por exemplo, **Adventureworks**. )
 
-## <a name="see-also"></a>Ver também  
+## <a name="see-also"></a>Consulte também  
 
 - [Replicação com uma SQL Managed Instance e um grupo de failover](transact-sql-tsql-differences-sql-server.md#replication)
 - [Replicação para a Base de Dados SQL](../database/replication-to-sql-database.md)

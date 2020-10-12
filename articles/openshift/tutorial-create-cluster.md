@@ -7,10 +7,10 @@ ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
 ms.openlocfilehash: 1ba383b99b8265e01cf757bfb1589a86a934e0e3
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90053876"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Criar um aglomerado Azure Red Hat OpenShift 4
@@ -20,7 +20,7 @@ Neste tutorial, parte um de três, você vai preparar o seu ambiente para criar 
 > * Configurar os pré-requisitos e criar a rede virtual e sub-redes necessárias
 > * Implementar um cluster
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão Azure CLI 2.6.0 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -217,7 +217,7 @@ az aro create \
 
 Após a execução do `az aro create` comando, normalmente demora cerca de 35 minutos a criar um cluster.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Nesta parte do tutorial, ficou a saber como:
 > [!div class="checklist"]

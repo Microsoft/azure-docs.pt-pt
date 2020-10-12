@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 07/29/2020
 ms.openlocfilehash: df9a4dd546ddc5944d9a282e74c2444a5161b862
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87927571"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>Perguntas frequentes para piscinas de nó de nó do Windows Server em AKS
@@ -58,7 +58,7 @@ Os clusters AKS com piscinas de nó Windows devem utilizar o modelo de rede Azur
 
 Neste momento, [a preservação ip fonte do cliente][client-source-ip] não é suportada com nós Windows.
 
-## <a name="can-i-change-the-max--of-pods-per-node"></a>Posso mudar o máximo. De cápsulas por nó?
+## <a name="can-i-change-the-max--of-pods-per-node"></a>Posso mudar o máximo de cápsulas por nó?
 
 Sim. Para as implicações e opções disponíveis, consulte [o número máximo de cápsulas.][maximum-number-of-pods]
 

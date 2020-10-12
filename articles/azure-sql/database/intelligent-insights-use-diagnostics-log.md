@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 06/12/2020
 ms.openlocfilehash: 5fd0f14f4bbc919efd5b3c236b13654574d456d7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91334978"
 ---
 # <a name="use-the-intelligent-insights-performance-diagnostics-log-of-azure-sql-database-and-azure-sql-managed-instance-performance-issues"></a>Utilize o registo de diagnósticos de desempenho de Insights Inteligentes da Base de Dados Azure SQL e dos problemas de desempenho da Azure SQL Managed Instance
@@ -93,7 +93,7 @@ Dependendo do problema de desempenho detetado, os detalhes produzidos no ficheir
 | Contenção temporária | <li>Consultas de consultas que causam contenção</li><li>Atribuição de consulta ao tempo de espera de contenção de contenção de pagelatch de base de dados global [%]</li> |
 | Escassez de DTU de piscina elástica | <li>Conjunto elástico</li><li>Base de dados de consumo de DTU</li><li>Por cento do DTU de piscina usado pelo consumidor de topo</li> |
 | Regressão do Plano | <li>Hashes de consulta</li><li>Boas IDs de plano</li><li>IDs de plano mau</li> |
-| Alteração do valor de configuração de âmbito de base de dados | <li>Alterações de configuração com âmbito de dados em comparação com os valores predefinidos</li> |
+| alteração de valor de configuração Database-Scoped | <li>Alterações de configuração com âmbito de dados em comparação com os valores predefinidos</li> |
 | Cliente lento | <li>Hashes de consulta</li><li>Tempos de espera</li> |
 | Downgrade de nível de preços | <li>Notificação de texto</li> |
 

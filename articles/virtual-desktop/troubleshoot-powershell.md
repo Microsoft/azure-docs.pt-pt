@@ -7,10 +7,10 @@ ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 03b6da1d35247749d8ec2c6459c8ddee69bfccb6
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88002269"
 ---
 # <a name="windows-virtual-desktop-powershell"></a>Windows Virtual Desktop PowerShell
@@ -62,7 +62,7 @@ Causa: O Windows Virtual Desktop suporta selecionar a localização de piscinas 
 
 Correção: Na mensagem de erro, será publicada uma lista de regiões apoiadas. Utilize uma das regiões apoiadas.
 
-### <a name="error-new-azwvdapplicationgroup-must-be-in-same-location-as-host-pool"></a>Erro: New-AzWvdApplicationGroup deve estar no mesmo local que o pool anfitrião
+### <a name="error-new-azwvdapplicationgroup-must-be-in-same-location-as-host-pool"></a>Erro: New-AzWvdApplicationGroup deve estar no mesmo local que a piscina anfitriã
 
 ```powershell
 New-AzWvdApplicationGroup_CreateExpanded: ActivityId: e5fe6c1d-5f2c-4db9-817d-e423b8b7d168 Error: ApplicationGroup must be in same location as associated HostPool

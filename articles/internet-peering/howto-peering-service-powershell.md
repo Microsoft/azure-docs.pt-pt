@@ -10,10 +10,10 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 98341fbbbcafb6aee938870c22050c6edec352ac
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89079052"
 ---
 # <a name="enable-azure-peering-service-on-a-direct-peering-by-using-powershell"></a>Ativar o Serviço de Estojo Azure num esprevamento direto utilizando o PowerShell
@@ -22,7 +22,7 @@ Este artigo descreve como ativar o [Serviço de Peering](overview-peering-servic
 
 Se preferir, pode completar este guia utilizando o [portal](howto-peering-service-portal.md)Azure .
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 * Reveja os [pré-requisitos](prerequisites.md) antes de iniciar a configuração.
 * Escolha um espreitamento direto na sua subscrição para a qual pretende ativar o Serviço de Peering. Se não tiver um, converta um legado espreitando diretamente ou crie um novo olhar direto:
     * Para converter um legado Espreitar diretamente, siga as instruções em [Converter um legado Espreitar diretamente para um recurso Azure utilizando o PowerShell](howto-legacy-direct-powershell.md).

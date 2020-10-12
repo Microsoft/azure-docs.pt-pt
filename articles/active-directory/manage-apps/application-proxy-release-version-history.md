@@ -12,10 +12,10 @@ ms.date: 07/22/2020
 ms.subservice: app-mgmt
 ms.author: kenwith
 ms.openlocfilehash: 3f6b1bb189390f6ddd02e9ea2d636dcaa66a4f19
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88210861"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Azure AD Application Proxy: O histórico de lançamentos da versão
@@ -83,7 +83,7 @@ Download do conector proxy da aplicação Azure Ad |  [Descarregue o conector ma
 - Adicionou suporte WebSocket para a aplicação QlikSense. Para saber mais sobre como integrar o QlikSense com o Application Proxy, consulte este [walkthrough](application-proxy-qlik.md). 
 - Melhorou o assistente de instalação para facilitar a configuração de um representante de saída. 
 - Desafine o TLS 1.2 como o protocolo predefinido para os conectores. 
-- Adicionou um novo Contrato de Licença de Utilizador Final (EULA).  
+- Adicionou um novo Contrato de Licença de End-User (EULA).  
 
 ### <a name="fixed-issues"></a>Problemas corrigidos
 

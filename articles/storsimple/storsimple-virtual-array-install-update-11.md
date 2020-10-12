@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/18/2018
 ms.author: alkohli
 ms.openlocfilehash: 6f8ec56cc5747921ee786bd4c069070ff865f9fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85507930"
 ---
 # <a name="install-update-11-on-your-storsimple-virtual-array"></a>Instale a atualização 1.1 no seu StorSimple Virtual Array
@@ -32,7 +32,7 @@ Aplica as atualizações de software ou hotfixes para manter o seu StorSimple Vi
 > [!IMPORTANT]
 > - A atualização 1.1 corresponde à versão de software **10.0.10307.0** no seu dispositivo. Para obter informações sobre as novidades desta atualização, aceda às [notas de lançamento para atualização 1.1](storsimple-virtual-array-update-11-release-notes.md).
 >
-> - Tenha em mente que instalar uma atualização ou um hotfix reinicia o seu dispositivo. Dado que o StorSimple Virtual Array é um único dispositivo de nó, qualquer I/S em andamento é interrompido e o seu dispositivo experimenta tempo de inatividade.
+> - Tenha em atenção que a instalação de uma atualização ou correção reinicia o dispositivo. Dado que o StorSimple Virtual Array é um único dispositivo de nó, qualquer I/S em andamento é interrompido e o seu dispositivo experimenta tempo de inatividade.
 >
 > - A atualização 1.1 só está disponível no portal Azure se o conjunto virtual estiver a executar a Atualização 1. Para as matrizes virtuais que executam as versões Update 0.6, tem de instalar o Update 1.0 primeiro e, em seguida, aplicar o Update 1.1.
 
@@ -125,6 +125,6 @@ Este procedimento leva cerca de 4 minutos para ser concluído. Execute os seguin
 6. Repita os passos 2-4 para instalar a correção de segurança do Windows utilizando o ficheiro `Windows8.1-KB4284815-x64` . A matriz virtual reinicia após a instalação e precisa de iniciar súm na UI web local.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [a administração do seu StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).

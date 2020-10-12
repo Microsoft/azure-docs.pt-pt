@@ -15,10 +15,10 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: be3e99ca57957e1975313fed8609533f4a65b102
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764728"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publicar aplicações em redes e locais separados utilizando grupos de conector
@@ -126,7 +126,7 @@ No exemplo abaixo, a empresa tem dois datacenters, A e B, com dois conectores qu
 
 ![Exemplo de empresa com 2 datacenters e 2 conectores](./media/application-proxy-connector-groups/application-proxy-sample-config-3.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Compreenda os conectores Proxy de aplicação AD Azure](application-proxy-connectors.md)
 * [Ativar o início de sessão único](what-is-single-sign-on.md)

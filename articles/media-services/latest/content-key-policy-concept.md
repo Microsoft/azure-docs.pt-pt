@@ -13,10 +13,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
 ms.openlocfilehash: dd19d0730b25685b008af16d1c1eac6537750612
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89297274"
 ---
 # <a name="content-key-policies"></a>Políticas de Chave de Conteúdo
@@ -60,7 +60,7 @@ Ver [Filtragem, encomenda, paging de entidades de Serviços de Comunicação](en
 * As propriedades das Políticas chave de conteúdo que são do `Datetime` tipo estão sempre em formato UTC.
 * Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Utilizar a encriptação dinâmica de AES-128 e o serviço de entrega de chave](protect-with-aes128.md)
 * [Utilize encriptação dinâmica DRM e serviço de entrega de licenças](protect-with-drm.md)

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 97209dca7d30de037dbd21f5cc145b2941060e70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85512981"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Utilize indicadores de monitorização StorSimple para gerir o seu dispositivo
@@ -56,12 +56,12 @@ Utilize a seguinte tabela para identificar o estado indicado pelos LEDs no paine
 | Potência do sistema | Falha no módulo | Falha lógica | Alarme | Estado |
 | --- | --- | --- | --- | --- |
 | Âmbar-vermelho |OFF |OFF |N/D |A energia ca perdeu, funcionando com energia de reserva, ou alimentação de CA ON e os módulos do controlador foram removidos. |
-| Verde |ON |ON |N/D |Potência do painel de ops no estado de teste (5s) |
-| Verde |OFF |OFF |N/D |Ligado, todas as funções são boas |
-| Verde |ON |N/D |LEDs de falha de PCM, LEDs de falha do ventilador |Qualquer falha no PCM, falha do ventilador, acima ou abaixo da temperatura |
-| Verde |ON |N/D |LEDs de módulos de I/O |Qualquer falha no módulo do controlador |
-| Verde |ON |N/D |N/D |Falha lógica do recinto |
-| Verde |Flash |N/D |LED de estado do módulo no módulo do controlador. LEDs de falha de PCM, LEDs de falha do ventilador |Tipo de módulo controlador desconhecido instalado, falha de autocarro I2C, erro de configuração de dados vitais do produto do módulo controlador (VPD) |
+| Green |ON |ON |N/D |Potência do painel de ops no estado de teste (5s) |
+| Green |OFF |OFF |N/D |Ligado, todas as funções são boas |
+| Green |ON |N/D |LEDs de falha de PCM, LEDs de falha do ventilador |Qualquer falha no PCM, falha do ventilador, acima ou abaixo da temperatura |
+| Green |ON |N/D |LEDs de módulos de I/O |Qualquer falha no módulo do controlador |
+| Green |ON |N/D |N/D |Falha lógica do recinto |
+| Green |Flash |N/D |LED de estado do módulo no módulo do controlador. LEDs de falha de PCM, LEDs de falha do ventilador |Tipo de módulo controlador desconhecido instalado, falha de autocarro I2C, erro de configuração de dados vitais do produto do módulo controlador (VPD) |
 
 ## <a name="power-cooling-module-pcm-indicator-leds"></a>LEDs indicadores do módulo de arrefecimento de energia (PCM)
 Os LED indicadores do módulo de arrefecimento de energia (PCM) podem ser encontrados na parte de trás do recinto primário ou do recinto EBOD em cada módulo PCM. Este tópico discute como utilizar os seguintes LEDs para monitorizar o estado do seu dispositivo StorSimple.  
@@ -179,9 +179,9 @@ Utilize a seguinte tabela para determinar o estado de cada unidade de disco, o q
 ### <a name="disk-drive-indicator-leds-for-the-ebod-enclosure"></a>LEDs indicadores de unidade de disco para o recinto EBOD
 | Estado | Led OK de atividade (verde) | LED de avaria (âmbar-vermelho) | LED do painel de ops associado |
 | --- | --- | --- | --- |
-| Nenhuma unidade instalada |OFF |OFF |Nenhuma |
-| Unidade instalada e operacional |Piscando ligado/desligado com atividade |X |Nenhuma |
-| Conjunto de identidade de dispositivo SCSI Enclosure Services (SES) |ON |Piscando 1 segundo em/1 segundo fora |Nenhuma |
+| Nenhuma unidade instalada |OFF |OFF |Nenhum |
+| Unidade instalada e operacional |Piscando ligado/desligado com atividade |X |Nenhum |
+| Conjunto de identidade de dispositivo SCSI Enclosure Services (SES) |ON |Piscando 1 segundo em/1 segundo fora |Nenhum |
 | Conjunto de bits de falha do dispositivo SES |ON |ON |Falha lógica (vermelho) |
 | Falha do circuito de controlo de energia |OFF |ON |Falha do módulo (vermelho) |
 
@@ -204,8 +204,8 @@ A tabela seguinte descreve os vários estados de alarme.
 | --- | --- | --- |
 | S0 |Modo normal: silencioso |Bip duas vezes |
 | S1 |Modo de avaria: 1 segundo em/1 segundo fora |Transição para S2 ou S3 (ver notas) |
-| S2 |Modo de lembrete: bip intermitente |Nenhuma |
-| S3 |Modo silenciado: silencioso |Nenhuma |
+| S2 |Modo de lembrete: bip intermitente |Nenhum |
+| S3 |Modo silenciado: silencioso |Nenhum |
 | S4 |Modo de avaria crítico: alarme contínuo |Não disponível: mudo não ativo |
 
 > [!NOTE]
@@ -225,7 +225,7 @@ A tabela a seguir descreve as várias condições de alarme.
 | Alerta pcm – perda de energia DC de um único PCM |Falha – perda de redundância |S1 |Falha no módulo |
 | Falha do ventilador do PCM |Falha – perda de redundância |S1 |Falha no módulo |
 | Módulo SBB detetado falha pcm |Falha |S1 |Falha no módulo |
-| PCM removido |Erro de configuração |Nenhuma |Falha no módulo |
+| PCM removido |Erro de configuração |Nenhum |Falha no módulo |
 | Erro de configuração do recinto |Falha – crítica |S1 |Falha no módulo |
 | Alerta de temperatura de aviso baixo |Aviso |S1 |Falha no módulo |
 | Alerta de temperatura de aviso elevado |Aviso |S1 |Falha no módulo |
@@ -235,13 +235,13 @@ A tabela a seguir descreve as várias condições de alarme.
 | Erro do controlador |Falha – crítica |S1 |Falha no módulo |
 | Falha no módulo de interface SBB |Falha – crítica |S1 |Falha no módulo |
 | Falha no módulo de interface SBB – Não restam módulos funcionais |Falha – crítica |S4 |Falha no módulo |
-| Módulo de interface SBB removido |Aviso |Nenhuma |Falha no módulo |
+| Módulo de interface SBB removido |Aviso |Nenhum |Falha no módulo |
 | Falha no controlo de potência da unidade |Aviso – sem perda de potência de unidade |S1 |Falha no módulo |
 | Falha no controlo de potência da unidade |Falha – crítica; perda de poder de unidade |S1 |Falha no módulo |
-| Unidade removida |Aviso |Nenhuma |Falha no módulo |
-| Energia insuficiente disponível |Aviso |nenhum |Falha no módulo |
+| Unidade removida |Aviso |Nenhum |Falha no módulo |
+| Energia insuficiente disponível |Aviso |nenhuma |Falha no módulo |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre [os componentes e o estado do hardware StorSimple](storsimple-8000-monitor-hardware-status.md).
 
 [1]: ./media/storsimple-monitoring-indicators/storsimple-monitoring-indicators-IMAGE01.png
