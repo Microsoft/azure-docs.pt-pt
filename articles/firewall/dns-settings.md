@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/30/2020
 ms.author: victorh
 ms.openlocfilehash: 9c7182205df8d276bece4758d6d4430864883d32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85610647"
 ---
 # <a name="azure-firewall-dns-settings-preview"></a>Definições de DNS de Firewall Azure Firewall (pré-visualização)
@@ -66,8 +66,8 @@ Para configurar o proxy DNS, tem de configurar a definição de servidores DNS d
 4. Reveja a configuração dos **servidores DNS** para se certificar de que as definições são adequadas para o seu ambiente.
 5. Selecione **Guardar**.
 
-:::image type="content" source="media/dns-settings/dns-proxy.png" alt-text="Proxy DNS":::
+:::image type="content" source="media/dns-settings/dns-proxy.png" alt-text="Servidores DNS":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Filtragem FQDN nas regras da rede](fqdn-filtering-network-rules.md)

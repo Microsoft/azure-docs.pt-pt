@@ -7,10 +7,10 @@ ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 74527f57340f850b60dd00dcd054992c423a49c7
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90039120"
 ---
 # <a name="migrate-manually-from-windows-virtual-desktop-classic"></a>Migrar manualmente do Windows Virtual Desktop (clássico)
@@ -35,7 +35,7 @@ Apesar do incómodo, migrar para longe da versão clássica ainda é importante.
 - Gerir o Windows Virtual Desktop através do portal Azure.
 - Atribua grupos de utilizadores Azure Ative (AD) a grupos de aplicação.
 - Utilize a funcionalidade de Análise de Registo melhorada para resolver problemas na sua implementação.
-- Utilize controlos de acesso baseados em funções nativas do Azure para gerir o acesso administrativo.
+- Utilize controlos de acesso Role-Based nativos do Azure para gerir o acesso administrativo.
 
 ## <a name="when-should-i-migrate"></a>Quando devo migrar?
 
@@ -59,7 +59,7 @@ Eis o que precisa para iniciar o processo de migração:
 - Uma subscrição Azure onde irá criar novos objetos de serviço Azure.
 - Certifique-se de que está designado para as seguintes funções:
     
-    - Contribuidor
+    - Contribuinte
     - Administrador de Acesso dos Utilizadores
     
     A função Contribuinte permite criar objetos Azure na sua subscrição, e a função de Administrador de Acesso ao Utilizador permite-lhe atribuir utilizadores a grupos de aplicações.
@@ -78,7 +78,7 @@ Para migrar manualmente do Windows Virtual Desktop (clássico) para o Windows Vi
 
 Para evitar tempo de inatividade, deve primeiro registar os anfitriões da sessão existentes nas piscinas hospedeiras integradas do Azure Resource Manager em pequenos grupos de cada vez. Depois disso, leve lentamente os seus utilizadores para os novos grupos de aplicações integrados do Azure Resource Manager.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Assim que migrar, conheça como funciona o Windows Virtual Desktop, verificando os [nossos tutoriais.](create-host-pools-azure-marketplace.md) Saiba mais sobre as capacidades avançadas de gestão na [Expandir uma piscina de anfitriões existente](expand-existing-host-pool.md) e [personalize propriedades RDP.](customize-rdp-properties.md)
 

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/23/2020
 ms.author: victorh
 ms.openlocfilehash: c3ae62bf5b4f0b4796cac2e7079c8a09116d4895
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85602538"
 ---
 # <a name="create-ip-groups"></a>Criar Grupos IP
@@ -42,6 +42,6 @@ Os Grupos IP permitem-lhe agrupar e gerir endereços IP para as regras do Azure 
 6. Selecione **Criar**.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba mais sobre grupos IP](ip-groups.md)

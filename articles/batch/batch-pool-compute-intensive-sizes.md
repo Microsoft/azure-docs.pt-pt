@@ -4,10 +4,10 @@ description: Como tirar partido dos tamanhos de máquina virtual HPC e GPU nas p
 ms.topic: how-to
 ms.date: 12/17/2018
 ms.openlocfilehash: 016da7669c9e6a6586a53d379f9665c9ea048b64
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86147334"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Utilize casos de RDMA ou GPU em piscinas de Lote
@@ -33,7 +33,7 @@ As capacidades de RDMA ou GPU de tamanhos computacionalmente intensivos em Batch
 
 ### <a name="linux-pools---virtual-machine-configuration"></a>Piscinas Linux - Configuração de máquina virtual
 
-| Tamanho | Capacidade | Sistemas operativos | Software necessário | Configurações de piscina |
+| Tamanho | Funcionalidade | Sistemas operativos | Software necessário | Configurações de piscina |
 | -------- | -------- | ----- |  -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS, ou<br/>HPC baseado em CentOS<br/>(Mercado Azure) | Intel MPI 5<br/><br/>Condutores linux RDMA | Ativar a comunicação inter-node, desativar a execução de tarefas simultâneas |
 | [Série NC, NCv2, NCv3, NDv2](../virtual-machines/linux/n-series-driver-setup.md) | GPU NVIDIA Tesla (varia por série) | Ubuntu 16.04 LTS, ou<br/>CentOS 7.3 ou 7.4<br/>(Mercado Azure) | Condutores de kits de ferramentas NVIDIA CUDA ou CUDA | N/D | 
@@ -43,7 +43,7 @@ As capacidades de RDMA ou GPU de tamanhos computacionalmente intensivos em Batch
 
 ### <a name="windows-pools---virtual-machine-configuration"></a>Piscinas Windows - Configuração de máquina virtual
 
-| Tamanho | Capacidade | Sistemas operativos | Software necessário | Configurações de piscina |
+| Tamanho | Funcionalidade | Sistemas operativos | Software necessário | Configurações de piscina |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Windows Server 2016, 2012 R2, ou<br/>2012 (Mercado Azure) | Microsoft MPI 2012 R2 ou mais tarde, ou<br/> Intel MPI 5<br/><br/>Controladores RDMA do Windows | Ativar a comunicação inter-node, desativar a execução de tarefas simultâneas |
 | [Série NC, NCv2, NCv3, ND, NDv2](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla (varia por série) | Windows Server 2016 ou <br/>2012 R2 (Mercado Azure) | Condutores de kits de ferramentas NVIDIA CUDA ou CUDA| N/D | 
@@ -57,7 +57,7 @@ As capacidades de RDMA ou GPU de tamanhos computacionalmente intensivos em Batch
 > Os tamanhos da série N não são suportados em piscinas de Lote com a configuração do Cloud Service.
 >
 
-| Tamanho | Capacidade | Sistemas operativos | Software necessário | Configurações de piscina |
+| Tamanho | Funcionalidade | Sistemas operativos | Software necessário | Configurações de piscina |
 | -------- | ------- | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/sizes-hpc.md) | RDMA | Windows Server 2016, 2012 R2, 2012, ou<br/>2008 R2 (família guest OS) | Microsoft MPI 2012 R2 ou mais tarde, ou<br/>Intel MPI 5<br/><br/>Controladores RDMA do Windows | Ativar a comunicação entre nó,<br/> desativar execução de tarefas simultâneas |
 
@@ -99,7 +99,7 @@ Para executar aplicações CUDA num conjunto de nós Windows NC, é necessário 
 
 | Definição | Valor |
 | ---- | ----- | 
-| **Tipo de Imagem** | Marketplace (Linux/Windows) |
+| **Tipo de imagem** | Marketplace (Linux/Windows) |
 | **Publisher** | MicrosoftWindowsServer |
 | **Oferta** | WindowsServer |
 | **Sku** | Centro de Dados de 2016 |
@@ -120,7 +120,7 @@ Para executar aplicações CUDA em um conjunto de nós Linux NC, você precisa i
 
 | Definição | Valor |
 | ---- | ---- |
-| **Tipo de Imagem** | Imagem Personalizada |
+| **Tipo de imagem** | Imagem Personalizada |
 | **Imagem personalizada** | *Nome da imagem* |
 | **Agente de nó SKU** | lote.node.ubuntu 16.04 |
 | **Tamanho do nó** | Norma NC6 |
@@ -138,7 +138,7 @@ Para executar as aplicações MPI do Windows num conjunto de nós VM Azure H16r,
 
 | Definição | Valor |
 | ---- | ---- |
-| **Tipo de Imagem** | Imagem Personalizada |
+| **Tipo de imagem** | Imagem Personalizada |
 | **Imagem personalizada** | *Nome da imagem* |
 | **Agente de nó SKU** | lote.node.windows amd64 |
 | **Tamanho do nó** | Norma H16r |
@@ -153,7 +153,7 @@ Utilizando as APIs do lote ou portal Azure, crie uma piscina utilizando esta ima
 
 | Definição | Valor |
 | ---- | ---- |
-| **Tipo de Imagem** | Marketplace (Linux/Windows) |
+| **Tipo de imagem** | Marketplace (Linux/Windows) |
 | **Publisher** | OpenLogic |
 | **Oferta** | CentOS-HPC |
 | **Sku** | 7.4 |

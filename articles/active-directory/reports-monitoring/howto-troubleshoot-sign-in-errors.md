@@ -15,10 +15,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4de9f5a21f38f741dcf65d285446d9482716d4f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85608131"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Como: Erros de sessão de resolução de problemas utilizando relatórios do Azure Ative Directory
@@ -61,7 +61,7 @@ Além disso, o relatório de inscrições também pode ajudá-lo a resolver falh
 
 8. Se tudo o resto falhar, ou o problema persistir apesar de tomar o curso de ação recomendado, [abra um bilhete](../fundamentals/active-directory-troubleshooting-support-howto.md) de apoio seguindo os passos no **separador Troubleshooting e support.** 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Referência de códigos de erro de inscrição](reference-sign-ins-error-codes.md)
 * [Relatório de inscrição relatório geral](concept-sign-ins.md)

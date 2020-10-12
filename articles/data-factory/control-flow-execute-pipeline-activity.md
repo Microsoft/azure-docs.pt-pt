@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 4bd667a2302136b5e12d2e4e548c9e8863715621
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81415286"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Executar atividade de pipeline na Fábrica de Dados Azure
@@ -66,11 +66,11 @@ A atividade Executar Pipeline permite que um pipeline do Data Factory invoque ou
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-name | Nome da atividade do gasoduto de execução. | String | Yes
-tipo | Deve ser definido para: **ExecutePipeline**. | String | Yes
-oleoduto | Referência do gasoduto ao gasoduto dependente que este gasoduto invoca. Um objeto de referência do gasoduto tem duas propriedades: nome de **referência** e **tipo**. A propriedade referenceName especifica o nome do gasoduto de referência. A propriedade tipo deve ser definida para PipelineReference. | PipelineReference | Yes
-parâmetros | Parâmetros a passar para o gasoduto invocado | Um objeto JSON que mapeia nomes de parâmetros para valores de argumento | No
-esperaCompletion | Define se a execução da atividade aguarda o fim da execução do gasoduto dependente. A predefinição é falso. | Booleano | No
+name | Nome da atividade do gasoduto de execução. | String | Sim
+tipo | Deve ser definido para: **ExecutePipeline**. | String | Sim
+oleoduto | Referência do gasoduto ao gasoduto dependente que este gasoduto invoca. Um objeto de referência do gasoduto tem duas propriedades: nome de **referência** e **tipo**. A propriedade referenceName especifica o nome do gasoduto de referência. A propriedade tipo deve ser definida para PipelineReference. | PipelineReference | Sim
+parâmetros | Parâmetros a passar para o gasoduto invocado | Um objeto JSON que mapeia nomes de parâmetros para valores de argumento | Não
+esperaCompletion | Define se a execução da atividade aguarda o fim da execução do gasoduto dependente. A predefinição é falso. | Booleano | Não
 
 ## <a name="sample"></a>Sample
 Este cenário tem dois oleodutos:

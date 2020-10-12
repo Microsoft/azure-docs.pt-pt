@@ -3,11 +3,11 @@ title: Fila de armazenamento como manipulador de eventos para eventos Azure Even
 description: Descreve como pode usar as filas de armazenamento Azure como manipuladores de eventos para eventos Azure Event Grid.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: fdbc292f066a3eb06f17fd144d26d484d2a25f21
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 502b44f276253be69362424c9de0fd516d20ad9a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91270190"
 ---
 # <a name="storage-queue-as-an-event-handler-for-azure-event-grid-events"></a>Fila de armazenamento como manipulador de eventos para eventos Azure Event Grid
@@ -136,9 +136,6 @@ Consulte o seguinte tutorial para um exemplo de utilização do armazenamento da
     }
 }
 ```
-
-> [!NOTE]
-> Entregar eventos a uma fila de armazenamento Azure em **outro inquilino** não é suportado. 
 
 ## <a name="next-steps"></a>Passos seguintes
 Consulte o artigo [dos manipuladores do Evento](event-handlers.md) para obter uma lista de manipuladores de eventos suportados. 

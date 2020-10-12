@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
 ms.openlocfilehash: 75ccfe7a8e62e519b1df89792211433260a6abf6
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89294718"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configure mPIO em um anfitrião StorSimple executando CentOS
@@ -444,7 +444,7 @@ Para mais informações, vá à [resolução de problemas para multipatar.](http
 | &nbsp; |`mpathconf --enable` |Criar um ficheiro mulitpath.conf de amostra em `/etc/mulitpath.conf` |
 |  | | |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Como está a configurar o MPIO no anfitrião Linux, também poderá ter de consultar os seguintes documentos CentoS 6.6:
 
 * [Criação do MPIO no CentOS](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/index)

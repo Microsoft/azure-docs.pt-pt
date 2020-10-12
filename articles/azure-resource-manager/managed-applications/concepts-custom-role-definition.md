@@ -6,10 +6,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 09/16/2019
 ms.openlocfilehash: 7b7fff913c177703f959bfa103c8e310d01059e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81391832"
 ---
 # <a name="custom-role-definition-artifact-in-azure-managed-applications"></a>Artefacto de definição de função personalizada em aplicações geridas azure
@@ -63,7 +63,7 @@ Um papel é composto por a `$.properties.roleName` ou `id` um:
 > [!NOTE]
 > Pode usar o `id` ou `roleName` o campo. Só é necessário um. Estes campos são utilizados para procurar a definição de papel que deve ser aplicada. Se ambos forem fornecidos, o `id` campo será utilizado.
 
-|Propriedade|Necessário?|Description|
+|Propriedade|Necessário?|Descrição|
 |---------|---------|---------|
-|ID|Yes|A identificação do papel incorporado. Pode utilizar o ID completo ou apenas o GUID.|
-|papelName|Yes|O nome do papel incorporado.|
+|ID|Sim|A identificação do papel incorporado. Pode utilizar o ID completo ou apenas o GUID.|
+|papelName|Sim|O nome do papel incorporado.|

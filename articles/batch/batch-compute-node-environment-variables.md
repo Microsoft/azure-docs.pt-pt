@@ -4,10 +4,10 @@ description: Orientação variável do ambiente de tempo de execução de tarefa
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.openlocfilehash: 6b8ade312146802ede6e12181a082a8fcd3842fe
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85960916"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Variáveis do ambiente de runtime do Azure Batch
@@ -52,7 +52,7 @@ As linhas de comando executadas por tarefas nos nós de computação não funcio
 | AZ_BATCH_NODE_ID                | A identificação do nó a que a tarefa está atribuída. | Todas as tarefas. | tvm-1219235766_3-20160919t172711z |
 | AZ_BATCH_NODE_IS_DEDICATED      | Se, `true` o nó atual é um nó dedicado. Se, `false` é um nó de baixa [prioridade.](batch-low-pri-vms.md) | Todas as tarefas. | `true` |
 | AZ_BATCH_NODE_LIST              | A lista de nós que são atribuídos a uma [tarefa multi-instância][multi_instance] no formato `nodeIP;nodeIP` . | Várias instâncias primárias e subtascos. | `10.0.0.4;10.0.0.5` |
-| AZ_BATCH_NODE_MOUNTS_DIR        | O caminho completo do sistema de suporte do sistema de [ficheiros](virtual-file-mount.md) de nível de nó onde residem todos os diretórios de montagem. As partilhas de ficheiros windows utilizam uma letra de unidade, por isso, para o Windows, a unidade de montagem faz parte dos dispositivos e das unidades.  |  Todas as tarefas, incluindo a tarefa inicial, têm acesso ao utilizador, dado que o utilizador está ciente das permissões de montagem para o diretório montado. | Em Ubuntu, por exemplo, a localização é:`/mnt/batch/tasks/fsmounts` |
+| AZ_BATCH_NODE_MOUNTS_DIR        | O caminho completo do sistema de suporte do sistema de [ficheiros](virtual-file-mount.md) de nível de nó onde residem todos os diretórios de montagem. As partilhas de ficheiros windows utilizam uma letra de unidade, por isso, para o Windows, a unidade de montagem faz parte dos dispositivos e das unidades.  |  Todas as tarefas, incluindo a tarefa inicial, têm acesso ao utilizador, dado que o utilizador está ciente das permissões de montagem para o diretório montado. | Em Ubuntu, por exemplo, a localização é: `/mnt/batch/tasks/fsmounts` |
 | AZ_BATCH_NODE_ROOT_DIR          | O caminho completo da raiz de todos os [diretórios do Lote][files_dirs] no nó. | Todas as tarefas. | C:\user\tasks |
 | AZ_BATCH_NODE_SHARED_DIR        | O caminho completo do [diretório compartilhado][files_dirs] no nó. Todas as tarefas que executam num nó têm acesso a este diretório. As tarefas que executam noutros nos dois não têm acesso remoto a este diretório (não é um diretório de rede "partilhado"). | Todas as tarefas. | C:\user\tasks\shared |
 | AZ_BATCH_NODE_STARTUP_DIR       | O caminho completo do diretório de [tarefas ini][files_dirs] por parte do nó. | Todas as tarefas. | C:\user\tasks\startup |
@@ -61,7 +61,7 @@ As linhas de comando executadas por tarefas nos nós de computação não funcio
 | AZ_BATCH_TASK_ID                | O ID da tarefa atual. | Todas as tarefas, exceto iniciar a tarefa. | tarefa001 |
 | AZ_BATCH_TASK_SHARED_DIR | Um percurso de diretório idêntico para a tarefa primária e cada subtasco de uma [tarefa multi-instância][multi_instance]. O caminho existe em cada nó em que a tarefa de vários instâncias é executado, e é lido/escrito acessível aos comandos de tarefa em execução nesse nó (tanto o comando de [coordenação][coord_cmd] como o comando de [aplicação).][app_cmd] Subtarefas ou uma tarefa primária que execute em outros nosdes não têm acesso remoto a este diretório (não é um diretório de rede "compartilhado"). | Várias instâncias primárias e subtascos. | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
 | AZ_BATCH_TASK_WORKING_DIR       | O caminho completo do [diretório de trabalho][files_dirs] da tarefa no nó. A tarefa atualmente em execução tem acesso de leitura/escrita a este diretório. | Todas as tarefas. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
-| CCP_NODES                       | A lista de nós e o número de núcleos por nó que são atribuídos a uma [tarefa multi-instância][multi_instance]. Os nódes e os núcleos estão listados no formato`numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`, quando o número de nós é seguido por um ou mais endereços IP de nó e o número de núcleos para cada um. |  Várias instâncias primárias e subtascos. |`2 10.0.0.4 1 10.0.0.5 1` |
+| CCP_NODES                       | A lista de nós e o número de núcleos por nó que são atribuídos a uma [tarefa multi-instância][multi_instance]. Os nódes e os núcleos estão listados no formato `numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`, quando o número de nós é seguido por um ou mais endereços IP de nó e o número de núcleos para cada um. |  Várias instâncias primárias e subtascos. |`2 10.0.0.4 1 10.0.0.5 1` |
 
 [files_dirs]: ./files-and-directories.md
 [multi_instance]: ./batch-mpi.md

@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 632227579fd021a0d2ce1d0b1bb0b8a8288c5f47
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171674"
 ---
 # <a name="event-grid-configuration"></a>Configuração da grelha de eventos
@@ -65,7 +65,7 @@ Para conhecer esta funcionalidade em geral, consulte [Entrega e Retry](delivery-
 | Nome da Propriedade | Descrição |
 | ---------------- | ------------ |
 | `broker__defaultMaxDeliveryAttempts` | Número máximo de tentativas para entregar um evento. O valor predefinido é 30.
-| `broker__defaultEventTimeToLiveInSeconds` | Time-to-live (TTL) em segundos após o qual um evento será largado se não for entregue. O valor predefinido é **de 7200** segundos
+| `broker__defaultEventTimeToLiveInSeconds` | Time-to-live (TTL) em segundos após o qual um evento será largado se não for entregue. O valor predefinido é  **de 7200** segundos
 
 ## <a name="output-batching"></a>Criação de batches de saída
 
@@ -73,10 +73,10 @@ Para saber mais sobre esta funcionalidade em geral, consulte [o lote de entrega 
 
 | Nome da Propriedade | Descrição |
 | ---------------- | ------------ |
-| `api__deliveryPolicyLimits__maxBatchSizeInBytes` | Valor máximo permitido para o `ApproxBatchSizeInBytes` botão. O valor predefinido é `1_058_576` .
-| `api__deliveryPolicyLimits__maxEventsPerBatch` | Valor máximo permitido para o `MaxEventsPerBatch` botão. O valor predefinido é `50` .
-| `broker__defaultMaxBatchSizeInBytes` | Tamanho máximo do pedido de entrega quando apenas `MaxEventsPerBatch` é especificado. O valor predefinido é `1_058_576` .
-| `broker__defaultMaxEventsPerBatch` | Número máximo de eventos a adicionar a um lote quando apenas `MaxBatchSizeInBytes` é especificado. O valor predefinido é `10` .
+| `api__deliveryPolicyLimits__maxBatchSizeInBytes` | Valor máximo permitido para o `ApproxBatchSizeInBytes` botão. O valor predefinido é `1_058_576`.
+| `api__deliveryPolicyLimits__maxEventsPerBatch` | Valor máximo permitido para o `MaxEventsPerBatch` botão. O valor predefinido é `50`.
+| `broker__defaultMaxBatchSizeInBytes` | Tamanho máximo do pedido de entrega quando apenas `MaxEventsPerBatch` é especificado. O valor predefinido é `1_058_576`.
+| `broker__defaultMaxEventsPerBatch` | Número máximo de eventos a adicionar a um lote quando apenas `MaxBatchSizeInBytes` é especificado. O valor predefinido é `10`.
 
 ## <a name="metrics"></a>Métricas
 

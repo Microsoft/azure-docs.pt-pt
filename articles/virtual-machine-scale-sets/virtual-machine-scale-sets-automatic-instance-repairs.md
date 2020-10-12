@@ -10,10 +10,10 @@ ms.date: 02/28/2020
 ms.reviewer: jushiman
 ms.custom: avverma
 ms.openlocfilehash: 45c316c1d1dd56f6d920423a725b2488df1a5032
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86527426"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Reparações de instâncias automáticas dos conjuntos de dimensionamento de máquinas virtuais do Azure
@@ -287,7 +287,7 @@ Get-AzVmss `
     -InstanceView
 ```
 
-Utilize a cmdlet Set-AzVmssOrchestrationServiceState para atualizar o *serviço Estado* para reparações automáticas de instâncias. Uma vez que o conjunto de balanças é optado pela função de reparação automática, pode utilizar este cmdlet para suspender ou retomar as reparações automáticas para o seu conjunto de escalas.
+Utilize Set-AzVmssOrchestrationServiceState cmdlet para atualizar o *estado de serviço* para reparações automáticas de instâncias. Uma vez que o conjunto de balanças é optado pela função de reparação automática, pode utilizar este cmdlet para suspender ou retomar as reparações automáticas para o seu conjunto de escalas.
 
 ```azurepowershell-interactive
 Set-AzVmssOrchestrationServiceState `
@@ -297,7 +297,7 @@ Set-AzVmssOrchestrationServiceState `
     -Action "Suspend"
 ```
 
-## <a name="troubleshoot"></a>Resolver Problemas
+## <a name="troubleshoot"></a>Resolução de problemas
 
 **Falha na política de reparações automáticas**
 
@@ -313,6 +313,6 @@ Pode utilizar a [API Get Instance View,](/rest/api/compute/virtualmachinescalese
 
 No portal Azure, também é possível ver o estado de saúde. Vá a um conjunto de escala existente, selecione **Instâncias** do menu à esquerda e olhe para a coluna **do estado de Saúde** para o estado de saúde de cada instância definida em escala. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como configurar a [extensão de saúde da aplicação](./virtual-machine-scale-sets-health-extension.md) ou [as sondas de saúde do balanceador](../load-balancer/load-balancer-custom-probe-overview.md) de carga para os seus conjuntos de escala.

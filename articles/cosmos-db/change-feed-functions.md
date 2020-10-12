@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.reviewer: sngun
 ms.openlocfilehash: e452f03721551adada69a36b1ce69e57f1111f55
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85834068"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Arquiteturas baseadas em eventos sem servidor com funções Azure Cosmos DB e Azure
@@ -25,7 +25,7 @@ Com o [gatilho de Funções Azure para Cosmos DB,](../azure-functions/functions-
 > [!NOTE]
 > Atualmente, o gatilho Azure Functions para Cosmos DB é suportado apenas para utilização com a API core (SQL).
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 Para implementar um fluxo baseado em eventos sem servidor, você precisa:
 
@@ -46,7 +46,7 @@ Pode executar a sua [Função Azure localmente](../azure-functions/functions-dev
 
 Se quiser testar cenários ao vivo na nuvem, pode experimentar o [Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem qualquer cartão de crédito ou subscrição Azure necessária.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode agora continuar a aprender mais sobre a alteração do feed nos seguintes artigos:
 

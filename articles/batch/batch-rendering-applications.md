@@ -4,10 +4,10 @@ description: É possível utilizar quaisquer aplicações de renderização com 
 ms.date: 09/19/2019
 ms.topic: how-to
 ms.openlocfilehash: f876671c6ac16137c2c1cf8d40bd70860c06975b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85960491"
 ---
 # <a name="pre-installed-applications-on-rendering-vm-images"></a>Aplicações pré-instaladas na renderização de imagens VM
@@ -85,6 +85,6 @@ A lista a seguir aplica-se ao Windows Server 2016, versão 1.3.7 que renderiza i
 > [!NOTE]
 > O Grupo Caos V-Ray para 3ds Max 2019 (versão 4.10.01) introduz alterações no raio-V. Para utilizar a versão anterior (versão 3.60.02), utilize o Windows Server 2016, versão 1.3.2.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para utilizar as imagens VM de renderização, elas precisam de ser especificadas na configuração da piscina quando uma piscina é criada; ver as capacidades de [lote de piscina para renderização](./batch-rendering-functionality.md#batch-pools).

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: pafarley
 ms.openlocfilehash: fa292f0441369ed13f3f85035a2ec8cc3f5c6723
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85800096"
 ---
 # <a name="learn-text-moderation-concepts"></a>Aprenda conceitos de moderação de texto
@@ -30,7 +30,7 @@ A resposta do serviço inclui as seguintes informações:
 - Dados pessoais
 - Texto corrigido automaticamente
 - Texto original
-- Linguagem
+- Idioma
 
 ## <a name="profanity"></a>Palavras ofensivas
 
@@ -74,11 +74,11 @@ O seguinte extrato no extrato JSON mostra uma saída de exemplo:
 
 ### <a name="explanation"></a>Explicação
 
-- `Category1`refere-se à presença potencial de linguagem que pode ser considerada sexualmente explícita ou adulta em determinadas situações.
-- `Category2`refere-se à presença potencial de linguagem que pode ser considerada sexualmente sugestiva ou madura em determinadas situações.
-- `Category3`refere-se à potencial presença de linguagem que pode ser considerada ofensiva em determinadas situações.
-- `Score`é entre 0 e 1. Quanto maior for a pontuação, maior é a previsão do modelo de que a categoria pode ser aplicável. Esta funcionalidade baseia-se num modelo estatístico e não em resultados codificados manualmente. Recomendamos testar com o seu próprio conteúdo para determinar como cada categoria se alinha com os seus requisitos.
-- `ReviewRecommended`é verdadeiro ou falso dependendo dos limiares de pontuação interna. Os clientes devem avaliar se utilizam este valor ou se decidem sobre limiares personalizados com base nas suas políticas de conteúdo.
+- `Category1` refere-se à presença potencial de linguagem que pode ser considerada sexualmente explícita ou adulta em determinadas situações.
+- `Category2` refere-se à presença potencial de linguagem que pode ser considerada sexualmente sugestiva ou madura em determinadas situações.
+- `Category3` refere-se à potencial presença de linguagem que pode ser considerada ofensiva em determinadas situações.
+- `Score` é entre 0 e 1. Quanto maior for a pontuação, maior é a previsão do modelo de que a categoria pode ser aplicável. Esta funcionalidade baseia-se num modelo estatístico e não em resultados codificados manualmente. Recomendamos testar com o seu próprio conteúdo para determinar como cada categoria se alinha com os seus requisitos.
+- `ReviewRecommended` é verdadeiro ou falso dependendo dos limiares de pontuação interna. Os clientes devem avaliar se utilizam este valor ou se decidem sobre limiares personalizados com base nas suas políticas de conteúdo.
 
 ## <a name="personal-data"></a>Dados pessoais
 

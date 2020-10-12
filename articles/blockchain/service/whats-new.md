@@ -5,10 +5,10 @@ ms.date: 06/30/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
 ms.openlocfilehash: 80ece6cb6bb81b7ce168da997603e17d1238171b
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85921884"
 ---
 # <a name="whats-new-in-azure-blockchain-service"></a>Quais as novidades no Serviço Azure Blockchain?
@@ -123,7 +123,7 @@ Se possível, utilize um valor de gás conservador para submeter transações e 
 
 ### <a name="unbounded-loops-in-smart-contracts-reduces-performance"></a>Loops ilimitados em contratos inteligentes reduz o desempenho
 
-Evite laços ilimitados em contratos inteligentes, uma vez que podem reduzir o desempenho. Para obter mais informações, consulte os seguintes recursos:
+Evite laços ilimitados em contratos inteligentes, uma vez que podem reduzir o desempenho. Para obter mais informações, veja os seguintes recursos:
 
 - [Evite laços sem limites](https://blog.b9lab.com/getting-loopy-with-solidity-1d51794622ad )
 - [Boas práticas de segurança de contratos inteligentes](https://github.com/ConsenSys/smart-contract-best-practices)

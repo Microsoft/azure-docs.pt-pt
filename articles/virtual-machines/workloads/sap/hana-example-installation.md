@@ -14,10 +14,10 @@ ms.date: 09/10/2018
 ms.author: hermannd
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 023f32fce01ffbd974b182fa89fd604e62332936
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77617218"
 ---
 # <a name="install-hana-on-sap-hana-on-azure-large-instances"></a>Instale HANA em SAP HANA em Azure (Grandes Instâncias)
@@ -130,7 +130,7 @@ Depois de definir a palavra-passe, vê um ecrã de confirmação. verifique todo
 A instância SAP HANA deve estar agora a funcionar e pronta para ser utilizada. Você deve ser capaz de ligar-se a ele a partir do Estúdio SAP HANA. Certifique-se também de que verifica e aplica as últimas atualizações.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [SAP HANA Grandes Instâncias alta disponibilidade e recuperação de desastres em Azure](hana-overview-high-availability-disaster-recovery.md)
 

@@ -4,10 +4,10 @@ description: Saiba mais sobre falhas e falhas na Recuperação do Local de Azure
 ms.topic: conceptual
 ms.date: 12/24/2019
 ms.openlocfilehash: d9b54f3c452212e12419a5ffd67b116c8660308d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87089537"
 ---
 # <a name="about-on-premises-disaster-recovery-failoverfailback"></a>Sobre a recuperação de desastres no local/failback

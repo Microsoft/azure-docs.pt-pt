@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.openlocfilehash: ad0e0250b32f2bdef4944e6e148be3215f3822f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81390213"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Arquitetura de rede virtual Azure HDInsight
@@ -22,7 +22,7 @@ Este artigo explica os recursos que estão presentes quando coloca um cluster HD
 
 Os clusters Azure HDInsight têm diferentes tipos de máquinas virtuais, ou nós. Cada tipo de nó desempenha um papel no funcionamento do sistema. A tabela seguinte resume estes tipos de nó e as suas funções no cluster.
 
-| Tipo | Description |
+| Tipo | Descrição |
 | --- | --- |
 | Nó principal |  Para todos os tipos de cluster, exceto Apache Storm, os nós de cabeça acolhem os processos que gerem a execução da aplicação distribuída. O nó da cabeça é também o nó em que se pode entrar e executar aplicações que são então coordenadas para correr através dos recursos do cluster. O número de nós de cabeça é fixado em dois para todos os tipos de cluster. |
 | Nó do ZooKeeper | Zookeeper coordena tarefas entre os nós que estão fazendo o processamento de dados. Também faz a eleição do líder do nó de cabeça, e mantém o rasto de qual nó de cabeça está executando um serviço de mestre específico. O número de nós do ZooKeeper é fixado em três. |
@@ -40,7 +40,7 @@ Estes FQDNs serão do `<node-type-prefix><instance-number>-<abbreviated-clustern
 
 O `<node-type-prefix>` será *hn* para headnodes, *wn* para nós operários e *zn* para os nós zookeeper.
 
-Se precisar apenas do nome de anfitrião, use apenas a primeira parte do FQDN:`<node-type-prefix><instance-number>-<abbreviated-clustername>`
+Se precisar apenas do nome de anfitrião, use apenas a primeira parte do FQDN: `<node-type-prefix><instance-number>-<abbreviated-clustername>`
 
 ## <a name="basic-virtual-network-resources"></a>Recursos básicos da rede virtual
 
@@ -63,8 +63,8 @@ Os seguintes recursos de rede presentes são automaticamente criados dentro da r
 
 | Recurso de rede | Número presente | Detalhes |
 | --- | --- | --- |
-|Load balancer | três | |
-|Interfaces de Rede | nove | Este valor baseia-se num cluster normal, onde cada nó tem a sua própria interface de rede. As nove interfaces são para: dois nós de cabeça, três nóns de zookeeper, dois nós operários, e dois nós de gateway mencionados na tabela anterior. |
+|Balanceador de carga | três | |
+|Interfaces de Rede | Nove | Este valor baseia-se num cluster normal, onde cada nó tem a sua própria interface de rede. As nove interfaces são para: dois nós de cabeça, três nóns de zookeeper, dois nós operários, e dois nós de gateway mencionados na tabela anterior. |
 |Endereços IP Públicos | dois |    |
 
 ## <a name="endpoints-for-connecting-to-hdinsight"></a>Pontos finais para ligação ao HDInsight

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 1dac90053797caf66af79e458b9dbb95b682cd17
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85846862"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Modelos de emissão na Gestão API da Azure
@@ -34,7 +34,7 @@ A Azure API Management fornece-lhe a capacidade de personalizar o conteúdo das 
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="issue-list"></a><a name="IssueList"></a>Lista de edição  
+##  <a name="issue-list"></a><a name="IssueList"></a> Lista de edição  
  O modelo **de lista de problemas** permite-lhe personalizar o corpo da página da lista de problemas no portal do desenvolvedor.  
   
  ![Portal do Programador de Listas de Problemas](./media/api-management-issue-templates/APIM-Issue-List-Developer-Portal.png "Portal de Programadores de Listas de Problemas DA APIM")  
@@ -137,5 +137,5 @@ A Azure API Management fornece-lhe a capacidade de personalizar o conteúdo das 
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre o trabalho com modelos, consulte [como personalizar o portal de desenvolvedores da API Management utilizando modelos](api-management-developer-portal-templates.md).

@@ -6,10 +6,10 @@ ms.date: 06/30/2020
 ms.topic: conceptual
 ms.service: automation
 ms.openlocfilehash: ca2f866dc882e003469163a22d32d3d72031443a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85801034"
 ---
 # <a name="troubleshoot-feature-deployment-issues"></a>Resolver problemas de implementação de funcionalidades
@@ -237,7 +237,7 @@ Este tipo de erro ocorre porque o VM está sob uma carga pesada durante a instal
 
 Tente instalar o agente Log Analytics para a extensão do Windows quando o VM estiver sob uma carga mais baixa.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não vir o seu problema aqui ou não conseguir resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional:
 

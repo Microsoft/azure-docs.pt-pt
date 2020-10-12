@@ -10,10 +10,10 @@ ms.date: 11/27/2019
 ms.author: prmitiki
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 59d098f1ff0f78e37601544619c603b776e0cf22
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89071759"
 ---
 # <a name="create-or-modify-an-exchange-peering-by-using-powershell"></a>Criar ou modificar um persco de troca utilizando o PowerShell
@@ -22,7 +22,7 @@ Este artigo descreve como criar um microsoft exchange espreitando usando cmdlets
 
 Se preferir, pode completar este guia utilizando o [portal](howto-exchange-portal.md)Azure .
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 * Reveja os [pré-requisitos](prerequisites.md) e o [Persimento do Persimento cambial](walkthrough-exchange-all.md) antes de iniciar a configuração.
 * Se já tem perscos de Troca com a Microsoft que não são convertidos para recursos Azure, consulte [Converter um legado Exchange olhando para um recurso Azure utilizando o PowerShell](howto-legacy-exchange-powershell.md).
 

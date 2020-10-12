@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
 ms.openlocfilehash: a02b2157209b5f47ac7ffbde4e15f3e7df1c258b
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89462535"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Melhores práticas para assegurar bases de dados paaS em Azure
@@ -84,7 +84,7 @@ A encriptação do nível da aplicação também deve ser usada para dados selet
 
 Pode usar precauções adicionais para ajudar a proteger a base de dados, como desenhar um sistema seguro, encriptar ativos confidenciais e construir uma firewall em torno dos servidores da base de dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo apresentou-o a uma coleção de bases de dados SQL e a azure Synapse Analytics para as melhores práticas de segurança para garantir as suas aplicações web e móveis PaaS. Para saber mais sobre a segurança das suas implementações paaS, consulte:
 

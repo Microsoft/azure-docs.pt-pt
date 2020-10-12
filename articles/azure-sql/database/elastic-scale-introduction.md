@@ -10,10 +10,10 @@ author: stevestein
 ms.author: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: 1ec9884dbb8c3d02caaa7d8621905a32e7b1e36a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84047546"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Aumentar horizontalmente com a Base de Dados SQL do Azure
@@ -22,7 +22,7 @@ ms.locfileid: "84047546"
 Pode escalar facilmente bases de dados na Base de Dados Azure SQL utilizando as ferramentas **Elastic Database.** Estas ferramentas e funcionalidades permitem-lhe utilizar os recursos de base de dados da Base de **Dados Azure SQL** para criar soluções para cargas de trabalho transacionais, e especialmente software como aplicações de Serviço (SaaS). As funcionalidades elastic database são compostas por:
 
 * [Biblioteca de clientes Elastic Database](elastic-database-client-library.md): A biblioteca do cliente é uma funcionalidade que lhe permite criar e manter bases de dados de fragmentos.  Consulte [Começar com as ferramentas Elastic Database](elastic-scale-get-started.md).
-* [Ferramenta de fusão split-merge Elastic Database](elastic-scale-overview-split-and-merge.md): move dados entre bases de dados de fragmentos. Esta ferramenta é útil para mover dados de uma base de dados multi-inquilino para uma base de dados de inquilinos únicos (ou vice-versa). Consulte [tutorial de ferramentas De base elástica Split-Merge](elastic-scale-configure-deploy-split-and-merge.md).
+* [Ferramenta de fusão split-merge Elastic Database](elastic-scale-overview-split-and-merge.md): move dados entre bases de dados de fragmentos. Esta ferramenta é útil para mover dados de uma base de dados multi-inquilino para uma base de dados de inquilinos únicos (ou vice-versa). Consulte [o tutorial de ferramentas elástica Split-Merge base de dados.](elastic-scale-configure-deploy-split-and-merge.md)
 * [Trabalhos de base de dados elásticos](elastic-jobs-overview.md): Utilize empregos para gerir um grande número de bases de dados na Base de Dados Azure SQL. Facilmente realizar operações administrativas tais como alterações de esquema, gestão de credenciais, atualizações de dados de referência, recolha de dados de desempenho ou recolha de telemetria de inquilino (cliente) usando empregos.
 * [Consulta de base de dados elástica](elastic-query-overview.md) (pré-visualização): Permite executar uma consulta Transact-SQL que abrange várias bases de dados. Isto permite a ligação a ferramentas de reporte como Excel, Power BI, Tableau, etc.
 * [Transações elásticas](elastic-transactions-overview.md): Esta funcionalidade permite executar transações que se estendem por várias bases de dados. As transações de bases de dados elásticas estão disponíveis para aplicações .NET utilizando ADO .NET e integram-se com a experiência de programação familiar utilizando as [classes System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx).
@@ -67,7 +67,7 @@ A maioria das aplicações de base de dados em escala de nuvem usam uma combina�
 
 ## <a name="sharding"></a>Fragmentação
 
-A *fragmentação* é uma técnica para distribuir grandes quantidades de dados estruturados de forma idêntica por inúmeras bases de dados independentes. É especialmente popular entre os desenvolvedores de nuvem que criam software como um serviço (SAAS) para clientes finais ou empresas. Estes clientes finais são muitas vezes referidos como "inquilinos". Podem ser necessários cacos por várias razões:  
+*O cacimento* é uma técnica para distribuir grandes quantidades de dados estruturados de forma idêntica em várias bases de dados independentes. É especialmente popular entre os desenvolvedores de nuvem que criam software como um serviço (SAAS) para clientes finais ou empresas. Estes clientes finais são muitas vezes referidos como "inquilinos". Podem ser necessários cacos por várias razões:  
 
 * A quantidade total de dados é demasiado grande para se enquadrar nos constrangimentos de uma base de dados individual
 * O rendimento da carga de trabalho global excede as capacidades de uma base de dados individual
@@ -89,7 +89,7 @@ Outros cenários juntam vários inquilinos em bases de dados, em vez de os isola
 ### <a name="move-data-from-multiple-to-single-tenancy-databases"></a>Mover dados de bases de dados múltiplas para um único arrendamento
 Ao criar uma aplicação SaaS, é típico oferecer aos potenciais clientes uma versão experimental do software. Neste caso, é rentável utilizar uma base de dados multi-inquilino para os dados. No entanto, quando uma perspetiva se torna um cliente, uma base de dados de um único inquilino é melhor, uma vez que proporciona um melhor desempenho. Se o cliente tiver criado dados durante o período experimental, utilize a [ferramenta de fusão dividida](elastic-scale-overview-split-and-merge.md) para mover os dados do multi-inquilino para a nova base de dados de inquilinos únicos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter uma aplicação de amostra que demonstre a biblioteca do cliente, consulte [Começar com ferramentas Elastic Database](elastic-scale-get-started.md).
 
 Para converter bases de dados existentes para utilizar as ferramentas, consulte [as bases de dados existentes para escalar](elastic-convert-to-use-elastic-tools.md).

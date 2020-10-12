@@ -14,10 +14,10 @@ ms.topic: how-to
 ms.date: 06/10/2019
 ms.author: inhenkel
 ms.openlocfilehash: 2a78e8c8c204e5cedeb8bdd2a25cff40a3e5cc44
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89296554"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---rest"></a>Subclip um vídeo ao codificar com os Media Services - REST
@@ -84,6 +84,6 @@ Para completar os passos descritos neste tópico, tem de:
 
     Vê a **Resposta** com a informação sobre o trabalho que foi criado e submetido e o estado do trabalho. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Como codificar com uma transformação personalizada](custom-preset-rest-howto.md) 

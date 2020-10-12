@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
 ms.openlocfilehash: e29e568786881f663414dcdf3eff72d4d72ab181
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85610613"
 ---
 # <a name="fqdn-tags-overview"></a>Visão geral das etiquetas FQDN
@@ -42,6 +42,6 @@ A tabela a seguir mostra as atuais etiquetas FQDN que pode utilizar. A Microsoft
 > [!NOTE]
 > Ao selecionar a Etiqueta FQDN numa regra de aplicação, o campo protocol:porta deve ser definido em **https**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender a implantar uma Firewall Azure, consulte [Tutorial: Implemente e configuure Firewall utilizando o portal Azure](tutorial-firewall-deploy-portal.md).

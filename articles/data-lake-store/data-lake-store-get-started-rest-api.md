@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: fc3f3fb0b6bb67239d6c1952d3e128076ce45aaf
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85857190"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Operações de gestão de conta na Azure Data Lake Storage Gen1 utilizando a API REST
@@ -73,10 +73,10 @@ HTTP/1.1 200 OK
 ...
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Operações de sistema de ficheiros na Data Lake Storage Gen1 utilizando a API REST](data-lake-store-data-operations-rest-api.md).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 * [Referência Azure Data Lake Storage Gen1 REST API Referência](https://docs.microsoft.com/rest/api/datalakestore/)
 * [Aplicações Open Source Big Data compatíveis com Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)
 

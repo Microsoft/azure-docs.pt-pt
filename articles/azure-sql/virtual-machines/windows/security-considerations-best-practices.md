@@ -15,13 +15,13 @@ ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 04634a6efb6c17a823532a29ec273b088a4ad843
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91272400"
 ---
-# <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Considerações de segurança para o SQL Server em Azure Virtual Machines
+# <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Considerações de segurança para o SQL Server em Máquinas Virtuais do Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Este tópico inclui diretrizes de segurança gerais que ajudam a estabelecer acesso seguro a instâncias do SQL Server numa máquina virtual Azure (VM).
@@ -59,7 +59,7 @@ Por fim, considere ativar as ligações encriptadas, por exemplo, o motor de bas
 
 ## <a name="encryption"></a>Encriptação
 
-Os discos geridos oferecem encriptação do lado do servidor e encriptação do disco Azure. [A Encriptação do Lado do Servidor](/azure/virtual-machines/windows/disk-encryption) fornece encriptação em repouso e salvaguarda os seus dados para atender aos seus compromissos de segurança organizacional e de conformidade. [A Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) utiliza a tecnologia Bitlocker ou DM-Crypt e integra-se com o Azure Key Vault para encriptar tanto o SISTEMA como os discos de dados. 
+Os discos geridos oferecem Server-Side encriptação e encriptação do disco Azure. [A Encriptação do Lado do Servidor](/azure/virtual-machines/windows/disk-encryption) fornece encriptação em repouso e salvaguarda os seus dados para atender aos seus compromissos de segurança organizacional e de conformidade. [A Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) utiliza a tecnologia Bitlocker ou DM-Crypt e integra-se com o Azure Key Vault para encriptar tanto o SISTEMA como os discos de dados. 
 
 ## <a name="use-a-non-default-port"></a>Utilize uma porta não padrão
 

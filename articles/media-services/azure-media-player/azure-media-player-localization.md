@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
 ms.openlocfilehash: 8a459d1fba4353b4b3e092e83a759314cc455ead
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87087293"
 ---
 # <a name="azure-media-player-localization"></a>Localização do Azure Media Player #
@@ -26,7 +26,7 @@ O suporte linguístico múltiplo permite que os utilizadores de locais não ingl
 
 A Azure Media Player suporta atualmente os seguintes idiomas com os respetivos códigos linguísticos:
 
-| Linguagem            | Código | Linguagem                | Código   | Linguagem                | Código         |
+| Idioma            | Código | Idioma                | Código   | Idioma                | Código         |
 |---------------------|------|-------------------------|--------|-------------------------|--------------|
 | Português {predefinido}   | en   | Croata                | hr     | Romeno                | ro           |
 | Árabe              | ar   | Húngaro               | hu     | Eslovaco                  | sk           |
@@ -36,7 +36,7 @@ A Azure Media Player suporta atualmente os seguintes idiomas com os respetivos c
 | Dinamarquês              | da   | Japonês                | ja     | Russo                 | ru           |
 | Alemão              | de   | Cazaque                  | kk     | Sueco                 | sv           |
 | Grego               | el   | Coreano                  | ko     | Tailandês                    | th           |
-| Espanhol             | es   | Lituano              | lt     | Tagalog                 | tl           |
+| Em espanhol             | es   | Lituano              | lt     | Tagalog                 | tl           |
 | Estónio            | et   | Letão                 | lv     | Turco                 | tr           |
 | Basco              | eu   | Malásia               | ms     | Ucraniano               | Reino Unido           |
 | Rio Farsi               | fa   | Norueguês - Bokmã-l     | nb     | Urdu                    | o seu           |

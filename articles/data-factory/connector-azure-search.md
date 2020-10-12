@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/13/2019
 ms.openlocfilehash: dfa1ad318ccc9e891b646ec050f6a0776e108206
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81418240"
 ---
 # <a name="copy-data-to-an-azure-cognitive-search-index-using-azure-data-factory"></a>Copiar dados para um índice de pesquisa cognitiva Azure usando Azure Data Factory
@@ -42,12 +42,12 @@ As secções seguintes fornecem detalhes sobre propriedades que são usadas para
 
 As seguintes propriedades são suportadas para o serviço ligado à Pesquisa Cognitiva Azure:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **AzureSearch** | Yes |
-| url | URL para o serviço de pesquisa. | Yes |
-| key | Chave de administração para o serviço de pesquisa. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
-| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o Tempo de Execução da Integração Azure ou o Tempo de Execução de Integração Auto-hospedado (se a sua loja de dados estiver localizada em rede privada). Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |No |
+| tipo | A propriedade tipo deve ser definida para: **AzureSearch** | Sim |
+| url | URL para o serviço de pesquisa. | Sim |
+| key | Chave de administração para o serviço de pesquisa. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
+| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o Tempo de Execução da Integração Azure ou o Tempo de Execução de Integração Auto-hospedado (se a sua loja de dados estiver localizada em rede privada). Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |Não |
 
 > [!IMPORTANT]
 > Ao copiar dados de uma loja de dados em nuvem para índice de pesquisa, no serviço Azure Cognitive Search ligado, você precisa encaminhar um Tempo de Execução de Integração Azure com região explícita em ConnactVia. Desacorda a região como a que reside o seu serviço de pesquisa. Saiba mais sobre o tempo de execução da [integração Azure.](concepts-integration-runtime.md#azure-integration-runtime)
@@ -80,10 +80,10 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados na Azure Cognitive Search, as seguintes propriedades são suportadas:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **AzureSearchIndex** | Yes |
-| nome do índice | Nome do índice de pesquisa. A Data Factory não cria o índice. O índice deve existir na Pesquisa Cognitiva Azure. | Yes |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **AzureSearchIndex** | Sim |
+| nome do índice | Nome do índice de pesquisa. A Data Factory não cria o índice. O índice deve existir na Pesquisa Cognitiva Azure. | Sim |
 
 **Exemplo:**
 
@@ -112,11 +112,11 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados para a Azure Cognitive Search, defina o tipo de origem na atividade de cópia para **AzureSearchIndexSink**. As seguintes propriedades são suportadas na secção de **lavatório** de atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **AzureSearchIndexSink** | Yes |
-| escrever Comportamento | Especifica se deve fundir ou substituir quando um documento já existe no índice. Consulte a [propriedade WriteBehavior](#writebehavior-property).<br/><br/>Os valores permitidos são: **Fusão** (padrão) e **Upload**. | No |
-| escreverBatchSize | Envia dados para o índice de pesquisa quando o tamanho do tampão atinge o writeBatchSize. Consulte a [propriedade WriteBatchSize](#writebatchsize-property) para mais detalhes.<br/><br/>Os valores permitidos são: inteiro 1 a 1.000; padrão é 1000. | No |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **AzureSearchIndexSink** | Sim |
+| escrever Comportamento | Especifica se deve fundir ou substituir quando um documento já existe no índice. Consulte a [propriedade WriteBehavior](#writebehavior-property).<br/><br/>Os valores permitidos são: **Fusão** (padrão) e **Upload**. | Não |
+| escreverBatchSize | Envia dados para o índice de pesquisa quando o tamanho do tampão atinge o writeBatchSize. Consulte a [propriedade WriteBatchSize](#writebatchsize-property) para mais detalhes.<br/><br/>Os valores permitidos são: inteiro 1 a 1.000; padrão é 1000. | Não |
 
 ### <a name="writebehavior-property"></a>Propriedade WriteBehavior
 
@@ -174,7 +174,7 @@ A tabela seguinte especifica se um tipo de dados de pesquisa cognitiva Azure é 
 | String | S |
 | Int32 | S |
 | Int64 | S |
-| Double | S |
+| Double (Duplo) | S |
 | Booleano | S |
 | DataTimeOffset | S |
 | Matriz de Cordas | N |

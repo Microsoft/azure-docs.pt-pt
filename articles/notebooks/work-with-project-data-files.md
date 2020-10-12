@@ -4,10 +4,10 @@ description: Saiba como trazer dados para um projeto de pré-visualização de C
 ms.topic: how-to
 ms.date: 12/04/2018
 ms.openlocfilehash: b3669128582d3bdd6a3c4506a040856ab7b07e9a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85834119"
 ---
 # <a name="work-with-data-files-in-azure-notebooks-preview-projects"></a>Trabalhar com ficheiros de dados em projetos de pré-visualização de cadernos Azure
@@ -112,6 +112,6 @@ Também pode selecionar um ficheiro e utilizar o comando **Descarregamento** (at
 
 1. O portátil prepara um único ficheiro *.zip* contendo os ficheiros selecionados, que depois guarda como normalmente faz a partir do seu navegador. O notebook cria um ficheiro *.zip* mesmo quando descarrega um único ficheiro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Aceder a dados da cloud num bloco de notas](access-data-resources-jupyter-notebooks.md)
+- [Aceda aos dados da nuvem de acesso em um caderno](access-data-resources-jupyter-notebooks.md)

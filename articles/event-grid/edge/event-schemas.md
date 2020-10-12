@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: ea36c40f2038d016afb0c45944a98d4d90df6240
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171572"
 ---
 # <a name="event-schemas"></a>Esquemas de eventos
@@ -52,10 +52,10 @@ O esquema eventGrid consiste num conjunto de propriedades necessárias às quais
 
 Todos os eventos têm os seguintes dados de alto nível:
 
-| Propriedade | Tipo | Obrigatório | Descrição |
+| Propriedade | Tipo | Necessário | Descrição |
 | -------- | ---- | ----------- |-----------
 | tópico | cadeia (de carateres) | No | Deve coincidir com o tópico em que é publicado. O Event Grid povoa-o com o nome do tópico sobre o qual é publicado se não for especificado. |
-| subject | string | Sim | Caminho definido pelo publicador para o assunto do evento. |
+| Assunto | string | Sim | Caminho definido pelo publicador para o assunto do evento. |
 | eventType | string | Sim | Tipo de evento para esta fonte de evento, por exemplo, BlobCreated. |
 | eventTime | string | Sim | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
 | ID | cadeia (de carateres) | No | Identificador único para o evento. |

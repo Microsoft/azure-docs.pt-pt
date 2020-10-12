@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 0035d367017c92bd151c27e14d744ef41eace069
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85800153"
 ---
 # <a name="moderate-with-custom-image-lists-in-the-api-console"></a>Moderado com listas de imagens personalizadas na consola API
@@ -91,7 +91,7 @@ Depois de fazer alterações numa lista de imagens, tem de atualizar o seu índi
 
    Adicione metadados de lista como pares de valor-chave, e não as imagens reais.
  
-7. Selecione **Enviar**. A sua lista foi criada. Note o valor **de ID** que está associado à nova lista. Precisa deste ID para outras funções de gestão de listas de imagem.
+7. Selecione **Send** (Enviar). A sua lista foi criada. Note o valor **de ID** que está associado à nova lista. Precisa deste ID para outras funções de gestão de listas de imagem.
 
    ![Listas de imagens - Criar caixa de conteúdo de resposta a consolas mostra o ID da lista](images/try-terms-list-create-2.png)
  
@@ -111,7 +111,7 @@ Depois de fazer alterações numa lista de imagens, tem de atualizar o seu índi
 
     A **consola API image - Get All Image Ids** API abre.
   
-12. Na caixa **listId,** introduza o ID da lista e, em seguida, introduza a sua chave de subscrição. Selecione **Enviar**.
+12. Na caixa **listId,** introduza o ID da lista e, em seguida, introduza a sua chave de subscrição. Selecione **Send** (Enviar).
 
     ![Imagem - Obter todas as imagens Ids consola Caixa de conteúdo de resposta lista as imagens que inseriu](images/try-image-list-create-11.png)
  

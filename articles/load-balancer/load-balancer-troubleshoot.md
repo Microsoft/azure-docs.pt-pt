@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
 ms.openlocfilehash: 1cfe27fd5c63bc4c1436982212b91e07f54aedb5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85801925"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Resolver problemas do Balanceador de Carga do Azure
@@ -151,7 +151,7 @@ Se decidir abrir um caso de apoio, recolhê as seguintes informações para uma 
 - Utilize a PSPing de um dos VMs de backend dentro da VNet para testar a resposta da porta da sonda (exemplo: psping 10.0.0.4:3389) e resultados recorde. 
 - Se não for recebida qualquer resposta nestes testes de ping, faça um rastreio de Netsh simultâneo no VM de backend e no VM de teste VNet enquanto corre PsPing, então pare o rastreio de Netsh. 
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se os passos anteriores não resolverem o problema, abra um [bilhete de apoio](https://azure.microsoft.com/support/options/).
 

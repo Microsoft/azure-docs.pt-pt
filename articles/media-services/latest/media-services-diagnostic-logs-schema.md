@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 8cfbe26458de630aaf411aade4a31cb4e9c72b17
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89295432"
 ---
 # <a name="diagnostic-logs-schemas"></a>Esquemas dos registos de diagnósticos
@@ -114,6 +114,6 @@ Propriedades do esquema de pedidos de entrega chave.
 
 * Widevine é um serviço fornecido pela Google Inc. e sujeito aos termos de serviço e Política de Privacidade da Google, Inc.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Monitorizar métricas de Serviços de Mídia e registos de diagnóstico](media-services-metrics-diagnostic-logs.md)

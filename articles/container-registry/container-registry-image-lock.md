@@ -4,10 +4,10 @@ description: Descreva os atributos para uma imagem de recipiente ou repositório
 ms.topic: article
 ms.date: 09/30/2019
 ms.openlocfilehash: da84767523bb6d948b71b1c1ad2ddaffb628354a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77659701"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Bloqueie uma imagem de contentor num registo de contentores Azure
@@ -145,7 +145,7 @@ az acr repository update \
     --delete-enabled true --write-enabled true
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a usar o comando [de atualização do repositório az acr][az-acr-repository-update] para evitar a eliminação ou atualização de versões de imagem num repositório. Para definir atributos adicionais, consulte a referência de comando de [atualização de acr az acr.][az-acr-repository-update]
 

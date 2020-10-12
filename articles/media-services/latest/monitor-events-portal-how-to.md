@@ -16,10 +16,10 @@ ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 65459dbdf8eaa92525fa20eda158f4beacf58780
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89294378"
 ---
 # <a name="create-and-monitor-media-services-events-with-event-grid-using-the-azure-portal"></a>Create and monitor Media Services events with Event Grid using the Azure portal (Criar e monitorizar eventos de Serviços de Multimédia com o Event Grid com o portal do Azure)
@@ -88,6 +88,6 @@ Pode desencadear eventos para a conta dos Serviços de Comunicação Social exec
 
 ![Ver evento da subscrição](./media/monitor-events-portal/view-subscription-event.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Carregar, codificar e transmitir](stream-files-tutorial-with-api.md)

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: inhenkel
 ms.openlocfilehash: 9f17e8a09715ce9ff51715f17a449ec0a5b3f770
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89297200"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Streaming Endpoints (Origem) em Azure Media Services
@@ -68,11 +68,11 @@ Funcionalidade|Standard|Premium
 Débito |Até 600 Mbps e pode fornecer uma produção eficaz muito maior quando um CDN é usado.|200 Mbps por unidade de streaming (SU). Pode fornecer uma produção eficaz muito maior quando um CDN é usado.
 CDN|Azure CDN, CDN de terceiros, ou sem CDN.|Azure CDN, CDN de terceiros, ou sem CDN.
 A faturação é prostimada| Diário|Diário
-Encriptação dinâmica|Yes|Yes
-Empacotamento dinâmico|Yes|Yes
+Encriptação dinâmica|Sim|Sim
+Empacotamento dinâmico|Sim|Sim
 Escala|A escala automática sobe até à produção visada.|SUs adicionais
-Filtragem IP/G20/Anfitrião personalizado <sup>1</sup>|Yes|Yes
-Download progressivo|Yes|Yes
+Filtragem IP/G20/Anfitrião personalizado <sup>1</sup>|Sim|Sim
+Download progressivo|Sim|Sim
 Uso recomendado |Recomendado para a grande maioria dos cenários de streaming.|Uso profissional.
 
 <sup>1</sup> Apenas utilizado diretamente no Ponto de Final de Streaming quando o CDN não estiver ativado no ponto final.<br/>
@@ -165,10 +165,10 @@ Consulte os seguintes artigos:
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 [Empacotamento dinâmico](dynamic-packaging-overview.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Gerir pontos finais de transmissão em fluxo](manage-streaming-endpoints-howto.md)

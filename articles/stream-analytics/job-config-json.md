@@ -7,10 +7,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 02/14/2020
 ms.openlocfilehash: f2dd759203655746601699f665436c78ee0758f8
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90885493"
 ---
 # <a name="azure-stream-analytics-jobconfigjson-fields"></a>Azure Stream Analytics JobConfig.jsnos campos
@@ -41,17 +41,17 @@ Os seguintes campos são suportados no *JobConfig.jsem* ficheiro utilizado para 
 |----|----|--------|-----|
 |DataLocale|cadeia (de carateres)|No|Os dados locais do trabalho de análise de fluxo. Valor deve ser o nome de um suportado. Predefinições para 'en-US' se nenhum especificado.|
 |OutputErrorPolicy|cadeia (de carateres)|No|Indica a política a aplicar a eventos que chegam à saída e não podem ser escritos ao armazenamento externo devido a uma má formação (valores de coluna em falta, valores de coluna de tipo ou tamanho errados). - Parar ou Largar|
-|EventosLateArrivalMaxDelayInSeconds|número inteiro|No|O atraso tolerável máximo em segundos onde os eventos que chegam tarde poderiam ser incluídos. O intervalo suportado é de -1 a 1814399 (20.23:59:59 dias) e -1 é utilizado para especificar a espera indefinidamente. Se o imóvel estiver ausente, é interpretado como ter um valor de -1.|
-|EventosOutOfOrderMaxDelayInSegundos|número inteiro|No|O atraso tolerável máximo em segundos em que os eventos fora de ordem podem ser ajustados para estarem de volta em ordem.|
+|EventosLateArrivalMaxDelayInSeconds|número inteiro|Não|O atraso tolerável máximo em segundos onde os eventos que chegam tarde poderiam ser incluídos. O intervalo suportado é de -1 a 1814399 (20.23:59:59 dias) e -1 é utilizado para especificar a espera indefinidamente. Se o imóvel estiver ausente, é interpretado como ter um valor de -1.|
+|EventosOutOfOrderMaxDelayInSegundos|número inteiro|Não|O atraso tolerável máximo em segundos em que os eventos fora de ordem podem ser ajustados para estarem de volta em ordem.|
 |EventosOutOfOrderPolicy|cadeia (de carateres)|No|Indica a política a aplicar aos eventos que chegam fora de ordem no fluxo do evento de entrada. - Ajustar ou Largar|
-|StreamingUnits|número inteiro|Yes|Especifica o número de unidades de streaming que o trabalho de streaming utiliza.|
+|StreamingUnits|número inteiro|Sim|Especifica o número de unidades de streaming que o trabalho de streaming utiliza.|
 |CompatibilidadeLevel|cadeia (de carateres)|No|Controla certos comportamentos de tempo de execução do trabalho de streaming. - Valores aceitáveis são "1.0", "1.1", "1.2"|
-|UseSystemAssignedIdentity|boolean|No|Definir-se verdadeiro para permitir que este trabalho comunique com outros serviços Azure como ele próprio usando uma Identidade de Diretório Ativo Azure Gerido.|
+|UseSystemAssignedIdentity|boolean|Não|Definir-se verdadeiro para permitir que este trabalho comunique com outros serviços Azure como ele próprio usando uma Identidade de Diretório Ativo Azure Gerido.|
 |GlobalStorage.AccountName|cadeia (de carateres)|No|A conta de armazenamento global é usada para armazenar conteúdo relacionado com o seu trabalho de análise de fluxo, como instantâneos de dados de referência SQL.|
 |GlobalStorage.AccountKey|cadeia (de carateres)|No|Chave correspondente para conta de armazenamento global.|
 |DataSourceCredentialDomain|cadeia (de carateres)|No|Propriedade reservada para armazenamento local credencial.|
-|ScriptType|string|Yes|Propriedade reservada para indicar o tipo deste ficheiro de origem. O valor aceitável é "JobConfig" para JobConfig.js.|
-|Etiquetas|Pares de valor-chave JSON|No|As etiquetas são pares de nome/valor que lhe permitem categorizar recursos e visualizar a faturação consolidada aplicando a mesma etiqueta a múltiplos recursos e grupos de recursos. Os nomes das etiquetas são insensíveis a casos e os valores das etiquetas são sensíveis a casos.|
+|ScriptType|string|Sim|Propriedade reservada para indicar o tipo deste ficheiro de origem. O valor aceitável é "JobConfig" para JobConfig.js.|
+|Etiquetas|Pares de valor-chave JSON|Não|As etiquetas são pares de nome/valor que lhe permitem categorizar recursos e visualizar a faturação consolidada aplicando a mesma etiqueta a múltiplos recursos e grupos de recursos. Os nomes das etiquetas são insensíveis a casos e os valores das etiquetas são sensíveis a casos.|
 
 ## <a name="next-steps"></a>Passos seguintes
 

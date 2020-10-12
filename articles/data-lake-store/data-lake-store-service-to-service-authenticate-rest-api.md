@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 725490316ef4fcbce197d5a29b7665b7de7014c9
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85857124"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Autenticação de serviço-a-serviço com Azure Data Lake Storage Gen1 usando REST API
@@ -18,7 +18,7 @@ ms.locfileid: "85857124"
 > * [Utilizar o Java](data-lake-store-service-to-service-authenticate-java.md)
 > * [Com o .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md)
 > * [Utilizar o Python](data-lake-store-service-to-service-authenticate-python.md)
-> * [Com a API REST](data-lake-store-service-to-service-authenticate-rest-api.md)
+> * [Utilização de REST API](data-lake-store-service-to-service-authenticate-rest-api.md)
 > 
 > 
 
@@ -50,7 +50,7 @@ A saída do pedido inclui um token de autorização (denotado pela `access-token
 
 Este artigo utiliza a abordagem **não interativa**. Para obter mais informações sobre a abordagem não interativa (chamadas serviço a serviço), veja [Chamadas serviço a serviço utilizando credenciais](https://msdn.microsoft.com/library/azure/dn645543.aspx).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a usar a autenticação de serviço-a-serviço para autenticar com a Data Lake Storage Gen1 utilizando a API REST. Agora pode olhar para os seguintes artigos que falam sobre como usar a API REST para trabalhar com a Data Lake Storage Gen1.
 

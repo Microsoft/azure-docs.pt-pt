@@ -4,10 +4,10 @@ description: Saiba mais sobre as imagens base para imagens de contentores de apl
 ms.topic: article
 ms.date: 01/22/2019
 ms.openlocfilehash: 35933c4cdbbf2762f7a54bd945f8a8ffa55b9f21
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85918504"
 ---
 # <a name="about-base-image-updates-for-acr-tasks"></a>Sobre atualizações de imagem base para tarefas ACR
@@ -62,7 +62,7 @@ O tempo entre o momento em que uma imagem base é atualizada e quando a tarefa d
 
 * **Outros detonadores de tarefas** - Numa tarefa desencadeada por atualizações de imagem base, também pode ativar os gatilhos baseados no [código fonte](container-registry-tutorial-build-task.md) ou [num horário](container-registry-tasks-scheduled.md). Uma atualização de imagem base também pode desencadear uma [tarefa em várias etapas](container-registry-tasks-multi-step.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte os seguintes tutoriais para cenários para automatizar as construções de imagem de aplicação após a atualização de uma imagem base:
 

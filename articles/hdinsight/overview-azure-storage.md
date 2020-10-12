@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: 1bdec284ccdfca9e13ca227fe1109afe28da14b0
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85851384"
 ---
 # <a name="azure-storage-overview-in-hdinsight"></a>Visão geral do armazenamento Azure em HDInsight
@@ -75,7 +75,7 @@ Certos trabalhos e pacotes mapReduce podem criar resultados intermédios que nã
 > [!NOTE]  
 > A maioria dos comandos HDFS (por `ls` exemplo, `copyFromLocal` , e ) funcionam como esperado no `mkdir` Azure Storage. Apenas os comandos específicos da implementação de HDFS nativo (que é referido como DFS), tais como `fschk` `dfsadmin` e, mostram comportamentos diferentes no Azure Storage.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Introdução ao Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
 * [Introdução ao Armazenamento do Azure](../storage/common/storage-introduction.md)

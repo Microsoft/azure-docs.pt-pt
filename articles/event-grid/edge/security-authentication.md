@@ -8,10 +8,10 @@ ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
 ms.openlocfilehash: 42f6107ff79d6262cdc0a35cf972cf65d3a9a802
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86171385"
 ---
 # <a name="security-and-authentication"></a>Segurança e autenticação
@@ -35,7 +35,7 @@ As seguintes secções descrevem em detalhe como estas definições são protegi
 
 O módulo De Grelha de Eventos acolhe pontos finais HTTP e HTTPS. Cada módulo IoT Edge é atribuído a um certificado de servidor pelo daemon de segurança do IoT Edge. Usamos o certificado do servidor para proteger o ponto final. Ao expirar, o módulo atualiza-se automaticamente com um novo certificado do daemon de segurança IoT Edge.
 
-Por predefinição, apenas é permitida a comunicação HTTPS. Pode anular este comportamento através **inbound__serverAuth__tlsPolicy** configuração. A tabela seguinte capta os possíveis valores deste imóvel.
+Por predefinição, apenas é permitida a comunicação HTTPS. Pode anular este comportamento através  **inbound__serverAuth__tlsPolicy** configuração. A tabela seguinte capta os possíveis valores deste imóvel.
 
 | Valores possíveis | Descrição |
 | ---------------- | ------------ |

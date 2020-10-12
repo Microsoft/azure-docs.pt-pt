@@ -17,10 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b566081459b0bab0aae9831e128ffbee0efaf4e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85367738"
 ---
 # <a name="wildcard-applications-in-the-azure-active-directory-application-proxy"></a>Aplicações Wildcard no proxy de aplicação do Azure Ative Directory
@@ -68,7 +68,7 @@ Por razões de segurança, este é um requisito difícil e não apoiaremos wildc
 
 ### <a name="dns-updates"></a>Atualizações de DNS
 
-Ao utilizar domínios personalizados, é necessário criar uma entrada de DNS com um registo CNAME para o URL externo (por exemplo, `*.adventure-works.com` ) que indique o URL externo do ponto final do proxy de aplicação. Para aplicações wildcard, o registo CNAME precisa de apontar para os URLs externos relevantes:
+Ao utilizar domínios personalizados, é necessário criar uma entrada de DNS com um registo CNAME para o URL externo (por exemplo,  `*.adventure-works.com` ) que indique o URL externo do ponto final do proxy de aplicação. Para aplicações wildcard, o registo CNAME precisa de apontar para os URLs externos relevantes:
 
 > `<yourAADTenantId>.tenant.runtime.msappproxy.net`
 
@@ -84,7 +84,7 @@ Para aplicações wildcard, o **URL Interno** deve ser formatado como `http(s):/
 
 ![Para URL interno, utilize o formato http(s)://*. \<> de domínio](./media/application-proxy-wildcard/22.png)
 
-Ao configurar um **URL externo,** deve utilizar o seguinte formato:`https://*.<custom domain>`
+Ao configurar um **URL externo,** deve utilizar o seguinte formato: `https://*.<custom domain>`
 
 ![Para URL externo, utilize o formato https://*. \<> de domínio personalizado](./media/application-proxy-wildcard/21.png)
 
@@ -132,7 +132,7 @@ Todas as três aplicações:
 
 Pode publicar a aplicação wildcard utilizando os passos descritos nas [aplicações de publicação utilizando o Azure AD Application Proxy](application-proxy-add-on-premises-application.md). Este cenário pressupõe:
 
-- Um inquilino com a seguinte iD:`000aa000-11b1-2ccc-d333-4444eee4444e`
+- Um inquilino com a seguinte iD: `000aa000-11b1-2ccc-d333-4444eee4444e`
 - Um domínio verificado chamado `adventure-works.com` foi configurado.
 - Foi criada uma entrada **CNAME** que aponta `*.adventure-works.com` para a `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net` criação.
 
@@ -156,9 +156,9 @@ A configuração implementa a seguinte estrutura:
 
 ![Mostra a estrutura implementada pela configuração do exemplo](./media/application-proxy-wildcard/05.png)
 
-| Cor | Descrição |
+| Color | Descrição |
 | ---   | ---         |
-| Azul  | Aplicações explicitamente publicadas e visíveis no portal Azure. |
+| Blue  | Aplicações explicitamente publicadas e visíveis no portal Azure. |
 | Cinzento  | Aplicações que pode ser acessível através da aplicação dos pais. |
 
 ## <a name="scenario-2-general-wildcard-application-with-exception"></a>Cenário 2: Aplicação geral wildcard com exceção
@@ -189,7 +189,7 @@ Porque `finance.adventure-works.com` é uma URL mais específica do `*.adventure
 
 Se tiver várias aplicações publicadas para financiamento e tiver `finance.adventure-works.com` como domínio verificado, poderá publicar outra aplicação wildcard `*.finance.adventure-works.com` . Uma vez que isto é mais específico do que o `*.adventure-works.com` genérico, tem precedência se um utilizador acede a uma aplicação no domínio financeiro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre **domínios personalizados,** consulte [Trabalhar com domínios personalizados no Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
 - Para saber mais sobre **as aplicações de publicação,** consulte [publicar aplicações usando a Azure AD Application Proxy](application-proxy-add-on-premises-application.md)

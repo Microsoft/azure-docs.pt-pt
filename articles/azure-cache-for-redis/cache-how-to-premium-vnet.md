@@ -8,10 +8,10 @@ ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.openlocfilehash: 82003ef84571c8e07982826124b33763c0e53194
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88205562"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Como configurar suporte de rede virtual para uma cache premium Azure para Redis
@@ -109,7 +109,7 @@ Há nove requisitos portuários de saída. Os pedidos de saída nestas gamas sã
 | 10221-10231 |Saída |TCP |Comunicações internas para Redis | (Sub-rede Redis) | (Sub-rede Redis) |
 | 20226 |Saída |TCP |Comunicações internas para Redis | (Sub-rede Redis) |(Sub-rede Redis) |
 | 13000-13999 |Saída |TCP |Comunicações internas para Redis | (Sub-rede Redis) |(Sub-rede Redis) |
-| 15000-15999 |Saída |TCP |Comunicações internas para Redis e Geo-Replicação | (Sub-rede Redis) |(Sub-rede Redis) (Sub-rede peer de réplica de réplica) |
+| 15000-15999 |Saída |TCP |Comunicações internas para Redis e Geo-Replication | (Sub-rede Redis) |(Sub-rede Redis) (Sub-rede peer de réplica de réplica) |
 | 6379-6380 |Saída |TCP |Comunicações internas para Redis | (Sub-rede Redis) |(Sub-rede Redis) |
 
 <sup>1</sup> Pode utilizar a etiqueta de serviço 'AzureKeyVault' com grupos de segurança da rede de gestores de recursos.
@@ -130,11 +130,11 @@ Existem oito requisitos de gama portuária de entrada. Os pedidos de entrada nes
 | --- | --- | --- | --- | --- | --- |
 | 6379, 6380 |Entrada |TCP |Comunicação do cliente com Redis, Azure load balance | (Sub-rede Redis) | (Sub-rede Redis), Rede Virtual, Balançador de Carga Azure <sup>1</sup> |
 | 8443 |Entrada |TCP |Comunicações internas para Redis | (Sub-rede Redis) |(Sub-rede Redis) |
-| 8500 |Entrada |TCP/UDP |Balanceamento de carga do Azure | (Sub-rede Redis) |Balanceador de Carga do Azure |
+| 8500 |Entrada |TCP/UDP |Balanceamento de carga do Azure | (Sub-rede Redis) |Azure Load Balancer |
 | 10221-10231 |Entrada |TCP |Comunicações internas para Redis | (Sub-rede Redis) |(Sub-rede Redis), Equilibrador de Carga Azure |
 | 13000-13999 |Entrada |TCP |Comunicação do cliente com Redis Clusters, Azure load balance | (Sub-rede Redis) |Rede Virtual, Equilibrador de Carga Azure |
-| 15000-15999 |Entrada |TCP |Comunicação do cliente com Redis Clusters, Azure load Balanceing e Geo-Replication | (Sub-rede Redis) |Rede Virtual, Balançador de Carga Azure(Sub-rede de pares geo-réplica) |
-| 16001 |Entrada |TCP/UDP |Balanceamento de carga do Azure | (Sub-rede Redis) |Balanceador de Carga do Azure |
+| 15000-15999 |Entrada |TCP |Comunicação do cliente com Redis Clusters, Azure load Balanceing, e Geo-Replication | (Sub-rede Redis) |Rede Virtual, Balançador de Carga Azure(Sub-rede de pares geo-réplica) |
+| 16001 |Entrada |TCP/UDP |Balanceamento de carga do Azure | (Sub-rede Redis) |Azure Load Balancer |
 | 20226 |Entrada |TCP |Comunicações internas para Redis | (Sub-rede Redis) |(Sub-rede Redis) |
 
 <sup>1</sup> Pode utilizar a Etiqueta de Serviço 'AzureLoadBalancer' (ou 'AZURE_LOADBALANCER' para clássico) para a autoria das regras NSG.

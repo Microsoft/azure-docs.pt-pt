@@ -11,10 +11,10 @@ ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2a2126aceba8724b46de094d14db754d704500c6
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85850976"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect: ADSyncConfig PowerShell Reference
@@ -287,7 +287,7 @@ Accept wildcard characters: False
 Este cmdlet suporta os parâmetros comuns: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction e -WarningVariable.
 Para mais informações, consulte about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) about_CommonParameters.
 
-## <a name="set-adsyncexchangehybridpermissions"></a>Set-ADSyncExchangePermissions
+## <a name="set-adsyncexchangehybridpermissions"></a>Set-ADSyncExchangeHybridPermissions
 
 ### <a name="synopsis"></a>SINOPSE
 Inicialize a sua floresta de Diretório Ativo e domínio para a funcionalidade Exchange Hybrid.
@@ -307,7 +307,7 @@ Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN 
 ```
 
 ### <a name="description"></a>DESCRIÇÃO
-A Função Set-ADSyncExchangeHybridPermissions dará permissões necessárias à conta de sincronização de AD, que incluem as seguintes:
+A Função Set-ADSyncExchangeHybridPermissions dará permissões necessárias à conta de sincronização de AD, que incluem o seguinte:
 1.
 Ler/Escrever Acesso de propriedade em todos os atributos para todos os objetos de utilizador descendentes
 2.
@@ -475,7 +475,7 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN <String> [-A
 ```
 
 ### <a name="description"></a>DESCRIÇÃO
-A Função Set-ADSyncExchangeMailPublicFolderPermissions dará permissões necessárias à conta de sincronização de AD, que incluem as seguintes:
+A Função Set-ADSyncExchangeMailPublicFolderPermissions dará permissões necessárias à conta de sincronização de AD, que incluem o seguinte:
 1.
 Leia o acesso à propriedade em todos os atributos para todos os objetos de dobradores públicos descendentes
 
@@ -636,7 +636,7 @@ Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN <String> [-ADobje
 ```
 
 ### <a name="description"></a>DESCRIÇÃO
-A Função Set-ADSyncMsConsistencyGuidPermissions dará permissões necessárias à conta de sincronização de AD, que incluem as seguintes:
+A Função Set-ADSyncMsDsConsistencyGuidPermissions dará permissões necessárias à conta de sincronização de AD, que incluem o seguinte:
 1.
 Ler/escrever Acesso de propriedade no atributo mS-DS-ConsistênciaGuid para todos os objetos de utilizador descendentes
 
@@ -796,7 +796,7 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <String> [-WhatIf] [
 ```
 
 ### <a name="description"></a>DESCRIÇÃO
-A Função Set-ADSyncPasswordHashSyncPermissions dará permissões necessárias à conta de sincronização de AD, que incluem as seguintes:
+A Função Set-ADSyncPasswordHashSyncPermissions dará permissões necessárias à conta de sincronização de AD, que incluem o seguinte:
 1.
 Alterações de Diretório de Replicação
 2.
@@ -898,7 +898,7 @@ Accept wildcard characters: False
 Este cmdlet suporta os parâmetros comuns: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction e -WarningVariable.
 Para mais informações, consulte about_CommonParameters ( https://go.microsoft.com/fwlink/?LinkID=113216) about_CommonParameters.
 
-## <a name="set-adsyncpasswordwritebackpermissions"></a>Set-ADSyncPasswordPeritebackPermissions
+## <a name="set-adsyncpasswordwritebackpermissions"></a>Set-ADSyncPasswordWritebackPermissions
 
 ### <a name="synopsis"></a>SINOPSE
 Inicialize a floresta e o domínio do Ative Directory para a gravação de passwords do Azure AD.
@@ -1078,14 +1078,14 @@ Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <
 ```
 
 ### <a name="description"></a>DESCRIÇÃO
-A Função De Set-ADSyncRestrictedPermissions irá apertar as permissões oo a conta fornecida.
+A Função Set-ADSyncRestrictedPermissions irá apertar as permissões oo a conta fornecida.
 As permissões de aperto envolvem os seguintes passos:
 1. Desativar a herança no objeto especificado
 2. Remova todos os ACEs no objeto específico, exceto ACEs específicos de SELF.
 Queremos manter as permissões por defeito intactas quando se trata de SELF.
 3. Atribua estas permissões específicas:
 
-   | Tipo | Name | Access | Aplica-se A |
+   | Tipo | Nome | Access | Aplica-se A |
    |------|------|--------|------------|
    | Permitir | SISTEMA | Controlo Total | Este objeto |
    | Permitir | Administradores da Empresa | Controlo Total | Este objeto |

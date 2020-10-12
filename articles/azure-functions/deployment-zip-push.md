@@ -4,10 +4,10 @@ description: Utilize as instalações de implantação de ficheiros .zip do serv
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.openlocfilehash: e104661dcdf1f6c6fd6dd5eb1024748980e7931f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85833057"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Zip deployment for Azure Functions (Implementação com ficheiro zip para as Funções do Azure)
@@ -89,7 +89,7 @@ A implementação zip integra-se com esta funcionalidade, que pode permitir defi
 
 [!INCLUDE [app-service-deploy-zip-push-custom](../../includes/app-service-deploy-zip-push-custom.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Implementação contínua para Funções do Azure](functions-continuous-deployment.md)

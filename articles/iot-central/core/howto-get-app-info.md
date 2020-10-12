@@ -8,10 +8,10 @@ ms.date: 06/26/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.openlocfilehash: 12ba8526be68d2cb15e37510e66f959ab65c6e99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85802292"
 ---
 # <a name="about-your-application"></a>Acerca da sua aplicação
@@ -37,6 +37,6 @@ Para obter informações sobre a sua aplicação IoT Central:
 
     Utilize o botão **de informação Copy** para copiar as informações para a área de transferência.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que sabe como encontrar a versão da sua aplicação IoT Central, um próximo passo sugerido é continuar a explorar os artigos de como fazer para administradores: Alterar definições de [aplicação IoT Central](howto-administer.md).

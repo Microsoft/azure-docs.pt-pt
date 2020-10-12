@@ -12,10 +12,10 @@ ms.author: rohitna
 ms.reviewer: genemi, jrasnick, vanto
 ms.date: 06/26/2019
 ms.openlocfilehash: d208a9b9f8e1cc16e2c72aa825a2daf88ad00176
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86145649"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Pseudónimo de DNS para Azure SQL Database
@@ -61,7 +61,7 @@ As seguintes propriedades aplicam-se a cada pseudónimo DNS para o seu servidor:
   - Quando deixa cair um servidor, o sistema Azure também deixa cair todos os pseudónimos DNS que se referem ao servidor.
 - *Não ligado a nenhuma região:* Os pseudónimos do DNS não estão ligados a uma região. Qualquer pseudónimo dns pode ser atualizado para se referir a um servidor que reside em qualquer região geográfica.
   - No entanto, ao atualizar um pseudónimo para se referir a outro servidor, ambos os servidores devem existir na mesma *subscrição*do Azure .
-- *Permissões:* Para gerir um pseudónimo DNS, o utilizador deve ter permissões *de Colaborador do Servidor,* ou superiores. Para obter mais informações, consulte [Começar com o Controlo de Acesso Baseado em Fun no portal Azure.](../../role-based-access-control/overview.md)
+- *Permissões:* Para gerir um pseudónimo DNS, o utilizador deve ter permissões *de Colaborador do Servidor,* ou superiores. Para mais informações, consulte [Começar com Role-Based Controlo de Acesso no portal Azure.](../../role-based-access-control/overview.md)
 
 ## <a name="manage-your-dns-aliases"></a>Gerencie os seus pseudónimos DNS
 

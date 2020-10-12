@@ -4,10 +4,10 @@ description: Saiba mais sobre o manuseamento de erros nos fluxos de trabalho do 
 ms.topic: article
 ms.date: 05/15/2020
 ms.openlocfilehash: 3bd460598dae08fa18415e1c9865249f3ca4c9c2
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85964282"
 ---
 # <a name="error-handling-and-detection-in-azure-batch"></a>Manipulação e deteção de erros em Azure Batch
@@ -106,7 +106,7 @@ As APIs do lote irão notificá-lo se houver uma falha. Todos podem ser novament
 
 Depois de uma falha, deve esperar um pouco (vários segundos entre as retracências) antes de voltar a tentar. Se voltar a tentar com demasiada frequência ou muito depressa, o manipulador de novo acelerará.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como verificar se [existem erros na piscina e no nó](batch-pool-node-error-checking.md).
 - Saiba como verificar se [há erros de trabalho e de tarefas](batch-job-task-error-checking.md).
