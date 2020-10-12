@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: cbdc81789fcd996774090f12523e7404c0aa0111
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86205850"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Crie automaticamente uma instância de dimensionamento da Gestão de API do Azure  
@@ -31,7 +31,7 @@ O artigo percorre o processo de configuração da autoescalação e sugere uma c
 
 Para seguir os passos deste artigo, deve:
 
-+ Tenha uma subscrição ativa do Azure.
++ Ter uma subscrição ativa do Azure.
 + Tenha um caso de Gestão API da Azure. Para obter mais informações, consulte [Criar uma instância de Gestão API Azure.](get-started-create-service-instance.md)
 + Compreender o conceito de [Capacidade de uma Instância de Gestão API Azure.](api-management-capacity.md)
 + Compreenda [o processo de dimensionamento manual de uma instância de Gestão API da Azure,](upgrade-and-scale.md)incluindo consequências de custos.

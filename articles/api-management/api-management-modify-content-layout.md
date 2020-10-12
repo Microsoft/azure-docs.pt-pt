@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: vlvinogr
 ms.openlocfilehash: ebf2cbd430339378a09d10d91ad61327d24842e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75430636"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Modificar o conteúdo e o esquema das páginas no portal do programador na Gestão de API do Azure
@@ -55,7 +55,7 @@ O portal do Programador está acessível a partir do Portal do Azure.
 
 Agora deve conseguir ver o novo cabeçalho em todas as páginas do portal do programador.
 
-## <a name="next-steps"></a><a name="next-steps"> </a>Próximos passos
+## <a name="next-steps"></a><a name="next-steps"> </a>Passos seguintes
 * [Atualizar os estilos utilizados para elementos de página em todo o portal do programador][customize-styles]
 * [Modificar os modelos utilizados para páginas geradas pelo portal][portal-templates] (por exemplo, documentos de API, produtos, autenticação de utilizador, etc.)
 

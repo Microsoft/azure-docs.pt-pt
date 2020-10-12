@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18
 ms.openlocfilehash: dbeba56820a520e3435eeb0c5c8dbc5aae981241
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78403236"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Quickstart: Enviar eventos do registo privado de contentores para a Grade de Eventos
@@ -35,7 +35,7 @@ RESOURCE_GROUP_NAME=myResourceGroup
 az group create --name $RESOURCE_GROUP_NAME --location eastus
 ```
 
-## <a name="create-a-container-registry"></a>Criar um registo de contentores
+## <a name="create-a-container-registry"></a>Criar um registo de contentor
 
 Em seguida, inserção de um registo de contentores no grupo de recursos com os seguintes comandos. Antes de executar o [az acr criar][az-acr-create] comando, definir `ACR_NAME` um nome para o seu registo. O nome deve ser único dentro de Azure, e é restrito a 5-50 caracteres alfanuméricos.
 
@@ -202,7 +202,7 @@ A imagem que se segue mostra a aplicação da amostra com os três eventos, e o 
 
 Parabéns! Se vir os `ImagePushed` eventos e `ImageDeleted` eventos, o seu registo está a enviar eventos para a Grade de Eventos, e a Grade de Eventos está a encaminhar esses eventos para o ponto final da sua aplicação web.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Uma vez terminado os recursos que criou neste arranque rápido, pode eliminá-los todos com o seguinte comando Azure CLI. Quando elimina um grupo de recursos, todos os recursos que contém são permanentemente eliminados.
 
@@ -218,7 +218,7 @@ Pode encontrar a referência de mensagem do registo do registo do contentor Azur
 
 [Esquema de evento de Azure Event Grid para registo de contentores](../event-grid/event-schema-container-registry.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste quickstart, você implantou um registo de contentores, construiu uma imagem com tarefas ACR, apagou-a e consumiu os eventos do seu registo a partir da Grade de Eventos com uma aplicação de amostragem. Em seguida, passe para o tutorial de tarefas ACR para saber mais sobre a construção de imagens de contentores na nuvem, incluindo construções automatizadas na atualização da imagem base:
 

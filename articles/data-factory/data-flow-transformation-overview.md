@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: 0442c701f39fd3e84361ad0201aaf8d1840d8851
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81606271"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>Visão geral da transformação do fluxo de dados de mapeamento
@@ -20,7 +20,7 @@ ms.locfileid: "81606271"
 
 Abaixo está uma lista das transformações atualmente suportadas no fluxo de dados de mapeamento. Clique em cada transformação para aprender os seus detalhes de configuração.
 
-| Name | Categoria | Descrição |
+| Nome | Categoria | Descrição |
 | ---- | -------- | ----------- |
 | [Agregação](data-flow-aggregate.md) | Modificador de esquemas | Defina diferentes tipos de agregações tais como SUM, MIN, MAX e COUNT agrupados por colunas existentes ou computadas. | 
 | [Alterar linha](data-flow-alter-row.md) | Modificador de linha | Desação, eliminação, atualização e atualização das políticas em linhas. |
@@ -29,7 +29,7 @@ Abaixo está uma lista das transformações atualmente suportadas no fluxo de da
 | [Existe](data-flow-exists.md) | Múltiplas entradas/saídas | Verifique se os seus dados existem noutra fonte ou fluxo. | 
 | [Filtro](data-flow-filter.md) | Modificador de linha | Filtre uma linha com base numa condição. |
 | [Aplanar](data-flow-flatten.md) | Modificador de esquemas |  Pegue os valores de matriz dentro de estruturas hierárquicas como json e desenrolar-os em linhas individuais. |
-| [Aderir](data-flow-join.md) | Múltiplas entradas/saídas |  Combine dados de duas fontes ou fluxos. |
+| [Join](data-flow-join.md) | Múltiplas entradas/saídas |  Combine dados de duas fontes ou fluxos. |
 | [Pesquisa](data-flow-lookup.md) | Múltiplas entradas/saídas | Dados de referência de outra fonte. |
 | [Novo ramo](data-flow-new-branch.md) | Múltiplas entradas/saídas | Aplicar vários conjuntos de operações e transformações contra o mesmo fluxo de dados. |
 | [Dinamizar](data-flow-pivot.md) | Modificador de esquemas | Uma agregação onde uma ou mais colunas de agrupamento têm os seus valores de linha distintos transformados em colunas individuais. |

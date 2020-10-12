@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 10/16/2019
 ms.author: mimart
 ms.openlocfilehash: bbf1daf3a70e5ca87b4a0027b53aed5fab5691d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84317782"
 ---
 Para registar uma aplicação no seu inquilino Azure AD B2C, pode utilizar a nossa nova experiência de registos de **Aplicações unificadas** ou a nossa experiência de **Aplicações (Legacy).** [Saiba mais sobre a nova experiência.](https://aka.ms/b2cappregtraining)
@@ -41,5 +41,5 @@ Uma vez concluído o registo do pedido, permita o fluxo de subvenção implícit
 1. Selecione **Aplicações**e, em seguida, **selecione Adicionar**.
 1. Introduza um nome para a aplicação. Por exemplo, *testapp1*.
 1. Para **Aplicação Web / Web API,** selecione **Sim**.
-1. Para **URL de resposta**, insira`https://jwt.ms`
+1. Para **URL de resposta**, insira `https://jwt.ms`
 1. Selecione **Criar**.

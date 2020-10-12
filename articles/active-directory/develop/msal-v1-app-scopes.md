@@ -13,10 +13,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 61d07c1ba912a0e24b2f4e5fa67243b4525db367
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81536187"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>Âmbitos para uma API web aceitando fichas v1.0
@@ -64,7 +64,7 @@ var result = await app.AcquireTokenInteractive(scopes).ExecuteAsync();
 A lógica utilizada pela Azure AD é a seguinte:
 
 - Para o ponto final ADAL (Azure AD v1.0) com um token de acesso v1.0 (o único possível), aud=recurso
-- Para o ponto final msal (plataforma de identidade da Microsoft (v2.0)) que pede um token de acesso para um recurso que aceita tokens v2.0,`aud=resource.AppId`
+- Para o ponto final msal (plataforma de identidade da Microsoft (v2.0)) que pede um token de acesso para um recurso que aceita tokens v2.0, `aud=resource.AppId`
 - Para o MSAL (ponto final v2.0) pedir um token de acesso para um recurso que aceita um token de acesso v1.0 (o que é o caso acima), a Azure AD analisa o público desejado do âmbito solicitado, tomando tudo antes do último corte e usando-o como identificador de recursos. Por isso, se https: \/ /database.windows.net espera uma audiência de "https: \/ /database.windows.net/", terá de solicitar um âmbito de "https: \/ /database.windows.net//.default". Consulte também a edição do GitHub [#747: O corte de rastos do url de recursos é omitido, o que causou uma falha de auth sql](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
 
 ## <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>Âmbitos para solicitar acesso a todas as permissões de uma aplicação v1.0

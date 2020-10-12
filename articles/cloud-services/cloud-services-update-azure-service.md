@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
 ms.openlocfilehash: 731f4e8cc8a93f33d6887f44fc8d09585e92a75a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75360349"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Como atualizar um serviço de nuvem
@@ -99,12 +99,12 @@ O Controlador de Tecidos aguardará 30 minutos para que cada instância de funç
 
 Ao atualizar um serviço de uma única instância para várias instâncias, o seu serviço será reduzido enquanto a atualização é realizada devido à forma como o Azure atualiza os serviços. O contrato de nível de serviço que garante a disponibilidade do serviço só se aplica aos serviços que são implantados com mais de uma instância. A lista a seguir descreve como os dados de cada unidade são afetados por cada cenário de atualização do serviço Azure:
 
-|Scenario|Unidade C|Unidade D|E Drive|
+|Cenário|Unidade C|Unidade D|E Drive|
 |--------|-------|-------|-------|
 |Reinicialização do VM|Preservado|Preservado|Preservado|
 |Reinicialização do portal|Preservado|Preservado|Destruído|
 |Imagem do portal|Preservado|Destruído|Destruído|
-|Upgrade no local|Preservado|Preservado|Destruído|
+|Atualização In-Place|Preservado|Preservado|Destruído|
 |Migração do nó|Destruído|Destruído|Destruído|
 
 Note que, na lista acima, o E: unidade representa o impulso raiz do papel, e não deve ser codificado duramente. Em vez disso, utilize a variável ambiente **%RoleRoot%** para representar a unidade.
@@ -179,7 +179,7 @@ O diagrama seguinte ilustra como um serviço do que contém duas funções são 
 >
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Como gerir Serviços Cloud](cloud-services-how-to-manage-portal.md)  
 [Como monitorizar os serviços na nuvem](cloud-services-how-to-monitor.md)  
 [Como configurar um Serviços Cloud](cloud-services-how-to-configure-portal.md)  

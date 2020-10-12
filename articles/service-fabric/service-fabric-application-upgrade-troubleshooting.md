@@ -4,10 +4,10 @@ description: Este artigo aborda algumas questões comuns em torno da atualizaç�
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: d462f2c2482e0fbb4d252967754a9675ed362674
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75377927"
 ---
 # <a name="troubleshoot-application-upgrades"></a>Resolver problemas da atualização da aplicação
@@ -218,7 +218,7 @@ A falha de atualização não pode ocorrer mais rapidamente do que *o HealthChec
 
 O tempo de atualização para um domínio de upgrade é limitado por *UpgradeDomainTimeout*.  Se *o HealthCheckRetryTimeout* e *o HealthCheckStableDuration* não forem zero e a saúde da aplicação continuar a mudar para trás e para a frente, então a atualização acaba por ser esgotada no *UpgradeDomainTimeout*. *UpgradeDomainTimeout* começa a contagem rebatida assim que a atualização para o domínio de atualização atual começa.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [A atualização da sua aplicação utilizando o Visual Studio](service-fabric-application-upgrade-tutorial.md) acompanha-o através de uma atualização de aplicações utilizando o Visual Studio.
 

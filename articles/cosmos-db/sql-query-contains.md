@@ -8,10 +8,10 @@ ms.date: 06/02/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 4877272fc2db521977a4111317118380399d27c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84322708"
 ---
 # <a name="contains-azure-cosmos-db"></a>CONTÉM (Azure Cosmos DB)
@@ -78,7 +78,7 @@ A primeira consulta provavelmente usará mais RUs do que a segunda consulta porq
 
 Se o tamanho da propriedade em Contém for superior a 1 KB para alguns documentos, o motor de consulta terá de carregar esses documentos. Neste caso, o motor de consulta não será capaz de avaliar totalmente contém com um índice. A taxa RU para conter será elevada se tiver um grande número de documentos com tamanhos de propriedade superior a 1 KB.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Funções de corda Azure Cosmos DB](sql-query-string-functions.md)
 - [Funciona O sistema Azure Cosmos DB](sql-query-system-functions.md)

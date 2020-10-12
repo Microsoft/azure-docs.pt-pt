@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: mimckitt
 ms.openlocfilehash: e78a18055d85e2105ea604d568c154c889ab0655
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86206013"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Extensão de máquina virtual do Agente observador de rede para Windows
@@ -76,7 +76,7 @@ O JSON seguinte mostra o esquema para a extensão do Agente observador de rede. 
 
 Pode implementar extensões Azure VM com modelos Azure Resource Manager. Pode utilizar o esquema JSON detalhado na secção anterior num modelo do Azure Resource Manager para executar a extensão do Agente observador de rede durante uma implementação do modelo do Azure Resource Manager.
 
-## <a name="powershell-deployment"></a>Implantação powerShell
+## <a name="powershell-deployment"></a>Implementação do PowerShell
 
 Utilize o `Set-AzVMExtension` comando para implantar a extensão da máquina virtual do Network Watcher Agent para uma máquina virtual existente:
 

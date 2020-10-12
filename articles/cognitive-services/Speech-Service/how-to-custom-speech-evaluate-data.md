@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
 ms.openlocfilehash: cadbe79bbe0af2b5cebacb3d0c7c4e910fc7dbb8
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85856833"
 ---
 # <a name="evaluate-custom-speech-accuracy"></a>Avaliar a precisão da Voz Personalizada
@@ -64,7 +64,7 @@ Depois de o seu teste ter sido criado com sucesso, pode comparar os resultados l
 
 Uma vez concluído o teste, indicado pela alteração de estado para *'Sucesso',* encontrará um número WER para ambos os modelos incluídos no seu teste. Clique no nome do teste para ver a página de detalhes do teste. Esta página de detalhe lista todas as expressões no seu conjunto de dados, indicando os resultados de reconhecimento dos dois modelos juntamente com a transcrição do conjunto de dados submetido. Para ajudar a inspecionar a comparação lado a lado, pode alternar vários tipos de erros, incluindo inserção, eliminação e substituição. Ao ouvir o áudio e comparar os resultados de reconhecimento em cada coluna, que mostra a transcrição com rótulo humano e os resultados de dois modelos de discurso a texto, pode decidir qual o modelo que satisfaz as suas necessidades e onde são necessárias formações e melhorias adicionais.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Preparar o seu modelo](how-to-custom-speech-train-model.md)
 * [Implemente o seu modelo](how-to-custom-speech-deploy-model.md)

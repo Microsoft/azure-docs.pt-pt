@@ -19,10 +19,10 @@ author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 13d56ec321cd257412c2b0abbe0be655c6cb4dbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85360100"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Gerir a confiança do AD FS com o Azure AD com o Azure AD Connect
@@ -39,7 +39,7 @@ O Azure AD Connect pode gerir a federação entre o Serviço de Federação de D
 
 O Azure AD Connect gere **apenas** as definições relacionadas com a confiança AD AZure. O Azure AD Connect não modifica quaisquer definições de outras fidedignidades de partes dependentes em FS AD. A tabela a seguir indica as definições que são controladas pelo Azure AD Connect.
 
-| Definição | Descrição |
+| Definições | Descrição |
 | :--- | :--- |
 | Certificado de assinatura token | O Azure AD Connect pode ser usado para reiniciar e recriar a confiança com a Azure AD. O Azure AD Connect faz uma transição imediata única dos certificados de assinatura de token para AD FS e atualiza as definições da federação de domínio AD AZure.|
 | Algoritmo de assinatura token | A Microsoft recomenda a utilização do SHA-256 como algoritmo de assinatura de fichas. O Azure AD Connect pode detetar se o algoritmo de assinatura de fichas está definido para um valor menos seguro do que SHA-256. Atualizará a definição para SHA-256 na próxima operação de configuração possível. Outras pessoas que confiam na confiança das partes devem ser atualizadas para utilizar o novo certificado de assinatura simbólica. |
@@ -56,15 +56,15 @@ A ligação AD AD azul não atualiza todas as definições para a confiança AD 
 
 | Fluxo de execução | Configurações impactadas |
 | :--- | :--- |
-| Instalação do primeiro passe (expresso) | Nenhuma |
+| Instalação do primeiro passe (expresso) | Nenhum |
 | Instalação do primeiro passe (nova quinta AD FS) | Uma nova fazenda AD FS é criada e um fundo com Azure AD é criado de raiz. |
 | Instalação de primeiro passe (fazenda AD FS existente, confiança AD existente) | Identificador de confiança Azure AD, regras de transformação de emissão, pontos finais Azure AD, Id alternativo (se necessário), atualização automática de metadados |
 | Repor a confiança da AD AD | Certificado de assinatura token, algoritmo de assinatura token, identificador de confiança AZure AD, regras de transformação de emissão, pontos finais AZure AD, Id alternativo (se necessário), atualização automática de metadados |
-| Adicionar servidor da federação | Nenhuma |
-| Adicionar servidor WAP | Nenhuma |
+| Adicionar servidor da federação | Nenhum |
+| Adicionar servidor WAP | Nenhum |
 | Opções do dispositivo | Regras de transformação de emissão, IWA para registo de dispositivos |
 | Adicionar domínio federado | Se o domínio for adicionado pela primeira vez, isto é, a configuração está a mudar de uma federação de domínio único para federação de vários domínios – o Azure AD Connect recriará a confiança do zero. Se a confiança com a AD Azure já estiver configurada para vários domínios, apenas as regras de transformação de emissão são modificadas |
-| Atualizar TLS | Nenhuma |
+| Atualizar TLS | Nenhum |
 
 Durante todas as operações, em que qualquer configuração é modificada, o Azure AD Connect faz uma cópia de segurança das definições de confiança atuais em **%ProgramData%\AADConnect\ADFS**
 
@@ -119,5 +119,5 @@ Pode restaurar as regras de transformação da emissão usando os passos sugerid
 > [!NOTE]
 > Certifique-se de que as suas regras adicionais não entram em conflito com as regras configuradas pelo Azure AD Connect.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Gerir e personalizar serviços da Federação de Diretórios Ativos utilizando o Azure AD Connect](how-to-connect-fed-management.md)

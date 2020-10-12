@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: lcozzens
 ms.openlocfilehash: c1142ef7b37dee916118964778f6c1db2a65d591
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88719704"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Push configurações para configuração de aplicativos com pipelines Azure
@@ -87,7 +87,7 @@ Os seguintes parâmetros são utilizados pela tarefa De pressão de configuraç�
 - **Etiqueta**: Uma cadeia que é adicionada a cada valor-chave como a etiqueta dentro da loja de configuração de aplicações.
 - **Tipo de Conteúdo**: Uma cadeia que é adicionada a cada valor-chave como o tipo de conteúdo dentro da loja de Configuração de Aplicações.
 - **Tags**: Um objeto JSON no formato de `{"tag1":"val1", "tag2":"val2"}` , que define tags que são adicionadas a cada valor-chave empurrado para a sua loja de Configuração de Aplicações.
-- **Eliminar todos os outros Valores-Chave na loja com o prefixo e etiqueta especificados**: O valor predefinido não é **verificado**.
+- **Elimine todas as outras Key-Values na loja com o prefixo e etiqueta especificados**: O valor predefinido não é **verificado**.
   - **Verificado**: Remove todos os valores-chave na loja de configuração da aplicação que correspondem tanto ao prefixo especificado como à etiqueta antes de empurrar novos valores-chave do ficheiro de configuração.
   - **Desmarcado**: Empurra todos os valores-chave do ficheiro de configuração para a loja de Configuração de Aplicações e deixa tudo o resto intacto na loja de Configuração de Aplicações.
 

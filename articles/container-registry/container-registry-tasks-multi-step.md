@@ -4,10 +4,10 @@ description: Introdução a tarefas em várias etapas, uma característica das t
 ms.topic: article
 ms.date: 03/28/2019
 ms.openlocfilehash: 0dcd38559d3f50715f982de4c9c80bfe9c6c8433
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78399692"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Executar tarefas de construção, teste e patch em tarefas ACR
@@ -148,7 +148,7 @@ Run ID: yd14 was successful after 19s
 
 Para obter mais informações sobre as construções automatizadas sobre o compromisso de Git ou a atualização de imagem base, consulte a [imagem de Automação e](container-registry-tutorial-build-task.md) a [atualização de imagem base constrói artigos](container-registry-tutorial-base-image-update.md) tutoriais.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode encontrar referências de tarefas em várias etapas e exemplos aqui:
 

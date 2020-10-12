@@ -9,10 +9,10 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/16/2016
 ms.openlocfilehash: 20c2054e168a9b17d9b4ab159cfefbf607ab6d11
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78898551"
 ---
 # <a name="high-availability-and-reliability-for-azure-scheduler"></a>Alta disponibilidade e fiabilidade para a Azure Scheduler
@@ -71,7 +71,7 @@ O tipo de ação para a ação alternativa pode diferir da ação original. Por 
 
 Para aprender a configurar um ponto final alternativo, consulte [errorAction](scheduler-concepts-terms.md#error-action).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Conceitos, terminologia e hierarquia de entidades](scheduler-concepts-terms.md)
 * [Referência da API REST do Azure Scheduler](/rest/api/scheduler)

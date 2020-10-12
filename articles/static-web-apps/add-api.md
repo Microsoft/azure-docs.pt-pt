@@ -9,10 +9,10 @@ ms.date: 05/29/2020
 ms.author: wachegha
 ms.custom: devx-track-js
 ms.openlocfilehash: c84367a5e3ab57090f59196e8474c14cba87f32b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91250152"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Adicione uma API a Azure Static Web Apps Preview com Funções Azure
@@ -43,7 +43,7 @@ Assim que o seu projeto for criado, copie o URL no seu navegador para o novo rep
 1. Prima **F1** para abrir o comando na Paleta de Comando.
 1. Cole o URL no _Git: Clone_ prompt e prima **Enter**.
 
-   :::image type="content" source="media/add-api/vscode-git-0.png" alt-text="Clone um projeto GitHub usando Código de Estúdio Visual":::
+   :::image type="content" source="media/add-api/vscode-git-0.png" alt-text="Criar um novo repositório a partir de baunilha-básico":::
 
     Siga as instruções para selecionar um local de repositório para clonar o projeto.
 
@@ -59,7 +59,7 @@ Em seguida, você cria um projeto Azure Functions como API da aplicação.
 1. Selecione a pasta **api** como diretório para o seu espaço de trabalho do projeto
 1. Escolha **Selecionar**
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-1.png" alt-text="Criar uma nova Função Azure utilizando o Código do Estúdio Visual":::
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-1.png" alt-text="Criar um novo repositório a partir de baunilha-básico":::
 
 1. Fornecer as seguintes informações nas instruções:
 
@@ -145,13 +145,13 @@ O Código do Estúdio Visual integra-se com [as Ferramentas Core do Azure Functi
 
     As Ferramentas Core mostram a saída da aplicação de execução no painel _Terminal._ Como parte da saída, pode ver o ponto final url da sua função desencadeada por HTTP a funcionar localmente.
 
-    :::image type="content" source="media/add-api/create-azure-functions-vscode-2.png" alt-text="Criar uma nova Função Azure utilizando o Código do Estúdio Visual":::
+    :::image type="content" source="media/add-api/create-azure-functions-vscode-2.png" alt-text="Criar um novo repositório a partir de baunilha-básico":::
 
 1. Com as Ferramentas Core em funcionamento, navegue para o seguinte URL para verificar se a API está a funcionar corretamente: `http://localhost:7071/api/message` .
 
    A resposta no navegador deve ser semelhante ao seguinte exemplo:
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-3.png" alt-text="Criar uma nova Função Azure utilizando o Código do Estúdio Visual":::
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-3.png" alt-text="Criar um novo repositório a partir de baunilha-básico":::
 
 1. **Press Shift + F5** para parar a sessão de depuragem.
 
@@ -199,7 +199,7 @@ Quando implementados para o Azure, os pedidos à API são automaticamente encami
 
     Deve agora ver a mensagem da API na página web.
 
-   :::image type="content" source="media/add-api/create-azure-functions-vscode-4.png" alt-text="Criar uma nova Função Azure utilizando o Código do Estúdio Visual":::
+   :::image type="content" source="media/add-api/create-azure-functions-vscode-4.png" alt-text="Criar um novo repositório a partir de baunilha-básico":::
 
    > [!NOTE]
    > Pode utilizar outros servidores http ou proxies para servir o `index.html` ficheiro. Aceder ao `index.html` de vai não `file:///` funcionar.
@@ -216,7 +216,7 @@ Utilizando o Código do Estúdio Visual, comprometa e empurre as suas alteraçõ
 1. Pressione **F1**
 1. Digite em **Git: empurre** e **pressione Insira**
 
-## <a name="create-a-static-web-app"></a>Crie uma aplicação web estática
+## <a name="create-a-static-web-app"></a>Criar uma aplicação Web estática
 
 1. Navegue até ao [portal Azure](https://portal.azure.com)
 1. Clique em **Criar um Recurso**.
@@ -251,11 +251,11 @@ Em seguida, adicione os seguintes detalhes de construção.
 
     Como a aplicação está a ser construída em segundo plano, pode clicar no banner que contém um link para ver o estado de construção.
 
-    :::image type="content" source="media/add-api/github-action-flag.png" alt-text="Fluxo de trabalho do GitHub":::
+    :::image type="content" source="media/add-api/github-action-flag.png" alt-text="Criar um novo repositório a partir de baunilha-básico":::
 
 1. Uma vez concluída a implementação, ou pode navegar para a aplicação web, clicando no link _URL_ mostrado na página _'Vista Geral'._
 
-    :::image type="content" source="media/add-api/static-app-url-from-portal.png" alt-text="Acesso url de aplicativo estático a partir do portal Azure":::
+    :::image type="content" source="media/add-api/static-app-url-from-portal.png" alt-text="Criar um novo repositório a partir de baunilha-básico":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

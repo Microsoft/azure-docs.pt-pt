@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
 ms.openlocfilehash: af387b063a3c07d8b6b6c544814565e2a5ebdd46
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87495731"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Arquitetura da recuperação após desastre do Hyper-V para o Azure
@@ -49,7 +49,7 @@ A tabela e gráfico seguintes fornecem uma visão de alto nível dos componentes
 **Servidor VMM** | O servidor VMM tem uma ou mais clouds que contêm anfitriões Hyper-V. | Instala o Fornecedor de Recuperação de Sítio no servidor VMM, para orquestrar a replicação com a Recuperação do Local e registar o servidor no cofre dos Serviços de Recuperação.
 **Anfitrião Hyper-V** | Um ou mais anfitriões/clusters de Hyper-V geridos pelo VMM. |  Instale o agente Recovery Services em cada hospedeiro Hiper-V ou nó de cluster.
 **VMs Hyper-V** | Uma ou mais VMs em execução num servidor de anfitrião Hyper-V. | Nada tem de estar explicitamente instalado nas VMs.
-**Rede** | Redes lógicas e de VMs configuradas no servidor VMM. A rede VM deve estar ligada a uma rede lógica associada à nuvem. | As redes VM estão mapeadas para redes virtuais Azure. Quando os VMs Azure são criados após o failover, são adicionados à rede Azure que está mapeada para a rede VM.
+**Redes** | Redes lógicas e de VMs configuradas no servidor VMM. A rede VM deve estar ligada a uma rede lógica associada à nuvem. | As redes VM estão mapeadas para redes virtuais Azure. Quando os VMs Azure são criados após o failover, são adicionados à rede Azure que está mapeada para a rede VM.
 
 **Arquitetura Hyper-V a Azure (com VMM)**
 

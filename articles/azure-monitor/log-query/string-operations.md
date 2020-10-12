@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: a394fee7178b2e3e167c8bd905ab175b25d1d813
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75397473"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Trabalhe com cordas em consultas de log do Azure Monitor
@@ -46,11 +46,11 @@ print @"C:\backslash\not\escaped\with @ prefix"
 
 ## <a name="string-comparisons"></a>Comparações de cordas
 
-Operador       |Descrição                         |Sensível a casos|Exemplo `true` (rendimentos)
+Operador       |Descrição                         |Case-Sensitive|Exemplo `true` (rendimentos)
 ---------------|------------------------------------|--------------|-----------------------
-`==`           |É igual a                              |Sim           |`"aBc" == "aBc"`
+`==`           |Igual a                              |Sim           |`"aBc" == "aBc"`
 `!=`           |Não é igual                          |Sim           |`"abc" != "ABC"`
-`=~`           |É igual a                              |Não            |`"abc" =~ "ABC"`
+`=~`           |Igual a                              |Não            |`"abc" =~ "ABC"`
 `!~`           |Não é igual                          |Não            |`"aBc" !~ "xyz"`
 `has`          |O lado direito é um termo inteiro no lado esquerdo |Não|`"North America" has "america"`
 `!has`         |O lado direito não é um termo completo no lado esquerdo       |Não            |`"North America" !has "amer"` 
@@ -91,8 +91,8 @@ countof(text, search [, kind])
 ```
 
 ### <a name="arguments"></a>Argumentos:
-- `text`- A cadeia de entrada 
-- `search`- Corda simples ou expressão regular para combinar com texto interno.
+- `text` - A cadeia de entrada 
+- `search` - Corda simples ou expressão regular para combinar com texto interno.
 - `kind` - _normal_  |  _regex_ (predefinição: normal).
 
 ### <a name="returns"></a>Devoluções
@@ -132,10 +132,10 @@ extract(regex, captureGroup, text [, typeLiteral])
 
 ### <a name="arguments"></a>Argumentos
 
-- `regex`- Uma expressão regular.
-- `captureGroup`- Uma constante de inteiros positivo que indica o grupo de captura a extrair. 0 para todo o jogo, 1 pelo valor combinado pelo primeiro 'parênteses')' na expressão regular, 2 ou mais para parênteses subsequentes.
-- `text`- Uma corda para procurar.
-- `typeLiteral`- Um tipo opcional literal (por exemplo, tipo de (longo)). Se fornecido, o sublpetor extraído é convertido para este tipo.
+- `regex` - Uma expressão regular.
+- `captureGroup` - Uma constante de inteiros positivo que indica o grupo de captura a extrair. 0 para todo o jogo, 1 pelo valor combinado pelo primeiro 'parênteses')' na expressão regular, 2 ou mais para parênteses subsequentes.
+- `text` - Uma corda para procurar.
+- `typeLiteral` - Um tipo opcional literal (por exemplo, tipo de (longo)). Se fornecido, o sublpetor extraído é convertido para este tipo.
 
 ### <a name="returns"></a>Devoluções
 O sub-cordão corresponde ao grupo de captura de captura indicado, opcionalmente convertido em typeLiteral.
@@ -239,9 +239,9 @@ replace(regex, rewrite, input_text)
 
 ### <a name="arguments"></a>Argumentos
 
-- `regex`- A expressão regular para combinar. Pode conter grupos de captura em '('parênteses')'.
-- `rewrite`- O regex de substituição para qualquer partida feita por regex correspondente. Utilize \0 para se referir a toda a correspondência, \1 para o primeiro grupo de captura, \2, e assim por diante para grupos de captura subsequentes.
-- `input_text`- A cadeia de entrada para procurar.
+- `regex` - A expressão regular para combinar. Pode conter grupos de captura em '('parênteses')'.
+- `rewrite` - O regex de substituição para qualquer partida feita por regex correspondente. Utilize \0 para se referir a toda a correspondência, \1 para o primeiro grupo de captura, \2, e assim por diante para grupos de captura subsequentes.
+- `input_text` - A cadeia de entrada para procurar.
 
 ### <a name="returns"></a>Devoluções
 O texto após a substituição de todos os jogos do regex por avaliações de reescrita. Os fósforos não se sobrepõem.
@@ -273,9 +273,9 @@ split(source, delimiter [, requestedIndex])
 
 ### <a name="arguments"></a>Argumentos:
 
-- `source`- A corda a ser dividida de acordo com o delimiter especificado.
-- `delimiter`- O declimiter que será usado para dividir a cadeia de origem.
-- `requestedIndex`- Um índice opcional baseado em zero. Se for fornecida, a matriz de corda devolvida apenas manterá esse item (se existir).
+- `source` - A corda a ser dividida de acordo com o delimiter especificado.
+- `delimiter` - O declimiter que será usado para dividir a cadeia de origem.
+- `requestedIndex` - Um índice opcional baseado em zero. Se for fornecida, a matriz de corda devolvida apenas manterá esse item (se existir).
 
 
 ### <a name="examples"></a>Exemplos
@@ -330,9 +330,9 @@ substring(source, startingIndex [, length])
 
 ### <a name="arguments"></a>Argumentos:
 
-- `source`- A cadeia de origem de onde o sub-adcões será retirado.
-- `startingIndex`- A posição de caracteres initenta da sub-formação solicitada.
-- `length`- Um parâmetro opcional que pode ser utilizado para especificar o comprimento solicitado do sublmotor devolvido.
+- `source` - A cadeia de origem de onde o sub-adcões será retirado.
+- `startingIndex` - A posição de caracteres initenta da sub-formação solicitada.
+- `length` - Um parâmetro opcional que pode ser utilizado para especificar o comprimento solicitado do sublmotor devolvido.
 
 ### <a name="examples"></a>Exemplos
 ```Kusto
@@ -361,7 +361,7 @@ print toupper("hello"); // result: "HELLO"
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Continue com os tutoriais avançados:
 * [Funções de agregação](aggregations.md)
 * [Agregações avançadas](advanced-aggregations.md)

@@ -9,10 +9,10 @@ ms.author: normesta
 ms.date: 03/04/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 052a28dc69bf5c758133ca98366efc63105f4a56
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91289876"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hospedar um site estático no Azure Storage
@@ -46,7 +46,7 @@ O alojamento estático do site é uma funcionalidade que tem de ativar na conta 
 
    A página de erro predefinida é exibida quando um utilizador tenta navegar para uma página que não existe no seu website estático.
 
-7. Clique em **Save** (Guardar). O portal Azure apresenta agora o seu ponto final estático do site. 
+7. Clique em **Guardar**. O portal Azure apresenta agora o seu ponto final estático do site. 
 
     ![Ativar hospedagem estática no site para uma conta de armazenamento](media/storage-blob-static-website-host/enable-static-website-hosting.png)
 

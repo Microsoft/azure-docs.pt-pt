@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.openlocfilehash: 29492ee6b7bce50c4807a36d0c252e18e6aadf87
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88008955"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Resolver problemas de perda de dados da Cache do Azure para Redis
@@ -120,5 +120,5 @@ Considere usar a persistência de [dados redis](https://redis.io/topics/persiste
 
 - [Resolver problemas do lado do servidor da Cache do Azure para Redis](cache-troubleshoot-server.md)
 - [Escolher o escalão certo](cache-overview.md#choosing-the-right-tier)
-- [Como monitorizar a Cache Azure para Redis](cache-how-to-monitor.md)
+- [Como monitorizar a Cache do Azure para Redis](cache-how-to-monitor.md)
 - [Como posso comandar o Redis?](cache-development-faq.md#how-can-i-run-redis-commands)

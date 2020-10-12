@@ -4,10 +4,10 @@ description: Descreve como implementar modelos de Gestor de Recursos Azure utili
 ms.topic: conceptual
 ms.date: 07/02/2020
 ms.openlocfilehash: 313354499901bc69ec6e00f0ba7c385065cae615
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85854745"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Implemente modelos de gestor de recursos Azure usando ações do GitHub
@@ -152,6 +152,6 @@ Uma vez que o fluxo de trabalho está configurado para ser acionado pelo ficheir
 1. Selecione **o modelo de conta de armazenamento de implementação** (nome de trabalho) a partir do menu esquerdo. O nome do trabalho é definido no fluxo de trabalho.
 1. Selecione **implementar o modelo ARM** (nome de passo) para expandi-lo. Pode ver a resposta da API REST.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para um tutorial passo a passo que o guia através do processo de criação de um modelo, consulte [Tutorial: Crie e implemente o seu primeiro modelo ARM](template-tutorial-create-first-template.md).

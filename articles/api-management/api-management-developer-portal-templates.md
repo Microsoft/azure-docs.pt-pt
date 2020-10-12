@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 7a8c348340be143f7059ce7e64a1c66b66074a45
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75430778"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Como personalizar o portal de desenvolvimento da Azure API Management usando modelos
@@ -103,7 +103,7 @@ No exemplo anterior, existem dois produtos apresentados no portal do desenvolved
 }
 ```
 
-A marcação no modelo da **lista de produtos** processa os dados para fornecer a saída desejada através da recolha de produtos para apresentar informações e uma ligação a cada produto. Observe os `<search-control>` elementos e `<page-control>` elementos na marcação. Estes controlam a visualização dos controlos de pesquisa e paging na página. `ProductsStrings|PageTitleProducts`é uma referência de corda localizada que contém o `h2` texto do cabeçalho para a página. Para obter uma lista de recursos de cordas, controlos de página e ícones disponíveis para utilização em modelos de portal de desenvolvedores de desenvolvedores, consulte [a referência de modelos do portal do desenvolvedor da API Management](api-management-developer-portal-templates-reference.md).
+A marcação no modelo da **lista de produtos** processa os dados para fornecer a saída desejada através da recolha de produtos para apresentar informações e uma ligação a cada produto. Observe os `<search-control>` elementos e `<page-control>` elementos na marcação. Estes controlam a visualização dos controlos de pesquisa e paging na página. `ProductsStrings|PageTitleProducts` é uma referência de corda localizada que contém o `h2` texto do cabeçalho para a página. Para obter uma lista de recursos de cordas, controlos de página e ícones disponíveis para utilização em modelos de portal de desenvolvedores de desenvolvedores, consulte [a referência de modelos do portal do desenvolvedor da API Management](api-management-developer-portal-templates-reference.md).
 
 ```html
 <search-control></search-control>
@@ -185,7 +185,7 @@ Para restaurar todos os modelos nas suas versões predefinitivos, clique em **Re
 
 Os modelos restaurados devem então ser publicados individualmente ou todos de uma só vez, seguindo os passos para [publicar um modelo](#to-publish-a-template).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter informações de referência para modelos de portal de desenvolvedores, recursos de cordas, ícones e controlos de página, consulte [a referência de modelos do portal do desenvolvedor da API Management](api-management-developer-portal-templates-reference.md).
 
 [modify-content-layout]: api-management-modify-content-layout.md

@@ -4,10 +4,10 @@ description: Aprenda a gerir e monitorizar as cópias de segurança Azure VM uti
 ms.topic: conceptual
 ms.date: 08/02/2020
 ms.openlocfilehash: 5a677221f16d00c19ee7083b72540ac7e1bb9cd0
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89145438"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gerir backups Azure VM com serviço de backup Azure
@@ -29,16 +29,16 @@ Pode gerir as cópias de segurança utilizando o painel de instrumentos e perfur
 
 Para ver VMs no painel de abóbada:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
-1. No menu à esquerda, selecione **Todos os serviços**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. No menu esquerdo, selecione **Todos os serviços**.
 
-    ![Selecione Todos os serviços](./media/backup-azure-manage-vms/select-all-services.png)
+    ![Selecionar Todos os serviços](./media/backup-azure-manage-vms/select-all-services.png)
 
-1. Na caixa de diálogo **de todos os serviços,** insira *os Serviços de Recuperação.* A lista de filtros de recursos de acordo com a sua entrada. Na lista de recursos, selecione **Cofres dos Serviços de Recuperação.**
+1. Na caixa de diálogo **Todos os serviços**, introduza *Serviços de Recuperação*. A lista de recursos é filtrada de acordo com a sua entrada. Na lista de recursos, selecione **Cofres dos Serviços de Recuperação**.
 
-    ![Insira e escolha cofres dos Serviços de Recuperação](./media/backup-azure-manage-vms/all-services.png)
+    ![Introduzir e escolher cofres dos Serviços de Recuperação](./media/backup-azure-manage-vms/all-services.png)
 
-    A lista de cofres dos Serviços de Recuperação na subscrição aparece.
+    É apresentada a lista dos cofres dos Serviços de Recuperação na subscrição.
 
 1. Para facilitar a utilização, selecione o ícone do pino ao lado do nome do cofre e selecione Pin para o painel de **instrumentos**.
 1. Abre o painel do cofre.
@@ -63,7 +63,7 @@ Para ver VMs no painel de abóbada:
 
 Para modificar uma política de backup existente:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/). Abre o painel do cofre.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/). Abre o painel do cofre.
 2. A partir das políticas de **Backup >,** selecione a política de backup para o tipo **Azure Virtual Machine**.
 3. Selecione **Modificar** e alterar as definições.
 
@@ -71,7 +71,7 @@ Para modificar uma política de backup existente:
 
 Para gerir uma política de backup:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/). Abre o painel do cofre.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/). Abre o painel do cofre.
 2. No **azulejo de itens de reserva,** selecione **Azure Virtual Machine**.
 
     ![Abra o azulejo de itens de reserva](./media/backup-azure-manage-vms/azure-virtual-machine.png)
@@ -86,7 +86,7 @@ Para gerir uma política de backup:
 
      ![Escolher uma política de cópias de segurança](./media/backup-azure-manage-vms/backup-policy-create-new.png)
 
-## <a name="run-an-on-demand-backup"></a>Faça uma cópia de segurança a pedido
+## <a name="run-an-on-demand-backup"></a>Executar uma cópia de segurança a pedido
 
 Pode executar uma cópia de segurança a pedido de um VM depois de configurar a sua proteção. Tenha estes detalhes em mente:
 

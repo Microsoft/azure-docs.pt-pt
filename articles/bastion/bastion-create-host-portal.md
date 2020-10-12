@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: cherylmc
 ms.openlocfilehash: 1e0bc9a17a12afac6d91867b19aba0f90b7f6edb
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88270755"
 ---
 # <a name="create-an-azure-bastion-host-using-the-portal"></a>Criar um anfitrião Azure Bastion usando o portal
@@ -20,7 +20,7 @@ Este artigo mostra-lhe como criar um hospedeiro Azure Bastion usando o portal Az
 
 Pode criar um novo recurso de anfitrião de bastião no portal, especificando manualmente todas as definições, quer utilizando as definições que correspondem a um VM existente. Para criar um hospedeiro de bastião utilizando as definições de VM, consulte o artigo [de arranque rápido.](quickstart-host-portal.md) Opcionalmente, pode utilizar [a Azure PowerShell](bastion-create-host-powershell.md) para criar um hospedeiro Azure Bastion.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 O bastião está disponível nas seguintes regiões públicas do Azure:
 

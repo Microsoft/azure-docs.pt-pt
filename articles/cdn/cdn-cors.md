@@ -15,15 +15,15 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 89adc283fa9d6edc49536cb9459a479710c94435
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85921163"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Utilização de Azure CDN com CORS
 ## <a name="what-is-cors"></a>O que é o CORS?
-CORS (Cross Origin Resource Sharing) é uma funcionalidade HTTP que permite a uma aplicação web em execução sob um domínio aceder a recursos em outro domínio. De forma a reduzir a possibilidade de ataques de scripts cross-site, todos os navegadores web modernos implementam uma restrição de segurança conhecida como [política de origem .](https://www.w3.org/Security/wiki/Same_Origin_Policy)  Isto impede que uma página web chame APIs em um domínio diferente.  O CORS fornece uma forma segura de permitir que uma origem (o domínio de origem) chame APIs noutra origem.
+O CORS (Partilha de Recursos de Várias Origens) é uma funcionalidade HTTP que permite a execução de uma aplicação Web num domínio para aceder a recursos noutro domínio. De forma a reduzir a possibilidade de ataques de scripts cross-site, todos os navegadores web modernos implementam uma restrição de segurança conhecida como [política de origem .](https://www.w3.org/Security/wiki/Same_Origin_Policy)  Isto impede que uma página web chame APIs em um domínio diferente.  O CORS fornece uma forma segura de permitir que uma origem (o domínio de origem) chame APIs noutra origem.
 
 ## <a name="how-it-works"></a>Como funciona
 Existem dois tipos de pedidos de CORS, *pedidos simples* e *pedidos complexos.*
