@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: 82478f322e1df22bde50769b90f0424140920e9a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87063567"
 ---
 # <a name="microsoftcomputeusernametextbox-ui-element"></a>Microsoft.Compute.UserNameTextBox UI elemento
@@ -39,7 +39,7 @@ Um controlo de caixa de texto com validação incorporada para nomes de utilizad
 }
 ```
 
-## <a name="sample-output"></a>Resultado da amostra
+## <a name="sample-output"></a>Saída de exemplo
 
 ```json
 "Example name"
@@ -48,9 +48,9 @@ Um controlo de caixa de texto com validação incorporada para nomes de utilizad
 ## <a name="remarks"></a>Observações
 
 - Se `constraints.required` for definida como **verdadeira,** a caixa de texto deve ter um valor para validar com sucesso. O valor predefinido é **verdadeiro.**
-- `osPlatform`deve ser especificado, e pode ser **windows** ou **Linux**.
-- `constraints.regex`é um padrão de expressão regular JavaScript. Se especificado, o valor da caixa de texto deve corresponder ao padrão para validar com sucesso. O valor por defeito é **nulo.**
-- `constraints.validationMessage`é uma cadeia para visualizar quando o valor da caixa de texto falha na validação especificada por `constraints.regex` . Se não for especificado, as mensagens de validação incorporadas da caixa de texto são utilizadas. O valor por defeito é **nulo.**
+- `osPlatform` deve ser especificado, e pode ser **windows** ou **Linux**.
+- `constraints.regex` é um padrão de expressão regular JavaScript. Se especificado, o valor da caixa de texto deve corresponder ao padrão para validar com sucesso. O valor por defeito é **nulo.**
+- `constraints.validationMessage` é uma cadeia para visualizar quando o valor da caixa de texto falha na validação especificada por `constraints.regex` . Se não for especificado, as mensagens de validação incorporadas da caixa de texto são utilizadas. O valor por defeito é **nulo.**
 - Este elemento tem validação incorporada que se baseia no valor especificado para `osPlatform` . A validação incorporada pode ser usada juntamente com uma expressão regular personalizada. Se for especificado um `constraints.regex` valor, então ambas as validações incorporadas e personalizadas são desencadeadas.
 
 ## <a name="next-steps"></a>Passos seguintes

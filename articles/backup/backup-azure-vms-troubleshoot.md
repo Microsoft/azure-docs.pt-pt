@@ -5,10 +5,10 @@ ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
 ms.openlocfilehash: 39bc6178d0cabf6c0220d2c54e0c532a6f9a5aa2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91316737"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Falhas de backup de resolução de problemas em máquinas virtuais Azure
@@ -64,7 +64,7 @@ Error message: VM is not in a state that allows backups.<br/>
 A operação de reserva falhou porque o VM está em estado de falha. Para obter uma cópia de segurança com êxito, o estado deve ser Em Execução, Parada ou Parada (desalocada).
 
 * Se o VM estiver num estado transitório entre **correr** e **desligar,** aguarde que o Estado mude. Então desencadeie o trabalho de reserva.
-* Se o VM for um Linux VM e utilizar o módulo de kernel Linux reforçado pela segurança, exclua o caminho do Agente Azure Linux **/var/lib/waagent** da política de segurança e certifique-se de que a extensão de Backup está instalada.
+* Se o VM for um Linux VM e utilizar o módulo de kernel linux Security-Enhanced, exclua o caminho do Agente Azure Linux **/var/lib/waagent** da política de segurança e certifique-se de que a extensão de Backup está instalada.
 
 ### <a name="usererrorfsfreezefailed---failed-to-freeze-one-or-more-mount-points-of-the-vm-to-take-a-file-system-consistent-snapshot"></a>UserErrorFsFreezeFailed - Não conseguiu congelar um ou mais pontos de montagem do VM para tirar uma imagem consistente do sistema de ficheiros
 
@@ -98,7 +98,7 @@ A operação de backup falhou devido a um problema com a aplicação **do Sistem
   * Inicie o serviço MS DTC
 * Inicie a **aplicação**do sistema com o serviço Windows COM+ . Após o início da **Aplicação do Sistema COM+,** desencadeie uma tarefa de backup a partir do portal Azure.</ol>
 
-### <a name="extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state"></a>ExtensãoFailedVssWriterInBadState - Operação Snapshot falhou porque os escritores da VSS estavam em mau estado
+### <a name="extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state"></a>ExtensionFailedVssWriterInBadState – a operação de instantâneo falhou porque os escritores VSS estavam num estado incorreto
 
 Código de erro: ExtensãoFailedVssWriterInBadState <br/>
 Error message: Snapshot operation failed because VSS writers were in a bad state.
@@ -132,7 +132,7 @@ Solução:
 - Mude a política de backup para efetuar backups durante as horas de ponta, quando a carga no VM estiver no seu nível mais baixo.
 - Atualize os discos Azure para suportar IOPs mais elevados. [Saiba mais aqui](https://docs.microsoft.com/azure/virtual-machines/disks-types)
 
-### <a name="extensionfailedvssserviceinbadstate---snapshot-operation-failed-due-to-vss-volume-shadow-copy-service-in-bad-state"></a>ExtensãoFailedVssServiceInBadState - A operação Snapshot falhou devido ao serviço VSS (Volume Shadow Copy) em mau estado
+### <a name="extensionfailedvssserviceinbadstate---snapshot-operation-failed-due-to-vss-volume-shadow-copy-service-in-bad-state"></a>ExtensionFailedVssServiceInBadState – A operação de instantâneo falhou devido ao serviço VSS (Serviço de Cópia Sombra de Volumes) estar num estado incorreto
 
 Código de erro: ExtensãoFailedVssServiceInBadState <br/>
 Error message: A operação snapshot falhou devido ao serviço VSS (Volume Shadow Copy) em mau estado.
@@ -279,7 +279,7 @@ Desligue o BitLocker para todas as unidades do VM e verifique se o problema vss 
 Código de erro: Estado VmNotInDesirable <br/> Error message: The VM is in a state that allows backups.
 
 * Se o VM estiver num estado transitório entre **correr** e **desligar,** aguarde que o Estado mude. Então desencadeie o trabalho de reserva.
-* Se o VM for um Linux VM e utilizar o módulo de kernel Linux reforçado pela segurança, exclua o caminho do Agente Azure Linux **/var/lib/waagent** da política de segurança e certifique-se de que a extensão de Backup está instalada.
+* Se o VM for um Linux VM e utilizar o módulo de kernel linux Security-Enhanced, exclua o caminho do Agente Azure Linux **/var/lib/waagent** da política de segurança e certifique-se de que a extensão de Backup está instalada.
 
 * O Agente VM não está presente na máquina virtual: <br>Instale qualquer pré-requisito e o agente VM. Em seguida, reinicie a operação. | Leia mais sobre [a instalação do Agente VM e como validar a instalação do Agente VM](#vm-agent).
 
@@ -288,14 +288,14 @@ Código de erro: Estado VmNotInDesirable <br/> Error message: The VM is in a sta
 Código de erro: ExtensionSnapshotFailedNoSecureNet <br/> Mensagem de erro: A operação instantânea falhou devido à falha na criação de um canal de comunicação de rede seguro.
 
 * Abra o Editor de Registo executando **regedit.exe** em modo elevado.
-* Identifique todas as versões do Quadro .NET presentes no seu sistema. Estão presentes sob a hierarquia da chave de registo **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**.
+* Identifique todas as versões do Quadro .NET presentes no seu sistema. Estão presentes sob a hierarquia da chave do registo **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft. **
 * Para cada quadro .NET presente na chave de registo, adicione a seguinte chave: <br> **SchUseStrongCrypto"=dword:0000001**. </ol>
 
 ### <a name="extensionvcredistinstallationfailure---the-snapshot-operation-failed-because-of-failure-to-install-visual-c-redistributable-for-visual-studio-2012"></a>ExtensãoVCRedistInstallationFailure - A operação snapshot falhou devido à falha na instalação visual C++ Redistributable para Visual Studio 2012
 
 Código de erro: ExtensãoVCRedistInstallationFailure <br/> Error message: A operação snapshot falhou devido à falha na instalação do Visual C++ Redistributable para Visual Studio 2012.
 
-* Navegue `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion` e instale vcredist2013_x64.<br/>Certifique-se de que o valor da chave de registo que permite a instalação do serviço está definido para o valor correto. Ou seja, defina o valor **iniciar** **em HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** para **3** e não **4**. <br><br>Se ainda tiver problemas com a instalação, reinicie o serviço de instalação executando **o MSIEXEC /UNREGISTER** seguido de **MSIEXEC /REGISTER** a partir de uma solicitação de comando elevada.
+* Navegue `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion` e instale vcredist2013_x64.<br/>Certifique-se de que o valor da chave de registo que permite a instalação do serviço está definido para o valor correto. Ou seja, desa um valor **de Início** em **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** para **3** e não **4**. <br><br>Se ainda tiver problemas com a instalação, reinicie o serviço de instalação executando **o MSIEXEC /UNREGISTER** seguido de **MSIEXEC /REGISTER** a partir de uma solicitação de comando elevada.
 * Verifique o registo do evento para verificar se está a notar problemas relacionados com o acesso. Por exemplo: *Produto: Microsoft Visual C++ 2013 x64 Tempo mínimo de funcionação - 12.0.21005 -- Erro 1401.Não foi possível criar a chave: Software\Classes.  Erro do sistema 5.  Verifique se tem acesso suficiente a essa chave ou contacte o seu pessoal de apoio.* <br><br> Certifique-se de que o administrador ou a conta do utilizador têm permissões suficientes para atualizar a chave de registo **HKEY_LOCAL_MACHINE\SOFTWARE\Classes**. Forneça permissões suficientes e reinicie o Windows Azure Guest Agent.<br><br> <li> Se tiver produtos antivírus no lugar, certifique-se de que têm as regras de exclusão adequadas para permitir a instalação.
 
 ### <a name="usererrorrequestdisallowedbypolicy---an-invalid-policy-is-configured-on-the-vm-which-is-preventing-snapshot-operation"></a>UserErrorRequestDisallowedByPolicy – foi configurada uma política inválida na VM e está a impedir a Operação de instantâneo
@@ -324,7 +324,7 @@ Se depois de restaurado, nota que os discos estão offline então:
 
 | Detalhes do erro | Solução |
 | --- | --- |
-| Restaurar falhou com um erro interno na nuvem. |<ol><li>O serviço de nuvem a que está a tentar restaurar está configurado com as definições de DNS. Pode verificar: <br>**$deployment = Get-AzureDeployment -ServiceName "ServiceName" - Slot "Production" Get-AzureDns -DnsSettings $deployment. DnsSettings**.<br>Se **o Endereço** estiver configurado, as definições de DNS são configuradas.<br> <li>O serviço de nuvem ao qual está a tentar restaurar está configurado com **o ReservedIP**, e os VM existentes no serviço de nuvem estão no estado parado. Pode verificar se um serviço de nuvem reservou um IP utilizando os seguintes cmdlets PowerShell: **$deployment = Get-AzureDeployment -ServiceName "servicename" - Slot "Production" $dep. Nome Reservado.** <br><li>Está a tentar restaurar uma máquina virtual com as seguintes configurações especiais de rede no mesmo serviço de nuvem: <ul><li>Máquinas virtuais em configuração do balanceador de carga, internas e externas.<li>Máquinas virtuais com múltiplos IPs reservados. <li>Máquinas virtuais com vários NICs. </ul><li>Selecione um novo serviço de nuvem na UI ou consulte [considerações de restauro](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) para VMs com configurações especiais de rede.</ol> |
+| Restaurar falhou com um erro interno na nuvem. |<ol><li>O serviço de nuvem a que está a tentar restaurar está configurado com as definições de DNS. Pode verificar: <br>**$deployment = Get-AzureDeployment -ServiceName "ServiceName" - Slot "Production" Get-AzureDns -DnsSettings $deployment. DnsSettings**.<br>Se **o Endereço** estiver configurado, as definições de DNS são configuradas.<br> <li>O serviço de nuvem ao qual está a tentar restaurar está configurado com **o ReservedIP**, e os VM existentes no serviço de nuvem estão no estado parado. Pode verificar se um serviço de nuvem reservou um IP utilizando os seguintes cmdlets PowerShell: **$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep. Nome Reservado.** <br><li>Está a tentar restaurar uma máquina virtual com as seguintes configurações especiais de rede no mesmo serviço de nuvem: <ul><li>Máquinas virtuais em configuração do balanceador de carga, internas e externas.<li>Máquinas virtuais com múltiplos IPs reservados. <li>Máquinas virtuais com vários NICs. </ul><li>Selecione um novo serviço de nuvem na UI ou consulte [considerações de restauro](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) para VMs com configurações especiais de rede.</ol> |
 | O nome DNS selecionado já está tomado: <br>Especifique um nome DNS diferente e tente novamente. |Este nome DNS refere-se ao nome de serviço na nuvem, normalmente terminando com **.cloudapp.net**. Este nome tem de ser único. Se cometer este erro, tem de escolher um nome VM diferente durante a restauração. <br><br> Este erro é mostrado apenas aos utilizadores do portal Azure. A operação de restauro através da PowerShell tem sucesso porque restaura apenas os discos e não cria o VM. O erro será encarado quando o VM for explicitamente criado por si após a operação de restauro do disco. |
 | A configuração de rede virtual especificada não está correta: <br>Especifique uma configuração de rede virtual diferente e tente novamente. |Nenhum |
 | O serviço de nuvem especificado está a utilizar um IP reservado que não corresponde à configuração da máquina virtual que está a ser restaurada: <br>Especifique um serviço de nuvem diferente que não esteja usando um IP reservado. Ou escolha outro ponto de recuperação para restaurar. |Nenhum |

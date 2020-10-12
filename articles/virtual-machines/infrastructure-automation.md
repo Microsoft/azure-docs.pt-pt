@@ -8,10 +8,10 @@ ms.workload: infrastructure
 ms.date: 07/17/2020
 ms.author: cynthn
 ms.openlocfilehash: 36ac0058f8f2cf3ca106b30c86207e46d0712193
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87830551"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Utilize ferramentas de automação de infraestruturas com máquinas virtuais em Azure
@@ -57,7 +57,7 @@ Aprenda a:
 
 
 ## <a name="cloud-init"></a>Inicialização da cloud
-[Cloud-init](https://cloudinit.readthedocs.io) é uma abordagem amplamente utilizada para personalizar uma VM com Linux quando arranca pela primeira vez. Pode utilizar o cloud-init para instalar pacotes e escrever ficheiros ou para configurar utilizadores e segurança. Como a cloud-init é chamada durante o processo inicial de arranque, não existem passos adicionais ou agentes necessários para aplicar a sua configuração.  Para obter mais informações sobre como formatar corretamente os seus `#cloud-config` ficheiros, consulte o [site de documentação cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`os ficheiros são ficheiros de texto codificados na base64.
+[Cloud-init](https://cloudinit.readthedocs.io) é uma abordagem amplamente utilizada para personalizar uma VM com Linux quando arranca pela primeira vez. Pode utilizar o cloud-init para instalar pacotes e escrever ficheiros ou para configurar utilizadores e segurança. Como a cloud-init é chamada durante o processo inicial de arranque, não existem passos adicionais ou agentes necessários para aplicar a sua configuração.  Para obter mais informações sobre como formatar corretamente os seus `#cloud-config` ficheiros, consulte o [site de documentação cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config` os ficheiros são ficheiros de texto codificados na base64.
 
 O cloud-init também funciona em distribuições. Por exemplo, não utiliza **apt-get install** nem **yum install** para instalar um pacote. Em vez disso, pode definir uma lista dos pacotes a instalar. O cloud-init utiliza automaticamente a ferramenta de gestão de pacotes nativa para a distribuição que selecionar.
 
@@ -121,7 +121,7 @@ Aprenda a:
 - [Utilizar a Azure Automation DSC](../automation/automation-dsc-getting-started.md).
 
 
-## <a name="azure-devops-services"></a>Serviços de DevOps do Azure
+## <a name="azure-devops-services"></a>Azure DevOps Services
 [O Azure DevOps Services](https://www.visualstudio.com/team-services/) é um conjunto de ferramentas que o ajudam a partilhar e rastrear código, a usar construções automatizadas e a criar um oleoduto completo de integração e desenvolvimento contínuo (CI/CD). A Azure DevOps Services integra-se com o Visual Studio e outros editores para simplificar o uso. Os Serviços Azure DevOps também podem criar e configurar VMs Azure e, em seguida, implementar código para eles.
 
 Saiba mais sobre:
@@ -138,7 +138,7 @@ Aprenda a:
 
 
 ## <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
-[Azure Resource Manager](../azure-resource-manager/templates/overview.md) é o serviço de implementação e gestão da Azure. Fornece uma camada de gestão que lhe permite criar, atualizar e eliminar recursos na sua subscrição Azure. Utiliza funcionalidades de gestão, como controlo de acessos, fechaduras e tags, para proteger e organizar os seus recursos após a implantação.
+[Azure Resource Manager](../azure-resource-manager/templates/overview.md) é o serviço de implementação e gestão da Azure. Fornece uma camada de gestão que lhe permite criar, atualizar e eliminar recursos na sua subscrição Azure. Pode utilizar funcionalidades de gestão, como controlo de acesso, bloqueios e etiquetas, para proteger e organizar os seus recursos após a implementação.
 
 Aprenda a:
 

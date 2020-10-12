@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 978f8ff5e57a5a9a1df10152713c8c42901b3b6f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88545867"
 ---
 # <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>Tutorial: Configurar Zscaler One para fornecimento automático de utilizadores
@@ -82,17 +82,17 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicações da Empresa**  >  **Todas as aplicações**  >  **Zscaler One**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Zscaler One**.
 
     ![O link Zscaler One na lista de aplicações](common/all-applications.png)
 
-3. Selecione o **separador Provisioning.**
+3. Selecione o separador **Aprovisionamento**.
 
     ![Zscaler One Provisioning](./media/zscaler-one-provisioning-tutorial/provisioning-tab.png)
 
-4. Desa ajuste o **modo de provisionamento** para **automático**.
+4. Defina o **Modo de Aprovisionamento** como **Automático**.
 
     ![Modo de Provisionamento Zscaler One](./media/zscaler-one-provisioning-tutorial/provisioning-credentials.png)
 
@@ -106,7 +106,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![Zscaler One Configure SAML](./media/zscaler-one-provisioning-tutorial/secret-token-2.png)
 
-    b. Selecione **Enable Enable SCIM-Based Provisioning** para obter as definições em **URL base** e **Token do portador**. Em seguida, guarde as definições. Copie a definição **de URL base** para o URL do **inquilino** no portal Azure. Copie a definição **de Token do Portador** para o Secret **Token** no portal Azure.
+    b. **Selecione Ative SCIM-Based Provisioning** para obter as definições em **URL base** e **Token do portador**. Em seguida, guarde as definições. Copie a definição **de URL base** para o URL do **inquilino** no portal Azure. Copie a definição **de Token do Portador** para o Secret **Token** no portal Azure.
 
 7. Depois de preencher as caixas mostradas no Passo 5, selecione **a Ligação de Teste** para se certificar de que o Azure AD pode ligar-se ao Zscaler One. Se a ligação falhar, certifique-se de que a sua conta Zscaler One tem permissões de administração e tente novamente.
 
@@ -161,7 +161,7 @@ Para obter informações sobre como ler os registos de provisionamento da AZure 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../active-directory-saas-provisioning-reporting.md)
+* [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../active-directory-saas-provisioning-reporting.md)
 
 <!--Image references-->
 [1]: ./media/zscaler-one-provisioning-tutorial/tutorial-general-01.png

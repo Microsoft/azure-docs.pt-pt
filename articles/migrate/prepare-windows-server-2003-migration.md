@@ -4,10 +4,10 @@ description: Saiba como preparar servidores windows server 2003 para migração 
 ms.topic: how-to
 ms.date: 05/27/2020
 ms.openlocfilehash: 5e33742d59972d491c1efb8d0f1453c1226d4625
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86103947"
 ---
 # <a name="prepare-windows-server-2003-machines-for-migration"></a>Preparar máquinas windows server 2003 para migração
@@ -44,7 +44,7 @@ Antes da migração, verifique se os Serviços de Integração Hiper-V e, em seg
 9. Depois de o script ser executado e os Serviços de Integração Hiper-V estiverem instalados no Azure VM, pode remover o script do arranque.
 10. Após a instalação, pode deixar as definições predefinidos nos Serviços de Integração. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja os requisitos de migração para [VMware](migrate-support-matrix-vmware-migration.md) e [Hiper-VMs.](migrate-support-matrix-hyper-v-migration.md)
 - Migrar [VMware](server-migrate-overview.md) e [Hiper-VMs.](tutorial-migrate-hyper-v.md)

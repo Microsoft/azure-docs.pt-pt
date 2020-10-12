@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 7/7/2020
 ms.openlocfilehash: 183ece0d82431a8a961902d75d2fc24b013bc97b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86252271"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mariadb"></a>Compreender a continuidade do negócio na Base de Dados Azure para a MariaDB
@@ -23,7 +23,7 @@ A Azure Database for MariaDB fornece funcionalidades de continuidade de negócio
 
 A tabela a seguir compara o ERT e o RPO pelas funcionalidades disponíveis:
 
-| **Capacidade** | **Básica** | **Finalidade Geral** | **Com otimização de memória** |
+| **Capacidade** | **Básica** | **Fins Gerais** | **Com otimização de memória** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Restauro para um Ponto Anterior no Tempo a partir de cópia de segurança | Qualquer ponto de restauração dentro do período de retenção | Qualquer ponto de restauração dentro do período de retenção | Qualquer ponto de restauração dentro do período de retenção |
 | Geo-restauro a partir de backups geo-replicados | Não suportado | ERT < 12 h<br/>RPO < 1 h | ERT < 12 h<br/>RPO < 1 h |

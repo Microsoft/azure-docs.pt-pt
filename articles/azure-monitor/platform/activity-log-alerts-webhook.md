@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
 ms.openlocfilehash: 018bf7ac9c24669df798e9ba05c667dcb72d94a6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87321841"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks para alertas de registo de atividades do Azure
@@ -269,7 +269,7 @@ Para obter detalhes específicos sobre os alertas de registo de atividades de no
 | resourceGroupName |Nome do grupo de recursos para o recurso impactado. |
 | propriedades |Conjunto de `<Key, Value>` pares (isto é, `Dictionary<String, String>` ) que inclui detalhes sobre o evento. |
 | evento |Elemento que contém metadados sobre o evento. |
-| autorização |As propriedades do Controlo de Acesso Baseado em Função do evento. Estas propriedades geralmente incluem a ação, o papel e o âmbito. |
+| autorização |As Role-Based propriedades de Controlo de Acesso do evento. Estas propriedades geralmente incluem a ação, o papel e o âmbito. |
 | categoria |Categoria do evento. Os valores suportados incluem Administrativo, Alerta, Segurança, Saúde do Serviço e Recomendação. |
 | chamador |Endereço de e-mail do utilizador que realizou a operação, reclamação UPN ou reclamação SPN com base na disponibilidade. Pode ser nulo para certas chamadas do sistema. |
 | correlationId |Normalmente um GUID em formato de corda. Os eventos com correlationid pertencem à mesma ação maior e geralmente partilham uma correlaid. |

@@ -4,10 +4,10 @@ description: Este artigo descreve o Serviço de Análise de Falhas no Tecido de 
 ms.topic: conceptual
 ms.date: 06/15/2017
 ms.openlocfilehash: 4e879b0b39d58f115b4661d47cf2ae564ba14e5d
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91531382"
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>Introdução ao Serviço de Análise de Falhas
@@ -85,7 +85,7 @@ As funcionalidades do Serviço de Análise de Falhas estão no espaço de nomes 
 
 Para utilizar o PowerShell, tem de instalar o Service Fabric SDK. Após a instalação do SDK, o módulo ServiceFabric PowerShell é carregado automaticamente para utilizar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para criar serviços verdadeiramente em nuvem, é fundamental garantir, antes e depois da implantação, que os serviços podem resistir a falhas no mundo real. No mundo dos serviços de hoje, a capacidade de inovar rapidamente e de transferir rapidamente o código para a produção é muito importante. O Serviço de Análise de Falhas ajuda os desenvolvedores de serviços a fazer precisamente isso.
 
 Comece a testar as suas aplicações e serviços utilizando os cenários de [teste incorporados,](service-fabric-testability-scenarios.md)ou autore os seus próprios cenários de teste utilizando [as ações de avaria](service-fabric-testability-actions.md) fornecidas pelo Serviço de Análise de Falhas.

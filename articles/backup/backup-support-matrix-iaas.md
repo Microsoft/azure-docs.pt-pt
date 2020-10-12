@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
 ms.openlocfilehash: b576b5e15461f34468bd7c2d512ac7a636b73ac9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332734"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte da cópia de segurança de uma VM do Azure
@@ -164,7 +164,7 @@ Discos com acelerador de escrita ativados | Não suportado.<br/><br/> O Azure Ba
 Retrocede & Restaurar VMs/discos desduplicados | A Azure Backup não suporta a deduplicação. Para mais informações, consulte este [artigo](./backup-support-matrix.md#disk-deduplication-support) <br/> <br/>  - A Azure Backup não desduplica através de VMs no cofre dos Serviços de Recuperação <br/> <br/>  - Se houver VMs em estado de desduplicação durante a restauração, os ficheiros não podem ser restaurados porque o cofre não entende o formato. No entanto, pode executar com sucesso a restauração completa do VM.
 Adicione o disco ao VM protegido | Suportado.
 Redimensione o disco em VM protegido | Suportado.
-Armazenamento compartilhado| O backup de VMs utilizando o Cluster Shared Volume (CSV) ou o Servidor de Ficheiros Scale-Out não é suportado. É provável que os escritores do CSV falhem durante o backup. No restauro, os discos que contêm volumes de CSV podem não aparecer.
+Armazenamento compartilhado| O backup de VMs utilizando o Cluster Shared Volume (CSV) ou Scale-Out File Server não é suportado. É provável que os escritores do CSV falhem durante o backup. No restauro, os discos que contêm volumes de CSV podem não aparecer.
 [Discos partilhados](../virtual-machines/disks-shared-enable.md) | Não suportado.
 
 ## <a name="vm-network-support"></a>Suporte à rede VM
@@ -179,7 +179,7 @@ VMs com endereços IP públicos| Suportado.<br/><br/> Associe um endereço IP p�
 Grupo de segurança de rede (NSG) em NIC/sub-rede. |Suportado.
 Endereço IP estático | Não suportado.<br/><br/> Um novo VM que é criado a partir de um ponto de restauro é atribuído um endereço IP dinâmico.<br/><br/> Para VMs clássicos, não é possível fazer uma reserva de VM com um endereço IP reservado e sem ponto final definido.
 Endereço IP dinâmico |Suportado.<br/><br/> Se o NIC na fonte VM utilizar um endereço IP dinâmico, por predefinição o NIC no VM restaurado também o utilizará.
-Traffic Manager do Azure| Suportado.<br/><br/>Se o VM de apoio estiver no Traffic Manager, adicione manualmente o VM restaurado à mesma instância do Gestor de Tráfego.
+Gestor de Tráfego do Azure| Suportado.<br/><br/>Se o VM de apoio estiver no Traffic Manager, adicione manualmente o VM restaurado à mesma instância do Gestor de Tráfego.
 DNS do Azure |Suportado.
 DNS Personalizado |Suportado.
 Conectividade de saída via http proxy | Suportado.<br/><br/> Um representante autenticado não é apoiado.
@@ -207,10 +207,10 @@ Segurança de dados:
 
 **Máquina** | **Em trânsito** | **Em repouso**
 --- | --- | ---
-Máquinas Windows no local sem DPM/MABS | ![Yes][green] | ![Yes][green]
-VMs do Azure | ![Yes][green] | ![Yes][green]
-Instalações/VMs Azure com DPM | ![Yes][green] | ![Yes][green]
-Em instalações/VMs Azure com MABS | ![Yes][green] | ![Yes][green]
+Máquinas Windows no local sem DPM/MABS | ![Sim][green] | ![Sim][green]
+VMs do Azure | ![Sim][green] | ![Sim][green]
+Instalações/VMs Azure com DPM | ![Sim][green] | ![Sim][green]
+Em instalações/VMs Azure com MABS | ![Sim][green] | ![Sim][green]
 
 ## <a name="vm-compression-support"></a>Suporte à compressão VM
 
@@ -223,8 +223,8 @@ A cópia de segurança suporta a compressão do tráfego de backup, tal como res
 --- | --- | ---
 Máquinas Windows no local sem DPM/MABS | ND | ![Sim][green]
 VMs do Azure | ND | ND
-Instalações/VMs Azure com DPM | ![Yes][green] | ![Yes][green]
-Em instalações/VMs Azure com MABS | ![Yes][green] | ![Sim][green]
+Instalações/VMs Azure com DPM | ![Sim][green] | ![Sim][green]
+Em instalações/VMs Azure com MABS | ![Sim][green] | ![Sim][green]
 
 ## <a name="next-steps"></a>Próximos passos
 

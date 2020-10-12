@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.openlocfilehash: 095bc5594cf9b6eaf0df7929ea83c25a401793e2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86252118"
 ---
 # <a name="authentication-vs-authorization"></a>Autenticação vs autorização
@@ -55,5 +55,5 @@ Para outros tópicos que abranjam os fundamentos básicos de autenticação e au
 * Consulte o [fluxo de entrada de app](app-sign-in-flow.md) para saber sobre o fluxo de entrada de aplicações web, desktop e mobile na plataforma de identidade da Microsoft.
 
 * Para saber mais sobre os protocolos que a plataforma de identidade da Microsoft implementa, consulte [os protocolos OAuth 2.0 e OpenID Connect na plataforma de identidade da Microsoft.](active-directory-v2-protocols.md)
-* Consulte [o protocolo SAML de assinatura única](single-sign-on-saml-protocol.md) para obter mais informações sobre como a plataforma de identidade da Microsoft suporta o Sign-On único.
+* Consulte [o protocolo SAML single Sign-On](single-sign-on-saml-protocol.md) para obter mais informações sobre como a plataforma de identidade da Microsoft suporta o Sign-On único.
 * Consulte [o único s-on para aplicações no Azure Ative Directory](../manage-apps/what-is-single-sign-on.md) para obter mais informações sobre as diferentes formas de implementar um único s-on na sua aplicação.

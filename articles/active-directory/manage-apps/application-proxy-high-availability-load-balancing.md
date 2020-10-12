@@ -17,15 +17,15 @@ ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ab3b340654fd6d824edef0a33d1ea363a913654
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764592"
 ---
 # <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>Alta disponibilidade e equilíbrio de carga dos conectores e aplicações Proxy da aplicação
 
-Este artigo explica como a distribuição de tráfego funciona com a sua implementação de Procuração de Aplicação. Vamos discutir:
+Este artigo explica como a distribuição de tráfego funciona com a sua implementação de Procuração de Aplicação. Vamos abordar:
 
 - Como o tráfego é distribuído entre utilizadores e conectores, juntamente com dicas para otimizar o desempenho do conector
 
@@ -92,7 +92,7 @@ Aqui estão algumas opções para o cenário 2:
 
 Consulte a documentação do seu fornecedor de software para entender os requisitos de equilíbrio de carga da aplicação back-end.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Ativar procuração de aplicação](application-proxy-add-on-premises-application.md)
 - [Ativar o início de sessão único](application-proxy-configure-single-sign-on-with-kcd.md)

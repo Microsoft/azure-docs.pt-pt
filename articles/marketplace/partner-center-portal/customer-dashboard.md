@@ -8,10 +8,10 @@ ms.date: 07/22/2020
 author: shganesh-dev
 ms.author: shganesh
 ms.openlocfilehash: 44e992bb1445e1e58f42ec150a8e2c0682eea98b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87317591"
 ---
 # <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Dashboard do Cliente na análise do mercado comercial
@@ -110,7 +110,7 @@ Os filtros **de página clientes** são aplicados ao nível da página dos Clien
 >[!NOTE]
 > Definições detalhadas para cada um dos campos na grelha do cliente, filtros de página e suas possíveis seleções estão localizadas no artigo de FAQ abaixo indicado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para uma visão geral dos relatórios de análise disponíveis no mercado comercial do Partner Center, consulte [Analytics para o mercado comercial no Partner Center](./analytics.md).
 - Para gráficos, tendências e valores de dados agregados que resumem a atividade do mercado para a sua oferta, consulte [o Painel De Resumo em análise de mercado comercial.](./summary-dashboard.md)

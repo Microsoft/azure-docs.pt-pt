@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/27/2019
 ms.openlocfilehash: 7750544367044cab2a0243577c200025bb9ff693
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86083037"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Aceder ao Grafana no Azure HDInsight
@@ -36,7 +36,7 @@ Consulte [os clusters Apache Hadoop utilizando o portal Azure](../hdinsight-hado
 
     ![Painel web HDInsight Grafana](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "Painel HDInsight Grafana")
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não continuar a utilizar esta aplicação, elimine o cluster que criou com os seguintes passos:
 
@@ -50,7 +50,7 @@ Se não continuar a utilizar esta aplicação, elimine o cluster que criou com o
 
 1. Selecione **Eliminar**. Selecione **Sim**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre como analisar os dados com o HDInsight, veja os seguintes artigos:
 

@@ -4,10 +4,10 @@ description: A bordo como um tipo de parceiro Azure Event Grid. Compreenda o mod
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 36f2178b7c21af016f9074d6f973a01cedb873d7
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87826794"
 ---
 # <a name="onboard-as-an-azure-event-grid-partner"></a>A bordo como parceiro da Azure Event Grid
@@ -59,7 +59,7 @@ Os tópicos de parceiro permitem-lhe publicar eventos na Azure Event Grid para c
 O modelo de recursos a seguir é para tópicos parceiros.
 
 ### <a name="partner-registrations"></a>Inscrições de parceiros
-* Recurso:`partnerRegistrations`
+* Recurso: `partnerRegistrations`
 * Usado por: Parceiros
 * Descrição: Captura os metadados globais do software como parceiro de serviço (SaaS) (por exemplo, nome, nome de exibição, descrição, configuração URI).
     
@@ -75,13 +75,13 @@ O modelo de recursos a seguir é para tópicos parceiros.
 * Âmbito: Vive na assinatura do parceiro.
 
 ### <a name="event-channel"></a>Canal de eventos
-* Recurso:`partnerNamespaces/eventChannels`
+* Recurso: `partnerNamespaces/eventChannels`
 * Usado por: Parceiros
 * Descrição: Os túneis do evento são um espelho do tópico parceiro do cliente. Ao criar um túnel de eventos e especificar o grupo de subscrição e recursos Azure do cliente nos metadados, você sinaliza para a Grade de Eventos para criar um tópico de parceiro para o cliente. A Grade de Eventos emite uma chamada ARM para criar um parceiro correspondenteTopic na subscrição do cliente. O tópico parceiro é criado num estado pendente. Há uma ligação um-para-um entre cada túnel de evento e o tópico do parceiro.
 * Âmbito: Vive na assinatura do parceiro.
 
 ### <a name="partner-topics"></a>Tópicos para parceiros
-* Recurso:`partnerTopics`
+* Recurso: `partnerTopics`
 * Usado por: Clientes
 * Descrição: Os tópicos dos parceiros são semelhantes aos tópicos personalizados e tópicos do sistema na Grade de Eventos. Cada tópico parceiro está associado a uma fonte específica (por exemplo, `Contoso:myaccount` ) e a um tipo de tópico de parceiro específico (por exemplo, Contoso). Os clientes criam subscrições de eventos sobre o tópico do parceiro para encaminhar eventos para vários manipuladores de eventos.
 
@@ -89,9 +89,9 @@ O modelo de recursos a seguir é para tópicos parceiros.
 * Âmbito: Vive na subscrição do cliente.
 
 ### <a name="partner-topic-types"></a>Tipos de tópicos de parceiros
-* Recurso:`partnerTopicTypes`
+* Recurso: `partnerTopicTypes`
 * Usado por: Clientes
-* Descrição: Os tipos de tópicos de parceiro são tipos de recursos de todo o inquilino que permitem aos clientes descobrir a lista de tipos de tópicos de parceiros aprovados. A URL parecehttps://management.azure.com/providers/Microsoft.EventGrid/partnerTopicTypes)
+* Descrição: Os tipos de tópicos de parceiro são tipos de recursos de todo o inquilino que permitem aos clientes descobrir a lista de tipos de tópicos de parceiros aprovados. A URL parece https://management.azure.com/providers/Microsoft.EventGrid/partnerTopicTypes)
 * Âmbito: Global
 
 ## <a name="publish-events-to-event-grid"></a>Publicar eventos para a Grade de Eventos

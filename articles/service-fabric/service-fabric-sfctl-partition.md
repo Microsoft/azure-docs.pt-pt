@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: fff569c586548d84ed55018764363ad7f05e526d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86257092"
 ---
 # <a name="sfctl-partition"></a>sfctl partition
@@ -21,7 +21,7 @@ Consultar e gerir divisórias para qualquer serviço.
 | --- | --- |
 | perda de dados | Esta API induzirá a perda de dados para a partição especificada. |
 | estado de perda de dados | Obtém-se o progresso de uma operação de perda de dados de partição iniciada usando a API StartDataLoss. |
-| saúde | Obtém a saúde da partição de tecido de serviço especificado. |
+| Saúde | Obtém a saúde da partição de tecido de serviço especificado. |
 | informações | Obtém a informação sobre uma divisória de Tecido de Serviço. |
 | lista | Obtém a lista de divisórias de um serviço de Tecido de Serviço. |
 | carregar | Obtém a informação de carga da partição de tecido de serviço especificado. |

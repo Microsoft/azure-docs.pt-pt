@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: kumud
 ms.openlocfilehash: 664e3851370be812cd7a0e58cf9beb1fddb5d991
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87291004"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Criar, alterar ou eliminar uma tabela de rotas
 
 O Azure liga automaticamente o tráfego entre sub-redes Azure, redes virtuais e redes no local. Se quiser alterar qualquer um dos roteamentos padrão do Azure, fá-lo criando uma tabela de rotas. Se você é novo em encaminhamento em redes virtuais, você pode aprender mais sobre isso em [encaminhamento de tráfego de rede virtual](virtual-networks-udr-overview.md) ou completando um [tutorial](tutorial-create-route-table-portal.md).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Se não tiver uma, crie uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Em seguida, complete uma destas tarefas antes de iniciar etapas em qualquer secção deste artigo:
 
@@ -190,7 +190,7 @@ Há um limite para quantas rotas por tabela de rotas pode criar por localizaçã
 
 1. Introduza um **nome de rota** único para o percurso dentro da tabela de rotas.
 
-1. Introduza o **prefixo de endereço**, na notação de encaminhamento inter-domínio sem classe (CIDR), para a quais pretende encaminhar o tráfego para. O prefixo não pode ser duplicado em mais de uma rota dentro da tabela de rotas, embora o prefixo possa estar dentro de outro prefixo. Por exemplo, se definiu *10.0.0.0/16* como prefixo numa rota, ainda pode definir outra rota com o prefixo de endereço *10.0.0.0/22.* O Azure seleciona uma rota para o tráfego com base na correspondência prefixo mais longa. Para saber mais, veja [como o Azure seleciona uma rota.](virtual-networks-udr-overview.md#how-azure-selects-a-route)
+1. Introduza o **prefixo address**, na notação de encaminhamento de Inter-Domain (CIDR) sem classe, para a quais pretende encaminhar o tráfego para. O prefixo não pode ser duplicado em mais de uma rota dentro da tabela de rotas, embora o prefixo possa estar dentro de outro prefixo. Por exemplo, se definiu *10.0.0.0/16* como prefixo numa rota, ainda pode definir outra rota com o prefixo de endereço *10.0.0.0/22.* O Azure seleciona uma rota para o tráfego com base na correspondência prefixo mais longa. Para saber mais, veja [como o Azure seleciona uma rota.](virtual-networks-udr-overview.md#how-azure-selects-a-route)
 
 1. Escolha um **próximo tipo de lúpulo**. Para saber mais sobre os próximos tipos de lúpulo, consulte [o encaminhamento de tráfego de rede virtual.](virtual-networks-udr-overview.md)
 

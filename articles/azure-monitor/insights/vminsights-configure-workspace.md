@@ -8,10 +8,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
 ms.openlocfilehash: 40ff7bfe713f401a23dea0b3660be1b7728a1380
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87828562"
 ---
 # <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>Configurar log analytics espaço de trabalho para monitor azure para VMs
@@ -63,7 +63,7 @@ O Azure Monitor for VMs suporta espaços de trabalho log Analytics nas seguintes
 - Europa Ocidental
 - Ásia Leste
 - Sudeste Asiático
-- Central India
+- Índia Central
 - Leste do Japão
 - Leste da Austrália
 - Austrália Sudeste

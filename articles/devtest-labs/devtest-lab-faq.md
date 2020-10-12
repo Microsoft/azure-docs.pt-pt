@@ -4,10 +4,10 @@ description: Este artigo fornece respostas a algumas das perguntas frequentes (F
 ms.topic: article
 ms.date: 07/17/2020
 ms.openlocfilehash: 3f36b8238ccb69b3b1f14166b522e47d5debe54e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87289377"
 ---
 # <a name="azure-devtest-labs-faq"></a>FAQ de Azure DevTest Labs
@@ -29,7 +29,7 @@ Estamos atualmente a trabalhar na migração de posts de blog existentes (exclui
 Vamos publicar atualizações de falhas usando a nossa alça do Twitter a partir de agora. Siga-nos no Twitter para obter as últimas atualizações sobre falhas e bugs conhecidos.
 
 ### <a name="twitter"></a>Twitter
-A nossa alça do Twitter:[@azlabservices](https://twitter.com/azlabservices)
+A nossa alça do Twitter: [@azlabservices](https://twitter.com/azlabservices)
 
 ## <a name="general"></a>Geral
 ### <a name="what-if-my-question-isnt-answered-here"></a>E se a minha pergunta não for respondida aqui?
@@ -68,7 +68,7 @@ DevTest Labs é um serviço gratuito. Criar laboratórios e configurar política
 ## <a name="security"></a>Segurança
 
 ### <a name="what-are-the-different-security-levels-in-devtest-labs"></a>Quais são os diferentes níveis de segurança nos Laboratórios DevTest?
-O acesso à segurança é determinado pelo Controlo de Acesso Baseado em Função (RBAC). Para aprender como funciona o acesso, ajuda a aprender as diferenças entre uma permissão, um papel e um âmbito, tal como definido pelo RBAC.
+O acesso à segurança é determinado pelo Role-Based Access Control (RBAC). Para aprender como funciona o acesso, ajuda a aprender as diferenças entre uma permissão, um papel e um âmbito, tal como definido pelo RBAC.
 
 - **Permissão**: Uma permissão é um acesso definido a uma ação específica. Por exemplo, uma permissão pode ser lida no acesso a todos os VMs.
 - **Função**: Um papel é um conjunto de permissões que podem ser agrupadas e atribuídas a um utilizador. Por exemplo, um utilizador com uma função de proprietário de subscrição tem acesso a todos os recursos dentro de uma subscrição.
@@ -200,7 +200,7 @@ Para copiar os seus VMs existentes para a DevTest Labs:
 Sim, pode anexar vários discos aos seus VMs.
 
 ### <a name="are-gen-2-images-supported-by-devtest-labs"></a>As imagens da Gen 2 são apoiadas pela DevTest Labs?
-Yes. O serviço DevTest Labs suporta [imagens da Gen 2.](../virtual-machines/windows/generation-2.md) No entanto, se ambas as versões Gen 1 e Gen 2 estiverem disponíveis para uma imagem, a DevTest Labs mostra apenas a versão Gen 1 da imagem ao criar um VM. Vê-se a imagem se só houver versão da Gen 2 disponível. 
+Sim. O serviço DevTest Labs suporta [imagens da Gen 2.](../virtual-machines/windows/generation-2.md) No entanto, se ambas as versões Gen 1 e Gen 2 estiverem disponíveis para uma imagem, a DevTest Labs mostra apenas a versão Gen 1 da imagem ao criar um VM. Vê-se a imagem se só houver versão da Gen 2 disponível. 
 
 ### <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>Se eu quiser usar uma imagem do Windows OS para os meus testes, tenho de comprar uma subscrição da MSDN?
 Para utilizar imagens DE OS do cliente Do Windows (Windows 7 ou versão posterior) para o seu desenvolvimento ou teste em Azure, tome um dos seguintes passos:
@@ -357,7 +357,7 @@ Ao utilizar iPs públicos partilhados, as máquinas virtuais em um laboratório 
 
 ### <a name="how-do-i-ensure-that-development-and-test-virtual-machines-are-unable-to-reach-the-public-internet-are-there-any-recommended-patterns-to-set-up-network-configuration"></a>Como posso garantir que as máquinas virtuais de desenvolvimento e de teste não conseguem chegar à internet pública? Existem padrões recomendados para configurar a configuração da rede?
 
-Yes. Há dois aspetos a ter em conta : tráfego de entrada e saída.
+Sim. Há dois aspetos a ter em conta : tráfego de entrada e saída.
 
 - **Tráfego de entrada** – Se a máquina virtual não tiver um endereço IP público, então não pode ser alcançada pela internet. Uma abordagem comum consiste em assegurar que seja definida uma política de nível de subscrição, de modo a que nenhum utilizador possa criar um endereço IP público.
 - **Tráfego de saída** – Se pretender evitar que máquinas virtuais acedam diretamente à internet pública e forcem o tráfego através de uma firewall corporativa, então pode encaminhar o tráfego para o local através de via expressa ou VPN, utilizando o encaminhamento forçado.
