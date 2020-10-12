@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
 ms.openlocfilehash: dadfd3abfad0c588f53d47cb7ab1eb138d4f90ac
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89612516"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Infraestrutura de atualização de chapéu vermelho para red hat enterprise Linux VMs em Azure
@@ -310,7 +310,7 @@ Este procedimento está previsto apenas para referência. As imagens RHEL PAYG j
         ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Para criar um Red Hat Enterprise Linux VM a partir de uma imagem Azure Marketplace PAYG e para usar o RHUI hospedado no Azure, vá ao [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/RedHat.RHEL_6).
 * Para saber mais sobre as imagens do Chapéu Vermelho em Azure, aceda à página de [documentação.](./redhat-images.md)
 * As informações sobre as políticas de suporte do Red Hat para todas as versões do RHEL podem ser encontradas na página [Red Hat Enterprise Linux Life Cycle.](https://access.redhat.com/support/policy/updates/errata)

@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
 ms.openlocfilehash: 0761db6b73c6fcfeb1ef6fda729a68c9644bbc72
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79479564"
 ---
 # <a name="install-azure-farmbeats"></a>Instalar o Azure FarmBeats
@@ -61,7 +61,7 @@ Atualmente, a Azure FarmBeats é apoiada em ambientes de nuvem pública nas segu
 - E.U.A. Leste
 - E.U.A. Leste 2
 - E.U.A. Oeste
-- E.U.A.Oeste 2
+- E.U.A. Oeste 2
 - Europa do Norte
 - Europa Ocidental
 - Ásia Leste
@@ -206,6 +206,6 @@ Para desinstalar o Datahub ou Acelerador Azure FarmBeats, complete os seguintes 
 
 2. Vá ao Azure Ative Directory & **elimine a aplicação AZure AD** ligada à instalação Azure FarmBeats.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aprendeu a instalar o Azure FarmBeats na sua subscrição Azure. Agora, aprenda a [adicionar utilizadores](manage-users-in-azure-farmbeats.md#manage-users) à sua instância Azure FarmBeats.

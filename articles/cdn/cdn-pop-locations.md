@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/19/2020
 ms.author: allensu
 ms.openlocfilehash: 66eafb818b09d6d1cde6c1f3e2dbcdaf55352248
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87002986"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Cobertura Azure CDN by Metro 
@@ -36,7 +36,7 @@ Este artigo lista os atuais Metros que contêm localizações de ponto de presen
 > Como cada produto Azure CDN tem uma forma distinta de construir as suas infraestruturas de CDN, a Microsoft recomenda que não utilize localizações POP para decidir qual o produto Azure CDN a utilizar. Em vez disso, considere as suas funcionalidades e desempenho do utilizador final. Teste o desempenho com cada produto Azure CDN para escolher o produto certo para os seus utilizadores. 
 > 
 
-| Região | Microsoft | Verizon | Akamai |
+| Region | Microsoft | Verizon | Akamai |
 | --- | --- | --- | --- |
 | América do Norte | Toronto<br />Vancouver<br />Montreal<br />Querétaro<br />San Juan<br />Ashburn, VA, EUA<br />Atlanta, GA, EUA<br />Raleigh, NC, EUA<br />Boston, MA, EUA<br />Cheyenne, WY, EUA<br />Chicago, IL, EUA<br /> Dallas, TX, EUA<br />Denver, CO, EUA<br />Honolulu, HI, EUA<br />Houston, TX, EUA<br />Las Vegas, NV, EUA<br />Los Angeles, CA, EUA<br />Miami, FL, EUA<br />Nova Iorque, NY, EUA<br />Newark, NJ, EUA<br />Phoenix, AZ, EUA<br />Portland, OR, EUA<br />San Antonio, TX, EUA<br />San Jose, CA, EUA<br />Seattle, WA, EUA | Guadalajara<br />Cidade do México, México<br />Puebla<br />Querétaro<br />Atlanta, GA, EUA<br />Boston, MA, EUA<br />Chicago, IL, EUA<br />Dallas, TX, EUA<br />Denver, CO, EUA<br />Detroit, MI, EUA<br />Los Angeles, CA, EUA<br />Miami, FL, EUA<br />Nova Iorque, NY, EUA<br />Filadélfia, PA, EUA<br />San Jose, CA, EUA<br />Seattle, WA, EUA<br />Washington, DC, EUA <br /> Ashburn, VA, EUA <br /> Phoenix, AZ, EUA | Canadá<br />México<br />E.U.A. |
 | América do Sul | Campinas<br />Rio de Janeiro, Brasil<br />São Paulo<br />Santiago<br />Bogotá<br />Buenos Aires | Buenos Aires<br />Rio de Janeiro, Brasil<br />São Paulo<br />Valparaíso<br />Bogotá<br />Barranquilla<br />Medellin<br />Quito<br />Lima | Argentina<br />Brasil<br />Chile<br />Colômbia<br />Equador<br />Peru<br />Uruguai |

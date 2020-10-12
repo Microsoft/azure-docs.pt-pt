@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.openlocfilehash: 50dbbe3a6a1af1e73cdf1ee7f5bd3a63cf2f6a50
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87498808"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-import-order"></a>Rastreio e registo de eventos para a sua Caixa de Dados Azure e Azure Data Box Encomenda pesada de importação
@@ -26,7 +26,7 @@ O quadro seguinte mostra um resumo das etapas de encomenda pesada da Caixa de Da
 | Criar encomenda               | [Configurar o controlo de acesso na ordem via RBAC](#set-up-access-control-on-the-order)                                                    |
 | Encomenda processada            | [Acompanhe a encomenda](#track-the-order) através <ul><li> Portal do Azure </li><li> Site da transportadora de envio </li><li>Notificações por e-mail</ul> |
 | Configurar dispositivo              | Acesso de credenciais de dispositivo registado em [registos de atividade](#query-activity-logs-during-setup)                                              |
-| Cópia de dados para dispositivo        | [Ver *ficheiroserror.xml* ](#view-error-log-during-data-copy) para cópia de dados                                                             |
+| Cópia de dados para dispositivo        | [Ver * ficheiroserror.xml* ](#view-error-log-during-data-copy) para cópia de dados                                                             |
 | Preparar para enviar            | [Inspecione os ficheiros BOM](#inspect-bom-during-prepare-to-ship) ou os ficheiros manifestos do dispositivo                                      |
 | Upload de dados para Azure       | [Reveja os registos de cópias](#review-copy-log-during-upload-to-azure) de erros durante o upload de dados no Azure datacenter                         |
 | Apagamento de dados do dispositivo   | [Ver cadeia de registos de custódia,](#get-chain-of-custody-logs-after-data-erasure) incluindo registos de auditoria e histórico de encomendas                |
@@ -297,7 +297,7 @@ Após os dados serem apagados dos discos Data Box de acordo com as diretrizes da
 
 ### <a name="audit-logs"></a>Registos de auditoria
 
-Os registos de auditoria contêm informações sobre como aceder a ações na Caixa de Dados ou Caixa de Dados Pesada quando esta estiver fora do centro de dados Azure. Estes registos estão localizados em:`storage-account/azuredatabox-chainofcustodylogs`
+Os registos de auditoria contêm informações sobre como aceder a ações na Caixa de Dados ou Caixa de Dados Pesada quando esta estiver fora do centro de dados Azure. Estes registos estão localizados em: `storage-account/azuredatabox-chainofcustodylogs`
 
 Aqui está uma amostra do registo de auditoria de uma Caixa de Dados:
 

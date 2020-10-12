@@ -8,10 +8,10 @@ ms.date: 12/19/2019
 ms.author: rohogue
 ms.custom: references_regions
 ms.openlocfilehash: c6459e2daf17772b28ee53289754deb33b4823ae
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88272696"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Perguntas Frequentes de Avere vFXT for Azure
@@ -26,7 +26,7 @@ Avere vFXT for Azure é um sistema de ficheiros de alto desempenho que cache dad
 
 ### <a name="is-avere-vfxt-a-storage-solution"></a>Avere vFXT é uma solução de armazenamento?
 
-Não. Avere vFXT for Azure é uma *cache* de sistema de ficheiros que se liga a ambientes de armazenamento, como o seu EMC ou NetApp NAS, ou um recipiente de bolhas Azure. Avere vFXT simplifica os pedidos de dados dos clientes, e cache os dados que serve para melhorar o desempenho em escala e ao longo do tempo. Avere vFXT em si não armazena dados. Não tem informações sobre a quantidade de dados armazenados por trás.
+N.º Avere vFXT for Azure é uma *cache* de sistema de ficheiros que se liga a ambientes de armazenamento, como o seu EMC ou NetApp NAS, ou um recipiente de bolhas Azure. Avere vFXT simplifica os pedidos de dados dos clientes, e cache os dados que serve para melhorar o desempenho em escala e ao longo do tempo. Avere vFXT em si não armazena dados. Não tem informações sobre a quantidade de dados armazenados por trás.
 
 ### <a name="is-avere-vfxt-a-tiering-solution"></a>Avere vFXT é uma solução de tiering?
 
@@ -106,7 +106,7 @@ O cluster Avere vFXT pode ser tão pequeno como três nós de máquina virtual o
 
 ### <a name="does-the-avere-vfxt-environment-autoscale"></a>O ambiente Avere vFXT "autoscale"?
 
-Não. Pode escalar o tamanho do cluster para cima e para baixo, mas adicionar ou remover nós de cluster é um passo manual.
+N.º Pode escalar o tamanho do cluster para cima e para baixo, mas adicionar ou remover nós de cluster é um passo manual.
 
 ### <a name="can-i-run-the-avere-vfxt-cluster-as-a-virtual-machine-scale-set"></a>Posso executar o cluster Avere vFXT como um conjunto de escala de máquina virtual?
 
@@ -122,11 +122,11 @@ Não, Avere vFXT deve ser implementado como uma aplicação independente.
 
 ### <a name="do-the-avere-vfxt-vms-count-against-my-compute-quota"></a>Os VMs Avere vFXT contam com a minha quota de cálculo?
 
-Yes. Certifique-se de que tem uma quota suficiente na região para apoiar o cluster.  
+Sim. Certifique-se de que tem uma quota suficiente na região para apoiar o cluster.  
 
 ### <a name="can-i-run-the-avere-vfxt-cluster-machines-in-different-availability-zones"></a>Posso executar as máquinas de cluster Avere vFXT em diferentes zonas de disponibilidade?
 
-Não. O modelo de alta disponibilidade em Avere vFXT atualmente não suporta membros individuais do cluster Avere vFXT localizados em diferentes zonas de disponibilidade.
+N.º O modelo de alta disponibilidade em Avere vFXT atualmente não suporta membros individuais do cluster Avere vFXT localizados em diferentes zonas de disponibilidade.
 
 ### <a name="can-i-clone-avere-vfxt-virtual-machines"></a>Posso clonar máquinas virtuais Avere vFXT?
 
@@ -177,7 +177,7 @@ Sim, pode criar o seu sistema Avere vFXT numa rede virtual diferente. Leia [o Pl
 
 ### <a name="does-avere-vfxt-require-its-own-subnet"></a>A Avere vFXT necessita da sua própria sub-rede?
 
-Yes. Avere vFXT funciona estritamente como um cluster de alta disponibilidade (HA) e requer vários endereços IP para operar. Se o cluster estiver na sua própria sub-rede, evita-se o risco de conflitos de endereços IP, o que pode causar problemas de instalação e funcionamento normal. A sub-rede do cluster pode estar dentro de uma rede virtual utilizada por outros recursos, desde que nenhum endereço IP se sobreponha.
+Sim. Avere vFXT funciona estritamente como um cluster de alta disponibilidade (HA) e requer vários endereços IP para operar. Se o cluster estiver na sua própria sub-rede, evita-se o risco de conflitos de endereços IP, o que pode causar problemas de instalação e funcionamento normal. A sub-rede do cluster pode estar dentro de uma rede virtual utilizada por outros recursos, desde que nenhum endereço IP se sobreponha.
 
 ### <a name="can-i-run-avere-vfxt-on-infiniband"></a>Posso executar Avere vFXT na InfiniBand?
 
@@ -253,7 +253,7 @@ Leia [o ficheiro central da nuvem de armazenamento Azure Blob](avere-vfxt-add-st
 
 ### <a name="can-i-use-archive-blob-storage"></a>Posso usar o armazenamento de bolhas de arquivo?
 
-Não. O acordo de nível de serviço (SLA) para armazenamento de arquivo não é compatível com as necessidades de acesso a ficheiros e de acesso a ficheiros em tempo real do sistema Avere vFXT.
+N.º O acordo de nível de serviço (SLA) para armazenamento de arquivo não é compatível com as necessidades de acesso a ficheiros e de acesso a ficheiros em tempo real do sistema Avere vFXT.
 
 ### <a name="can-i-use-cool-blob-storage"></a>Posso usar um armazenamento de bolhas legais?
 
@@ -287,7 +287,7 @@ Não, os clusters Avere vFXT requerem um serviço "sempre ligado". Os aglomerado
 
 Para começar com Avere vFXT para a Azure, leia estes artigos para aprender a planear e implementar o seu próprio sistema:
 
-* [Planear o sistema Avere vFXT](avere-vfxt-deploy-plan.md)
+* [Planear o seu sistema Avere vFXT](avere-vfxt-deploy-plan.md)
 * [Descrição geral da implementação](avere-vfxt-deploy-overview.md)
 * [Prepare-se para criar um cluster Avere vFXT](avere-vfxt-prereqs.md)
 * [Implementar o cluster do vFXT Avere](avere-vfxt-deploy.md)

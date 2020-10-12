@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 06/25/2020
 ms.author: aahi
 ms.openlocfilehash: 12c09ad8e1db3914263fcc864c9c2d09069d63a6
-ms.sourcegitcommit: fdaad48994bdb9e35cdd445c31b4bac0dd006294
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85412588"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>Migrar para a versão 3.x da API text Analytics
@@ -23,7 +23,7 @@ ms.locfileid: "85412588"
 
 Se estiver a utilizar a versão 2.1 da API text Analytics, este artigo irá ajudá-lo a atualizar a sua aplicação para utilizar a versão 3.x. A versão 3.0 está geralmente disponível e introduz novas funcionalidades, como o reconhecimento de entidades nomeadas expandidas [(NER)](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) e [a versão de modelo.](concepts/model-versioning.md) Está também disponível uma versão de pré-visualização do v3.1 (v3.1-preview.x), que adiciona funcionalidades como [a mineração de opinião.](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) Os modelos utilizados na V2 não receberão futuras atualizações. 
 
-#### <a name="sentiment-analysis"></a>[Análise de sentimento](#tab/sentiment-analysis)
+#### <a name="sentiment-analysis"></a>[Análise de sentimentos](#tab/sentiment-analysis)
 
 ## <a name="feature-changes"></a>Alterações de recursos 
 
@@ -103,7 +103,7 @@ Se a sua aplicação utilizar a API REST, atualize o ponto final do pedido para 
 ---
 
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * [Referência V2 da API analítica de texto](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/)
 * [O que é a API de Análise de Texto](overview.md)

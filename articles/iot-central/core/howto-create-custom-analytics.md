@@ -10,10 +10,10 @@ services: iot-central
 ms.custom: mvc
 manager: philmea
 ms.openlocfilehash: e04da10d71eed3706b87fc728a13927aeae82826
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84660122"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Estenda a Azure IoT Central com análises personalizadas usando Azure Databricks
@@ -45,7 +45,7 @@ Crie uma aplicação IoT Central no site do [gestor de aplicações Azure IoT Ce
 | URL | Aceite o prefixo padrão ou escolha o seu próprio prefixo URL único |
 | Diretório | Seu inquilino do Diretório Ativo Azure |
 | Subscrição do Azure | A sua subscrição do Azure |
-| Região | A sua região mais próxima |
+| Region | A sua região mais próxima |
 
 Os exemplos e imagens deste artigo utilizam a região **dos Estados Unidos.** Escolha um local próximo de si e certifique-se de criar todos os seus recursos na mesma região.
 
@@ -62,10 +62,10 @@ Utilize o [portal Azure para criar um espaço de nomes de Centros de Eventos](ht
 | Definição | Valor |
 | ------- | ----- |
 | Nome    | Escolha o seu nome de espaço de nome |
-| Escalão de preço | Básica |
+| Escalão de preço | Básico |
 | Subscrição | A sua subscrição |
 | Grupo de recursos | IoTCentralAnalysis |
-| Localização | E.U.A. Leste |
+| Localização | E.U.A Leste |
 | Unidades de Débito | 1 |
 
 ### <a name="azure-databricks-workspace"></a>Espaço de trabalho Azure Databricks
@@ -77,7 +77,7 @@ Utilize o [portal Azure para criar um Serviço de Dados Azure](https://portal.az
 | Nome da área de trabalho    | Escolha o nome do seu espaço de trabalho |
 | Subscrição | A sua subscrição |
 | Grupo de recursos | IoTCentralAnalysis |
-| Localização | E.U.A. Leste |
+| Localização | E.U.A Leste |
 | Escalão de Preço | Standard |
 
 Quando cria os recursos necessários, o seu grupo de recursos **IoTCentralAnalysis** parece a seguinte imagem:
@@ -158,7 +158,7 @@ Os seguintes passos mostram-lhe como importar a biblioteca que a sua amostra nec
 
 1. Na página **'Instalar Biblioteca',** escolha **Maven** como fonte da biblioteca.
 
-1. Na caixa de texto **coordenadas,** introduza o seguinte valor:`com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
+1. Na caixa de texto **coordenadas,** introduza o seguinte valor: `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
 
 1. Escolha **instalar** para instalar a biblioteca no cluster.
 
@@ -172,7 +172,7 @@ Utilize os seguintes passos para importar um caderno Databricks que contenha o c
 
 1. Navegue para a página **Workspace** no seu ambiente Databricks. Selecione o dropdown ao lado do nome da sua conta e, em seguida, escolha **Importar**.
 
-1. Opte por importar a partir de um URL e introduza o seguinte endereço:[https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true](https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true)
+1. Opte por importar a partir de um URL e introduza o seguinte endereço: [https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true](https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true)
 
 1. Para importar o caderno, escolha **Import.**
 
@@ -224,7 +224,7 @@ Para arrumar as coisas depois deste modo e evitar custos desnecessários, elimin
 
 Pode eliminar a aplicação IoT Central da página **Gestão** dentro da aplicação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de como guiar, aprendeu a:
 

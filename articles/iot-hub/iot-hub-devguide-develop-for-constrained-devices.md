@@ -11,10 +11,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: 9010ff582f05e81e17e280e20f180ceccf0e746f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81733192"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Desenvolver para dispositivos constrangidos utilizando Azure IoT C SDK
@@ -82,7 +82,7 @@ O C SDK suporta dois modelos de programação. Um conjunto tem APIs com um infix
 
 Outro conjunto de APIs sem o índice _LL_ é chamado de camada de conveniência, onde um fio de trabalhador é girado automaticamente. Por exemplo, as APIs de camada de conveniência para o cliente do dispositivo podem ser encontradas neste [ficheiro de cabeçalho do cliente do dispositivo IoT](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_device_client.h). Para dispositivos constrangidos onde cada fio extra pode levar uma percentagem substancial de recursos do sistema, considere a utilização de APIs _LL._
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a arquitetura Azure IoT C SDK:
 -    [Código fonte Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c/)

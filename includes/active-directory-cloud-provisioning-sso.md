@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 10/16/2019
 ms.author: billmath
 ms.openlocfilehash: 3aa1571b46938b03f556fa124d3f0a2a70f2c5c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79504367"
 ---
 ## <a name="steps-to-enable-single-sign-on"></a>Passos para permitir o único sinal de inscrição
@@ -18,7 +18,7 @@ O fornecimento de nuvens funciona com o Single Sign-on.  Atualmente não existe 
 ### <a name="step-1-download-and-extract-azure-ad-connect-files"></a>Passo 1: Descarregar e extrair ficheiros Azure AD Connect
 1.  Primeiro, baixe a versão mais recente do [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)
 2.  Abra um pedido de comando usando privilégios administrativos e navegue para o MSI que acabou de descarregar.
-3.  Executar o seguinte:`msiexec /a C:\filepath\AzureADConnect.msi /qb TARGETDIR=C:\filepath\extractfolder`
+3.  Executar o seguinte:  `msiexec /a C:\filepath\AzureADConnect.msi /qb TARGETDIR=C:\filepath\extractfolder`
 4. Altere o filepa e a dobradinha para combinar com o seu percurso de ficheiro e o nome da sua pasta de extração.  O conteúdo deve estar agora na pasta de extração.
 
 ### <a name="step-2-import-the-seamless-sso-powershell-module"></a>Passo 2: Importar o módulo SSO PowerShell sem costura

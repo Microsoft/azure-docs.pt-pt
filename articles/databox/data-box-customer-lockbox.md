@@ -9,10 +9,10 @@ ms.date: 07/10/2020
 ms.author: alkohli
 ms.subservice: pod
 ms.openlocfilehash: 9c95760d03db976b59537adcecbe39a942b72126
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86209835"
 ---
 # <a name="use-customer-lockbox-for-azure-data-box-preview"></a>Utilize o lockbox do cliente para a caixa de dados Azure (pré-visualização)
@@ -76,7 +76,7 @@ Após a emissão ser resolvida, o trabalho de cópia de dados irá progredir par
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Lockbox do cliente para Microsoft Azure](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
+- [Sistema de Proteção de Dados do Cliente para o Microsoft Azure](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview)
 
 <!--- [Approve, audit support access requests to VMs using Customer Lockbox for Azure](https://azure.microsoft.com/blog/approve-audit-support-access-requests-to-vms-using-customer-lockbox-for-azure/)-->
 

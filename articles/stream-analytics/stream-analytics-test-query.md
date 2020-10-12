@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
 ms.openlocfilehash: deaa52494fce387bde2b105de7d34e8a4f0c5c2f
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89612158"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Teste um trabalho de Azure Stream Analytics no portal
@@ -23,7 +23,7 @@ No Azure Stream Analytics, pode testar a sua consulta sem iniciar ou parar o seu
 
 O Azure Stream Analytics recolhe automaticamente eventos a partir das suas entradas de streaming. Pode executar consultas na amostra predefinida ou definir um prazo específico para a amostra.
 
-1. Inicie sessão no portal do Azure.
+1. Inicie sessão no Portal do Azure.
 
 2. Localize e selecione o seu trabalho stream analytics existente.
 
@@ -71,7 +71,7 @@ O Azure Stream Analytics recolhe automaticamente eventos a partir das suas entra
 
 Em vez de utilizar dados ao vivo, pode utilizar dados de amostras de um ficheiro local para testar a sua consulta Azure Stream Analytics.
 
-1. Inicie sessão no portal do Azure.
+1. Inicie sessão no Portal do Azure.
    
 2. Localize o seu trabalho stream analytics existente e selecione-o.
 
@@ -112,7 +112,7 @@ Em vez de utilizar dados ao vivo, pode utilizar dados de amostras de um ficheiro
 
 5.  A aprendizagem automática não é suportada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Construa uma solução IoT utilizando o Stream Analytics:](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics)este tutorial irá guiá-lo a construir uma solução de ponta a ponta com um gerador de dados que simulará o tráfego numa cabine de portagens.
 
 * [Referência do idioma de consulta do Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)

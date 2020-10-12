@@ -11,10 +11,10 @@ ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: de5dd051804f3a0a7d1b0d32b998262af13e8926
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85389195"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Enable Keep me signed in (KMSI) in Azure Ative Directory B2C
@@ -90,7 +90,7 @@ Atualize o ficheiro do partido de funções (RP) que inicia a jornada do utiliza
     </UserJourneyBehaviors>
     ```
 
-    - **SessionExpiryType** - Indica como a sessão é prolongada pelo tempo especificado `SessionExpiryInSeconds` em e `KeepAliveInDays` . O `Rolling` valor (predefinido) indica que a sessão é prolongada sempre que o utilizador realiza a autenticação. O `Absolute` valor indica que o utilizador é obrigado a reautenticar após o período de tempo especificado.
+    - **SessionExpiryType** - Indica como a sessão é prolongada pelo tempo especificado `SessionExpiryInSeconds` em e  `KeepAliveInDays` . O `Rolling` valor (predefinido) indica que a sessão é prolongada sempre que o utilizador realiza a autenticação. O `Absolute` valor indica que o utilizador é obrigado a reautenticar após o período de tempo especificado.
 
     - **SessionExpiryInSeconds** - A vida útil dos cookies de sessão quando *me mantêm inscrito* não está ativada, ou se um utilizador não selecionar *mantenha-me inscrito.* A sessão expira depois de `SessionExpiryInSeconds` ter passado, ou o navegador está fechado.
 
@@ -134,6 +134,6 @@ Recomendamos que defina o valor do SessionExpiryInSegundos para um período curt
 1. Na barra de endereços do navegador, remova o `&prompt=login` parâmetro de cadeia de consulta, o que obriga o utilizador a introduzir as suas credenciais nesse pedido.
 1. No navegador, clique em **Go**. Agora, o Azure AD B2C emitirá um token de acesso sem o levar a iniciar novamente a sua inscrição. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Encontre a política da amostra [aqui.](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/keep%20me%20signed%20in)

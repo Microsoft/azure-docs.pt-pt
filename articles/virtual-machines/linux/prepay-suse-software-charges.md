@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: banders
 ms.openlocfilehash: a527b75d376f05ab6190187b7a03d6da775055ab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81759281"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Pré-pagamento dos planos de software do Azure
@@ -68,7 +68,7 @@ Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://port
 
 Para aprender a gerir uma reserva, consulte [as reservas Manage Azure.](../../cost-management-billing/reservations/manage-reserved-vm-instance.md)
 
-Para saber mais, consulte os seguintes artigos:
+Para saber mais, leia os artigos seguintes:
 
 - [O que são as reservas do Azure?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
 - [Gerir Reservas no Azure](../../cost-management-billing/reservations/manage-reserved-vm-instance.md)

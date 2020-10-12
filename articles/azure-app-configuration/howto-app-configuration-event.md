@@ -11,10 +11,10 @@ ms.date: 02/25/2020
 ms.author: lcozzens
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: dc816f54a690a4c72c44d70ecbf2cc0156ac84ed
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87498315"
 ---
 # <a name="route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Route Azure App Configuration events to a web endpoint with Azure CLI
@@ -135,6 +135,6 @@ az group delete --name <resource_group_name>
 
 Agora que sabe como criar tópicos e subscrições de eventos, saiba mais sobre eventos de valor-chave e o que a Grade de Eventos pode ajudá-lo a fazer:
 
-- [Reagir a eventos de valor-chave](concept-app-configuration-event.md)
+- [Reagir a eventos Key-Value](concept-app-configuration-event.md)
 - [Sobre o Event Grid](../event-grid/overview.md)
 - [Manipuladores de grelha de eventos Azure](../event-grid/event-handlers.md)

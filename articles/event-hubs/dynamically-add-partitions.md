@@ -4,10 +4,10 @@ description: Este artigo mostra-lhe como adicionar dinamicamente divisórias a u
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: 4a729147eaa11497c66f82a9764dfee9492786b9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87002544"
 ---
 # <a name="dynamically-add-partitions-to-an-event-hub-apache-kafka-topic-in-azure-event-hubs"></a>Adicione dinamicamente divisórias a um centro de eventos (tema Apache Kafka) em Azure Event Hubs
@@ -74,7 +74,7 @@ O Event Hubs oferece três opções de remetente:
 - **Remetente round-robin (padrão)** – Neste cenário, o serviço Event Hubs roda os eventos através de divisórias. O serviço Event Hubs está ciente das alterações na contagem de divisórias e enviará para novas divisórias poucos segundos após alterar a contagem de divisórias.
 
 ### <a name="receiverconsumer-clients"></a>Clientes recetores/consumidores
-O Event Hubs fornece recetores diretos e uma biblioteca de consumidores fácil chamada [Host de Processador de Eventos (antigo SDK)](event-hubs-event-processor-host.md) ou Processador de [Eventos (novo SDK)](event-processor-balance-partition-load.md).
+O Event Hubs fornece recetores diretos e uma biblioteca de consumidores fácil chamada [Host de Processador de Eventos (antigo SDK)](event-hubs-event-processor-host.md)  ou Processador de [Eventos (novo SDK)](event-processor-balance-partition-load.md).
 
 - **Recetores diretos** – Os recetores diretos ouvem divisórias específicas. O seu comportamento de execução não é afetado quando as divisórias são dimensionadas para um centro de eventos. A aplicação que utiliza recetores diretos tem de cuidar da recolha das novas divisórias e da atribuição dos recetores em conformidade.
 - **Anfitrião do processador de eventos** – Este cliente não atualiza automaticamente os metadados da entidade. Então, não iria captar o aumento da contagem de divisórias. Recriar uma instância de processador de eventos irá causar uma busca de metadados de entidade, que por sua vez criará novas bolhas para as novas divisórias adicionadas. As bolhas pré-existentes não serão afetadas. Recomenda-se o reinício de todas as instâncias do processador de eventos para garantir que todas as instâncias estejam cientes das divisórias recém-adicionadas e que o equilíbrio de carga seja manuseado corretamente entre os consumidores.

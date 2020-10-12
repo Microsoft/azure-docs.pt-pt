@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 07/13/2020
 ms.author: iainfou
 ms.openlocfilehash: f2a6cb422c1133f0ed53d2c1061501a47d9c92f1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87005094"
 ---
 # <a name="join-a-red-hat-enterprise-linux-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain"></a>Junte-se a uma máquina virtual Red Hat Enterprise Linux para um domínio gerido por Azure Ative Directory Domain Services
@@ -225,7 +225,7 @@ Successfully enrolled machine in realm
 
 Se o seu VM não conseguir completar com sucesso o processo de ligação ao domínio, certifique-se de que o grupo de segurança de rede da VM permite o tráfego kerberos de saída na porta TCP + UDP 464 para a sub-rede de rede virtual para o seu domínio gerido.
 
-Agora verifique se pode consultar as informações da AD do utilizador usando`getent`
+Agora verifique se pode consultar as informações da AD do utilizador usando `getent`
 
 ```console
 sudo getent passwd contosoadmin

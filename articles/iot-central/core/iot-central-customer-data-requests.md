@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: timlt
 ms.openlocfilehash: dabcadea96f4ced5bdf73a35ef533e6d290595c2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87001881"
 ---
 # <a name="azure-iot-central-customer-data-request-features"></a>Funcionalidades de pedido de dados do cliente Azure IoT Central
@@ -23,7 +23,7 @@ O Azure IoT Central é uma solução totalmente gerida de software internet of t
 
 ## <a name="identifying-customer-data"></a>Identificar dados do cliente
 
-Os IDs de objetos do Azure Ative Directory object são utilizados para identificar utilizadores e atribuir funções. O portal Azure IoT Central exibe endereços de e-mail do utilizador para atribuições de funções, mas apenas o ID do Objeto de Diretório Ativo Azure está armazenado, o endereço de e-mail é dinamicamente consultado a partir do Diretório Ativo Azure. Os administradores da Azure IoT Central podem ver, exportar e eliminar utilizadores de aplicações na secção de administração de utilizadores de uma aplicação Azure IoT Central.
+O Azure Ative Directory Object-IDs são utilizados para identificar utilizadores e atribuir funções. O portal Azure IoT Central exibe endereços de e-mail do utilizador para atribuições de funções, mas apenas o ID do Objeto de Diretório Ativo Azure está armazenado, o endereço de e-mail é dinamicamente consultado a partir do Diretório Ativo Azure. Os administradores da Azure IoT Central podem ver, exportar e eliminar utilizadores de aplicações na secção de administração de utilizadores de uma aplicação Azure IoT Central.
 
 Dentro da aplicação, os endereços de e-mail podem ser configurados para receber alertas. Neste caso, os endereços de e-mail são armazenados dentro da IoT Central e devem ser geridos a partir da página de administração da conta na aplicação.
 

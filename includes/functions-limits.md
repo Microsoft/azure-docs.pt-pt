@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 05/04/2020
 ms.author: glenga
 ms.openlocfilehash: 37a61e270f95ffdc420536046e0ce1eda1e489b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85391497"
 ---
-| Recurso |[Plano de consumo](../articles/azure-functions/functions-scale.md#consumption-plan)|[Plano Premium](../articles/azure-functions/functions-scale.md#premium-plan)|[Plano dedicado](../articles/azure-functions/functions-scale.md#app-service-plan)|[ASE](../articles/app-service/environment/intro.md)| [Utilizar o Kubernetes](../articles/aks/quotas-skus-regions.md) |
+| Recurso |[Plano de consumo](../articles/azure-functions/functions-scale.md#consumption-plan)|[Plano Premium](../articles/azure-functions/functions-scale.md#premium-plan)|[Plano dedicado](../articles/azure-functions/functions-scale.md#app-service-plan)|[ASE](../articles/app-service/environment/intro.md)| [Kubernetes](../articles/aks/quotas-skus-regions.md) |
 | --- | --- | --- | --- | --- | --- |
 |Duração [do tempo limite](../articles/azure-functions/functions-scale.md#timeout) padrão (min) |5 | 30 |30<sup>1</sup> | 30 | 30 |
 |Duração [máxima do tempo limite](../articles/azure-functions/functions-scale.md#timeout) (min) |10 | ilimitado<sup>7</sup> | ilimitado<sup>2</sup> | desvinculado | desvinculado |

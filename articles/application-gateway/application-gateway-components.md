@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: surmb
 ms.openlocfilehash: ebd06b0b78ee511dce535ff4220df03087fb6906
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88723321"
 ---
 # <a name="application-gateway-components"></a>Componentes de gateway de aplicação
@@ -77,7 +77,7 @@ Há dois tipos de ouvintes:
 
 Depois de criar um ouvinte, associá-lo a uma regra de encaminhamento de pedidos. Esta regra determina como o pedido recebido no ouvinte deve ser encaminhado para o backend. A regra de encaminhamento de pedidos também contém o pool de backend a ser encaminhado para e a definição HTTP onde a porta de backend, protocolo, etc. são mencionados.
 
-## <a name="request-routing-rules"></a>Solicitar regras de encaminhamento
+## <a name="request-routing-rules"></a>Pedir regras de encaminhamento
 
 Uma regra de encaminhamento de pedidos é um componente chave de um gateway de aplicação porque determina como encaminhar o tráfego no ouvinte. A regra liga o ouvinte, a piscina do servidor de back-end e as definições HTTP backend.
 

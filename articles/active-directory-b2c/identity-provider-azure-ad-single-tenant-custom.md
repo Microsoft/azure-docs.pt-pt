@@ -12,10 +12,10 @@ ms.date: 04/20/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 06ba565de8ca24c8c0baa576b74e70035384be09
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85388430"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o sº de saúde com uma conta Azure Ative Directory utilizando políticas personalizadas no Azure Ative Directory B2C
@@ -101,7 +101,7 @@ Pode definir a Azure AD como fornecedor de sinistros adicionando Azure AD ao ele
 
 ### <a name="update-the-technical-profile"></a>Atualizar o perfil técnico
 
-Para obter um sinal do ponto final Azure AD, você precisa definir os protocolos que Azure AD B2C deve usar para comunicar com Azure AD. Isto é feito dentro do elemento **TécnicoProfile** do **ClaimsProvider**.
+Para obter um sinal do ponto final Azure AD, você precisa definir os protocolos que Azure AD B2C deve usar para comunicar com Azure AD. Isto é feito dentro do elemento **TécnicoProfile** do  **ClaimsProvider**.
 
 1. Atualizar o ID do elemento **TécnicoProfile.** Este ID é utilizado para se referir a este perfil técnico de outras partes da política, por `OIDC-Contoso` exemplo.
 1. Atualize o valor **do DisplayName**. Este valor será apresentado no botão de início de sposição no seu ecrã de início de sposição.
@@ -177,7 +177,7 @@ Atualize o ficheiro do partido de funções (RP) que inicia a jornada do utiliza
 
 Se o sinal em processo for bem sucedido, o seu navegador é redirecionado para `https://jwt.ms` , que exibe o conteúdo do token devolvido pelo Azure AD B2C.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Ao trabalhar com políticas personalizadas, pode por vezes precisar de informações adicionais quando se trata de resolver problemas de uma política durante o seu desenvolvimento.
 

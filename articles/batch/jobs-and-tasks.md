@@ -4,10 +4,10 @@ description: Conheça os empregos e tarefas e como são usados num fluxo de trab
 ms.topic: conceptual
 ms.date: 05/12/2020
 ms.openlocfilehash: 5120b76f34e81c2ceeba88767a656b5ee0d40c2f
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85955374"
 ---
 # <a name="jobs-and-tasks-in-azure-batch"></a>Empregos e tarefas em Azure Batch
@@ -161,6 +161,6 @@ O serviço ou aplicação cliente pode obter as variáveis de ambiente de uma ta
 
 Pode obter uma lista completa de todas as variáveis de ambiente definidas pelo serviço em [Compute node environment variables (Variáveis de ambiente de nó de computação)](batch-compute-node-environment-variables.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais [sobre ficheiros e diretórios.](files-and-directories.md)

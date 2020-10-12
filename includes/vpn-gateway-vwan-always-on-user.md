@@ -9,10 +9,10 @@ ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 17df5dca584b760cc52ddc171e92fb26b418c347
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79500193"
 ---
 1. Instale certificados de cliente no cliente do Windows 10, como mostra este artigo [de cliente VPN ponto a local.](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) O certificado deve estar na loja de utilizadores atual.
@@ -75,7 +75,7 @@ Depois de configurar o gateway de rede virtual e instalar o certificado de clien
    $Message = "Complete."
    Write-Host "$Message"
    ```
-1. Copie o texto que se segue e guarde-o como *VPNProfile.xml* na mesma pasta *queusercert.ps1*. Edite o seguinte texto para combinar com o seu ambiente:
+1. Copie o texto que se segue e guarde-o como *VPNProfile.xml* na mesma pasta * queusercert.ps1*. Edite o seguinte texto para combinar com o seu ambiente:
 
    * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers>  <= Can be found in the VpnSettings.xml in the downloaded profile zip file`
    * `<Address>192.168.3.5</Address>  <= IP of resource in the vnet or the vnet address space`

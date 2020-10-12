@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 01/30/2017
 ms.author: duau
 ms.openlocfilehash: 7c83b6d25936e184c70d4bf0a51636a3986bf4b2
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89394844"
 ---
 # <a name="getting-arp-tables-in-the-classic-deployment-model"></a>Obter tabelas ARP no modelo de implementação clássico
@@ -176,7 +176,7 @@ Age InterfaceProperty IpAddress  MacAddress
 * Não verá uma tabela ARP mostrada para um espreite se houver problemas no lado da Microsoft.
 * Abra um pedido de suporte com [o suporte do Microsoft Azure Help+.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) Especifique que tem um problema com a conectividade da Camada 2.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Validar as configurações da Camada 3 para o seu circuito ExpressRoute:
   * Obtenha um resumo de rota para determinar o estado das sessões de BGP.
   * Obtenha uma tabela de rotas para determinar quais prefixos são anunciados através do ExpressRoute.

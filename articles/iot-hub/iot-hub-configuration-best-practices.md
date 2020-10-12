@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
 ms.openlocfilehash: 67f0d9eb1fdac603ee82d568644e8ad8550d1c80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82024783"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Melhores práticas para a configuração do dispositivo dentro de uma solução IoT
@@ -84,7 +84,7 @@ Seguem-se as melhores práticas para os operadores de soluções IoT que utiliza
 
 * **Efetuar revés em caso de erros ou configurações erradas:**  Uma configuração automática do dispositivo que cause erros ou configurações erradas pode ser revertida alterando a **condição de alvo** para que os dispositivos não cumpram mais a condição de alvo. Certifique-se de que outra configuração automática de dispositivo de menor prioridade ainda é direcionada para esses dispositivos. Verifique se o recuo foi bem sucedido ao visualizar as métricas: A configuração de reversão revirada não deve mais apresentar o estado dos dispositivos não visados, e as métricas da segunda configuração devem agora incluir contagens para os dispositivos que ainda estão visados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre a implementação de gémeos dispositivos em [Compreender e usar gémeos dispositivos no IoT Hub](iot-hub-devguide-device-twins.md).
 

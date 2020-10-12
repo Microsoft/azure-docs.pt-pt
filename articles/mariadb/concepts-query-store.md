@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
 ms.openlocfilehash: a502638744009fc34a7f0a27f8034b89d2c8fa26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79527814"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Monitor Azure Database para desempenho mariaDB com loja de consultas
@@ -87,7 +87,7 @@ Quando a Loja de Consulta está ativada, guarda dados em janelas de agregação 
 
 As seguintes opções estão disponíveis para configurar parâmetros da Loja de Consultas.
 
-| **Parâmetro** | **Descrição** | **Predefinição** | **Alcance** |
+| **Parâmetro** | **Descrição** | **Predefinição** | **Intervalo** |
 |---|---|---|---|
 | query_store_capture_mode | Rode a função de loja de consultas ON/OFF com base no valor. Nota: Se performance_schema estiver desligado, ligue query_store_capture_mode ligará performance_schema e um subconjunto de instrumentos de esquema de desempenho necessários para esta função. | ALL | NENHUM, TODOS. |
 | query_store_capture_interval | O intervalo de captura da loja de consulta em minutos. Permite especificar o intervalo em que as métricas de consulta são agregadas | 15 | 5 - 60 |
@@ -96,7 +96,7 @@ As seguintes opções estão disponíveis para configurar parâmetros da Loja de
 
 As seguintes opções aplicam-se especificamente às estatísticas de espera.
 
-| **Parâmetro** | **Descrição** | **Predefinição** | **Alcance** |
+| **Parâmetro** | **Descrição** | **Predefinição** | **Intervalo** |
 |---|---|---|---|
 | query_store_wait_sampling_capture_mode | Permite ligar / DESLIGAR as estatísticas de espera. | NENHUMA | NENHUM, TODOS. |
 | query_store_wait_sampling_frequency | Altera a frequência da amostra de espera em segundos. 5 a 300 segundos. | 30 | 5-300 |

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: 93fd286aa76a0409a515abbf8c9dabd88a9a65c4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90904288"
 ---
 # <a name="manage-and-monitor-app-with-azure-spring-boot-actuator"></a>Gerir e monitorizar aplicações com o Spring Boot Actuator
