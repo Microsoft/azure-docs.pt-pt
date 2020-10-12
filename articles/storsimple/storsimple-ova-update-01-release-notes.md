@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 06/16/2016
 ms.author: alkohli
 ms.openlocfilehash: 95386f36340aca470769c920e40bbb70e09d34fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80397868"
 ---
 # <a name="storsimple-virtual-array-update-02-and-01-release-notes"></a>StorSimple Virtual Array Update 0.2 e 0.1 notas de lançamento
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 As seguintes notas de lançamento identificam os problemas abertos críticos e os problemas resolvidos para as atualizações do Microsoft Azure StorSimple Virtual Array. (O Microsoft Azure StorSimple Virtual Array também é conhecido como o dispositivo virtual StorSimple no local ou o dispositivo virtual StorSimple.) 
 
 As notas de lançamento são continuamente atualizadas, e à medida que são descobertas questões críticas que requerem uma solução alternativa, são adicionadas. Antes de implementar o seu dispositivo virtual StorSimple, reveja cuidadosamente as informações contidas nas notas de lançamento.
@@ -54,7 +54,7 @@ A atualização 0.1 contém as seguintes correções e melhorias de erros.
 ## <a name="issues-fixed-in-the-update-01"></a>Problemas corrigidos na Atualização 0.1
 O quadro seguinte fornece um resumo das questões corrigidas nesta versão.
 
-| Não. | Funcionalidade | Problema |
+| N.º | Funcionalidade | Problema |
 | --- | --- | --- |
 | 1 |VMDK |Em algumas versões VMware, o disco DE foi visto como escasso causando alertas e interrompendo as operações normais. Isto foi corrigido neste comunicado. |
 | 2 |servidor iSCSI |Na última versão, o utilizador foi obrigado a especificar um gateway para cada interface de rede ativada do seu dispositivo virtual StorSimple. Este comportamento é alterado nesta versão para que o utilizador tenha de configurar pelo menos um portal para todas as interfaces de rede ativadas. |
@@ -65,7 +65,7 @@ O quadro seguinte fornece um resumo das questões corrigidas nesta versão.
 ## <a name="known-issues-in-the-update-01"></a>Emissões conhecidas na Atualização 0.1
 A tabela seguinte fornece um resumo de questões conhecidas para o StorSimple Virtual Array e inclui os problemas de lançamento anotados a partir das versões anteriores. **Os problemas lançados nesta versão são marcados com um asterisco. Quase todos os problemas desta lista foram levados a partir do lançamento da AG do StorSimple Virtual Array.**
 
-| Não. | Funcionalidade | Problema | Soluções/comentários |
+| N.º | Funcionalidade | Problema | Soluções/comentários |
 | --- | --- | --- | --- |
 | **1.** |Atualizações |Os dispositivos virtuais criados na versão de pré-visualização não podem ser atualizados para uma versão suportada da Disponibilidade Geral. |Estes dispositivos virtuais devem ser falhados para a libertação de Disponibilidade Geral utilizando um fluxo de trabalho de recuperação de desastres (DR). |
 | **2.** |Disco de dados provisionado |Uma vez que tenha fornecedo um disco de dados de um determinado tamanho especificado e criado o dispositivo virtual StorSimple correspondente, não deve expandir ou encolher o disco de dados. Tentar fazê-lo resultará na perda de todos os dados nos níveis locais do dispositivo. | |

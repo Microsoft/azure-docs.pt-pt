@@ -9,10 +9,10 @@ ms.date: 03/27/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: e96d205ef1a8f94baa3a0cfe6c5127b6cf570e5a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80420964"
 ---
 Este artigo explica como enviar um VHD da sua máquina local para um disco gerido azure ou copiar um disco gerido para outra região, utilizando o AzCopy. Este processo, upload direto, também permite carregar um VHD até 32 TiB em tamanho diretamente em um disco gerido. Atualmente, o upload direto é suportado para hdd padrão, SSD padrão e discos geridos premium SSD. Ainda não é suportado por discos ultra.

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 06/12/2020
 ms.author: apimpm
 ms.openlocfilehash: 8a7fa295bdc8881c0c1ba58c95872a9380231b81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85558035"
 ---
 # <a name="use-managed-identities-in-azure-api-management"></a>Utilizar identidades geridas na Azure API Management
@@ -281,7 +281,7 @@ Para configurar uma identidade gerida no portal, primeiro criará uma instância
 3. No **separador Utilizador atribuído,** selecione **Adicionar**.
 4. Procure a identidade que criou anteriormente e selecione-a. Selecione **Adicionar**.
 
-   :::image type="content" source="./media/api-management-msi/enable-user-assigned-msi.png" alt-text="Seleções para permitir uma identidade gerida atribuída pelo utilizador" border="true":::
+   :::image type="content" source="./media/api-management-msi/enable-user-assigned-msi.png" alt-text="Seleções para permitir uma identidade gerida atribuída ao sistema" border="true":::
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -413,7 +413,7 @@ Para remover todas as identidades utilizando o modelo Azure Resource Manager, at
 >
 > Pode desbloquear-se mudando de um certificado Azure Key Vault para um certificado codificado inline e, em seguida, desativando a identidade gerida. Para obter mais informações, consulte [configurar um nome de domínio personalizado.](configure-custom-domain.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre identidades geridas para recursos Azure:
 

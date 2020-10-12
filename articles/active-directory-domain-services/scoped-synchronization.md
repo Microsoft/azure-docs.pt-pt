@@ -13,10 +13,10 @@ ms.date: 07/24/2020
 ms.author: iainfou
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: fe373b9aa08d6999a9c57dd0008a207071e1dddd
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89068903"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services-using-the-azure-portal"></a>Configure sincronização telescópio de Ad AD a Azure Ative Directory Domain Services usando o portal Azure
@@ -27,7 +27,7 @@ Por padrão, todos os utilizadores e grupos de um diretório AD Azure são sincr
 
 Este artigo mostra-lhe como configurar a sincronização telescópio e, em seguida, alterar ou desativar o conjunto de utilizadores com âmbito através do portal Azure. Também pode [completar estes passos utilizando o PowerShell][scoped-sync-powershell].
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Para completar este artigo, precisa dos seguintes recursos e privilégios:
 

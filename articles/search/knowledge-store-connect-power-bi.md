@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.openlocfilehash: 91e75b60f5324288c9f1adac59e31b9c1a1b0e9e
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89289176"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Ligue uma loja de conhecimento com o Power BI
@@ -26,7 +26,7 @@ Neste artigo, aprenda a conectar-se e explore uma loja de conhecimento usando a 
 
 + Siga os passos na [Criar uma loja de conhecimento no portal Azure](knowledge-store-create-portal.md) ou criar uma loja de [conhecimentos Azure Cognitive Search utilizando](knowledge-store-create-rest.md) o REST para criar a loja de conhecimentos de amostras utilizada nesta passagem. Também necessitará do nome da conta Azure Storage que utilizou para criar a loja de conhecimentos, juntamente com a sua chave de acesso a partir do portal Azure.
 
-+ [Instalar o Power BI Desktop](https://powerbi.microsoft.com/downloads/)
++ [Install Power BI Desktop (Instalar o Power BI Desktop)](https://powerbi.microsoft.com/downloads/)
 
 ## <a name="sample-power-bi-template---azure-portal-only"></a>Modelo de BI de energia de amostra - portal Azure apenas
 
@@ -116,7 +116,7 @@ Pode encontrar e gerir recursos no portal, utilizando a ligação **de todos os 
 
 Se estiver a utilizar um serviço gratuito, lembre-se que está limitado a três índices, indexadores e fontes de dados. Pode eliminar itens individuais no portal para ficar abaixo do limite.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender a explorar esta loja de conhecimentos utilizando o Storage Explorer, consulte o seguinte artigo.
 

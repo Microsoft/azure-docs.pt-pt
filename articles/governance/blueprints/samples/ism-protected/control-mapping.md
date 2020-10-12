@@ -4,10 +4,10 @@ description: Controlo do mapeamento da amostra de planta PROTEGIDA do Governo Au
 ms.date: 09/11/2020
 ms.topic: sample
 ms.openlocfilehash: 605e92b75da1e5363884fc6ef9457251cfbc6e4e
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90030111"
 ---
 # <a name="control-mapping-of-the-australian-government-ism-protected-blueprint-sample"></a>Controlo do mapeamento da amostra de planta protegida do Governo australiano ISM PROTECTED
@@ -33,7 +33,7 @@ Esta planta ajuda-o a restringir a localização para a implantação de todos o
 ### <a name="0414-personnel-granted-access-to-a-system-and-its-resources-are-uniquely-identifiable"></a>0414 O pessoal autorizado a aceder a um sistema e os seus recursos são unicamente identificáveis
 
 - O MFA deve ser ativado em contas com permissões do proprietário na sua subscrição
-- MFA deve ser ativado contas com permissões de escrita na sua subscrição
+- A MFA deve ser ativada em contas com permissões de escrita na sua subscrição
 - MFA deve ser ativado em contas com permissões de leitura na sua subscrição
 
 ### <a name="1503-standard-access-to-systems-applications-and-data-repositories-is-limited-to-that-required-for-personnel-to-undertake-their-duties"></a>1503 O acesso normal aos sistemas, aplicações e repositórios de dados limita-se ao necessário para que o pessoal assuma as suas funções
@@ -118,7 +118,7 @@ Esta planta ajuda-o a restringir a localização para a implantação de todos o
 ### <a name="1173-multi-factor-authentication-is-used-to-authenticate-all-privileged-users-and-any-other-positions-of-trust"></a>1173 A autenticação multi-factor é utilizada para autenticar todos os utilizadores privilegiados e quaisquer outras posições de confiança
 
 - O MFA deve ser ativado em contas com permissões do proprietário na sua subscrição
-- MFA deve ser ativado contas com permissões de escrita na sua subscrição
+- A MFA deve ser ativada em contas com permissões de escrita na sua subscrição
 
 ### <a name="0421-passphrases-used-for-single-factor-authentication-are-a-minimum-of-14-characters-with-complexity-ideally-as-4-random-words"></a>0421 As frases-passe utilizadas para a autenticação de um único fator são um mínimo de 14 caracteres com complexidade, idealmente como 4 palavras aleatórias
 
@@ -130,7 +130,7 @@ Esta planta ajuda-o a restringir a localização para a implantação de todos o
 ### <a name="1384-multi-factor-authentication-is-used-to-authenticate-users-each-time-they-perform-privileged-actions"></a>1384 A autenticação multi-factor é usada para autenticar os utilizadores sempre que realizam ações privilegiadas
 
 - O MFA deve ser ativado em contas com permissões do proprietário na sua subscrição
-- MFA deve ser ativado contas com permissões de escrita na sua subscrição
+- A MFA deve ser ativada em contas com permissões de escrita na sua subscrição
 - MFA deve ser ativado em contas com permissões de leitura na sua subscrição
 
 ### <a name="1386-management-traffic-is-only-allowed-to-originate-from-network-zones-that-are-used-to-administer-systems-and-applications"></a>1386 O tráfego de gestão só pode ser originário de zonas de rede que são utilizadas para administrar sistemas e aplicações
@@ -323,7 +323,7 @@ Esta planta ajuda-o a restringir a localização para a implantação de todos o
 
 ### <a name="1424-web-browser-based-security-controls-are-implemented-for-web-applications-in-order-to-help-protect-both-web-applications-and-their-users"></a>1424 Controlos de segurança baseados no navegador web são implementados para aplicações web de forma a ajudar a proteger tanto as aplicações web como os seus utilizadores
 
-- O CORS não deve permitir que todos os recursos acedam às suas Aplicações Web
+- O CORS não deve permitir que todos os recursos tenham acesso às suas Aplicações Web
 
 ## <a name="guidelines-for-network-management---network-design-and-configuration"></a>Diretrizes para Gestão de Rede - Design e configuração de rede
 
@@ -347,7 +347,7 @@ Esta planta ajuda-o a restringir a localização para a implantação de todos o
 > [!NOTE]
 > A disponibilidade de definições específicas da Política Azure pode variar no Governo de Azure e noutras nuvens nacionais. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Artigos adicionais sobre esquemas e como os utilizar:
 

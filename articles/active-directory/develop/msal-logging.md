@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, devx-track-python
 ms.openlocfilehash: 2d41b48613ef7ba883a6a51b0fa67407fb730719
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87846229"
 ---
 # <a name="logging-in-msal-applications"></a>Registo de aplicações MSAL
@@ -48,10 +48,10 @@ Para mais detalhes sobre o registo do MSAL num determinado idioma, escolha o sep
 
 No MSAL 3.x, o registo é definido por aplicação na criação de aplicações utilizando o `.WithLogging` modificador de construtores. Este método tem parâmetros opcionais:
 
-- `Level`permite-lhe decidir qual o nível de registo que deseja. Defini-lo para erros só terá erros
-- `PiiLoggingEnabled`permite registar dados pessoais e organizacionais se definidos para verdadeiros. Por predefinição, este é definido como falso, para que a sua aplicação não faça login dados pessoais.
-- `LogCallback`é definido para um delegado que faz o registo. Se `PiiLoggingEnabled` for verdade, este método receberá as mensagens duas vezes: uma com o `containsPii` parâmetro é igual a falsa e a mensagem sem dados pessoais, e uma segunda vez com o parâmetro é igual a verdadeiro e a `containsPii` mensagem pode conter dados pessoais. Em alguns casos (quando a mensagem não contém dados pessoais), a mensagem será a mesma.
-- `DefaultLoggingEnabled`permite a sessão de registo predefinido para a plataforma. Por defeito, é falso. Se o definir como verdadeiro, utiliza o Event Tracing em aplicações desktop/UWP, NSLog no iOS e logcat no Android.
+- `Level` permite-lhe decidir qual o nível de registo que deseja. Defini-lo para erros só terá erros
+- `PiiLoggingEnabled` permite registar dados pessoais e organizacionais se definidos para verdadeiros. Por predefinição, este é definido como falso, para que a sua aplicação não faça login dados pessoais.
+- `LogCallback` é definido para um delegado que faz o registo. Se `PiiLoggingEnabled` for verdade, este método receberá as mensagens duas vezes: uma com o `containsPii` parâmetro é igual a falsa e a mensagem sem dados pessoais, e uma segunda vez com o parâmetro é igual a verdadeiro e a `containsPii` mensagem pode conter dados pessoais. Em alguns casos (quando a mensagem não contém dados pessoais), a mensagem será a mesma.
+- `DefaultLoggingEnabled` permite a sessão de registo predefinido para a plataforma. Por defeito, é falso. Se o definir como verdadeiro, utiliza o Event Tracing em aplicações desktop/UWP, NSLog no iOS e logcat no Android.
 
 ```csharp
 class Program
@@ -86,10 +86,10 @@ class Program
 
 Ligue o início de sessão na criação de aplicações criando uma chamada de registo. O retorno requer estes parâmetros:
 
-- `tag`é uma corda passada para a chamada pela biblioteca. Está associado à entrada de registo e pode ser usado para classificar mensagens de registo.
-- `logLevel`permite-lhe decidir qual o nível de registo que deseja. Os níveis de registo suportados são: `Error` `Warning` , , e `Info` `Verbose` .
-- `message`é o conteúdo da entrada de registo.
-- `containsPII`especifica se as mensagens que contêm dados pessoais ou dados organizacionais são registadas. Por padrão, isto é definido como falso, para que a sua aplicação não faça login dados pessoais. Se `containsPII` for , este método receberá as `true` mensagens duas vezes: uma com o `containsPII` parâmetro definido para e o sem `false` `message` dados pessoais, e uma segunda vez com o `containsPii` parâmetro definido para e a `true` mensagem pode conter dados pessoais. Em alguns casos (quando a mensagem não contém dados pessoais), a mensagem será a mesma.
+- `tag` é uma corda passada para a chamada pela biblioteca. Está associado à entrada de registo e pode ser usado para classificar mensagens de registo.
+- `logLevel` permite-lhe decidir qual o nível de registo que deseja. Os níveis de registo suportados são: `Error` `Warning` , , e `Info` `Verbose` .
+- `message` é o conteúdo da entrada de registo.
+- `containsPII` especifica se as mensagens que contêm dados pessoais ou dados organizacionais são registadas. Por padrão, isto é definido como falso, para que a sua aplicação não faça login dados pessoais. Se `containsPII` for , este método receberá as `true` mensagens duas vezes: uma com o `containsPII` parâmetro definido para e o sem `false` `message` dados pessoais, e uma segunda vez com o `containsPii` parâmetro definido para e a `true` mensagem pode conter dados pessoais. Em alguns casos (quando a mensagem não contém dados pessoais), a mensagem será a mesma.
 
 ```java
 private StringBuilder mLogs;
@@ -129,9 +129,9 @@ Logger.getInstance().setEnableLogcatLog(true);
  Ativar o início de sessão em MSAL.js (JavaScript) passando um objeto de madeireira durante a configuração para criar um `UserAgentApplication` exemplo. Este objeto madeirão tem as seguintes propriedades:
 
 - `localCallback`: uma instância de callback que pode ser fornecida pelo desenvolvedor para consumir e publicar registos de forma personalizada. Implemente o método localCallback dependendo da forma como pretende redirecionar os registos.
-- `level`(opcional): o nível de registo configurável. Os níveis de registo suportados são: `Error` `Warning` , , e `Info` `Verbose` . A predefinição é `Info`.
-- `piiLoggingEnabled`(opcional): se definido como verdadeiro, regista dados pessoais e organizacionais. Por padrão, isto é falso para que a sua aplicação não faça login dados pessoais. Os registos de dados pessoais nunca são escritos para saídas padrão como Consola, Logcat ou NSLog.
-- `correlationId`(opcional): um identificador único, utilizado para mapear o pedido com a resposta para efeitos de depuragem. Predefinições para RFC4122 versão 4 guia (128 bits).
+- `level` (opcional): o nível de registo configurável. Os níveis de registo suportados são: `Error` `Warning` , , e `Info` `Verbose` . A predefinição é `Info`.
+- `piiLoggingEnabled` (opcional): se definido como verdadeiro, regista dados pessoais e organizacionais. Por padrão, isto é falso para que a sua aplicação não faça login dados pessoais. Os registos de dados pessoais nunca são escritos para saídas padrão como Consola, Logcat ou NSLog.
+- `correlationId` (opcional): um identificador único, utilizado para mapear o pedido com a resposta para efeitos de depuragem. Predefinições para RFC4122 versão 4 guia (128 bits).
 
 ```javascript
 function loggerCallback(logLevel, message, containsPii) {
@@ -226,7 +226,7 @@ MSALGlobalConfig.loggerConfig.logLevel = MSALLogLevelVerbose;
 
  ### <a name="log-message-format"></a>Formato de mensagem de registo
 
-A parte da mensagem das mensagens de registo MSAL está no formato de`TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
+A parte da mensagem das mensagens de registo MSAL está no formato de `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
 
 Por exemplo:
 
@@ -303,7 +303,7 @@ MSALGlobalConfig.loggerConfig.logLevel = .verbose
 
 ### <a name="log-message-format"></a>Formato de mensagem de registo
 
-A parte da mensagem das mensagens de registo MSAL está no formato de`TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
+A parte da mensagem das mensagens de registo MSAL está no formato de `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
 
 Por exemplo:
 
@@ -389,6 +389,6 @@ A MSAL para Python não regista dados pessoais ou dados organizacionais. Não h�
 
 Pode utilizar o registo padrão de Python para registar o que quiser, mas é responsável por lidar com segurança dados sensíveis e seguir os requisitos regulamentares.
 
-Para obter mais informações sobre o login em Python, consulte o [PYTHON's Logging HOWTO](https://docs.python.org/3/howto/logging.html#logging-basic-tutorial).
+Para obter mais informações sobre o login em Python, consulte o  [PYTHON's Logging HOWTO](https://docs.python.org/3/howto/logging.html#logging-basic-tutorial).
 
 ---

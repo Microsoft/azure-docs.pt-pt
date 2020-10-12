@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/04/2020
 ms.openlocfilehash: 8562fd1afaa01e362bd6d95fd4dcf90cf3145c5a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88928528"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-cognitive-search"></a>Filtros de segurança para aparar resultados na Pesquisa Cognitiva Azure
@@ -156,7 +156,7 @@ Deve obter os documentos de volta onde `group_ids` contém "group_id1" ou "group
 
 É assim que pode filtrar resultados com base na identidade do utilizador e na função de Pesquisa Cognitiva `search.in()` Azure. Pode utilizar esta função para passar, em princípio, identificadores para que o utilizador que solicita corresponda aos identificadores principais associados a cada documento-alvo. Quando um pedido de pesquisa é tratado, a `search.in` função filtra os resultados de pesquisa para os quais nenhum dos principais do utilizador leu o acesso. Os principais identificadores podem representar coisas como grupos de segurança, papéis ou mesmo a própria identidade do utilizador.
  
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 + [Controlo de acesso baseado em identidade do Diretório Ativo usando filtros de pesquisa cognitiva Azure](search-security-trimming-for-azure-search-with-aad.md)
 + [Filtros em Pesquisa Cognitiva Azure](search-filters.md)

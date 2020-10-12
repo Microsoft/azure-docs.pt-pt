@@ -13,10 +13,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: d6bc37a8aaddfb48e6d06eb46d9c1648e815b5ad
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89289261"
 ---
 # <a name="role-based-access-control-rbac-for-media-services-accounts"></a>Controlo de acesso baseado em funções (RBAC) para contas de Serviços de Mídia
@@ -47,7 +47,7 @@ Consulte os seguintes artigos para obter mais informações:
 - [Use o RBAC para gerir o acesso](../../role-based-access-control/role-assignments-rest.md)
 - [Operações de prestadores de recursos dos Serviços de Mídia](../../role-based-access-control/resource-provider-operations.md#microsoftmedia)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Desenvolvimento com Serviços de Mídia v3 APIs](media-services-apis-overview.md)
 - [Obtenha a política de chave de conteúdo usando os Media Services .NET](get-content-key-policy-dotnet-howto.md)

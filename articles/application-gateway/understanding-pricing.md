@@ -9,10 +9,10 @@ ms.custom: references_regions
 ms.date: 09/01/2020
 ms.author: azhussai
 ms.openlocfilehash: 1d88379726cfb6c4218c38b9ccc87005609a9aba
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89460750"
 ---
 # <a name="understanding-pricing-for-azure-application-gateway-and-web-application-firewall"></a>Compreender preços para gateway de aplicações Azure e firewall de aplicação web
@@ -56,7 +56,7 @@ A tabela que se segue mostra preços de exemplo baseados numa imagem dos preços
 
 |              Tipo de Gateway de Aplicação             |  Custos ($/hr)  |
 | ------------------------------------------------- | ---------------|
-|                     Small                         |    $0,025      |
+|                     Pequeno                         |    $0,025      |
 |                     Médio                        |    $0,07       |
 |                     Grande                         |    $0,32       |
 
@@ -82,7 +82,7 @@ A tabela que se segue mostra preços de exemplo baseados numa imagem dos preços
 
 |              Tipo de Gateway de Aplicação             |  Custos ($/hr)  |
 | ------------------------------------------------- | ---------------|
-|                     Small                         |       ND       |
+|                     Pequeno                         |       ND       |
 |                     Médio                        |     $0.126     |
 |                     Grande                         |     $0.448     |
 
@@ -377,7 +377,7 @@ Mais métricas como a produção, as ligações atuais e as unidades de computa�
 
 Unidades de Capacidade Observadas em métricas = 49,23
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Veja os seguintes artigos para saber mais sobre como os preços funcionam no Gateway de Aplicação Azure:
 

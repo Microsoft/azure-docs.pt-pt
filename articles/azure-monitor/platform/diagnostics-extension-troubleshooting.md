@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/08/2019
 ms.openlocfilehash: de42a70cf2950aca3dbe151407671306c793ed10
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86515500"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Resolução de problemas do Diagnóstico do Azure
@@ -49,7 +49,7 @@ Seguem-se os caminhos para alguns importantes troncos e artefactos. Referimo-nos
 | **Caminho de utilidade de recolha de registos** | C:\WindowsAzure\Logs\WaAppAgent.log |
 | **Ficheiro de log monAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics \<DiagnosticsVersion> \WAD0107\Configuração\MonAgentHost.<seq_num>.log |
 
-## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Os dados métricos não aparecem no portal Azure
+## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Os dados métricos não aparecem no portal do Azure
 O Azure Diagnostics fornece dados métricos que podem ser apresentados no portal Azure. Se tiver problemas em ver os dados no portal, verifique a tabela WADMetrics \* na conta de armazenamento Azure Diagnostics para ver se existem os registos métricos correspondentes e certifique-se de que o fornecedor de [recursos](../../azure-resource-manager/management/resource-providers-and-types.md) Microsoft.Insights está registado.
 
 Aqui, a **PartitionKey** da tabela é o ID de recursos, máquina virtual ou conjunto de escala de máquina virtual. **RowKey** é o nome métrico (também conhecido como o nome do contador de desempenho).
@@ -79,7 +79,7 @@ Se não houver dados para a métrica específica, verifique o **Diagnostics Conf
 Se a configuração estiver corretamente definida, mas ainda não conseguir ver os dados métricos, utilize as seguintes diretrizes para o ajudar a resolver problemas.
 
 
-## <a name="azure-diagnostics-is-not-starting"></a>A Azure Diagnostics não está a começar
+## <a name="azure-diagnostics-is-not-starting"></a>O Diagnóstico do Azure não está a iniciar
 Para obter informações sobre o motivo pelo qual o Azure Diagnostics não começou, consulte os **ficheiros DiagnosticsPluginLauncher.log** e **DiagnosticsPlugin.log** no local dos ficheiros de registo que foram fornecidos anteriormente.
 
 Se estes registos `Monitoring Agent not reporting success after launch` indicarem, significa que houve uma falha no lançamento MonAgentHost.exe. Veja os registos no local indicado `MonAgentHost log file` na secção anterior.
@@ -91,7 +91,7 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 ```
 Se encontrar um código de saída **negativo,** consulte a [tabela de códigos de saída](#azure-diagnostics-plugin-exit-codes) na secção [Referências](#references).
 
-## <a name="diagnostics-data-is-not-logged-to-azure-storage"></a>Os dados de diagnóstico não são registados no Azure Storage
+## <a name="diagnostics-data-is-not-logged-to-azure-storage"></a>Os dados de diagnóstico não são registados no Armazenamento do Microsoft Azure
 Determine se nenhum dos dados está a aparecer ou se alguns dos dados estão a aparecer.
 
 ### <a name="diagnostics-infrastructure-logs"></a>Registos de infraestruturas de diagnóstico

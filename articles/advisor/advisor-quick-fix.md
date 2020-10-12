@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 03/13/2020
 ms.author: sagupt
 ms.openlocfilehash: a9c86a7ae510d9657f64c71db2aa8c4e3e558f52
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90968591"
 ---
 # <a name="quick-fix-remediation-for-advisor"></a>Remediação de Correção Rápida para Assessor
@@ -26,7 +26,7 @@ A funcionalidade encontra-se disponível apenas para determinadas recomendaçõe
 
 2. Na página de detalhes da Recomendação, você verá a lista de recursos para os quais tem esta recomendação. Selecione todos os recursos que pretende remediar para a recomendação.
 
-   :::image type="content" source="./media/quick-fix-2.png" alt-text="Screenshot da janela de recursos impactados com itens de lista e o botão Quick Fix realçado.":::
+   :::image type="content" source="./media/quick-fix-2.png" alt-text="{Screenshot do Azure Advisor mostrando etiquetas Quick Fix nas recomendações.}":::
    
    *Os preços na imagem são apenas para fins*
 

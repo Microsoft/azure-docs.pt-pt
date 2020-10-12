@@ -4,10 +4,10 @@ description: Saiba como submeter um pedido de suporte para ativar o seu recurso 
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 72a7aca97067ce4e9ed0e901e4016c82b3549eb1
-ms.sourcegitcommit: 0fd1f3fe7817ad44d878d580ec167e1508051795
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90817904"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Como ativar o recurso Azure VMware Solution

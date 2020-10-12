@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: rogarana
 ms.openlocfilehash: ef18feb10dabc6a77e6512c6a32ad44b32c6e832
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80334977"
 ---
 **Discos de máquinas virtuais premium não geridos: limites por conta**
 
 | Recurso | Limite |
 | --- | --- |
-| Capacidade total do disco por conta |35 TB |
+| Capacidade total do disco por conta |35 TB |
 | Capacidade total do instantâneo por conta |10 TB |
 | Largura de banda máxima por conta (entrada + saída)<sup>1</sup> |<=50 Gbps |
 

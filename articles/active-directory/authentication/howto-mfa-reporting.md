@@ -13,10 +13,10 @@ ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: 6bc07dc4a46327981c432cf8982f0c3a646fda0d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89068920"
 ---
 # <a name="use-the-sign-ins-report-to-review-azure-multi-factor-authentication-events"></a>Utilize o relatório de ins- ins para rever eventos de autenticação multi-factor Azure
@@ -127,7 +127,7 @@ A tabela a seguir pode ajudar a resolver eventos utilizando a versão descarrega
 |SUCCESS_NO_PIN_BUT_TIMEOUT | Sem entrada de telefone - out cronometrado | A chamada foi atendida, mas não houve resposta. Isto normalmente indica que a chamada foi captada por correio de voz. |
 | SUCCESS_PIN_EXPIRED | PIN expirado e não alterado | O PIN do utilizador expirou e foi solicitado a alterá-lo, mas a alteração PIN não foi concluída com sucesso. |
 | SUCCESS_USED_CACHE | Cache usado | A autenticação foi conseguida sem uma chamada de autenticação multi-factor, uma vez que ocorreu uma autenticação com sucesso anterior para o mesmo nome de utilizador dentro do prazo de cache configurado. |
-| SUCCESS_BYPASSED_AUTH | Auth contornado | A autenticação conseguiu utilizar um bypass único iniciado para o utilizador. Consulte o Relatório de Histórico do Utilizador Contornado para obter mais detalhes sobre o bypass. |
+| SUCCESS_BYPASSED_AUTH | Auth contornado | A autenticação conseguiu utilizar um Bypass One-Time iniciado para o utilizador. Consulte o Relatório de Histórico do Utilizador Contornado para obter mais detalhes sobre o bypass. |
 | SUCCESS_USED_IP_BASED_CACHE | Cache usado baseado em IP | A autenticação foi conseguida sem uma chamada de autenticação multi-factor, uma vez que uma autenticação com sucesso anterior para o mesmo nome de utilizador, tipo de autenticação, nome de aplicação e IP ocorreu dentro do prazo de cache configurado. |
 | SUCCESS_USED_APP_BASED_CACHE | Cache usado baseado em aplicativos | A autenticação foi conseguida sem uma chamada de autenticação multi-factor, uma vez que uma autenticação com sucesso anterior para o mesmo nome de utilizador, tipo de autenticação e nome de aplicação dentro do prazo de cache configurado. |
 | SUCCESS_INVALID_INPUT | Entrada de telefone inválida | A resposta enviada do telefone não é válida. Isto pode ser de um fax ou modem ou o utilizador pode ter introduzido * como parte do pin. |

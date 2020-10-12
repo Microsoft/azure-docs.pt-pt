@@ -16,10 +16,10 @@ ms.date: 04/09/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7b57fcc26a64ee766d2fd70ebaad36edb133566e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90968813"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema numa VM do Linux, para aceder ao Azure Cosmos DB 
@@ -53,7 +53,7 @@ Se ainda não tiver uma, crie uma conta do Cosmos DB. Pode ignorar este passo e 
 3. Introduza um **ID** para a conta do Cosmos DB, que irá utilizar mais tarde.  
 4. A **API** deve ser definida como "SQL". A abordagem descrita neste tutorial pode ser utilizada com os outros tipos de API disponíveis, mas os passos neste tutorial são para a API de SQL.
 5. Certifique-se de que a **Subscrição** e o **Grupo de Recursos** correspondem aos perfis que especificou quando criou a VM no passo anterior.  Selecione uma **Localização** em que o Cosmos DB esteja disponível.
-6. Clique em **Create** (Criar).
+6. Clique em **Criar**.
 
 ## <a name="create-a-collection-in-the-cosmos-db-account"></a>Criar uma coleção na conta do Cosmos DB
 

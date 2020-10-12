@@ -1,5 +1,5 @@
 ---
-title: Get-Metric in Azure Monitor Application Insights
+title: Get-Metric em Azure Monitor Application Insights
 description: Saiba como utilizar eficazmente a chamada GetMetric() para capturar métricas localmente pré-agregadas para aplicações .NET e .NET Core com Insights de Aplicação do Monitor Azure
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,19 +8,19 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/28/2020
 ms.openlocfilehash: 7aacb951d449583c875c71f260957a9d3bc8c663
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86517149"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>Coleção métrica personalizada em .NET e .NET Core
 
-Os Azure Monitor Application Insights .NET e .NET Core SDKs têm dois métodos diferentes de recolha de métricas `TrackMetric()` personalizadas, e `GetMetric()` . A principal diferença entre estes dois métodos é a agregação local. `TrackMetric()`carece de pré-agregação enquanto `GetMetric()` tem pré-agregação. A abordagem recomendada é utilizar a agregação, portanto, `TrackMetric()` já não é o método preferido de recolher métricas personalizadas. Este artigo irá levá-lo através do método GetMetric,.e algumas das razões por trás de como funciona.
+Os Azure Monitor Application Insights .NET e .NET Core SDKs têm dois métodos diferentes de recolha de métricas `TrackMetric()` personalizadas, e `GetMetric()` . A principal diferença entre estes dois métodos é a agregação local. `TrackMetric()` carece de pré-agregação enquanto `GetMetric()` tem pré-agregação. A abordagem recomendada é utilizar a agregação, portanto, `TrackMetric()` já não é o método preferido de recolher métricas personalizadas. Este artigo irá levá-lo através do método GetMetric,.e algumas das razões por trás de como funciona.
 
 ## <a name="trackmetric-versus-getmetric"></a>TrackMetric versus GetMetric
 
-`TrackMetric()`envia telemetria crua denotando uma métrica. É ineficiente enviar um único item de telemetria por cada valor. `TrackMetric()`é também ineficiente em termos de desempenho, uma vez que cada `TrackMetric(item)` um passa pelo oleoduto SDK completo de inicializadores e processadores de telemetria. Ao contrário `TrackMetric()` de , lida com a `GetMetric()` pré-agregação local para si e, em seguida, apenas submete uma métrica de resumo agregado num intervalo fixo de um minuto. Por isso, se necessitar de monitorizar de perto alguma métrica personalizada ao segundo ou mesmo ao nível milissegundo, pode fazê-lo apenas incorrendo no custo de armazenamento e tráfego da rede apenas de monitorização a cada minuto. Isto também reduz consideravelmente o risco de estrangulamento, uma vez que o número total de itens de telemetria que precisam de ser enviados para uma métrica agregada são muito reduzidos.
+`TrackMetric()` envia telemetria crua denotando uma métrica. É ineficiente enviar um único item de telemetria por cada valor. `TrackMetric()` é também ineficiente em termos de desempenho, uma vez que cada `TrackMetric(item)` um passa pelo oleoduto SDK completo de inicializadores e processadores de telemetria. Ao contrário `TrackMetric()` de , lida com a `GetMetric()` pré-agregação local para si e, em seguida, apenas submete uma métrica de resumo agregado num intervalo fixo de um minuto. Por isso, se necessitar de monitorizar de perto alguma métrica personalizada ao segundo ou mesmo ao nível milissegundo, pode fazê-lo apenas incorrendo no custo de armazenamento e tráfego da rede apenas de monitorização a cada minuto. Isto também reduz consideravelmente o risco de estrangulamento, uma vez que o número total de itens de telemetria que precisam de ser enviados para uma métrica agregada são muito reduzidos.
 
 No Application Insights, as métricas personalizadas recolhidas através `TrackMetric()` e `GetMetric()` não estão sujeitas a [amostragem.](./sampling.md) A amostragem de métricas importantes pode levar a cenários em que o alerta que pode ter construído em torno dessas métricas pode tornar-se pouco fiável. Ao nunca provar as suas métricas personalizadas, pode geralmente estar confiante de que quando os seus limiares de alerta são violados, um alerta disparará.  Mas como as métricas personalizadas não são amostradas, existem algumas preocupações potenciais.
 
@@ -285,9 +285,9 @@ computersSold.TrackValue(100, "Dim1Value1", "Dim2Value3");
 // The above call does not track the metric, and returns false.
 ```
 
-* `seriesCountLimit`é o número máximo de datas séries que uma métrica pode conter. Uma vez atingido este limite, chama para `TrackValue()` .
-* `valuesPerDimensionLimit`limita o número de valores distintos por dimensão de forma semelhante.
-* `restrictToUInt32Values`determina se os valores inteiros não negativos devem ou não ser rastreados.
+* `seriesCountLimit` é o número máximo de datas séries que uma métrica pode conter. Uma vez atingido este limite, chama para `TrackValue()` .
+* `valuesPerDimensionLimit` limita o número de valores distintos por dimensão de forma semelhante.
+* `restrictToUInt32Values` determina se os valores inteiros não negativos devem ou não ser rastreados.
 
 Aqui está um exemplo de como enviar uma mensagem para saber se os limites da tampa são ultrapassados:
 
@@ -300,7 +300,7 @@ SeverityLevel.Error);
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba mais ](./worker-service.md)sobre a monitorização das aplicações de serviço dos trabalhadores.
 * Para mais detalhes sobre [métricas baseadas em registos e pré-agregadas](./pre-aggregated-metrics-log-metrics.md).

@@ -13,10 +13,10 @@ ms.date: 02/03/2020
 ms.author: curtand
 ms.custom: user-help
 ms.openlocfilehash: 993e75f6a5a39e076a9e7161b62abba85d9b0eab
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90031097"
 ---
 # <a name="edit-or-revoke-application-permissions-in-the-my-apps-portal"></a>Editar ou revogar permissões de aplicações no portal My Apps
@@ -42,7 +42,7 @@ Pode revogar qualquer uma das permissões a que consentiu ao selecionar **Permis
 
 A parte inferior da janela de permissões mostra o que o seu administrador consentiu em seu nome. Esta secção não é mostrada se não há permissões consentidas com a administração. Não pode revogar estas permissões porque o administrador consentiu com elas, e muitas vezes são necessárias para a política da sua organização.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de gerir permissões de aplicações e contas guardadas no portal **My Apps,** pode:
 

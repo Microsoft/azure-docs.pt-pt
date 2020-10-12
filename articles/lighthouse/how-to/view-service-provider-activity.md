@@ -4,10 +4,10 @@ description: Os clientes podem ver a atividade registada para ver ações realiz
 ms.date: 07/07/2020
 ms.topic: how-to
 ms.openlocfilehash: 0c92fc9b45d17e37fb3721d9cf087c5e7a62f6d7
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86131455"
 ---
 # <a name="view-service-provider-activity"></a>Ver a atividade do fornecedor de serviços
@@ -17,7 +17,7 @@ Os clientes que tenham delegado subscrições para [o Azure Lighthouse](../overv
 > [!TIP]
 > Também fornecemos uma definição de política incorporada da Azure para auditar a delegação de âmbitos a um inquilino gestor. Para mais informações, consulte [as delegações de auditoria no seu ambiente.](view-manage-service-providers.md#audit-delegations-in-your-environment)
 
-## <a name="view-activity-log-data"></a>Ver dados de registo de atividade
+## <a name="view-activity-log-data"></a>Ver dados de registo de atividades
 
 Pode [visualizar o registo](../../azure-monitor/platform/activity-log.md#view-the-activity-log) de atividades no menu **Monitor** no portal Azure. Para limitar os resultados a uma subscrição específica, utilize os filtros para selecionar uma subscrição específica. Também pode [visualizar e recuperar eventos de registo de atividades](../../azure-monitor/platform/activity-log.md#view-the-activity-log) programáticamente.
 
@@ -43,7 +43,7 @@ Pode criar consultas para analisar a sua atividade registada ou focar-se em iten
 
 Para obter mais informações, consulte [a visão geral das consultas de registo no Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [o Azure Monitor.](../../azure-monitor/index.yml)
 - Saiba como [ver e gerir as ofertas de prestadores de serviços](view-manage-service-providers.md) no portal Azure.

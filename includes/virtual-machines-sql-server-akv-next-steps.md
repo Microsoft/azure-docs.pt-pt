@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: e0ff4e91ed55a37e710a5655e7da9ec76b7d1dd5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84014706"
 ---
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de ativar a integração do cofre da chave Azure, pode ativar a encriptação do SQL Server no seu SQL VM. Primeiro, terá de criar uma chave assimétrica dentro do cofre da chave e uma chave simétrica dentro do SQL Server no seu VM. Em seguida, poderá executar declarações T-SQL para permitir encriptação para as suas bases de dados e backups.
 

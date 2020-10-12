@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 8/20/2019
 ms.author: alsin
 ms.openlocfilehash: e09e08f8ba36cf576bc27551254225adee3bb0fd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75451307"
 ---
 # <a name="enable-and-disable-the-azure-serial-console"></a>Ativar e desativar a Consola em Série Azure
@@ -79,7 +79,7 @@ $subscription=(Get-AzContext).Subscription.Id
 Invoke-AzResourceAction -Action enableConsole -ResourceId /subscriptions/$subscription/providers/Microsoft.SerialConsole/consoleServices/default -ApiVersion 2018-05-01
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre a [Consola Em Série Azure para Os VMs Linux](./serial-console-linux.md)
 * Saiba mais sobre a [Consola Em Série Azure para VMs Windows](./serial-console-windows.md)
 * Conheça as [opções de gestão de energia dentro da Consola em Série Azure](./serial-console-power-options.md)

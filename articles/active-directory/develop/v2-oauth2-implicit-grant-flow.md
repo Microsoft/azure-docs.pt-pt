@@ -13,10 +13,10 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.openlocfilehash: fbe74b62352babf7a1fdd93bf19a6e1475e3f032
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85553580"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Plataforma de identidade da Microsoft e fluxo de subvenção implícita
@@ -105,7 +105,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `response_mode` | opcional |Especifica o método que deve ser usado para enviar o símbolo resultante de volta para a sua aplicação. Predefinições para consulta para apenas um token de acesso, mas fragmento se o pedido inclui uma id_token. |
 | `state` | recomendado |Um valor incluído no pedido que também será devolvido na resposta simbólica. Pode ser uma série de conteúdos que desejes. Um valor único gerado aleatoriamente é normalmente usado para [prevenir ataques de falsificação de pedidos de trans-locais](https://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorrer, como a página ou a vista em que estavam. |
 | `nonce` | obrigatório |Um valor incluído no pedido, gerado pela app, que será incluído no id_token resultante como reclamação. A aplicação pode então verificar este valor para mitigar os ataques de reprodução de token. O valor é tipicamente uma corda aleatória e única que pode ser usada para identificar a origem do pedido. Só é necessário quando é solicitada uma id_token. |
-| `prompt` | opcional |Indica o tipo de interação do utilizador que é necessária. Os únicos valores válidos neste momento são 'login', 'nenhum', 'select_account', e 'consentimento'. `prompt=login`forçará o utilizador a introduzir as suas credenciais nesse pedido, negando um único sinal. `prompt=none`é o oposto - irá garantir que o utilizador não é apresentado com qualquer posição interativa. Se o pedido não puder ser concluído silenciosamente através de um único sinal, o ponto final da plataforma de identidade da Microsoft retornará um erro. `prompt=select_account`envia o utilizador para um selecionador de contas onde todas as contas lembradas na sessão aparecerão. `prompt=consent`irá acionar o diálogo de consentimento OAuth após o utilizador entrar, pedindo ao utilizador que conceda permissões à aplicação. |
+| `prompt` | opcional |Indica o tipo de interação do utilizador que é necessária. Os únicos valores válidos neste momento são 'login', 'nenhum', 'select_account', e 'consentimento'. `prompt=login` forçará o utilizador a introduzir as suas credenciais nesse pedido, negando um único sinal. `prompt=none` é o oposto - irá garantir que o utilizador não é apresentado com qualquer posição interativa. Se o pedido não puder ser concluído silenciosamente através de um único sinal, o ponto final da plataforma de identidade da Microsoft retornará um erro. `prompt=select_account` envia o utilizador para um selecionador de contas onde todas as contas lembradas na sessão aparecerão. `prompt=consent` irá acionar o diálogo de consentimento OAuth após o utilizador entrar, pedindo ao utilizador que conceda permissões à aplicação. |
 | `login_hint`  |opcional |Pode ser usado para pré-preenchimento do nome de utilizador/endereço de e-mail do sinal na página para o utilizador, se souber o seu nome de utilizador com antecedência. Muitas vezes as aplicações utilizam este parâmetro durante a reautorização, tendo já extraído o nome de utilizador de um pré-início de súmato utilizando a `preferred_username` reclamação.|
 | `domain_hint` | opcional |Se incluído, saltará o processo de descoberta baseado em e-mail que o utilizador passa no sinal na página, levando a uma experiência de utilizador um pouco mais simplificada. Isto é comumente usado para aplicativos line of business que operam em um único inquilino, onde eles fornecerão um nome de domínio dentro de um determinado inquilino.  Isto irá encaminhar o utilizador para o provedor da federação para aquele inquilino.  Note que isso impedirá os hóspedes de se inscreverem nesta aplicação.  |
 
@@ -231,12 +231,12 @@ O OpenID Connect `end_session_endpoint` permite que a sua aplicação envie um p
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redirect_uri=https://localhost/myapp/
 ```
 
-| Parâmetro | Tipo | Description |
+| Parâmetro | Tipo | Descrição |
 | --- | --- | --- |
 | `tenant` |obrigatório |O `{tenant}` valor no caminho do pedido pode ser usado para controlar quem pode assinar a aplicação. Os valores permitidos `common` `organizations` são, `consumers` e os identificadores de inquilinos. Para mais detalhes, consulte [o protocolo básico.](active-directory-v2-protocols.md#endpoints) |
 | `post_logout_redirect_uri` | recomendado | O URL a que o utilizador deve ser devolvido após o início de sê-lo. Este valor deve corresponder a um dos URIs de redirecionamento registados para a aplicação. Se não estiver incluído, o utilizador será mostrado uma mensagem genérica pelo ponto final da plataforma de identidade da Microsoft. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Ver as amostras do [MSAL JS](sample-v2-code.md) para começar a codificar.
 

@@ -5,15 +5,15 @@ ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.openlocfilehash: 7ed73678e0df1e068782c2a094846132be58cfe2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86516129"
 ---
 # <a name="alerts-on-activity-log"></a>Alertas no registo de atividades
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Os alertas de registo de atividade são alertas que se ativam quando ocorre um novo [evento de registo de atividade](activity-log-schema.md) que corresponde às condições especificadas no alerta. Com base na ordem e volume dos eventos registados no [registo de atividades do Azure,](platform-logs-overview.md)a regra de alerta disparará. As regras de alerta de registo de atividade são recursos Azure, para que possam ser criadas usando um modelo de Gestor de Recursos Azure. Também podem ser criados, atualizados ou eliminados no portal Azure. Este artigo introduz os conceitos por trás dos alertas de registo de atividade. Para obter mais informações sobre a criação ou utilização de regras de alerta de registo de atividades, consulte [Criar e gerir alertas de registo de atividades](alerts-activity-log.md).
 
@@ -40,7 +40,7 @@ Os alertas de registo de atividade têm algumas opções comuns:
     - Nível de Subscrição: Por exemplo, todas as máquinas virtuais numa subscrição (ou) todos os recursos numa subscrição
 - **Grupo de recursos**: Por predefinição, a regra de alerta é guardada no mesmo grupo de recursos que a do alvo definido no Âmbito. O utilizador também pode definir o Grupo de Recursos onde a regra de alerta deve ser armazenada.
 - **Tipo de recurso**: Gestor de recursos definiu o espaço de nome para o alvo do alerta.
-- **Nome de funcionamento**: O nome [de operação do Gestor de Recursos Azure](../../role-based-access-control/resource-provider-operations.md) utilizado para o Controlo de Acesso Baseado em Funções . As operações não registadas no Azure Resource Manager não podem ser utilizadas numa regra de alerta de registo de atividade.
+- **Nome do funcionamento**: O nome [de operação do Gestor de Recursos Azure](../../role-based-access-control/resource-provider-operations.md) utilizado para Role-Based Controlo de Acesso . As operações não registadas no Azure Resource Manager não podem ser utilizadas numa regra de alerta de registo de atividade.
 - **Nível**: O nível de gravidade do evento (Informação, Aviso, Erro ou Crítico).
 - **Estado**: O estado do evento, tipicamente iniciado, falhado ou bem sucedido.
 - **Evento iniciado por:** Também conhecido como "chamador". O endereço de e-mail ou identificador do Diretório Ativo Azure do utilizador que realizou a operação.
@@ -56,7 +56,7 @@ Quando um alerta de registo de atividade é ativado, utiliza um grupo de ação 
 Para saber mais sobre grupos de ação, consulte [Criar e gerir grupos de ação no portal Azure.](action-groups.md)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Obtenha uma [visão geral dos alertas.](alerts-overview.md)
 - Saiba como [criar e modificar os alertas de registo de atividades.](alerts-activity-log.md)

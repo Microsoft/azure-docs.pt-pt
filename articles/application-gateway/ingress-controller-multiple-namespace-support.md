@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 953430421bd30aaa1df352451b549994aeaa1a70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85556170"
 ---
 # <a name="enable-multiple-namespace-support-in-an-aks-cluster-with-application-gateway-ingress-controller"></a>Ativar vários suportes namespace num cluster AKS com controlador de entrada de gateway de aplicação
@@ -29,11 +29,11 @@ Para ativar o suporte a vários nomes no espaço:
    - eliminar a `watchNamespace` chave inteiramente de [helm-config.yaml](#sample-helm-config-file) - AGIC observará todos os espaços de nome
    - definido `watchNamespace` para uma corda vazia - AGIC observará todos os espaços de nome
    - adicionar vários espaços de nome separados por uma vírgula `watchNamespace: default,secondNamespace` ( ) - AGIC observará estes espaços de nome exclusivamente
-2. aplicar alterações do modelo de leme com:`helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure`
+2. aplicar alterações do modelo de leme com: `helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure`
 
 Uma vez implantado com a capacidade de observar vários espaços de nome, a AGIC:
   - listar recursos ingress de todos os espaços de nome acessíveis
-  - filtro para recursos ingresss anotados com`kubernetes.io/ingress.class: azure/application-gateway`
+  - filtro para recursos ingresss anotados com `kubernetes.io/ingress.class: azure/application-gateway`
   - compor combinado [Application Gateway config](https://github.com/Azure/azure-sdk-for-go/blob/37f3f4162dfce955ef5225ead57216cf8c1b2c70/services/network/mgmt/2016-06-01/network/models.go#L1710-L1744)
   - aplicar o config ao Portal de Aplicação associado via [ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
 
@@ -84,11 +84,11 @@ spec:
 
 Apesar dos dois recursos ingressantes exigindo tráfego para `www.contoso.com` ser encaminhado para os respetivos espaços de nome Kubernetes, apenas um backend pode servir o tráfego. A AGIC criaria uma configuração em base "primeiro a chegar, primeiro a ser servido" para um dos recursos. Se dois recursos ingresses forem criados ao mesmo tempo, o anterior no alfabeto terá precedência. Pelo exemplo acima, só poderemos criar configurações para a `production` entrada. O Gateway de Aplicação será configurado com os seguintes recursos:
 
-  - Ouvinte:`fl-www.contoso.com-80`
-  - Regra de encaminhamento:`rr-www.contoso.com-80`
-  - Piscina de backend:`pool-production-contoso-web-service-80-bp-80`
-  - DEFINIÇÕES HTTP:`bp-production-contoso-web-service-80-80-websocket-ingress`
-  - Sonda de Saúde:`pb-production-contoso-web-service-80-websocket-ingress`
+  - Ouvinte: `fl-www.contoso.com-80`
+  - Regra de encaminhamento: `rr-www.contoso.com-80`
+  - Piscina de backend: `pool-production-contoso-web-service-80-bp-80`
+  - DEFINIÇÕES HTTP: `bp-production-contoso-web-service-80-80-websocket-ingress`
+  - Sonda de Saúde: `pb-production-contoso-web-service-80-websocket-ingress`
 
 Note que, com exceção da regra *de ouvinte* e *encaminhamento,* os recursos do Gateway de Aplicação criados incluem o nome do espaço de nomes ( ) para o `production` qual foram criados.
 

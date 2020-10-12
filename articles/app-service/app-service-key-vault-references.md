@@ -1,5 +1,5 @@
 ---
-title: Use referências de Cofre de Chaves
+title: Utilizar as referências do Key Vault
 description: Saiba como configurar o Azure App Service e as Funções Azure para utilizar referências Azure Key Vault. Disponibilize os segredos do Cofre chave para o seu código de aplicação.
 author: mattchenderson
 ms.topic: article
@@ -7,10 +7,10 @@ ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
 ms.openlocfilehash: 5b76c940066539995dbefa76d503b5412ce0c359
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85557913"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Utilize referências de Cofre de Chaves para Serviço de Aplicações e Funções Azure
@@ -40,7 +40,7 @@ Uma referência do Cofre-Chave é do `@Microsoft.KeyVault({referenceString})` fo
 > [!div class="mx-tdBreakAll"]
 > | Cadeia de referência                                                            | Descrição                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | SecretUri=_secretUri_                                                       | O **SecretUri** deve ser o plano de dados completo URI de um segredo em Key Vault, incluindo uma versão, por exemplo,https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
+> | SecretUri=_secretUri_                                                       | O **SecretUri** deve ser o plano de dados completo URI de um segredo em Key Vault, incluindo uma versão, por exemplo, https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
 > | Nome do cofre=_nome do cofre;_ Nome secreto=_nome secreto;_ SecretVersion=_secretversion_ | O **Nome do Cofre** deve ser o nome do seu recurso Key Vault. O **Nome Secreto** deve ser o nome do segredo do alvo. A **Versão Secreta** deve ser a versão do segredo a usar. |
 
 > [!NOTE] 

@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 19b2b4aecedbaa66c258b9076c517b02034a46fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85200992"
 ---
 # <a name="manageability-and-monitoring-with-synapse-sql-pool"></a>Gestão e monitorização com piscina Sinaapse SQL
@@ -32,5 +32,5 @@ O Sinaapse SQL permite-lhe providenciar um armazém de dados através da piscina
 * [Encontre orientação comum para a resolução de problemas](sql-data-warehouse-troubleshoot.md)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para guias de como fazer, consulte [o Monitor e afinar a sua piscina SQL](sql-data-warehouse-manage-monitor.md).

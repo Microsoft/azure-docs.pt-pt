@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 259a1324c412dad40d32a8b8e026d84e6f5aa066
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85554923"
 ---
 # <a name="hybrid-azure-ad-joined-devices"></a>Dispositivos híbridos associados ao Azure AD
@@ -62,8 +62,8 @@ Utilize dispositivos híbridos AD AZure se:
 - Pretende continuar a utilizar as soluções de imagem existentes para implantar e configurar dispositivos.
 - Tem de suportar dispositivos Windows 7 e 8.1 de nível inferior, para além do Windows 10.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Planear a sua implementação de associação ao Azure AD híbrido](hybrid-azuread-join-plan.md)
-- [Gerir identidades do dispositivo utilizando o portal Azure](device-management-azure-portal.md)
-- [Gerir dispositivos em Azure AD](manage-stale-devices.md)
+- [Gerir identidades de dispositivos com o portal do Azure](device-management-azure-portal.md)
+- [Gerir dispositivos obsoletos no AAD](manage-stale-devices.md)
