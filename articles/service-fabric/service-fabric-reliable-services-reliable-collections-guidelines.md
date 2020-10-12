@@ -4,10 +4,10 @@ description: Diretrizes e recomendações para a utilização de coleções fiá
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: 63e6de436bdaceed7f1d2a78e8385dd14bfc0ed6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260926"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Diretrizes e recomendações para coleções fiáveis em tecido de serviço Azure
@@ -40,17 +40,17 @@ Eis algumas coisas a ter em mente:
   Isto significa que uma versão de dados que é lida a partir de um único secundário pode ser falsamente progredida.
   As leituras de Primary são sempre estáveis: nunca podem ser falsas progredidas.
 * A segurança/privacidade dos dados persistidos pela sua aplicação numa recolha fiável é a sua decisão e sujeita às proteções fornecidas pela sua gestão de armazenamento; Ou seja, o E. A encriptação do disco do Sistema Operativo pode ser usada para proteger os seus dados em repouso.
-* `ReliableDictionary`a enumeração usa uma estrutura de dados ordenada ordenada por chave. Para tornar a enumeração eficiente, os compromissos são adicionados a um haxixe temporário e posteriormente transferidos para o principal posto de controlo da estrutura de dados ordenada. As atualizações/eliminações têm o melhor tempo de funcionaamento de O(1) e, no pior dos casos, o tempo de funcionaamento de O(log n), no caso de verificações de validação da presença da chave. O Gets pode ser O(1) ou O(log n) dependendo se você está lendo de um compromisso recente ou de um compromisso mais antigo.
+* `ReliableDictionary` a enumeração usa uma estrutura de dados ordenada ordenada por chave. Para tornar a enumeração eficiente, os compromissos são adicionados a um haxixe temporário e posteriormente transferidos para o principal posto de controlo da estrutura de dados ordenada. As atualizações/eliminações têm o melhor tempo de funcionaamento de O(1) e, no pior dos casos, o tempo de funcionaamento de O(log n), no caso de verificações de validação da presença da chave. O Gets pode ser O(1) ou O(log n) dependendo se você está lendo de um compromisso recente ou de um compromisso mais antigo.
 
 ## <a name="volatile-reliable-collections"></a>Coleções fiáveis voláteis
 Ao decidir utilizar coleções voláteis e fiáveis, considere o seguinte:
 
-* ```ReliableDictionary```tem suporte volátil
-* ```ReliableQueue```tem suporte volátil
-* ```ReliableConcurrentQueue```NÃO tem suporte volátil
+* ```ReliableDictionary``` tem suporte volátil
+* ```ReliableQueue``` tem suporte volátil
+* ```ReliableConcurrentQueue``` NÃO tem suporte volátil
 * Os serviços persistidoes não podem ser tornados voláteis. Mudar a ```HasPersistedState``` bandeira para exigir recriar todo o serviço do ```false``` zero
 * Os serviços voláteis não podem ser persistidos. Mudar a ```HasPersistedState``` bandeira para exigir recriar todo o serviço do ```true``` zero
-* ```HasPersistedState```é um nível de serviço config. Isto significa que **todas as** coleções serão persistidos ou voláteis. Não se pode misturar coleções voláteis e persistiu
+* ```HasPersistedState``` é um nível de serviço config. Isto significa que **todas as** coleções serão persistidos ou voláteis. Não se pode misturar coleções voláteis e persistiu
 * Perda de quórum de uma partição volátil resulta em perda completa de dados
 * Backup e restauro NÃO está disponível para serviços voláteis
 

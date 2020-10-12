@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: jingwang
 ms.openlocfilehash: 14b3857211eca39ebe09a3a0752ca1d8eee17bc0
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87529998"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory"></a>Copiar dados da Xero utilizando a Azure Data Factory
@@ -245,10 +245,10 @@ As seguintes tabelas só podem ser consultadas com esquema completo:
 - Complete.Bank_Transaction_Line_Items 
 - Complete.Bank_Transaction_Line_Item_Tracking 
 - Complete.Contact_Group_Contacts 
-- Pessoas Completas.Contacts_Contact_ 
+- pessoas Complete.Contacts_Contact_ 
 - Complete.Credit_Note_Line_Items 
 - Complete.Credit_Notes_Line_Items_Tracking 
-- Pagamentos Completos.Expense_Claim_ 
+- Pagamentos Complete.Expense_Claim_ 
 - Complete.Expense_Claim_Receipts 
 - Complete.Invoice_Line_Items 
 - Complete.Invoices_Line_Items_Tracking

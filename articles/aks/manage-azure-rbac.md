@@ -8,10 +8,10 @@ ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
 ms.openlocfilehash: 15bd917a16c250807d6848f7bc0ffbdba06b4019
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91329096"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Utilizar o RBAC do Azure para Autorização do Kubernetes (pré-visualização)
@@ -21,7 +21,7 @@ Esta funcionalidade permite-lhe gerir separadamente as identidades e credenciais
 
 Este documento abrange uma nova abordagem que permite a gestão unificada e o controlo de acessos através dos recursos Azure Resources, AKS e Kubernetes.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 A capacidade de gerir o RBAC para os recursos de Kubernetes da Azure dá-lhe a opção de gerir o RBAC para os recursos do cluster, quer utilizando mecanismos Azure ou Kubernetes nativos. Quando ativados, os principais AD do Azure serão validados exclusivamente pela Azure RBAC, enquanto os utilizadores regulares de Kubernetes e contas de serviço são validados exclusivamente pela Kubernetes RBAC. Para mais detalhes sobre a autenticação, autorização e RBAC na AKS consulte [aqui.](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview)
 
@@ -113,7 +113,7 @@ Uma criação bem sucedida de um cluster com integração AD AZure e Azure RBAC 
 A AKS fornece as seguintes quatro funções incorporadas:
 
 
-| Função                                | Description  |
+| Função                                | Descrição  |
 |-------------------------------------|--------------|
 | Azure Kubernetes Service RBAC Viewer  | Permite o acesso apenas à leitura para ver a maioria dos objetos num espaço de nome. Não permite visualizar papéis ou encadernações de papéis. Esta função não permite a `Secrets` visualização, uma vez que a leitura do conteúdo dos Segredos permite o acesso às credenciais do ServiceAccount no espaço de nomes, o que permitiria o acesso da API como qualquer ServiceAccount no espaço de nomes (uma forma de escalada de privilégio)  |
 | Azure Kubernetes Service RBAC Writer | Permite ler/escrever o acesso à maioria dos objetos num espaço de nome. Esta função não permite visualizar ou modificar papéis ou encadernações de papéis. No entanto, esta função permite aceder `Secrets` e executar Pods como qualquer ServiceAccount no espaço de nomes, para que possa ser usado para obter os níveis de acesso API de qualquer ServiceAccount no espaço de nomes. |

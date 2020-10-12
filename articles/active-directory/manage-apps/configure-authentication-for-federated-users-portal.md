@@ -16,10 +16,10 @@ ms.author: kenwith
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 16af484e77787ee1d729ce97eec8c666bf925837
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84763589"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurar o Azure Ative Directory assinar em comportamento para uma aplicação usando uma política de Descoberta do Realm Doméstico
@@ -266,7 +266,7 @@ Remove-AzureADServicePrincipalPolicy -id <ObjectId of the Service Principal>  -P
 ``` powershell
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Para obter mais informações sobre como funciona a autenticação em Azure AD, consulte [cenários de autenticação para Azure AD](../develop/authentication-scenarios.md).
 - Para obter mais informações sobre o único súmis do utilizador, consulte [um único sinal de inscrição para aplicações no Azure Ative Directory](what-is-single-sign-on.md).
 - Visite a [plataforma de identidade](../develop/v2-overview.md) da Microsoft para obter uma visão geral de todos os conteúdos relacionados com o programador.

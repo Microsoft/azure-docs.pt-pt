@@ -9,10 +9,10 @@ ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c8f4269235c494ff9dd8d1bf8e0ef940562f8927
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85515265"
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Ligue ou desligue o seu dispositivo da série StorSimple 8000
@@ -86,12 +86,12 @@ Uma falha de energia ou interrupção pode desligar um dispositivo StorSimple. A
 * [Dispositivo apenas com recinto primário](#8100)
 * [Dispositivo com recinto EBOD](#8600)
 
-### <a name="device-with-primary-enclosure-only"></a>Dispositivo apenas com recinto primário<a name="8100"></a>
+### <a name="device-with-primary-enclosure-only"></a>Dispositivo apenas com recinto primário <a name="8100"></a>
 O sistema pode continuar o seu funcionamento normal se houver perda de energia para uma das suas fontes de alimentação. No entanto, para garantir uma elevada disponibilidade do dispositivo, restabeleça a energia da alimentação o mais rapidamente possível.
 
 Se houver uma falha de energia ou interrupção de energia em ambas as fontes de alimentação, o sistema desligar-se-á de forma ordenada e controlada. Quando a energia for restaurada, o sistema liga-se automaticamente.
 
-### <a name="device-with-ebod-enclosure"></a>Dispositivo com recinto EBOD<a name="8600"></a>
+### <a name="device-with-ebod-enclosure"></a>Dispositivo com recinto EBOD <a name="8600"></a>
 #### <a name="power-loss-on-one-power-supply"></a>Perda de energia numa fonte de alimentação
 O sistema pode continuar o seu funcionamento normal se houver perda de energia para uma das suas fontes de alimentação no recinto primário ou no recinto da EBOD. No entanto, para garantir uma elevada disponibilidade do dispositivo, por favor, restaure a energia na alimentação o mais rapidamente possível.
 
@@ -140,7 +140,7 @@ Um dispositivo StorSimple em funcionamento pode ter de ser desligado se estiver 
 * [Dispositivo com recinto primário](#8100a)
 * [Dispositivo com recinto EBOD](#8600a)
 
-### <a name="device-with-primary-enclosure"></a>Dispositivo com recinto primário<a name="8100a"></a>
+### <a name="device-with-primary-enclosure"></a>Dispositivo com recinto primário <a name="8100a"></a>
 Para desligar o dispositivo de forma ordenada e controlada, pode fazê-lo através do portal Azure ou através do Windows PowerShell para StorSimple. 
 
 > [!IMPORTANT]
@@ -152,7 +152,7 @@ Para desligar o dispositivo de forma ordenada e controlada, pode fazê-lo atrav�
 
 Depois de aceder ao Windows PowerShell para StorSimple ou o portal Azure, siga os passos para [desligar um dispositivo StorSimple](storsimple-8000-manage-device-controller.md#shut-down-a-storsimple-device). 
 
-### <a name="device-with-ebod-enclosure"></a>Dispositivo com recinto EBOD<a name="8600a"></a>
+### <a name="device-with-ebod-enclosure"></a>Dispositivo com recinto EBOD <a name="8600a"></a>
 > [!IMPORTANT]
 > Antes de desligar o recinto primário e o recinto EBOD, certifique-se de que todos os componentes do dispositivo estão saudáveis. No portal Azure, navegue para a saúde do **Hardware devices**  >  **Monitor**  >  **Hardware health**, e verifique se todos os componentes estão saudáveis.
 
@@ -165,6 +165,6 @@ Depois de aceder ao Windows PowerShell para StorSimple ou o portal Azure, siga o
 > [!NOTE]
 > Os cabos SAS utilizados para ligar o invólucro EBOD ao recinto primário só devem ser removidos depois de o sistema ser desligado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md) se tiver problemas ao ligar ou desligar um dispositivo StorSimple.
 

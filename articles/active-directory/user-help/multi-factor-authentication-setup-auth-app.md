@@ -11,10 +11,10 @@ ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
 ms.openlocfilehash: 10b6b788077eccda522c9e8c6e631939ca1819fc
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91530345"
 ---
 # <a name="set-up-an-authenticator-app-as-your-two-factor-verification-method"></a>Crie uma aplicação autenticadora como o seu método de verificação de dois fatores
@@ -109,7 +109,7 @@ Pode configurar uma aplicação autenticadora para enviar uma notificação para
 
 9. Selecione **Concluído**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de configurar o seu método de verificação de dois fatores, pode adicionar métodos adicionais, gerir as suas definições e senhas de aplicação, iniciar sposição ou obter ajuda com alguns problemas comuns relacionados com a verificação de dois fatores.
 

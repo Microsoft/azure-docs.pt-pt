@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: how-to
 ms.date: 11/15/2018
 ms.openlocfilehash: 8e0037f6aea4aef53efc192066027e0a0143bda1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86086182"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>Criar empregos em streaming de Faíscas Apache Com processamento de eventos exatamente uma vez
@@ -47,15 +47,15 @@ Em Azure, tanto os Azure Event Hubs como [o Apache Kafka](https://kafka.apache.o
 
 No Spark Streaming, fontes como os Event Hubs e Kafka têm *recetores fiáveis,* onde cada recetor acompanha o seu progresso lendo a fonte. Um recetor fiável persiste o seu estado em armazenamento tolerante a falhas, quer dentro do [Apache ZooKeeper,](https://zookeeper.apache.org/) quer nos pontos de verificação de streaming spark escritos para HDFS. Se um recetor falhar e for reiniciado mais tarde, pode recomeçar onde para fora.
 
-### <a name="use-the-write-ahead-log"></a>Utilize o registo de escrita-à-frente
+### <a name="use-the-write-ahead-log"></a>Use o registo de Write-Ahead
 
-O Spark Streaming suporta a utilização de um Registo De Escrita-Ahead, onde cada evento recebido é escrito pela primeira vez para o diretório de checkpoint da Spark no armazenamento tolerante a falhas e depois armazenado num Conjunto de Dados Distribuídos Resiliente (RDD). Em Azure, o armazenamento tolerante a falhas é apoiado por Azure Storage ou Azure Data Lake Storage. Na sua aplicação Spark Streaming, o Registo De Escrita-A-Antecedência está ativado para todos os recetores definindo a definição de `spark.streaming.receiver.writeAheadLog.enable` configuração para `true` . O Registo Write-Ahead proporciona tolerância a falhas tanto do condutor como dos executores.
+O Spark Streaming suporta a utilização de um Registo de Write-Ahead, onde cada evento recebido é escrito pela primeira vez para o diretório de checkpoint da Spark no armazenamento tolerante a falhas e depois armazenado num Conjunto de Dados Distribuídos Resiliente (RDD). Em Azure, o armazenamento tolerante a falhas é apoiado por Azure Storage ou Azure Data Lake Storage. Na sua aplicação Spark Streaming, o Registo de Write-Ahead está ativado para todos os recetores definindo a definição de `spark.streaming.receiver.writeAheadLog.enable` configuração para `true` . O Write-Ahead Log proporciona tolerância a falhas tanto do condutor como dos executores.
 
 Para os trabalhadores que executam tarefas contra os dados do evento, cada RDD é, por definição, replicado e distribuído por vários trabalhadores. Se uma tarefa falhar porque o trabalhador que o executa se despenhou, a tarefa será reiniciada noutro trabalhador que tenha uma réplica dos dados do evento, pelo que o evento não se perde.
 
 ### <a name="use-checkpoints-for-drivers"></a>Utilize postos de controlo para condutores
 
-Os motoristas de emprego têm de ser reiniciáveis. Se o condutor que executa a sua aplicação Spark Streaming falhar, ele retira-se com todos os recetores, tarefas e quaisquer RDDs que armazenam dados do evento. Neste caso, precisa de ser capaz de salvar o progresso do trabalho para que possa retomá-lo mais tarde. Isto é conseguido através do checkpoint do Gráfico Aciclico Direcionado (DAG) do DStream periodicamente para o armazenamento tolerante a falhas. Os metadados DAG incluem a configuração utilizada para criar a aplicação de streaming, as operações que definem a aplicação, e quaisquer lotes que estejam na fila mas ainda não concluídos. Estes metadados permitem reiniciar o controlador a partir da informação do ponto de verificação. Quando o controlador recomeçar, lançará novos recetores que, por si só, recuperarão os dados do evento de volta aos RDDs a partir do Registo De Escrita-A-Antecedência.
+Os motoristas de emprego têm de ser reiniciáveis. Se o condutor que executa a sua aplicação Spark Streaming falhar, ele retira-se com todos os recetores, tarefas e quaisquer RDDs que armazenam dados do evento. Neste caso, precisa de ser capaz de salvar o progresso do trabalho para que possa retomá-lo mais tarde. Isto é conseguido através do checkpoint do Gráfico Aciclico Direcionado (DAG) do DStream periodicamente para o armazenamento tolerante a falhas. Os metadados DAG incluem a configuração utilizada para criar a aplicação de streaming, as operações que definem a aplicação, e quaisquer lotes que estejam na fila mas ainda não concluídos. Estes metadados permitem reiniciar o controlador a partir da informação do ponto de verificação. Quando o condutor recomeçar, lançará novos recetores que, por si só, recuperarão os dados do evento de volta aos RDDs a partir do Registo de Write-Ahead.
 
 Os postos de controlo estão ativados em Spark Streaming em dois passos.
 
@@ -87,7 +87,7 @@ Por exemplo, pode utilizar um procedimento armazenado com base de dados Azure SQ
 
 Outro exemplo é usar um sistema de ficheiros dividido, como bolhas de armazenamento Azure ou armazenamento de data de Azure. Neste caso, a sua lógica de sumidouro não precisa de verificar a existência de um ficheiro. Se o ficheiro que representa o evento existir, é simplesmente substituído com os mesmos dados. Caso contrário, um novo ficheiro é criado no caminho calculado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Visão geral do fluxo de faíscas de Apache Spark](apache-spark-streaming-overview.md)
 * [Criação de empregos altamente disponíveis em Apache Spark Streaming em Apache Hadoop YARN](apache-spark-streaming-high-availability.md)

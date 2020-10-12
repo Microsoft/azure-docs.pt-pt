@@ -9,10 +9,10 @@ ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 6d12c0ce0df44c37f4e7df49df2c11301513917c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514210"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Utilizar o serviço Azure Import/Export para importar dados para a Azure Blob Storage
@@ -82,7 +82,7 @@ Execute os seguintes passos para preparar as unidades.
     |/j:     |O nome do ficheiro do diário, com a extensão .jrn. Um ficheiro de diário é gerado por unidade. Recomendamos que utilize o número de série do disco como nome de ficheiro do diário.         |
     |/id:     |A identificação da sessão. Utilize um número de sessão único para cada instância do comando.      |
     |/t:     |A carta de condução do disco a ser enviada. Por exemplo, `D` dirija.         |
-    |/bk:     |A chave BitLocker para a unidade. Sua senha numérica a partir da saída de`manage-bde -protectors -get D:`      |
+    |/bk:     |A chave BitLocker para a unidade. Sua senha numérica a partir da saída de `manage-bde -protectors -get D:`      |
     |/srcdir:     |A letra de acionamento do disco a ser enviada é seguida de `:\` . Por exemplo, `D:\`.         |
     |/dstdir:     |O nome do contentor de destino no Azure Storage.         |
     |/blobtype:     |Esta opção especifica o tipo de bolhas para as quais pretende importar os dados. Para bolhas de bloco, isto é `BlockBlob` e para bolhas de página, é `PageBlob` .         |
@@ -127,7 +127,7 @@ Execute os seguintes passos para criar uma função de importação no portal Az
 
 6. Informações **de envio em troca:**
 
-   * Selecione o transportador da lista de retirada. Se quiser utilizar uma transportadora diferente da FedEx/DHL, escolha uma opção existente a partir do dropdown. Contacte a equipa de Operações da Caixa de Dados da Azure `adbops@microsoft.com` com as informações relativas à transportadora que pretende utilizar.
+   * Selecione o transportador da lista de retirada. Se quiser utilizar uma transportadora diferente da FedEx/DHL, escolha uma opção existente a partir do dropdown. Contacte a equipa de Operações da Caixa de Dados da Azure `adbops@microsoft.com`  com as informações relativas à transportadora que pretende utilizar.
    * Introduza um número de conta transportadora válido que criou com essa transportadora. A Microsoft utiliza esta conta para enviar as unidades de volta para si assim que o seu trabalho de importação estiver concluído. Se não tiver um número de conta, crie uma conta de transportadora [FedEx](https://www.fedex.com/us/oadr/) ou [DHL.](https://www.dhl.com/)
    * Forneça um nome de contacto completo e válido, telefone, e-mail, endereço de rua, cidade, zip, estado/província e país/região.
 
@@ -159,7 +159,7 @@ Salte este passo e vá para o próximo passo se quiser utilizar a chave gerida p
 
 Acompanhe o trabalho até à conclusão. Uma vez concluído o trabalho, verifique se os seus dados foram enviados para a Azure. Elimine os dados no local apenas depois de ter verificado que o upload foi bem sucedido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Ver o estado do trabalho e da unidade](storage-import-export-view-drive-status.md)
 * [Rever os requisitos de importação/exportação](storage-import-export-requirements.md)

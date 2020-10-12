@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.date: 12/16/2019
 ms.openlocfilehash: 8031e917d998b877e6c3a5830d69abf81c9bdebe
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86086726"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>Analise os dados do Twitter usando Apache Hive e Apache Hadoop em HDInsight
@@ -38,7 +38,7 @@ O Twitter permite-lhe recuperar os dados de cada tweet como um documento javaScr
    |--- |--- |
    | Nome |MyHDInsightApp |
    | Descrição |MyHDInsightApp |
-   | Web site |`https://www.myhdinsightapp.com` |
+   | Site |`https://www.myhdinsightapp.com` |
 
 4. Selecione **Sim, concordo**e, em seguida, selecione **Criar a sua aplicação twitter**.
 
@@ -308,7 +308,7 @@ Estes comandos armazenam os dados num local a que todos os nós do cluster podem
     > [!NOTE]  
     > Se tiver mudado o filtro no `gettweets.py` script, substitua **o Azure** por um dos filtros utilizados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aprendeste a transformar um conjunto de dados JSON não estruturado numa estrutura da tabela [da Colmeia Apache.](https://hive.apache.org/) Para saber mais sobre a Colmeia em HDInsight, consulte os seguintes documentos:
 

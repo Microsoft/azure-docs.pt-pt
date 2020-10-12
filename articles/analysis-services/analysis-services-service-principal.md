@@ -8,10 +8,10 @@ ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 28947d1fa4ece5d6285651ef07342cae06ad8bc8
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86077376"
 ---
 # <a name="automation-with-service-principals"></a>Automatização com principais de serviço
@@ -24,14 +24,14 @@ Os Serviços de Análise também apoiam operações realizadas por identidades g
 
 ## <a name="create-service-principals"></a>Criar principais de serviço
  
-Os principais de serviço podem ser criados no portal Azure ou utilizando o PowerShell. Para saber mais, consulte:
+Os principais de serviço podem ser criados no portal Azure ou utilizando o PowerShell. Para saber mais, veja:
 
 [Criar um principal de serviço – portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md)   
 [Criar principal de serviço - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="store-credential-and-certificate-assets-in-azure-automation"></a>Armazenar ativos de credencial e certificados na Azure Automation
 
-As credenciais e certificados principais do serviço podem ser armazenados de forma segura na Azure Automation para operações de runbook. Para saber mais, consulte:
+As credenciais e certificados principais do serviço podem ser armazenados de forma segura na Azure Automation para operações de runbook. Para saber mais, veja:
 
 [Ativos credenciais na Azure Automation](../automation/automation-credentials.md)   
 [Recursos de certificados na Automatização do Azure](../automation/automation-certificates.md)
@@ -50,7 +50,7 @@ O appID principal do serviço e a palavra-passe ou certificado podem ser usados 
 
 #### <a name="using-azanalysisservices-module"></a><a name="azmodule"></a>Utilizando o módulo Az.AnalysisServices
 
-Quando utilizar um principal de serviço para operações de gestão de recursos com o módulo [Az.AnalysisServices,](/powershell/module/az.analysisservices) utilize `Connect-AzAccount` o cmdlet. 
+Quando utilizar um principal de serviço para operações de gestão de recursos com o módulo [Az.AnalysisServices,](/powershell/module/az.analysisservices)  utilize `Connect-AzAccount` o cmdlet. 
 
 No exemplo seguinte, o appID e uma palavra-passe são utilizados para executar operações de plano de controlo para sincronização para réplicas apenas de leitura e escalar/eliminar:
 

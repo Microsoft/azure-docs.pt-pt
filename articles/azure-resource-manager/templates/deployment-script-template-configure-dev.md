@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: jgao
 ms.openlocfilehash: 232a1ae5d125a2ea1d5723e85073fb3dd02420cc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87294475"
 ---
 # <a name="configure-development-environment-for-deployment-scripts-in-templates-preview"></a>Configure o ambiente de desenvolvimento para scripts de implantação em modelos (Pré-visualização)

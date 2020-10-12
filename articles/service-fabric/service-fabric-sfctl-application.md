@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: 880770345eb7d65850db322bd97d64c60b6681ee
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260867"
 ---
 # <a name="sfctl-application"></a>sfctl application
@@ -20,11 +20,11 @@ Criar, excluir e gerir aplicações e tipos de aplicações.
 |Comando|Descrição|
 | --- | --- |
 | criar | Cria uma aplicação de Tecido de Serviço utilizando a descrição especificada. |
-| eliminação | Elimina uma aplicação de Tecido de Serviço existente. |
+| delete | Elimina uma aplicação de Tecido de Serviço existente. |
 | implantado | Obtém a informação sobre uma aplicação implantada num nó de Tecido de Serviço. |
 | saúde implantada | Obtém a informação sobre a saúde de uma aplicação implantada num nó de Tecido de Serviço. |
 | lista implantada | Obtém a lista de aplicações implantadas num nó de Tecido de Serviço. |
-| saúde | Obtém a saúde da aplicação de tecido de serviço. |
+| Saúde | Obtém a saúde da aplicação de tecido de serviço. |
 | informações | Obtém informações sobre uma aplicação de Tecido de Serviço. |
 | lista | Obtém a lista de aplicações criadas no cluster de Tecido de Serviço que correspondem aos filtros especificados. |
 | carregar | Obtém informações sobre uma aplicação de Tecido de Serviço. |

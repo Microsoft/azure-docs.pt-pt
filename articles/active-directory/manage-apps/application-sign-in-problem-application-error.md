@@ -17,10 +17,10 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c826a679c1c64e113beb6b2cc5ffd29f82b55a3b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84759543"
 ---
 # <a name="an-app-page-shows-an-error-message-after-the-user-signs-in"></a>Uma página de aplicação mostra uma mensagem de erro após o utilizador assinar em
@@ -124,7 +124,7 @@ Para alterar quais as partes do token SAML que são assinadas digitalmente pela 
 
 7. Depois das cargas de aplicação, selecione **'Único' no** painel de navegação.
 
-8. Ao abrigo **do Certificado de Assinatura SAML,** selecione Mostrar **definições avançadas de assinatura de certificados**.
+8. Ao abrigo **do Certificado de Assinatura SAML,** selecione Mostrar  **definições avançadas de assinatura de certificados**.
 
 9. Selecione a **Opção de Assinatura** que a aplicação espera entre estas opções:
 
@@ -163,5 +163,5 @@ Para alterar o algoritmo de assinatura, siga estes passos:
 
    Da próxima vez que o utilizador entrar na aplicação, o Azure AD assinará o token SAML utilizando o algoritmo SHA-1.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Como depurar o único sign-on baseado em SAML para aplicações em Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging).

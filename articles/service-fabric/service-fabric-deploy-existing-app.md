@@ -4,10 +4,10 @@ description: Saiba como embalar uma aplicação existente como um hóspede execu
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.openlocfilehash: 72fde75e16341164106bb952d0bb66b83be744e1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86259265"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Pacote e implemente um executável existente para o tecido de serviço
@@ -29,9 +29,9 @@ O Visual Studio fornece um modelo de serviço de serviço de Tecido de Serviço 
    * *O programa* especifica o executável que deve ser executado para iniciar o serviço.
    * *Os argumentos* especificam os argumentos que devem ser transmitidos ao executável. Pode ser uma lista de parâmetros com argumentos.
    * *WorkingFolder* especifica o diretório de trabalho para o processo que vai ser iniciado. Pode especificar três valores:
-     * `CodeBase`especifica que o diretório de trabalho será definido para o diretório de código no pacote de pedidos `Code` (diretório indicado na estrutura de ficheiros anterior).
-     * `CodePackage`especifica que o diretório de trabalho será definido na raiz do pacote de aplicações `GuestService1Pkg` (indicado na estrutura de ficheiros anterior).
-     * `Work`especifica que os ficheiros são colocados num subdiretório chamado trabalho.
+     * `CodeBase` especifica que o diretório de trabalho será definido para o diretório de código no pacote de pedidos `Code` (diretório indicado na estrutura de ficheiros anterior).
+     * `CodePackage` especifica que o diretório de trabalho será definido na raiz do pacote de aplicações `GuestService1Pkg` (indicado na estrutura de ficheiros anterior).
+     * `Work` especifica que os ficheiros são colocados num subdiretório chamado trabalho.
 4. Dê um nome ao serviço e clique em **OK**.
 5. Se o seu serviço precisar de um ponto final de comunicação, pode agora adicionar o protocolo, porta e escrever ao ficheiro ServiceManifest.xml. Por exemplo: `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`.
 6. Agora pode usar o pacote e publicar ação contra o seu cluster local depurando a solução no Visual Studio. Quando estiver pronto, pode publicar a aplicação num cluster remoto ou verificar a solução para o controlo de origem.
@@ -147,7 +147,7 @@ O elemento CodePackage especifica a localização (e versão) do código do serv
 <CodePackage Name="Code" Version="1.0.0.0">
 ```
 
-O `Name` elemento é utilizado para especificar o nome do diretório no pacote de aplicações que contém o código do serviço. `CodePackage`também tem o `version` atributo. Isto pode ser usado para especificar a versão do código, e também pode ser usado potencialmente para atualizar o código do serviço usando a infraestrutura de gestão do ciclo de vida da aplicação em Service Fabric.
+O `Name` elemento é utilizado para especificar o nome do diretório no pacote de aplicações que contém o código do serviço. `CodePackage` também tem o `version` atributo. Isto pode ser usado para especificar a versão do código, e também pode ser usado potencialmente para atualizar o código do serviço usando a infraestrutura de gestão do ciclo de vida da aplicação em Service Fabric.
 
 #### <a name="optional-update-setupentrypoint"></a>Opcional: Update SetupEntrypoint
 
@@ -180,12 +180,12 @@ O `EntryPoint` elemento no ficheiro manifesto de serviço é utilizado para espe
 
 O `ExeHost` elemento especifica o executável (e os argumentos) que devem ser usados para lançar o serviço. Pode opcionalmente adicionar o `IsExternalExecutable="true"` atributo para indicar que o programa é um `ExeHost` executável externo fora do pacote de código. Por exemplo, `<ExeHost IsExternalExecutable="true">`.
 
-* `Program`especifica o nome do executável que deve iniciar o serviço.
-* `Arguments`especifica os argumentos que devem ser passados para o executável. Pode ser uma lista de parâmetros com argumentos.
-* `WorkingFolder`especifica o diretório de trabalho para o processo que vai ser iniciado. Pode especificar três valores:
-  * `CodeBase`especifica que o diretório de trabalho será definido para o diretório de código no pacote de pedidos `Code` (diretório na estrutura de ficheiros anterior).
-  * `CodePackage`especifica que o diretório de trabalho será definido como a raiz do pacote de aplicações `GuestService1Pkg` (na estrutura de ficheiros anterior).
-    * `Work`especifica que os ficheiros são colocados num subdiretório chamado trabalho.
+* `Program` especifica o nome do executável que deve iniciar o serviço.
+* `Arguments` especifica os argumentos que devem ser passados para o executável. Pode ser uma lista de parâmetros com argumentos.
+* `WorkingFolder` especifica o diretório de trabalho para o processo que vai ser iniciado. Pode especificar três valores:
+  * `CodeBase` especifica que o diretório de trabalho será definido para o diretório de código no pacote de pedidos `Code` (diretório na estrutura de ficheiros anterior).
+  * `CodePackage` especifica que o diretório de trabalho será definido como a raiz do pacote de aplicações `GuestService1Pkg` (na estrutura de ficheiros anterior).
+    * `Work` especifica que os ficheiros são colocados num subdiretório chamado trabalho.
 
 O WorkingFolder é útil para definir o diretório de trabalho correto para que os caminhos relativos possam ser utilizados quer pela aplicação quer pelos scripts de inicialização.
 
@@ -201,7 +201,7 @@ O WorkingFolder é útil para definir o diretório de trabalho correto para que 
 No exemplo anterior, o `Endpoint` elemento especifica os pontos finais que a aplicação pode ouvir. Neste exemplo, a aplicação Node.js escuta em http no porto 3000.
 
 Além disso, pode pedir à Service Fabric que publique este ponto final no Serviço de Nomeação para que outros serviços possam descobrir o endereço de ponto final para este serviço. Isto permite-lhe comunicar entre serviços que são executáveis de hóspedes.
-O endereço de ponto final publicado é do formulário `UriScheme://IPAddressOrFQDN:Port/PathSuffix` . `UriScheme`e `PathSuffix` são atributos opcionais. `IPAddressOrFQDN`é o endereço IP ou o nome de domínio totalmente qualificado do nó que este executável é colocado, e é calculado para si.
+O endereço de ponto final publicado é do formulário `UriScheme://IPAddressOrFQDN:Port/PathSuffix` . `UriScheme` e `PathSuffix` são atributos opcionais. `IPAddressOrFQDN` é o endereço IP ou o nome de domínio totalmente qualificado do nó que este executável é colocado, e é calculado para si.
 
 No exemplo seguinte, uma vez que o serviço é implementado, no Service Fabric Explorer vê um ponto final semelhante ao `http://10.1.4.92:3000/myapp/` publicado para a instância de serviço. Ou se isto é uma máquina local, estás a `http://localhost:3000/myapp/` ver.
 
@@ -257,11 +257,11 @@ A reorientação da consola pode ser configurada no `ServiceManifest.xml` fichei
 </EntryPoint>
 ```
 
-`ConsoleRedirection`pode ser usado para redirecionar a saída da consola (tanto em stdout como stderr) para um diretório de trabalho. Isto fornece a capacidade de verificar se não existem erros durante a configuração ou execução da aplicação no cluster de Tecido de Serviço.
+`ConsoleRedirection` pode ser usado para redirecionar a saída da consola (tanto em stdout como stderr) para um diretório de trabalho. Isto fornece a capacidade de verificar se não existem erros durante a configuração ou execução da aplicação no cluster de Tecido de Serviço.
 
-`FileRetentionCount`determina quantos ficheiros são guardados no diretório de trabalho. Um valor de 5, por exemplo, significa que os ficheiros de registo das cinco execuções anteriores são armazenados no diretório de trabalho.
+`FileRetentionCount` determina quantos ficheiros são guardados no diretório de trabalho. Um valor de 5, por exemplo, significa que os ficheiros de registo das cinco execuções anteriores são armazenados no diretório de trabalho.
 
-`FileMaxSizeInKb`especifica o tamanho máximo dos ficheiros de registo.
+`FileMaxSizeInKb` especifica o tamanho máximo dos ficheiros de registo.
 
 Os ficheiros de registo são guardados num dos diretórios de trabalho do serviço. Para determinar onde os ficheiros estão localizados, utilize o Service Fabric Explorer para determinar em que nó o serviço está em funcionamento e em que diretório de trabalho está a ser utilizado. Este processo é coberto mais tarde neste artigo.
 

@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d1d364089d5df24cfc4e7a75c3fd6b81248f0cd6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91313319"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Sincronização de identidades e resiliência de atributos duplicados
@@ -66,7 +66,7 @@ Para verificar se a funcionalidade está ativada para o seu inquilino, pode faz�
 `Get-MsolDirSyncFeatures -Feature DuplicateProxyAddressResiliency`
 
 > [!NOTE]
-> Já não é possível utilizar o cmdlet Set-MsolDirSyncFeature para ativar proactivamente a função Duplicate Attribute Resiliency antes de ser ligada ao seu inquilino. Para poder testar a funcionalidade, terá de criar um novo inquilino do Azure Ative Directory.
+> Já não é possível utilizar Set-MsolDirSyncFeature cmdlet para ativar proativamente a função Duplicate Attribute Resiliency antes de ser ligada ao seu inquilino. Para poder testar a funcionalidade, terá de criar um novo inquilino do Azure Ative Directory.
 
 ## <a name="identifying-objects-with-dirsyncprovisioningerrors"></a>Identificação de Objetos com DirSyncProvisioningErrors
 Existem atualmente dois métodos para identificar objetos que têm estes erros devido a conflitos de propriedade duplicados, a Azure Ative Directory PowerShell e o [centro de administração microsoft 365](https://admin.microsoft.com). No futuro, há planos para alargar a informação adicional baseada em portal.
@@ -85,7 +85,7 @@ Em seguida, utilize os seguintes cmdlets e operadores para ver os erros de difer
 2. [Por Tipo de Propriedade](#by-property-type)
 3. [Por Valor Conflituoso](#by-conflicting-value)
 4. [Usando uma pesquisa de cordas](#using-a-string-search)
-5. Ordenado
+5. Sorted
 6. [Em uma quantidade limitada ou tudo](#in-a-limited-quantity-or-all)
 
 #### <a name="see-all"></a>Ver todos
@@ -174,7 +174,7 @@ O link para *etapas sobre como resolver esta questão* é incorreto:
 
 Deve apontar [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency) para.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 * [Sincronização Azure Ad Connect](how-to-connect-sync-whatis.md)
 * [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)
 * [Identifique erros de sincronização de diretórios na Microsoft 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)

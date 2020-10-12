@@ -10,10 +10,10 @@ ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
 ms.openlocfilehash: 896caae2dfd79c4678ffb34c531fb56835e9bd66
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90886838"
 ---
 # <a name="date_bucket-transact-sql"></a>Date_Bucket (Transact-SQL)
@@ -44,8 +44,8 @@ A parte da *data* que é usada com o parâmetro 'número'. Por exemplo: Ano, mê
 |**dia**|**dd**, **d**|  
 |**semana**|**wk**, **ww**|  
 |**hora**|**hh**|  
-|**minuto**|**mi**, **n**|  
-|**segundo**|**ss**, **ss**|  
+|**minute**|**mi**, **n**|  
+|**second**|**ss**, **ss**|  
 |**milissegundo**|**ms**|  
 
 *número*
@@ -303,6 +303,6 @@ declare @origin datetime2 = '2019-01-01 00:00:00'
 Select DATE_BUCKET(hh, 2, @date, @origin)
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 [CAST e CONVERT &#40;&#41;Transact-SQL ](/sql/t-sql/functions/cast-and-convert-transact-sql/)

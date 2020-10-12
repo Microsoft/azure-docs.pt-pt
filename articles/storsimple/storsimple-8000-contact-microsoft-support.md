@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: d5e867849d17a489fad37d09215905d23fb0ed6a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514252"
 ---
 # <a name="contact-microsoft-support"></a>Contacte o Suporte da Microsoft
@@ -106,6 +106,6 @@ Execute os seguintes passos para iniciar uma sessão de suporte:
 > Pode desativar o acesso ao suporte executando `Disable-HcsSupportAccess` . O dispositivo StorSimple também tentará desativar o acesso de suporte 8 horas após o início da sessão. É uma boa prática alterar as credenciais do dispositivo StorSimple depois de iniciar uma sessão de suporte.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [diagnosticar e resolver problemas relacionados com o seu dispositivo da série StorSimple 8000](storsimple-8000-troubleshoot-deployment.md)

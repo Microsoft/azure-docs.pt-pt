@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1a7d29583636879698abc598e1935358796b6062
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90976009"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualizar dados de monitorização remota utilizando o Power BI
@@ -55,7 +55,7 @@ Este tutorial irá acompanhá-lo como ligar os dados da sua solução de monitor
 
 2. Quando solicitado para introduzir dados, opte por procurar "Azure Cosmos DB" e selecione este conector. Este conector essencialmente retira dados diretamente da base de dados cosmos da sua Solução Azure IoT
   
-    ![Cosmos DB](./media/iot-accelerators-integrate-data-powerbi/cosmos_db.png)
+    ![BD do Cosmos](./media/iot-accelerators-integrate-data-powerbi/cosmos_db.png)
   
 3. Introduza as informações, que já registou acima:
 

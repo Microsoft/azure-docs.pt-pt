@@ -12,10 +12,10 @@ ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: tracking-python
 ms.openlocfilehash: 13d43eb788c750a2f24033a6138ebf00ac57fffe
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91372579"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>Tutorial: Use os seus próprios dados (parte 4 de 4)
@@ -295,7 +295,7 @@ Este código irá imprimir um URL para a experiência no estúdio Azure Machine 
 
 ### <a name="inspect-the-log-file"></a>Inspecione o ficheiro de registo
 
-No estúdio, vá à experiência executada (selecionando a saída de URL anterior) seguida de **Outputs + logs**. Selecione o `70_driver_log.txt` ficheiro. Deverá ver o resultado seguinte:
+No estúdio, vá à experiência executada (selecionando a saída de URL anterior) seguida de **Outputs + logs**. Selecione o `70_driver_log.txt` ficheiro. Deverá ver o seguinte resultado:
 
 ```txt
 Processing 'input'.
