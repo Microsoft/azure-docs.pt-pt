@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/16/2020
 ms.openlocfilehash: 736daa8a09a8f08721c7b7d9c20f012f274b384a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87045516"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Exemplos de consulta de registo do Azure Monitor
@@ -200,7 +200,7 @@ Perf
 ## <a name="protection-status"></a>Estado de proteção
 
 ### <a name="computers-with-non-reporting-protection-status-duration"></a>Computadores com duração do estado de proteção não reportando
-Este exemplo lista computadores que tinham um estado de proteção de _Não Reportar_ e a duração em que estavam neste estado.
+Este exemplo lista computadores que tinham um estado de proteção de _Não Reportar_  e a duração em que estavam neste estado.
 
 ```Kusto
 ProtectionStatus

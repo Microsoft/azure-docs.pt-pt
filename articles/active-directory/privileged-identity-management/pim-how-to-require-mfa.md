@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bf1113f7b2f396deed849fa46108537f290b53a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84742101"
 ---
 # <a name="multi-factor-authentication-and-privileged-identity-management"></a>Autenticação multi-factor e Gestão de Identidade Privilegiada
@@ -38,7 +38,7 @@ A opção mais simples é confiar na Autenticação Multi-Factor Azure para os u
 
 Em alternativa, se os utilizadores autenticarem no local, pode ter o seu fornecedor de identidade responsável pela autenticação de vários fatores. Por exemplo, se tiver configurado os Serviços da Federação AD para exigir a autenticação baseada em smartcard antes de aceder ao Azure AD, [a garantia de recursos em nuvem com autenticação multi-factor Azure e AD FS](../authentication/howto-mfa-adfs.md) inclui instruções para configurar a AD FS para enviar reclamações para a Azure AD. Quando um utilizador tenta ativar uma função, a Gestão de Identidade Privilegiada aceitará que a autenticação multi-factor já tenha sido validada para o utilizador assim que receber as alegações apropriadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configurar definições de papel de AD Azure na Gestão de Identidade Privilegiada](pim-how-to-change-default-settings.md)
 - [Configurar configurações de funções de recursos Azure na Gestão de Identidade Privilegiada](pim-resource-roles-configure-role-settings.md)

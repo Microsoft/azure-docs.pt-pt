@@ -8,10 +8,10 @@ ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: bf8ea45f37e421d70a68c4a6e138f5203e92d78f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87045777"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Monitorize grupos de recursos com monitor Azure (pré-visualização)
@@ -20,7 +20,7 @@ As aplicações modernas são muitas vezes complexas e altamente distribuídas c
 
 ## <a name="access-insights-for-resource-groups"></a>Informações de acesso a grupos de recursos
 
-1. Selecione **grupos** de recursos da barra de navegação do lado esquerdo.
+1. Selecione **grupos**  de recursos da barra de navegação do lado esquerdo.
 2. Escolha um dos seus grupos de recursos que pretende explorar. (Se tiver um grande número de grupos de recursos filtrando por subscrição pode por vezes ser útil.)
 3. Para aceder a insights para um grupo de recursos, clique em **Insights** no menu do lado esquerdo de qualquer grupo de recursos.
 

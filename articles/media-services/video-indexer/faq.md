@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 05/12/2020
 ms.author: juliako
 ms.openlocfilehash: d533735af340b23e8a79b6c5953df748a548609c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87046960"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Indexer de vídeo frequentemente fez perguntas
@@ -88,7 +88,7 @@ Pode ver quais regiões Azure Video Indexer está disponível na página das [re
 
 ### <a name="can-i-customize-video-indexer-models-for-my-specific-use-case"></a>Posso personalizar os modelos de Indexer de Vídeo para o meu caso de utilização específica? 
 
-Yes. No Video Indexer pode personalizar alguns dos modelos disponíveis para melhor se adaptar às suas necessidades. 
+Sim. No Video Indexer pode personalizar alguns dos modelos disponíveis para melhor se adaptar às suas necessidades. 
 
 Por exemplo, o nosso modelo Pessoa suporta 1.000.000 rostos fora da caixa de reconhecimento de celebridades, mas também pode treiná-lo para reconhecer outras caras que não estão nessa base de dados. 
 
@@ -96,7 +96,7 @@ Para mais detalhes, consulte artigos sobre personalizar modelos [pessoais,](cust
 
 ###  <a name="can-i-edit-the-videos-in-my-library"></a>Posso editar os vídeos na minha biblioteca?
 
-Yes. Prima o botão de **vídeo de edição** a partir do visor da biblioteca ou o botão **de editor aberto** a partir do visor do leitor para chegar ao separador **Projetos.** Pode criar um novo projeto e adicionar mais vídeos da sua biblioteca para editá-los juntos, uma vez que você está feito você pode renderizar o seu vídeo e baixar. 
+Sim. Prima o botão de **vídeo de edição** a partir do visor da biblioteca ou o botão **de editor aberto** a partir do visor do leitor para chegar ao separador **Projetos.** Pode criar um novo projeto e adicionar mais vídeos da sua biblioteca para editá-los juntos, uma vez que você está feito você pode renderizar o seu vídeo e baixar. 
 
 Se quiser obter informações sobre o seu novo vídeo, indexe-o ao Video Indexer e aparecerá na sua biblioteca com as suas ideias.
 

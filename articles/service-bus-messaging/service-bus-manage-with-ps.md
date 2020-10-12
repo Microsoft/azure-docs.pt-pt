@@ -4,10 +4,10 @@ description: Este artigo explica como usar o módulo Azure PowerShell para criar
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: b6439deb2b86c2ea5b50fe3bdbad89a0875b2acc
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88065748"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Use o PowerShell para gerir os recursos do Service Bus
@@ -34,11 +34,11 @@ O primeiro passo é utilizar o PowerShell para iniciar sessão na sua conta Azur
 
 Ao trabalhar com espaços de nomes de Service Bus, pode utilizar os [cmdletes Get-AzServiceBusNamespace](/powershell/module/az.servicebus/get-azservicebusnamespace), [New-AzServiceBusNamespace](/powershell/module/az.servicebus/new-azservicebusnamespace), [Remove-AzServiceBusNamespace](/powershell/module/az.servicebus/remove-azservicebusnamespace)e [Set-AzServiceBusNamespace](/powershell/module/az.servicebus/set-azservicebusnamespace) cmdlets.
 
-Este exemplo cria algumas variáveis locais no script; `$Namespace`e `$Location` .
+Este exemplo cria algumas variáveis locais no script; `$Namespace` e `$Location` .
 
-* `$Namespace`é o nome do espaço de nomes do Service Bus com o qual queremos trabalhar.
-* `$Location`identifica o centro de dados no qual disponibilizamos o espaço de nome.
-* `$CurrentNamespace`armazena o espaço de nome de referência que recuperamos (ou criamos).
+* `$Namespace` é o nome do espaço de nomes do Service Bus com o qual queremos trabalhar.
+* `$Location` identifica o centro de dados no qual disponibilizamos o espaço de nome.
+* `$CurrentNamespace` armazena o espaço de nome de referência que recuperamos (ou criamos).
 
 Num roteiro real, `$Namespace` e pode ser passado como `$Location` parâmetros.
 

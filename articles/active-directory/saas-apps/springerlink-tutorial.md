@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 2e3b2ee35352c2af4ae8196ba7c9699da761f83e
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91372515"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>Tutorial: Integração do Diretório Ativo Azure com Springer Link
@@ -72,7 +72,7 @@ Nesta secção, configura e testa o Azure AD com springer link baseado num utili
 Para configurar e testar o único sinal de Azure AD com Springer Link, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o link de mola único sign-on](#configure-springer-link-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure o link de mola único sign-on](#configure-springer-link-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Teste um único sinal](#test-single-sign-on)** - para verificar se a configuração funciona.
@@ -91,7 +91,7 @@ Para configurar o Azure AD com springer link, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -114,13 +114,13 @@ Para configurar o Azure AD com springer link, execute os seguintes passos:
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://fsso.springer.com/saml/login?idp=<entityID>&targetUrl=https://link.springer.com`
 
     > [!NOTE]
-    > O valor url de inscrição não é real. Atualize o valor com o URL de inscrição real. `<entityID>` é o identificador AZure AD copiado da secção **set up Springer Link,** descrito mais tarde em tutorial. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > O valor url de inscrição não é real. Atualize o valor com o URL de Sign-On real. `<entityID>` é o identificador AZure AD copiado da secção **set up Springer Link,** descrito mais tarde em tutorial. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-6. Na **configuração de um único sign-on com** a página SAML, na secção **Certificado de Assinatura SAML,** clique no ícone de cópia para copiar o **Url de metadados da Federação de Aplicações** e guarde-o no seu computador.
+6. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique no ícone de cópia para copiar o **Url de metadados da Federação de Aplicações** e guarde-o no seu computador.
 
     ![O link de descarregamento de metadados](common/copy_metadataurl.png)
 
-### <a name="configure-springer-link-single-sign-on"></a>Configurar link springer único sign-on
+### <a name="configure-springer-link-single-sign-on"></a>Configurar a ligação de mola Sign-On
 
 Para configurar um único sinal no lado **springer link,** é necessário enviar o **url de metadados da Federação de Aplicações** copiada para a [equipa de suporte da Springer Link](mailto:onlineservice@springernature.com). A equipa de suporte de ligação Springer utiliza este URL para configurar corretamente a ligação SSO SAML de ambos os lados.
 
@@ -147,7 +147,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Create** (Criar).
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 

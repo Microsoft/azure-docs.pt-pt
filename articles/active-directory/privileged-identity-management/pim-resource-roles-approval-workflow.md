@@ -16,10 +16,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 096da0547806680f62b569f7c7809a7bbb04cb86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84742084"
 ---
 # <a name="approve-or-deny-requests-for-azure-resource-roles-in-privileged-identity-management"></a>Aprovar ou negar pedidos de funções de recursos da Azure na Gestão de Identidade Privilegiada
@@ -76,7 +76,7 @@ Aqui estão algumas informações sobre notificações de fluxo de trabalho:
 >[!Note]
 >Um administrador de recursos que acredite que um utilizador aprovado não deve estar ativo pode remover a atribuição de funções ativas na Gestão de Identidade Privilegiada. Embora os administradores de recursos não sejam notificados de pedidos pendentes a menos que sejam um aprovador, podem visualizar e cancelar pedidos pendentes para todos os utilizadores, visualizando pedidos pendentes na Gestão de Identidade Privilegiada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Alargar ou renovar funções de recursos do Azure na Gestão de Identidade Privilegiada](pim-resource-roles-renew-extend.md)
 - [Notificações de email em Gestão de Identidade Privilegiada](pim-email-notifications.md)

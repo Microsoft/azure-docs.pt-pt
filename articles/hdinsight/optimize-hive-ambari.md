@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 05/04/2020
 ms.openlocfilehash: 33c2ee7bc477d3c9d3823642dbdd974650017822
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86084363"
 ---
 # <a name="optimize-apache-hive-with-apache-ambari-in-azure-hdinsight"></a>Otimizar a Colmeia Apache com Apache Ambari em Azure HDInsight
@@ -132,7 +132,7 @@ Os empregos de hadoop são geralmente engarrafamentos. A compressão de dados po
 
 Os tipos de compressão disponíveis são:
 
-| Formatar | Ferramenta | Algoritmo | Extensão de arquivo | Dividi-se? |
+| Formato | Ferramenta | Algoritmo | Extensão de arquivo | Dividi-se? |
 | --- | --- | --- | --- | --- |
 | Rio Gzip | Rio Gzip | ESVAZIAR | `.gz` | Não |
 | Rio Bzip2 | Rio Bzip2 | Rio Bzip2 |`.bz2` | Sim |
@@ -241,7 +241,7 @@ Recomendações adicionais para otimizar o motor de execução da Colmeia:
 | `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10000 |
 | `tez.am.container.idle.release-timeout-max.millis` | 40000+ | 20 000 |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Gerir clusters HDInsight com a Web UI Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)

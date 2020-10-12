@@ -13,10 +13,10 @@ ms.date: 12/13/2019
 ms.author: kegorman
 ms.custom: ''
 ms.openlocfilehash: 2bbc78f9a5569c8446743980cdea153883c19d4d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91274441"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Arquiteturas de referência para Oracle Database Enterprise Edition em Azure
@@ -71,7 +71,7 @@ Ao utilizar o Oracle Data Guard, também pode abrir a sua base de dados secundá
 > A Ative Data Guard requer licenças adicionais. Esta licença também é necessária para utilizar a funcionalidade Far Sync. Por favor, conecte-se com o seu representante da Oracle para discutir as implicações de licenciamento.
 
 #### <a name="oracle-data-guard-with-fsfo"></a>Guarda de Dados da Oracle com FSFO
-A Oracle Data Guard com Falha de Arranque Rápido (FSFO) pode fornecer resiliência adicional através da configuração do corretor numa máquina separada. O corretor da Guarda de Dados e a base de dados secundária executam o observador e observam a base de dados primária para o tempo de inatividade. Isto permite a redundância na configuração do observador da Data Guard também. 
+A Oracle Data Guard com Fast-Start Failover (FSFO) pode fornecer resiliência adicional através da configuração do corretor numa máquina separada. O corretor da Guarda de Dados e a base de dados secundária executam o observador e observam a base de dados primária para o tempo de inatividade. Isto permite a redundância na configuração do observador da Data Guard também. 
 
 Com a versão 12.2 ou superior da Oracle Database, também é possível configurar vários observadores com uma única configuração de corretor oracle Data Guard. Esta configuração proporciona disponibilidade adicional, caso um observador e a base de dados secundária experimentem tempo de inatividade. Data Guard Broker é leve e pode ser hospedado numa máquina virtual relativamente pequena. Para saber mais sobre o Data Guard Broker e as suas vantagens, visite a [documentação](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/oracle-data-guard-broker-concepts.html) da Oracle sobre este tema.
 
@@ -152,7 +152,7 @@ O oráculo sharding consiste principalmente dos seguintes componentes. Mais info
 
 - **Serviço global** - O serviço global é semelhante ao serviço de base de dados regular. Além de todas as propriedades de um serviço de base de dados, um serviço global tem propriedades para bases de dados de fragmentos, como a afinidade da região entre clientes e tolerância de shard e replicação lag. Apenas um serviço Global precisa de ser criado para ler/escrever dados de/para uma base de dados de fragmentos. Ao utilizar a Ative Data Guard e configurar réplicas apenas de leitura dos fragmentos, pode criar outro serviço gGobal para cargas de trabalho apenas de leitura. O cliente pode usar estes serviços Globais para se conectar à base de dados.
 
-- **Bases de dados de fragmentos** - Bases de dados de fragmentos são as bases de dados do Oracle. Cada base de dados é replicada utilizando a Oracle Data Guard numa configuração de corretor com falha de arranque rápido (FSFO) ativada. Não é preciso configurar a falha da Data Guard e a replicação em cada fragmento. Isto é configurado automaticamente e implementado quando a base de dados partilhada é criada. Se um fragmento em particular falhar, a Oracle Sharing falha automaticamente nas ligações de base de dados da primária para a espera.
+- **Bases de dados de fragmentos** - Bases de dados de fragmentos são as bases de dados do Oracle. Cada base de dados é replicada utilizando a Oracle Data Guard numa configuração de corretor com Fast-Start Failover (FSFO) ativada. Não é preciso configurar a falha da Data Guard e a replicação em cada fragmento. Isto é configurado automaticamente e implementado quando a base de dados partilhada é criada. Se um fragmento em particular falhar, a Oracle Sharing falha automaticamente nas ligações de base de dados da primária para a espera.
 
 Pode implementar e gerir bases de dados de fragmentos da Oracle com duas interfaces: Oracle Enterprise Manager Cloud Control GUI e/ou o `GDSCTL` utilitário da linha de comando. Pode até monitorizar os diferentes fragmentos para disponibilidade e desempenho utilizando o controlo cloud. O `GDSCTL DEPLOY` comando cria automaticamente os fragmentos e os respetivos ouvintes. Além disso, este comando implementa automaticamente a configuração de replicação utilizada para uma alta disponibilidade de nível de fragmento especificada pelo administrador.
 
@@ -232,6 +232,6 @@ Reveja os seguintes artigos de referência da Oracle que se aplicam ao seu cená
 
 - [Introdução à Oracle Data Guard](https://docs.oracle.com/en/database/oracle/oracle-database/18/sbydb/introduction-to-oracle-data-guard-concepts.html#GUID-5E73667D-4A56-445E-911F-1E99092DD8D7)
 - [Conceitos de corretor de guarda de dados da Oracle](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/oracle-data-guard-broker-concepts.html)
-- [Configurar o Oracle GoldenGate para alta disponibilidade ativa](https://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_bidirectional.htm#GWUAD282)
+- [Configurar o Oracle GoldenGate para Active-Active alta disponibilidade](https://docs.oracle.com/goldengate/1212/gg-winux/GWUAD/wu_bidirectional.htm#GWUAD282)
 - [Visão geral do Oráculo Sharding](https://docs.oracle.com/en/database/oracle/oracle-database/19/shard/sharding-overview.html)
 - [Oracle Ative Data Guard Far Sync Zero Data Loss a qualquer distância](https://www.oracle.com/technetwork/database/availability/farsync-2267608.pdf)

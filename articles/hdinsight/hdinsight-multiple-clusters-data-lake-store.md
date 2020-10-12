@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
 ms.openlocfilehash: 19c40f2a7609d556448641e78fdeffe83e8660b1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86083955"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Use vários clusters HDInsight com uma conta de armazenamento do Lago de Dados Azure
@@ -34,9 +34,9 @@ Para permitir que esta estrutura de pasta seja eficazmente utilizada por cluster
 
 |Pasta  |Permissões  |Utilizador proprietário  |Grupo proprietário  | Utilizador nomeado | Permissões de utilizador nomeadas | Grupo nomeado | Permissões de grupo nomeadas |
 |---------|---------|---------|---------|---------|---------|---------|---------|
-|/ | rwxr-x-x  |admin |admin  |Service principal (Principal de serviço) |--x  |FINGRP   |r-x         |
-|/clusters | rwxr-x-x |admin |admin |Service principal (Principal de serviço) |--x  |FINGRP |r-x         |
-|/clusters/finanças | rwxr-x-t |admin |FINGRP  |Service principal (Principal de serviço) |rwx  |-  |-     |
+|/ | rwxr-x-x  |administração |administração  |Service principal (Principal de serviço) |--x  |FINGRP   |r-x         |
+|/clusters | rwxr-x-x |administração |administração |Service principal (Principal de serviço) |--x  |FINGRP |r-x         |
+|/clusters/finanças | rwxr-x-t |administração |FINGRP  |Service principal (Principal de serviço) |rwx  |-  |-     |
 
 Na mesa,
 
@@ -65,7 +65,7 @@ Recomendamos que os dados de entrada para um trabalho e as saídas de um trabalh
 
 O limite do número de clusters que podem partilhar uma única conta de Armazenamento do Lago de Dados depende da carga de trabalho que está a ser executada nesses clusters. Ter demasiados aglomerados ou cargas de trabalho muito pesadas nos clusters que partilham uma conta de armazenamento pode fazer com que a conta de armazenamento entre em estrangulamento.
 
-## <a name="support-for-default-acls"></a>Suporte para ACLs predefinidos
+## <a name="support-for-default-acls"></a>Apoio à Default-ACLs
 
 Ao criar um Principal de Serviço com acesso a um utilizador nomeado (como mostrado na tabela acima), recomendamos **não** adicionar o utilizador nomeado com um ACL predefinido. O fornecimento de acesso a utilizadores nomeados utilizando ACLs predefinidos resulta na atribuição de 770 permissões para o utilizador próprio, grupo próprio e outros. Embora este valor predefinido de 770 não retire permissões de um utilizador próprio (7) ou de um grupo de proprietária (7), retira todas as permissões para outros (0). Isto resulta numa questão conhecida com um caso de utilização particular que é discutido em pormenor na secção [questões e soluções alternativas conhecidas.](#known-issues-and-workarounds)
 
@@ -89,7 +89,7 @@ Tal como afirmado no YARN JIRA, ligado anteriormente, enquanto se localizava rec
 
 Desempate as permissões de execução de leitura para **outros** através da hierarquia, por exemplo, em **/** , **/clusters** e **/clusters/finanças** como mostrado na tabela acima.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 - [Início rápido: Configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 - [Utilizar o Azure Data Lake Storage Gen2 com clusters do Azure HDInsight](hdinsight-hadoop-use-data-lake-storage-gen2.md)

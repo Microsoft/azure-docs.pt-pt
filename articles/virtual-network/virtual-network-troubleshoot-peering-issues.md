@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
 ms.openlocfilehash: 9685c1739a00788a974c200ddabb8cc975696b62
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83587736"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Resolver problemas de peering de rede virtual
@@ -216,9 +216,9 @@ Para resolver este problema:
 1. Na aplicação web, selecione **networking**e, em seguida, selecione **VNet Integration**.
 1. Verifique se consegue ver a rede virtual remota. Introduza manualmente o espaço de endereço de rede virtual remota **(Sync Network** e **Add Routes).**
 
-Para obter mais informações, veja os seguintes artigos:
+Para obter mais informações, veja os artigos seguintes:
 
-* [Integre a sua app com uma rede virtual Azure](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
+* [Integrar a aplicação numa rede virtual do Azure](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
 * [Acerca do encaminhamento VPN de Ponto a Site](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-point-to-site-routing)
 
 ## <a name="troubleshoot-a-virtual-network-peering-configuration-error-message"></a>Resolução de problemas uma mensagem de erro de configuração de rede virtual 
@@ -244,6 +244,6 @@ Há duas formas de resolver a questão:
  * Elimine os olhos e ative a `Use Remote Gateways` opção quando criar um novo espreitamento.
  * Utilize o PowerShell ou o CLI, em vez do portal Azure, para ativar `Use Remote Gateways` .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Troubleshooting connectivity problems between Azure VMs](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-connectivity-problem-between-vms) (Resolver problemas de conectividade entre VMs do Azure)

@@ -4,10 +4,10 @@ description: Descreve como fazer backup e recuperar VMs Azure usando Azure Backu
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.openlocfilehash: 87d655652d0207a50f8980f18d18e76fea0b1e21
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90975102"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Recuar e restaurar VMs Azure com PowerShell
@@ -194,7 +194,7 @@ Uma política de proteção de apoio está associada a pelo menos uma política 
 * Utilize [o Get-AzRecoveryServicesBackupRetentionPolicyObject](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject) para ver a política de retenção predefinida.
 * Da mesma forma, pode utilizar [o Get-AzRecoveryServicesBackupSchedulePolicyObject](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject) para obter a política de agenda padrão.
 * O [cmdlet New-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy) cria um objeto PowerShell que contém informações de política de backup.
-* Os objetos de política de programação e retenção são usados como entradas para o cmdlet New-AzRecoveryServicesBackupProtectionPolicy.
+* Os objetos de política de programação e retenção são utilizados como entradas para o New-AzRecoveryServicesBackupProtectionPolicy cmdlet.
 
 Por predefinição, é definida uma hora de início no Objeto de Política de Agendamento. Utilize o exemplo a seguir para alterar a hora de início para a hora de início desejada. A hora de início desejada também deve estar na UTC. O exemplo a seguir pressupõe que a hora de início desejada é 01:00 AM UTC para backups diários.
 

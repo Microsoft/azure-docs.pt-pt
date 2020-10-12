@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 04/20/2017
 ms.author: pepogors
 ms.openlocfilehash: ba68df53f1f21b9ff360772fe1a60c93c8df74d3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86252220"
 ---
 # <a name="secure-service-remoting-communications-in-a-c-service"></a>Serviço seguro de remoing comunicações em um serviço C#
@@ -186,7 +186,7 @@ Para ajudar a garantir um serviço quando estiver a utilizar o serviço de remoi
 
     Se o cliente não estiver a funcionar como parte de um serviço, pode criar um ficheiro client_name.settings.xml no mesmo local onde está a client_name.exe. Em seguida, crie uma secção transportSettings nesse ficheiro.
 
-    Semelhante ao serviço, se adicionar uma `TransportSettings` secção no settings.xml/client_name.settings.xml do cliente, `FabricTransportRemotingSettings` carrega todas as definições desta secção por predefinição.
+    Semelhante ao serviço, se adicionar uma `TransportSettings` secção no settings.xml/client_name.settings.xml `FabricTransportRemotingSettings` cliente, carrega todas as definições desta secção por predefinição.
 
     Nesse caso, o código anterior é ainda mais simplificado:  
 

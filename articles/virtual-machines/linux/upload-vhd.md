@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
 ms.openlocfilehash: df2b58e0067932edd9dfa21ee1a6fbb2a5c1fdf7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87289753"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>Criar um Linux VM a partir de um disco personalizado com o Azure CLI
@@ -34,7 +34,7 @@ Tem duas opções para criar um disco personalizado:
 * Copiar um Azure VM existente
 
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 Para completar os seguintes passos, você precisará:
 
 - Uma máquina virtual Linux que foi preparada para ser utilizada em Azure. A secção [VM](#prepare-the-vm) deste artigo abrange como encontrar informações específicas sobre a instalação do Agente Azure Linux (waagent), que é necessário para que possa ligar-se a um VM com SSH.
@@ -69,7 +69,7 @@ A Azure suporta várias distribuições Linux (ver [Distribuição Endossada).](
 Consulte também as [Notas de Instalação Linux](create-upload-generic.md#general-linux-installation-notes) para obter dicas mais gerais sobre a preparação das imagens Linux para Azure.
 
 > [!NOTE]
-> A [plataforma Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) aplica-se aos VMs que executam o Linux apenas quando uma das distribuições endossadas é utilizada com os detalhes de configuração especificados em "Versões Suportadas" em [Linux em Distribuições Apoiadas pelo Azure](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> A [plataforma Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) aplica-se aos VMs que executam o Linux apenas quando uma das distribuições endossadas é utilizada com os detalhes de configuração especificados em "Versões Suportadas" em [Linux em Azure-Endorsed Distribuição](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 

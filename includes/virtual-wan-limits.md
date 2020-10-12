@@ -9,10 +9,10 @@ ms.date: 09/26/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 85c66aa6a8f0cb0efa231acee44f8fa02169d27b
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88602515"
 ---
 | Recurso |  Limite |

@@ -10,10 +10,10 @@ ms.author: vakrishn
 ms.reviewer: sourabha, sstein
 ms.date: 09/22/2020
 ms.openlocfilehash: 7b2432fda70e8f9a5fa8bc64ede846d977672e9e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90886488"
 ---
 # <a name="set-up-iot-edge-modules-and-connections"></a>Configurar módulos e ligações IoT Edge
@@ -44,7 +44,7 @@ Agora, especifique as credenciais do recipiente no módulo IoT Edge.
 
    _Campo_|_Valor_
    -------|-------
-   Name|Nome de registo
+   Nome|Nome de registo
    Endereço|Servidor de início de sessão
    Nome de Utilizador|Nome de utilizador
    Palavra-passe|Palavra-passe

@@ -6,10 +6,10 @@ ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: fc317345155a6807a20d342e2cefd0701b20f180
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86257058"
 ---
 # <a name="sfctl"></a>sfctl
@@ -24,10 +24,10 @@ Os comandos seguem o padrão substantivo do verbo. Consulte os subgrupos para ob
 | [caos](service-fabric-sfctl-chaos.md) | Começa, para e reporta o serviço de testes do caos. |
 | [cluster](service-fabric-sfctl-cluster.md) | Selecione, gerencie e opere os clusters de tecido de serviço. |
 | [compor](service-fabric-sfctl-compose.md) | Criar, excluir e gerir aplicações Docker Compose. |
-| [recipiente](service-fabric-sfctl-container.md) | Executar comandos relacionados com contentores num nó de cluster. |
+| [contentor](service-fabric-sfctl-container.md) | Executar comandos relacionados com contentores num nó de cluster. |
 | [eventos](service-fabric-sfctl-events.md) | Recupere os eventos da loja de eventos (se o serviço EventStore já estiver instalado). |
 | [é](service-fabric-sfctl-is.md) | Consultar e enviar comandos para o serviço de infraestrutura. |
-| [mesh](service-fabric-sfctl-mesh.md) | Eliminar e gerir aplicações de malha de tecido de serviço. |
+| [malha](service-fabric-sfctl-mesh.md) | Eliminar e gerir aplicações de malha de tecido de serviço. |
 | [nó](service-fabric-sfctl-node.md) | Gerir os nós que formam um aglomerado. |
 | [partição](service-fabric-sfctl-partition.md) | Consultar e gerir divisórias para qualquer serviço. |
 | [propriedade](service-fabric-sfctl-property.md) | Armazenar e consultar propriedades com nomes de Tecido de Serviço. |

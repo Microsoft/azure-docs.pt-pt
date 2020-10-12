@@ -16,10 +16,10 @@ ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 56a7b91327e84ca36e6ec6e4b15f594dbc61830e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91274304"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Sql Server Azure Virtual Machines DBMS implantação para SAP NetWeaver
@@ -404,7 +404,7 @@ Tem várias possibilidades de realizar backups 'manuais' por:
 
 1. Executando backups convencionais do SQL Server em discos Azure ligados diretamente. Este método tem a vantagem de ter as cópias de segurança disponíveis rapidamente para atualizações do sistema e construir novos sistemas como cópias dos sistemas SAP existentes
 2.  SQL Server 2012 CU4 e mais alto pode fazer back bases de dados para um URL de armazenamento Azure.
-3.  Cópias de segurança de ficheiros para ficheiros de base de dados no armazenamento de blob Azure. Este método só funciona quando os dados do seu SQL Server e ficheiros de registo estão localizados no armazenamento de blob Azure
+3.  File-Snapshot cópias de segurança para ficheiros de base de dados no armazenamento de blob Azure. Este método só funciona quando os dados do seu SQL Server e ficheiros de registo estão localizados no armazenamento de blob Azure
 
 O primeiro método é bem conhecido e aplicado em muitos casos também no mundo das instalações. No entanto, deixa-lhe a tarefa de resolver a localização de backup a longo prazo. Uma vez que não pretende manter as suas cópias de segurança durante 30 ou mais dias no Azure Storage anexado localmente, tem a necessidade de utilizar os Serviços de Backup Azure ou outra ferramenta de backup/recuperação de terceiros que inclua gestão de acesso e retenção para as suas cópias de segurança. Ou constrói um grande servidor de ficheiros em Azure usando espaços de armazenamento do Windows.
 
@@ -464,7 +464,7 @@ Latin1-General, binary code point comparison sort for Unicode Data, SQL Server S
 
 Se o resultado for diferente, pare de implantar SAP e investigue por que razão o comando de configuração não funcionou como esperado. A implementação de aplicações SAP NetWeaver na instância sql Server com diferentes páginas de código SQL Server do que a acima mencionada **NÃO** é suportada.
 
-## <a name="sql-server-high-availability-for-sap-in-azure"></a>Alta disponibilidade do servidor SQL para SAP em Azure
+## <a name="sql-server-high-availability-for-sap-in-azure"></a>High-Availability do SqL Server para SAP em Azure
 Utilizando o SQL Server em implementações Azure IaaS para SAP, tem várias possibilidades diferentes de adicionar para implementar a camada DBMS altamente disponível. Como discutido em [Considerações para máquinas virtuais Azure DBMS implantação para carga de trabalho SAP](dbms_guide_general.md) já, Azure fornece diferentes SLAs de tempo único para um único VM e um par de VMs implantados em um Conjunto de Disponibilidade Azure. Suposição é que você dirige para o SLA de tempo de alta para as suas implementações de produção que requer a implantação em Conjuntos de Disponibilidade Azure. Neste caso, é necessário implantar um mínimo de dois VMs num tal Conjunto de Disponibilidade. Um VM executará a instância ativa do servidor SQL. O outro VM irá executar a Instância Passiva
 
 ### <a name="sql-server-clustering-using-windows-scale-out-file-server-or-azure-shared-disk"></a>Clustering de servidor SQL usando o Servidor de Ficheiros windows-out ou disco compartilhado Azure
@@ -484,7 +484,7 @@ A funcionalidade de envio de registos SQL Server dificilmente foi utilizada no A
 ### <a name="database-mirroring"></a>Espelhamento da Base de Dados
 O "Database Mirroring" suportado pelo SAP (ver NOTA [SAP 965908)]baseia-se na definição de um parceiro de failover na cadeia de ligação SAP. Para os casos de Cross-Premis, assumimos que os dois VMs estão no mesmo domínio e que o contexto do utilizador as duas instâncias do SQL Server também estão a funcionar sob um utilizador de domínio e têm privilégios suficientes nas duas instâncias do SQL Server envolvidas. Por conseguinte, a configuração do "Database Mirroring" em Azure não difere entre uma configuração/configuração típica no local.
 
-A partir de implementações apenas em nuvem, o método mais fácil é ter outra configuração de domínio em Azure para ter esses VMs DBMS (e idealmente dedicados VMs SAP) dentro de um domínio.
+A partir de Cloud-Only implementações, o método mais fácil é ter outra configuração de domínio em Azure para ter esses VMs DBMS (e idealmente dedicados VMs SAP) dentro de um domínio.
 
 Se um domínio não for possível, também se pode utilizar certificados para os pontos finais espelham a base de dados, conforme descrito aqui: <https://docs.microsoft.com/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql>
 

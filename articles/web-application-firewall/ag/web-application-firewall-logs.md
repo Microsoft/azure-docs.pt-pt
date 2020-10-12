@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 10/25/2019
 ms.author: victorh
 ms.openlocfilehash: a84e48c7fbb6d63a4bf8946b66bd35f354643ccb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84753592"
 ---
 # <a name="resource-logs-for-azure-web-application-firewall"></a>Registos de recursos para firewall de aplicação web Azure
@@ -191,7 +191,7 @@ O registo de desempenho só é gerado se o tiver ativado em cada instância do G
 |saudávelHostCount     | Número de anfitriões saudáveis na piscina de fundo.        |
 |unHealthyHostCount     | Número de anfitriões insalubres na piscina de trás.        |
 |pedidosoconselho     | Número de pedidos servidos.        |
-|latência | Latência média (em milissegundos) de pedidos da instância até ao fim que serve os pedidos. |
+|Latência | Latência média (em milissegundos) de pedidos da instância até ao fim que serve os pedidos. |
 |Recatado falhou RequestCount| Número de pedidos falhados.|
 |de transferência de dados| Produção média desde o último log, medido em bytes por segundo.|
 
@@ -232,7 +232,7 @@ O registo de firewall só é gerado se o tiver ativado para cada porta de entrad
 |regrasPartever     | Versão definida por regras utilizada. Os valores disponíveis são 2.2.9 e 3.0.     |
 |ruleId     | ID de regra do evento de desencadeamento.        |
 |message     | Mensagem fácil de utilizar para o evento de desencadeamento. Mais detalhes são fornecidos na secção de detalhes.        |
-|action     |  Medidas tomadas no pedido. Os valores disponíveis são bloqueados e permitidos.      |
+|ação     |  Medidas tomadas no pedido. Os valores disponíveis são bloqueados e permitidos.      |
 |site     | Local para o qual o registo foi gerado. Atualmente, apenas a Global está listada porque as regras são globais.|
 |detalhes     | Detalhes do evento de desencadeamento.        |
 |detalhes.mensagem     | Descrição da regra.        |
@@ -302,7 +302,7 @@ Também pode ligar à sua conta de armazenamento e obter as entradas de registo 
 
 Publicámos um modelo de Gestor de Recursos que instala e executa o popular analisador [de registos GoAccess](https://goaccess.io/) para Registos de Acesso gateway de aplicações. O GoAccess fornece valiosas estatísticas de tráfego HTTP, tais como Visitantes Exclusivos, Ficheiros Solicitados, Anfitriões, Sistemas Operativos, Navegadores, códigos de Estado HTTP e muito mais. Para mais detalhes, consulte o [ficheiro Readme na pasta do modelo Do Gestor de Recursos no GitHub](https://aka.ms/appgwgoaccessreadme).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Visualizar registos de contador e evento utilizando [registos do Monitor Azure](../../azure-monitor/insights/azure-networking-analytics.md).
 * [Visualize o seu registo de atividades Azure com o](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) post de blog power BI.

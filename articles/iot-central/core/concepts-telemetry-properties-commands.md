@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 554079ddec3332ced2817d18ea55ce1260d68817
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87291621"
 ---
-# <a name="telemetry-property-and-command-payloads"></a>Cargas de telemetria, propriedade e comando
+# <a name="telemetry-property-and-command-payloads"></a>Payloads de comandos, propriedades e telemetria
 
 _Este artigo aplica-se aos desenvolvedores de dispositivos._
 
@@ -347,7 +347,7 @@ O seguinte corte de um DCM mostra a definição de um tipo de `Object` telemetri
 }
 ```
 
-Um cliente do dispositivo deve enviar a telemetria como JSON que se parece com o seguinte exemplo. `DateTime`os tipos devem ser compatíveis com a NORMA ISO 8061. Os valores possíveis `Property3` `0` `1` são, e que exibem na IoT Central como `Item1` , e `Item2` `Item3` :
+Um cliente do dispositivo deve enviar a telemetria como JSON que se parece com o seguinte exemplo. `DateTime` os tipos devem ser compatíveis com a NORMA ISO 8061. Os valores possíveis `Property3` `0` `1` são, e que exibem na IoT Central como `Item1` , e `Item2` `Item3` :
 
 ```json
 {
@@ -531,7 +531,7 @@ O seguinte corte de um DCM mostra a definição de um tipo de `date` propriedade
 }
 ```
 
-Um cliente do dispositivo deve enviar uma carga útil JSON que se parece com o seguinte exemplo como uma propriedade reportada no dispositivo twin. `Date`os tipos devem ser compatíveis com a NORMA ISO 8061:
+Um cliente do dispositivo deve enviar uma carga útil JSON que se parece com o seguinte exemplo como uma propriedade reportada no dispositivo twin. `Date` os tipos devem ser compatíveis com a NORMA ISO 8061:
 
 ```json
 { "DateProperty": "2020-05-17" }
@@ -766,18 +766,18 @@ Esta secção mostra exemplos de tipos de propriedades escritas que um dispositi
 
 A IoT Central espera uma resposta do dispositivo para atualizações de propriedades escritas. A mensagem de resposta deve incluir os `ac` campos e `av` campos. O campo `ad` é opcional. Veja os seguintes excertos, por exemplo.
 
-`ac`é um campo numérico que utiliza os valores na tabela seguinte:
+`ac` é um campo numérico que utiliza os valores na tabela seguinte:
 
 | Valor | Etiqueta | Descrição |
 | ----- | ----- | ----------- |
 | `'ac': 200` | Concluído | A operação de mudança de propriedade foi concluída com sucesso. |
-| `'ac': 202`ou`'ac': 201` | Pendente | A operação de mudança de propriedade está pendente ou em curso |
+| `'ac': 202`  ou `'ac': 201` | Pendente | A operação de mudança de propriedade está pendente ou em curso |
 | `'ac': 4xx` | Erro | A alteração de propriedade solicitada não foi válida ou teve um erro |
 | `'ac': 5xx` | Erro | O dispositivo sofreu um erro inesperado ao processar a alteração solicitada. |
 
-`av`é o número de versão enviado para o dispositivo.
+`av` é o número de versão enviado para o dispositivo.
 
-`ad`é uma descrição do string de opção.
+`ad` é uma descrição do string de opção.
 
 O seguinte corte de um DCM mostra a definição de um tipo de `string` propriedade writeable:
 

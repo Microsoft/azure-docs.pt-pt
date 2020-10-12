@@ -15,10 +15,10 @@ ms.date: 07/07/2020
 ms.author: aschhab
 ms.custom: devx-track-java
 ms.openlocfilehash: 1b07faa5b2540aafafc27a51192d824d4445ce35
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88067159"
 ---
 # <a name="migrate-existing-java-message-service-jms-20-applications-from-apache-activemq-to-azure-service-bus"></a>Migrar aplicações existentes do Java Message Service (JMS) 2.0 da Apache ActiveMQ para Azure Service Bus
@@ -73,7 +73,7 @@ Utiliza os seguintes componentes e versões enquanto escreve as aplicações JMS
 | Componente | Versão |
 |---|---|
 | Serviço de Mensagens Java (JMS) API | 1.1 ou maior |
-| Protocolo AMQP | 1,0 |
+| Protocolo AMQP | 1.0 |
 
 ### <a name="ensure-that-amqp-ports-are-open"></a>Certifique-se de que as portas AMQP estão abertas
 
@@ -84,7 +84,7 @@ A Service Bus suporta a comunicação sobre o protocolo AMQP. Para o efeito, per
 
 ### <a name="set-up-enterprise-configurations"></a>Configurar configurações empresariais
 
-O Service Bus permite várias funcionalidades de segurança empresarial e de alta disponibilidade. Para obter mais informações, veja: 
+O Service Bus permite várias funcionalidades de segurança empresarial e de alta disponibilidade. Para obter mais informações, consulte: 
 
   * [Pontos finais de serviço de rede virtual](service-bus-service-endpoints.md)
   * [Firewall](service-bus-ip-filtering.md)
@@ -116,7 +116,7 @@ Pode correlacionar quais métricas do mapa ActiveMQ a que métricas no Azure Ser
 |Corretor|`CurrentConnectionsCount`|`activeConnections`|
 |Corretor|`EstablishedConnectionsCount`|`activeConnections` + `connectionsClosed`|
 |Corretor|`InactiveDurableTopicSubscribersCount`|Use métricas de subscrição|
-|Corretor|`TotalMessageCount`|Use o nível de fila/tópico/subscrição`activeMessages`|
+|Corretor|`TotalMessageCount`|Use o nível de fila/tópico/subscrição `activeMessages`|
 |Fila/Tópico|`EnqueueCount`|`incomingMessages`|
 |Fila/Tópico|`DequeueCount`|`outgoingMessages`|
 |Fila|`QueueSize`|`sizeBytes`|
@@ -232,7 +232,7 @@ Em seguida, adicione as propriedades específicas do Service Bus ao `application
 azure.servicebus.connection-string=Endpoint=myEndpoint;SharedAccessKeyName=mySharedAccessKeyName;SharedAccessKey=mySharedAccessKey
 ```
 
-##### <a name="replace-activemqconnectionfactory-with-servicebusjmsconnectionfactory"></a>Substituir `ActiveMQConnectionFactory` por`ServiceBusJmsConnectionFactory`
+##### <a name="replace-activemqconnectionfactory-with-servicebusjmsconnectionfactory"></a>Substituir `ActiveMQConnectionFactory` por `ServiceBusJmsConnectionFactory`
 
 O próximo passo é substituir a instância de `ActiveMQConnectionFactory` `ServiceBusJmsConnectionFactory` .
 
