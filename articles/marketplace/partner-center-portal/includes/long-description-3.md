@@ -1,5 +1,5 @@
 ---
-title: incluir ficheiro
+title: ficheiro de inclusão
 description: file
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 05/19/2020
 ms.openlocfilehash: 5197b71db4f46d9908d5539c114d636b9474a870
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87317689"
 ---
 Utilize tags HTML para formatar a sua descrição para que seja mais envolvente. A maioria das etiquetas requer um componente de abertura e fecho, como mostrado nesta tabela.
@@ -26,5 +26,5 @@ Utilize tags HTML para formatar a sua descrição para que seja mais envolvente.
 |   Numeragem  |  `<ol> & </ol>, <li> & </li>`  |  `<ol>`<br>`<li>`O seu item numerado`</li>`<br>`<li>`O seu item numerado`</li>`<br>`<li>`O seu item numerado`</li>`<br>`</ol>`   |   1. O seu item numerado<br>2. O seu item numerado<br>3. O seu item numerado   |
 |   Nova linha sem novo número (ou bala)  |  `<ol> & </ol>, <li> & </li>, <br>`  |  `<ol>`<br>`<li>`adicionar texto aqui`</li>`<br>`<li>`adicionar texto aqui `<br>` adicionar texto aqui`</li>`<br>`</ol>`  |  1. adicionar texto aqui<br>2. adicionar texto aqui<br>&nbsp;&nbsp;&nbsp;&nbsp;adicionar texto aqui   |
 |   Novo parágrafo sem novo número (ou bala)  |  `<ol> & </ol>, <li> & </li>, <br>`  |  `<ol>`<br>`<li>`adicionar texto aqui`</li>`<br>`<li>`adicionar texto aqui `<br><br>` adicionar texto aqui`</li>`<br>`</ol>`  |  1. adicionar texto aqui<br>2. adicionar texto aqui<p>&nbsp;&nbsp;&nbsp;&nbsp;adicionar texto aqui   |
-|   Utilizar títulos  |  `<h1> & </h1>, <h2> & </h2>`, até`<h6> & </h6>`  |  `<h1>`Esta é a direção 1`</h1>`<br>`<h2>`Este é o título 2`</h2>`<br>`<h3>`Esta é a direção 3`</h3>`  |  **<font size="+3">Esta é a direção 1</font>**<br>**<font size="+2">Este é o título 2</font>**<br>**<font size="+1">Esta é a direção 3</font>**  |
+|   Utilizar títulos  |  `<h1> & </h1>, <h2> & </h2>`, até `<h6> & </h6>`  |  `<h1>`Esta é a direção 1`</h1>`<br>`<h2>`Este é o título 2`</h2>`<br>`<h3>`Esta é a direção 3`</h3>`  |  **<font size="+3">Esta é a direção 1</font>**<br>**<font size="+2">Este é o título 2</font>**<br>**<font size="+1">Esta é a direção 3</font>**  |
 | | | |

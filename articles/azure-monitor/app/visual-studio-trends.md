@@ -8,10 +8,10 @@ ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
 ms.openlocfilehash: 07848d0b1a2677595eba0da53402993103289d4f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87318169"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Analisar Tendências no Visual Studio
@@ -69,7 +69,7 @@ Para navegar entre bolhas na visualização:
 > 
 > 
 
-## <a name="filter"></a>Filtro
+## <a name="filter"></a>Filtrar
 Detete tendências mais específicas com os controlos de filtro na parte inferior da janela. Para aplicar um filtro, clique no respetivo nome. Pode alternar rapidamente entre diferentes filtros para detetar as tendências que possam estar ocultas numa dimensão específica da sua telemetria. Se aplicar um filtro numa dimensão, como o Tipo de Exceção, os filtros noutras dimensões permanecem clicáveis, mesmo que pareçam acinzentados. Para desaplicá-lo, clique novamente nele. Faça CTRL-clique para selecionar vários filtros na mesma dimensão.
 
 ![Filtros de tendência](./media/visual-studio-trends/TrendsFiltering-750.png)

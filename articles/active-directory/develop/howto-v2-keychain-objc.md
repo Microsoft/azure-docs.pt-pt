@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: 06e197a6e445c7dc1179be696318905f2132ee36
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85477741"
 ---
 # <a name="configure-keychain"></a>Configurar keychain
@@ -108,6 +108,6 @@ Erro -34018 normalmente significa que o porta-chaves não foi configurado corret
 
 No macOS, as aplicações podem ser executadas sem serem assinadas pelo desenvolvedor. Embora a maioria da funcionalidade da MSAL continue a funcionar, o SSO através do acesso ao chaveiro requer a assinatura da aplicação. Se estiver a experimentar várias indicações de chaveiro, certifique-se de que a assinatura da sua aplicação é válida.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre os grupos de acesso ao chaveiro no [Apple's Sharing Access to Keychain Items Entre uma Coleção de Apps](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps?language=objc) artigo.

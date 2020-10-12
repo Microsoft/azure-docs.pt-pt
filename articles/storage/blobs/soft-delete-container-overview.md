@@ -11,10 +11,10 @@ ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
 ms.openlocfilehash: 3c6aa408ab3e89c367fca0701773b35fb9b41bb8
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91460803"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Excluir suave para recipientes (pré-visualização)
@@ -115,7 +115,7 @@ az feature show --namespace Microsoft.Storage --name ContainerSoftDelete
 
 Não existe qualquer carga adicional para permitir a eliminação suave do recipiente. Os dados em recipientes eliminados suaves são faturados à mesma taxa que os dados ativos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configure recipiente de exclusão suave](soft-delete-container-enable.md)
 - [Eliminação recuperável para blobs](soft-delete-blob-overview.md)

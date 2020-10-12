@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
 ms.openlocfilehash: 8b683f12a17d6aabbcdce3190a34675951567f64
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86075846"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>Utilizar o MapReduce no Apache Hadoop no HDInsight
@@ -113,7 +113,7 @@ HDInsight pode executar trabalhos de HiveQL usando vários métodos. Use a segui
 | [Caracóis](apache-hadoop-use-mapreduce-curl.md) |Submeta o trabalho remotamente utilizando **REST** |Linux, Unix, Mac OS X ou Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Submeta o trabalho remotamente utilizando **o Windows PowerShell**  |Windows |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre como trabalhar com os dados em HDInsight, consulte os seguintes documentos:
 

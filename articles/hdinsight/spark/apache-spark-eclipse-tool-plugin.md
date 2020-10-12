@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/13/2019
 ms.openlocfilehash: 4b0e18e7bcc85dace93962c557d05d114df215d7
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86082221"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Use o kit de ferramentas Azure para eclipse para criar aplicações Apache Spark para um cluster HDInsight
@@ -111,7 +111,7 @@ Pode ligar um cluster normal utilizando o nome de utilizador gerido por Ambari. 
 
 1. A partir do espaço de trabalho Eclipse IDE, selecione **File**  >  **New**  >  **Project...**.
 
-1. No assistente do **Novo Projeto,** selecione **HDInsight Project**  >  **Spark on HDInsight (Scala)**. Em seguida, selecione **Seguinte**.
+1. No assistente do **Novo Projeto,** selecione **HDInsight Project**  >  **Spark on HDInsight (Scala)**. e selecione **Seguinte**.
 
    ![Selecionando o projeto Spark on HDInsight (Scala)](./media/apache-spark-eclipse-tool-plugin/create-hdi-scala-app-2.png)
 
@@ -128,7 +128,7 @@ Pode ligar um cluster normal utilizando o nome de utilizador gerido por Ambari. 
 
 1. A partir do **Package Explorer,** expanda o projeto que criou anteriormente. Clique à direita **src**, selecione **New**  >  **Other...**.
 
-1. Na caixa de diálogo **de assistente selecione uma** caixa de diálogo para **assistentes, selecione Scala Wizards**  >  **Scala Object**. Em seguida, selecione **Seguinte**.
+1. Na caixa de diálogo **de assistente selecione uma** caixa de diálogo para **assistentes, selecione Scala Wizards**  >  **Scala Object**. e selecione **Seguinte**.
 
    ![Selecione um assistente Criar um objeto Scala](./media/apache-spark-eclipse-tool-plugin/create-scala-project1.png)
 
@@ -248,7 +248,7 @@ Para resolver este erro, é necessário [Winutils.exe](https://github.com/stevel
 
 1. Inicie o Eclipse e crie um projeto. Na caixa de diálogo **New Project,** faça as seguintes escolhas e, em seguida, selecione **Seguinte**.
 
-1. No assistente do **Novo Projeto,** selecione **HDInsight Project**  >  **Spark em HDInsight Local Run Sample (Scala)**. Em seguida, selecione **Seguinte**.
+1. No assistente do **Novo Projeto,** selecione **HDInsight Project**  >  **Spark em HDInsight Local Run Sample (Scala)**. e selecione **Seguinte**.
 
    ![Novo projeto seleciona um diálogo de assistente](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run.png)
 
@@ -327,7 +327,7 @@ Há dois modos para submeter os trabalhos. Se for fornecida credencial de armaze
 
 ![eclipse obter erro quando cluster fio ocupado](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png "eclipse obter erro quando cluster fio ocupado")
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 

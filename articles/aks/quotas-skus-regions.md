@@ -6,10 +6,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.openlocfilehash: 9592b03f5bd9e9436db5665e040b4afd3b68b764
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87562740"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Quotas, restrições de tamanho de máquina virtual e disponibilidade da região no Serviço Azure Kubernetes (AKS)
@@ -47,7 +47,7 @@ Para obter mais informações sobre os tipos de VM e os seus recursos de computa
 
 Para obter a mais recente lista de onde pode implantar e executar clusters, consulte [a disponibilidade da região AKS.][region-availability]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Podem ser aumentados determinados limites e quotas predefinidos. Se o seu recurso suportar um aumento, solicite o aumento através de um [pedido de suporte Azure][azure-support] (para **tipo de emissão,** **selecione Quota).**
 

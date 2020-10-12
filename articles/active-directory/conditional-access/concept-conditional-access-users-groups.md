@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ba1fc856ee9093b628bd86b9847f8fc70b7189c2
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87552905"
 ---
 # <a name="conditional-access-users-and-groups"></a>Acesso Condicional: Utilizadores e grupos
@@ -74,7 +74,7 @@ Por predefinição, a política fornecerá uma opção para excluir o utilizador
 
 ![Aviso, não se tranque fora!](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups-lockout-warning.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Acesso Condicional: aplicativos ou ações na nuvem](concept-conditional-access-cloud-apps.md)
 

@@ -5,10 +5,10 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.openlocfilehash: 38a30f2adc0de7ccb9a9a3a4ba7ed53fd5fda3f7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87317387"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Azure Monitor reforma do modelo de implantação clássico APIs para métricas e autoescala
@@ -31,13 +31,13 @@ Este artigo aplica-se a si se estiver a utilizar os seguintes componentes:
 
 - **Classic Autoscale** - Se estiver a chamar as [definições clássicas de autoescala APIs](/previous-versions/azure/reference/mt348562(v=azure.100)) das suas ferramentas personalizadas ou utilizando o [clássico Azure Insights SDK,](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/)deverá mudar para o uso do [Gestor de Recursos Azure Monitor REST API](/rest/api/monitor/autoscalesettings).
 
-- **Métricas Clássicas** - Se estiver a consumir métricas utilizando as [APIs clássicas de REST](/previous-versions/azure/reference/dn510374(v=azure.100)) ou [o clássico Azure Insights SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/) a partir de ferramentas personalizadas, deverá mudar para o recurso [Azure Monitor REST API](/rest/api/monitor/autoscalesettings). 
+- **Métricas Clássicas** - Se estiver a consumir métricas utilizando as [APIs clássicas de REST](/previous-versions/azure/reference/dn510374(v=azure.100)) ou  [o clássico Azure Insights SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/) a partir de ferramentas personalizadas, deverá mudar para o recurso [Azure Monitor REST API](/rest/api/monitor/autoscalesettings). 
 
 Se não tiver a certeza se o seu código ou ferramentas personalizadas estão a chamar as APIs clássicas, veja o seguinte:
 
 - Reveja o URI referenciado no seu código ou ferramenta. As APIs clássicas usam o https://management.core.windows.net URI. Deve utilizar o URI mais recente para as APIs baseadas em `https://management.azure.com/` recursos.
 
-- Compare o nome de montagem na sua máquina. A montagem clássica mais antiga está em https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/ .
+- Compare o nome de montagem na sua máquina. A montagem clássica mais antiga está em  https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/ .
 
 - Se estiver a utilizar a autenticação de certificados para aceder a métricas ou APIs de autoescalação, está a utilizar um ponto final clássico e uma biblioteca. As NOVAS APIs do Gestor de Recursos requerem a autenticação do Azure Ative Directory através de um diretor de serviço ou de um responsável pelo utilizador.
 
@@ -53,7 +53,7 @@ Se não tiver a certeza se o seu código ou ferramentas personalizadas estão a 
 
 Todas as capacidades existentes para autoescalação e métricas continuarão a funcionar através das novas APIs.  
 
-A migração para novas APIs vem com capacidades baseadas em Gestores de Recursos, tais como suporte para um controlo consistente de acesso baseado em funções (RBAC) em todos os seus serviços de monitorização. Também ganha funcionalidade adicional para métricas: 
+A migração para novas APIs vem com capacidades baseadas em Gestores de Recursos, tais como suporte para controlo de acesso Role-Based consistente (RBAC) em todos os seus serviços de monitorização. Também ganha funcionalidade adicional para métricas: 
 
 - apoio a dimensões
 - granularidade métrica consistente de 1 minuto em todos os serviços 

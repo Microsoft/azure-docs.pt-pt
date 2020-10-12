@@ -13,10 +13,10 @@ ms.date: 09/28/2020
 ms.author: aahi
 keywords: no local, Docker, contentor, análise de sentimento, processamento de linguagem natural
 ms.openlocfilehash: 42b22c94f8f2eed0514906422fe9f1d5e7cd12e2
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91461500"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalar e executar contentores da Análise de Texto
@@ -176,7 +176,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para descarregar, instalar 
 > [!IMPORTANT]
 > Os recipientes dos Serviços Cognitivos não estão licenciados para funcionar sem estarem ligados ao Azure para a medição. Os clientes precisam de permitir que os contentores comuniquem informações de faturação com o serviço de medição em todos os momentos. Os recipientes de Serviços Cognitivos não enviam dados do cliente (por exemplo, texto que está a ser analisado) para a Microsoft.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Rever recipientes de configuração](../text-analytics-resource-container-config.md) para configurações de configuração
 * Consulte [perguntas frequentes (FAQ)](../text-analytics-resource-faq.md) para resolver problemas relacionados com a funcionalidade.

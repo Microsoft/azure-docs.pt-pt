@@ -4,10 +4,10 @@ description: Grave e analise os eventos de registo de recursos para o Registo do
 ms.topic: article
 ms.date: 06/01/2020
 ms.openlocfilehash: 63ccb944b9c3de9941acf55ca5ea85fda70a7008
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87553381"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>Registo de registo de contentores Azure para avaliação e auditoria de diagnóstico
@@ -37,7 +37,7 @@ Os seguintes eventos de nível de repositório para imagens e outros artefactos 
 
 Os registos de recursos contêm informações emitidas pelos recursos da Azure que descrevem o seu funcionamento interno. Para um registo de contentores Azure, os registos contêm autenticação e eventos de nível de repositório armazenados nas seguintes tabelas. 
 
-* **ContainerRegistryLoginS** - Eventos e estado de autenticação do registo, incluindo a identidade de entrada e endereço IP
+* **ContainerRegistryLoginS**  - Eventos e estado de autenticação do registo, incluindo a identidade de entrada e endereço IP
 * **ContainerRegistryRepositoryEvents** - Operações como empurrar e puxar para imagens e outros artefactos em repositórios de registo
 * **AzureMetrics**  -  [Métricas de registo de](../azure-monitor/platform/metrics-supported.md#microsoftcontainerregistryregistries) contentores, tais como as contagens agregadas de impulsos e puxar.
 
@@ -144,7 +144,7 @@ Além de enviar os registos para Log Analytics, ou como alternativa, um cenário
 
 Também pode transmitir eventos de registo de diagnóstico para um [Azure Event Hub](../event-hubs/event-hubs-about.md). Os Centros de Eventos podem ingerir milhões de eventos por segundo, que podes transformar e armazenar usando qualquer fornecedor de análise em tempo real. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre a utilização [do Log Analytics](../azure-monitor/log-query/get-started-portal.md) e a criação de consultas de [registo.](../azure-monitor/log-query/get-started-queries.md)
 * Consulte [a visão geral dos registos da plataforma Azure](../azure-monitor/platform/platform-logs-overview.md) para saber mais sobre os registos da plataforma que estão disponíveis em diferentes camadas do Azure.

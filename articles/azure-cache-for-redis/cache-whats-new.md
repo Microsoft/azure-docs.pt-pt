@@ -7,10 +7,10 @@ ms.topic: reference
 ms.date: 09/28/2020
 ms.author: yegu
 ms.openlocfilehash: b30e83b89b25e6400b8c7e0419406631fa1edcd0
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91492539"
 ---
 # <a name="whats-new-in-azure-cache-for-redis"></a>O que há de novo em Azure Cache para Redis
@@ -63,6 +63,6 @@ Para continuar a fixar certificados intermédios, adicione o seguinte à lista d
 
 Se a sua aplicação validar o certificado em código, terá de modificá-lo para reconhecer as propriedades (por exemplo, Emitentes, Impressão digital) dos certificados recentemente fixados. Esta verificação extra deve abranger todos os certificados fixados para serem mais à prova de futuro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se tiver dúvidas adicionais, contacte-nos através [do suporte.](https://azure.microsoft.com/support/options/)  

@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
 ms.openlocfilehash: 7d35799cd73ff4d065cb58189f2325dc4dac6840
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87567999"
 ---
 # <a name="create-a-connection-monitor-preview-using-the-armclient"></a>Criar um monitor de ligação (pré-visualização) utilizando o ARMClient
 
 Saiba como criar o Connection Monitor (Preview) para monitorizar a comunicação entre os seus recursos utilizando o ARMClient. Suporta implantações de nuvem híbrida e Azure.
 
-## <a name="before-you-begin"></a>Before you begin 
+## <a name="before-you-begin"></a>Antes de começar 
 
 Nos monitores de ligação que cria no Connection Monitor (Preview), pode adicionar tanto as máquinas no local como os VMs Azure como fontes. Estes monitores de ligação também podem monitorizar a conectividade com os pontos finais. Os pontos finais podem estar no Azure ou em qualquer outro URL ou IP.
 
@@ -323,7 +323,7 @@ Os monitores de ligação têm os seguintes limites de escala:
 * Fontes e destinos máximos por monitor de ligação: 100
 * Configurações máximas de teste por monitor de ligação: 20 via ARMClient
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba [como analisar dados de monitorização e definir alertas](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#analyze-monitoring-data-and-set-alerts)
 * Saiba [como diagnosticar problemas na sua rede](https://docs.microsoft.com/azure/network-watcher/connection-monitor-preview#diagnose-issues-in-your-network)

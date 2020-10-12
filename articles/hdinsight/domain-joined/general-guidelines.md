@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: 8d97886232eecc369746e33df484cbfb9d40da72
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87530270"
 ---
 # <a name="enterprise-security-general-information-and-guidelines-in-azure-hdinsight"></a>Informações e orientações gerais de segurança da empresa em Azure HDInsight
@@ -95,7 +95,7 @@ Utilize um novo grupo de recursos para cada cluster para que possa distinguir en
 
 * Desative a política de acesso condicional utilizando a política baseada no endereço IP. Isto requer que os pontos finais de serviço sejam ativados nos VNETs onde os clusters são implantados. Se utilizar um serviço externo para MFA (algo diferente do AAD), a política baseada no endereço IP não funcionará
 
-* `AllowCloudPasswordValidation`é necessária uma política para os utilizadores federados. Uma vez que o HDInsight utiliza o nome de utilizador/palavra-passe diretamente para obter fichas da Azure AD, esta política tem de ser ativada para todos os utilizadores federados.
+* `AllowCloudPasswordValidation` é necessária uma política para os utilizadores federados. Uma vez que o HDInsight utiliza o nome de utilizador/palavra-passe diretamente para obter fichas da Azure AD, esta política tem de ser ativada para todos os utilizadores federados.
 
 * Ativar os pontos finais do serviço se necessitar de um bypass de acesso condicional utilizando IPs fidedignos.
 

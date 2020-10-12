@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: dobett
 ms.openlocfilehash: 0b478775aa572ce89f3dcdc6f28ee0418e818d99
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91377390"
 ---
 ## <a name="automatic-device-management-in-azure-iot-hub"></a>Gestão automática de dispositivos no Azure IoT Hub

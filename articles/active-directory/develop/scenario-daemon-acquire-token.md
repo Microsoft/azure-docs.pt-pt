@@ -12,10 +12,10 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 13000c5a61dc2c4d49aa395271beddef64d32245
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88119220"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Daemon app que chama APIs web - adquira um token
@@ -202,7 +202,7 @@ Para obter mais informações, consulte a documentação do protocolo: [platafor
 
 ## <a name="application-token-cache"></a>Cache de ficha de aplicação
 
-Em MSAL.NET, `AcquireTokenForClient` utiliza a cache simbólica de aplicação. (Todos os outros métodos AcquireToken*XX* utilizam a cache de ficha do utilizador.) Não ligue `AcquireTokenSilent` antes de `AcquireTokenForClient` ligar, porque `AcquireTokenSilent` utiliza o cache de ficha de *utilizador.* `AcquireTokenForClient`verifica a própria cache simbólica da *aplicação* e atualiza-a.
+Em MSAL.NET, `AcquireTokenForClient` utiliza a cache simbólica de aplicação. (Todos os outros métodos AcquireToken*XX* utilizam a cache de ficha do utilizador.) Não ligue `AcquireTokenSilent` antes de `AcquireTokenForClient` ligar, porque `AcquireTokenSilent` utiliza o cache de ficha de *utilizador.* `AcquireTokenForClient` verifica a própria cache simbólica da *aplicação* e atualiza-a.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

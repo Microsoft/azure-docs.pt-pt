@@ -8,10 +8,10 @@ ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.openlocfilehash: 29e1fa603600e246031f2a86aae3b0876b4910ba
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87562481"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Sobre a linguagem de consulta para Azure Digital Twins
@@ -22,6 +22,6 @@ Para submeter uma consulta ao serviço a partir de uma aplicação de cliente, u
 
 [!INCLUDE [digital-twins-query-operations.md](../../includes/digital-twins-query-operations.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como escrever consultas e ver exemplos de código do cliente em [*Como-a-fazer: Consultar o gráfico gémeo*](how-to-query-graph.md).

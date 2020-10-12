@@ -5,10 +5,10 @@ services: service-bus-relay
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 5fcc0f820983da388d808cadf8ce64a555e8ef0a
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87532888"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor"></a>Métricas de Retransmissão Azure em Monitor Azure 
@@ -50,13 +50,13 @@ Todos os valores de métricas são enviados para o Azure Monitor a cada minuto. 
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-| OuvinteConnections-Sucesso  | O número de ligações de ouvintes bem sucedidas efetuadas ao Azure Relay durante um período especificado. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
-|OuvinteConnections-ClientError |O número de erros do cliente nas ligações dos ouvintes durante um período determinado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
-|OuvinteConnections-ServerError |O número de erros do servidor nas ligações do ouvinte durante um período especificado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
-|SenderConnections-Sucesso |O número de ligações de remetente bem sucedidas efetuadas durante um período determinado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
+| ListenerConnections-Success  | O número de ligações de ouvintes bem sucedidas efetuadas ao Azure Relay durante um período especificado. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
+|ListenerConnections-ClientError |O número de erros do cliente nas ligações dos ouvintes durante um período determinado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
+|ListenerConnections-ServerError |O número de erros do servidor nas ligações do ouvinte durante um período especificado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
+|SenderConnections-Success |O número de ligações de remetente bem sucedidas efetuadas durante um período determinado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
 |SenderConnections-ClientError |O número de erros do cliente nas ligações de remetente durante um período especificado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
 |SenderConnections-ServerError |O número de erros do servidor nas ligações de remetente durante um período especificado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
-|OuvinteConnections-TotalRequests |O número total de ligações de ouvintes durante um período especificado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
+|ListenerConnections-TotalRequests |O número total de ligações de ouvintes durante um período especificado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
 |SenderConnections-TotalRequests |Os pedidos de ligação feitos pelos remetentes durante um período determinado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
 |ActiveConnections |O número de ligações ativas. Este valor é um valor pontual.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
 |ActiveListeners |O número de ouvintes ativos. Este valor é um valor pontual.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|

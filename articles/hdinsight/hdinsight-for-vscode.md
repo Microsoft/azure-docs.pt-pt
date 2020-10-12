@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 04/07/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: bb2fff699b31d8b3b311180c4b85e2bfd1da892c
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91530158"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Use ferramentas de colmeia spark & para código de estúdio visual
@@ -334,20 +334,20 @@ Método 2 Enviar um ficheiro e notar que a `.vscode` pasta é automaticamente ad
     | name | descrição | tipo |
     | --- | --- | --- |
     | file | Ficheiro que contém o pedido de execução | Caminho (obrigatório) |
-    | proxyUser | Utilizador a personificar ao executar o trabalho | String |
-    | nome de classeName | Aplicação Java/Spark classe principal | String |
+    | proxyUser | Utilizador a personificar ao executar o trabalho | Cadeia |
+    | nome de classeName | Aplicação Java/Spark classe principal | Cadeia |
     | args | Argumentos de linha de comando para a aplicação | Lista de cordas |
     | frascos | Frascos para serem usados nesta sessão | Lista de cordas | 
     | pyFiles | Ficheiros Python a serem usados nesta sessão | Lista de cordas |
     | ficheiros | Ficheiros a serem usados nesta sessão | Lista de cordas |
-    | motoristaMemory | Quantidade de memória para usar para o processo do condutor | String |
+    | motoristaMemory | Quantidade de memória para usar para o processo do condutor | Cadeia |
     | driverCores | Número de núcleos para utilizar para o processo do condutor | int |
-    | executorMemory | Quantidade de memória para utilizar por processo executor | String |
+    | executorMemory | Quantidade de memória para utilizar por processo executor | Cadeia |
     | executorCores | Número de núcleos para utilizar para cada executor | int |
     | numExecutors | Número de executores para lançar para esta sessão | int |
     | arquivos | Arquivos a serem usados nesta sessão | Lista de cordas |
-    | fila | Nome da fila YARN a submeter| String |
-    | name | Nome desta sessão | String |
+    | fila | Nome da fila YARN a submeter| Cadeia |
+    | name | Nome desta sessão | Cadeia |
     | conf | Propriedades de configuração de faíscas | Mapa de key=val |
 
     Corpo de resposta O objeto do Lote criado.
@@ -355,10 +355,10 @@ Método 2 Enviar um ficheiro e notar que a `.vscode` pasta é automaticamente ad
     | name | descrição | tipo |
     | --- | ---| --- |
     | ID | ID de sessão | int |
-    | appId | ID de aplicação desta sessão | String |
+    | appId | ID de aplicação desta sessão | Cadeia |
     | appInfo | Informação detalhada da aplicação | Mapa de key=val |
     | log | Linhas de registo | Lista de cordas |
-    | state |Estado do lote | String |
+    | state |Estado do lote | Cadeia |
 
     > [!NOTE]
     > O livy config atribuído é apresentado no painel de saída quando submete o script.
@@ -473,6 +473,6 @@ A partir da barra de menu, vá à **Paleta de**Comando  >  **Ver,** e depois ins
 
 ![questões conhecidas](./media/hdinsight-for-vscode/known-issue.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para um vídeo que demonstre a utilização de Spark & Hive para Visual Studio Code, consulte [Spark & Hive for Visual Studio Code](https://go.microsoft.com/fwlink/?linkid=858706).

@@ -16,10 +16,10 @@ ms.reviewer: brandwe, jmprieur
 ms.custom: aaddev, devx-track-java
 ROBOTS: NOINDEX
 ms.openlocfilehash: 9d1faf7aed5cf4c4975925c7a56d169dc99a7bd5
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87313596"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Como: Ativar sSO cross-app no Android usando ADAL
@@ -39,7 +39,7 @@ Este como-assumir que sabe como:
 - Forcam a sua aplicação utilizando o portal legacy para O Diretório Ativo Azure (Azure AD). Para mais informações, consulte [Registar uma aplicação](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)
 - Integre a sua aplicação com o [Azure AD Android SDK.](https://github.com/AzureAD/azure-activedirectory-library-for-android)
 
-## <a name="single-sign-on-concepts"></a>Conceitos de inscrição única
+## <a name="single-sign-on-concepts"></a>Conceitos de início de sessão único
 
 ### <a name="identity-brokers"></a>Corretores de identidade
 

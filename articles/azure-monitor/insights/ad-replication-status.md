@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/24/2018
 ms.openlocfilehash: c33e9105be1eb080025922ff9e612771a4f021cd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87318084"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Monitor Ative Directory replication status with Azure Monitor
@@ -41,7 +41,7 @@ Se não quiser ligar nenhum dos seus controladores de domínio diretamente ao Az
 
 1. Verifique se o computador é um membro do domínio que pretende monitorizar utilizando a solução de Estado de Replicação de AD.
 2. [Ligue o computador Windows ao Azure Monitor](../platform/om-agents.md) ou [conecte-o utilizando o ambiente do Gestor de Operações existente ao Azure Monitor,](../platform/om-agents.md)se ainda não estiver ligado.
-3. Nesse computador, estale a seguinte chave de registo:<br>Chave: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parâmetros\Grupos de gestão \<ManagementGroupName> \Soluções\ADReplicação**<br>Valor: **IsTarget**<br>Dados de Valor: **verdadeiros**
+3. Nesse computador, estale a seguinte chave de registo:<br>Chave: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName> \Soluções\ADReplicação**<br>Valor: **IsTarget**<br>Dados de Valor: **verdadeiros**
 
    > [!NOTE]
    > Estas alterações não têm efeito até reiniciar o serviço de Monitorização do Microsoft (HealthService.exe).
@@ -52,9 +52,7 @@ Se não quiser ligar nenhum dos seus controladores de domínio diretamente ao Az
 ## <a name="ad-replication-status-data-collection-details"></a>Detalhes da recolha de dados do estado de replicação de AD
 A tabela seguinte mostra métodos de recolha de dados e outros detalhes sobre como os dados são recolhidos para o Estado de Replicação de AD.
 
-| 
-    da Microsoft
-   | Agente Direto | Agente SCOM | Storage do Azure | SCOM necessário? | Dados de agente SCOM enviados através do grupo de gestão | frequência de coleção |
+| plataforma | Agente Direto | Agente SCOM | Storage do Azure | SCOM necessário? | Dados de agente SCOM enviados através do grupo de gestão | frequência de coleção |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows |&#8226; |&#8226; |  |  |&#8226; |a cada cinco dias |
 

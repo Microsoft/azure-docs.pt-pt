@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
 ms.openlocfilehash: fd0c0158106a24ba12fec42e41df69f246e7f3f5
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91530481"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Perguntas frequentes sobre Azure VMware Solution
@@ -121,7 +121,7 @@ Os clusters de ensaio são três aglomerados de hospedeiros utilizados para aval
 
 #### <a name="can-i-use-high-end-hosts-for-trial-clusters"></a>Posso usar hospedeiros de alta qualidade para agrupamentos de ensaios?
 
-Não. Os anfitriões ESXi de gama alta estão reservados para uso em clusters de produção.
+N.º Os anfitriões ESXi de gama alta estão reservados para uso em clusters de produção.
 
 ## <a name="azure-vmware-solution-and-vmware-software"></a>Solução Azure VMware e software VMware
 
@@ -135,7 +135,7 @@ Sim, o NSX-T 2.5 é utilizado para a rede definida em nuvem privada Azure VMware
 
 #### <a name="can-i-use-vmware-nsx-v-in-a-private-cloud"></a>Posso usar VMware NSX-V numa nuvem privada?
 
-Não. NSX-T é a única versão suportada do NSX.
+N.º NSX-T é a única versão suportada do NSX.
 
 #### <a name="is-nsx-required-in-on-premises-environments-or-networks-that-connect-to-a-private-cloud"></a>O NSX é necessário em ambientes ou redes no local que se ligam a uma nuvem privada?
 
@@ -168,7 +168,7 @@ No portal Azure, permita a conectividade da internet para uma nuvem privada. Com
 
 #### <a name="do-i-need-to-restrict-access-from-the-internet-to-vms-on-logical-networks-in-a-private-cloud"></a>Preciso de restringir o acesso da internet a VMs em redes lógicas numa nuvem privada?
 
-Não. O tráfego de rede a entrar da internet diretamente para nuvens privadas não é permitido.
+N.º O tráfego de rede a entrar da internet diretamente para nuvens privadas não é permitido.
 
 #### <a name="do-i-need-to-restrict-internet-access-from-vms-on-logical-networks-to-the-internet"></a>Preciso de restringir o acesso à Internet de VMs em redes lógicas para a internet?
 

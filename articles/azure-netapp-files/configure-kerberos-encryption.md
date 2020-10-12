@@ -15,17 +15,17 @@ ms.topic: how-to
 ms.date: 9/29/2020
 ms.author: b-juche
 ms.openlocfilehash: b683719fa2d0c1e7b5333c2ddf9c93f2797ade9b
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91461483"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Configure encriptação NFSv4.1 Kerberos para ficheiros Azure NetApp
 
 O Azure NetApp Files suporta a encriptação do cliente NFS nos modos Kerberos (krb5, krb5i e krb5p) com encriptação AES-256. Este artigo descreve as configurações necessárias para a utilização de um volume NFSv4.1 com encriptação Kerberos.
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 Os seguintes requisitos aplicam-se à encriptação do cliente NFSv4.1: 
 
@@ -170,7 +170,7 @@ Impacto de desempenho do krb5p:
     * A E/S aleatória máxima diminuiu 65% para cargas de trabalho de leitura pura, com o impacto global a diminuir para 43% à medida que a carga de trabalho passa para a escrita pura. 
     * A carga máxima de metadados diminuiu 30%.
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 * [PERGUNTAS Frequentes Sobre Ficheiros Azure NetApp](azure-netapp-files-faqs.md)
 * [Criar um volume NFS para o Azure NetApp Files](azure-netapp-files-create-volumes.md)

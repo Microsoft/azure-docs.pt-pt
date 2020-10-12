@@ -4,10 +4,10 @@ description: Este artigo lista os passos que o ajudarão a implementar o Live Vi
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.openlocfilehash: 211dd0d61bbca39c4f4ec2f388d950c4615bb023
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90887237"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Implemente o Live Video Analytics num dispositivo IoT Edge
@@ -40,7 +40,7 @@ Consulte [Criar uma função personalizada de Gestor de Recursos Azure](create-c
 
 Se pretender utilizar o Live Video Analytics para gravar o vídeo continuamente na nuvem e, posteriormente, utilizar [APIs de consulta](playback-recordings-how-to.md#query-api) antes de reproduzi-lo, recomendamos a atualização do seu Serviço de Media para utilizar um [ponto final de streaming premium.](../latest/streaming-endpoint-concept.md#types)  
 
-Este é um passo opcional. Pode utilizar este comando Azure CLI para o fazer:
+Este passo é opcional. Pode utilizar este comando Azure CLI para o fazer:
 
 ```azurecli
 az ams streaming-endpoint scale --resource-group $RESOURCE_GROUP --account-name $AMS_ACCOUNT -n default --scale-units 1

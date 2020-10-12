@@ -4,10 +4,10 @@ description: Controlo do mapeamento da amostra de planta moderada da FedRAMP. Ca
 ms.date: 07/31/2020
 ms.topic: sample
 ms.openlocfilehash: adc91813e40c18d2ecd67d912db214d77776b8a5
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91530175"
 ---
 # <a name="control-mapping-of-the-fedramp-moderate-blueprint-sample"></a>Mapeamento de controlo da amostra de planta moderada do FedRAMP
@@ -29,7 +29,7 @@ Este projeto ajuda-o a rever contas que podem não cumprir os requisitos de gest
 - As contas externas com permissões de leitura devem ser removidas da sua subscrição
 - As contas externas com permissões de escrita devem ser removidas da sua subscrição
 
-## <a name="ac-2-7-account-management--role-based-schemes"></a>AC-2 (7) Gestão de Conta / Regimes baseados em funções
+## <a name="ac-2-7-account-management--role-based-schemes"></a>AC-2 (7) Gestão de Conta / Regimes Role-Based
 
 [O controlo de acesso baseado em funções (Azure RBAC) ajuda-o](../../../../role-based-access-control/overview.md) a gerir quem tem acesso a recursos em Azure. Utilizando o portal Azure, pode rever quem tem acesso aos recursos do Azure e às suas permissões. Esta planta também atribui definições [de Política Azure](../../../policy/overview.md) à utilização de auditação da autenticação do Azure Ative Directory para servidores SQL e Tecido de Serviço. A utilização da autenticação do Azure Ative Directory permite uma gestão simplificada da permissão e uma gestão centralizada da identidade dos utilizadores de bases de dados e outros serviços da Microsoft. Além disso, este projeto atribui uma definição de Política Azure para auditar o uso de regras Azure RBAC personalizadas. Compreender onde as regras Azure RBAC personalizadas são implementadas pode ajudá-lo a verificar necessidades e implementação adequada, uma vez que as regras personalizadas do Azure RBAC são propensas a erros.
 
@@ -112,7 +112,7 @@ O controlo de aplicações adaptativas no Azure Security Center é uma solução
 
 - Os controlos de aplicações adaptativos devem ser ativados em máquinas virtuais
 
-## <a name="cm-11-user-installed-software"></a>Software instalado pelo utilizador CM-11
+## <a name="cm-11-user-installed-software"></a>CM-11 User-Installed Software
 
 O controlo de aplicações adaptativas no Azure Security Center é uma solução inteligente e automatizada de filtragem de aplicações que pode bloquear ou impedir que softwares específicos sejam funcionando nas suas máquinas virtuais. O controlo de aplicações pode ajudá-lo a impor e monitorizar o cumprimento das políticas de restrição de software. Esta planta atribui uma definição [de Política Azure](../../../policy/overview.md) que o ajuda a monitorizar máquinas virtuais onde uma lista permitida por aplicação é recomendada, mas ainda não foi configurada.
 
@@ -148,7 +148,7 @@ Esta planta atribui definições [de Política Azure](../../../policy/overview.m
 - \[Pré-visualização \] : Implementar requisitos para auditar Os VMs do Linux que têm contas sem senhas
 - \[Pré-visualização \] : Implementar requisitos para auditar VMs do Windows que não armazenam palavras-passe usando encriptação reversível
 
-## <a name="ia-5-1-authenticator-management--password-based-authentication"></a>IA-5 (1) Gestão de Autenticadores / Autenticação baseada em palavras-passe
+## <a name="ia-5-1-authenticator-management--password-based-authentication"></a>IA-5 (1) Gestão de Autenticadores / Autenticação Password-Based
 
 Este plano ajuda-o a impor senhas fortes atribuindo definições [de Política Azure](../../../policy/overview.md) que auditam máquinas virtuais do Windows que não impõem a força mínima e outros requisitos de senha. A sensibilização das máquinas virtuais em violação da política de força de senha ajuda-o a tomar ações corretivas para garantir que as palavras-passe de todas as contas de utilizadores de máquinas virtuais cumprem a política de senha da sua organização.
 
@@ -278,7 +278,7 @@ Esta planta ajuda-o a monitorizar o seu sistema auditando e aplicando a seguran�
 > [!NOTE]
 > A disponibilidade de definições específicas da Política Azure pode variar no Governo de Azure e noutras nuvens nacionais. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que reviu o mapeamento de controlo da planta moderada da FedRAMP, visite os seguintes artigos para saber sobre a planta e como implementar esta amostra:
 

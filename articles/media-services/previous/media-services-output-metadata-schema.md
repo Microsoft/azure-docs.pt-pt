@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: cd81ef78ecc5ef9cea71adb387597681460d50c8
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89261330"
 ---
 # <a name="output-metadata"></a>Metadados de saída
@@ -103,8 +103,8 @@ Pode encontrar um [exemplo XML de exemplo XML.](#xml)
 | **FourCC**<br/><br/> Necessário |**xs:cadeia** |Código de vídeo Código QuatroCC. |
 | **Perfil** |**xs:cadeia** |Perfil H264 (apenas aplicável ao código H264). |
 | **Nível** |**xs:cadeia** |Nível H264 (apenas aplicável ao código H264). |
-| **Width**<br/><br/> minInclusive ="0"<br/><br/> Necessário |**xs:int** |Largura de vídeo codificada em pixels. |
-| **Height**<br/><br/> minInclusive ="0"<br/><br/> Necessário |**xs:int** |A altura de vídeo codificada em pixels. |
+| **Largura**<br/><br/> minInclusive ="0"<br/><br/> Necessário |**xs:int** |Largura de vídeo codificada em pixels. |
+| **Altura**<br/><br/> minInclusive ="0"<br/><br/> Necessário |**xs:int** |A altura de vídeo codificada em pixels. |
 | **DisplayAspectRatioNumerator**<br/><br/> minInclusive ="0"<br/><br/> Necessário |**xs:duplo** |Numerador de aspeto de visualização de vídeo. |
 | **DisplayAspectRatioDenominador**<br/><br/> minInclusive ="0"<br/><br/> Necessário |**xs:duplo** |Denominador de rácio de aspeto do visualização de vídeo. |
 | **Taxa de fotogramas**<br/><br/> minInclusive ="0"<br/><br/> Necessário |**xs:decimal** |Taxa de fotogramas de vídeo medida em formato .3f. |
