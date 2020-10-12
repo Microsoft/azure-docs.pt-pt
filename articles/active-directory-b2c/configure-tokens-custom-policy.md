@@ -12,10 +12,10 @@ ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 9f3cd5c3280308f6da15a52361857fa02567d595
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88505466"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Gerir a personalização SSO e token utilizando políticas personalizadas no Azure Ative Directory B2C

@@ -4,10 +4,10 @@ description: Aprenda a criar um VM modelo com vários VMs no interior usando um 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 5ae50bd11ab9a8adb769920f6d473a2ff2ce9342
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91251500"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services-using-a-script"></a>Ativar a virtualização aninhada em uma máquina virtual de modelo em Azure Lab Services usando um script

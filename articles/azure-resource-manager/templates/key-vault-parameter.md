@@ -4,10 +4,10 @@ description: Mostra como passar um segredo de um cofre chave como parâmetro dur
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.openlocfilehash: eb57e680090a38a5be725daa7b3a118039aa35f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84677870"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Use o cofre da chave Azure para passar o valor do parâmetro seguro durante a implementação
@@ -373,7 +373,7 @@ O modelo a seguir cria dinamicamente o ID do cofre da chave e passa-o como um pa
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter informações gerais sobre cofres chave, veja [o que é Azure Key Vault?](../../key-vault/general/overview.md)
 - Para obter exemplos completos de referência de segredos chave, consulte [exemplos do Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).

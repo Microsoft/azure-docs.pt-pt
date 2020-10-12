@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a39871fd6e2aef2e5120030d17192bb32ba2613b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89003478"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Azure AD Password Protection no local frequentemente perguntas
@@ -66,7 +66,7 @@ O Ative Directory suporta a capacidade de testar uma palavra-passe para ver se p
 
 **P: É suportado para instalar a Proteção de PasswordS Azure AD lado a lado com outros produtos baseados em filtro de palavra-passe?**
 
-Yes. O suporte para vários dlls de filtro de senha registados é uma funcionalidade core do Windows e não é específico para a Proteção de Passwords AD AZure. Todos os filtros de senha registados devem concordar antes de uma palavra-passe ser aceite.
+Sim. O suporte para vários dlls de filtro de senha registados é uma funcionalidade core do Windows e não é específico para a Proteção de Passwords AD AZure. Todos os filtros de senha registados devem concordar antes de uma palavra-passe ser aceite.
 
 **P: Como posso implementar e configurar a Proteção de Passwords Azure AD no meu ambiente de Diretório Ativo sem usar o Azure?**
 
@@ -103,11 +103,11 @@ Este requisito é causado pelo comportamento do Core Windows.
 
 **P: Existe alguma forma de configurar um agente de DC para usar um servidor de procuração específico?**
 
-Não. Uma vez que o servidor proxy é apátrida, não é importante que servidor de procuração específico seja usado.
+N.º Uma vez que o servidor proxy é apátrida, não é importante que servidor de procuração específico seja usado.
 
 **P: Não há problema em implementar o serviço de proteção de senhas Azure AD, lado a lado com outros serviços, como o Azure AD Connect?**
 
-Yes. O serviço Azure AD Password Protection Proxy e o Azure AD Connect nunca devem entrar em conflito diretamente entre si.
+Sim. O serviço Azure AD Password Protection Proxy e o Azure AD Connect nunca devem entrar em conflito diretamente entre si.
 
 Infelizmente, foi encontrada uma incompatibilidade entre a versão do serviço Microsoft Azure AD Connect Agent Updater que é instalado pelo software Azure AD Password Protection Proxy e a versão do serviço que é instalado pelo software [Azure Ative Directory Application Proxy.](../manage-apps/application-proxy.md) Esta incompatibilidade pode resultar na incapacidade do serviço De Atualização do Agente para obter contacto com a Azure para atualizações de software. Não é aconselhável instalar o Proxy de Proteção de Passwords Azure AD e o Proxy de Aplicação de Diretório Ativo Azure na mesma máquina.
 
@@ -125,13 +125,13 @@ No entanto, se os seus controladores de domínio atuais já estiverem a funciona
 
 **P: Quero testar a Proteção de Passwords AZure AD em apenas alguns DCs no meu domínio. É possível forçar alterações na palavra-passe do utilizador para utilizar esses DCs específicos?**
 
-Não. O sistema operativo do cliente Windows controla qual o controlador de domínio utilizado quando um utilizador altera a sua palavra-passe. O controlador de domínio é selecionado com base em fatores como o site ative directy e as atribuições de sub-redes, configuração de rede específica do ambiente, etc. O Azure AD Password Protection não controla estes fatores e não pode influenciar qual o controlador de domínio selecionado para alterar a palavra-passe de um utilizador.
+N.º O sistema operativo do cliente Windows controla qual o controlador de domínio utilizado quando um utilizador altera a sua palavra-passe. O controlador de domínio é selecionado com base em fatores como o site ative directy e as atribuições de sub-redes, configuração de rede específica do ambiente, etc. O Azure AD Password Protection não controla estes fatores e não pode influenciar qual o controlador de domínio selecionado para alterar a palavra-passe de um utilizador.
 
 Uma forma de alcançar parcialmente este objetivo seria implementar a Proteção de PasswordS Azure AD em todos os controladores de domínio num determinado site do Ative Directory. Esta abordagem proporcionará uma cobertura razoável para os clientes windows que são atribuídos a esse site, e, portanto, também para os utilizadores que estão a iniciar sessão nesses clientes e a alterar as suas palavras-passe.
 
 **P: Se eu instalar o serviço de agente DC de proteção de passwords Azure AD em apenas o Controlador de Domínio Primário (PDC), todos os outros controladores de domínio no domínio também serão protegidos?**
 
-Não. Quando a palavra-passe de um utilizador é alterada num dado controlador de domínio não PDC, a palavra-passe de texto claro nunca é enviada para o PDC (esta ideia é uma perceção errada comum). Uma vez que uma nova palavra-passe é aceite em um dado DC, que DC usa essa palavra-passe para criar os vários hashes específicos do protocolo de autenticação dessa palavra-passe e, em seguida, persiste esses haeques no diretório. A palavra-passe de texto claro não persiste. Os hashes atualizados são então replicados no PDC. As palavras-passe do utilizador podem, em alguns casos, ser alteradas diretamente no PDC, novamente dependendo de vários fatores, tais como topologia de rede e design de site de ative diretório. (Ver a pergunta anterior.)
+N.º Quando a palavra-passe de um utilizador é alterada num dado controlador de domínio não PDC, a palavra-passe de texto claro nunca é enviada para o PDC (esta ideia é uma perceção errada comum). Uma vez que uma nova palavra-passe é aceite em um dado DC, que DC usa essa palavra-passe para criar os vários hashes específicos do protocolo de autenticação dessa palavra-passe e, em seguida, persiste esses haeques no diretório. A palavra-passe de texto claro não persiste. Os hashes atualizados são então replicados no PDC. As palavras-passe do utilizador podem, em alguns casos, ser alteradas diretamente no PDC, novamente dependendo de vários fatores, tais como topologia de rede e design de site de ative diretório. (Ver a pergunta anterior.)
 
 Em resumo, a implementação do serviço de agente DC de proteção de passwords Azure AD no PDC é necessária para alcançar uma cobertura de segurança 100% da funcionalidade em todo o domínio. A implementação da funcionalidade no PDC apenas não fornece benefícios de segurança de proteção de senha azure AD para quaisquer outros DCs no domínio.
 
@@ -141,7 +141,7 @@ O bloqueio inteligente personalizado só é suportado no Azure AD. As alteraçõ
 
 **P: Um pacote de gestão de gestão de operações do System Center Está disponível para proteção de senha AZure AD?**
 
-Não.
+N.º
 
 **P: Porque é que a Azure AD continua a rejeitar senhas fracas, apesar de ter configurado a política para estar em modo de Auditoria?**
 
@@ -149,7 +149,7 @@ O modo de auditoria só é suportado no ambiente ative directy no local. O Azure
 
 **P: Os meus utilizadores vêem a mensagem de erro tradicional do Windows quando uma palavra-passe é rejeitada pela Azure AD Password Protection. É possível personalizar esta mensagem de erro para que os utilizadores saibam o que realmente aconteceu?**
 
-Não. A mensagem de erro vista pelos utilizadores quando uma palavra-passe é rejeitada por um controlador de domínio é controlada pela máquina do cliente e não pelo controlador de domínio. Este comportamento acontece se uma palavra-passe é rejeitada pelas políticas de senha de ative do Diretório por defeito ou por uma solução baseada em filtro de palavra-passe, como a Proteção de Passwords AD Azure.
+N.º A mensagem de erro vista pelos utilizadores quando uma palavra-passe é rejeitada por um controlador de domínio é controlada pela máquina do cliente e não pelo controlador de domínio. Este comportamento acontece se uma palavra-passe é rejeitada pelas políticas de senha de ative do Diretório por defeito ou por uma solução baseada em filtro de palavra-passe, como a Proteção de Passwords AD Azure.
 
 ## <a name="additional-content"></a>Conteúdo adicional
 

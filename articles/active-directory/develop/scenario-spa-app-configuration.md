@@ -12,10 +12,10 @@ ms.date: 02/11/2020
 ms.author: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: b42d720a425b92ec9002f7c2b9797a91f70dafe2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89003032"
 ---
 # <a name="single-page-application-code-configuration"></a>Aplicação de uma página: Configuração de código

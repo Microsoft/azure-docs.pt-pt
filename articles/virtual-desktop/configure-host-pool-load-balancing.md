@@ -7,10 +7,10 @@ ms.date: 08/29/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 07eae73a36bf4051925547fa375f46963a162881
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88010111"
 ---
 # <a name="configure-the-windows-virtual-desktop-load-balancing-method"></a>Configurar o método de balanceamento de carga do Windows Virtual Desktop

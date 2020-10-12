@@ -4,10 +4,10 @@ description: Este artigo descreve como usar os Serviços Azure Lab para criar la
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 8727fad6f37d1365983127a1a514e87e3a5003b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85445887"
 ---
 # <a name="use-azure-lab-services-for-your-next-hackathon"></a>Use os serviços de laboratório da Azure para o seu próximo hackathon
@@ -85,5 +85,5 @@ Esta secção descreve os passos para completar o dia do seu hackathon.
 
         Para mais informações, consulte [o guia sobre o envio de convites aos utilizadores](how-to-configure-student-usage.md?branch=master#send-invitations-to-users) e a [ligação aos VMs do Linux.](how-to-use-remote-desktop-linux-student.md?branch=master) 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Comece por criar uma conta de laboratório em Classroom Labs seguindo as instruções do artigo: [Tutorial: Configurar uma conta de laboratório com os Serviços Azure Lab](tutorial-setup-lab-account.md).

@@ -12,10 +12,10 @@ ms.topic: troubleshooting
 ms.date: 07/09/2020
 ms.author: iainfou
 ms.openlocfilehash: c339893c12af74b5ecadb182b9aecb8000df65b9
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86222960"
 ---
 # <a name="troubleshoot-secure-ldap-connectivity-issues-to-an-azure-active-directory-domain-services-managed-domain"></a>Resolução de problemas garante problemas de conectividade LDAP a um domínio gerido por Serviços de Domínio do Diretório Ativo Azure
@@ -32,7 +32,7 @@ Se tiver problemas em ligar-se a um domínio gerido Azure AD DS utilizando LDAP 
     * Certifique-se [de exportar e aplicar o certificado aos computadores clientes.][client-cert]
 * Verifique se o certificado LDAP seguro para o seu domínio gerido tem o nome DNS no *Sujeito* ou o atributo *Nomes Alternativos Sujeitos.*
     * Reveja os [requisitos de certificado LDAP seguros][certs-prereqs] e crie um certificado de substituição, se necessário.
-* Verifique se o cliente LDAP, como *ldp.exe,* se conecta ao ponto final LDAP seguro utilizando um nome DNS, não o endereço IP.
+* Verifique se o cliente LDAP, como *ldp.exe, * se conecta ao ponto final LDAP seguro utilizando um nome DNS, não o endereço IP.
     * O certificado aplicado ao domínio gerido não inclui os endereços IP do serviço, apenas os nomes DNS.
 * Verifique o nome DNS a que o cliente LDAP se conecta. Deve resolver o endereço IP público para obter LDAP seguro no domínio gerido.
     * Se o nome DNS resolver para o endereço IP interno, atualize o registo DNS para resolver o endereço IP externo.

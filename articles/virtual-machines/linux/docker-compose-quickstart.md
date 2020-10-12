@@ -8,10 +8,10 @@ ms.date: 02/14/2019
 ms.author: cynthn
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: e9f824a3b7e1e5e482bbc04c448ca4930bf88678
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87500951"
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>Começa com o Docker e o Compose para definir e executar uma aplicação multi-contentor em Azure

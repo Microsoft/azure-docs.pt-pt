@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: reference
 ms.date: 03/03/2020
 ms.openlocfilehash: cdd08742e6aad956325508046a182674ec1bb1ea
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91292018"
 ---
 # <a name="services-and-tools-available-for-data-migration-scenarios"></a>Serviço e ferramentas disponíveis para cenários de migração de dados
@@ -39,8 +39,8 @@ As tabelas que se seguem identificam os serviços e ferramentas que pode utiliza
 | Oracle | Azure SQL DB, MI, VM | [Kit de Ferramentas MAP](https://msdn.microsoft.com/library/bb977556.aspx)<br/>[Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[MigVisor*](https://www.migvisor.com/) |  |
 | Oracle | Azure Synapse Analytics | [Kit de Ferramentas MAP](https://msdn.microsoft.com/library/bb977556.aspx)<br/>[Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
 | Oracle | Azure DB para PostgreSQL -<br/>Servidor único | [Kit de Ferramentas MAP](https://msdn.microsoft.com/library/bb977556.aspx)<br/>[Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) |  |  |
-| MongoDB | Cosmos DB | [Cloudamize*](https://www.cloudamize.com/) | [Cloudamize*](https://www.cloudamize.com/) |  |
-| Cassandra | Cosmos DB |  |  |  |
+| MongoDB | BD do Cosmos | [Cloudamize*](https://www.cloudamize.com/) | [Cloudamize*](https://www.cloudamize.com/) |  |
+| Cassandra | BD do Cosmos |  |  |  |
 | MySQL | Azure SQL DB, MI, VM | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[Cloud Atlas*](https://www.unifycloud.com/cloud-migration-tool/) | [Calculadora TCO](https://azure.microsoft.com/pricing/tco/calculator/) |
 | MySQL | BD do Azure para MySQL | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) |  | [Calculadora TCO](https://azure.microsoft.com/pricing/tco/calculator/) |
 | RDS MySQL | BD do Azure para MySQL |  |  | [Calculadora TCO](https://azure.microsoft.com/pricing/tco/calculator/) |
@@ -64,8 +64,8 @@ As tabelas que se seguem identificam os serviços e ferramentas que pode utiliza
 | Oracle | Azure SQL DB, MI, VM | [DAMT](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)  /  [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
 | Oracle | Azure Synapse Analytics | [DAMT](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)  /  [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
 | Oracle | Azure DB para PostgreSQL -<br/>Servidor único |  | [Ora2Pg*](http://ora2pg.darold.net/start.html) |  |
-| MongoDB | Cosmos DB |  | [Cloudamize*](https://www.cloudamize.com/) | [Cloudamize*](https://www.cloudamize.com/) |
-| Cassandra | Cosmos DB |  |  |  |
+| MongoDB | BD do Cosmos |  | [Cloudamize*](https://www.cloudamize.com/) | [Cloudamize*](https://www.cloudamize.com/) |
+| Cassandra | BD do Cosmos |  |  |  |
 | MySQL | Azure SQL DB, MI, VM | [DAMT](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)  /  [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[Cloud Atlas*](https://www.unifycloud.com/cloud-migration-tool/) |  |
 | MySQL | BD do Azure para MySQL |  |  |  |
 | RDS MySQL | BD do Azure para MySQL |  |  |  |
@@ -89,8 +89,8 @@ As tabelas que se seguem identificam os serviços e ferramentas que pode utiliza
 | Oracle | Azure SQL DB, MI, VM | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[SharePlex*](https://www.quest.com/products/shareplex/)<br/>[Ispirer*](https://www.ispirer.com/solutions) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[SharePlex*](https://www.quest.com/products/shareplex/)<br/>[Ispirer*](https://www.ispirer.com/solutions) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[SharePlex*](https://www.quest.com/products/shareplex/)<br/>[Attunity*](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | Oracle | Azure Synapse Analytics | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[Ispirer*](https://www.ispirer.com/solutions) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[Ispirer*](https://www.ispirer.com/solutions) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[SharePlex*](https://www.quest.com/products/shareplex/)<br/>[Attunity*](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | Oracle | Azure DB para PostgreSQL -<br/>Servidor único | [Ispirer*](https://www.ispirer.com/solutions) | [Ispirer*](https://www.ispirer.com/solutions) | [DMS](https://azure.microsoft.com/services/database-migration/) |
-| MongoDB | Cosmos DB | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize*](https://www.cloudamize.com/)<br/>[Dados Imanis*](https://www.imanisdata.com/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize*](https://www.cloudamize.com/)<br/>[Dados Imanis*](https://www.imanisdata.com/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize*](https://www.cloudamize.com/)<br/>[Dados Imanis*](https://www.imanisdata.com/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
-| Cassandra | Cosmos DB | [Dados Imanis*](https://www.imanisdata.com/) | [Dados Imanis*](https://www.imanisdata.com/) | [Dados Imanis*](https://www.imanisdata.com/) |
+| MongoDB | BD do Cosmos | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize*](https://www.cloudamize.com/)<br/>[Dados Imanis*](https://www.imanisdata.com/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize*](https://www.cloudamize.com/)<br/>[Dados Imanis*](https://www.imanisdata.com/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize*](https://www.cloudamize.com/)<br/>[Dados Imanis*](https://www.imanisdata.com/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
+| Cassandra | BD do Cosmos | [Dados Imanis*](https://www.imanisdata.com/) | [Dados Imanis*](https://www.imanisdata.com/) | [Dados Imanis*](https://www.imanisdata.com/) |
 | MySQL | Azure SQL DB, MI, VM | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[Ispirer*](https://www.ispirer.com/solutions) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017)<br/>[Ispirer*](https://www.ispirer.com/solutions) | [Attunity*](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | MySQL | BD do Azure para MySQL | [Despejo mySQL*](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) |  | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity*](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | RDS MySQL | BD do Azure para MySQL | [Despejo mySQL*](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) |  | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity*](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
@@ -114,8 +114,8 @@ As tabelas que se seguem identificam os serviços e ferramentas que pode utiliza
 | Oracle | Azure SQL DB, MI, VM |  |
 | Oracle | Azure Synapse Analytics |  |
 | Oracle | Azure DB para PostgreSQL -<br/>Servidor único |  |
-| MongoDB | Cosmos DB | [Cloudamize*](https://www.cloudamize.com/) |
-| Cassandra | Cosmos DB |  |
+| MongoDB | BD do Cosmos | [Cloudamize*](https://www.cloudamize.com/) |
+| Cassandra | BD do Cosmos |  |
 | MySQL | Azure SQL DB, MI, VM |  |
 | MySQL | BD do Azure para MySQL |  |
 | RDS MySQL | BD do Azure para MySQL |  |

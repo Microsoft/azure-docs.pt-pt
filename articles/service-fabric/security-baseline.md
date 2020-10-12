@@ -8,10 +8,10 @@ ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 9054fa72ee4204d7a09e6ce8de4fe6d4ed4dac81
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89227717"
 ---
 # <a name="azure-security-baseline-for-service-fabric"></a>Linha de base de segurança Azure para tecido de serviço
@@ -1038,11 +1038,11 @@ Consulte a documentação antimalware para obter regras de configuração se nã
 
 **Orientação**: Cópias de segurança do serviço de backback service Fabric utilizam uma conta de Armazenamento Azure na sua subscrição. O Azure Storage encripta todos os dados numa conta de armazenamento em repouso. Por predefinição, os dados são encriptados com as teclas geridas pela Microsoft. Para controlo adicional sobre as chaves de encriptação, pode fornecer chaves geridas pelo cliente para encriptação de dados de armazenamento.
 
-Se estiver a utilizar teclas geridas pelo cliente, certifique-se de que o Soft-Delete no Cofre de Chaves está ativado para proteger as chaves contra a eliminação acidental ou maliciosa.
+Se estiver a utilizar chaves geridas pelo cliente, certifique-se de Soft-Delete no Cofre de Chaves está ativado para proteger as chaves contra a eliminação acidental ou maliciosa.
 
 * [Encriptação do Armazenamento do Azure em repouso](../storage/common/storage-service-encryption.md)
 
-* [Como permitir o Soft-Delete no Cofre da Chave](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+* [Como permitir Soft-Delete em Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
 
 **Monitorização do Centro de Segurança Azure**: Atualmente não disponível
 

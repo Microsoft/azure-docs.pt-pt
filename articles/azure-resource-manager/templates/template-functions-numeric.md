@@ -4,10 +4,10 @@ description: Descreve as funções a utilizar num modelo de Gestor de Recursos A
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 00b44d971a487a0bbec27f3fc2d0746cedd6f874
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84677921"
 ---
 # <a name="numeric-functions-for-arm-templates"></a>Funções numéricas para modelos ARM
@@ -17,7 +17,7 @@ O Gestor de Recursos fornece as seguintes funções para trabalhar com inteiros 
 * [adicionar](#add)
 * [copyIndex](#copyindex)
 * [div](#div)
-* [flutuar](#float)
+* [flutuante](#float)
 * [int](#int)
 * [máx](#max)
 * [min](#min)
@@ -79,7 +79,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | adicionarResult | int | 8 |
 
@@ -202,7 +202,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | divResult | int | 2 |
 
@@ -283,11 +283,11 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | intResult | int | 4 |
 
-## <a name="max"></a>máx
+## <a name="max"></a>max
 
 `max (arg1)`
 
@@ -333,7 +333,7 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | intervalo de matriz | int | 5 |
 | intOutput | int | 5 |
@@ -384,7 +384,7 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | intervalo de matriz | int | 0 |
 | intOutput | int | 0 |
@@ -443,7 +443,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | modResult | int | 1 |
 
@@ -501,7 +501,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | mulResult | int | 15 |
 
@@ -559,11 +559,11 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | subResult | int | 4 |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma descrição das secções num modelo de Gestor de Recursos Azure, consulte [a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
 * Para iterar um número especificado de vezes ao criar um tipo de recurso, consulte [Criar múltiplas instâncias de recursos no Azure Resource Manager](copy-resources.md).

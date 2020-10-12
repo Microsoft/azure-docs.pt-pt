@@ -4,10 +4,10 @@ description: Referência para piscina lote eliminar evento completo. Este evento
 ms.topic: reference
 ms.date: 04/20/2017
 ms.openlocfilehash: f00d32fd5e4eb49fddf4975a9b64ce792d0226dd
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85962463"
 ---
 # <a name="pool-delete-complete-event"></a>Evento de conclusão de eliminação de conjunto
@@ -26,7 +26,7 @@ ms.locfileid: "85962463"
 
 |Elemento|Tipo|Notas|
 |-------------|----------|-----------|
-|`id`|String|A identificação da piscina.|
+|`id`|Cadeia|A identificação da piscina.|
 |`startTime`|DateTime|A hora em que a piscina apaga começou.|
 |`endTime`|DateTime|O tempo de eliminação da piscina terminou.|
 

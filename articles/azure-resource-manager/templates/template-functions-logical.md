@@ -4,17 +4,17 @@ description: Descreve as funções a utilizar num modelo de Gestor de Recursos A
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 8fe1c00240fc24c3c1454b118f9e0d9a9d54fe4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84677394"
 ---
 # <a name="logical-functions-for-arm-templates"></a>Funções lógicas para modelos ARM
 
 O Gestor de Recursos fornece várias funções para fazer comparações nos seus modelos Azure Resource Manager (ARM).
 
-* [e](#and)
+* [and](#and)
 * [bool](#bool)
 * [se](#if)
 * [não](#not)
@@ -66,7 +66,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | eExampleOutput | Booleano | Falso |
 | ouExampleOutput | Booleano | Verdadeiro |
@@ -119,7 +119,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | trueString | Booleano | Verdadeiro |
 | falseString | Booleano | Falso |
@@ -177,10 +177,10 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| simOutput | String | sim |
-| noOutput | String | não |
+| simOutput | Cadeia | sim |
+| noOutput | Cadeia | não |
 | objetoOutput | Objeto | { "teste": "valor1" } |
 
 O [modelo de exemplo](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) a seguir mostra como usar esta função com expressões que são apenas válidas condicionalmente.
@@ -275,7 +275,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | eExampleOutput | Booleano | Falso |
 | ouExampleOutput | Booleano | Verdadeiro |
@@ -300,7 +300,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | checkNotEquals | Booleano | Verdadeiro |
 
@@ -350,13 +350,13 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | eExampleOutput | Booleano | Falso |
 | ouExampleOutput | Booleano | Verdadeiro |
 | notExampleOutput | Booleano | Falso |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma descrição das secções num modelo de Gestor de Recursos Azure, consulte [a estrutura e a sintaxe dos modelos ARM](template-syntax.md).
 

@@ -4,17 +4,17 @@ description: Descreve as funções a utilizar num modelo de Gestor de Recursos A
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: 4d4ee96888aee5421d88b5371ac25a69c0af4fd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84677853"
 ---
 # <a name="array-functions-for-arm-templates"></a>Funções de matriz para modelos ARM
 
 O Gestor de Recursos fornece várias funções para trabalhar com matrizes no seu modelo Azure Resource Manager (ARM).
 
-* [array](#array)
+* [matriz](#array)
 * [concat](#concat)
 * [contém](#contains)
 * [criarArray](#createarray)
@@ -22,17 +22,17 @@ O Gestor de Recursos fornece várias funções para trabalhar com matrizes no se
 * [primeiro](#first)
 * [intersecção](#intersection)
 * [último](#last)
-* [comprimento](#length)
+* [length](#length)
 * [máx](#max)
 * [min](#min)
 * [gama](#range)
 * [saltar](#skip)
-* [tomar](#take)
+* [take](#take)
 * [união](#union)
 
 Para obter uma série de valores de cordas delimitados por um valor, consulte [split](template-functions-string.md#split).
 
-## <a name="array"></a>array
+## <a name="array"></a>matriz
 
 `array(convertToArray)`
 
@@ -91,7 +91,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | intOutput | Matriz |  [1] |
 | stringOutput | Matriz | ["efgh"] |
@@ -155,7 +155,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | regressar | Matriz | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
@@ -183,9 +183,9 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| concatOutput | String | prefixo-5yj4yjf5mbg72 |
+| concatOutput | Cadeia | prefixo-5yj4yjf5mbg72 |
 
 ## <a name="contains"></a>contains
 
@@ -259,7 +259,7 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | stringTrue | Booleano | Verdadeiro |
 | stringFalse | Booleano | Falso |
@@ -328,7 +328,7 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | stringArray | Matriz | ["a", "b", "c"] |
 | intArray | Matriz | [1, 2, 3] |
@@ -394,7 +394,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | arrayEmpty | Booleano | Verdadeiro |
 | objetoEmpty | Booleano | Verdadeiro |
@@ -447,10 +447,10 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| intervalo de matriz | String | um |
-| stringOutput | String | O |
+| intervalo de matriz | Cadeia | um |
+| stringOutput | Cadeia | O |
 
 ## <a name="intersection"></a>intersecção
 
@@ -513,7 +513,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | objetoOutput | Objeto | {"one": "a", "três": "c"} |
 | intervalo de matriz | Matriz | ["dois", "três"] |
@@ -565,10 +565,10 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| intervalo de matriz | String | três |
-| stringOutput | String | e |
+| intervalo de matriz | Cadeia | três |
+| stringOutput | Cadeia | e |
 
 ## <a name="length"></a>length
 
@@ -640,7 +640,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | arrayLength | int | 3 |
 | stringLength | int | 13 |
@@ -657,7 +657,7 @@ Pode utilizar esta função com uma matriz para especificar o número de iteraç
 
 Para obter mais informações sobre a utilização desta função com uma matriz, consulte [Criar várias instâncias de recursos no Azure Resource Manager](copy-resources.md).
 
-## <a name="max"></a>máx
+## <a name="max"></a>max
 
 `max(arg1)`
 
@@ -703,7 +703,7 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | intervalo de matriz | int | 5 |
 | intOutput | int | 5 |
@@ -754,7 +754,7 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | intervalo de matriz | int | 0 |
 | intOutput | int | 0 |
@@ -806,7 +806,7 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | rangeOutput | Matriz | [5, 6, 7] |
 
@@ -873,12 +873,12 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | intervalo de matriz | Matriz | ["três"] |
-| stringOutput | String | dois três |
+| stringOutput | Cadeia | dois três |
 
-## <a name="take"></a>tomar
+## <a name="take"></a>take
 
 `take(originalValue, numberToTake)`
 
@@ -941,10 +941,10 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | intervalo de matriz | Matriz | ["um", "dois"] |
-| stringOutput | String | em |
+| stringOutput | Cadeia | em |
 
 ## <a name="union"></a>união
 
@@ -1007,11 +1007,11 @@ O [modelo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-re
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
 | objetoOutput | Objeto | {"one": "a", "dois": "b", "três": "c2", "quatro": "d", "cinco": "e"} |
 | intervalo de matriz | Matriz | ["um", "dois", "três", "quatro"] |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma descrição das secções num modelo de Gestor de Recursos Azure, consulte [a estrutura e a sintaxe dos modelos ARM](template-syntax.md).

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/24/2020
 ms.openlocfilehash: 05d057be76a1b468f892b3123080e32a948153ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82598503"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerir os clusters Apache Hadoop em HDInsight utilizando o portal Azure
@@ -29,13 +29,13 @@ Um aglomerado Apache Hadoop existente em HDInsight.  Consulte [os clusters basea
 
 Inicie sessão em [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="list-and-show-clusters"></a><a name="showClusters"></a>Lista e mostrar clusters
+## <a name="list-and-show-clusters"></a><a name="showClusters"></a> Lista e mostrar clusters
 
 A página **de clusters HDInsight** listará os seus clusters existentes.  A partir do portal:
 1. Selecione **Todos os serviços** do menu esquerdo.
 2. Selecione **clusters HDInsight** em **ANALYTICS**.
 
-## <a name="cluster-home-page"></a><a name="homePage"></a>Página inicial do cluster
+## <a name="cluster-home-page"></a><a name="homePage"></a> Página inicial do cluster
 
 Selecione o nome do seu cluster na página [**de clusters HDInsight.**](#showClusters)  Isto abrirá a **vista geral,** que se parece com a seguinte imagem:
 
@@ -43,7 +43,7 @@ Selecione o nome do seu cluster na página [**de clusters HDInsight.**](#showClu
 
 **Menu superior:**  
 
-| Item| Description |
+| Item| Descrição |
 |---|---|
 |Mover|Move o cluster para outro grupo de recursos ou para outra subscrição.|
 |Eliminar|Elimina o aglomerado. |
@@ -53,9 +53,9 @@ Selecione o nome do seu cluster na página [**de clusters HDInsight.**](#showClu
 
   - **Menu superior à esquerda**
 
-    | Item| Description |
+    | Item| Descrição |
     |---|---|
-    |Descrição Geral|Fornece informações gerais para o seu cluster.|
+    |Descrição geral|Fornece informações gerais para o seu cluster.|
     |Registo de atividades|Mostrar e consultar registos de atividades.|
     |Controlo de acesso (IAM)|Use tarefas de função.  Consulte [as atribuições de funções para gerir o acesso aos seus recursos de subscrição Azure.](../role-based-access-control/role-assignments-portal.md)|
     |Etiquetas|Permite-lhe definir pares de chaves/valor para definir uma taxonomia personalizada dos seus serviços na nuvem. Por exemplo, pode criar um **projeto**de nome chave , e depois usar um valor comum para todos os serviços associados a um projeto específico.|
@@ -65,7 +65,7 @@ Selecione o nome do seu cluster na página [**de clusters HDInsight.**](#showClu
 
   - **Menu Definições**  
 
-    | Item| Description |
+    | Item| Descrição |
     |---|---|
     |Tamanho do cluster|Verifique, aumente e diminua o número de nós de trabalhadores de cluster. Ver [aglomerados de escala](hdinsight-administer-use-portal-linux.md#scale-clusters).|
     |Limites de quota|Exiba os núcleos usados e disponíveis para a sua subscrição.|
@@ -82,7 +82,7 @@ Selecione o nome do seu cluster na página [**de clusters HDInsight.**](#showClu
 
   - **Menu de monitorização**
 
-    | Item| Description |
+    | Item| Descrição |
     |---|---|
     |Alertas|Gerir os alertas e ações.|
     |Métricas|Monitorize as métricas do cluster nos registos do Monitor Azure.|
@@ -91,16 +91,16 @@ Selecione o nome do seu cluster na página [**de clusters HDInsight.**](#showClu
 
   - **Suporte + menu de resolução de problemas**
 
-    | Item| Description |
+    | Item| Descrição |
     |---|---|
     |Estado de funcionamento de recursos|Consulte [a visão geral da saúde dos recursos Azure](../service-health/resource-health-overview.md).|
     |Novo pedido de suporte|Permite-lhe criar um bilhete de suporte com suporte da Microsoft.|
 
-## <a name="cluster-properties"></a><a name="properties"></a>Propriedades de Cluster
+## <a name="cluster-properties"></a><a name="properties"></a> Propriedades de Cluster
 
 A partir da página inicial do [cluster,](#homePage)em **Definições** selecione **Propriedades**.
 
-|Item | Description |
+|Item | Descrição |
 |---|---|
 |NOME ANFITRIÃO|Nome do cluster.|
 |CLUSTER URL|O URL para a interface web Ambari.|
@@ -228,7 +228,7 @@ A palavra-passe é alterada em todos os nós do cluster.
    | Campo | Valor |
    | --- | --- |
    | Tipo de script | Selecione **- Personalizado** da lista de drop-down.|
-   | Name |"Alterar credenciais de ssh" |
+   | Nome |"Alterar credenciais de ssh" |
    | URI de guião de bash |O URI para o ficheiro changecredentials.sh |
    | Tipo de nó:(Cabeça, Trabalhador, Nimbus, Supervisor ou Zookeeper.) |✓ para todos os tipos de nós listados |
    | Parâmetros |Insira o nome de utilizador SSH e, em seguida, a nova palavra-passe. Deve haver um espaço entre o nome de utilizador e a senha. |
@@ -266,7 +266,7 @@ O azulejo do tamanho do **cluster** da página inicial do [cluster](#homePage) e
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu algumas funções administrativas básicas. Para saber mais, consulte os seguintes artigos:
+Neste artigo, aprendeu algumas funções administrativas básicas. Para saber mais, leia os artigos seguintes:
 
 - [Administrar HDInsight usando a azure powershell](hdinsight-administer-use-powershell.md)
 - [Administrar HDInsight Usando Azure CLI](hdinsight-administer-use-command-line.md)

@@ -6,10 +6,10 @@ ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: a1fedb637bee9d98fb09d8fc3fa133b2992ce86e
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89613662"
 ---
 # <a name="pbr-materials"></a>Materiais PBR
@@ -76,7 +76,7 @@ A ideia central da renderização baseada fisicamente é usar propriedades *Base
 
 ## <a name="technical-details"></a>Detalhes técnicos
 
-A renderização remota Azure usa o micro-facet Cook-Torrance BRDF com GGX NDF, Schlick Fresnel, e um termo de visibilidade correlacionado GGX Smith com um termo difuso Lambert. Este modelo é o padrão da indústria de facto neste momento. Para mais detalhes aprofundados, consulte este artigo: [Rendering fisicamente baseado - Cook Torrance](http://www.codinglabs.net/article_physically_based_rendering_cook_torrance.aspx)
+A renderização remota Azure usa o Cook-Torrance microfacet BRDF com GGX NDF, Schlick Fresnel, e um termo de visibilidade GGX Smith correlacionado com um termo difuso Lambert. Este modelo é o padrão da indústria de facto neste momento. Para mais detalhes aprofundados, consulte este artigo: [Rendering fisicamente baseado - Cook Torrance](http://www.codinglabs.net/article_physically_based_rendering_cook_torrance.aspx)
 
  Uma alternativa ao modelo *PBR Metalness-Asperness* utilizado na Renderização Remota Azure é o modelo *Specular-Glossiness* PBR. Este modelo pode representar uma gama mais ampla de materiais. No entanto, é mais caro e normalmente não funciona bem em casos em tempo real.
 Nem sempre é possível converter *de Specular-Glossiness* para *Metalness-Aspereza,* uma vez que existem pares de valor *(Difuso, Specular)* que não podem ser convertidos para *(BaseColor, Metalness)*. A conversão na outra direção é mais simples e precisa, uma vez que todos os pares *(BaseColor, Metalness)* correspondem a pares bem definidos *(Difuso, Specular).*
@@ -88,7 +88,7 @@ Nem sempre é possível converter *de Specular-Glossiness* para *Metalness-Asper
 * [Classe PbrMaterial C++](https://docs.microsoft.com/cpp/api/remote-rendering/pbrmaterial)
 * [C++ RemoteManager::CreateMaterial()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#creatematerial)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Materiais de cor](color-materials.md)
 * [Texturas](../../concepts/textures.md)

@@ -4,10 +4,10 @@ description: Este artigo descreve como um administrador de conta de laboratório
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 3b6c2d83414b1abc763755fbf15402b122c2186b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85444204"
 ---
 # <a name="allow-lab-creator-to-pick-location-for-the-lab-in-azure-lab-services"></a>Permitir que o criador do laboratório escolha a localização para o laboratório nos Serviços de Laboratório Azure
@@ -57,10 +57,10 @@ Se uma localização é limitada, não é mostrada na lista por defeito. Expanda
 
 ![Mostrar locais indisponíveis](./media/allow-lab-creator-pick-lab-location/show-unavailable-locations.png)
 
-## <a name="cost"></a>Custo
+## <a name="cost"></a>Cost
 Anteriormente, o preço baseava-se no tamanho de VM que escolheste para o laboratório. Agora, o preço baseia-se na combinação do Sistema Operativo (SISTEMA), Tamanho e localização. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 
 - [Ligue a rede do seu laboratório a uma rede virtual de pares](how-to-connect-peer-virtual-network.md)

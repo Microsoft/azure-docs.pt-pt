@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
 ms.openlocfilehash: 9a6a56491a327d5d4eafc2c05dc2b54b137096b8
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88752070"
 ---
-# <a name="reduce-costs-with-azure-disks-reservation"></a>Reduzir custos com reserva de discos Azure
+# <a name="reduce-costs-with-azure-disks-reservation"></a>Reduzir custos com a Reserva de Discos do Azure
 
 Economize no seu uso de armazenamento de disco Azure com capacidade reservada. As reservas de armazenamento de disco Azure combinadas com as instâncias de máquina virtual reservadas Azure permitem-lhe baixar os custos totais da máquina virtual (VM). O desconto de reserva é aplicado automaticamente aos discos correspondentes no âmbito de reserva selecionado. Por causa desta aplicação automática, não precisa de atribuir uma reserva a um disco gerido para obter os descontos.
 
@@ -104,4 +104,4 @@ Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.m
 ## <a name="next-steps"></a>Passos seguintes
 
 - [O que são as reservas do Azure?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
-- [Compreender como o desconto de reserva é aplicado ao Armazenamento de Discos do Azure](../cost-management-billing/reservations/understand-disk-reservations.md)
+- [Compreenda como o seu desconto de reserva é aplicado ao Azure Disk Storage](../cost-management-billing/reservations/understand-disk-reservations.md)

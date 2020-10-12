@@ -6,10 +6,10 @@ ms.author: enewman
 ms.date: 06/26/2020
 ms.topic: article
 ms.openlocfilehash: 067a2c9672b87974557f650cef07b0394e7d5a63
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85445853"
 ---
 # <a name="firewall-settings-for-azure-lab-services"></a>Configurações de firewall para p Azure Lab Services
@@ -35,7 +35,7 @@ Os endereços IP públicos de cada laboratório estão listados na página de **
 
 Agora sabemos o endereço IP público do laboratório.  As regras de entrada e saída podem ser criadas para a firewall da organização para o endereço ip público e para a faixa portuária 49152-65535.  Uma vez atualizadas as regras, os alunos podem aceder aos seus VMs sem que a firewall da rede bloqueie o acesso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 
 - [Permitir que o criador do laboratório escolha a localização do laboratório](allow-lab-creator-pick-lab-location.md)

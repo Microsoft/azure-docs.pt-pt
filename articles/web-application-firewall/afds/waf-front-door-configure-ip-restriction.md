@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 03/26/2020
 ms.author: tyao
 ms.openlocfilehash: f41dc688996b2431060a3cde209ca1ed4a21fe8c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87005621"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door"></a>Configure uma regra de restrição IP com uma firewall de aplicação web para a porta frontal Azure
 
 Este artigo mostra-lhe como configurar as regras de restrição IP numa Firewall de Aplicação Web (WAF) para Azure Front Door utilizando o portal Azure, Azure CLI, Azure PowerShell ou um modelo de Gestor de Recursos Azure.
 
-Uma regra de controlo de acesso baseada em endereços IP é uma regra personalizada da WAF que permite controlar o acesso às suas aplicações web. Fá-lo especificando uma lista de endereços IP ou intervalos de endereços IP no formato Classless Inter-Domain Encaminhing (CIDR).
+Uma regra de controlo de acesso baseada em endereços IP é uma regra personalizada da WAF que permite controlar o acesso às suas aplicações web. Fá-lo especificando uma lista de endereços IP ou intervalos de endereços IP no formato Classless Inter-Domain Encaminhamento (CIDR).
 
 Por predefinição, a sua aplicação web está acessível a partir da Internet. Se pretender limitar o acesso aos clientes a partir de uma lista de endereços IP ou intervalos de endereços IP conhecidos, poderá criar uma regra de correspondência IP que contenha a lista de endereços IP como valores correspondentes e que o operador defina para "Não" (a negação é verdadeira) e a ação para **Bloquear.** Após a aplicação de uma regra de restrição de IP, os pedidos originários de endereços fora desta lista permitida recebem uma resposta 403 Proibida.
 
@@ -30,7 +30,7 @@ Crie um perfil da Porta Frontal Azure seguindo as instruções descritas no [Qui
 
 ### <a name="create-a-waf-policy"></a>Criar uma política de WAF
 
-1. No portal Azure, **selecione Criar um recurso**, digitar firewall de **aplicação Web** na caixa de pesquisa e, em seguida, selecione Web Application Firewall **(WAF)**.
+1. No portal Azure, **selecione Criar um recurso**, digitar firewall de  **aplicação Web** na caixa de pesquisa e, em seguida, selecione Web Application Firewall **(WAF)**.
 2. Selecione **Criar**.
 3. Na página **de política da CREATE,** utilize os seguintes valores para completar o **separador Básicos:**
    
@@ -76,7 +76,7 @@ Crie um perfil da Porta Frontal Azure seguindo as instruções descritas no [Qui
 1. Depois da implementação da sua política WAF estar concluída, navegue pelo nome de anfitrião da porta da frente da porta da frente.
 2. Devia ver a sua mensagem de bloqueio personalizada.
 
-   :::image type="content" source="../media/waf-front-door-configure-ip-restriction/waf-rule-test.png" alt-text="Teste de regra da WAF":::
+   :::image type="content" source="../media/waf-front-door-configure-ip-restriction/waf-rule-test.png" alt-text="Regra personalizada":::
 
    > [!NOTE]
    > Um endereço IP privado foi intencionalmente utilizado na regra personalizada para garantir que a regra iria desencadear. Numa implementação real, crie regras *de permitir* e *negar* usando endereços IP para a sua situação particular.

@@ -13,10 +13,10 @@ ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: celested
 ms.openlocfilehash: 14a25559b1eddd4adb58ae2106e8c9e92873ea48
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88751255"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>Tutorials for integrating SaaS applications with Azure Active Directory (Tutoriais para integrar aplicações SaaS no Azure Active Directory)

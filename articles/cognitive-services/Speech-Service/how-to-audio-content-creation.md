@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
 ms.openlocfilehash: 72fecbdc173a6174e54a28e48f983965f397ba6a
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86224592"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Melhorar a síntese com a ferramenta de Criação de Conteúdos Áudio
@@ -105,7 +105,7 @@ Depois de ter revisto a sua saída de áudio e de estar satisfeito com a sua afi
 | ondulação | riff-16khz-16bit-mono-pcm | riff-24khz-16bit-mono-pcm |
 | mp3 | áudio-16khz-128kbitrate-mono-mp3 | audio-24khz-160kbitrate-mono-mp3 |
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * [API de áudio longo](https://aka.ms/long-audio-api)
 

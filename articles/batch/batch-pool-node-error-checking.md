@@ -6,10 +6,10 @@ ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: how-to
 ms.openlocfilehash: 519b357e4e5fde30221f7dc804bb848ecec9704c
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85979922"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Verifique se há erros na piscina e node
@@ -72,7 +72,7 @@ E se configurar o nó para esperar pela conclusão da tarefa inicial com sucesso
 
 Pode detetar falhas de tarefa de início utilizando o [resultado](/rest/api/batchservice/computenode/get#taskexecutionresult) e [falhasInfo](/rest/api/batchservice/computenode/get#taskfailureinformation) propriedades da propriedade do nó [inicial de nível inicial.](/rest/api/batchservice/computenode/get#starttaskinformation)
 
-Uma tarefa inicial falhada também faz com que Batch desembarque o [estado](/rest/api/batchservice/computenode/get#computenodestate) do nó para **começar** se **a espera ForSuccess** foi definido como **verdadeiro**.
+Uma tarefa inicial falhada também faz com que Batch desembarque o [estado](/rest/api/batchservice/computenode/get#computenodestate) do nó para **começar** se  **a espera ForSuccess** foi definido como **verdadeiro**.
 
 Como em qualquer tarefa, pode haver muitas causas para a falha da tarefa inicial.  Para resolver problemas, verifique o stdout, stderr e quaisquer outros ficheiros de registo específicos de tarefas.
 
@@ -152,6 +152,6 @@ Certifique-se de que todos os dados necessários foram recuperados do nó ou env
 
 3.  Eliminar trabalhos antigos ou tarefas antigas concluídas cujos dados de tarefa ainda estão nos nós. Para uma dica sobre quais os dados de emprego/tarefas nos nós que pode ver na [recolha de RecentTasks](/rest/api/batchservice/computenode/get#taskinformation) no nó, ou nos [ficheiros do nó](/rest/api/batchservice/file/listfromcomputenode). A eliminação do trabalho eliminará todas as tarefas no trabalho e a eliminação das tarefas no trabalho irá desencadear dados nos diretórios de tarefas do nó a serem eliminados, libertando assim espaço. Uma vez libertado espaço suficiente, reinicie o nó e deverá sair do estado "Inutilizável" e voltar a "Ocio".
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Verifique se definiu a sua aplicação para implementar uma verificação completa de erros, especialmente para operações assíncronos. Pode ser fundamental detetar e diagnosticar rapidamente problemas.

@@ -4,10 +4,10 @@ description: Este guia ajuda os administradores a criar rapidamente uma conta de
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: c186560b27ebcb543a23785dc5fbc556614f64b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85445428"
 ---
 # <a name="lab-account-setup-guide"></a>Guia de configuração de conta de laboratório
@@ -70,7 +70,7 @@ Depois de entender os requisitos para a sua conta de laboratório, está pronto 
 
 1. **Crie a sua conta de laboratório.** Consulte o tutorial sobre a [criação de uma conta de laboratório](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#create-a-lab-account) para obter instruções.
 
-   Quando estás a criar uma conta de laboratório, podes achar útil familiarizar-te com os recursos do Azure envolvidos. Para obter mais informações, veja os seguintes artigos:
+   Quando estás a criar uma conta de laboratório, podes achar útil familiarizar-te com os recursos do Azure envolvidos. Para obter mais informações, veja os artigos seguintes:
 
    - [Subscrição](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#subscription)
    - [Grupo de recursos](https://docs.microsoft.com/azure/lab-services/classroom-labs/administrator-guide#resource-group)
@@ -97,7 +97,7 @@ Depois de entender os requisitos para a sua conta de laboratório, está pronto 
 
    ![Screenshot de Ativar imagens personalizadas numa galeria de imagens partilhada](./media/setup-guide/enable-sig-custom-images.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Gerir contas de laboratório](how-to-manage-lab-accounts.md)
 

@@ -7,17 +7,17 @@ ms.author: bfung
 ms.date: 03/26/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: 6928da704236c4bb5492f99a4a5327bf297a323d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84676852"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Ativar o Snapshot Debugger para aplicações .NET no Azure App Service
 
 A Snapshot Debugger trabalha atualmente para aplicações ASP.NET e ASP.NET Core que estão a ser executadas no Azure App Service em planos de serviço do Windows.
 
-## <a name="enable-snapshot-debugger"></a><a id="installation"></a>Ativar Snapshot Debugger
+## <a name="enable-snapshot-debugger"></a><a id="installation"></a> Ativar Snapshot Debugger
 Para ativar o Snapshot Debugger para uma aplicação, siga as instruções abaixo. Se estiver a executar um tipo diferente de serviço Azure, aqui estão as instruções para permitir o Snapshot Debugger em outras plataformas suportadas:
 * [Cloud Services do Azure](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Serviços de Tecido de Serviço Azure](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
@@ -88,7 +88,7 @@ Para um Serviço de Aplicações Azure, pode definir as definições de aplicaç
 },
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Gere tráfego para a sua aplicação que pode desencadear uma exceção. Em seguida, aguarde 10 a 15 minutos para que as imagens sejam enviadas para a instância De Insights de Aplicação.
 - Veja [as fotos](snapshot-debugger.md?toc=/azure/azure-monitor/toc.json#view-snapshots-in-the-portal) no portal Azure.

@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/08/2019
 ms.author: alkohli
 ms.openlocfilehash: aadaedfd2c9ecf544d142e42a0fbeb410324b7d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82562445"
 ---
 # <a name="azure-data-box-gateway-system-requirements"></a>Requisitos do sistema Azure Data Box Gateway
@@ -29,7 +29,7 @@ Os requisitos do sistema para o dispositivo virtual Data Box Gateway incluem:
 
 O sistema de anfitrião subjacente ao Data Box Gateway é capaz de dedicar os seguintes recursos à prestação do seu dispositivo virtual:
 
-| Especificações                                          | Description              |
+| Especificações                                          | Descrição              |
 |---------------------------------------------------------|--------------------------|
 | Processadores virtuais (núcleos)   | Mínimo de 4 |
 | Memória  | Mínimo de 8 GB|
@@ -48,7 +48,7 @@ O sistema de anfitrião subjacente ao Data Box Gateway é capaz de dedicar os se
 
 ## <a name="supported-virtualization-platforms-for-device"></a>Plataformas de virtualização suportadas para dispositivos
 
-| **Sistema operativo/plataforma**  |**Versões**   |**Notas**  |
+| **Sistema operativo/plataforma**  |**Versions** (Versões)   |**Notas**  |
 |---------|---------|---------|
 |Hyper-V  |  2012 R2 <br> 2016 <br> 2019 |         |
 |VMware ESXi     | 6.0 <br> 6.5 <br> 6.7       |As ferramentas VMware não são suportadas.         |

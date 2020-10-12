@@ -4,10 +4,10 @@ description: Descreve as funções a utilizar num modelo do Gestor de Recursos A
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: e8240c05cba82d5563c4b327ecbc65a9c358720f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84677819"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>Funções de implantação para modelos ARM
@@ -158,7 +158,7 @@ O exemplo anterior devolve o seguinte objeto:
 }
 ```
 
-## <a name="environment"></a>environment
+## <a name="environment"></a>ambiente
 
 `environment()`
 
@@ -351,13 +351,13 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| stringOutput | String | opção 1 |
+| stringOutput | Cadeia | opção 1 |
 | intOutput | int | 1 |
 | objetoOutput | Objeto | {"one": "a", "two": "b"} |
 | intervalo de matriz | Matriz | [1, 2, 3] |
-| crossOutput | String | opção 1 |
+| crossOutput | Cadeia | opção 1 |
 
 Para obter mais informações sobre a utilização de parâmetros, consulte [parâmetros no modelo do Gestor de Recursos Azure](template-parameters.md).
 
@@ -443,15 +443,15 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 
 A saída do exemplo anterior com os valores predefinidos é:
 
-| Name | Tipo | Valor |
+| Nome | Tipo | Valor |
 | ---- | ---- | ----- |
-| exemploOutput1 | String | myVariable |
+| exemploOutput1 | Cadeia | myVariable |
 | exemploOutput2 | Matriz | [1, 2, 3, 4] |
-| exemploOutput3 | String | myVariable |
+| exemploOutput3 | Cadeia | myVariable |
 | exemploOutput4 |  Objeto | {"property1": "value1", "property2": "value2"} |
 
 Para obter mais informações sobre a utilização de variáveis, consulte [Variáveis no modelo do Gestor de Recursos Azure](template-variables.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma descrição das secções num modelo de Gestor de Recursos Azure, consulte [a estrutura e a sintaxe dos modelos ARM](template-syntax.md).

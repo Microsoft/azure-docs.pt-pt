@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
 ms.openlocfilehash: c9cfe05b6547cbdc61a1c8cc6223f08900cf09d9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91345054"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Implementar um serviço web Azure Machine Learning Studio (clássico)
@@ -27,7 +27,7 @@ Os serviços web do Machine Learning Studio (clássico) fornecem uma interface e
 
 O Azure Machine Learning Studio (clássico) tem dois tipos de serviços web:
 
-* Serviço de Resposta a Pedidos (RRS): Um serviço de baixa latência, altamente escalável que regista um único registo de dados.
+* serviço Request-Response (RRS): um serviço de baixa latência, altamente escalável que marca um único registo de dados.
 * Serviço de Execução de Lotes (BES): Um serviço assíncronos que regista um lote de registos de dados.
 
 A entrada para BES é como a entrada de dados que o RRS utiliza. A principal diferença é que BES lê um bloco de registos a partir de várias origens, como o Armazenamento de Blobs do Azure, o Armazenamento de Tabelas do Azure, a Base de Dados SQL do Azure, o HDInsight (consulta do Hive) e origens HTTP.
@@ -160,7 +160,7 @@ A página quickstart do serviço web dá-lhe acesso e orientação sobre as tare
 
 ### <a name="test-your-new-web-service"></a>Teste o seu novo serviço web
 
-Para testar o seu novo serviço web, clique em **Testar o serviço web** em tarefas comuns. Na página Teste, pode testar o seu serviço web como um Serviço de Resposta a Pedidos (RRS) ou um serviço de Execução de Lotes (BES).
+Para testar o seu novo serviço web, clique em **Testar o serviço web** em tarefas comuns. Na página Teste, pode testar o seu serviço web como um Serviço de Request-Response (RRS) ou um serviço de execução de lote (BES).
 
 A página de teste RRS exibe as entradas, saídas e quaisquer parâmetros globais que definiu para a experiência. Para testar o serviço web, pode introduzir manualmente os valores apropriados para as entradas ou fornecer um ficheiro formatado de valor separado (CSV) de valor separado (CSV) que contenha os valores de teste.
 
@@ -212,7 +212,7 @@ Os preços são específicos da região, pelo que é necessário definir um plan
 6. A partir do **dropdown do Grupo de Recursos,** selecione um grupo de recursos para o plano. De mais informações sobre grupos de recursos, consulte [a visão geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 7. No **Nome do Plano** escreva o nome do plano.
 8. Em **Opções de Plano,** clique no nível de faturação para o novo plano.
-9. Clique em **Create** (Criar).
+9. Clique em **Criar**.
 
 #### <a name="deploy-the-web-service-to-another-region"></a>Implementar o serviço web para outra região
 

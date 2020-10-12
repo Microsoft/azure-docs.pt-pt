@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b773fb887d3663a2af2e340912e378c7fccaba4a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89003546"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planear e implementar no local Azure Ative Directory Password Protection
@@ -42,7 +42,7 @@ Durante a fase de auditoria, muitas organizações consideram que as seguintes s
 * Os utilizadores usam frequentemente senhas inseguras.
 * Precisam de informar os utilizadores sobre a próxima alteração na aplicação da segurança, possível impacto nos mesmos e como escolher senhas mais seguras.
 
-Também é possível que uma validação mais forte da palavra-passe afete a automatização de implementação do controlador de domínio ative existente. Recomendamos que pelo menos uma promoção de DC e uma despromoção de DC ocorram durante a avaliação do período de auditoria para ajudar a desvendar tais problemas. Para obter mais informações, veja os seguintes artigos:
+Também é possível que uma validação mais forte da palavra-passe afete a automatização de implementação do controlador de domínio ative existente. Recomendamos que pelo menos uma promoção de DC e uma despromoção de DC ocorram durante a avaliação do período de auditoria para ajudar a desvendar tais problemas. Para obter mais informações, veja os artigos seguintes:
 
 * [Ntdsutil.exe é incapaz de definir uma senha de modo de reparação de serviços de diretório fraco](howto-password-ban-bad-on-premises-troubleshoot.md#ntdsutilexe-fails-to-set-a-weak-dsrm-password)
 * [A promoção da réplica do controlador de domínio falha devido a uma senha fraca do Modo de Reparação de Serviços de Diretório](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-replica-promotion-fails-because-of-a-weak-dsrm-password)

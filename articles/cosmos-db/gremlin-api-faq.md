@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun
 ms.openlocfilehash: 416cf4f027b6f1e72641324be39ba0304301db37
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82614502"
 ---
 # <a name="frequently-asked-questions-about-the-gremlin-api-in-azure-cosmos-db"></a>Perguntas frequentes sobre a API de Gremlin em Azure Cosmos DB
@@ -142,7 +142,7 @@ Uma ligação Gremlin é feita através de uma ligação WebSocket. Embora as li
 
 ### <a name="why-cant-i-use-fluent-api-calls-in-the-native-gremlin-drivers"></a>Por que não posso usar chamadas fluentes da API nos condutores nativos de Gremlin?
 
-As chamadas fluentes da API ainda não são apoiadas pela API AZure Cosmos DB Gremlin. As chamadas fluentes da API requerem uma funcionalidade de formatação interna conhecida como suporte bytecode que atualmente não é suportado pela AZure Cosmos DB Gremlin API. Devido ao mesmo motivo, o mais recente controlador Gremlin-JavaScript também não está suportado.
+As chamadas fluentes da API ainda não são apoiadas pela API AZure Cosmos DB Gremlin. As chamadas fluentes da API requerem uma funcionalidade de formatação interna conhecida como suporte bytecode que atualmente não é suportado pela AZure Cosmos DB Gremlin API. Pelo mesmo motivo, o mais recente Gremlin-JavaScript condutor também não está suportado.
 
 ## <a name="next-steps"></a>Passos seguintes
 

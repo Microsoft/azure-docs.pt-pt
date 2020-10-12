@@ -7,10 +7,10 @@ ms.date: 02/11/2020
 ms.topic: article
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5dd6d682c9db044763cad64eec420c1974d4ac03
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89613697"
 ---
 # <a name="outline-rendering"></a>Composição de contorno
@@ -66,6 +66,6 @@ A renderização do esboço pode ter um impacto significativo no desempenho da r
 * [C# RemoteManager.OutlineSettings propriedade](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.outlinesettings)
 * [C++ RemoteManager::OutlineSettings()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#outlinesettings)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Componente hierárquico de sobreposição de estado](../../overview/features/override-hierarchical-state.md)

@@ -13,10 +13,10 @@ ms.custom: seo-lt-2019
 ms.topic: reference
 ms.date: 01/08/2020
 ms.openlocfilehash: 5839de1fde8e4a4d5e661d232ae91099a9483bcb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91291576"
 ---
 # <a name="network-topologies-for-azure-sql-managed-instance-migrations-using-azure-database-migration-service"></a>Topologias de rede para migrações de instância gerida Azure SQL utilizando o Serviço de Migração da Base de Dados Azure
@@ -90,7 +90,7 @@ Utilize esta topologia da rede se o seu ambiente necessitar de um ou mais dos se
 | Participação do SMB                 | 445                                                   | TCP          | Qualquer        | Espaço de endereços no local | Permitir      | Partilha de rede SMB para DMS para armazenar ficheiros de backup de bases de dados para migrações para Azure SQL Database MI e SQL Servers em Azure VM <br/>(Se tiver conectividade site-to-site, pode não precisar desta regra). |
 | DMS_subnet                | Qualquer                                                   | Qualquer          | Qualquer        | DMS_Subnet                | Permitir      |                                                                                                                                                                                                  |
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 - [Migrar o SqL Server para o SQL Gerenciado Instância](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance)
 - [Visão geral dos pré-requisitos para a utilização do Serviço de Migração da Base de Dados Azure](https://docs.microsoft.com/azure/dms/pre-reqs)

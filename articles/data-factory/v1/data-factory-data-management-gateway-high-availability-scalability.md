@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 4ee89f4bba70bb5e81eef21247d556f65a2a1f16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80065200"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway - alta disponibilidade e escalabilidade (Pré-visualização)
@@ -31,7 +31,7 @@ Este artigo ajuda-o a configurar uma solução de alta disponibilidade e escalab
 > 
 > **Esta funcionalidade de pré-visualização é oficialmente suportada na versão 2.12.xxxx.x e acima**. Certifique-se de que está a utilizar a versão 2.12.xxxx.x ou acima. Descarregue [aqui](https://www.microsoft.com/download/details.aspx?id=39717)a versão mais recente do Data Management Gateway .
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Pode associar gateways de gestão de dados que são instalados em várias máquinas no local com um único portal lógico. Estas máquinas são chamadas **nós.** Pode ter até **quatro nós associados** a uma porta lógica. Os benefícios de ter múltiplos nós (máquinas no local com gateway instalado) para um gateway lógico são:  
 
 - Melhorar o desempenho do movimento de dados entre as lojas de dados no local e as lojas de dados em nuvem.  
@@ -183,9 +183,9 @@ No portal Azure, pode visualizar imagens quase reais da utilização de recursos
 
 Pode ativar **Definições Avançadas** na página **Gateway** para ver métricas avançadas como **Rede**(in/out), **Fun & Estado credencial**, que é útil na depurar problemas de gateway, e **Empregos Simultâneos** (Running/ Limit) que podem ser modificados/alterados em conformidade durante a afinação de desempenho. A tabela a seguir apresenta descrições de colunas na lista **de nóis gateway:**  
 
-Propriedade de Monitorização | Description
+Propriedade de Monitorização | Descrição
 :------------------ | :---------- 
-Name | Nome do portal lógico e nós associados ao portal.  
+Nome | Nome do portal lógico e nós associados ao portal.  
 Estado | Estado do portal lógico e os nós de gateway. Exemplo: Online/Offline/Limited/etc. Para obter informações sobre estes estados, consulte a secção [de estado do Gateway.](#gateway-status) 
 Versão | Mostra a versão do gateway lógico e cada nó de gateway. A versão do gateway lógico é determinada com base na versão da maioria dos nós do grupo. Se existirem nós com versões diferentes na configuração lógica do gateway, apenas os nós com o mesmo número de versão que o gateway lógico funcionam corretamente. Outros encontram-se no modo limitado e precisam de ser atualizados manualmente (apenas no caso de falha de atualização automática). 
 Memória disponível | Memória disponível num nó de gateway. Este valor é um instantâneo quase em tempo real. 

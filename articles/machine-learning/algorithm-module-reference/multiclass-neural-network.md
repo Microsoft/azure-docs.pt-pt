@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
 ms.openlocfilehash: 1b5ccc9deb3c11d847cd194992d7972f82a5c160
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90905281"
 ---
 # <a name="multiclass-neural-network-module"></a>Módulo multiclasse de rede neural
@@ -92,7 +92,7 @@ Para calcular a saída da rede para uma determinada entrada, calcula-se um valor
     > Se selecionar a opção De Alcance de **Parâmetros** e introduzir um único valor para qualquer parâmetro, esse valor único especificado é utilizado ao longo da varredura, mesmo que outros parâmetros se alterem numa gama de valores.  
   
 
-## <a name="results"></a>Resultados
+## <a name="results"></a>Results
 
 Após o treino estar completo:
 

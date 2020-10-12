@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 08/15/2019
 ms.author: cherylmc
 ms.openlocfilehash: 9c5e6d5aca51bd560a46837ba47de86362665773
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84687791"
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>Trabalhar com o gateway virtual SKUs (SKUs legado)
 
 Este artigo contém informações sobre o legado (antigo) gateway virtual gateway SKUs. O legado SKUs ainda funciona em ambos os modelos de implementação para gateways VPN que já foram criados. As portas clássicas da VPN continuam a usar o legado SKUs, tanto para os gateways existentes, como para novos gateways. Ao criar novos gateways VPN do Resource Manager, utilize os novos SKUs de gateway. Para obter informações sobre os novos SKUs, consulte [Sobre o Gateway VPN](vpn-gateway-about-vpngateways.md).
 
-## <a name="gateway-skus"></a><a name="gwsku"></a>SKUs de gateway
+## <a name="gateway-skus"></a><a name="gwsku"></a>SKUs de Gateway
 
 [!INCLUDE [Legacy gateway SKUs](../../includes/vpn-gateway-gwsku-legacy-include.md)]
 
@@ -59,7 +59,7 @@ Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerfor
 
 [!INCLUDE [Change to the new SKUs](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações sobre os novos SKUs gateway, consulte [gateway SKUs](vpn-gateway-about-vpngateways.md#gwsku).
 

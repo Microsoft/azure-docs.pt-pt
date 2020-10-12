@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
 ms.openlocfilehash: 78fddb5b4512883f8e78d6ed53f6e3dbbeba0e4f
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90525002"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Preparar máquina de origem para a instalação de push de agente de mobilidade
@@ -24,7 +24,7 @@ Em cada máquina Windows que pretende proteger, faça o seguinte:
 1. Certifique-se de que existe conectividade de rede entre a máquina e o servidor de processo. Se ainda não criou um servidor de processo separado, por defeito está a funcionar no servidor de configuração.
 1. Crie uma conta que possa ser utilizada pelo servidor de processos para aceder ao computador. A conta deve ter direitos de administrador, locais ou domínios. Utilize esta conta apenas para a instalação push e para atualizações do agente.
 2. Se não utilizar uma conta de domínio, desative o controlo de acesso ao utilizador remoto no computador local da seguinte forma:
-    - Em HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft\Windows\CurrentVersion\Policies\System registry key, add a new DWORD: **LocalAccountTokenFilterPolicy**. Desa um valor para **1**.
+    - Sob HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System chave de registo, adicione um novo DWORD: **LocalAccountTokenFilterPolicy**. Desa um valor para **1**.
     -  Para fazê-lo num pedido de comando, executar o seguinte comando:
     
        ```

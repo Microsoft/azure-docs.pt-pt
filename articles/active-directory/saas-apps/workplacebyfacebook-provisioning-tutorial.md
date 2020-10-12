@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/28/2020
 ms.author: jeedes
 ms.openlocfilehash: c72ca7cb521c5c7e7ed33e9a0539de0df252ac92
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321905"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutorial: Configurar o Local de Trabalho pelo Facebook para o fornecimento automático de utilizadores
@@ -133,7 +133,7 @@ O serviço de aprovisionamento do Azure AD permite-lhe determinar quem vai ser a
    |urn:scim:schemas:extension:enterprise:1.0.employeeNumber|String|
    |urn:scim:schemas:extensão:facebook:auth_method:1.0:auth_method|Cadeia|
    |urn:scim:schemas:extension:facebook:frontline:1.0.is_frontline|Booleano|
-   |urn:scim:schemas:extension:facebook:starttermdates:1.0.startDate|Integer (Número inteiro)|
+   |urn:scim:schemas:extension:facebook:starttermdates:1.0.startDate|Número inteiro|
 
 
 10. Para configurar filtros de âmbito, veja as instruções seguintes disponibilizadas no [Tutorial de filtro de âmbito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).

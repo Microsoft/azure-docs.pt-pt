@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 08/31/2019
 ms.author: allensu
 ms.openlocfilehash: 04abc051cec8a6fb38ce6aa8f5347ae06cb8bd1d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84688454"
 ---
 # <a name="move-azure-network-security-group-nsg-to-another-region-using-azure-powershell"></a>Mover o grupo de segurança da rede Azure (NSG) para outra região usando a Azure PowerShell
@@ -227,10 +227,10 @@ Remove-AzNetworkSecurityGroup -Name <source-nsg-name> -ResourceGroupName <source
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, mudou um grupo de segurança da rede Azure de uma região para outra e limpou os recursos de origem.  Para saber mais sobre a movimentação de recursos entre regiões e recuperação de desastres em Azure, consulte:
 
 
-- [Move resources to a new resource group or subscription](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources) (Mover recursos para um grupo de recursos ou uma subscrição nova)
+- [Mover recursos para um novo grupo de recursos ou subscrição](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
 - [Mover VMs do Azure para outra região](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/03/2020
 ms.openlocfilehash: d283c2b2cdbbeb3ef4bc4e25f4288dfd95158552
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89003376"
 ---
 # <a name="install-log-analytics-agent-on-windows-computers"></a>Instale o agente Log Analytics nos computadores Windows
@@ -41,7 +41,7 @@ O agente do Windows começará a utilizar exclusivamente a assinatura SHA-2 no d
 3. Atualização para a versão mais recente do agente do Windows (versão 10.20.18029).
 4. Recomendado para configurar o agente para [utilizar o TLS 1.2](agent-windows.md#configure-agent-to-use-tls-12). 
 
-## <a name="network-requirements"></a>Requisitos da rede
+## <a name="network-requirements"></a>Requisitos de rede
 Consulte [a visão geral](log-analytics-agent.md#network-requirements) do agente Log Analytics para os requisitos de rede para o agente Windows.
 
 
@@ -49,7 +49,7 @@ Consulte [a visão geral](log-analytics-agent.md#network-requirements) do agente
 ## <a name="configure-agent-to-use-tls-12"></a>Configure agente para utilizar TLS 1.2
 O protocolo [TLS 1.2](/windows-server/security/tls/tls-registry-settings#tls-12) garante a segurança dos dados em trânsito para a comunicação entre o agente Windows e o serviço Log Analytics. Se estiver a instalar-se num [sistema operativo sem o TLS 1.2 ativado por predefinição,](data-security.md#sending-data-securely-using-tls-12)então deve configurar o TLS 1.2 utilizando os passos abaixo.
 
-1. Localizar a seguinte sub-chave de registo: **HKEY_LOCAL_MACHINE\Sistema\CurrentControlSet\Control\Control\SecurityProviders\SCHANNEL\Protocols**
+1. Localizar o seguinte sub-chave de registo: **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols**
 2. Criar uma sub-chave ao abrigo de **protocolos** para TLS 1.2 **HKLM\System\CurrentControlSet\ControlSet\Control\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2**
 3. Crie uma sub-chave **do Cliente** ao abrigo da versão sub-chave do protocolo TLS 1.2 que criou anteriormente. Por exemplo, **HKLM\System\CurrentControlSet\Control\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Cliente**.
 4. Criar os seguintes valores DWORD em **HKLM\System\CurrentControlSet\Control\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Cliente**:
@@ -59,9 +59,9 @@ O protocolo [TLS 1.2](/windows-server/security/tls/tls-registry-settings#tls-12)
 
 Configure .NET Framework 4.6 ou posteriormente para suportar a criptografia segura, uma vez que por defeito está desativada. A [criptografia forte](/dotnet/framework/network-programming/tls#schusestrongcrypto) utiliza protocolos de rede mais seguros como o TLS 1.2 e bloqueia protocolos que não são seguros. 
 
-1. Localizar a seguinte sub-chave de registo: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft \\ . NETFramework\v4.0.30319**.  
+1. Localizar a seguinte sub-chave de registo: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\ . NETFramework\v4.0.30319**.  
 2. Crie o valor DWORD **SchUseStrongCrypto** sob este subkey com um valor de **1**.  
-3. Localizar a seguinte sub-chave de registo: **HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft \\ . NETFramework\v4.0.30319**.  
+3. Localizar a seguinte sub-chave de registo: **HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\ . NETFramework\v4.0.30319**.  
 4. Crie o valor DWORD **SchUseStrongCrypto** sob este subkey com um valor de **1**. 
 5. Reinicie o sistema para que as definições produzam efeitos. 
 
@@ -202,7 +202,7 @@ Nos resultados da pesquisa devolvidos, deverá ver os registos de batimentos car
 
 Os dados do agente Log Analytics estão em cache na máquina local em *C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State* antes de ser enviado para o Azure Monitor. O agente tenta carregar a cada 20 segundos. Se falhar, esperará um período de tempo exponencialmente aumentando até que tenha sucesso. Aguarda 30 segundos antes da segunda tentativa, 60 segundos antes da próxima, 120 segundos, e assim por diante para um máximo de 8,5 horas entre as retrações até que volte a ligar com sucesso. Este tempo de espera é ligeiramente aleatório para evitar que todos os agentes tentem simultaneamente ligar. Os dados mais antigos são descartados quando o tampão máximo é atingido.
 
-O tamanho da cache predefinido é de 50 MB, mas pode ser configurado entre um mínimo de 5 MB e máximo de 1,5 GB. Está armazenado na chave de registo *HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parâmetros\Persistência Cache Maximum*. O valor representa o número de páginas, com 8 KB por página.
+O tamanho da cache predefinido é de 50 MB, mas pode ser configurado entre um mínimo de 5 MB e máximo de 1,5 GB. Está guardado na chave de registo *HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Persistence Cache Maximum. * O valor representa o número de páginas, com 8 KB por página.
 
 
 ## <a name="next-steps"></a>Passos seguintes

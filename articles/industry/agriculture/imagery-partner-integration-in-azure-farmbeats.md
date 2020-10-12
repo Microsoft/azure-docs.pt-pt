@@ -7,10 +7,10 @@ ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
 ms.openlocfilehash: 430907f43fb40f0ee24505bdc366a98a49f23b47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82613290"
 ---
 # <a name="imagery-partner-integration"></a>Integração de parceiros de imagens
@@ -92,7 +92,7 @@ Aqui estão os cabeçalhos de pedido mais comuns que precisam de ser especificad
 **Cabeçalho** | **Descrição e exemplo**
 --- | ---
 Content-Type  | O formato de pedido (Tipo de Conteúdo: aplicação/ <format> ). Para as APIs do FarmBeats Datahub, o formato é JSON. Tipo de conteúdo: aplicação/json
-Autorização | Especifica o token de acesso necessário para fazer uma chamada da API. Autorização: Portador <> Access-Token
+Autorização | Especifica o token de acesso necessário para fazer uma chamada da API. Autorização: <Access-Token> portador
 Aceitar  | O formato de resposta. Para as APIs do FarmBeats Datahub, o formato é JSON. Aceitar: candidatura/json
 
 

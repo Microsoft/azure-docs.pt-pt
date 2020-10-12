@@ -4,10 +4,10 @@ description: Utilize a operação de cópia num modelo do Gestor de Recursos Azu
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.openlocfilehash: aca69dd858c7a940592e74123b97b8d364d9e11c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84678448"
 ---
 # <a name="variable-iteration-in-arm-templates"></a>Iteração variável em modelos ARM
@@ -319,7 +319,7 @@ Os exemplos a seguir mostram cenários comuns para criar mais do que um valor pa
 |[Copiar variáveis](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Demonstra as diferentes formas de iterar sobre variáveis. |
 |[Múltiplas regras de segurança](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Implementa várias regras de segurança num grupo de segurança de rede. Constrói as regras de segurança a partir de um parâmetro. Para o parâmetro, consulte [vários ficheiros de parâmetros NSG](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para passar por um tutorial, consulte [Tutorial: crie múltiplas instâncias de recursos utilizando modelos ARM](template-tutorial-create-multiple-instances.md).
 * Para outras utilizações do elemento de cópia, consulte:

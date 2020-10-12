@@ -11,10 +11,10 @@ ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 05/08/2018
 ms.openlocfilehash: 69d6b8abc99863f29f82abcb44e18b426c5a456c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85959148"
 ---
 # <a name="set-up-a-common-identity-on-a-data-science-virtual-machine"></a>Criar uma identidade comum numa máquina virtual de ciência de dados
@@ -55,7 +55,7 @@ O Azure AD DS torna simples gerir as suas identidades, fornecendo um serviço to
     
    1. Distribua a palavra-passe gerada ao novo utilizador para que possa iniciar sedu.
 
-1. Crie uma instância AD DS Azure. Siga as instruções em [Enable Azure Ative Directory Domain Services utilizando o portal Azure](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) (a secção "Criar uma instância e configurar definições básicas"). É importante atualizar as palavras-passe do utilizador existentes no Ative Directory para que a palavra-passe em Azure AD DS seja sincronizada. Também é importante adicionar DNS ao Azure AD DS, como descrito em "Complete os campos na janela Basics do portal Azure para criar uma instância AD DS AZure" nessa secção.
+1. Crie uma instância AD DS Azure. Siga as instruções em  [Enable Azure Ative Directory Domain Services utilizando o portal Azure](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) (a secção "Criar uma instância e configurar definições básicas"). É importante atualizar as palavras-passe do utilizador existentes no Ative Directory para que a palavra-passe em Azure AD DS seja sincronizada. Também é importante adicionar DNS ao Azure AD DS, como descrito em "Complete os campos na janela Basics do portal Azure para criar uma instância AD DS AZure" nessa secção.
 
 1. Crie uma sub-rede DSVM separada na rede virtual criada na secção "Criar e configurar a rede virtual" do passo anterior.
 1. Crie uma ou mais instâncias DSVM na sub-rede DSVM.
@@ -76,7 +76,7 @@ Tem agora os utilizadores na sua instância Ative Directory hospedados no Azure.
 
 Para autoscalar, pode utilizar uma balança de máquina virtual definida para criar um conjunto de VMs que estão todos unidos ao domínio desta forma e com o disco partilhado montado. Os utilizadores podem iniciar sposição em qualquer máquina disponível no conjunto de escala de máquina virtual e ter acesso ao disco partilhado onde os seus cadernos são guardados. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Armazenar credenciais de segurança para aceder a recursos na nuvem](dsvm-secure-access-keys.md)
 

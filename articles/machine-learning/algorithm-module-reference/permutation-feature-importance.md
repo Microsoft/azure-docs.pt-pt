@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 02/24/2020
 ms.openlocfilehash: ecf739ea838ad3742612eab7a1b42ac8c8ac455a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90905269"
 ---
 # <a name="permutation-feature-importance"></a>Importância da funcionalidade de permutação
