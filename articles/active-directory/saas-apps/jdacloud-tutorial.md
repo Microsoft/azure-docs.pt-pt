@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 365082fa6b0f9788bab5291e4dbf215848223d1f
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91849583"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jda-cloud"></a>Tutorial: Integração do Diretório Ativo Azure com a JDA Cloud

@@ -12,10 +12,10 @@ ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: b9550f365eb11ffff87add041824504488c0de15
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619938"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplicações multi-arrendatários com ferramentas de base de dados elásticas e segurança ao nível da linha
@@ -254,7 +254,7 @@ GO
 ```
 
 > [!TIP]
-> Num projeto complexo, talvez seja necessário adicionar o predicado em centenas de mesas, o que pode ser aborrecido. Existe um procedimento de armazenação de ajuda que gera automaticamente uma política de segurança, e adiciona um predicado em todas as tabelas num esquema. Para obter mais informações, consulte o post de blog na [Apply Row-Level Security em todas as tabelas - helper script (blog)](https://techcommunity.microsoft.com/t5/sql-server/apply-row-level-security-to-all-tables-helper-script/ba-p/384360).
+> Num projeto complexo, talvez seja necessário adicionar o predicado em centenas de mesas, o que pode ser aborrecido. Existe um procedimento de armazenação de ajuda que gera automaticamente uma política de segurança, e adiciona um predicado em todas as tabelas num esquema. Para obter mais informações, consulte o post de blog na [Apply Row-Level Security para todas as tabelas - helper script (blog)](https://techcommunity.microsoft.com/t5/sql-server/apply-row-level-security-to-all-tables-helper-script/ba-p/384360).
 
 Agora, se fizer o pedido de amostra de novo, os inquilinos só vêem filas que lhes pertencem. Além disso, a aplicação não pode inserir linhas pertencentes a inquilinos que não o atualmente ligado à base de dados de fragmentos. Além disso, a aplicação não pode atualizar o TenantId em quaisquer linhas que possa ver. Se a aplicação tentar fazer qualquer um dos dois, é levantada uma DbUpdateException.
 
@@ -303,7 +303,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 > [!NOTE]
 > Se utilizar restrições predefinidas para um projeto Entity Framework, recomenda-se que *não* inclua a coluna TenantId no seu modelo de dados EF. Esta recomendação deve-se ao facto de as consultas do Quadro de Entidades fornecerem automaticamente valores predefinidos que substituem os constrangimentos predefinidos criados em T-SQL que utilizam o CONTEXTO DE \_ SESSÃO.
-> Para utilizar constrangimentos predefinidos no projeto da amostra, por exemplo, deve remover o TenantId da DataClasses.cs (e executar a Migração De Adicionar na Consola do Gestor de Pacotes) e utilizar o T-SQL para garantir que o campo só existe nas tabelas de bases de dados. Desta forma, a EF fornece automaticamente valores predefinidos incorretos ao inserir dados.
+> Para utilizar constrangimentos predefinidos no projeto da amostra, por exemplo, deve remover o TenantId de DataClasses.cs (e executar Add-Migration na Consola de Gestor de Pacotes) e utilizar o T-SQL para garantir que o campo só existe nas tabelas de bases de dados. Desta forma, a EF fornece automaticamente valores predefinidos incorretos ao inserir dados.
 
 ### <a name="optional-enable-a-superuser-to-access-all-rows"></a>(Opcional) Permitir que um *superuser* aceda a todas as linhas
 
@@ -342,7 +342,7 @@ GO
 ### <a name="maintenance"></a>Manutenção
 
 - **Adicionar novos fragmentos**: Execute o script T-SQL para permitir o RLS em quaisquer novos fragmentos, caso contrário as consultas sobre estes fragmentos não são filtradas.
-- **Adicionar novas tabelas**: Adicione um filtro e um pré-diabetes à política de segurança em todos os fragmentos sempre que for criada uma nova tabela. Caso contrário, as consultas na nova tabela não são filtradas. Esta adição pode ser automatizada utilizando um gatilho DDL, conforme descrito automaticamente na [Aplicação de Segurança de Nível de Linha para as tabelas recém-criadas (blog)](https://techcommunity.microsoft.com/t5/SQL-Server/Apply-Row-Level-Security-automatically-to-newly-created-tables/ba-p/384393).
+- **Adicionar novas tabelas**: Adicione um filtro e um pré-diabetes à política de segurança em todos os fragmentos sempre que for criada uma nova tabela. Caso contrário, as consultas na nova tabela não são filtradas. Esta adição pode ser automatizada utilizando um gatilho DDL, conforme descrito no [Apply Row-Level Security automaticamente para as tabelas recém-criadas (blog)](https://techcommunity.microsoft.com/t5/SQL-Server/Apply-Row-Level-Security-automatically-to-newly-created-tables/ba-p/384393).
 
 ## <a name="summary"></a>Resumo
 

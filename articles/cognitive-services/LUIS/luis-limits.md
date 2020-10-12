@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 06/04/2020
 ms.openlocfilehash: 5ef681e335cf49a1759a096766b5ccd70545e60a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91324710"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Limites para o seu modelo e chaves LUIS
@@ -108,7 +108,7 @@ Utilize o _tipo_, `LUIS` quando filtrar recursos no portal Azure. O recurso de p
 
 ## <a name="keyboard-controls"></a>Controlos de teclado
 
-|Entrada de teclado | Description |
+|Entrada de teclado | Descrição |
 |--|--|
 |Controlo+E|muda entre tokens e entidades na lista de expressões|
 

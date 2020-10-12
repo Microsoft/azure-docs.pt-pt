@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5e55526e0a63a0c603e2b62ccb3ac0efed911cff
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295231"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Sincronização do Azure AD Connect: entender a configuração predefinida
@@ -148,7 +148,7 @@ Uma vez que esta regra é uma regra fora de caixa, recebes um aviso quando abres
 
 Uma Regra de Sincronização tem quatro secções de configuração: Descrição, filtro de scoping, regras de junção e transformações.
 
-#### <a name="description"></a>Description
+#### <a name="description"></a>Descrição
 A primeira secção fornece informações básicas, como um nome e descrição.
 
 ![Separador de descrição no editor de regras de Sync](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
@@ -186,7 +186,7 @@ A secção de transformação define todos os fluxos de atributos que se aplicam
 
 ![Separador de transformações em Sync rule editor](./media/concept-azure-ad-connect-sync-default-configuration/syncruletransformations.png)
 
-Para colocar esta configuração em contexto, numa implantação florestal de recursos de conta, espera-se que encontre uma conta ativada na floresta de conta e uma conta desativada na floresta de recursos com as definições de Exchange e Lync. A Regra de Sincronização que está a analisar contém os atributos necessários para a entrada e estes atributos devem fluir da floresta onde existe uma conta ativada. Todos estes fluxos de atributos são montados numa Regra de Sincronização.
+Para contextualizar esta configuração, numa Account-Resource implantação florestal, espera-se que encontre uma conta ativada na floresta de conta e uma conta desativada na floresta de recursos com as configurações de Exchange e Lync. A Regra de Sincronização que está a analisar contém os atributos necessários para a entrada e estes atributos devem fluir da floresta onde existe uma conta ativada. Todos estes fluxos de atributos são montados numa Regra de Sincronização.
 
 Uma transformação pode ter diferentes tipos: Constante, Direta e Expressão.
 
@@ -220,7 +220,7 @@ A precedência das Regras de Sincronização é definida em grupo pelo assistent
 ### <a name="putting-it-all-together"></a>Juntar tudo
 Agora sabemos o suficiente sobre as Regras de Sincronização para sermos capazes de entender como a configuração funciona com as diferentes Regras de Sincronização. Se olharmos para um utilizador e para os atributos que são contribuídos para o metaverso, as regras são aplicadas na seguinte ordem:
 
-| Name | Comentário |
+| Nome | Comentário |
 |:--- |:--- |
 | In from AD – User Join |Regra para unir objetos espaciais do conector com metaverso. |
 | In a partir de AD – UserAccount Enabled |Atributos necessários para o sômin de S.A. e Microsoft 365. Queremos estes atributos a partir da conta ativada. |

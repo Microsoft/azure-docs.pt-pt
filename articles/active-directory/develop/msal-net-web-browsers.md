@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: bf51f39a789b91a4cb0b88eb8bb1f2989bec7358
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88165826"
 ---
 # <a name="using-web-browsers-msalnet"></a>Usando navegadores web (MSAL.NET)
@@ -41,7 +41,7 @@ Os navegadores web são necessários para a autenticação interativa. Por padr�
 
 MSAL.NET é uma biblioteca multi-quadro e tem um código específico-quadro para hospedar um navegador num controlo de UI (por exemplo, em .NET Classic usa WinForms, em Xamarin utiliza controlos móveis nativos, etc.). Este controlo chama-se `embedded` UI web. Em alternativa, MSAL.NET também é capaz de iniciar o navegador sistema OS.
 
-Geralmente, recomenda-se que utilize o padrão da plataforma, e este é tipicamente o navegador do sistema. O navegador do sistema é melhor para lembrar os utilizadores que já iniciaram sessão. Se precisar de alterar este comportamento, use`WithUseEmbeddedWebView(bool)`
+Geralmente, recomenda-se que utilize o padrão da plataforma, e este é tipicamente o navegador do sistema. O navegador do sistema é melhor para lembrar os utilizadores que já iniciaram sessão. Se precisar de alterar este comportamento, use `WithUseEmbeddedWebView(bool)`
 
 ### <a name="at-a-glance"></a>Num relance
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 08/21/2020
 ms.custom: seodec18
 ms.openlocfilehash: 1fe035d99f8a5962406d5aae3f093d71d432b310
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88860985"
 ---
 # <a name="run-azure-stream-analytics-on-azure-stack-preview"></a>Executar Azure Stream Analytics em Azure Stack (Pré-visualização)
@@ -114,12 +114,12 @@ Quando o trabalho do Stream Analytics estiver criado no portal do Azure, pode co
    > [!div class="mx-imgBorder"]
    > [![Entrada do Centro de Eventos ](media/on-azure-stack/event-hub-input.png)](media/on-azure-stack/event-hub-input.png#lightbox)
 
-   #### <a name="iot-hub"></a>Hub IoT
+   #### <a name="iot-hub"></a>IoT Hub
 
    | Campo | Valor |
    | --- | --- |
    | Alias de entrada | Um nome amigável que usa na consulta do trabalho para fazer referência a esta entrada. |
-   | Hub IoT | O nome do Hub IoT para usar como entrada. (Exemplo:* <IoT Hub Name> .shanghai.azurestack.corp.microsoft.com)* |
+   | IoT Hub | O nome do Hub IoT para usar como entrada. (Exemplo:* <IoT Hub Name> .shanghai.azurestack.corp.microsoft.com)* |
    | Nome da política de acesso partilhado | A política de acesso partilhado que dá acesso ao IoT Hub. Cada política de acesso partilhado tem um nome, permissões que definiu e chaves de acesso. |
    | Chave de política de acesso compartilhado | A chave de acesso partilhada usada para autorizar o acesso ao IoT Hub. Esta opção é automaticamente preenchida a menos que selecione a opção para fornecer manualmente as definições do Iot Hub. |
    | Grupo de consumidores (opcional) | É altamente recomendável que utilize um grupo de consumidores diferente para cada trabalho stream Analytics. O grupo de consumidores é utilizado para ingerir dados do IoT Hub. O Stream Analytics utiliza o grupo de consumidores $Default, a menos que especifique o contrário. |

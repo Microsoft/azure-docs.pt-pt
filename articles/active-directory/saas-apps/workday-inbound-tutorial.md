@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
 ms.openlocfilehash: 53132cc21b8298f951f2daa979ed433103ad0ac0
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541293"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o Dia de Trabalho para o fornecimento automático de utilizadores
@@ -370,7 +370,7 @@ Transfira o instalador de agente descarregado para o anfitrião do servidor e si
    >[!div class="mx-imgBorder"]
    >![Tela de saída](./media/workday-inbound-tutorial/pa_install_screen_9.png "Tela de saída")
    
-1. Verifique a instalação do Agente e certifique-se de que está a funcionar abrindo o Snap-In "Serviços" e procure o Serviço denominado "Microsoft Azure AD Connect Provisioning Agent"
+1. Verifique a instalação do Agente e certifique-se de que está em execução abrindo o Snap-In "Serviços" e procure o Serviço denominado "Microsoft Azure AD Connect Provisioning Agent"
 
    >[!div class="mx-imgBorder"]
    >![Screenshot do Agente de Provisionamento de Ligação AD da Microsoft Azure em execução em Serviços.](./media/workday-inbound-tutorial/services.png)
@@ -478,7 +478,7 @@ Nesta secção, irá configurar como os dados dos utilizadores fluem do Workday 
 
          * **Apenas durante a criação** - Aplique este mapeamento apenas em ações de criação de utilizadores
 
-1. Para guardar os seus mapeamentos, clique em **Guardar** na parte superior da secção De mapeamento de Atributos.
+1. Para guardar os seus mapeamentos, clique em **Guardar** na parte superior da secção Attribute-Mapping.
    >[!div class="mx-imgBorder"]
    >![Screenshot que mostra a página "Atribuir Mapeamento" com a ação "Save" selecionada.](./media/workday-inbound-tutorial/wd_2.png)
 
@@ -528,7 +528,7 @@ Uma vez concluídas as configurações da aplicação de provisionamento workday
 
 1. No **separador Provisioning,** desa fixação do **Estado de Provisionamento** para **On**.
 
-2. Clique em **Save** (Guardar).
+2. Clique em **Guardar**.
 
 3. Esta operação iniciará a sincronização inicial, que pode demorar um número variável de horas dependendo de quantos utilizadores estão no arrendatário do Workday. 
 
@@ -1126,7 +1126,7 @@ Para tal, tem de utilizar o [Workday Studio](https://community.workday.com/studi
 
     ![Estúdio Workday](./media/workday-inbound-tutorial/wdstudio_aad2.png)
 
-11. **Selecione Guardar** acima e, em seguida, **Sim** para o diálogo. Feche o ecrã De mapeamento de Atributos se ainda estiver aberto.
+11. **Selecione Guardar** acima e, em seguida, **Sim** para o diálogo. Feche o ecrã Attribute-Mapping se ainda estiver aberto.
 
 12. De volta ao separador de **Provisionamento** principal, selecione **Synchronize Workday Workers to On Premises Ative Directory** (ou **Synchronize Workers to Azure AD**) novamente.
 

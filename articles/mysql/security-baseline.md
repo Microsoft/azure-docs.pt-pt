@@ -8,10 +8,10 @@ ms.date: 09/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 80a7067b1d8d5417a6a448ee8a3be563344e9a72
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89420256"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mysql"></a>Linha de segurança Azure para Azure Database para MySQL
@@ -28,7 +28,7 @@ Para obter mais informações, consulte [a visão geral da Azure Security Baseli
 
 ### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1: Proteger os recursos do Azure nas redes virtuais
 
-**Orientação**: Configurar link privado para base de dados Azure para MySQL com pontos finais privados. O Private Link permite-lhe ligar-se a vários serviços PaaS em Azure através de um ponto final privado. O Azure Private Link essencialmente traz serviços Azure dentro da sua Rede Virtual privada (VNet). O tráfego entre a sua rede virtual e o caso MySQL percorre a rede de espinha dorsal da Microsoft.
+**Orientação**: Configurar link privado para base de dados Azure para MySQL com pontos finais privados. A Ligação Privada permite-lhe estabelecer ligação a vários serviços PaaS no Azure através de um ponto final privado. O Azure Private Link essencialmente traz os serviços do Azure dentro da sua Rede Privada Virtual (VNet). O tráfego entre a sua rede virtual e o caso MySQL percorre a rede de espinha dorsal da Microsoft.
 
 Em alternativa, poderá utilizar pontos finais de serviço de rede virtual para proteger e limitar o acesso à rede à sua Base de Dados Azure para implementações do MySQL. As regras de rede virtual são uma funcionalidade de segurança de firewall que controla se a sua Base de Dados Azure para o servidor MySQL aceita comunicações que são enviadas a partir de sub-redes específicas em redes virtuais.
 
@@ -968,7 +968,7 @@ O anti-malware da Microsoft está ativado no anfitrião subjacente que suporta o
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: Garantir cópias de back-ups automáticas regulares
 
-**Orientação**: A Azure Database for MySQL requer cópias de segurança dos ficheiros de dados e do registo de transações. Dependendo do tamanho máximo de armazenamento suportado, ou fazemos cópias de segurança completas e diferenciais (4 servidores de armazenamento máximo de TB) ou cópias de segurança instantâneas (até 16-TB máximo de armazenamento). Estas cópias de segurança permitem restaurar um servidor em qualquer ponto no tempo dentro do período de retenção de backup configurado. O período de retenção de backup predefinido é de sete dias. Pode configurar opcionalmente até 35 dias. Todas as cópias de segurança são encriptadas utilizando encriptação AES de 256 bits.
+**Orientação**: A Azure Database for MySQL requer cópias de segurança dos ficheiros de dados e do registo de transações. Dependendo do tamanho máximo de armazenamento suportado, ou fazemos cópias de segurança completas e diferenciais (4 servidores de armazenamento máximo de TB) ou cópias de segurança instantâneas (até 16-TB máximo de armazenamento). Estas cópias de segurança permitem restaurar um servidor em qualquer ponto no tempo dentro do período de retenção de backup configurado. O período de retenção de backup predefinido é de sete dias. Pode configurar opcionalmente até 35 dias. Todas as cópias de segurança são encriptadas através da encriptação AES de 256 bits.
 
 - [Compreenda as cópias de segurança da Base de Dados Azure para o MySQL](concepts-backup.md)
 
@@ -1008,7 +1008,7 @@ Teste periodicamente a restauração da sua Base de Dados Azure para instâncias
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Garantir a proteção das cópias de segurança e das chaves geridas pelo cliente
 
-**Orientação**: A base de dados Azure para o MySQL requer cópias de segurança completas, diferenciais e de registo de transações. Estas cópias de segurança permitem restaurar um servidor em qualquer ponto no tempo dentro do período de retenção de backup configurado. O período de retenção de backup predefinido é de sete dias. Pode configurar opcionalmente até 35 dias. Todas as cópias de segurança são encriptadas utilizando encriptação AES de 256 bits. Certifique-se de que o cofre da chave é excluído suave.
+**Orientação**: A base de dados Azure para o MySQL requer cópias de segurança completas, diferenciais e de registo de transações. Estas cópias de segurança permitem restaurar um servidor em qualquer ponto no tempo dentro do período de retenção de backup configurado. O período de retenção de backup predefinido é de sete dias. Pode configurar opcionalmente até 35 dias. Todas as cópias de segurança são encriptadas através da encriptação AES de 256 bits. Certifique-se de que o cofre da chave é excluído suave.
 
 - [Compreenda a cópia de segurança e a restauração na Base de Dados Azure para o MySQL](concepts-backup.md)
 
@@ -1102,7 +1102,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](/azure/security/benchmarks/overview)
 - Saiba mais sobre [as linhas de base de segurança da Azure](/azure/security/benchmarks/security-baselines-overview)

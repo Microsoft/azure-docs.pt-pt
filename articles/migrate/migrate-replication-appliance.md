@@ -4,10 +4,10 @@ description: Saiba mais sobre o aparelho de replicação Azure Migrate para migr
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.openlocfilehash: af9e45e47c2f0645d81a571161f15f7d69cfec61
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90532125"
 ---
 # <a name="replication-appliance"></a>Aparelho de replicação
@@ -15,7 +15,7 @@ ms.locfileid: "90532125"
 Este artigo descreve o aparelho de replicação utilizado por [Azure Migrate: Ferramenta de migração de servidores](migrate-services-overview.md#azure-migrate-server-migration-tool) ao migrar VMware VMs, máquinas físicas e VMs de nuvem privada/pública para Azure, utilizando migração baseada em agentes. 
 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 O aparelho de replicação é implantado quando configura a migração baseada em agentes de VMware VMs ou servidores físicos. É implantado como uma única máquina no local, seja como um VMware VM ou um servidor físico. Corre:
 

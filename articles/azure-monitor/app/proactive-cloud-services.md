@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.reviewer: harelbr
 ms.openlocfilehash: 1cdfc6dc3ac74997743512ee07f9293699e3ad10
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87309295"
 ---
 # <a name="alert-on-issues-in-azure-cloud-services-using-the-azure-diagnostics-integration-with-azure-application-insights"></a>Alerta sobre problemas nos Serviços Azure Cloud usando a integração de diagnósticos Azure com Azure Application Insights
@@ -91,7 +91,7 @@ Na janela **regra 'Criar',** na secção **Defina o estado de alerta,** clique e
 Na caixa **de consulta de pesquisa,** cole a consulta combinada que preparou no passo anterior.
 
 Em seguida, continue para a caixa **Threshold,** e definir o seu valor para 0. Pode alterar opcionalmente os **campos** **de Period** e Frequência .
-Clique em **Concluído**.
+Clique em **Done** (Concluído).
 
 ![Screenshot da consulta lógica de sinal de configuração](./media/proactive-cloud-services/003.png)
 
@@ -107,7 +107,7 @@ Pode optar por que o grupo de ação contenha múltiplas ações de vários tipo
 
 Uma vez definido o grupo Ação, confirme as alterações e clique em **Criar a regra de alerta**.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre a deteção automática:
 

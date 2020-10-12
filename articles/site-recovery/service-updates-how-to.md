@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: ramamill
 ms.openlocfilehash: a1ea8b6fb9800d796670161288be0d86ce6ffc42
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89424944"
 ---
 # <a name="service-updates-in-site-recovery"></a>Atualizações de serviço na Recuperação do Site
@@ -138,6 +138,6 @@ O exemplo na tabela mostra como isto funciona.
 2. Instale o mais recente Fornecedor no servidor VMM que gere o local de recuperação secundária. Se o VMM for implantado num cluster, instale o Fornecedor em todos os nós do cluster.
 3. Após a atualização do site de recuperação, instale o Fornecedor no servidor VMM que está a gerir o site principal.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Siga a nossa página [Azure Updates](https://azure.microsoft.com/updates/?product=site-recovery) para acompanhar novas atualizações e lançamentos.

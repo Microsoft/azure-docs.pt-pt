@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
 ms.openlocfilehash: 0f9a8a1c4631fc667d0dd31ae62f7d57aefccc90
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88855845"
 ---
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>Perguntas mais frequentes sobre a migração da implementação clássica para a implementação Azure Resource Manager
@@ -24,7 +24,7 @@ ms.locfileid: "88855845"
 
 A palavra "clássico" em IaaS VM (clássico) refere-se a VMs geridos pelo Azure Service Manager (ASM). AZure Service Manager (ASM) é o antigo avião de controlo da Azure responsável pela criação, gestão, eliminação de VMs e realização de outras operações de avião de controlo. 
 
-## <a name="what-is-azure-resource-manager"></a>O que é Azure Resource Manager?
+## <a name="what-is-azure-resource-manager"></a>O que é o Azure Resource Manager?
 
 [O Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) é o mais recente avião de controlo da Azure responsável pela criação, gestão, eliminação de VMs e realização de outras operações de avião de controlo. 
 
@@ -70,7 +70,7 @@ Não pode abortar a migração se a operação de consolidação falhar. Todas a
 
 ## <a name="do-i-have-to-buy-another-express-route-circuit-if-i-have-to-use-iaas-under-resource-manager"></a>Se tiver de utilizar IaaS no Resource Manager, tenho de comprar outro circuito do ExpressRoute? 
 
-Não. Recentemente, ativámos a [passagem dos circuitos do ExpressRoute do modelo de implementação clássica para o modelo do Resource Manager](../expressroute/expressroute-move.md). Se já tiver um circuito ExpressRoute, não precisa de comprar um novo.
+N.º Recentemente, ativámos a [passagem dos circuitos do ExpressRoute do modelo de implementação clássica para o modelo do Resource Manager](../expressroute/expressroute-move.md). Se já tiver um circuito ExpressRoute, não precisa de comprar um novo.
 
 ## <a name="what-if-i-had-configured-role-based-access-control-policies-for-my-classic-iaas-resources"></a>O que acontece se tiver configurado políticas de Controlo de Aceso Baseado em Funções nos meus recursos de IaaS clássicos? 
 
@@ -97,7 +97,7 @@ Além disso, se pretender fazer o backup do VM migrado, aceda à lâmina de gest
 
 ## <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-migration"></a>Posso verificar se a minha subscrição ou os meus recursos podem ser migrados? 
 
-Yes. Na opção de migração suportada por plataforma, o primeiro passo na preparação da migração é verificar se os recursos podem ser migrados. Caso a operação de verificação falhe, recebe mensagens com todos os motivos pelos quais a migração não pode ser concluída.
+Sim. Na opção de migração suportada por plataforma, o primeiro passo na preparação da migração é verificar se os recursos podem ser migrados. Caso a operação de verificação falhe, recebe mensagens com todos os motivos pelos quais a migração não pode ser concluída.
 
 ## <a name="what-happens-if-i-run-into-a-quota-error-while-preparing-the-iaas-resources-for-migration"></a>O que acontece se me deparar com um erro de quota ao preparar os recursos de IaaS para a migração? 
 

@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: fc1bca1265139a438fad86bfce770026866d9a2f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90937006"
 ---
 # <a name="manage-zone-redundant-high-availability-in-flexible-server"></a>Gerir zona redundante alta disponibilidade em Servidor Flexível
@@ -35,26 +35,26 @@ Esta secção fornece detalhes especificamente para campos relacionados com ha. 
     :::image type="content" source="./media/how-to-manage-high-availability-portal/subscription-region.png" alt-text="Ver subscrição e região":::
 
 2.  Escolha a sua **zona de disponibilidade.** Isto é útil se quiser transferir a sua aplicação na mesma zona de disponibilidade que a base de dados para reduzir a latência. **Escolha Não Preferência** se quiser que o servidor flexível implemente em qualquer zona de disponibilidade.
-    ![Seleção ]() :::image type="content" source="./media/how-to-manage-high-availability-portal/zone-selection.png" alt-text="de zona de disponibilidade de seleção"::: AZ  
+    ![Seleção ]() :::image type="content" source="./media/how-to-manage-high-availability-portal/zone-selection.png" alt-text="Ver subscrição e região"::: AZ  
 
 3.  Clique na caixa de verificação para **zona redundante alta disponibilidade** na opção Disponibilidade.
 
-    :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-checkbox.png" alt-text="Caixa de verificação de alta disponibilidade":::
+    :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-checkbox.png" alt-text="Ver subscrição e região":::
 
 4.  Se pretender alterar o cálculo e armazenamento predefinidos, clique em  **Configurar servidor**.
  
-    :::image type="content" source="./media/how-to-manage-high-availability-portal/configure-server.png" alt-text="servidor de configuração - compute+storage":::  
+    :::image type="content" source="./media/how-to-manage-high-availability-portal/configure-server.png" alt-text="Ver subscrição e região":::  
 
 5.  Se for verificada a opção de alta disponibilidade, o nível de rebentamento não estará disponível para escolher. Pode escolher os níveis de cálculo **geral** ou **otimizado de memória.** Em seguida, pode **selecionar o tamanho** do cálculo para a sua escolha a partir do dropdown.
 
-    :::image type="content" source="./media/how-to-manage-high-availability-portal/select-compute.png" alt-text="Seleção de nível computacional":::  
+    :::image type="content" source="./media/how-to-manage-high-availability-portal/select-compute.png" alt-text="Ver subscrição e região":::  
 
 
 6.  Selecione o **tamanho do armazenamento** em GiB utilizando a barra de deslizamento e selecione o período de **retenção de backup** entre 7 dias e 35 dias.
    
-    :::image type="content" source="./media/how-to-manage-high-availability-portal/storage-backup.png" alt-text="Backup de armazenamento"::: 
+    :::image type="content" source="./media/how-to-manage-high-availability-portal/storage-backup.png" alt-text="Ver subscrição e região"::: 
 
-7. Clique em **Save** (Guardar). 
+7. Clique em **Guardar**. 
 
 ## <a name="enable-high-availability-post-server-creation"></a>Ativar a criação de servidor pós-venda de alta disponibilidade
 
@@ -64,11 +64,11 @@ Siga estes passos para permitir uma elevada disponibilidade para o seu servidor 
 
 2.  Na página do servidor flexível, clique em **Alta Disponibilidade** a partir do painel esquerdo para abrir a página de alta disponibilidade.
    
-     :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-left-panel.png" alt-text="Seleção de painéis esquerdos"::: 
+     :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-left-panel.png" alt-text="Ver subscrição e região"::: 
 
 3.  Clique na caixa de verificação **de alta disponibilidade redundante** da zona para **ativar** a opção e clique em **Guardar**para guardar   a alteração.
 
-     :::image type="content" source="./media/how-to-manage-high-availability-portal/enable-high-availability.png" alt-text="Ativar a alta disponibilidade"::: 
+     :::image type="content" source="./media/how-to-manage-high-availability-portal/enable-high-availability.png" alt-text="Ver subscrição e região"::: 
 
 4.  Um diálogo de confirmação mostrará que, ao permitir uma elevada disponibilidade, o seu custo aumentará devido à implementação adicional do servidor e do armazenamento.
 
@@ -84,11 +84,11 @@ Siga estes passos para desativar a alta disponibilidade para o seu servidor flex
 
 2.  Na página do servidor flexível, clique em **Alta Disponibilidade** a partir do painel frontal para abrir a página de alta disponibilidade.
    
-    :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-left-panel.png" alt-text="Seleção de painéis esquerdos"::: 
+    :::image type="content" source="./media/how-to-manage-high-availability-portal/high-availability-left-panel.png" alt-text="Ver subscrição e região"::: 
 
 3.  Clique na caixa de verificação **de alta disponibilidade redundante** para **desativar** a opção. Em seguida, clique em **Guardar**   para guardar a alteração.
 
-     :::image type="content" source="./media/how-to-manage-high-availability-portal/disable-high-availability.png" alt-text="Desativar a alta disponibilidade"::: 
+     :::image type="content" source="./media/how-to-manage-high-availability-portal/disable-high-availability.png" alt-text="Ver subscrição e região"::: 
 
 4.  Será mostrado um diálogo de confirmação onde pode confirmar a desativação da alta disponibilidade.
 

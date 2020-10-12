@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 08/18/2020
 ms.openlocfilehash: 90267f2b75b7b9c1e77a45d7e3faa4b0bf6dd63a
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708548"
 ---
 # <a name="iot-edge-modules"></a>Módulos do IoT Edge
@@ -73,7 +73,7 @@ Para publicar um módulo IoT Edge no Azure Marketplace, tem de cumprir os seguin
 
 Os requisitos técnicos primários para um Módulo IoT Edge, para que seja certificado e publicado no Mercado Azure, são detalhados no Prepare os seus ativos técnicos do [módulo IoT Edge](./partner-center-portal/create-iot-edge-module-asset.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) para criar ou completar a sua oferta.
 - [Crie uma oferta de módulo IoT Edge](./partner-center-portal/azure-iot-edge-module-creation.md) no Partner Center.

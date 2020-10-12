@@ -10,12 +10,12 @@ ms.date: 05/01/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 0f6f193f531be746d3ef4920b86855ffa49efda2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d0063594309dc7a1c12c61b6dd18fec1d93f1082
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91260451"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893089"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Criar, desenvolver e manter cadernos do Synapse Studio (pré-visualização) em Azure Synapse Analytics
 
@@ -71,7 +71,7 @@ Pode definir a linguagem primária para novas células adicionadas da lista de d
 
 Pode utilizar várias línguas num só caderno especificando o comando mágico da linguagem correto no início de uma célula. A tabela que se segue lista os comandos mágicos para mudar as línguas celulares.
 
-|Comando mágico |Linguagem | Description |  
+|Comando mágico |Idioma | Descrição |  
 |---|------|-----|
 |%%pyspark| Python | Execute uma consulta **python** contra o contexto de faísca.  |
 |%%faísca| Scala | Execute uma consulta **scala** contra o Contexto de Faíscas.  |  
@@ -90,8 +90,8 @@ Não é possível fazer referência a dados ou variáveis diretamente em diferen
 
    ```scala
    %%scala
-   val scalaDataFrame = spark.read.option("format", "DW connector predefined type")
-   scalaDataFrame.registerTempTable( "mydataframetable" )
+   val scalaDataFrame = spark.read.sqlanalytics("mySQLPoolDatabase.dbo.mySQLPoolTable")
+   scalaDataFrame.createOrReplaceTempView( "mydataframetable" )
    ```
 
 2. Na Célula 2, consultar os dados utilizando o Spark SQL.
@@ -114,12 +114,12 @@ Os cadernos do Azure Synapse Studio estão integrados com o editor do Mónaco pa
 
 As características do IntelliSense estão em diferentes níveis de maturidade para diferentes línguas. Use a tabela abaixo para ver o que é suportado.
 
-|Idiomas| Destaque de sintaxe | Marcador de erro de sintaxe  | Conclusão do Código sintaxe | Conclusão do código variável| Conclusão do código de função do sistema| Conclusão do código de função do utilizador| Avanço Inteligente | Dobragem de código|
+|Linguagens| Destaque de sintaxe | Marcador de erro de sintaxe  | Conclusão do Código sintaxe | Conclusão do código variável| Conclusão do código de função do sistema| Conclusão do código de função do utilizador| Avanço Inteligente | Dobragem de código|
 |--|--|--|--|--|--|--|--|--|
-|PySpark (Python)|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
-|Faísca (Scala)|Yes|Yes|Yes|Yes|-|-|-|Yes|
-|Sparksql|Yes|Yes|-|-|-|-|-|-|
-|.NET for Spark (C#)|Yes|-|-|-|-|-|-|-|
+|PySpark (Python)|Sim|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
+|Faísca (Scala)|Sim|Sim|Sim|Sim|-|-|-|Sim|
+|Sparksql|Sim|Sim|-|-|-|-|-|-|
+|.NET for Spark (C#)|Sim|-|-|-|-|-|-|-|
 
 ### <a name="format-text-cell-with-toolbar-buttons"></a>Célula de texto de formato com botões de barra de ferramentas
 

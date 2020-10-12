@@ -10,10 +10,10 @@ ms.date: 08/20/2019
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
 ms.openlocfilehash: d99cc571394ad7a9c85fb7367c672f96a7302362
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89018506"
 ---
 # <a name="schedule-and-broadcast-jobs-net"></a>Horários e trabalhos de transmissão (.NET)
@@ -58,7 +58,7 @@ No final deste tutorial, tem duas aplicações de consola .NET (C#):
 
 * Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste artigo utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode ser bloqueado em alguns ambientes de rede corporativa e educacional. Para obter mais informações e formas de contornar esta questão, consulte [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -78,7 +78,7 @@ Nesta secção, cria-se uma aplicação de consola .NET que responde a um métod
 
 1. No Solution Explorer, clique com o botão direito no projeto **SimulateDeviceMethods** e, em seguida, selecione **Gerir pacotes NuGet**.
 
-1. No **NuGet Package Manager**, selecione **Procurar** e escolher **Microsoft.Azure.Devices.Client**. Selecione **Install** (Instalar).
+1. No **NuGet Package Manager**, selecione **Procurar** e escolher **Microsoft.Azure.Devices.Client**. Selecione **Instalar**.
 
     ![Aplicativo de cliente de janela do Gestor de pacotes NuGet](./media/iot-hub-csharp-csharp-schedule-jobs/device-app-nuget.png)
 

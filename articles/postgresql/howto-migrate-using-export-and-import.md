@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.openlocfilehash: 080f444d50dcdf17be15d940002b745624b2f6a0
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708531"
 ---
 # <a name="migrate-your-postgresql-database-using-export-and-import"></a>Migrar a sua base de dados PostgreSQL utilizando exportação e importação
@@ -56,6 +56,6 @@ psql --file=testdb.sql --host=mydemoserver.database.windows.net --port=5432 --us
 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 - Para migrar uma base de dados PostgreSQL utilizando o despejo e restaurar, consulte [migrar a sua base de dados PostgreSQL utilizando o despejo e restaurar](howto-migrate-using-dump-and-restore.md).
 - Para obter mais informações sobre bases de dados migratórias para a Base de Dados Azure para PostgreSQL, consulte o [Guia de Migração da Base de Dados.](https://aka.ms/datamigration)

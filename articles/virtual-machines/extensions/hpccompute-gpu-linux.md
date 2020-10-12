@@ -14,17 +14,17 @@ ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: akjosh
 ms.openlocfilehash: 52f896e5cbcc8089ee8683338c99fb514400be4a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86511148"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extensão do condutor do GPU da NVIDIA para o Linux
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
-Esta extensão instala controladores GPU NVIDIA em VMs da série Linux N. Dependendo da família VM, a extensão instala os controladores CUDA ou GRID. Ao instalar controladores NVIDIA utilizando esta extensão, está a aceitar e a concordar com os termos do Contrato de [Licença de Utilizador Final da NVIDIA.](https://go.microsoft.com/fwlink/?linkid=874330) Durante o processo de instalação, o VM pode reiniciar para completar a configuração do controlador.
+Esta extensão instala controladores GPU NVIDIA em VMs da série Linux N. Dependendo da família VM, a extensão instala os controladores CUDA ou GRID. Ao instalar controladores NVIDIA utilizando esta extensão, está a aceitar e a concordar com os termos do Contrato de [Licença End-User NVIDIA.](https://go.microsoft.com/fwlink/?linkid=874330) Durante o processo de instalação, o VM pode reiniciar para completar a configuração do controlador.
 
 As instruções sobre a instalação manual dos controladores e as versões suportadas atuais estão disponíveis [aqui](../linux/n-series-driver-setup.md).
 Uma extensão também está disponível para instalar controladores GPU NVIDIA em [VMs da série N do Windows](hpccompute-gpu-windows.md)N.
@@ -71,9 +71,9 @@ O JSON seguinte mostra o esquema para a extensão.
 
 ### <a name="properties"></a>Propriedades
 
-| Name | Valor / Exemplo | Tipo de Dados |
+| Nome | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | data |
+| apiVersion | 2015-06-15 | date |
 | publicador | Microsoft.HpcCompute | string |
 | tipo | NvidiaGpuDriverLinux | string |
 | typeHandlerVersion | 1.3 | int |
@@ -165,7 +165,7 @@ az vm extension set \
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio
 
-### <a name="troubleshoot"></a>Resolver Problemas
+### <a name="troubleshoot"></a>Resolução de problemas
 
 Os dados sobre o estado das extensões podem ser recuperados a partir do portal Azure, e utilizando a Azure PowerShell e a Azure CLI. Para ver o estado de implantação das extensões para um determinado VM, executar o seguinte comando.
 
@@ -200,7 +200,7 @@ A saída de execução de extensão é registada no seguinte ficheiro. Consulte 
 
 Se precisar de mais ajuda em qualquer ponto deste artigo, pode contactar os especialistas da Azure nos [fóruns msdn Azure e Stack Overflow](https://azure.microsoft.com/support/community/). Em alternativa, pode apresentar um incidente de suporte Azure. Vá ao [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para obter informações sobre a utilização do Suporte Azure, leia o [suporte do Microsoft Azure FAQ](https://azure.microsoft.com/support/faq/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre extensões, consulte [extensões e funcionalidades de máquina virtual para Linux.](features-linux.md)
 
 Para obter mais informações sobre VMs da série N, consulte [os tamanhos de máquinas virtuais otimizados da GPU.](../sizes-gpu.md)

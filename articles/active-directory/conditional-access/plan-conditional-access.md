@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9f1d4c5b55dd2a24c1fb41540fdc5d3ae26849a2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91258681"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planear a implementação do Acesso Condicional
@@ -30,7 +30,7 @@ O Azure Ative Directy (Azure AD) Conditional Access (CA) analisa sinais como uti
 
 A Microsoft fornece políticas condicionais padrão chamadas [padrão de segurança](../fundamentals/concept-fundamentals-security-defaults.md) que garantem um nível básico de segurança. No entanto, a sua organização pode precisar de mais flexibilidade do que a oferta de incumprimentos de segurança. Pode utilizar o Acesso Condicional para personalizar falhas de segurança com mais granularidade e para configurar novas políticas que satisfaçam os seus requisitos.
 
-## <a name="learn"></a>Learn
+## <a name="learn"></a>Saiba mais
 
 Antes de começar, certifique-se de que compreende como funciona [o Acesso Condicional](overview.md) e quando deve usá-lo.
 
@@ -493,7 +493,7 @@ Assim que tiver recolhido a informação, consulte os seguintes recursos:
 
 * [Problemas de login com Acesso Condicional](troubleshoot-conditional-access.md) – Compreenda os resultados inesperados de login relacionados com o Acesso Condicional utilizando mensagens de erro e registo de login AD Azure.
 
-* [Utilização da ferramenta What-If](troubleshoot-conditional-access-what-if.md) - Entenda por que uma política foi ou não aplicada a um utilizador em circunstância específica ou se uma política seria aplicada num estado conhecido.
+* [Utilizando a ferramenta What-If](troubleshoot-conditional-access-what-if.md) - Compreenda por que uma política foi ou não aplicada a um utilizador em circunstâncias específicas ou se uma política seria aplicada num estado conhecido.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

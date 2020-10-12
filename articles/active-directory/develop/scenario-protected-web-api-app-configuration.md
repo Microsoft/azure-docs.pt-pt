@@ -13,10 +13,10 @@ ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 613ba527c8f86257dd271d3cc9e43c97fc475068
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91257457"
 ---
 # <a name="protected-web-api-code-configuration"></a>API web protegida: configuração de código
@@ -195,7 +195,7 @@ Os passos de validação são capturados em validadores, que são fornecidos pel
 
 Esta tabela descreve os validadores:
 
-| Validador | Description |
+| Validador | Descrição |
 |---------|---------|
 | **ValidarAudiência** | Garante que o token é para a aplicação que valida o token para si. |
 | **ValidarIssuer** | Garante que o símbolo foi emitido por uma STS de confiança, o que significa que é de alguém em quem confias. |

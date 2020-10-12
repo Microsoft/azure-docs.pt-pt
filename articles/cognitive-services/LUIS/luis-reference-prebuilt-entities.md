@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/20/2020
 ms.openlocfilehash: 7a4654b8f389ad18010bb4ad211103f2816a18ee
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91542007"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entidades por cultura no seu modelo LUIS
@@ -54,7 +54,7 @@ São apoiadas as seguintes entidades:
 | --------------- | :---: |
 [Idade:](luis-reference-prebuilt-age.md)<br>ano<br>month<br>semana<br>day   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, V3   |
-[Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>data<br>encontro<br>hora<br>timerange   |    V2, V3   |
+[Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>date<br>encontro<br>hora<br>timerange   |    V2, V3   |
 [Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milha por hora)  |    V2, V3   |
 [E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
@@ -98,7 +98,7 @@ São apoiadas as seguintes entidades:
 | --------------- | :---: |
 [Idade:](luis-reference-prebuilt-age.md)<br>ano<br>month<br>semana<br>day   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, V3   |
-[Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>data<br>encontro<br>hora<br>timerange   |    V2, V3   |
+[Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>date<br>encontro<br>hora<br>timerange   |    V2, V3   |
 [Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milha por hora)  |    V2, V3   |
 [E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    V2, V3   |
@@ -120,7 +120,7 @@ São apoiadas as seguintes entidades:
 | --------------- | :---: |
 [Idade:](luis-reference-prebuilt-age.md)<br>ano<br>month<br>semana<br>day   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, V3   |
-[Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>data<br>encontro<br>hora<br>timerange   |    V2, V3   |
+[Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>date<br>encontro<br>hora<br>timerange   |    V2, V3   |
 [Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milha por hora)  |    V2, V3   |
 [E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
@@ -142,7 +142,7 @@ São apoiadas as seguintes entidades:
 | --------------- | :---: |
 [Idade:](luis-reference-prebuilt-age.md)<br>ano<br>month<br>semana<br>day   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, V3   |
-[Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>data<br>encontro<br>hora<br>timerange   |    V2, V3   |
+[Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>date<br>encontro<br>hora<br>timerange   |    V2, V3   |
 [Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milha por hora)  |    V2, V3   |
 [E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
@@ -164,7 +164,7 @@ São apoiadas as seguintes entidades:
 | -------------- | :---: |
 [Idade:](luis-reference-prebuilt-age.md)<br>ano<br>month<br>semana<br>day   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, V3   |
-[Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>data<br>encontro<br>hora<br>timerange   |    V2, V3   |
+[Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>date<br>encontro<br>hora<br>timerange   |    V2, V3   |
 [Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milha por hora)  |    V2, V3   |
 [E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
@@ -254,7 +254,7 @@ São apoiadas as seguintes entidades:
 | --------------- | :---: |
 [Idade:](luis-reference-prebuilt-age.md)<br>ano<br>month<br>semana<br>day   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, V3   |
-[Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>data<br>encontro<br>hora<br>timerange   |    V2, V3   |
+[Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>date<br>encontro<br>hora<br>timerange   |    V2, V3   |
 [Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milha por hora)  |    V2, V3   |
 [E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
@@ -276,7 +276,7 @@ São apoiadas as seguintes entidades:
 | --------------- | :---: |
 [Idade:](luis-reference-prebuilt-age.md)<br>ano<br>month<br>semana<br>day   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    V2, V3   |
-[Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>data<br>encontro<br>hora<br>timerange   |    V2, V3   |
+[Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>date<br>encontro<br>hora<br>timerange   |    V2, V3   |
 [Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milha por hora)  |    V2, V3   |
 [E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
@@ -298,7 +298,7 @@ São apoiadas as seguintes entidades:
 | --------------- | :---: |
 [Idade:](luis-reference-prebuilt-age.md)<br>ano<br>month<br>semana<br>day   |    -   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionada (ex: penny)  |    -   |
-[Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>data<br>encontro<br>hora<br>timerange   |    -   |
+[Hora da dataV2:](luis-reference-prebuilt-datetimev2.md)<br>date<br>encontro<br>hora<br>timerange   |    -   |
 [Dimensão:](luis-reference-prebuilt-dimension.md)<br>volume<br>área<br>peso<br>informação (ex: bit/byte)<br>comprimento (ex: medidor)<br>velocidade (ex: milha por hora)  |    -   |
 [E-mail](luis-reference-prebuilt-email.md)   |    V2, V3   |
 [GeografiaV2](luis-reference-prebuilt-geographyV2.md)   |    -   |
@@ -346,10 +346,10 @@ KeyPhrase is not available.
 -->
 
 ## <a name="contribute-to-prebuilt-entity-cultures"></a>Contribuir para culturas de entidades pré-construídas
-As entidades pré-construídas são desenvolvidas no projeto Recognisers-Text open-source. [Contribuir](https://github.com/Microsoft/Recognizers-Text) para o projeto. Este projeto inclui exemplos de moeda por cultura.
+As entidades pré-construídas são desenvolvidas no Recognizers-Text projeto de código aberto. [Contribuir](https://github.com/Microsoft/Recognizers-Text) para o projeto. Este projeto inclui exemplos de moeda por cultura.
 
-GeografiaV2 e PersonName não estão incluídos no projeto Recognisers-Text. Para questões com estas entidades pré-construídas, por favor abra um pedido de [apoio.](../../azure-portal/supportability/how-to-create-azure-support-request.md)
+GeografiaV2 e PersonName não estão incluídos no projeto Recognizers-Text. Para questões com estas entidades pré-construídas, por favor abra um pedido de [apoio.](../../azure-portal/supportability/how-to-create-azure-support-request.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre o [número,](luis-reference-prebuilt-number.md) [datav2](luis-reference-prebuilt-datetimev2.md)e entidades [monetárias.](luis-reference-prebuilt-currency.md)

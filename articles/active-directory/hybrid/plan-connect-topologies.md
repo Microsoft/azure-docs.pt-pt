@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7616ceed812b21f471609d95f59a0d0270dd7f52
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89658512"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologias do Azure AD Connect
@@ -197,7 +197,7 @@ Pode utilizar o FIM 2010 ou o MIM 2016 no local para sincronizar os utilizadores
 
 O servidor Azure Ative Directory Connect comunica com o Azure Ative Directory através do backend Azure Ative Directory Connect. O único software que pode ser usado para comunicar com este backend é o Azure Ative Directory Connect. Não é suportado para comunicar com o backend Azure Ative Directory Connect utilizando qualquer outro software ou método. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para aprender a instalar o Azure AD Connect para estes cenários, consulte [a instalação personalizada do Azure AD Connect](how-to-connect-install-custom.md).
 
 Saiba mais sobre a configuração da [sincronização Azure AD Connect.](how-to-connect-sync-whatis.md)

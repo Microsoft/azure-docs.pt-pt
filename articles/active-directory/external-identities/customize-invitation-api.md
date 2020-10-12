@@ -12,10 +12,10 @@ manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2cc959d23aebea082d873e9474998e7f17b1b320
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295163"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Ative Directy B2B colaboração API e personalização
@@ -100,7 +100,7 @@ Pode utilizar as seguintes opções:
 
 ### <a name="invitation-status"></a>Estatuto do convite
 
-Depois de enviar um convite a um utilizador externo, pode utilizar o **cmdlet Get-AzureADUser** para ver se o aceitaram. As seguintes propriedades da Get-AzureADUser são povoadas quando um utilizador externo é enviado um convite:
+Depois de enviar um convite a um utilizador externo, pode utilizar o **cmdlet Get-AzureADUser** para ver se o aceitaram. As seguintes propriedades de Get-AzureADUser são povoadas quando um utilizador externo é enviado um convite:
 
 * **O UserState** indica se o convite é **pendente** ou **aceite.**
 * **UserStateChangedOn** mostra o tempo de pontuação para a última alteração na propriedade **UserState.**
@@ -115,7 +115,7 @@ Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Proper
 > [!NOTE]
 > Certifique-se de que tem a versão mais recente do módulo AzureAD PowerShell ou do módulo AzureADPreview PowerShell. 
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 Confira a referência a API do convite em [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) .
 

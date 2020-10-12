@@ -7,10 +7,10 @@ ms.date: 11/01/2017
 ms.author: vturecek
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 9b45ceaed9f0d3d64a0fc6890549542acc6b1c21
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89018642"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Como utilizar as APIs de comunicação de Serviços Fiáveis

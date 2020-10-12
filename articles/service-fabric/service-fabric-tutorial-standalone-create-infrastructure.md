@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 05/11/2018
 ms.custom: mvc
 ms.openlocfilehash: c7a18b0dcdc04bdf66ac4b36ce7376ee018eb238
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91842908"
 ---
 # <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Tutorial: Criar a infraestrutura do AWS para alojar um cluster do Service Fabric

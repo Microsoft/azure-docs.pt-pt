@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/08/2019
 ms.openlocfilehash: 4867a065a85fab1e4abc7f19401239e5b76e1da4
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541412"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Como utilizar o Dashboard para melhorar a sua aplicação
@@ -152,7 +152,7 @@ Determine as percentagens limiar com as quais se sinta confortável para o seu n
 
 O filtro permite-lhe encontrar intenções com questões específicas:
 
-|Filtro|Percentagem sugerida|Objetivo|
+|Filtrar|Percentagem sugerida|Objetivo|
 |--|--|--|
 |As intenções mais problemáticas|-|**Comece aqui** - Corrigir as expressões nesta intenção melhorará a aplicação mais do que outras correções.|
 |Previsões corretas abaixo|60%|Esta é a percentagem de declarações na intenção selecionada que estão corretas, mas têm uma pontuação de confiança abaixo do limiar. |
@@ -167,6 +167,6 @@ O que é uma previsão confiante de confiança para si? No início do desenvolvi
 
 Estes dois filtros permitem-lhe encontrar expressões na intenção selecionada para além do seu limiar. Pode pensar nestas duas percentagens como percentagens de erro. Se se sentir confortável com uma taxa de erro de 10-15% para as previsões, desagure o limiar do filtro para 15% para encontrar todas as expressões acima deste valor.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Gerir os seus recursos do Azure](luis-how-to-azure-subscription.md)
