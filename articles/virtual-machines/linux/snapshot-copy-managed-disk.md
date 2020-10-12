@@ -10,10 +10,10 @@ ms.date: 07/11/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: 6374108247b9bfb950c42495b13b501ded8a02d2
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89318000"
 ---
 # <a name="create-a-snapshot-using-the-portal-or-azure-cli"></a>Crie um instantâneo utilizando o portal ou O Azure CLI
@@ -68,7 +68,7 @@ az snapshot list \
 9. Clique em **Criar**.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
  Crie uma máquina virtual a partir de um instantâneo criando um disco gerido a partir do instantâneo e, em seguida, anexando o novo disco gerido como o disco SO. Para obter mais informações, consulte o [Create a VM a partir de um](./../scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fcli%2fmodule%2ftoc.json) script instantâneo.
 

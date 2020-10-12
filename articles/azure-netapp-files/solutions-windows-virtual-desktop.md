@@ -15,13 +15,13 @@ ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: b-juche
 ms.openlocfilehash: a003090fd610f2ac75895cccbf97750adbd4cfcd
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88258325"
 ---
-# <a name="benefits-of-using-azure-netapp-files-with-windows-virtual-desktop"></a>Benefícios da utilização de ficheiros Azure NetApp com desktop virtual do Windows 
+# <a name="benefits-of-using-azure-netapp-files-with-windows-virtual-desktop"></a>Benefícios da utilização do Azure NetApp Files com o Windows Virtual Desktop 
 
 Este artigo fornece orientações de boas práticas sobre a implementação do Windows Virtual Desktop (WVD) com ficheiros Azure NetApp.
 

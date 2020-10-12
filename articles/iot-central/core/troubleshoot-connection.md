@@ -8,13 +8,13 @@ ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
 ms.openlocfilehash: 2bf48b6808fccb1f4344e66a2b8f1fc2d4c52ef6
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89322454"
 ---
-# <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>Resolução de problemas Por que os dados dos seus dispositivos não aparecem na Azure IoT Central
+# <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>Resolver problemas relacionados com a não apresentação dos dados dos seus dispositivos no Azure IoT Central
 
 Este documento ajuda os desenvolvedores de dispositivos a descobrir por que os dados que os seus dispositivos estão a enviar para a IoT Central podem não estar a aparecer na aplicação.
 
@@ -131,7 +131,7 @@ https://aka.ms/iotcentral-docs-dps-SAS",
 
 | Estado de provisionamento do dispositivo | Descrição | Possível mitigação |
 | - | - | - |
-| Provisionado | Não há problema imediatamente reconhecível. | N/D |
+| Aprovisionado | Não há problema imediatamente reconhecível. | N/D |
 | Registado | O dispositivo ainda não está ligado à IoT Central. | Verifique se os registos do seu dispositivo têm problemas de conectividade. |
 | Bloqueado | O dispositivo está bloqueado da ligação à IoT Central. | O dispositivo está bloqueado da ligação à aplicação IoT Central. Desbloqueie o dispositivo na IoT Central e recomprina. Para saber mais, consulte [dispositivos Block](concepts-get-connected.md#device-status-values). |
 | Não aprovado | O dispositivo não está aprovado. | O dispositivo não está aprovado para ligar à aplicação IoT Central. Aprove o dispositivo na IoT Central e redaça. Para saber mais, consulte [Dispositivos Aprovados](concepts-get-connected.md#connect-without-registering-devices) |
@@ -209,7 +209,7 @@ Quando tiver detetado o problema, poderá necessitar de atualizar o firmware do 
 
 Se escolheu criar um novo modelo que modele os dados corretamente, migrar dispositivos do seu modelo antigo para o novo modelo. Para saber mais, consulte [Gerir os dispositivos na sua aplicação Azure IoT Central](howto-manage-devices.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se precisar de mais ajuda, pode contactar os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/community/). Em alternativa, pode arquivar um [bilhete de apoio Azure.](https://portal.azure.com/#create/Microsoft.Support)
 

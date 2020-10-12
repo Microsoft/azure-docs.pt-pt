@@ -9,10 +9,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 08/12/2020
 ms.openlocfilehash: eff1db3aca2cab77d18698634b84e8e1b1c99f7e
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89375890"
 ---
 # <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>Como rever e publicar uma oferta ao mercado comercial
@@ -171,6 +171,6 @@ Agora que escolheu ir ao vivo com a sua oferta, que a disponibiliza no mercado c
 
 Após estes cheques de validação estarem completos, a sua oferta será ao vivo no mercado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Aceder a relatórios analíticos para o mercado comercial no Partner Center](partner-center-portal/analytics.md)

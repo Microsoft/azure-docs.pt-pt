@@ -8,10 +8,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: 7c70c82615df111f265604ff0984aa452d68565f
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91704355"
 ---
 # <a name="handling-transient-connectivity-errors-for-azure-database-for-postgresql---single-server"></a>Processamento de erros de conectividade transitórios da Base de Dados do Azure para PostgreSQL – Servidor Único
@@ -44,6 +44,6 @@ Quando o seu programa comunicar com a Azure Database para PostgreSQL através de
 
 Certifique-se de testar a sua lógica de relículo. Por exemplo, tente executar o seu código enquanto escala os recursos de computação do seu servidor Azure Database para o servidor PostgreSQL. A sua aplicação deve tratar do breve tempo de paragem que se encontra durante esta operação sem problemas.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * [Resolver problemas de ligação à Base de Dados do Azure para PostgreSQL](howto-troubleshoot-common-connection-issues.md)

@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre como ligar a Akka Streams a
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: 1fbbeef37c4cbdd52d2127c5242474ac46e42d25
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90061704"
 ---
 # <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Utilizar o Akka Streams com os Hubs de Eventos para o Apache Kafka
@@ -130,7 +130,7 @@ Se o centro de eventos tiver eventos (por exemplo, se o seu produtor também est
 
 Consulte o [Guia kafka Akka Streams](https://doc.akka.io/docs/akka-stream-kafka/current/home.html) para obter informações mais detalhadas sobre a Akka Streams.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre os Centros de Eventos para Kafka, consulte os seguintes artigos:  
 
 - [Espelhar um mediador de Kafka num hub de eventos](event-hubs-kafka-mirror-maker-tutorial.md)

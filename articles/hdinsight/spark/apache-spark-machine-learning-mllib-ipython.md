@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, devx-track-python
 ms.date: 04/27/2020
 ms.openlocfilehash: bd61c6812d794d30e28f087dabf58db51e9c3296
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89230420"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Use Apache Spark MLlib para construir uma aplicação de machine learning e analisar um conjunto de dados
@@ -349,7 +349,7 @@ Pode agora construir uma visualização final para ajudá-lo a raciocinar sobre 
     plt.axis('equal')
     ```
 
-    Deverá ver o resultado seguinte:
+    Deverá ver o seguinte resultado:
 
     ![Produção de aplicação de aprendizagem de máquinas de faísca - percentagens de gráfico de tortas de inspeções alimentares falhadas.](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Saída de resultado de aprendizagem de máquina de faísca")
 

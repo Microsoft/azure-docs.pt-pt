@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: v-erkel
 ms.openlocfilehash: b01c4d896d5ec600e0fe22e3ca7b7816141776a4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86497204"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>Configurar configurações adicionais de cache Azure HPC

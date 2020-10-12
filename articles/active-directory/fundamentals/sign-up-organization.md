@@ -14,10 +14,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9cc6f0a6325aabae18460d696c2c1b1b2c8f7f74
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89568851"
 ---
 # <a name="sign-up-your-organization-to-use-azure-active-directory"></a>Inscreva-se na sua organização para utilizar o Azure Ative Directory
@@ -30,7 +30,7 @@ Inscreva-se no Azure Ative Directory (Azure AD) ou numa nova subscrição do Mic
   > [!Note]
   >   Recomendamos que utilize o seu trabalho ou conta escolar se já tiver acesso ao Azure AD. No entanto, deve utilizar qualquer tipo de conta associada à sua subscrição do Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Como comprar a Azure](https://azure.microsoft.com/pricing/purchase-options/)
 

@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: dba7a3cc7a68d360fd6e56511b71ae364f624646
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89569288"
 ---
 O fuso horário padrão utilizado com as expressões CRON é Tempo Universal Coordenado (UTC). Para ter a sua expressão CRON baseada em outro fuso horário, crie uma definição de aplicação para a sua aplicação de função chamada `WEBSITE_TIME_ZONE` . 

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
 ms.openlocfilehash: 06cf0a5692b3d80a07c305f53c9e3801cbdb5110
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764014"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Criar e partilhar dashboards no portal do Azure
@@ -142,7 +142,7 @@ Para utilizar um dashboard existente como modelo para um novo painel de instrume
 
 ## <a name="publish-and-share-a-dashboard"></a>Publicar e partilhar um dashboard
 
-Quando se cria um painel, é privado por defeito, o que significa que é o único que pode vê-lo. Para disponibilizar dashboards a outros, pode publicá-los e partilhá-los. Para obter mais informações, consulte [os dashboards Share Azure utilizando o Controlo de Acesso Baseado em Funções](azure-portal-dashboard-share-access.md).
+Quando se cria um painel, é privado por defeito, o que significa que é o único que pode vê-lo. Para disponibilizar dashboards a outros, pode publicá-los e partilhá-los. Para obter mais informações, consulte [os dashboards Share Azure utilizando Role-Based Access Control](azure-portal-dashboard-share-access.md).
 
 ### <a name="open-a-shared-dashboard"></a>Abra um painel partilhado
 
@@ -176,7 +176,7 @@ Para eliminar permanentemente um dashboard privado ou partilhado, siga estes pas
 
     ![Screenshot da confirmação de exclusão](./media/azure-portal-dashboards/dashboard-delete-dash.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Partilhar dashboards do Azure mediante a utilização do Controlo de Acesso Baseado em Funções](azure-portal-dashboard-share-access.md)
 * [Criar programaticamente dashboards do Azure](azure-portal-dashboards-create-programmatically.md)

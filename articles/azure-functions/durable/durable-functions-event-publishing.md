@@ -4,10 +4,10 @@ description: Saiba como configurar a publicação automática da Azure Event Gri
 ms.topic: conceptual
 ms.date: 04/25/2020
 ms.openlocfilehash: e4651dd7548ba76380bfc2d1b314e67d7abe63d9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87081751"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Funções Duradouras publicadas na Grelha de Eventos Azure (pré-visualização)
@@ -132,11 +132,11 @@ Utilizando o portal Azure, crie outra aplicação de função para ouvir os even
 
 1. Procure por **Grade de Eventos**e, em seguida, selecione o modelo **de gatilho da grelha de eventos Azure.** 
 
-    :::image type="content" source="./media/durable-functions-event-publishing/function-select-event-grid-trigger.png" alt-text="Selecione o modelo de gatilho da grelha de evento no portal Azure." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/function-select-event-grid-trigger.png" alt-text="Adicione uma função no portal Azure." border="true":::
 
 1. Nomeie o novo gatilho e, em seguida, **selecione Criar Função**.
 
-    :::image type="content" source="./media/durable-functions-event-publishing/function-name-event-grid-trigger.png" alt-text="Nomeie o gatilho da grelha de eventos no portal Azure." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/function-name-event-grid-trigger.png" alt-text="Adicione uma função no portal Azure." border="true":::
 
 
     É criada uma função com o seguinte código:
@@ -172,11 +172,11 @@ Agora pode adicionar uma subscrição de Grade de Eventos para o tópico 'Grade 
 
 1. Na sua nova função, selecione **Integração** e, em seguida, selecione **Event Grid Trigger (eventGridEvent)**. 
 
-    :::image type="content" source="./media/durable-functions-event-publishing/eventgrid-trigger-link.png" alt-text="Selecione a ligação de gatilho da grelha de evento." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/eventgrid-trigger-link.png" alt-text="Adicione uma função no portal Azure." border="true":::
 
 1. Selecione **Criar Descrição da grelha de eventos**.
 
-    :::image type="content" source="./media/durable-functions-event-publishing/create-event-grid-subscription.png" alt-text="Crie a subscrição da Grade de Eventos." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/create-event-grid-subscription.png" alt-text="Adicione uma função no portal Azure." border="true":::
 
 1. Nomeie a subscrição do seu evento e selecione o tipo de tópico **de tópicos de grelha de evento.** 
 
@@ -184,7 +184,7 @@ Agora pode adicionar uma subscrição de Grade de Eventos para o tópico 'Grade 
 
 1. Selecione **Criar**.
 
-    :::image type="content" source="./media/durable-functions-event-publishing/event-grid-subscription-details.png" alt-text="Crie uma subscrição de Grade de Eventos." border="true":::
+    :::image type="content" source="./media/durable-functions-event-publishing/event-grid-subscription-details.png" alt-text="Adicione uma função no portal Azure." border="true":::
 
 Agora estás pronto para receber eventos de ciclo de vida.
 
@@ -237,7 +237,7 @@ No projeto Funções Duradouras que configuraste anteriormente, começa a depura
 A seguinte lista explica o esquema de eventos do ciclo de vida:
 
 * **`id`**: Identificador exclusivo para o evento Event Grid.
-* **`subject`**: Caminho para o tema do evento. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}`será, `Running` `Completed` , e `Failed` `Terminated` .  
+* **`subject`**: Caminho para o tema do evento. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` será, `Running` `Completed` , e `Failed` `Terminated` .  
 * **`data`**: Funções duradouras Parâmetros específicos.
   * **`hubName`**: [Nome TaskHub.](durable-functions-task-hubs.md)
   * **`functionName`**: Nome da função do orquestrador.

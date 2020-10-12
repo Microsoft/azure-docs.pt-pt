@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: e3419711c9a7358914f85574f6dbd5af29def1cf
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91403620"
 ---
 # <a name="how-to-configure-a-blob-indexer-in-azure-cognitive-search"></a>Como configurar um indexante blob na Pesquisa Cognitiva Azure
@@ -419,7 +419,7 @@ A tabela seguinte resume o processamento feito para cada formato de documento, e
 | RTF (aplicação/rtf) |`metadata_content_type`<br/>`metadata_author`<br/>`metadata_character_count`<br/>`metadata_creation_date`<br/>`metadata_page_count`<br/>`metadata_word_count`<br/> | Extrair texto|
 | Texto simples (texto/planície) |`metadata_content_type`<br/>`metadata_content_encoding`<br/> | Extrair texto|
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * [Indexadores na Pesquisa Cognitiva do Azure](search-indexer-overview.md)
 * [Compreender bolhas usando IA](search-blob-ai-integration.md)

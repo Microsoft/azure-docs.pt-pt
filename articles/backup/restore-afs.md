@@ -4,10 +4,10 @@ description: Saiba como utilizar o portal Azure para restaurar uma partilha de f
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.openlocfilehash: 35ca0936ae6efba716adb51f43326cdd5bfa2d98
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89376779"
 ---
 # <a name="restore-azure-file-shares"></a>Restaurar ações de ficheiros Azure
@@ -162,6 +162,6 @@ Também pode monitorizar o progresso da recuperação do cofre dos Serviços de 
 
     ![Ver detalhes restaurados](./media/restore-afs/restore-details.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como gerir as [cópias de segurança de partilha de ficheiros Azure](manage-afs-backup.md).

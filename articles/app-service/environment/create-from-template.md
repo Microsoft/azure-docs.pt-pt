@@ -8,10 +8,10 @@ ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: a6b9ba8c3f72b070ad1ec9ade9684a182e2dea08
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88962405"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Crie um ASE utilizando um modelo de Gestor de Recursos Azure

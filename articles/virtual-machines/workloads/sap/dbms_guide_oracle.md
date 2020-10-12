@@ -16,10 +16,10 @@ ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f953d87c53bc13af623c2bfd49ceb953280f8f2a
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540715"
 ---
 # <a name="azure-virtual-machines-oracle-dbms-deployment-for-sap-workload"></a>Azure Virtual Machines Oracle DBMS implantação para carga de trabalho SAP
@@ -416,13 +416,13 @@ Também pode utilizar o Azure Backup para executar uma cópia de segurança VM c
 
 
 ### <a name="high-availability"></a>Elevada disponibilidade
-A Oracle Data Guard é suportada para fins de alta disponibilidade e recuperação de desastres. Para obter falhas automáticas na Data Guard, é necessário utilizar o Fast-Start Failover (FSFA). O Observador (FSFA) desencadeou a falha. Se não utilizar o FSFA, só pode utilizar uma configuração manual de falha.
+A Oracle Data Guard é suportada para fins de alta disponibilidade e recuperação de desastres. Para obter falhas automáticas na Data Guard, a sua necessidade de utilizar Fast-Start Failover (FSFA). O Observador (FSFA) desencadeou a falha. Se não utilizar o FSFA, só pode utilizar uma configuração manual de falha.
 
 Para obter mais informações sobre a recuperação de desastres para bases de dados oracle em Azure, consulte [a recuperação de desastres para uma base de dados Oracle Database 12c em um ambiente Azure](../oracle/oracle-disaster-recovery.md).
 
 ### <a name="accelerated-networking"></a>Redes aceleradas
 Para as implementações da Oracle no Windows, recomendamos vivamente uma rede acelerada, tal como descrito em [rede acelerada Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Considere também as recomendações que são feitas em [Considerações para a implantação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md). 
-### <a name="other"></a>Outros
+### <a name="other"></a>Outro
 [Considerações para a implementação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md) descreve outros conceitos importantes relacionados com implementações de VMs com Oracle Database, incluindo conjuntos de disponibilidade de Azure e monitorização SAP.
 
 ## <a name="specifics-for-oracle-database-on-oracle-linux"></a>Especificidades para a Oracle Database em Oracle Linux
@@ -511,7 +511,7 @@ Para a funcionalidade de backup/restauro, as ferramentas SAP BR*para o oráculo 
 Para obter mais informações sobre como pode utilizar os serviços de Backup e Recuperação do Azure para fazer backup e recuperar bases de dados da Oracle, consulte [Back up e recupere uma base de dados oracle Database 12c numa máquina virtual Azure Linux](../oracle/oracle-backup-recovery.md).
 
 ### <a name="high-availability"></a>Elevada disponibilidade
-A Oracle Data Guard é suportada para fins de alta disponibilidade e recuperação de desastres. Para obter o failover automático na Data Guard, é necessário utilizar o Fast-Start Failover (FSFA). A funcionalidade Do Observador (FSFA) despoleta a falha. Se não utilizar o FSFA, só pode utilizar uma configuração manual de falha. Para obter mais informações, consulte [implementar o Oracle Data Guard numa máquina virtual Azure Linux](../oracle/configure-oracle-dataguard.md).
+A Oracle Data Guard é suportada para fins de alta disponibilidade e recuperação de desastres. Para obter falhas automáticas na Data Guard, é necessário utilizar Fast-Start Failover (FSFA). A funcionalidade Do Observador (FSFA) despoleta a falha. Se não utilizar o FSFA, só pode utilizar uma configuração manual de falha. Para obter mais informações, consulte [implementar o Oracle Data Guard numa máquina virtual Azure Linux](../oracle/configure-oracle-dataguard.md).
 
 
 Os aspetos de recuperação de desastres para as bases de dados da Oracle em Azure são apresentados no artigo [Recuperação de desastres para uma base de dados Oracle Database 12c em um ambiente Azure](../oracle/oracle-disaster-recovery.md).
@@ -527,7 +527,7 @@ sudo curl -so /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules https://raw.gi
 </code></pre>
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Leia o artigo 
 
 - [Considerações para a implantação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md)

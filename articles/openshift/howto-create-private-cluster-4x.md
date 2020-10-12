@@ -1,5 +1,5 @@
 ---
-title: Criar um aglomerado privado Azure Red Hat OpenShift 4
+title: Crie um aglomerado privado Azure Red Hat OpenShift 4
 description: Saiba como criar um cluster privado Azure Red Hat OpenShift com openshift 4
 ms.service: container-service
 ms.topic: article
@@ -9,13 +9,13 @@ ms.author: jasondel
 keywords: aro, openshift, az aro, chapéu vermelho, cli
 ms.custom: mvc
 ms.openlocfilehash: 11343ba668a4b74c436313f0abd4daed577c36d4
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89505357"
 ---
-# <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Criar um aglomerado privado Azure Red Hat OpenShift 4
+# <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Crie um aglomerado privado Azure Red Hat OpenShift 4
 
 Neste artigo, você vai preparar o seu ambiente para criar clusters privados Azure Red Hat OpenShift executando OpenShift 4. Vai aprender a:
 
@@ -25,7 +25,7 @@ Neste artigo, você vai preparar o seu ambiente para criar clusters privados Azu
 
 Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão Azure CLI 2.6.0 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 ### <a name="register-the-resource-providers"></a>Registar os fornecedores de recursos
 
@@ -256,7 +256,7 @@ Faça login no servidor API do cluster OpenShift utilizando o seguinte comando. 
 oc login $apiServer -u kubeadmin -p <kubeadmin password>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, foi implantado um cluster Azure Red Hat OpenShift com openshift 4. Aprendeu a:
 

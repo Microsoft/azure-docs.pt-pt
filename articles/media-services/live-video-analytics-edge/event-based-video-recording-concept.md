@@ -4,10 +4,10 @@ description: A gravação de vídeo baseada em eventos (EVR) refere-se ao proces
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.openlocfilehash: f3efd2b9be41928ab4721d6db4aa84c0f1f57e2f
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89568514"
 ---
 # <a name="event-based-video-recording"></a>Gravação de vídeo baseada em eventos  
@@ -46,7 +46,7 @@ Um evento do nó do detetor de movimento irá acionar o nó do processador do po
 Neste caso de utilização, podem ser utilizados sinais de outro sensor IoT para ativar a gravação de vídeo. O diagrama abaixo mostra uma representação gráfica de um gráfico mediático que aborda esta caixa de utilização. A representação JSON da topologia de gráficos de tal gráfico mediático pode ser encontrada [aqui](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-hubMessage-files/topology.json).
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/event-based-video-recording/other-sources.svg" alt-text="Gravação de vídeo baseada em eventos de outras fontes":::
+> :::image type="content" source="./media/event-based-video-recording/other-sources.svg" alt-text="Gravação de vídeo baseada na deteção de movimentos":::
 
 No diagrama, o sensor externo envia eventos para o IoT Edge Hub. Os eventos são então encaminhados para o nó do processador do portão de sinal através do nó [de mensagem IoT Hub.](media-graph-concept.md#iot-hub-message-source) O comportamento do nó do processador do portão de sinal é o mesmo que no caso de utilização anterior - abrirá e deixará o feed de vídeo ao vivo fluir do nó de origem RTSP para o nó da pia do ficheiro (ou nó do lavatório do ativo) quando é acionado pelo evento externo. 
 
@@ -57,7 +57,7 @@ Se utilizar um nó de lavatório de ficheiros, o vídeo será gravado no sistema
 Neste caso de utilização, pode gravar videoclips com base num sinal de um sistema lógico externo. Um exemplo de tal caso de utilização só pode ser gravar um videoclip quando um camião é detetado no vídeo do trânsito numa autoestrada. O diagrama abaixo mostra uma representação gráfica de um gráfico mediático que aborda esta caixa de utilização. A representação JSON da topologia de gráficos de tal gráfico mediático pode ser encontrada [aqui](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json).
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/event-based-video-recording/external-inferencing-module.svg" alt-text="Gravação de vídeo baseada num módulo de inferenculação externo":::
+> :::image type="content" source="./media/event-based-video-recording/external-inferencing-module.svg" alt-text="Gravação de vídeo baseada na deteção de movimentos":::
 
 No diagrama, o nó de origem RTSP capta o feed de vídeo ao vivo da câmara e entrega-o a dois ramos: um tem um nó [do processador do portão](media-graph-concept.md#signal-gate-processor) de sinal e o outro usa um nó de [extensão HTTP](media-graph-concept.md) para enviar dados para um módulo de lógica externa. O nó de extensão HTTP permite que o gráfico de mídia envie quadros de imagem (em formato JPEG, BMP ou PNG) para um serviço de inferência externa sobre REST. Este caminho de sinal normalmente só suporta taxas de fotogramas baixas (<5fps). Pode utilizar o nó do [processador do filtro da taxa de fotogramas](media-graph-concept.md#frame-rate-filter-processor) para baixar a taxa de fotogramas do vídeo que vai para o nó de extensão HTTP.
 
@@ -65,6 +65,6 @@ Os resultados do serviço de inferência externa são recuperados pelo nó de ex
 
 Um melhoramento a este exemplo é utilizar um processador de detetor de movimento antes do nó do processador de filtro de taxa de fotogramas. Isto reduzirá a carga no serviço de inferência, como durante a noite, quando pode haver longos períodos de tempo quando não há veículos na autoestrada. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Tutorial: gravação de vídeo baseada em eventos](event-based-video-recording-tutorial.md)

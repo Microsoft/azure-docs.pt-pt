@@ -8,10 +8,10 @@ ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: ee332eb7dea86e07c2d8f9b75a0e152dc7482a41
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87438836"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Ligação a fontes de dados no local com gateway de dados no local
@@ -46,7 +46,7 @@ Fluxo de dados e consultas:
 5. O gateway envia a consulta para a origem de dados para execução.
 6. Os resultados são enviados da origem de dados de volta para o gateway e, em seguida, para o serviço cloud e o seu servidor.
 
-## <a name="installing"></a>Installing
+## <a name="installing"></a>Instalação
 
 Ao instalar um ambiente de Serviços de Análise Azure, é importante que siga os passos descritos na [Instalação e configuure no local o portal de dados para os Serviços de Análise Azure](analysis-services-gateway-install.md). Este artigo é específico dos Serviços de Análise Azure. Inclui medidas adicionais necessárias para configurar um recurso de gateway de dados no local em Azure e ligar o servidor Azure Analysis Services ao recurso.
 
@@ -58,7 +58,7 @@ Recomenda-se que crie o seu recurso Azure Gateway na mesma subscrição que o se
 
 O gateway cria uma ligação de saída ao Azure Service Bus. Comunica com as portas de saída: TCP 443 (predefinida), 5671, 5672, 9350 a 9354.  O gateway não precisa de portas de entrada.
 
-Poderá ter de incluir endereços IP para a sua região de dados na sua firewall. Pode transferir a [lista de IPs do Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=56519). Esta lista é atualizada semanalmente. Os Endereços IP listados na lista de IPs do Azure Datacenter estão em notação CIDR. Para saber mais, consulte [o Roteamento Inter-Domínio Sem Classe](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+Poderá ter de incluir endereços IP para a sua região de dados na sua firewall. Pode transferir a [lista de IPs do Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=56519). Esta lista é atualizada semanalmente. Os Endereços IP listados na lista de IPs do Azure Datacenter estão em notação CIDR. Para saber mais, consulte [o Roteamento Inter-Domain Classless](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
 Seguem-se os nomes de domínio totalmente qualificados utilizados pelo gateway.
 

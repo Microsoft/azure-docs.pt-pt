@@ -14,10 +14,10 @@ ms.subservice: compliance
 ms.date: 09/06/2020
 ms.author: barclayn
 ms.openlocfilehash: 64ff2a2a7ad6f07aac959422eadec7f24b210d88
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89505870"
 ---
 # <a name="use-azure-active-directory-azure-ad-identity-governance-to-review-and-remove-external-users-who-no-longer-have-resource-access"></a>Utilize o Azure Ative Directory (Azure AD) Identity Governance para rever e remover utilizadores externos que já não têm acesso a recursos
@@ -74,7 +74,7 @@ Além da opção de remover identidades externas indesejadas de recursos como gr
 Ao criar uma nova Revisão de Acesso, na secção "Após as definições de conclusão", para **que a ação se aplique aos utilizadores negados,** pode definir os **utilizadores do Bloco a partir da entrada de entrada durante 30 dias e, em seguida, remover o utilizador do arrendatário**.
 Esta definição, atualmente em pré-visualização, permite identificar, bloquear e apagar identidades externas do seu inquilino AZure AD. As identidades externas que forem revistas e negadas ao acesso continuado pelo revisor serão bloqueadas e eliminadas, independentemente do acesso ao recurso ou da adesão ao grupo que possuam. Esta definição é melhor utilizada como último passo depois de ter validado que os utilizadores externos em revisão já não têm acesso a recursos e podem ser removidos com segurança do seu inquilino ou se quiser certificar-se de que são removidos, independentemente do seu acesso permanente. A função "Desativar e excluir" bloqueia primeiro o utilizador externo, tirando-lhe a capacidade de se inscrever no seu inquilino e aceder aos recursos. O acesso a recursos não é revogado nesta fase, e no caso de querer ressarciar o utilizador externo, a sua capacidade de iniciar sessão pode ser reconfigurada. Sem mais medidas, uma identidade externa bloqueada será eliminada do diretório após 30 dias, removendo a conta e o seu acesso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Revisões de acesso - Graph API](/graph/api/resources/accessreviews-root?view=graph-rest-beta)
 - [Gestão de direitos - Graph API](/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta)

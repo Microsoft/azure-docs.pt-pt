@@ -4,10 +4,10 @@ description: Neste artigo, aprenda tarefas comuns para gerir e monitorizar bases
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.openlocfilehash: e257aa7771f6f76a4d53f16255c2f3cbb80c8967
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89377459"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Gerir e monitorizar bases de dados do SAP HANA guardadas em cópia de segurança
@@ -57,7 +57,7 @@ Para saber mais sobre monitorização, vá à [Monitorização no portal Azure](
 
 O Azure Backup facilita a gestão de uma base de dados SAP HANA apoiada com uma abundância de operações de gestão que suporta. Estas operações são discutidas mais detalhadamente nas seguintes secções.
 
-### <a name="run-an-on-demand-backup"></a>Faça uma cópia de segurança a pedido
+### <a name="run-an-on-demand-backup"></a>Executar uma cópia de segurança a pedido
 
 Os backups são executados de acordo com o calendário de apólices. Pode executar uma cópia de segurança a pedido da seguinte forma:
 
@@ -242,6 +242,6 @@ Por vezes, a extensão da carga de trabalho no VM pode ser afetada por uma razã
 
 Utilize esta opção com cuidado: quando acionado num VM com uma extensão já saudável, esta operação fará com que a extensão seja reiniciada. Isto pode fazer com que todos os empregos em curso falhem. Verifique se existem um ou mais [dos sintomas](backup-azure-sap-hana-database-troubleshoot.md#re-registration-failures) antes de desencadear a operação de re-registo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [resolver problemas comuns ao fazer o backup das bases de dados SAP HANA.](./backup-azure-sap-hana-database-troubleshoot.md)

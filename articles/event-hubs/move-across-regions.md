@@ -4,10 +4,10 @@ description: Este artigo mostra-lhe como mover um espaço de nome Azure Event Hu
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.openlocfilehash: b177c3916919e3d97325f9d8c6b6027c00cb476f
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89375198"
 ---
 # <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Mover um espaço de nomes Azure Event Hubs para outra região
@@ -80,7 +80,7 @@ Para eliminar um espaço de nomes de Event Hubs (fonte ou alvo) utilizando o por
     ![Apagar espaço de nome - botão](./media/move-across-regions/delete-namespace-button.png)
 3. Na página **Delete Namespace,** confirme a eliminação digitando o **nome do espaço de nome**e, em seguida, selecione **Delete**. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você mudou um espaço de nome Azure Event Hubs de uma região para outra e limpou os recursos de origem.  Para saber mais sobre a movimentação de recursos entre regiões e recuperação de desastres em Azure, consulte:
 

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: victorh
 ms.openlocfilehash: df92e08e91761d77c606ccb5389eee7dc219c101
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91323391"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Configure o Serviço de Aplicações com Gateway de Aplicações
@@ -56,7 +56,7 @@ Neste artigo, vai aprender a:
 3. No **nome do anfitrião,** selecione **O nome do anfitrião do alvo backend**.
 4. Selecione **Guardar**.
 
-   :::image type="content" source="./media/configure-web-app-portal/http-settings.png" alt-text="Escolha o nome do anfitrião a partir das definições de backend http":::
+   :::image type="content" source="./media/configure-web-app-portal/http-settings.png" alt-text="Backend do serviço de aplicações":::
 
 ## <a name="additional-configuration-in-case-of-redirection-to-app-services-relative-path"></a>Configuração adicional em caso de reorientação para o caminho relativo do serviço de aplicações
 

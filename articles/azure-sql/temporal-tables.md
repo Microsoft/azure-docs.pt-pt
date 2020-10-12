@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: sstein
 ms.date: 06/26/2019
 ms.openlocfilehash: ea037d12417c8fad9d80b77df69285ed2c8df31b
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91618663"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database-and-azure-sql-managed-instance"></a>Começando com tabelas temporais na Base de Dados Azure SQL e Azure SQL Gestão De Instância
@@ -42,7 +42,7 @@ Dependendo se está a iniciar um novo desenvolvimento ou a atualizar a aplicaç�
 
 ### <a name="create-new-table"></a>Criar nova tabela
 
-Utilize o item do menu de contexto "Nova tabela versão do sistema" no SSMS Object Explorer para abrir o editor de consulta com um script de modelo de tabela temporal e, em seguida, usar "Especificar valores para parâmetros de modelo" (Ctrl+Shift+M) para preencher o modelo:
+Utilize o item do menu de contexto "Nova tabela de System-Versioned" no SSMS Object Explorer para abrir o editor de consulta com um script de modelo de tabela temporal e, em seguida, usar "Especificar valores para parâmetros de modelo" (Ctrl+Shift+M) para preencher o modelo:
 
 ![SSMSNewTable](./media/temporal-tables/AzureTemporal2.png)
 

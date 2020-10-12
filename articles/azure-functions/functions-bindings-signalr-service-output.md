@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 02/20/2020
 ms.author: cshoe
 ms.openlocfilehash: 7fa49583c17c198642d4ad6d72a0faa19dcfe659
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91323333"
 ---
 # <a name="signalr-service-output-binding-for-azure-functions"></a>Ligação de saída do Serviço SignalR para funções Azure
@@ -728,7 +728,7 @@ public SignalRGroupAction removeFromGroup(
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `SignalRConnectionInfo` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**tipo**| n/a | Deve ser definido para `signalRConnectionInfo` .|
 |**direção**| n/a | Deve ser definido para `in` .|
@@ -741,7 +741,7 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `SignalR` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**tipo**| n/a | Deve ser definido para `signalR` .|
 |**direção**| n/a | Deve ser definido para `out` .|

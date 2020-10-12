@@ -7,10 +7,10 @@ ms.date: 11/26/2018
 ms.author: gwallace
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 372e8a46bfe588aa22b0f3be0ef8ae442fa342e2
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91842704"
 ---
 # <a name="introduction-to-networking-in-service-fabric-mesh-applications"></a>Introdução à rede em aplicações de malha de tecido de serviço

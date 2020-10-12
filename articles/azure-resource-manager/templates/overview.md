@@ -4,10 +4,10 @@ description: Descreve os benefícios usando modelos de Gestor de Recursos Azure 
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.openlocfilehash: b1c61d5eac012f2b807c0121460804c46b12c8d0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86119366"
 ---
 # <a name="what-are-arm-templates"></a>O que são modelos do ARM?
@@ -16,7 +16,7 @@ Com a mudança para a nuvem, muitas equipas adotaram métodos de desenvolvimento
 
 Para responder a estes desafios, pode automatizar implementações e usar a prática da infraestrutura como código. Em código, define-se a infraestrutura que precisa de ser implantada. O código de infraestrutura torna-se parte do seu projeto. Tal como o código de aplicação, armazena-se o código de infraestrutura num repositório de origem e versão-o. Qualquer um na sua equipa pode executar o código e implementar ambientes semelhantes.
 
-Para implementar a infraestrutura como código para as suas soluções Azure, utilize os modelos Azure Resource Manager (ARM). O modelo é um ficheiro JavaScript Object Notation (JSON) que define a infraestrutura e configuração para o seu projeto. O modelo usa sintaxe declarativa, que permite indicar o que pretende implementar sem ter de escrever a sequência de comandos de programação para criá-la. No modelo, você especifica os recursos a implementar e as propriedades para esses recursos.
+Para implementar a infraestrutura como código para as suas soluções Azure, utilize os modelos Azure Resource Manager (ARM). O modelo é um ficheiro JavaScript Object Notation (JSON) que define a infraestrutura e configuração para o seu projeto. O modelo utiliza a sintaxe declarativa, que permite afirmar o que quer implementar sem ter de escrever a sequência de comandos de programação para a criar. No modelo, você especifica os recursos a implementar e as propriedades para esses recursos.
 
 ## <a name="why-choose-arm-templates"></a>Porquê escolher modelos ARM?
 
@@ -124,7 +124,7 @@ Se imaginar as suas camadas com ciclos de vida separados, pode implementar as tr
 
 Para obter mais informações sobre modelos aninhados, veja [Utilizar modelos ligados com o Azure Resource Manager](linked-templates.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para um tutorial passo a passo que o guia através do processo de criação de um modelo, consulte [Tutorial: Crie e implemente o seu primeiro modelo ARM](template-tutorial-create-first-template.md).
 * Para obter informações sobre as propriedades em ficheiros de modelos, consulte [compreender a estrutura e a sintaxe dos modelos ARM](template-syntax.md).

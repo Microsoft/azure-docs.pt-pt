@@ -9,15 +9,15 @@ ms.date: 2/1/2019
 ms.author: ripohane
 ms.reviewer: dineshm
 ms.openlocfilehash: 297595c6c4a9c82c3d0293f2cea2db66ea9ca54a
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89180410"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>Como montar o armazenamento Blob como um sistema de ficheiros com blobfuse
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 [Blobfuse](https://github.com/Azure/azure-storage-fuse) é um controlador de sistema de ficheiros virtual para o armazenamento Azure Blob. O Blobfuse permite-lhe aceder aos dados de blob existentes na sua conta de armazenamento através do sistema de ficheiros Linux. Blobfuse usa o esquema de diretório virtual com o "/" de corte avançado como um delimiter.  
 
 Este guia mostra-lhe como usar blobfuse, e montar um recipiente de armazenamento Blob no Linux e dados de acesso. Para saber mais sobre blobfuse, leia os detalhes no [repositório blobfuse.](https://github.com/Azure/azure-storage-fuse)

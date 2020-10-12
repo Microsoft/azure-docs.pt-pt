@@ -10,10 +10,10 @@ ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
 ms.openlocfilehash: 63bc3caf97e1325c365171ba3f8e6353885d9b68
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89322556"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>Criação de imagens generalizadas sem um agente de provisionamento
@@ -271,6 +271,6 @@ Jun 11 20:28:56 thstringnopa2 systemd[1]: Started Azure Provisioning.
 
 Se implementar o seu próprio código/agente de provisionamento, então é dono do suporte deste código, o suporte da Microsoft apenas investigará questões relacionadas com as interfaces de provisionamento que não estão disponíveis. Estamos continuamente a fazer melhorias e alterações nesta área, pelo que deve monitorizar as alterações no cloud-init e no Agente Azure Linux para o fornecimento de alterações na API.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações, consulte [o fornecimento de Linux.](provisioning.md)

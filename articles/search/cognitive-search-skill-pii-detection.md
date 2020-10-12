@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.openlocfilehash: acacf617d3f1d9ab891d08b32fc2dfb14deb64a4
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540528"
 ---
 # <a name="pii-detection-cognitive-skill"></a>Competência cognitiva de deteção de PII
@@ -138,7 +138,7 @@ Se o seu texto for superior a 50.000 caracteres, apenas os primeiros 50.000 cara
 
 Se a habilidade devolver um aviso, a saída pode estar vazia, o `maskedText` que pode afetar quaisquer habilidades a jusante que esperam a saída. Por esta razão, certifique-se de investigar todos os avisos relacionados com a falta de saída ao escrever a sua definição de skillset.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)

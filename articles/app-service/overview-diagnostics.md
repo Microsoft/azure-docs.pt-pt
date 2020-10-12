@@ -8,10 +8,10 @@ ms.date: 10/18/2019
 ms.author: jennile
 ms.custom: seodec18
 ms.openlocfilehash: d58341979b0bbe0699a5ca293b20394c43cde1d1
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88962813"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Visão geral do Serviço de Aplicações Azure
