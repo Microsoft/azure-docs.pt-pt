@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2018
 ms.author: cynthn
 ms.openlocfilehash: 6f7f2adb5c3e154c3910ee1082e9afad70de9758
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87836178"
 ---
 # <a name="common-powershell-commands-for-creating-and-managing-azure-virtual-machines"></a>Comandos comuns do PowerShell para criar e gerir Máquinas Virtuais do Azure
@@ -30,7 +30,7 @@ Estas variáveis podem ser úteis para si se executar mais do que um dos comando
 
 | Tarefa | Comando |
 | ---- | ------- |
-| Criar um VM simples | [New-AzVM](/powershell/module/az.compute/new-azvm) - Nome $myVM <BR></BR><BR></BR> O New-AzVM tem um conjunto de parâmetros *simplificados,* onde tudo o que é necessário é um único nome. O valor para -Nome será usado como o nome de todos os recursos necessários para a criação de um novo VM. Pode especificar mais, mas isto é tudo o que é necessário.|
+| Criar um VM simples | [New-AzVM](/powershell/module/az.compute/new-azvm) - Nome $myVM <BR></BR><BR></BR> New-AzVM tem um conjunto de parâmetros *simplificados,* onde tudo o que é necessário é um único nome. O valor para -Nome será usado como o nome de todos os recursos necessários para a criação de um novo VM. Pode especificar mais, mas isto é tudo o que é necessário.|
 | Criar uma VM a partir de uma imagem personalizada | New-AzVm -ResourceGroupName $myResourceGroup -Nome $myVM ImageName "myImage" -Localização $location  <BR></BR><BR></BR>Precisa de já ter criado a sua própria [imagem gerida.](capture-image-resource.md) Pode usar uma imagem para fazer VMs múltiplos e idênticos. |
 
 

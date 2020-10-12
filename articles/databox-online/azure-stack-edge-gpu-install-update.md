@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/29/2020
 ms.author: alkohli
 ms.openlocfilehash: 7a534f794f7ab5323ad46ebc555e42b2514e94e2
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91542347"
 ---
 # <a name="update-your-azure-stack-edge-pro-gpu"></a>Atualize o seu GPU Azure Stack Edge Pro 
@@ -84,7 +84,7 @@ Recomendamos que instale atualizações através do portal Azure. O dispositivo 
 
     ![Versão de software após atualização](./media/azure-stack-edge-gpu-install-update/portal-update-6.png)
 
-    Se optar por descarregar apenas atualizações, selecione a notificação para abrir a lâmina **de atualizações** do Dispositivo. Selecione **Install** (Instalar).
+    Se optar por descarregar apenas atualizações, selecione a notificação para abrir a lâmina **de atualizações** do Dispositivo. Selecione **Instalar**.
   
     ![Versão de software após atualização](./media/azure-stack-edge-gpu-install-update/portal-update-7.png)
 
@@ -215,6 +215,6 @@ Este procedimento leva cerca de 20 minutos para ser concluído. Execute os segui
 10. Após a instalação da atualização Kubernetes com sucesso, não **Maintenance**há alteração no software exibido na  >  **atualização do Software**de Manutenção . 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [a administração do seu Azure Stack Edge Pro](azure-stack-edge-manage-access-power-connectivity-mode.md).

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
 ms.openlocfilehash: 3236e0a95c6a4b4f57ac38ed067011c3d6848b5a
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89670800"
 ---
 # <a name="move-resources-across-regions-in-powershell"></a>Mover recursos através de regiões em PowerShell
@@ -377,6 +377,6 @@ Invoke-AzResourceMoverCommit -SubscriptionId  <subscription-id> -ResourceGroupNa
 
 Depois de cometer a mudança, e verificar se os recursos funcionam como esperado na região alvo, pode eliminar os recursos de origem no [portal Azure](../azure-resource-manager/management/manage-resources-portal.md#delete-resources), [utilizando o PowerShell](../azure-resource-manager/management/manage-resources-powershell.md#delete-resources), ou [Azure CLI](../azure-resource-manager/management/manage-resources-cli.md#delete-resources).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba como](remove-move-resources.md) remover recursos de uma coleção de movimentos.

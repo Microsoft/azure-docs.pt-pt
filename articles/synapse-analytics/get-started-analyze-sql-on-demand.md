@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 8d26a03a8b61850dc17bc4efff5f8ca12dfca191
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c42d1d988bc280d5e62c24f109225d91cb446ce
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91300229"
+ms.locfileid: "91893497"
 ---
 # <a name="analyze-data-with-sql-on-demand"></a>Analisar dados com SQL a pedido
 
@@ -57,4 +57,4 @@ As tabelas nas bases de dados Spark são automaticamente visíveis e podem ser c
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Analisar usando faísca](get-started-analyze-spark.md)
+> [Analisar dados em Armazenamento](get-started-analyze-storage.md)

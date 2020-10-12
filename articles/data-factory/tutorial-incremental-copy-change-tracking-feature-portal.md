@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
 ms.openlocfilehash: 78b9d3f30ebc8f74433f04c4474121682c4a3f36
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91542024"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-the-azure-portal"></a>Carregue gradualmente os dados da Base de Dados Azure SQL para o Armazenamento Azure Blob utilizando informações de rastreio de alterações utilizando o portal Azure
@@ -177,7 +177,7 @@ Instale os mais recentes módulos Azure PowerShell seguindo instruções sobre [
 4. Selecione **V2 (Pré-visualização)** para a **versão**.
 5. Selecione a **localização** da fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 6. Selecione **Afixar ao dashboard**.     
-7. Clique em **Create** (Criar).      
+7. Clique em **Criar**.      
 8. No painel de instrumentos, vê-se o seguinte azulejo com estado: **Implantação da fábrica de dados**.
 
     ![Mosaico “implementar a fábrica de dados”](media/tutorial-incremental-copy-change-tracking-feature-portal/deploying-data-factory.png)
@@ -205,7 +205,7 @@ Neste passo, vai ligar a sua Conta de Armazenamento do Azure à fábrica de dado
 
     1. Introduza **AzureStorageLinkedService** em **Nome**.
     2. Selecione a sua conta de Armazenamento Azure para **o nome da conta de armazenamento**.
-    3. Clique em **Save** (Guardar).
+    3. Clique em **Guardar**.
 
    ![Definições da Conta de Armazenamento do Azure](./media/tutorial-incremental-copy-change-tracking-feature-portal/azure-storage-linked-service-settings.png)
 
@@ -471,7 +471,7 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Avance para o seguinte tutorial para aprender sobre a cópia de novos ficheiros e alterados apenas com base no seu Último Anomodified:
 
 > [!div class="nextstepaction"]

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
 ms.openlocfilehash: 91bc7adaf7829766c471056c50c1c3abd70dda63
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87828783"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de lançamento do Microsoft Azure Storage Explorer
@@ -64,7 +64,7 @@ Para baixar versões anteriores do Storage Explorer, pode visitar a [página de 
    * Configure os níveis de acesso blob
    * Copiar & pasta Blobs
 
-* Nesta versão, estamos a visualizar 17 línguas adicionais. Pode mudar para um idioma à sua escolha na página de definições em "Aplicação" → "Definições Regionais" → "Idioma (Pré-visualização)". Continuamos a trabalhar arduamente na tradução de cordas adicionais e na melhoria da qualidade da tradução. Se tiver algum feedback sobre uma tradução, ou se notar uma cadeia que ainda não está traduzida, por favor [abra um problema no GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%F0%9F%8C%90%20localization&template=bug-report.md&title=).
+* Nesta versão, estamos a visualizar 17 línguas adicionais. Pode mudar para um idioma à sua escolha na página de definições em "Aplicação" → "Configurações Regionais" → "Language (Preview)". Continuamos a trabalhar arduamente na tradução de cordas adicionais e na melhoria da qualidade da tradução. Se tiver algum feedback sobre uma tradução, ou se notar uma cadeia que ainda não está traduzida, por favor [abra um problema no GitHub](https://github.com/microsoft/AzureStorageExplorer/issues/new?assignees=&labels=%F0%9F%8C%90%20localization&template=bug-report.md&title=).
 * Em cada lançamento, tentamos embarcar algumas definições para permitir uma boa viragem do Storage Explorer. Nesta versão, adicionámos definições para configurar ainda mais a AzCopy, bem como para ocultar nós de serviço:
    * Limite de largura de banda AzCopy - ajuda a controlar a quantidade de utilização da rede AzCopy. Pode encontrar esta definição em "Transfers" → "AzCopy" → "Taxa máxima de transferência". #1099
    * AzCopy MD5 check - permite-lhe configurar se e como estritamente a AzCopy verifica se mD5 hashes no download. Pode encontrar esta definição em "Transfers" → "AzCopy" → "Check MD5".
@@ -160,7 +160,7 @@ Para baixar versões anteriores do Storage Explorer, pode visitar a [página de 
 * Alguns utilizadores encontraram um erro no 1.10.0 enquanto tentavam visualizar os seus dados nas suas contas ADLS Gen 1. Este erro impediu que o painel do explorador se renderizasse corretamente. Este problema foi corrigido. #1853 #1865
 
 ### <a name="new"></a>Novo
-* O Storage Explorer tem agora uma UI de Definições dedicada. Pode aceder-lhe a partir de Edit → Definições ou clicando no ícone Definições (a engrenagem) na barra de ferramentas vertical da mão esquerda. Esta funcionalidade é o primeiro passo que estamos a dar para fornecer uma variedade de [configurações solicitadas pelo utilizador.](https://github.com/microsoft/AzureStorageExplorer/labels/%3Abulb%3A%20setting%20candidate) A partir desta versão são suportadas as seguintes definições:
+* O Storage Explorer tem agora uma UI de Definições dedicada. Pode aceder-lhe a partir de Configurações → de edição ou clicando no ícone Definições (a engrenagem) na barra de ferramentas vertical da esquerda. Esta funcionalidade é o primeiro passo que estamos a dar para fornecer uma variedade de [configurações solicitadas pelo utilizador.](https://github.com/microsoft/AzureStorageExplorer/labels/%3Abulb%3A%20setting%20candidate) A partir desta versão são suportadas as seguintes definições:
   * Tema
   * Proxy
   * Logout na #6 de saída
@@ -232,7 +232,7 @@ O upload, download e cópia transversal dos discos são alimentados pela AzCopy 
 
 ### <a name="new"></a>Novo
 
-* O Storage Explorer tem agora uma UI de Definições dedicada. Pode aceder-lhe a partir de Edit → Definições ou clicando no ícone Definições (a engrenagem) na barra de ferramentas vertical da mão esquerda. Esta funcionalidade é o primeiro passo que estamos a dar para fornecer uma variedade de [configurações solicitadas pelo utilizador.](https://github.com/microsoft/AzureStorageExplorer/labels/%3Abulb%3A%20setting%20candidate) A partir desta versão são suportadas as seguintes definições:
+* O Storage Explorer tem agora uma UI de Definições dedicada. Pode aceder-lhe a partir de Configurações → de edição ou clicando no ícone Definições (a engrenagem) na barra de ferramentas vertical da esquerda. Esta funcionalidade é o primeiro passo que estamos a dar para fornecer uma variedade de [configurações solicitadas pelo utilizador.](https://github.com/microsoft/AzureStorageExplorer/labels/%3Abulb%3A%20setting%20candidate) A partir desta versão são suportadas as seguintes definições:
     * Tema
     * Proxy
     * Logout na [#6 de](https://www.github.com/Microsoft/AzureStorageExplorer/issues/6) saída
@@ -315,12 +315,12 @@ O upload, download e cópia transversal dos discos são alimentados pela AzCopy 
 * Gerir políticas de acesso e estabelecer o nível de acesso público agora funcionam com o RBAC. [#1355](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1355)
 * Eliminar as pastas blob agora funciona com o RBAC. [#1450](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1450)
 * Mudar o nível de acesso blob agora funciona com o RBAC. [#1446](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1446)
-* Pode agora reiniciar rapidamente o Acesso Rápido através de "Ajuda" → "Reset". [#1327](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1327)
+* Agora pode reiniciar rapidamente o Acesso Rápido através de "Help" → "Reset". [#1327](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1327)
 
 ### <a name="preview-features"></a>Funcionalidades de Pré-visualização
 
-* O sinal de fluxo de código do dispositivo já está disponível para pré-visualização. Para o ativar, aceda a "Pré-visualização" → "Use o código de acesso do dispositivo". Encorajamos todos os utilizadores que tenham tido problemas com janelas de inscrição em branco para experimentar esta funcionalidade, uma vez que pode revelar-se uma forma mais fiável de iniciar snus.
-* O Storage Explorer integrado com o AzCopy está atualmente disponível para pré-visualização. Para o ativar, vá a "Preview" → "Use AzCopy para carregar e descarregar bolhas melhoradas". As transferências blob concluídas com a AzCopy devem ser mais rápidas e mais performantes.
+* O sinal de fluxo de código do dispositivo já está disponível para pré-visualização. Para o ativar, vá a "Pré-visualização" → "Use Device Code Flow'in". Encorajamos todos os utilizadores que tenham tido problemas com janelas de inscrição em branco para experimentar esta funcionalidade, uma vez que pode revelar-se uma forma mais fiável de iniciar snus.
+* O Storage Explorer integrado com o AzCopy está atualmente disponível para pré-visualização. Para o ativar, vá a "Pré-visualização" → "Use AzCopy para carregar e descarregar bolhas melhoradas". As transferências blob concluídas com a AzCopy devem ser mais rápidas e mais performantes.
 
 ### <a name="fixes"></a>Correções
 
@@ -377,8 +377,8 @@ O upload, download e cópia transversal dos discos são alimentados pela AzCopy 
 
 ### <a name="preview-features"></a>Funcionalidades de Pré-visualização
 
-* O sinal de fluxo de código do dispositivo já está disponível para pré-visualização. Para o ativar, aceda a "Pré-visualização" → "Use o código de acesso do dispositivo". Encorajamos todos os utilizadores que tenham tido problemas com janelas de inscrição em branco para experimentar esta funcionalidade, uma vez que pode revelar-se uma forma mais fiável de iniciar snus.
-* O Storage Explorer integrado com o AzCopy está atualmente disponível para pré-visualização. Para o ativar, vá a "Preview" → "Use AzCopy para carregar e descarregar bolhas melhoradas". As transferências blob concluídas com a AzCopy devem ser mais rápidas e mais performantes.
+* O sinal de fluxo de código do dispositivo já está disponível para pré-visualização. Para o ativar, vá a "Pré-visualização" → "Use Device Code Flow'in". Encorajamos todos os utilizadores que tenham tido problemas com janelas de inscrição em branco para experimentar esta funcionalidade, uma vez que pode revelar-se uma forma mais fiável de iniciar snus.
+* O Storage Explorer integrado com o AzCopy está atualmente disponível para pré-visualização. Para o ativar, vá a "Pré-visualização" → "Use AzCopy para carregar e descarregar bolhas melhoradas". As transferências blob concluídas com a AzCopy devem ser mais rápidas e mais performantes.
 
 ### <a name="fixes"></a>Correções
 
@@ -429,8 +429,8 @@ O upload, download e cópia transversal dos discos são alimentados pela AzCopy 
 
 ### <a name="preview-features"></a>Funcionalidades de Pré-visualização
 
-* O sinal de fluxo de código do dispositivo já está disponível para pré-visualização. Para o ativar, aceda a "Pré-visualização" → "Use o código de acesso do dispositivo". Encorajamos todos os utilizadores que tenham tido problemas com janelas de inscrição em branco para experimentar esta funcionalidade, uma vez que pode revelar-se uma forma mais fiável de iniciar snus.
-* O Storage Explorer integrado com o AzCopy está atualmente disponível para pré-visualização. Para o ativar, vá a "Preview" → "Use AzCopy para carregar e descarregar bolhas melhoradas". As transferências blob concluídas com a AzCopy devem ser mais rápidas e mais performantes.
+* O sinal de fluxo de código do dispositivo já está disponível para pré-visualização. Para o ativar, vá a "Pré-visualização" → "Use Device Code Flow'in". Encorajamos todos os utilizadores que tenham tido problemas com janelas de inscrição em branco para experimentar esta funcionalidade, uma vez que pode revelar-se uma forma mais fiável de iniciar snus.
+* O Storage Explorer integrado com o AzCopy está atualmente disponível para pré-visualização. Para o ativar, vá a "Pré-visualização" → "Use AzCopy para carregar e descarregar bolhas melhoradas". As transferências blob concluídas com a AzCopy devem ser mais rápidas e mais performantes.
 
 ### <a name="fixes"></a>Correções
 
@@ -482,8 +482,8 @@ O upload, download e cópia transversal dos discos são alimentados pela AzCopy 
 
 ### <a name="preview-features"></a>Funcionalidades de Pré-visualização
 
-* O sinal de fluxo de código do dispositivo já está disponível para pré-visualização. Para o ativar, aceda a "Pré-visualização" → "Use o código de acesso do dispositivo". Encorajamos todos os utilizadores que tenham tido problemas com janelas de inscrição em branco para experimentar esta funcionalidade, uma vez que pode revelar-se uma forma mais fiável de iniciar snus. #938
-* O Storage Explorer integrado com o AzCopy está atualmente disponível para pré-visualização. Para o ativar, vá a "Preview" → "Use AzCopy para carregar e descarregar bolhas melhoradas". As transferências blob concluídas com a AzCopy devem ser mais rápidas e mais performantes.
+* O sinal de fluxo de código do dispositivo já está disponível para pré-visualização. Para o ativar, vá a "Pré-visualização" → "Use Device Code Flow'in". Encorajamos todos os utilizadores que tenham tido problemas com janelas de inscrição em branco para experimentar esta funcionalidade, uma vez que pode revelar-se uma forma mais fiável de iniciar snus. #938
+* O Storage Explorer integrado com o AzCopy está atualmente disponível para pré-visualização. Para o ativar, vá a "Pré-visualização" → "Use AzCopy para carregar e descarregar bolhas melhoradas". As transferências blob concluídas com a AzCopy devem ser mais rápidas e mais performantes.
 
 ### <a name="fixes"></a>Correções
 
@@ -1031,7 +1031,7 @@ Finalmente, o suporte para a utilização do AzCopy com ações de ficheiros vir
 ### <a name="new"></a>Novo
 * O acesso aos recipientes $web utilizados por Websites Estáticos é agora suportado. Isto permite-lhe carregar e gerir facilmente ficheiros e pastas utilizados pelo seu website. [#223](https://github.com/Microsoft/AzureStorageExplorer/issues/223)
 * A barra de aplicações no macOS foi reorganizada. As alterações incluem um menu de ficheiros, algumas alterações de chave de atalho e vários novos comandos no menu da aplicação. [#99](https://github.com/Microsoft/AzureStorageExplorer/issues/99)
-* O ponto final da autoridade para a assinatura do Governo Azure EUA foi alterado parahttps://login.microsoftonline.us/
+* O ponto final da autoridade para a assinatura do Governo Azure EUA foi alterado para https://login.microsoftonline.us/
 * Acessibilidade: Quando um leitor de ecrã está ativo, a navegação do teclado funciona agora com as tabelas utilizadas para exibir itens no lado direito. Pode utilizar as teclas de seta para navegar em linhas e colunas, insira para invocar ações padrão, a chave do menu de contexto para abrir o menu de contexto para um item, e Shift ou Control para multiselecção. [#103](https://github.com/Microsoft/AzureStorageExplorer/issues/103)
 
 ### <a name="fixes"></a>Correções

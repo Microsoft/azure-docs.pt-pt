@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: lagayhar
 ms.openlocfilehash: a538eaf06013dcce6529c91816b419159a2600a1
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89665034"
 ---
 # <a name="graph-visualizations"></a>Visualizações de gráficos
@@ -149,7 +149,7 @@ Os autores de gráficos podem especificar que conteúdo vai para as diferentes p
 
 [![Screenshot mostrando a criação de uma visualização de gráfico com coloração do nó de base de campo.](./media/workbooks-graph-visualizations/graph-field-based.png)](./media/workbooks-graph-visualizations/graph-field-based.png#lightbox)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Os gráficos também suportam o renderizador de barras compósitos. Para saber mais, visite a documentação do [Bar Composto.](workbooks-composite-bar.md)
 * Saiba mais sobre as [fontes de dados](workbooks-data-sources.md) que pode utilizar nos livros.

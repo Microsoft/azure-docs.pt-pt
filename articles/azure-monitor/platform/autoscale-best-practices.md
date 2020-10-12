@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
 ms.openlocfilehash: 414716fbbb36167e52c4f3b98c70ae7696ffea8f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87327060"
 ---
 # <a name="best-practices-for-autoscale"></a>Melhores práticas do Dimensionamento Automático
@@ -148,7 +148,7 @@ Também pode utilizar um alerta de Registo de Atividade para monitorizar a saúd
 
 Além de utilizar alertas de registo de atividade, também pode configurar notificações de email ou webhook para ser notificado para ações de escala bem sucedida através do separador de notificações na definição de escala automática.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 - [Crie um Alerta de Registo de Atividade para monitorizar todas as operações do motor de escala automática na sua subscrição.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Crie um Alerta de Registo de Atividade para monitorizar todas as operações falhadas de escala automática na sua subscrição](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
 

@@ -10,10 +10,10 @@ ms.date: 06/15/2020
 ms.author: cynthn
 ms.reviewer: cynthn
 ms.openlocfilehash: 3a206a7aabee9f75524ab4715afa30ec05c612bf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91328068"
 ---
 # <a name="troubleshooting-shared-image-galleries-in-azure"></a>Resolução de problemas partilhadas galerias de imagens em Azure

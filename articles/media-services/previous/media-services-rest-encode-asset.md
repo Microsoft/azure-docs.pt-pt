@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: b0bff0c6b3ef7934188b548bd06c35d83b323fde
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91359602"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Como codificar um ativo utilizando o Media Encoder Standard
@@ -295,5 +295,5 @@ HTTP/1.1 201 Created
 ## <a name="next-steps"></a>Passos seguintes
 Agora que sabe como criar um emprego para codificar um ativo, veja [como verificar o progresso do trabalho com os Media Services.](media-services-rest-check-job-progress.md)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 [Obter processadores de mídia](media-services-rest-get-media-processor.md)

@@ -9,10 +9,10 @@ ms.date: 10/31/2019
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 5689bf60144cf3d66335eb4d77a96d29d8cdcc96
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401746"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verificar a conectividade do ExpressRoute
@@ -42,7 +42,7 @@ No diagrama anterior, os números indicam pontos-chave de rede. Estes pontos de 
 
 1.  Dispositivo de computação do cliente (por exemplo, um servidor ou PC)
 2.  CEs: Routers de borda do cliente 
-3.  PEs (virado CE): Routers/comutadores de borda do fornecedor que estão virados para os routers de borda do cliente. Referido como PE-CEes neste documento.
+3.  PEs (virado CE): Routers/comutadores de borda do fornecedor que estão virados para os routers de borda do cliente. Referido como PE-CEs neste documento.
 4.  PEs (virado para o MSEE): Routers/comutadores de borda do fornecedor que estão virados para os MSEEs. Referido como PE-MSEEs neste documento.
 5.  MSEEs: Microsoft Enterprise Edge (MSEE) ExpressRoute routers
 6.  Gateway de Rede Virtual (VNet)
@@ -50,10 +50,10 @@ No diagrama anterior, os números indicam pontos-chave de rede. Estes pontos de 
 
 Se forem utilizados os modelos de Co-localização cloud Exchange, Point-to-Point Ethernet ou conectividade direta, os CEs (2) estabelecem o par de BGP com MSEEs (5). 
 
-Se for utilizado o modelo de conectividade Any-to-Any (IPVPN), os PE-MSEEs (4) estabelecem o espreitamento de BGP com os MSEEs (5). Os PE-MSEEs propagam as rotas recebidas da Microsoft de volta à rede de clientes através da rede de prestadores de serviços IPVPN.
+Se for utilizado o modelo de conectividade Any-to-Any (IPVPN), PE-MSEEs (4) estabelecer o par de BGP com OS MSEEs (5). PE-MSEEs propagar as rotas recebidas da Microsoft de volta à rede de clientes através da rede de prestadores de serviços IPVPN.
 
 > [!NOTE]
->Para uma elevada disponibilidade, a Microsoft estabelece uma conectividade paralela totalmente redundante entre pares MSEEs (5) e PE-MSEEs (4). Um caminho de rede paralelo totalmente redundante é também encorajado entre a rede de clientes e o par PE-CEs. Para obter mais informações sobre a elevada disponibilidade, consulte o artigo [Projetando para alta disponibilidade com ExpressRoute][HA]
+>Para uma elevada disponibilidade, a Microsoft estabelece uma conectividade paralela totalmente redundante entre pares MSEEs (5) e PE-MSEEs (4). Um caminho de rede paralelo totalmente redundante também é encorajado entre a rede de clientes e PE-CEs par. Para obter mais informações sobre a elevada disponibilidade, consulte o artigo [Projetando para alta disponibilidade com ExpressRoute][HA]
 >
 >
 
@@ -319,7 +319,7 @@ StatusCode: 400
 ## <a name="next-steps"></a>Passos Seguintes
 Para mais informações ou ajuda, confira os seguintes links:
 
-- [Suporte da Microsoft][Support]
+- [Suporte à Microsoft][Support]
 - [Criar e modificar um circuito ExpressRoute][CreateCircuit]
 - [Criar e modificar o encaminhamento de um circuito ExpressRoute][CreatePeering]
 

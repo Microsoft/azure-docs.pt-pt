@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/6/2016
 ms.subservice: autoscale
 ms.openlocfilehash: e1a77fc1b40faca0a339c5e1aaceb71dec8de8bd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87327043"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor autoscaling métricas comuns
@@ -52,10 +52,10 @@ Pode criar um alerta para as seguintes métricas:
 | \Processor(_Total)\% Processor Time |Percentagem |
 | \Tempo privilegiado do processador (_Total) \% |Percentagem |
 | \Tempo de utilizador do processador (_Total) \% |Percentagem |
-| \Informação do processador (_Total)\Frequência do processador |de palavras |
-| \Sistema\Processos |de palavras |
-| \Processo (_Total)\Contagem de fios |de palavras |
-| \Processo (_Total)\Contagem de manuseação |de palavras |
+| \Informação do processador (_Total)\Frequência do processador |Contagem |
+| \Sistema\Processos |Contagem |
+| \Processo (_Total)\Contagem de fios |Contagem |
+| \Processo (_Total)\Contagem de manuseação |Contagem |
 | \%\Bytes comprometidos com a memória em uso |Percentagem |
 | \Memory\Available Bytes |Bytes |
 | \Memory\Bytes comprometidos |Bytes |
@@ -71,11 +71,11 @@ Pode criar um alerta para as seguintes métricas:
 | \PhysicalDisk (_Total)\Disk Bytes/sec |BytesPerSecond |
 | \PhysicalDisk (_Total)\Disk Read Bytes/sec |BytesPerSecond |
 | \PhysicalDisk (_Total)\Disk Write Bytes/sec |BytesPerSecond |
-| \PhysicalDisk (_Total)\Avg. Comprimento da fila do disco |de palavras |
-| \PhysicalDisk (_Total)\Avg. Disco leia o comprimento da fila |de palavras |
-| \PhysicalDisk (_Total)\Avg. Disco escrever comprimento da fila |de palavras |
+| \PhysicalDisk (_Total)\Avg. Comprimento da fila do disco |Contagem |
+| \PhysicalDisk (_Total)\Avg. Disco leia o comprimento da fila |Contagem |
+| \PhysicalDisk (_Total)\Avg. Disco escrever comprimento da fila |Contagem |
 | \LogicalDisk (_Total) \% Espaço Livre |Percentagem |
-| \LogicalDisk(_Total)\Megabytes grátis |de palavras |
+| \LogicalDisk(_Total)\Megabytes grátis |Contagem |
 
 ### <a name="guest-os-metrics-linux-vms"></a>Métricas de SO convidados Linux VMs
 Quando cria um VM em Azure, o diagnóstico é ativado por padrão utilizando a extensão de Diagnóstico.
@@ -119,15 +119,15 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \PhysicalDisk\AverageReadTime |Segundos |
 | \PhysicalDisk\AverageWriteTime |Segundos |
 | \PhysicalDisk\AverageTransferTime |Segundos |
-| \PhysicalDisk\AverageDiskQueueLength |de palavras |
+| \PhysicalDisk\AverageDiskQueueLength |Contagem |
 | \NetworkInterface\BytesTransmitted |Bytes |
 | \NetworkInterface\BytesReceived |Bytes |
-| \NetworkInterface\PacketsTransmitted |de palavras |
-| \NetworkInterface\PacketsReceived |de palavras |
+| \NetworkInterface\PacketsTransmitted |Contagem |
+| \NetworkInterface\PacketsReceived |Contagem |
 | \NetworkInterface\BytesTotal |Bytes |
-| \NetworkInterface\TotalRxErrors |de palavras |
-| \NetworkInterface\TotalTxErrors |de palavras |
-| \NetworkInterface\TotalCollisions |de palavras |
+| \NetworkInterface\TotalRxErrors |Contagem |
+| \NetworkInterface\TotalTxErrors |Contagem |
+| \NetworkInterface\TotalCollisions |Contagem |
 
 ## <a name="commonly-used-app-service-server-farm-metrics"></a>Métricas do Serviço de Aplicações (Server Farm) comumente utilizadas
 Também pode realizar uma escala automática com base em métricas comuns do servidor web, como o comprimento da fila http. O seu nome métrico é **HttpQueueLength.**  A secção seguinte lista as métricas disponíveis da fazenda de servidores (App Service).
@@ -145,8 +145,8 @@ Pode alertar ou escalar por estas métricas.
 | --- | --- |
 | CpuPercentage |Percentagem |
 | MemóriaPercentage |Percentagem |
-| DiskQueueLength |de palavras |
-| HttpQueueLength |de palavras |
+| DiskQueueLength |Contagem |
+| HttpQueueLength |Contagem |
 | BytesReceived |Bytes |
 | BytesSent |Bytes |
 

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: victorh
 ms.openlocfilehash: c290904c9f4bc7dba70dad9351dc45b676e0c236
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88893720"
 ---
 # <a name="use-azure-firewall-policy-to-define-a-rule-hierarchy"></a>Use a política de Firewall Azure para definir uma hierarquia de regras
@@ -48,7 +48,7 @@ Criar políticas para cada uma das equipas de candidatura:
 - Uma política de firewall de base de dados. A política de firewall database herda a política de firewall base.
 - Uma política de firewall de engenharia. A política de firewall de engenharia também herda a política de firewall base.
 
-:::image type="content" source="media/rule-hierarchy/policy-hierarchy.png" alt-text="Hierarquia política" border="false":::
+:::image type="content" source="media/rule-hierarchy/policy-hierarchy.png" alt-text="Equipas e requisitos" border="false":::
 
 ### <a name="create-custom-roles-to-access-the-rule-collection-groups"></a>Criar funções personalizadas para aceder aos grupos de recolha de regras 
 
@@ -62,7 +62,7 @@ Utilize o seguinte procedimento de alto nível para definir funções personaliz
 2. Execute o seguinte comando:
 
    `Get-AzProviderOperation "Microsoft.Support/*" | FT Operation, Description -AutoSize`
-3. Utilize o comando Get-AzRoleDefinition para desbotar a função Reader no formato JSON. 
+3. Utilize o comando Get-AzRoleDefinition para desatar a função Reader no formato JSON. 
 
    `Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\CustomRoles\ReaderSupportRole.json`
 4. Abra a ReaderSupportRole.jsnum editor.
@@ -134,9 +134,9 @@ Para listar todas as funções personalizadas, pode utilizar o comando Get-AzRol
 
 Também pode ver os papéis personalizados no portal Azure. Aceda à sua subscrição, selecione **Access control (IAM)**, **Roles**.
 
-:::image type="content" source="media/rule-hierarchy/sales-app-policy.png" alt-text="SalesAppPolicy":::
+:::image type="content" source="media/rule-hierarchy/sales-app-policy.png" alt-text="Equipas e requisitos":::
 
-:::image type="content" source="media/rule-hierarchy/sales-app-policy-read.png" alt-text="SalesAppPolicy ler permissão":::
+:::image type="content" source="media/rule-hierarchy/sales-app-policy-read.png" alt-text="Equipas e requisitos":::
 
 Para obter mais informações, consulte [Tutorial: Crie um papel personalizado Azure utilizando a Azure PowerShell](../role-based-access-control/tutorial-custom-role-powershell.md).
 

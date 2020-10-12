@@ -1,14 +1,14 @@
 ---
 title: Como aceder a um laboratório de sala de aula no Azure Lab Services | Microsoft Docs
-description: Saiba como se inscrever num laboratório de sala de aula, ver todos os laboratórios a que pode aceder, iniciar/parar um VM no laboratório e ligar-se ao VM.
+description: Aprenda a registar-se num laboratório de sala de aula, veja todos os laboratórios a que pode aceder, inicie/pare um VM no laboratório e ligue-se ao VM.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: cd06bfc2dff27f1ef1bc84f01b001b8dbd282cf4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c2f0ba5e6a47e00f47a31e08c036ea17ff2507a
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334060"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946115"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Como aceder a um laboratório de sala de aula no Azure Lab Services
 Este artigo descreve como se registar num laboratório de sala de aula, ver todos os laboratórios a que pode aceder, iniciar/parar um VM no laboratório e ligar-se ao VM. 
@@ -80,7 +80,7 @@ Depois de se registar nos laboratórios, pode ver todos os laboratórios de sala
     ![Ver todos os laboratórios](./media/how-to-manage-classroom-labs/all-labs.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes artigos:
 
 - [Como administrador, crie e gere contas de laboratório](how-to-manage-lab-accounts.md)

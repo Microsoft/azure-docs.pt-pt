@@ -10,10 +10,10 @@ author: dphansen
 ms.author: davidph
 ms.date: 07/14/2020
 ms.openlocfilehash: 5a1e0b12179070dc11e838004c4b27cf04b5396b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91298910"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model"></a>Implementar e fazer previsões com um modelo ONNX
@@ -22,7 +22,7 @@ Neste arranque rápido, aprenderá a treinar um modelo, convertê-lo para ONNX, 
 
 Este quickstart é baseado em **scikit-learn** e usa o [conjunto de dados boston Housing](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 * Se estiver a utilizar o Azure SQL Edge e não tiver implantado um módulo Azure SQL Edge, siga os passos de implantação do [SQL Edge utilizando o portal Azure](deploy-portal.md).
 

@@ -11,10 +11,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: d754f27a1510d9db0837eabb96b3a7cf75f76fc1
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87835532"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Rehosagem de mainframe em máquinas virtuais Azure
@@ -33,7 +33,7 @@ Algumas cargas de trabalho do mainframe podem ser migradas para Azure com relati
 
 ## <a name="mainframe-migration"></a>Migração de mainframe
 
-Rehost, reconstruir, substituir ou aposentar-se? IaaS ou PaaS? Para determinar a estratégia de migração certa para a sua aplicação mainframe, consulte o guia [de migração mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview) no Centro de Arquitetura Azure.
+Rehost, reconstruir, substituir ou aposentar-se? IaaS ou PaaS? Para determinar a estratégia de migração certa para a sua aplicação mainframe, consulte o guia [de migração mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)  no Centro de Arquitetura Azure.
 
 ## <a name="micro-focus-rehosting-platform"></a>Micro Focus plataforma de rehosting
 

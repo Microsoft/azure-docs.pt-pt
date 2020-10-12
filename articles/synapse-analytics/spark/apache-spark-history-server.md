@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
 ms.openlocfilehash: 75aac74ae5ccf5b52234f1b554dc2a5edefcf32d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91260415"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Utilize o servidor de histórico Apache Spark estendido para depurar e diagnosticar aplicações Apache Spark
@@ -157,7 +157,7 @@ Passe no nó gráfico para ver a ponta da ferramenta quando houver tarefas falha
 
 No separador gráfico de trabalho, as fases têm uma ponta de ferramenta e um pequeno ícone apresentados se tiverem tarefas que satisfaçam as seguintes condições:
 
-|Condição|Description|
+|Condição|Descrição|
 |-|-|
 |Distorção de dados|tamanho de leitura de dados > tamanho médio de leitura de dados de todas as tarefas dentro desta fase * 2 e tamanho de leitura de dados > 10 MB|
 |Distorção do tempo|tempo de execução > tempo médio de execução de todas as tarefas dentro desta fase * 2 e tempo de execução > 2 minutos|

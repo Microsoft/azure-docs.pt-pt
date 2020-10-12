@@ -9,10 +9,10 @@ ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
 ms.openlocfilehash: 6412036e3f16e2efb3bbf6669f6a31e9dc6e3584
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89434644"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>Resolução de problemas de fornecimento de VM com cloud-init
@@ -131,6 +131,6 @@ Nem todas as falhas no nebulosidade resulta numa falha fatal no fornecimento. Po
 - Deve também verificar a configuração de `customData` dados que foi fornecida ao VM, isto está localizado em `/var/lib/cloud/instances/<unique-instance-identifier>/user-data.txt` .
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se ainda não consegue isolar o porquê de a cloud-init não ter executado a configuração, precisa de olhar mais de perto para o que acontece em cada fase de cloud-init e quando os módulos são executados. Consulte [mergulhar mais profundamente na configuração do cloud-init](./cloud-init-deep-dive.md) para obter mais informações. 

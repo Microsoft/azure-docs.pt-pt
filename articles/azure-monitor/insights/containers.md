@@ -7,10 +7,10 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 07/06/2020
 ms.openlocfilehash: b681e3fa4963a8fe899ccbad8dbf1bbdfbe452ce
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87326907"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Solução de monitorização de contentores no Monitor Azure
@@ -45,7 +45,7 @@ Antes de começar, reveja os seguintes detalhes para verificar se encontra os pr
 
 O quadro que se segue descreve o suporte de monitorização do sistema de monitorização do sistema de estivador e do sistema operativo com o Azure Monitor.   
 
-|Orquestração Docker | ACS | Linux | Windows | Contentor<br>Inventário | Imagem<br>Inventário | Nó<br>Inventário | Contentor<br>Desempenho | Contentor<br>Evento | Evento<br>Registo | Contentor<br>Registo |
+|Orquestração Docker | ACS | Linux | Windows | Contentor<br>Inventário | Imagem<br>Inventário | Nó<br>Inventário | Contentor<br>Desempenho | Contentor<br>Evento | Evento<br>Registar | Contentor<br>Registar |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | Utilizar o Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosfera<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
@@ -360,7 +360,7 @@ Pode optar por criar DaemonSets omsagent com ou sem segredos.
         KEY:    88 bytes
         ```
 
-    5. Crie o seu conjunto de daemon omsagent correndo```sudo kubectl create -f omsagent-ds-secrets.yaml```
+    5. Crie o seu conjunto de daemon omsagent correndo ```sudo kubectl create -f omsagent-ds-secrets.yaml```
 
 2. Verifique se o agente do Log Analytics DaemonSet está em execução, semelhante ao seguinte:
 
@@ -404,7 +404,7 @@ Para o Windows Kubernetes, utiliza um script para gerar o ficheiro Secrets Yaml 
         ```
         #> sudo bash ./secret-gen.sh
         ```
-    3. Crie o seu conjunto de daemon omsagent correndo```kubectl create -f omsagentsecret.yaml```
+    3. Crie o seu conjunto de daemon omsagent correndo ```kubectl create -f omsagentsecret.yaml```
     4. Para verificar, execute o seguinte:
 
         ```
@@ -431,7 +431,7 @@ Para o Windows Kubernetes, utiliza um script para gerar o ficheiro Secrets Yaml 
         KEY:    88 bytes
         ```
 
-    5. Crie o seu conjunto de daemon omsagent correndo```kubectl create -f ws-omsagent-de-secrets.yaml```
+    5. Crie o seu conjunto de daemon omsagent correndo ```kubectl create -f ws-omsagent-de-secrets.yaml```
 
 2. Verifique se o agente do Log Analytics DaemonSet está em execução, semelhante ao seguinte:
 
@@ -447,7 +447,7 @@ Para o Windows Kubernetes, utiliza um script para gerar o ficheiro Secrets Yaml 
 
 Para utilizar o leme para implantar o agente Log Analytics no seu ambiente Linux Kubernetes, execute os seguintes passos.
 
-1. Crie o seu conjunto de daemon omsagent correndo```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms```
+1. Crie o seu conjunto de daemon omsagent correndo ```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms```
 2. Os resultados serão semelhantes aos seguintes:
 
     ```
@@ -602,7 +602,7 @@ Log Analytics marca um recipiente como **Falhado** se tiver saído com um códig
    ![recipientes falhados](./media/containers/containers-state-failed-select.png)  
 1. Executar a consulta e, em seguida, expandir uma linha nos resultados para ver o ID de imagem.  
    ![recipientes falhados](./media/containers/containers-state-failed.png)  
-1. Digite o seguinte na consulta de registo. `ContainerImageInventory | where ImageID == <ImageID>`para ver detalhes sobre a imagem, como o tamanho da imagem e o número de imagens paradas e falhadas.  
+1. Digite o seguinte na consulta de registo. `ContainerImageInventory | where ImageID == <ImageID>` para ver detalhes sobre a imagem, como o tamanho da imagem e o número de imagens paradas e falhadas.  
    ![recipientes falhados](./media/containers/containers-failed04.png)
 
 ## <a name="query-logs-for-container-data"></a>Registos de consulta para dados de contentores
@@ -620,7 +620,7 @@ Quando está a resolver um erro específico, pode ajudar a ver onde está a ocor
 
 ### <a name="to-query-logs-for-container-data"></a>Para consultar registos de dados de contentores
 
-* Escolha uma imagem que sabe que falhou recentemente e encontre os registos de erro para a mesmo. Comece por encontrar um nome de recipiente que esteja a executar essa imagem com uma pesquisa **de ContainerInventory.** Por exemplo, procurar`ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
+* Escolha uma imagem que sabe que falhou recentemente e encontre os registos de erro para a mesmo. Comece por encontrar um nome de recipiente que esteja a executar essa imagem com uma pesquisa **de ContainerInventory.** Por exemplo, procurar `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
     ![Pesquisa de recipientes Ubuntu](./media/containers/search-ubuntu.png)
 
   Expanda qualquer linha nos resultados para ver detalhes desse recipiente.

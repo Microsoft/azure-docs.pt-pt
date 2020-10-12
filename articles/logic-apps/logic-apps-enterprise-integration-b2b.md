@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
 ms.openlocfilehash: afae49cf6ee44b138a55f58f415fc761308b7894
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91542381"
 ---
 # <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Receba e confirme as mensagens B2B AS2 utilizando apps Azure Logic e Pacote de Integração Empresarial
@@ -178,7 +178,7 @@ Já acabou de configurar a sua aplicação lógica B2B. Numa aplicação do mund
 
 Para ligar as suas próprias aplicações LOB e utilizar estas APIs na sua aplicação lógica, pode adicionar mais ações ou [escrever APIs personalizados.](../logic-apps/logic-apps-create-api-app.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Receber e responder às chamadas HTTPS recebidas](../connectors/connectors-native-reqres.md)
 * [Trocar mensagens AS2 para integração empresarial B2B](../logic-apps/logic-apps-enterprise-integration-as2.md)

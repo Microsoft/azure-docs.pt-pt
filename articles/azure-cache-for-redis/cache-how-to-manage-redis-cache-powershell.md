@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
 ms.openlocfilehash: 327505dfbaf5f6f35b065f4f3941053c5114aa33
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89019220"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Gerir a cache Azure para Redis com Azure PowerShell
@@ -59,7 +59,7 @@ Antes de poder utilizar o Windows PowerShell com o Azure Resource Manager, preci
 
 * Windows PowerShell, Versão 3.0 ou 4.0. Para encontrar a versão do Windows PowerShell, `$PSVersionTable` escreva: e verifique o valor de `PSVersion` 3.0 ou 4.0. Para instalar uma versão compatível, consulte [o Quadro de Gestão do Windows 3.0](https://www.microsoft.com/download/details.aspx?id=34595).
 
-Para obter ajuda detalhada para qualquer cmdlet que você vê neste tutorial, use o cmdlet Get-Help.
+Para obter ajuda detalhada para qualquer cmdlet que você vê neste tutorial, use o Get-Help cmdlet.
 
 ```azurepowershell
     Get-Help <cmdlet-name> -Detailed

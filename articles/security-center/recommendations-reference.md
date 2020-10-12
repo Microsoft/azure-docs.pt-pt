@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 10/07/2020
 ms.author: memildin
 ms.openlocfilehash: 276368eaf54ea87dddd2b292b07084e09d97d5ec
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91850407"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recomendações de segurança - um guia de referência
@@ -194,7 +194,7 @@ A sua Pontuação Segura baseia-se no número de recomendações do Centro de Se
 |**As contas externas com permissões de escrita devem ser removidas da sua subscrição**|Remova contas externas com privilégios de escrita da sua subscrição de forma a evitar o acesso não monitorizado.<br>(Política relacionada: As contas externas com permissões de escrita devem ser removidas da sua subscrição)|Alto|N|Subscrição|
 |**O MFA deve ser ativado em contas com permissões do proprietário na sua subscrição**|Ativar a Autenticação Multi-Factor (MFA) para todas as contas de subscrição com privilégios do proprietário para evitar uma quebra de contas ou recursos.<br>(Política relacionada: O MFA deve ser ativado em contas com permissões do proprietário na sua subscrição)|Alto|N|Subscrição|
 |**MFA deve ser ativado em contas com permissões de leitura na sua subscrição**|Ativar a Autenticação Multi-Factor (MFA) para todas as contas de subscrição com privilégios de leitura para evitar uma quebra de contas ou recursos.<br>(Política relacionada: O MFA deve ser ativado em contas com permissões de leitura na sua subscrição)|Alto|N|Subscrição|
-|**MFA deve ser ativado em contas com permissões de escrita na sua subscrição**|Ativar a Autenticação Multi-Factor (MFA) para todas as contas de subscrição com privilégios de escrita para evitar uma quebra de contas ou recursos.<br>(Política relacionada: O MFA deve ser ativado em contas com permissões de escrita na sua subscrição)|Alto|N|Subscrição|
+|**O MFA deve ser ativado em contas com permissões de escrita na sua subscrição**|Ativar a Autenticação Multi-Factor (MFA) para todas as contas de subscrição com privilégios de escrita para evitar uma quebra de contas ou recursos.<br>(Política relacionada: O MFA deve ser ativado em contas com permissões de escrita na sua subscrição)|Alto|N|Subscrição|
 |**Os principais serviços devem ser usados para proteger as suas assinaturas em vez de Certificados de Gestão**|Os certificados de gestão permitem a quem autenticar com eles a(s) subscrição a que estão associados. Para gerir as subscrições de forma mais segura, recomenda-se a utilização de princípios de serviço com o Gestor de Recursos para limitar o raio de explosão em caso de compromisso de certificado. Também automatiza a gestão de recursos.|Médio|Não|Subscrição|
 |**Deve haver mais de um proprietário atribuído à sua subscrição**|Designe mais de um proprietário de subscrição para ter o administrador de acesso a despedimentos.<br>(Política relacionada: Deve haver mais de um proprietário atribuído à sua subscrição)|Alto|N|Subscrição|
 ||||||

@@ -16,10 +16,10 @@ ms.date: 05/31/2017
 ms.author: mimckitt
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 31f690277675650323763a7bc6872ad736f5776c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87837011"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Utilize monitorização e diagnósticos com modelos windows VM e Azure Resource Manager
@@ -168,7 +168,7 @@ Exemplo: *WADMetricsPT1HP10DV2S20151108* contém dados métricos agregados ao lo
 Cada tabela WADMetrics contém as seguintes colunas:
 
 * **PartitionKey**: A chave de partição é construída com base no valor *de recursosID* para identificar exclusivamente o recurso VM. Por exemplo: `002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>`  
-* **RowKey**: Segue o formato `<Descending time tick>:<Performance Counter Name>` . O cálculo do tique-taque do tempo descendente é o tempo máximo, menos o tempo do início do período de agregação. Por exemplo, se o período de amostragem começou em 10-Nov-2015 e 00:00Hrs UTC, então o cálculo seria: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)` . Para a memória disponível bytes contador de desempenho a tecla de linha será:`2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
+* **RowKey**: Segue o formato `<Descending time tick>:<Performance Counter Name>` . O cálculo do tique-taque do tempo descendente é o tempo máximo, menos o tempo do início do período de agregação. Por exemplo, se o período de amostragem começou em 10-Nov-2015 e 00:00Hrs UTC, então o cálculo seria: `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)` . Para a memória disponível bytes contador de desempenho a tecla de linha será: `2519551871999999999__:005CMemory:005CAvailable:0020Bytes`
 * **Contra-Nome**: É o nome do contador de desempenho. Isto corresponde ao *contraSpecifier* definido no xml config.
 * **Máximo**: O valor máximo do contador de desempenho durante o período de agregação.
 * **Mínimo**: O valor mínimo do contador de desempenho durante o período de agregação.

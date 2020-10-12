@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 06/03/2019
 ms.openlocfilehash: 58c2c597c7a75c801af91cd735561071250bda2c
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89426151"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurar a rede CNI Azure no Serviço Azure Kubernetes (AKS)
@@ -63,7 +63,7 @@ O número máximo de cápsulas por nó num cluster AKS é de 250. O número máx
 | -- | :--: | :--: | -- |
 | CLI do Azure | 110 | 30 | Sim (até 250) |
 | Modelo do Resource Manager | 110 | 30 | Sim (até 250) |
-| Portal | 110 | 30 | No |
+| Portal | 110 | 30 | Não |
 
 ### <a name="configure-maximum---new-clusters"></a>Configurar máximo - novos clusters
 
@@ -73,7 +73,7 @@ Se não especificar maxPods ao criar novos conjuntos de nós, recebe um valor pa
 
 É aplicado um valor mínimo para as cápsulas máximas por nó para garantir espaço para as cápsulas do sistema críticas à saúde do cluster. O valor mínimo que pode ser definido para os pods máximos por nó é de 10 se e somente se a configuração de cada piscina de nós tiver espaço para um mínimo de 30 cápsulas. Por exemplo, definir as cápsulas máximas por nó no mínimo de 10 requer que cada piscina individual de nó tenha um mínimo de 3 nós. Este requisito aplica-se também a cada novo conjunto de nós criado, pelo que se 10 for definido como cápsulas máximas por nó, cada piscina de nó adicionado deve ter pelo menos 3 nós.
 
-| Rede | Mínimo | Máximo |
+| Redes | Mínimo | Máximo |
 | -- | :--: | :--: |
 | Azure CNI | 10 | 250 |
 | Kubenet | 10 | 110 |
@@ -151,7 +151,7 @@ As seguintes perguntas e respostas aplicam-se à configuração de rede **Azure 
 
 * *Posso colocar VMs na minha sub-rede de cluster?*
 
-  Yes.
+  Sim.
 
 * *Que fonte ip os sistemas externos vêem para o tráfego que se origina numa cápsula ativada pelo Azure CNI?*
 
@@ -175,7 +175,7 @@ As seguintes perguntas e respostas aplicam-se à configuração de rede **Azure 
 
   Não é recomendado, mas esta configuração é possível. A gama de endereços de serviço é um conjunto de IPs virtuais (VIPs) que a Kubernetes atribui a serviços internos no seu cluster. O Azure Networking não tem visibilidade na gama ip de serviço do cluster Kubernetes. Devido à falta de visibilidade na gama de endereços de serviço do cluster, é possível criar mais tarde uma nova sub-rede na rede virtual do cluster que se sobreponha à gama de endereços de serviço. Se tal sobreposição ocorrer, kubernetes poderia atribuir um serviço um IP que já está em uso por outro recurso na sub-rede, causando comportamentos ou falhas imprevisíveis. Ao garantir que utiliza um intervalo de endereços fora da rede virtual do cluster, pode evitar este risco de sobreposição.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre networking em AKS nos seguintes artigos:
 

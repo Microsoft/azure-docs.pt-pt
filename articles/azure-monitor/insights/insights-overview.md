@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/22/2019
 ms.openlocfilehash: e3eefb97c85b3865abbf116b9912dc45f6db8ce8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87326873"
 ---
 # <a name="overview-of-insights-in-azure-monitor"></a>Visão geral dos Insights no Monitor Azure

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: jeedes
 ms.openlocfilehash: 7d2dc1d5d02f1a371d6d94f9eeddf395d49126d7
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91620142"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-oracle-peoplesoft---protected-by-f5-big-ip-apm"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com a Oracle PeopleSoft - Protegida por F5 BIG-IP APM
@@ -73,8 +73,8 @@ Para configurar e testar Azure AD SSO com Oracle PeopleSoft - Protegido por F5 B
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
     1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
-1. **[Configure o Oracle PeopleSoft-Protected by F5 BIG-IP APM SSO](#configure-oracle-peoplesoft-protected-by-f5-big-ip-apm-sso)** - para configurar as definições de inscrição única no lado da aplicação.
-    1. **[Crie o Oracle PeopleSoft-Protected pelo utilizador de teste APM F5 BIG-IP](#create-oracle-peoplesoft-protected-by-f5-big-ip-apm-test-user)** - para ter uma contraparte de B.Simon na Oracle PeopleSoft - Protegida por F5 BIG-IP APM que está ligada à representação AD Azure do utilizador.
+1. **[Configure o Oracle PeopleSoft-Protected por F5 BIG-IP APM SSO](#configure-oracle-peoplesoft-protected-by-f5-big-ip-apm-sso)** - para configurar as definições de inscrição única no lado da aplicação.
+    1. **[Create Oracle PeopleSoft-Protected pelo utilizador de teste APM APM F5 BIG-IP](#create-oracle-peoplesoft-protected-by-f5-big-ip-apm-test-user)** - para ter uma contraparte de B.Simon na Oracle PeopleSoft - Protegida por F5 BIG-IP APM que está ligada à representação AD Ad Azure do utilizador.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
@@ -100,7 +100,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<FQDN>.peoplesoft.f5.com/`
 
     > [!NOTE]
-    >Estes valores não são reais. Atualize estes valores com o URL de inscrição real, identificador, URL de resposta e URL de logo. Contacte [a Oracle PeopleSoft - Protegida pela equipa de suporte do cliente F5 BIG-IP APM](https://support.f5.com) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    >Estes valores não são reais. Atualize estes valores com o URL de Sign-On real, identificador, URL de resposta e URL de logo. Contacte [a Oracle PeopleSoft - Protegida pela equipa de suporte do cliente F5 BIG-IP APM](https://support.f5.com) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
 1. Oracle PeopleSoft - Protegido por F5 BIG-IP APM aplicação espera as afirmações SAML em um formato específico, o que requer que você adicione mapeamentos de atributos personalizados à configuração de atributos DEKEN SAML. A imagem que se segue mostra a lista de atributos predefinidos.
 
@@ -140,7 +140,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
-## <a name="configure-oracle-peoplesoft-protected-by-f5-big-ip-apm-sso"></a>Configure Oracle PeopleSoft-Protected by F5 BIG-IP APM SSO
+## <a name="configure-oracle-peoplesoft-protected-by-f5-big-ip-apm-sso"></a>Configurar o Oráculo PeopleSoft-Protected por F5 BIG-IP APM SSO
 
 ### <a name="f5-saml-sp-configuration"></a>Configuração F5 SAML SP
 
@@ -259,25 +259,25 @@ Na função **getWWWAuthConfig(),** substitua o valor que é atribuído ao **&de
 
 ## <a name="setting-up-f5-big-ip-apm-to-populate-ps_sso_uid-http-header-with-the-peoplesoft-user-id"></a>Configuração F5 Big-IP APM para preencher "PS_SSO_UID" HTTP Header com o ID do utilizador PeopleSoft
 
-### <a name="configuring-per-request-policy"></a>Política de Configuração por Pedido
-1. Navegar para aceder a **> perfil/políticas > Políticas por Pedido,** clique em **Criar,** complete as seguintes informações e clique em **Terminado**.
+### <a name="configuring-per-request-policy"></a>Política de Per-Request configuração
+1. Navegar para aceder a **> perfil/políticas > Per-Request Políticas,** clique em **Criar,** complete as seguintes informações e clique em **Terminado**.
 
     * Nome: `<Name>`
     * Tipo de perfil: Todos
     * Idiomas: `<Language>`
 
-    ![Política de Configuração por Pedido ](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/per-request.png)
+    ![Política de Per-Request configuração ](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/per-request.png)
 
-1. Clique **em Editar** Política de Pedido de `<Name>` ![ Pedido de Pedido Por Pedido Política PeopleSoftSSO ](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/people-soft-sso.png)
+1. Clique **em Editar** Per-Request edição de política `<Name>` ![ Per-Request Política PeopleSoftSSO ](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/people-soft-sso.png)
 
     `Header Name: <Header Name>`   
     `Header Value: <Header Value>`
 
-### <a name="assign-per-request-policy-to-the-virtual-server"></a>Atribuir a Política de Pedido ao Servidor Virtual
+### <a name="assign-per-request-policy-to-the-virtual-server"></a>Atribuir a Política de Per-Request ao Servidor Virtual
 
-Navegue para **o tráfego local > servidores virtuais > lista de servidores virtuais > PeopleSoftApp** Specify como Política de `<Name>` Pedido
+Navegue para servidores virtuais > de **tráfego local > lista de servidores virtuais > PeopleSoftApp** Specify como Per-Request `<Name>` Política
 
-![PeopleSoftSSO como Política de Per-Request ](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/people-soft-sso-1.png)
+![PeopleSoftSSO como Política Per-Request ](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/people-soft-sso-1.png)
 
 ## <a name="setting-up-f5-big-ip-apm-to-support-single-logout-from-peoplesoft-application"></a>Criação de F5 Big-IP APM para apoiar o Logotipout Único da aplicação PeopleSoft
 
@@ -311,9 +311,9 @@ Para adicionar um suporte único de logout para todos os utilizadores da PeopleS
         ![_iRule_PeopleSoftApp terminado](./media/oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial/common-irule.png)
 
 
-### <a name="create-oracle-peoplesoft-protected-by-f5-big-ip-apm-test-user"></a>Criar Oracle PeopleSoft-Protected por F5 BIG-IP APM test user
+### <a name="create-oracle-peoplesoft-protected-by-f5-big-ip-apm-test-user"></a>Criar PeopleSoft-Protected Oracle por F5 BIG-IP Utilizador de teste APM
 
-Nesta secção, cria-se um utilizador chamado B.Simon in Oracle PeopleSoft-Protected by F5 BIG-IP APM. Trabalhe com a [Oracle PeopleSoft-Protected pela equipa de suporte APM DA F5 BIG-IP](https://support.f5.com) para adicionar os utilizadores na oracle PeopleSoft-Protected pela plataforma F5 BIG-IP APM. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Nesta secção, cria-se um utilizador chamado B.Simon in Oracle PeopleSoft-Protected por F5 BIG-IP APM. Trabalhe com [a Oracle PeopleSoft-Protected pela equipa de suporte APM da F5 BIG-IP](https://support.f5.com) para adicionar os utilizadores no PeopleSoft-Protected Oracle pela plataforma F5 BIG-IP APM. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
 ## <a name="test-sso"></a>Teste SSO 
 
@@ -321,15 +321,15 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 #### <a name="sp-initiated"></a>SP iniciado:
 
-* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para o Oracle PeopleSoft-Protected by F5 BIG-IP APM Sign on URL onde pode iniciar o fluxo de login.  
+* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para o Oracle PeopleSoft-Protected por F5 BIG-IP APM Assinar no URL onde pode iniciar o fluxo de login.  
 
-* Vá diretamente à Oracle PeopleSoft-Protected by F5 BIG-IP APM Sign-on URL e inicie o fluxo de login a partir daí.
+* Vá diretamente à Oracle PeopleSoft-Protected por F5 BIG-IP APM E inicie o fluxo de login a partir daí.
 
 #### <a name="idp-initiated"></a>IDP iniciado:
 
-* Clique em **Testar esta aplicação** no portal Azure e deverá ser automaticamente inscrito no Oracle PeopleSoft-Protected by F5 BIG-IP APM para o qual configura o SSO 
+* Clique em **Testar esta aplicação** no portal Azure e deverá ser automaticamente inscrito no Oráculo PeopleSoft-Protected por F5 BIG-IP APM para o qual configura o SSO 
 
-Também pode utilizar o Microsoft Access Panel para testar a aplicação em qualquer modo. Quando clicar no oracle PeopleSoft-Protected by F5 BIG-IP APM no Painel de Acesso, se configurado no modo SP, será redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, deverá ser automaticamente inscrito no OracleSoft-Protected by F5 BIG-IP APM para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+Também pode utilizar o Microsoft Access Panel para testar a aplicação em qualquer modo. Quando clicar no PeopleSoft-Protected Oráculo por F5 BIG-IP APM no Painel de Acesso, se configurado no modo SP, será redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, deverá ser automaticamente inscrito no Oracle PeopleSoft-Protected por F5 BIG-IP APM para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 
 ## <a name="next-steps"></a>Passos seguintes

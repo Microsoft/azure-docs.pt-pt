@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 03/17/2020
 ms.custom: references_regions
 ms.openlocfilehash: adc621f932462422202d9f16fd539f5ecc7c3d8e
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87336906"
 ---
 ## <a name="prepare-an-iot-hub"></a>Prepare um hub IoT

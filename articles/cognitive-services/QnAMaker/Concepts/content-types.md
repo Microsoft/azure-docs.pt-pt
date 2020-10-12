@@ -7,10 +7,10 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.openlocfilehash: 50924ce035d9a7dc7778cf45668dc993ee5486e4
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91776991"
 ---
 # <a name="content-types-of-documents-you-can-add-to-a-knowledge-base"></a>Tipos de conteúdo de documentos que pode adicionar a uma base de conhecimento
