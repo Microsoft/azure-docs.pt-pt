@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: jingwang
 ms.openlocfilehash: e0fadf4ac8cea1c8804b17f5549a99bc360e2950
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91334298"
 ---
 # <a name="xml-format-in-azure-data-factory"></a>Formato XML na Azure Data Factory
@@ -30,13 +30,13 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 | Propriedade         | Descrição                                                  | Obrigatório |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| tipo             | A propriedade do tipo do conjunto de dados deve ser definida como **Xml**. | Yes      |
-| localização         | Definições de localização do(s) ficheiros. Cada conector baseado em ficheiros tem o seu próprio tipo de localização e propriedades suportadas em `location` . **Consulte os detalhes na secção de propriedades do conector -> Dataset**. | Yes      |
-| encodingName     | O tipo de codificação utilizado para ler/escrever ficheiros de teste. <br>Allowed values are as follows: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254",.| No       |
-| nullValue | Especifica a representação de cadeia de valor nulo.<br/>O valor predefinido é **a corda vazia.** | No |
-| compressão | Grupo de propriedades para configurar a compressão do ficheiro. Configure esta secção quando pretender fazer compressão/descompressão durante a execução da atividade. | No |
-| tipo<br>*(em) `compression` * | O códice de compressão usado para ler/escrever ficheiros XML. <br>Os valores permitidos são **bzip2**, **gzip,** **deflate,** **ZipDeflate,** **TarGzip,** **snappy,** ou **lz4**. O padrão não é comprimido.<br>**Nota** atualmente A atividade copy não suporta "snappy" & "lz4", e o fluxo de dados de mapeamento não suporta "ZipDeflate".<br>**Nota** quando utilizar a atividade de cópia para **descomprimir**os ficheiros ZipDeflate / **TarGzip** e escrever para a loja de dados da pia baseada em ficheiros, por predefinição os ficheiros são extraídos para a pasta: `<path specified in dataset>/<folder named as source compressed file>/` , utilize na fonte de atividade de `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder` [cópia](#xml-as-source) para controlar se deve preservar o nome dos ficheiros(s) comprimidos como estrutura de pasta. | Não.  |
-| nível<br/>*(em) `compression` * | A relação de compressão. <br>Os valores permitidos são **ótimos** ou **mais rápidos.**<br>- **Mais rápido:** O funcionamento da compressão deve ser concluído o mais rapidamente possível, mesmo que o ficheiro resultante não seja perfeitamente comprimido.<br>- **Ótimo**: O funcionamento da compressão deve ser perfeitamente comprimido, mesmo que a operação leve mais tempo a ser concluída. Para mais informações, consulte o tópico [nível de compressão.](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) | No       |
+| tipo             | A propriedade do tipo do conjunto de dados deve ser definida como **Xml**. | Sim      |
+| localização         | Definições de localização do(s) ficheiros. Cada conector baseado em ficheiros tem o seu próprio tipo de localização e propriedades suportadas em `location` . **Consulte os detalhes na secção de propriedades do conector -> Dataset**. | Sim      |
+| encodingName     | O tipo de codificação utilizado para ler/escrever ficheiros de teste. <br>Allowed values are as follows: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254",.| Não       |
+| nullValue | Especifica a representação de cadeia de valor nulo.<br/>O valor predefinido é **a corda vazia.** | Não |
+| compressão | Grupo de propriedades para configurar a compressão do ficheiro. Configure esta secção quando pretender fazer compressão/descompressão durante a execução da atividade. | Não |
+| tipo<br>*(em) `compression` * | O códice de compressão usado para ler/escrever ficheiros XML. <br>Os valores permitidos são **bzip2**, **gzip,** **deflate,** **ZipDeflate,** **TarGzip,** **snappy,** ou **lz4**. O padrão não é comprimido.<br>**Nota** atualmente A atividade copy não suporta "snappy" & "lz4", e o fluxo de dados de mapeamento não suporta "ZipDeflate".<br>**Nota** quando utilizar a atividade de cópia para **descomprimir**os ficheiros ZipDeflate / **TarGzip** e escrever para a loja de dados da pia baseada em ficheiros, por predefinição os ficheiros são extraídos para a pasta: `<path specified in dataset>/<folder named as source compressed file>/` , utilize na fonte de atividade de `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder` [cópia](#xml-as-source) para controlar se deve preservar o nome dos ficheiros(s) comprimidos como estrutura de pasta. | N.º  |
+| nível<br/>*(em) `compression` * | A relação de compressão. <br>Os valores permitidos são **ótimos** ou **mais rápidos.**<br>- **Mais rápido:** O funcionamento da compressão deve ser concluído o mais rapidamente possível, mesmo que o ficheiro resultante não seja perfeitamente comprimido.<br>- **Ótimo**: O funcionamento da compressão deve ser perfeitamente comprimido, mesmo que a operação leve mais tempo a ser concluída. Para mais informações, consulte o tópico [nível de compressão.](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) | Não       |
 
 Abaixo está um exemplo do conjunto de dados XML no Azure Blob Storage:
 
@@ -75,22 +75,22 @@ As seguintes propriedades são suportadas na secção *** \* de origem \* *** da
 
 | Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
-| tipo          | A propriedade tipo da fonte de atividade de cópia deve ser definida como **XmlSource**. | Yes      |
-| formatoStas | Um grupo de propriedades. Consulte a tabela de **definições de leitura XML** abaixo. | No       |
-| lojaSs | Um grupo de propriedades sobre como ler dados de uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de leitura suportadas em `storeSettings` . **Consulte os detalhes na secção de propriedades de atividade do conector -> Copy**. | No       |
+| tipo          | A propriedade tipo da fonte de atividade de cópia deve ser definida como **XmlSource**. | Sim      |
+| formatoStas | Um grupo de propriedades. Consulte a tabela de **definições de leitura XML** abaixo. | Não       |
+| lojaSs | Um grupo de propriedades sobre como ler dados de uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de leitura suportadas em `storeSettings` . **Consulte os detalhes na secção de propriedades de atividade do conector -> Copy**. | Não       |
 
 Definições de **leitura de XML** suportadas em `formatSettings` :
 
 | Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
-| tipo          | O tipo de formatoStais devem ser definidos para **XmlReadSettings**. | Yes      |
-| validaçãoMode | Especifica se valida o esquema XML.<br>Os valores permitidos não são **nenhum** (predefinição, sem validação), **xsd** (validar usando XSD), **dtd** (validar usando DTD). | No |
-| espaços de nome | Se ativar o espaço de nome ao analisar os ficheiros XML. Os valores permitidos são: **verdadeiros** (padrão), **falsos.** | No |
-| namespacePrefixes | Namespace URI para pré-fixar o mapeamento, que é usado para nomear campos ao analisar o ficheiro xml.<br/>Se um ficheiro XML tiver espaço de nome e o espaço de nome estiver ativado, por padrão, o nome de campo é o mesmo que está no documento XML.<br>Se houver um item definido para o namespace URI neste mapa, o nome de campo é `prefix:fieldName` . | No |
-| detectarDataType | Se detetar números inteiros, duplos e booleanos. Os valores permitidos são: **verdadeiros** (padrão), **falsos.**| No |
-| compressãoProperties | Um grupo de propriedades sobre como descomprimir dados para um determinado codec de compressão. | No       |
-| preservarZipFileNameAsFolder<br>*(em `compressionProperties` -> `type` `ZipDeflateReadSettings` conforme) *  | Aplica-se quando o conjunto de dados de entrada é configurado com compressão **ZipDeflate.** Indica se deve preservar o nome do ficheiro zip de origem como estrutura de pasta durante a cópia.<br>- Quando definido como **verdadeiro (predefinido)**, a Data Factory escreve ficheiros desapertados para `<path specified in dataset>/<folder named as source zip file>/` .<br>- Quando definidos como **falsos,** a Data Factory escreve ficheiros desapertados diretamente para `<path specified in dataset>` . Certifique-se de que não tem nomes de ficheiros duplicados em diferentes ficheiros zip de origem para evitar corridas ou comportamentos inesperados.  | No |
-| preservar CompressãoFileNameAsFolder<br>*(em `compressionProperties` -> `type` `TarGZipReadSettings` conforme) * | Aplica-se quando o conjunto de dados de entrada é configurado com compressão **TarGzip.** Indica se deve preservar o nome do ficheiro comprimido de origem como estrutura de pasta durante a cópia.<br>- Quando definido como **verdadeiro (predefinido)**, a Data Factory escreve ficheiros descomprimidos para `<path specified in dataset>/<folder named as source compressed file>/` . <br>- Quando definido como **falso,** a Data Factory escreve ficheiros descomprimidos diretamente para `<path specified in dataset>` . Certifique-se de que não tem nomes de ficheiros duplicados em diferentes ficheiros de origem para evitar corridas ou comportamentos inesperados. | No |
+| tipo          | O tipo de formatoStais devem ser definidos para **XmlReadSettings**. | Sim      |
+| validaçãoMode | Especifica se valida o esquema XML.<br>Os valores permitidos não são **nenhum** (predefinição, sem validação), **xsd** (validar usando XSD), **dtd** (validar usando DTD). | Não |
+| espaços de nome | Se ativar o espaço de nome ao analisar os ficheiros XML. Os valores permitidos são: **verdadeiros** (padrão), **falsos.** | Não |
+| namespacePrefixes | Namespace URI para pré-fixar o mapeamento, que é usado para nomear campos ao analisar o ficheiro xml.<br/>Se um ficheiro XML tiver espaço de nome e o espaço de nome estiver ativado, por padrão, o nome de campo é o mesmo que está no documento XML.<br>Se houver um item definido para o namespace URI neste mapa, o nome de campo é `prefix:fieldName` . | Não |
+| detectarDataType | Se detetar números inteiros, duplos e booleanos. Os valores permitidos são: **verdadeiros** (padrão), **falsos.**| Não |
+| compressãoProperties | Um grupo de propriedades sobre como descomprimir dados para um determinado codec de compressão. | Não       |
+| preservarZipFileNameAsFolder<br>*(em `compressionProperties` -> `type` `ZipDeflateReadSettings` conforme) *  | Aplica-se quando o conjunto de dados de entrada é configurado com compressão **ZipDeflate.** Indica se deve preservar o nome do ficheiro zip de origem como estrutura de pasta durante a cópia.<br>- Quando definido como **verdadeiro (predefinido)**, a Data Factory escreve ficheiros desapertados para `<path specified in dataset>/<folder named as source zip file>/` .<br>- Quando definidos como **falsos,** a Data Factory escreve ficheiros desapertados diretamente para `<path specified in dataset>` . Certifique-se de que não tem nomes de ficheiros duplicados em diferentes ficheiros zip de origem para evitar corridas ou comportamentos inesperados.  | Não |
+| preservar CompressãoFileNameAsFolder<br>*(em `compressionProperties` -> `type` `TarGZipReadSettings` conforme) * | Aplica-se quando o conjunto de dados de entrada é configurado com compressão **TarGzip.** Indica se deve preservar o nome do ficheiro comprimido de origem como estrutura de pasta durante a cópia.<br>- Quando definido como **verdadeiro (predefinido)**, a Data Factory escreve ficheiros descomprimidos para `<path specified in dataset>/<folder named as source compressed file>/` . <br>- Quando definido como **falso,** a Data Factory escreve ficheiros descomprimidos diretamente para `<path specified in dataset>` . Certifique-se de que não tem nomes de ficheiros duplicados em diferentes ficheiros de origem para evitar corridas ou comportamentos inesperados. | Não |
 
 ## <a name="mapping-data-flow-properties"></a>Mapeamento de propriedades de fluxo de dados
 
@@ -102,15 +102,15 @@ A tabela abaixo lista as propriedades suportadas por uma fonte XML. Pode editar 
 
 | Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Caminhos de wild card | Todos os ficheiros correspondentes ao caminho wildcard serão processados. Substitui a pasta e o caminho do ficheiro definido no conjunto de dados. | No | Corda[] | wildcardPaths |
+| Caminhos de wild card | Todos os ficheiros correspondentes ao caminho wildcard serão processados. Substitui a pasta e o caminho do ficheiro definido no conjunto de dados. | Não | Corda[] | wildcardPaths |
 | Caminho da raiz da partição | Para os dados de ficheiros que são divididos, pode introduzir um caminho de raiz de partição para ler pastas partidas como colunas | Não | String | partitionRootPath |
-| Lista de ficheiros | Se a sua fonte está a apontar para um ficheiro de texto que lista ficheiros para processar | No | `true` ou `false` | fileList |
+| Lista de ficheiros | Se a sua fonte está a apontar para um ficheiro de texto que lista ficheiros para processar | Não | `true` ou `false` | fileList |
 | Coluna para armazenar nome de ficheiro | Criar uma nova coluna com o nome e caminho do ficheiro de origem | Não | String | rowUrlColumn |
-| Após a conclusão | Elimine ou mova os ficheiros após o processamento. O caminho do arquivo começa a partir da raiz do recipiente | No | Excluir: `true` ou `false` <br> Mover-se: `['<from>', '<to>']` | purgeFiles <br>moveFiles |
-| Filtrar por última modificação | Opte por filtrar ficheiros com base na última alteração que foram alterados | No | Timestamp | modificado Depois <br>modificadoSForo antes |
-| Modo de validação | Especifica se valida o esquema XML. | No | `None` (predefinição, sem validação)<br>`xsd` (validar a utilização do XSD)<br>`dtd` (validar usando DTD). | validaçãoMode |
-| Espaços de nomes | Se ativar o espaço de nome ao analisar os ficheiros XML. | No | `true` (predefinido) ou `false` | espaços de nome |
-| Pares de prefixos do espaço de nome | Namespace URI para pré-fixar o mapeamento, que é usado para nomear campos ao analisar o ficheiro xml.<br/>Se um ficheiro XML tiver espaço de nome e o espaço de nome estiver ativado, por padrão, o nome de campo é o mesmo que está no documento XML.<br>Se houver um item definido para o namespace URI neste mapa, o nome de campo é `prefix:fieldName` . | No | Matriz com padrão`['URI1'->'prefix1','URI2'->'prefix2']` | namespacePrefixes |
+| Após a conclusão | Elimine ou mova os ficheiros após o processamento. O caminho do arquivo começa a partir da raiz do recipiente | Não | Excluir: `true` ou `false` <br> Mover-se: `['<from>', '<to>']` | purgeFiles <br>moveFiles |
+| Filtrar por última modificação | Opte por filtrar ficheiros com base na última alteração que foram alterados | Não | Timestamp | modificado Depois <br>modificadoSForo antes |
+| Modo de validação | Especifica se valida o esquema XML. | Não | `None` (predefinição, sem validação)<br>`xsd` (validar a utilização do XSD)<br>`dtd` (validar usando DTD). | validaçãoMode |
+| Espaços de nomes | Se ativar o espaço de nome ao analisar os ficheiros XML. | Não | `true` (predefinido) ou `false` | espaços de nome |
+| Pares de prefixos do espaço de nome | Namespace URI para pré-fixar o mapeamento, que é usado para nomear campos ao analisar o ficheiro xml.<br/>Se um ficheiro XML tiver espaço de nome e o espaço de nome estiver ativado, por padrão, o nome de campo é o mesmo que está no documento XML.<br>Se houver um item definido para o namespace URI neste mapa, o nome de campo é `prefix:fieldName` . | Não | Matriz com padrão`['URI1'->'prefix1','URI2'->'prefix2']` | namespacePrefixes |
 | Não permita que não encontrem ficheiros | Se for verdade, um erro não é jogado se nenhum ficheiro for encontrado | não | `true` ou `false` | ignoreNoFilesFound |
 
 ### <a name="xml-source-script-example"></a>Exemplo de script de origem XML

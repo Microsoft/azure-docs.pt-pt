@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
 ms.openlocfilehash: de013b6ccd924f50ffe12fcba1285b121eece5f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83827561"
 ---
 # <a name="query-logs-from-startstop-vms-during-off-hours"></a>Consultar registos a partir da solução Iniciar/Parar VMs fora do horário de expediente
@@ -69,7 +69,7 @@ A tabela seguinte fornece pesquisas de registo de amostras para registos de trab
 |Encontre empregos para SequencedStartStop_Parent de runbook que terminaram com sucesso | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
 |Encontre empregos para SequencedStartStop_Parent de runbook que não tenham concluído com sucesso | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Failed" ) <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para configurar a função, consulte [Configure Stop/Start VMs durante as horas de folga](automation-solution-vm-management-config.md).
 * Para obter informações sobre alertas de registo durante a implementação da funcionalidade, consulte [Criar alertas de registo com o Azure Monitor](../azure-monitor/platform/alerts-log.md).

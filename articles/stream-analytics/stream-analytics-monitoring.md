@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/21/2018
 ms.custom: seodec18
 ms.openlocfilehash: f0932104c55e705c76a8d2b086edf828caf60520
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86044095"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Compreender a monitorização do trabalho do Stream Analytics e como monitorizar consultas
@@ -27,7 +27,7 @@ A janela aparecerá como mostrado:
 ![Painel de monitorização de trabalho stream Analytics](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
 
 ## <a name="metrics-available-for-stream-analytics"></a>Métricas disponíveis para Stream Analytics
-| Metric                 | Definição                               |
+| Métrica                 | Definição                               |
 | ---------------------- | ---------------------------------------- |
 | Eventos de entrada recuados       | Número de eventos de entrada que são retrospados. Um valor não-zero para esta métrica implica que o seu trabalho não é capaz de acompanhar o número de eventos que chegam. Se este valor estiver a aumentar lentamente ou consistentemente não zero, deverá escalonar o seu trabalho. Pode aprender mais visitando [Compreender e ajustar Unidades de Streaming.](stream-analytics-streaming-unit-consumption.md) |
 | Erros de Conversão de Dados | Número de eventos de saída que não puderam ser convertidos para o esquema de saída esperado. A política de erros pode ser alterada para 'Drop' para deixar cair eventos que encontrem este cenário. |
@@ -61,7 +61,7 @@ Desta vez é o tempo de aplicação (ou seja, o tempo que utiliza o relógio a p
 ## <a name="get-help"></a>Obter ajuda
 Para mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
 ms.openlocfilehash: 4d0934dd30f9738e2a67d4aff23c96a48aaaa61b
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89302847"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-azure-cli"></a>Quickstart: Criar um endereço IP público utilizando O Azure CLI
@@ -106,7 +106,7 @@ Se for aceitável que o endereço IP se altere ao longo do tempo, a atribuição
 
 Para obter mais detalhes sobre as variáveis individuais listadas acima, consulte [Gerir os endereços IP públicos](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#create-a-public-ip-address).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Associar um [endereço IP público a uma Máquina Virtual.](https://docs.microsoft.com/azure/virtual-network/associate-public-ip-address-vm#azure-portal)
 - Saiba mais sobre [endereços IP públicos](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) em Azure.
 - Saiba mais sobre todas as [definições de endereços IP públicos](virtual-network-public-ip-address.md#create-a-public-ip-address).

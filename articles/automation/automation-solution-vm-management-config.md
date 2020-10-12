@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 06/01/2020
 ms.topic: conceptual
 ms.openlocfilehash: b0bc23d515bebdd0d943bbad33c5ebba35a35605
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987207"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Configurar VMs de início/paragem durante as horas fora de horas
@@ -143,13 +143,13 @@ Para alterar notificações de e-mail após a implementação de VMs de início/
 
 2. Na página StartStop_VM_Notification, clique em **Editar detalhes** em **Detalhes**. Isto abre a página Email/SMS/Push/Voice. Atualize o endereço de e-mail e clique **em OK** para guardar as suas alterações.
 
-    :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Screenshot da página email/SMS/Push/Voice mostrando um endereço de e-mail de exemplo atualizado.":::
+    :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Screenshot da página Monitor - Grupos de ação.":::
 
     Em alternativa, pode adicionar ações adicionais ao grupo de ação, para saber mais sobre grupos de ação, ver [grupos de ação](../azure-monitor/platform/action-groups.md)
 
 Segue-se um e-mail de exemplo que é enviado quando a funcionalidade desliga as máquinas virtuais.
 
-:::image type="content" source="media/automation-solution-vm-management/email.png" alt-text="Screenshot de um e-mail de exemplo enviado quando a funcionalidade desliga máquinas virtuais.":::
+:::image type="content" source="media/automation-solution-vm-management/email.png" alt-text="Screenshot da página Monitor - Grupos de ação.":::
 
 ## <a name="add-or-exclude-vms"></a><a name="add-exclude-vms"></a>Adicionar ou excluir VMs
 

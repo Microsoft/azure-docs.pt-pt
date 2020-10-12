@@ -17,10 +17,10 @@ ms.author: kenwith
 ms.reviewer: japere, asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 54673e0018f83024d1c01599d0096c71b6b1d0ae
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88642134"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Como configurar um único sign-on para uma aplicação de procuração de aplicação
@@ -47,7 +47,7 @@ Configure o tipo específico de inscrição única. Os métodos de inscrição s
 
 Cada uma destas opções pode ser encontrada indo para a sua aplicação em "Aplicações empresariais", e abrindo a página **'Sign-On' único** no menu esquerdo. Note que se a sua aplicação foi criada no portal antigo, poderá não ver todas estas opções.
 
-Nesta página, também vê uma opção adicional de Início de Sômtenção: Iniciar Sôm. Esta opção também é suportada pela Application Proxy. No entanto, esta opção não adiciona um único sinal de inscrição à aplicação. Dito isto, a aplicação pode já ter um único sign-on implementado usando outro serviço, como os Serviços da Federação de Diretórios Ativos. 
+Nesta página, você também vê uma opção adicional Sign-On: Linked Sign-On. Esta opção também é suportada pela Application Proxy. No entanto, esta opção não adiciona um único sinal de inscrição à aplicação. Dito isto, a aplicação pode já ter um único sign-on implementado usando outro serviço, como os Serviços da Federação de Diretórios Ativos. 
 
 Esta opção permite que um administrador crie um link para uma aplicação que os utilizadores primeiro aterram ao aceder à aplicação. Por exemplo, se houver uma aplicação configurada para autenticar utilizadores que utilizem os Serviços da Federação de Diretório Ativo 2.0, um administrador pode utilizar a opção "Linked Sign-On" para criar um link para o mesmo nas Minhas Apps.
 

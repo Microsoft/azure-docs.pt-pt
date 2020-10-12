@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.openlocfilehash: 0cfa7b63d1ce9dd4d9b40cd0eedac247f9c56437
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88935760"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Criar um ponto final privado para uma ligação segura à Pesquisa Cognitiva Azure
@@ -47,7 +47,7 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede para hospedar o VM qu
     | Subscrição | Selecione a sua subscrição|
     | Grupo de recursos | Selecione **Criar novo,** insira *myResourceGroup,* em seguida, selecione **OK** |
     | Nome | Insira *myVirtualNetwork* |
-    | Região | Selecione a região desejada |
+    | Region | Selecione a região desejada |
     |||
 
 1. Deixe as predefinições para o resto das definições. Clique **em Rever + criar** e, em seguida, **criar**
@@ -86,21 +86,21 @@ Nesta secção, irá criar um novo serviço de Pesquisa Cognitiva Azure com um P
     | Subscrição | Selecione a sua subscrição. |
     | Grupo de recursos | Selecione **myResourceGroup**. Criou isto na secção anterior.|
     | Localização | Selecione **West US**.|
-    | Nome | Insira *o meuPrivateEndpoint*.  |
-    | Sub-recurso-alvo | Deixe o **serviço de pesquisa**predefinido . |
-    | **NETWORKING** |  |
+    | Name | Introduza *myPrivateEndpoint*.  |
+    | Recurso secundário de destino | Deixe o **serviço de pesquisa**predefinido . |
+    | **REDES** |  |
     | Rede virtual  | Selecione *MyVirtualNetwork* do grupo de recursos *myResourceGroup*. |
     | Sub-rede | Selecione *mySubnet*. |
-    | **INTEGRAÇÃO PRIVADA DE DNS** |  |
-    | Integrar-se com a zona privada de DNS  | Deixe o padrão **Sim**. |
+    | **INTEGRAÇÃO DE DNS PRIVADO** |  |
+    | Integrar com zona DNS privada  | Deixe o padrão **Sim**. |
     | Zona DNS Privado  | Deixe o padrão ** (Novo) privatelink.search.windows.net**. |
     |||
 
 1. Selecione **OK**. 
 
-1. Selecione **Rever + criar**. É levado para a página **'Rever +' onde** o Azure valida a sua configuração. 
+1. Selecione **Rever + criar**. Acedeu à página **Rever + criar**, onde o Azure valida a sua configuração. 
 
-1. Quando vir a mensagem **de validação passada,** selecione **Criar**. 
+1. Quando vir a mensagem **A validação passou**, selecione **Criar**. 
 
 1. Assim que o fornecimento do seu novo serviço estiver concluído, navegue para o recurso que acabou de criar.
 
@@ -121,24 +121,24 @@ Nesta secção, irá criar um novo serviço de Pesquisa Cognitiva Azure com um P
     | Grupo de recursos | Selecione **myResourceGroup**. Criou isto na secção anterior.  |
     | **DETALHES DE INSTÂNCIA** |  |
     | Nome da máquina virtual | *Insira o myVm*. |
-    | Região | Selecione **West US** ou qualquer região que estiver usando. |
+    | Region | Selecione **West US** ou qualquer região que estiver usando. |
     | Opções de disponibilidade | Deixar o incumprimento **Não é necessário um despedimento de infraestrutura**. |
     | Imagem | Selecione **o Centro de Dados 2019 do Windows**Server . |
     | Tamanho | Deixe o **padrão DS1 v2**. |
     | **CONTA DE ADMINISTRADOR** |  |
     | Nome de utilizador | Insira um nome de utilizador à sua escolha. |
-    | Palavra-passe | Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | Palavra-passe | Introduza uma palavra-passe à sua escolha. A palavra-passe deve ter pelo menos 12 caracteres de comprimento e satisfazer os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Confirmar Palavra-passe | Reentre na senha. |
-    | **REGRAS PORTUÁRIAS DE ENTRADA** |  |
+    | **REGRAS DA PORTA DE ENTRADA** |  |
     | Portas de entrada públicas | Deixe o predefinido **Deixar as portas selecionadas**. |
-    | Selecione portas de entrada | Deixe o PDR predefinido **(3389)**. |
-    | **POUPAR DINHEIRO** |  |
+    | Selecione as portas de entrada | Deixe o PDR predefinido **(3389)**. |
+    | **POUPE DINHEIRO** |  |
     | Já tem uma licença do Windows? | Deixe o **nº**padrão . |
     |||
 
 1. Selecione **Seguinte: Discos**.
 
-1. Em **Criar uma máquina virtual - Discos,** deixar as predefinições e selecionar **Seguinte: Networking**.
+1. Em **Criar uma máquina virtual – Discos**, mantenha as predefinições e selecione **Seguinte: Redes**.
 
 1. Na **Criação de uma máquina virtual - Networking,** selecione estas informações:
 
@@ -149,19 +149,19 @@ Nesta secção, irá criar um novo serviço de Pesquisa Cognitiva Azure com um P
     | Sub-rede | Deixe o **mySubnet predefinido (10.1.0.0/24)**.|
     | IP público | Deixe o **padrão (novo) myVm-ip**. |
     | Portas de entrada públicas | Selecione **Deixe as portas selecionadas.** |
-    | Selecione portas de entrada | Selecione **HTTP** e **RDP**.|
+    | Selecione as portas de entrada | Selecione **HTTP** e **RDP**.|
     ||
 
-1. Selecione **Rever + criar**. É levado para a página **'Rever +' onde** o Azure valida a sua configuração.
+1. Selecione **Rever + criar**. Acedeu à página **Rever + criar**, onde o Azure valida a sua configuração.
 
-1. Quando vir a mensagem **de validação passada,** selecione **Criar**. 
+1. Quando vir a mensagem **A validação passou**, selecione **Criar**. 
 
 
 ## <a name="connect-to-the-vm"></a>Ligar à VM
 
 Faça o download e, em seguida, ligue-se ao *myVm VM* da seguinte forma:
 
-1. Na barra de pesquisa do portal, insira *o myVm*.
+1. Na barra de pesquisa do portal, introduza *myVm*.
 
 1. Selecione o botão **Ligar**. Depois de selecionar o botão **Ligar,** **o Connect à máquina virtual** abre-se.
 
@@ -178,7 +178,7 @@ Faça o download e, em seguida, ligue-se ao *myVm VM* da seguinte forma:
 
 1. Selecione **OK**.
 
-1. Poderá receber um aviso de certificado durante o processo de início de sessão. Se receber um aviso de certificado, selecione **Sim** ou **Continue**.
+1. Poderá receber um aviso de certificado durante o processo de início de sessão. Se recebeu um aviso de certificado, selecione **Sim** ou **Continuar**.
 
 1. Assim que o ambiente de trabalho em VM aparecer, minimize-o para voltar ao seu ambiente de trabalho local.  
 
@@ -193,7 +193,7 @@ Quando o ponto final do serviço de pesquisa é privado, algumas funcionalidades
 
 1. Insira 'nslookup [nome do serviço de pesquisa].search.windows.net
 
-    Receberá uma mensagem semelhante a esta:
+    Irá receber uma mensagem semelhante a esta:
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16

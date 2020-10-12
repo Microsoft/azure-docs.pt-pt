@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 339273c091a1bcfc4f2de66ef2f79ea8cebbc49b
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86026054"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Dados de exemplo em tabelas do Hive do HDInsight
@@ -31,9 +31,9 @@ Se o conjunto de dados que pretende analisar é grande, é geralmente uma boa id
 Esta tarefa de amostragem é um passo no Processo de Ciência de Dados de [Equipa (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## <a name="how-to-submit-hive-queries"></a>Como submeter consultas de Colmeia
-As consultas de colmeia podem ser submetidas a partir da consola Hadoop Command-Line no nó de cabeça do cluster Hadoop.  Inicie o nó de cabeça do cluster Hadoop, abra a consola Hadoop Command-Line e submeta as consultas de Colmeia a partir daí. Para obter instruções sobre a submissão de consultas de Colmeia na consola Hadoop Command-Line, consulte [Como Submeter consultas de colmeia](move-hive-tables.md#submit).
+As consultas de colmeia podem ser submetidas a partir da consola Hadoop Command-Line no nó de cabeça do cluster Hadoop.  Inicie o nó de cabeça do cluster Hadoop, abra a consola Hadoop Command-Line e submeta as consultas da Colmeia a partir daí. Para obter instruções sobre a submissão de consultas de Colmeia na consola Hadoop Command-Line, consulte [Como Submeter consultas de colmeia](move-hive-tables.md#submit).
 
-## <a name="uniform-random-sampling"></a><a name="uniform"></a>Amostragem aleatória uniforme
+## <a name="uniform-random-sampling"></a><a name="uniform"></a> Amostragem aleatória uniforme
 Uma amostragem aleatória uniforme significa que cada linha do conjunto de dados tem igual possibilidade de ser amostrada. Pode ser implementado adicionando um rand de campo extra() ao conjunto de dados na consulta interna "selecione" e na consulta externa "selecione" essa condição nesse campo aleatório.
 
 Segue-se uma consulta de exemplo:
@@ -53,7 +53,7 @@ where samplekey<='${hiveconf:sampleRate}'
 
 Aqui, `<sample rate, 0-1>` especifica a proporção de registos que os utilizadores querem recolher.
 
-## <a name="random-sampling-by-groups"></a><a name="group"></a>Amostragem aleatória por grupos
+## <a name="random-sampling-by-groups"></a><a name="group"></a> Amostragem aleatória por grupos
 Ao recolher amostras de dados categóricos, pode querer incluir ou excluir todos os casos para algum valor da variável categórica. Este tipo de amostragem chama-se "amostragem por grupo". Por exemplo, se tiver uma variável categórica "*Estado*", que tem valores como NY, MA, CA, NJ e PA, quer que os registos de cada estado estejam juntos, sejam eles amostrados ou não.
 
 Aqui está uma consulta de exemplo que as amostras por grupo:

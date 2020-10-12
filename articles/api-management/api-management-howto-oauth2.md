@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 4a0e8c6eb87b053c0e3ee524c60435dc45d81ff3
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87902263"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Como autorizar contas de programadores utilizando o OAuth 2.0 na Azure API Management
@@ -68,18 +68,18 @@ Este guia mostra-lhe como configurar a sua instância de serviço de Gestão API
 
     ![OAuth 2.0 novo servidor](./media/api-management-howto-oauth2/oauth-03.png)
 
-    Para um servidor OAuth 2.0 do Azure Ative Directory, o URL do **ponto final token** terá o seguinte formato, onde `<TenantID>` tem o formato de `yourapp.onmicrosoft.com` .
+    Para um servidor OAuth 2.0 do Azure Ative Directory, o URL do **ponto final token** terá o seguinte formato, onde `<TenantID>`  tem o formato de `yourapp.onmicrosoft.com` .
 
     `https://login.microsoftonline.com/<TenantID>/oauth2/token`
 
-    A definição predefinição dos **métodos de autenticação do Cliente** é **Básica,** e **o método de envio de ficha de acesso** é **cabeçalho de autorização**. Estes valores estão configurados nesta secção do formulário, juntamente com o **âmbito Padrão**.
+    A definição predefinição dos **métodos de autenticação do Cliente** é **Básica,** e  **o método de envio de ficha de acesso** é **cabeçalho de autorização**. Estes valores estão configurados nesta secção do formulário, juntamente com o **âmbito Padrão**.
 
 6. A secção **de credenciais do Cliente** contém o **ID** do Cliente e o **segredo do Cliente,** que são obtidos durante o processo de criação e configuração do seu servidor OAuth 2.0. Uma vez especificado o **ID do Cliente** e **o segredo do Cliente,** o **redirect_uri** para o código **de autorização** é gerado. Este URI é utilizado para configurar o URL de resposta na configuração do servidor OAuth 2.0.
 
     No novo portal de desenvolvimento, o sufixo URI é de forma:
 
-    - `/signin-oauth/code/callback/{authServerName}`para o fluxo de concessão de código de autorização
-    - `/signin-oauth/implicit/callback`para o fluxo de subvenção implícita
+    - `/signin-oauth/code/callback/{authServerName}` para o fluxo de concessão de código de autorização
+    - `/signin-oauth/implicit/callback` para o fluxo de subvenção implícita
 
     ![OAuth 2.0 novo servidor](./media/api-management-howto-oauth2/oauth-04.png)
 

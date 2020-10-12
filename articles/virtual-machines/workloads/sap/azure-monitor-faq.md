@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.openlocfilehash: f70aa684a089e0f21cb50932e212b71f77df0e01
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987238"
 ---
 # <a name="azure-monitor-for-sap-solutions-faq-preview"></a>Monitor Azure para soluções SAP FAQ (pré-visualização)
@@ -72,7 +72,7 @@ As pré-visualizações estão excluídas dos contratos de nível de serviço. L
 Atualmente pode monitorizar a base de dados HANA, a infraestrutura subjacente, o cluster de alta disponibilidade e o servidor Microsoft SQL na pré-visualização pública.  
 
  - **Este serviço substitui o gestor da SAP Solution?**  
-Não. Os clientes ainda podem usar o gestor da SAP Solution para monitorização de processos empresariais.  
+N.º Os clientes ainda podem usar o gestor da SAP Solution para monitorização de processos empresariais.  
 
  - **Qual é o valor deste serviço sobre soluções tradicionais como SAP HANA Cockpit/Studio?**  
 O Azure Monitor for SAP Solutions não é específico da base de dados HANA. O Azure Monitor for SAP Solutions também suporta o AnyDB.  

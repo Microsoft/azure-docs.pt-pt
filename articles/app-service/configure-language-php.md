@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
 ms.openlocfilehash: afac8273b5729bcf5470be471145214426dc7dab
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90055304"
 ---
 # <a name="configure-a-php-app-for-azure-app-service"></a>Configure um aplicativo PHP para o Azure App Service
@@ -231,7 +231,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## <a name="access-environment-variables"></a>Aceder a variáveis de ambiente
 
-No Serviço de Aplicações, pode [definir definições](configure-common.md#configure-app-settings) de aplicações fora do seu código de aplicação. Em seguida, pode acessá-los usando o padrão [getenv()](https://secure.php.net/manual/function.getenv.php) padrão. Por exemplo, para aceder a uma configuração de aplicação chamada `DB_HOST` , use o seguinte código:
+No Serviço de Aplicações, pode [configurar as definições da aplicação](configure-common.md#configure-app-settings) fora do código da aplicação. Em seguida, pode acessá-los usando o padrão [getenv()](https://secure.php.net/manual/function.getenv.php) padrão. Por exemplo, para aceder a uma definição da aplicação chamada `DB_HOST`, utilize o seguinte código:
 
 ```php
 getenv("DB_HOST")
@@ -481,7 +481,7 @@ Quando uma aplicação PHP funcionada se comporta de forma diferente no Serviço
 
 ::: zone-end
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial: app PHP com MySQL](tutorial-php-mysql-app.md)
@@ -489,7 +489,7 @@ Quando uma aplicação PHP funcionada se comporta de forma diferente no Serviço
 ::: zone pivot="platform-linux"
 
 > [!div class="nextstepaction"]
-> [Serviço de Aplicações Linux FAQ](faq-app-service-linux.md)
+> [FAQ do Serviço de Aplicações no Linux](faq-app-service-linux.md)
 
 ::: zone-end
 

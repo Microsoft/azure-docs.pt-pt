@@ -4,10 +4,10 @@ description: Este artigo descreve como publicar um evento para um tópico person
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 197d8eb1963300bc6576e664c7c3fd470cf70bb2
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86108265"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Post para tópico personalizado para Azure Event Grid
@@ -16,7 +16,7 @@ Este artigo descreve como publicar um evento para um tópico personalizado. Most
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="endpoint"></a>Ponto Final
+## <a name="endpoint"></a>Ponto final
 
 Ao enviar o HTTP POST para um tópico personalizado, utilize o formato URI: `https://<topic-endpoint>?api-version=2018-01-01` .
 
@@ -98,8 +98,8 @@ Depois de publicar no ponto final do tópico, recebe uma resposta. A resposta é
 
 |Resultado  |Resposta  |
 |---------|---------|
-|Êxito  | 200 OK  |
-|Os dados do evento têm formato incorreto | 400 Mau Pedido |
+|Success  | 200 OK  |
+|Os dados do evento têm formato incorreto | 400 Pedido Incorreto |
 |Chave de acesso inválida | 401 Não Autorizado |
 |Ponto final incorreto | 404 Não Encontrado |
 |Matriz ou evento excede limites de tamanho | 413 Carga Útil Demasiado Grande |
@@ -119,7 +119,7 @@ Para erros, o corpo da mensagem tem o seguinte formato:
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre a monitorização das entregas de eventos, consulte [a entrega de mensagens monitor a Grelha de Eventos](monitor-event-delivery.md).
 * Para obter mais informações sobre a chave de autenticação, consulte [a segurança e a autenticação da Grade de Eventos.](security-authentication.md)

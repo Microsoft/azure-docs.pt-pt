@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/15/2020
 ms.author: apimpm
 ms.openlocfilehash: 262d12e1b0ff74570b44b7794f8b55619a9afa97
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87905147"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Comparação baseada em recursos dos escalões de Gestão API da Azure
@@ -26,7 +26,7 @@ Cada [nível de preços da](https://aka.ms/apimpricing) API Management oferece u
 > [!IMPORTANT]
 > Por favor, note que o nível de Desenvolvedor é para casos e avaliações de utilização não-produção. Não oferece SLA.
 
-| Funcionalidade                                                                                      | Consumo | Developer (Programador) | Básica | Standard | Premium |
+| Funcionalidade                                                                                      | Consumo | Programador | Básica | Standard | Premium |
 | -------------------------------------------------------------------------------------------- | ----------- | --------- | ----- | -------- | ------- |
 | Integração AD AZure<sup>1</sup>                                                             | Não          | Sim       | Não    | Sim      | Sim     |
 | Suporte de Rede Virtual (VNet)                                                               | Não          | Sim       | Não    | Não       | Sim     |
@@ -39,7 +39,7 @@ Cada [nível de preços da](https://aka.ms/apimpricing) API Management oferece u
 | [Definições de TLS](api-management-howto-manage-protocols-ciphers.md)                             | Sim         | Sim       | Sim   | Sim      | Sim     |
 | [Cache externo](https://aka.ms/apimbyoc)                                                    | Sim         | Sim       | Sim   | Sim      | Sim     |
 | [Autenticação de certificado de cliente](api-management-howto-mutual-certificates-for-clients.md) | Sim         | Sim       | Sim   | Sim      | Sim     |
-| [Criar Cópias de Segurança e Restaurar](api-management-howto-disaster-recovery-backup-restore.md)               | Não          | Sim       | Sim   | Sim      | Sim     |
+| [Backup e restauro](api-management-howto-disaster-recovery-backup-restore.md)               | Não          | Sim       | Sim   | Sim      | Sim     |
 | [Gestão sobre Git](api-management-configuration-repository-git.md)                        | Não          | Sim       | Sim   | Sim      | Sim     |
 | API de gestão direta                                                                        | Não          | Sim       | Sim   | Sim      | Sim     |
 | Registos e métricas do Monitor Azure                                                               | Sim         | Sim       | Sim   | Sim      | Sim     |

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: blehr
 ms.openlocfilehash: 49a89ee90d28c9c7a3f59424b773ee0f221381e4
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89302727"
 ---
 # <a name="quickstart-create-a-public-ip-address-using-the-azure-portal"></a>Quickstart: Criar um endereço IP público utilizando o portal Azure
@@ -36,7 +36,7 @@ Utilize os seguintes passos para criar um endereço IP público redundante de zo
     | ---                     | ---                         |
     | Versão IP              | Selecione IPv4                 |    
     | SKU                     | Selecione **Standard**         |
-    | Name                    | Insira *o myStandardZRPublicIP*          |
+    | Nome                    | Insira *o myStandardZRPublicIP*          |
     | Atribuição de endereços IP   | Note que isto será bloqueado como "Estática"                                        |
     | Tempo de inatividade (minutos)  | Deixe o valor a 4        |
     | Etiqueta de nome DNS          | Deixe o valor em branco    |
@@ -61,7 +61,7 @@ Utilize os seguintes passos para criar um endereço IP público padrão como um 
     | ---                     | ---                         |
     | Versão IP              | Selecione IPv4                 |    
     | SKU                     | Selecione **Standard**         |
-    | Name                    | Insira *o myStandardPublicIP*          |
+    | Nome                    | Insira *o myStandardPublicIP*          |
     | Atribuição de endereços IP   | Note que isto será bloqueado como "Estática"                                        |
     | Tempo de inatividade (minutos)  | Deixe o valor a 4        |
     | Etiqueta de nome DNS          | Deixe o valor em branco    |
@@ -86,7 +86,7 @@ Utilize os seguintes passos para criar um endereço IP público estático básic
     | ---                     | ---                         |
     | Versão IP              | Selecione IPv4                 |    
     | SKU                     | Selecione **Standard**         |
-    | Name                    | Insira *myBasicPublicIP*          |
+    | Nome                    | Insira *myBasicPublicIP*          |
     | Atribuição de endereços IP   | Escolha **Estática** (ver nota abaixo)                                     |
     | Tempo de inatividade (minutos)  | Deixe o valor a 4        |
     | Etiqueta de nome DNS          | Deixe o valor em branco    |
@@ -102,7 +102,7 @@ Se for aceitável que o endereço IP seja alterado ao longo do tempo, a atribui�
 
 Para obter mais detalhes sobre os campos listados acima, consulte [Gerir os endereços IP públicos.](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#create-a-public-ip-address)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Associar um [endereço IP público a uma Máquina Virtual](https://docs.microsoft.com/azure/virtual-network/associate-public-ip-address-vm#azure-portal)
 - Saiba mais sobre [endereços IP públicos](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) em Azure.
 - Saiba mais sobre todas as [definições de endereços IP públicos](virtual-network-public-ip-address.md#create-a-public-ip-address).

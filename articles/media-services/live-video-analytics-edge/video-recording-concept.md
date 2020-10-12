@@ -4,10 +4,10 @@ description: No contexto de um sistema de gestão de vídeo para câmaras CCTV, 
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: c03472f577e67d5b2705a2ebe3f53e85e0849819
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84260947"
 ---
 # <a name="video-recording"></a>Gravação de vídeo
@@ -30,7 +30,7 @@ A escolha de usar CVR ou EVR depende dos objetivos do negócio. Live Video Analy
 
 A política de gravação refere-se às políticas que ditam o tempo de início/paragem da gravação (no caso de EVR), a duração da gravação e a eliminação da gravação. As políticas de gravação permitem equilibrar os custos de armazenamento com os requisitos do negócio. As políticas de gravação diferem entre CVR e EVR. Para o CVR, a política de gravação define quantos dias de vídeo devem ser armazenados (por exemplo, os últimos 7 dias). Para o EVR, a política de gravação define quando a gravação deve começar e terminar, juntamente com a duração do vídeo. Pode saber mais sobre isso nos artigos de cenário [CVR](continuous-video-recording-concept.md) e [EVR.](event-based-video-recording-concept.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Detete movimento e grave clips de vídeo para os Serviços de Multimédia do Azure](detect-motion-record-video-clips-media-services-quickstart.md)
 * [Detetar movimento, gravar videoclips para dispositivos de borda](detect-motion-record-video-clips-edge-devices-quickstart.md)

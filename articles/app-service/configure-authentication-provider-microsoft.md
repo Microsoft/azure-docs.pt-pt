@@ -8,10 +8,10 @@ ms.custom:
 - seodec18
 - fasttrack-edit
 ms.openlocfilehash: 68af882bf240b354bdad1afe322135c048576ed4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83772841"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-microsoft-account-login"></a>Configure o seu Serviço de Aplicações ou app Azure Functions para utilizar o login da Conta Microsoft
@@ -56,7 +56,7 @@ Este tópico mostra-lhe como configurar o Azure App Service ou Azure Functions p
 
 Está agora pronto para utilizar a Conta microsoft para autenticação na sua aplicação.
 
-## <a name="next-steps"></a><a name="related-content"> </a>Próximos passos
+## <a name="next-steps"></a><a name="related-content"> </a>Passos seguintes
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 

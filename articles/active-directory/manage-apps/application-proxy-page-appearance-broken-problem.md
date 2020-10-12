@@ -16,10 +16,10 @@ ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 780847494da0ec5cd4eb8ab76f1e46125b8a7f8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764422"
 ---
 # <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>A página de aplicação não apresenta corretamente para uma aplicação de Procuração de Aplicação
@@ -39,5 +39,5 @@ Se não for possível publicar todos os recursos dentro da mesma aplicação, é
 
 Para tal, recomendamos a utilização da solução [de domínios personalizados.](application-proxy-configure-custom-domain.md) No entanto, esta solução requer que possua o certificado para o seu domínio e as suas aplicações utilizem nomes de domínio totalmente qualificados (FQDNs). Para outras opções, consulte a [documentação de links quebrados .](application-proxy-page-links-broken-problem.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Publicar aplicações com o Proxy da Aplicação do Azure AD](application-proxy-add-on-premises-application.md)

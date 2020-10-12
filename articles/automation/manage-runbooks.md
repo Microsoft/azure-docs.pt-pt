@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 06/10/2020
 ms.topic: conceptual
 ms.openlocfilehash: 023864e23c0cd23df0de603e76acac651bd2458e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90987577"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gerir livros de execução na Azure Automation
@@ -69,7 +69,7 @@ Pode utilizar o seguinte procedimento para importar um ficheiro de script para a
 4. Clique **no ficheiro Runbook** e selecione o ficheiro para importar.
 5. Se o campo **Nome** estiver ativado, tem a opção de alterar o nome do livro de verificação. O nome deve começar com uma letra e pode conter letras, números, sublinhados e traços.
 6. O [tipo de runbook](automation-runbook-types.md) é selecionado automaticamente, mas pode alterar o tipo depois de ter em conta as restrições aplicáveis.
-7. Clique em **Create** (Criar). O novo runbook aparece na lista de runbooks para a conta Automation.
+7. Clique em **Criar**. O novo runbook aparece na lista de runbooks para a conta Automation.
 8. Tem de [publicar o livro de recortes](#publish-a-runbook) antes de o poder executar.
 
 > [!NOTE]
@@ -301,7 +301,7 @@ Pode filtrar a lista de empregos selecionando **trabalhos de filtragem**. Filtra
 
 Em alternativa, pode visualizar os dados do resumo do trabalho para um livro de contas específico selecionando o livro de recortes da página Runbooks na sua conta Demômes automática e, em seguida, selecionando **Jobs**. Esta ação apresenta a página Jobs. A partir daqui, pode clicar num registo de trabalho para ver os seus detalhes e saída.
 
-:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="Screenshot da página Jobs com o botão Errors realçado.":::
+:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="Screenshot da página Jobs.":::
 
 ### <a name="retrieve-job-statuses-using-powershell"></a>Recuperar o estatuto de trabalho usando o PowerShell
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
 ms.openlocfilehash: 8e02a47cd6ae6e4883b5113b07d4049cd723232d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86250197"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Como proteger serviços de back-end com a autenticação de certificados de cliente na Gestão de API do Azure
@@ -75,7 +75,7 @@ Se o certificado for utilizado por uma API, é apresentado um ecrã de aviso. Pa
 3. Altere as **credenciais Gateway** para **o Certificado do Cliente** e selecione o seu certificado a partir do dropdown.
     ![Ativar certificados de cliente](media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png)
 
-4. Clique em **Save** (Guardar).
+4. Clique em **Guardar**.
 
 > [!WARNING]
 > Esta alteração é eficaz imediatamente, e as chamadas para operações dessa API usarão o certificado para autenticar no servidor back-end.

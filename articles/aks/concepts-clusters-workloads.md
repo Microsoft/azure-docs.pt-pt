@@ -5,10 +5,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.openlocfilehash: 2fe687ddd63ee85faec2d1aa4c02fa2636a3058f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86251863"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes conceitos fundamentais para O Serviço Azure Kubernetes (AKS)
@@ -113,7 +113,7 @@ Além das reservas para a própria Kubernetes, o nó oss subjacente reserva tamb
 
 Para as melhores práticas associadas, consulte [as melhores práticas para funcionalidades básicas de programador em AKS][operator-best-practices-scheduler].
 
-### <a name="node-pools"></a>Piscinas de nó
+### <a name="node-pools"></a>Conjuntos de nós
 
 Os nós da mesma configuração são agrupados em *piscinas de nó.* Um cluster Kubernetes contém uma ou mais piscinas de nós. O número inicial de nós e tamanho é definido quando cria um cluster AKS, que cria uma *piscina de nós predefinidos*. Este conjunto de nós predefinidos em AKS contém os VMs subjacentes que executam os nós do seu agente.
 

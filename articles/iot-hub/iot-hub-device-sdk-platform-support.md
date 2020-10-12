@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
 ms.openlocfilehash: aef468d919e6f09722045f98c68383785d10b137
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87423087"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Suporte da plataforma Azure IoT Device SDKs
@@ -144,7 +144,7 @@ Se tiver problemas durante a utilização dos SDKs do dispositivo Azure IoT, exi
 
 **Pedidos de funcionalidades** – Os pedidos de funcionalidadeS Azure IoT são rastreados através da página user [Voice](https://feedback.azure.com/forums/321918-azure-iot)do produto .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [SDKs de dispositivos e de serviços](iot-hub-devguide-sdks.md)
 * [Orientação porting](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)

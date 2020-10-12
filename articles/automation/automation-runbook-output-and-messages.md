@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 12/04/2018
 ms.topic: conceptual
 ms.openlocfilehash: e4be7934002730253b77b1c129165ad9f19f23b7
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86185981"
 ---
 # <a name="monitor-runbook-output"></a>Monitorizar o resultado do runbook
@@ -121,7 +121,7 @@ O segundo livro de aplicação deste exemplo, denominado **Test-ChildOutputType,
 
 A primeira atividade chama o **livro de aplicação AuthenticateTo-Azure.** A segunda atividade executa o `Write-Verbose` cmdlet com **fonte de dados** definido para **a produção de Atividade**. Além disso, **o caminho de campo** está definido para **Context.Subscription.SubscriptionName,** a saída de contexto do livro de execução **AuthenticateTo-Azure.**<br> ![Fonte de dados do parâmetro do Cmdlet Write-Verbose](media/automation-runbook-output-and-messages/runbook-write-verbose-parameters-config.png)
 
-A saída resultante é o nome da subscrição.<br> ![Resultados do runbook test-ChildOutputType](media/automation-runbook-output-and-messages/runbook-test-childoutputtype-results.png)
+A saída resultante é o nome da subscrição.<br> ![Resultados do runbook Test-ChildOutputType](media/automation-runbook-output-and-messages/runbook-test-childoutputtype-results.png)
 
 ## <a name="monitor-message-streams"></a>Monitorize fluxos de mensagens
 

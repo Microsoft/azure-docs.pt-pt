@@ -4,10 +4,10 @@ description: Saiba como desenhar a sua aplicação batch para uma paragem region
 ms.topic: how-to
 ms.date: 01/29/2019
 ms.openlocfilehash: 1e22cb19aba1dcedc4ece7ddc2d1de0ab3233238
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83725742"
 ---
 # <a name="design-your-application-for-high-availability"></a>Conceber a sua aplicação para elevada disponibilidade
@@ -37,7 +37,7 @@ Considere os seguintes pontos ao desenhar uma solução que possa falhar:
 - Na aplicação chamando Batch, armazenamento e quaisquer outros serviços, facilmente trocam clientes ou a carga para a região diferente.
 - Uma boa prática para garantir que um fracasso seja bem sucedido é a transição frequente para uma região alternativa como parte do funcionamento normal. Por exemplo, com duas implantações em regiões distintas, a transição para a região alternativa todos os meses.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a criação de contas batch com o [portal Azure,](batch-account-create-portal.md)o [Azure CLI,](cli-samples.md) [PowerShell](batch-powershell-cmdlets-get-started.md)ou a [API de gestão de lotes.](batch-management-dotnet.md)
 - As quotas predefinidas estão associadas a uma conta Batch; [este artigo](batch-quota-limit.md) detalha os valores de quota padrão e descreve como as quotas podem ser aumentadas.

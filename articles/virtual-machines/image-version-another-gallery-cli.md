@@ -10,10 +10,10 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: e8aabcd1c68272a78b3c1fe88913c5a62496f681
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88225840"
 ---
 # <a name="copy-an-image-from-another-gallery-using-the-azure-cli"></a>Copie uma imagem de outra galeria usando o Azure CLI
@@ -22,7 +22,7 @@ Se tiver várias galerias na sua organização, também pode criar versões de i
 
 
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Para completar este artigo, você deve ter uma galeria de origem existente, definição de imagem e versão de imagem. Você também deve ter uma galeria de destino. 
 
@@ -157,7 +157,7 @@ az sig image-version create \
 > Também pode armazenar a sua imagem no armazenamento Premium `--storage-account-type  premium_lrs` adicionando, ou Zone Redundant [Storage,](../storage/common/storage-redundancy.md) adicionando `--storage-account-type  standard_zrs` quando cria a versão de imagem.
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Crie um VM a partir de uma versão de imagem [generalizada](vm-generalized-image-version-cli.md) ou [especializada.](vm-specialized-image-version-cli.md)
 

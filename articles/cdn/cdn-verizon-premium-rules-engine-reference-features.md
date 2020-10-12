@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 06/02/2020
 ms.author: allensu
 ms.openlocfilehash: 0ea4f167b992ccfbc4156ac06c8f636d2ef4a355
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84343205"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-features"></a>Azure CDN das características do motor de regras Verizon Premium
@@ -33,19 +33,19 @@ Os tipos de funcionalidades disponíveis são:
 * [Origem](#origin)
 * [Especialidade](#specialty)
 * [URL](#url)
-* [Firewall de Aplicações Web](#waf)
+* [Firewall de Aplicação Web](#waf)
 
 ### <a name="access"></a><a name="access"></a>Access
 
 Estas funcionalidades são concebidas para controlar o acesso aos conteúdos.
 
-| Name       | Objetivo                                                           |
+| Nome       | Objetivo                                                           |
 |------------|-------------------------------------------------------------------|
 | [Negar acesso (403)](https://docs.vdms.com/cdn/Content/HRE/F/Deny-Access-403.htm) | Determina se todos os pedidos são rejeitados com uma resposta 403 Proibida. |
-| [Token Auth](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth.htm) | Determina se a autenticação baseada em token será aplicada a um pedido. |
-| [Código de Negação token Auth](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Denial-Code.htm) | Determina o tipo de resposta que será devolvida a um utilizador quando um pedido é negado devido à Autenticação Baseada em Token. |
-| [Token Auth Ignore CASO URL](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Ignore-URL-Case.htm) | Determina se as comparações de URL efetuadas pela Autenticação Baseada em Token serão sensíveis a casos. |
-| [Parâmetro Token Auth](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Parameter.htm) | Determina se o parâmetro de cadeia de autenticação baseada em token deve ser renomeado. |
+| [Token Auth](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth.htm) | Determina se Token-Based Autenticação será aplicada a um pedido. |
+| [Código de Negação token Auth](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Denial-Code.htm) | Determina o tipo de resposta que será devolvida a um utilizador quando um pedido é negado devido a Token-Based Autenticação. |
+| [Token Auth Ignore CASO URL](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Ignore-URL-Case.htm) | Determina se as comparações de URL efetuadas por Token-Based Autenticação serão sensíveis a casos. |
+| [Parâmetro Token Auth](https://docs.vdms.com/cdn/Content/HRE/F/Token-Auth-Parameter.htm) | Determina se o parâmetro de cadeia de Token-Based de autenticação deve ser renomeado. |
 
 **[De volta ao topo](#top)**
 
@@ -53,29 +53,29 @@ Estas funcionalidades são concebidas para controlar o acesso aos conteúdos.
 
 Estas funcionalidades são concebidas para personalizar quando e como o conteúdo é em cache.
 
-| Name       | Objetivo                                                           |
+| Nome       | Objetivo                                                           |
 |------------|-------------------------------------------------------------------|
 | [Parâmetros de largura de banda](https://docs.vdms.com/cdn/Content/HRE/F/Bandwidth-Parameters.htm) | Determina se os parâmetros de aceleração da largura de banda (isto é, ec_rate e ec_prebuf) estarão ativos. |
 | [Aceleração da largura de banda](https://docs.vdms.com/cdn/Content/HRE/F/Bandwidth-Throttling.htm) | Acelera a largura de banda para a resposta fornecida pelos nossos servidores de borda. |
 | [Bypass Cache](https://docs.vdms.com/cdn/Content/HRE/F/Bypass-Cache.htm) | Determina se o pedido pode alavancar a nossa tecnologia de caching. |
-| [Tratamento do cabeçalho de controlo de cache](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Control-Header-Treatment.htm) |  Controla a geração de cabeçalhos cache-control pelo servidor de borda quando a função Max-Age externa estiver ativa. |
+| [Tratamento do cabeçalho de controlo de cache](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Control-Header-Treatment.htm) |  Controla a geração de cabeçalhos Cache-Control pelo servidor de bordas quando a função external Max-Age está ativa. |
 | [Cadeia de consulta cache-key](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Query-String.htm) | Determina se a **chave de cache*** incluirá ou excluirá parâmetros de cadeia de consulta associados a um pedido. <br> _* Um caminho relativo que identifica exclusivamente um ativo com o propósito de caching.  Os nossos servidores de borda usam este caminho relativo ao verificar se há conteúdo em cache.  Por predefinição, uma chave de cache não conterá parâmetros de cadeia de consulta._ |
 | [Reescrita de chave de cache](https://docs.vdms.com/cdn/Content/HRE/F/Cache-Key-Rewrite.htm) | Reescreve a chave de cache associada a um pedido. |
 | [Preenchimento completo da cache](https://docs.vdms.com/cdn/Content/HRE/F/Complete-Cache-Fill.htm) | Determina o que acontece quando um pedido resulta numa falha parcial de cache num servidor de borda. |
 | [Tipos de ficheiros compressivos](https://docs.vdms.com/cdn/Content/HRE/F/Compress-File-Types.htm) | Define os formatos de ficheiro que serão comprimidos no servidor. | 
 | [Idade Máxima Interna padrão](https://docs.vdms.com/cdn/Content/HRE/F/Default-Internal-Max-Age.htm) | Determina o intervalo de idade máxima padrão para o servidor de borda para a revalidação do cache do servidor de origem. |
-| [Expira o tratamento do cabeçalho](https://docs.vdms.com/cdn/Content/HRE/F/Expires-Header-Treatment.htm) | Controla a geração de cabeçalhos Expira por um servidor de borda quando a função Max-Age externa está ativa. |
+| [Expira o tratamento do cabeçalho](https://docs.vdms.com/cdn/Content/HRE/F/Expires-Header-Treatment.htm) | Controla a geração de cabeçalhos Expira por um servidor de borda quando a função external Max-Age está ativa. |
 | [Max-Age externo](https://docs.vdms.com/cdn/Content/HRE/F/External-Max-Age.htm) | Determina o intervalo de idade máxima para o navegador para revalidação do cache do servidor de borda. |
 | [Força Interna Max-Age](https://docs.vdms.com/cdn/Content/HRE/F/Force-Internal-Max-Age.htm) | Determina o intervalo de idade máxima para o servidor de borda para a revalidação do cache do servidor de origem. |
 | [suporte h.264 (DOWNLOAD PROGRESSIVO HTTP)](https://docs.vdms.com/cdn/Content/HRE/F/H.264-Support-HPD.htm) | Determina os tipos de formatos de ficheiro H.264 que podem ser usados para transmitir conteúdo. |
 | [H.264 Support Video Seek Params](https://docs.vdms.com/cdn/Content/HRE/F/H.264-Support-VSP-HPD.htm) | Substitui os nomes atribuídos a parâmetros que controlam a procura através de meios H.264 ao utilizar o DOWNLOAD Progressivo HTTP. |
-| [Pedido de Honra Sem Cache](https://docs.vdms.com/cdn/Content/HRE/F/Honor-No-Cache-Request.htm) | Determina se os pedidos de não cache de um cliente HTTP serão reencaminhados para o servidor de origem. |
+| [Pedido de No-Cache de Honra](https://docs.vdms.com/cdn/Content/HRE/F/Honor-No-Cache-Request.htm) | Determina se os pedidos de não cache de um cliente HTTP serão reencaminhados para o servidor de origem. |
 | [Ignorar Origem No-Cache](https://docs.vdms.com/cdn/Content/HRE/F/Ignore-Origin-No-Cache.htm) | Determina se o nosso CDN ignorará certas diretivas servidas a partir de um servidor de origem. |
 | [Ignorar gamas insatisfadíveis](https://docs.vdms.com/cdn/Content/HRE/F/Ignore-Unsatisfiable-Ranges.htm) | Determina a resposta que será devolvida aos clientes quando um pedido gera um código de estado de alcance 416 não satisfatório. |
 | [Max-Stale Interno](https://docs.vdms.com/cdn/Content/HRE/F/Internal-Max-Stale.htm) | Controla quanto tempo além do tempo normal de validade um ativo em cache pode ser servido a partir de um servidor de borda quando o servidor de borda é incapaz de revalidar o ativo em cache com o servidor de origem. |
 | [Partilha parcial de Cache](https://docs.vdms.com/cdn/Content/HRE/F/Partial-Cache-Sharing.htm) | Determina se um pedido pode gerar conteúdo parcialmente em cache. |
 | [Pré-triização do conteúdo em cache](https://docs.vdms.com/cdn/Content/HRE/F/Prevalidate-Cached-Content.htm) | Determina se o conteúdo em cache será elegível para revalidação antecipada antes do seu TTL expirar. |
-| [Atualizar ficheiros cache zero-byte](https://docs.vdms.com/cdn/Content/HRE/F/Refresh-Zero-Byte-Cache-Files.htm) | Determina como o pedido de um cliente HTTP para um ativo cache de 0 byte é tratado pelos nossos servidores de borda. |
+| [Atualizar Zero-Byte cache arquivos](https://docs.vdms.com/cdn/Content/HRE/F/Refresh-Zero-Byte-Cache-Files.htm) | Determina como o pedido de um cliente HTTP para um ativo cache de 0 byte é tratado pelos nossos servidores de borda. |
 | [Definir códigos de estado cacheáveis](https://docs.vdms.com/cdn/Content/HRE/F/Set-Cacheable-Status-Codes.htm) | Define o conjunto de códigos de estado que podem resultar em conteúdo em cache. |
 | [Entrega de conteúdo em erro](https://docs.vdms.com/cdn/Content/HRE/F/Stale-Content-Delivery-on-Error.htm) | Determina se o conteúdo em cache expirado será entregue quando ocorrer um erro durante a revalidação da cache ou ao recuperar o conteúdo solicitado do servidor de origem do cliente. | 
 | [Velho enquanto Revalidate](https://docs.vdms.com/cdn/Content/HRE/F/Stale-While-Revalidate.htm) | Melhora o desempenho permitindo que os nossos servidores de borda sirvam o cliente velho ao solicitador enquanto a revalidação ocorre. |
@@ -92,7 +92,7 @@ A função 'Comentário' permite a adição de uma nota dentro de uma regra.
 
 Estas funcionalidades são concebidas para adicionar, modificar ou eliminar cabeçalhos do pedido ou resposta.
 
-| Name       | Objetivo                                                           |
+| Nome       | Objetivo                                                           |
 |------------|-------------------------------------------------------------------|
 | [Cabeçalho de resposta à idade](https://docs.vdms.com/cdn/Content/HRE/F/Age-Response-Header.htm) | Determina se um cabeçalho de resposta age será incluído na resposta enviada ao solicitador. |
 | [Cabeçalhos de resposta cache de depurar](https://docs.vdms.com/cdn/Content/HRE/F/Debug-Cache-Response-Headers.htm) | Determina se uma resposta pode incluir o [cabeçalho de resposta X-EC-Debug](https://docs.vdms.com/cdn/Content/Knowledge_Base/X_EC_Debug.htm) que fornece informações sobre a política de cache para o ativo solicitado. |
@@ -106,7 +106,7 @@ Estas funcionalidades são concebidas para adicionar, modificar ou eliminar cabe
 
 Estas funcionalidades são concebidas para personalizar os dados armazenados em ficheiros de registo bruto.
 
-| Name       | Objetivo                                                           |
+| Nome       | Objetivo                                                           |
 |------------|-------------------------------------------------------------------|
 | [Campo de registo personalizado 1](https://docs.vdms.com/cdn/Content/HRE/F/Custom-Log-Field-1.htm) | Determina o formato e o conteúdo que será atribuído ao campo de registo personalizado num ficheiro de registo bruto. |
 | [Cadeia de consulta de registo](https://docs.vdms.com/cdn/Content/HRE/F/Log-Query-String.htm) | Determina se uma cadeia de consulta será armazenada juntamente com o URL nos registos de acesso. |
@@ -117,7 +117,7 @@ Estas funcionalidades são concebidas para personalizar os dados armazenados em 
 
 Estas funcionalidades determinam se um pedido será submetido às otimizações fornecidas pelo Edge Optimizer.
 
-| Name       | Objetivo                                                           |
+| Nome       | Objetivo                                                           |
 |------------|-------------------------------------------------------------------|
 | [Otimizador de bordas](https://docs.vdms.com/cdn/Content/HRE/F/Edge-Optimizer.htm) | Determina se o Edge Optimizer pode ser aplicado a um pedido. |
 | [Edge Optimizer – Configuração Instantânea](https://docs.vdms.com/cdn/Content/HRE/F/Edge-Optimizer-Instantiate-Configuration.htm) | Instantiize ou ativa a configuração edge optimizer associada a um site. |
@@ -128,9 +128,9 @@ Estas funcionalidades determinam se um pedido será submetido às otimizações 
 
 Estas funcionalidades são concebidas para controlar a forma como o CDN comunica com um servidor de origem.
 
-| Name       | Objetivo                                                           |
+| Nome       | Objetivo                                                           |
 |------------|-------------------------------------------------------------------|
-| [Pedidos máximos de manter vivo](https://docs.vdms.com/cdn/Content/HRE/F/Maximum-Keep-Alive-Requests.htm) | Define o número máximo de pedidos de ligação Keep-Alive antes de ser fechado. |
+| [Pedidos máximos de Keep-Alive](https://docs.vdms.com/cdn/Content/HRE/F/Maximum-Keep-Alive-Requests.htm) | Define o número máximo de pedidos de ligação Keep-Alive antes de ser fechado. |
 | [Cabeçalhos especiais proxy](https://docs.vdms.com/cdn/Content/HRE/F/Proxy-Special-Headers.htm) | Define o conjunto de [cabeçalhos de pedido específicos](https://docs.vdms.com/cdn/Content/Knowledge_Base/Request-Format.htm#RequestHeaders) do CDN que serão reencaminhados de um servidor de borda para um servidor de origem. |
 
 **[De volta ao topo](#top)**
@@ -139,7 +139,7 @@ Estas funcionalidades são concebidas para controlar a forma como o CDN comunica
 
 Estas funcionalidades fornecem funcionalidade avançada que deve ser utilizada apenas por utilizadores avançados.
 
-| Name       | Objetivo                                                           |
+| Nome       | Objetivo                                                           |
 |------------|-------------------------------------------------------------------|
 | [Métodos HTTP cacheable](https://docs.vdms.com/cdn/Content/HRE/F/Cacheable-HTTP-Methods.htm) | Determina o conjunto de métodos HTTP adicionais que podem ser em cache na nossa rede. |
 | [Tamanho do corpo do pedido cacheable](https://docs.vdms.com/cdn/Content/HRE/F/Cacheable-Request-Body-Size.htm) | Define o limiar para determinar se uma resposta POST pode ser em cache. |
@@ -153,7 +153,7 @@ Estas funcionalidades fornecem funcionalidade avançada que deve ser utilizada a
 
 Estas funcionalidades permitem que um pedido seja redirecionado ou reescrito para um URL diferente.
 
-| Name       | Objetivo                                                           |
+| Nome       | Objetivo                                                           |
 |------------|-------------------------------------------------------------------|
 | [Seguir redirecionamentos](https://docs.vdms.com/cdn/Content/HRE/F/Follow-Redirects.htm) | Determina se os pedidos podem ser redirecionados para o nome anfitrião definido no cabeçalho Localização devolvido por um servidor de origem do cliente. |
 | [Redirecionamento de URL](https://docs.vdms.com/cdn/Content/HRE/F/URL-Redirect.htm) | Redireciona os pedidos através do cabeçalho localização. |
@@ -161,7 +161,7 @@ Estas funcionalidades permitem que um pedido seja redirecionado ou reescrito par
 
 **[De volta ao topo](#top)**
 
-### <a name="web-application-firewall"></a><a name="waf"></a>Firewall de Aplicações Web
+### <a name="web-application-firewall"></a><a name="waf"></a>Firewall de aplicação web
 
 A funcionalidade [De Firewall de Aplicação Web](https://docs.vdms.com/cdn/Content/HRE/F/Web_Application_Firewall.htm) determina se um pedido será exibido pela Web Application Firewall.
 
@@ -169,10 +169,10 @@ A funcionalidade [De Firewall de Aplicação Web](https://docs.vdms.com/cdn/Cont
 
 Para as características mais recentes, consulte a [documentação](https://docs.vdms.com/cdn/index.html#Quick_References/HRE_QR.htm#Actions)do Verizon Rules Engine .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Referência do motor de regras](cdn-verizon-premium-rules-engine-reference.md)
 - [Expressões condicionais do motor de regras](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
-- [Condições de correspondência do motor de regras](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
+- [Regras condições de correspondência do motor](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
 - [Anular o comportamento http usando o motor de regras](cdn-verizon-premium-rules-engine.md)
 - [Visão geral do Azure CDN](cdn-overview.md)

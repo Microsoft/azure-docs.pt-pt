@@ -4,10 +4,10 @@ description: Resolução de problemas de transferência de recursos para um novo
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.openlocfilehash: 41b1e2435caf9874f3582a3394664c7b7f5a8d29
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90054167"
 ---
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>Resolver problemas de movimentação de recursos do Azure para um novo grupo de recursos ou uma nova subscrição
@@ -28,7 +28,7 @@ Se não conseguir converter a subscrição, crie um pedido de [suporte Azure](..
 Alguns serviços requerem considerações adicionais na movimentação de recursos. Se estiver a mover os seguintes serviços, verifique as orientações e limitações.
 
 * [Serviços Aplicacionais](./move-limitations/app-service-move-limitations.md)
-* [Serviços de DevOps do Azure](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
+* [Azure DevOps Services](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
 * [Modelo de implementação clássica](./move-limitations/classic-model-move-limitations.md)
 * [Redes](./move-limitations/networking-move-limitations.md)
 * [Serviços de Recuperação](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
@@ -46,6 +46,6 @@ Se o grupo de recursos de origem ou alvo contiver uma rede virtual, os estados d
 
 Quando recebes este erro, tens duas opções. Ou move os seus recursos para um grupo de recursos que não tem uma rede virtual, ou [suporte de contato](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para que os comandos movimentem recursos, consulte [mover recursos para novo grupo de recursos ou subscrição](move-resource-group-and-subscription.md).

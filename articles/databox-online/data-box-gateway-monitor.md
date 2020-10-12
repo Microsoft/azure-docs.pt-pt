@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.openlocfilehash: e352c2d8141f90c4dc721fe4fc0e717dfad7b88b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84339047"
 ---
 # <a name="monitor-your-azure-data-box-gateway"></a>Monitorize o seu Gateway de Caixa de Dados Azure
@@ -65,6 +65,6 @@ Uma lista completa das métricas é mostrada na tabela seguinte:
 
 [!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-manage-alerts.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [Gerir a largura de banda](data-box-gateway-manage-bandwidth-schedules.md).

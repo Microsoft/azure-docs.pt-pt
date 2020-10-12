@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
 ms.openlocfilehash: 10eec1527fb0ac5109822da398642613219771f6
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86039845"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-active-directory-domain-services-managed-domain"></a>Como os objetos e credenciais são sincronizados num domínio gerido por Serviços de Domínio do Diretório Ativo Azure
@@ -144,7 +144,7 @@ Para ambientes Azure AD apenas na nuvem, [os utilizadores devem redefinir/altera
 
 Para contas híbridas de utilizadores sincronizadas a partir do ambiente AD DS no local utilizando o Azure AD Connect, é necessário [configurar o Azure AD Connect para sincronizar hashes de palavra-passe nos formatos compatíveis com NTLM e Kerberos.](tutorial-configure-password-hash-sync.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre as especificidades da sincronização da palavra-passe, consulte [como funciona a sincronização de hash de palavra-passe com o Azure AD Connect](../active-directory/hybrid/how-to-connect-password-hash-synchronization.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context).
 

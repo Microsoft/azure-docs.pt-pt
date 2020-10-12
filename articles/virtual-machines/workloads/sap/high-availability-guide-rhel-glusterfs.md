@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: radeltch
 ms.openlocfilehash: e6b8708edeeb4b3b69dab82265d13db2a4c22e08
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87051649"
 ---
 # <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>GlusterFS nas VMs do Azure no Red Hat Enterprise Linux para o SAP NetWeaver
@@ -66,12 +66,12 @@ Leia primeiro as seguintes notas e artigos SAP
 * [Azure Virtual Machines DBMS implantação para SAP em Linux][dbms-guide]
 * [Documentação do produto para armazenamento de gluster de chapéu vermelho](https://access.redhat.com/documentation/red_hat_gluster_storage/)
 * Documentação geral do RHEL
-  * [Visão geral do suplemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
-  * [Administração de complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
-  * [Referência de complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+  * [Visão geral Add-On de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
+  * [Alta Disponibilidade Add-On Administração](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
+  * [Referência de Add-On de Alta Disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
 * Documentação REL específica do Azure:
   * [Políticas de suporte para clusters de alta disponibilidade RHEL - Microsoft Azure Virtual Machines como Membros do Cluster](https://access.redhat.com/articles/3131341)
-  * [Instalação e Configuração de um Red Hat Enterprise Linux 7.4 (e mais tarde) Cluster de Alta Disponibilidade no Microsoft Azure](https://access.redhat.com/articles/3252491)
+  * [Instalar e Configurar um Red Hat Enterprise Linux 7.4 (e mais tarde) High-Availability Cluster no Microsoft Azure](https://access.redhat.com/articles/3252491)
 
 ## <a name="overview"></a>Descrição geral
 
@@ -109,10 +109,10 @@ Primeiro, tens de criar as máquinas virtuais para este cluster. Em seguida, cri
 1. Criar um conjunto de disponibilidade  
    Definir domínio de atualização máxima
 1. Criar Máquina Virtual 1  
-   Use pelo menos RHEL 7, neste exemplo a imagem Red Hat Enterprise Linux 7.4<https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Use pelo menos RHEL 7, neste exemplo a imagem Red Hat Enterprise Linux 7.4 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Selecione Conjunto de Disponibilidade criado anteriormente  
 1. Criar Máquina Virtual 2  
-   Use pelo menos RHEL 7, neste exemplo a imagem Red Hat Enterprise Linux 7.4<https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   Use pelo menos RHEL 7, neste exemplo a imagem Red Hat Enterprise Linux 7.4 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    Selecione Conjunto de Disponibilidade criado anteriormente  
 1. Adicione um disco de dados para cada sistema SAP em ambas as máquinas virtuais.
 

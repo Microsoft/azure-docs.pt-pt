@@ -14,10 +14,10 @@ ms.author: curtand
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
 ms.openlocfilehash: 51cfe2c448fde8c50f8b846979a4b35fa4be5ec1
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90056033"
 ---
 # <a name="sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method"></a>Inscreva-se na sua conta de trabalho ou escola usando o seu método de verificação de dois fatores
@@ -82,7 +82,7 @@ Se utilizar a aplicação Microsoft Authenticator para obter códigos de verific
 
    ![Use método alternativo](./media/multi-factor-authentication-end-user-signin/alt.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Se tiver problemas em iniciar sessão com verificação em duas etapas, obtenha mais informações em [Ter problemas com a autenticação multi-factor Azure](multi-factor-authentication-end-user-troubleshoot.md).
 
 - Saiba como [gerir as definições de verificação em duas etapas](multi-factor-authentication-end-user-manage-settings.md).

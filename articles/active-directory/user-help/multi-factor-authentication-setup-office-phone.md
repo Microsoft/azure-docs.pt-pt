@@ -11,10 +11,10 @@ ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
 ms.openlocfilehash: 9dd9853bae324a047c673852f14d2b4c1639d914
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83739214"
 ---
 # <a name="set-up-an-office-phone-as-your-two-factor-verification-method"></a>Crie um telefone de escritório como o seu método de verificação de dois fatores
@@ -41,7 +41,7 @@ Pode configurar o seu telefone de escritório para funcionar como o seu método 
     >[!Note]
     >Para obter informações sobre como usar a palavra-passe da aplicação com as suas aplicações mais antigas, consulte [Gerir as palavras-passe da aplicação.](multi-factor-authentication-end-user-app-passwords.md) Só precisa de usar palavras-passe de aplicações se continuar a utilizar aplicações mais antigas que não suportam a verificação de dois fatores.
 
-4. Selecione **Done** (Concluído).
+4. Selecione **Concluído**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

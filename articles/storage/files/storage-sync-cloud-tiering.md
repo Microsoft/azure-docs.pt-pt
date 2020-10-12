@@ -8,10 +8,10 @@ ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 5ca65a428af02eaf5ae6ac461006c720da4461bd
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91538185"
 ---
 # <a name="cloud-tiering-overview"></a>Visão geral do tiering da nuvem
@@ -184,7 +184,7 @@ Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -ThreadCoun
 ``` 
 
 > [!Note]  
-> - O cmdlet Invoke-StorageSyncFileRecall também pode ser usado para melhorar o desempenho do download de ficheiros ao adicionar um novo ponto final do servidor a um grupo de sincronização existente.  
+> - O Invoke-StorageSyncFileRecall cmdlet também pode ser usado para melhorar o desempenho do download de ficheiros ao adicionar um novo ponto final do servidor a um grupo de sincronização existente.  
 >- Se o volume local que hospeda o servidor não tiver espaço livre suficiente para recordar todos os dados hierárquicos, o `Invoke-StorageSyncFileRecall` cmdlet falha.  
 
 <a id="sizeondisk-versus-size"></a>

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5d3082e3dc45102bc8700c7d1285ef832d09712a
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87419823"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Como gerir o grupo de administradores locais em Azure AD juntou dispositivos
@@ -98,7 +98,7 @@ A partir da versão do **Windows 10 1709,** pode executar esta tarefa a partir d
 Além disso, também pode adicionar utilizadores usando a solicitação de comando:
 
 - Se os seus utilizadores inquilinos estiverem sincronizados a partir do Ative Directory, utilize `net localgroup administrators /add "Contoso\username"` .
-- Se os seus utilizadores inquilinos forem criados em Azure AD, use`net localgroup administrators /add "AzureAD\UserUpn"`
+- Se os seus utilizadores inquilinos forem criados em Azure AD, use `net localgroup administrators /add "AzureAD\UserUpn"`
 
 ## <a name="considerations"></a>Considerações 
 
@@ -108,7 +108,7 @@ Os administradores do dispositivo são atribuídos a todos os dispositivos Azure
 
 Quando retira os utilizadores da função de administrador do dispositivo, eles ainda têm o privilégio de administrador local num dispositivo, desde que estejam inscritos no mesmo. O privilégio é revogado durante a sua próxima entrada quando um novo token de atualização primária é emitido. Esta revogação, semelhante à elevação do privilégio, pode demorar até 4 horas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter uma descrição geral sobre como gerir dispositivos no portal do Azure, veja [Managing devices using the Azure portal](device-management-azure-portal.md) (Gerir dispositivos no portal do Azure)
 - Para saber mais sobre o Acesso Condicional baseado no dispositivo, consulte [as políticas de acesso condicional do Azure Ative Com base em dispositivos](../conditional-access/require-managed-devices.md).

@@ -4,10 +4,10 @@ description: Saiba como o serviço Azure Backup restaura máquinas virtuais Azur
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.openlocfilehash: f9e81c4fa40e5a1d984c163ffa5f37d8092f9032
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90985339"
 ---
 # <a name="about-azure-vm-restore"></a>Acerca do restauro de VMs do Azure

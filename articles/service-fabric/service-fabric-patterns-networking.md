@@ -4,10 +4,10 @@ description: Descreve padrões comuns de networking para o Tecido de Serviço e 
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.openlocfilehash: 20bd5e931307725016c3e2ad69dae91214b2caab
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87421472"
 ---
 # <a name="service-fabric-networking-patterns"></a>Padrões de rede de tecido de serviço
@@ -342,7 +342,7 @@ Este cenário substitui o balançador de carga externo no modelo de tecido de se
                 ],
     ```
 
-5. Mude a regulação do balançador de carga `frontendIPConfigurations` de uma , para usar uma `publicIPAddress` sub-rede e `privateIPAddress` . `privateIPAddress`utiliza um endereço IP interno estático predefinido. Para utilizar um endereço IP dinâmico, remova o `privateIPAddress` elemento e, em seguida, `privateIPAllocationMethod` altere para **Dynamic**.
+5. Mude a regulação do balançador de carga `frontendIPConfigurations` de uma , para usar uma `publicIPAddress` sub-rede e `privateIPAddress` . `privateIPAddress` utiliza um endereço IP interno estático predefinido. Para utilizar um endereço IP dinâmico, remova o `privateIPAddress` elemento e, em seguida, `privateIPAllocationMethod` altere para **Dynamic**.
 
     ```json
                 "frontendIPConfigurations": [
@@ -602,7 +602,7 @@ Após a colocação, pode ver dois equilibradores de carga no grupo de recursos.
 
 Os modelos gitHub acima são projetados para trabalhar com o SKU padrão para Azure Standard Load Balancer (SLB), o SKU Básico. Este SLB não tem SLA, pelo que, para as cargas de trabalho de produção, o SKU Standard deve ser utilizado. Para mais informações, consulte a visão geral do [Balanço de Carga Padrão Azure](../load-balancer/load-balancer-overview.md). Qualquer cluster de tecido de serviço que utilize o SKU Standard para SLB precisa de garantir que cada tipo de nó tem uma regra que permite o tráfego de saída na porta 443. Isto é necessário para completar a configuração do cluster, e qualquer implementação sem tal regra falhará. No exemplo acima de um equilibrador de carga "apenas interno", deve ser adicionado um equilibrador de carga externo adicional ao gabarito com uma regra que permite o tráfego de saída para a porta 443.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Criar um cluster](service-fabric-cluster-creation-via-arm.md)
 
 Após a colocação, pode ver dois equilibradores de carga no grupo de recursos. Se navegar nos esquiliadores de carga, pode ver o endereço IP público e os pontos finais de gestão (portes 19000 e 19080) atribuídos ao endereço IP público. Também pode ver o endereço IP interno estático e o ponto final da aplicação (porta 80) atribuído ao balançador interno de carga. Ambos os equilibradores de carga usam a mesma balança de máquina virtual definida na parte de trás da piscina.

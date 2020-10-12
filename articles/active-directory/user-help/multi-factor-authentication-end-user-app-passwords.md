@@ -14,10 +14,10 @@ ms.date: 05/28/2020
 ms.author: curtand
 ms.custom: user-help, seo-update-azuread-jan
 ms.openlocfilehash: c9d8bb85aac87503ca641f6633668a6dc582882f
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90056086"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Gerir palavras-passe de aplicativos para verificação em duas etapas
@@ -122,7 +122,7 @@ Se utilizar a verificação em duas etapas com o seu trabalho ou conta escolar e
 
 Certifique-se de que escreveu a sua palavra-passe corretamente. Se tiver a certeza de que introduziu a sua palavra-passe corretamente, pode tentar iniciar sessão novamente e criar uma nova palavra-passe da aplicação. Se nenhuma dessas opções corrigir o seu problema, contacte o balcão de ajuda da sua organização para que possam eliminar as suas palavras-passe de aplicações existentes, permitindo-lhe criar novas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Gerir as definições de verificação em duas etapas](multi-factor-authentication-end-user-manage-settings.md)
 

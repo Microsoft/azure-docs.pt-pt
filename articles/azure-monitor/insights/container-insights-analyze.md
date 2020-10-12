@@ -4,10 +4,10 @@ description: Este artigo descreve como pode ver e analisar o desempenho de um cl
 ms.topic: conceptual
 ms.date: 03/26/2020
 ms.openlocfilehash: 888853f0e9e7634cafa5e480752371c501376158
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90988124"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorize o desempenho do cluster Kubernetes com o Azure Monitor para contentores
@@ -34,8 +34,8 @@ Para visualizar o estado de saúde de todos os clusters Kubernetes implantados, 
 
 Pode examinar os resultados apresentados na grelha para mostrar clusters que são:
 
-* **Clusters Azure** - AKS e AKS-Engine hospedados no Serviço Azure Kubernetes
-* **Azure Stack (Preview)** - Clusters AKS-Engine hospedados em Azure Stack
+* **Azure** - AKS e clusters AKS-Engine hospedados no Serviço Azure Kubernetes
+* **Azure Stack (Preview)** - AKS-Engine clusters hospedados em Azure Stack
 * **Non-Azure (Preview)** - Agrupamentos kubernetes hospedados no local
 * **Tudo** - Veja todos os clusters Kubernetes hospedados em Azure, Azure Stack, e ambientes no local que estão a bordo do Azure Monitor para contentores
 

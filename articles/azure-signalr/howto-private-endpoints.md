@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/06/2020
 ms.author: dayshen
 ms.openlocfilehash: 645b2c643c1c1d4fe82eb5998a35ccc48536603e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84300205"
 ---
 # <a name="use-private-endpoints-for-azure-signalr-service"></a>Utilize pontos finais privados para o serviço Azure SignalR
@@ -57,7 +57,7 @@ Quando resolve o nome de domínio do serviço Azure SignalR de fora do VNet com 
 
 Para o exemplo ilustrado acima, os registos de recursos DNS para o Serviço Azure SignalR 'foobar', quando resolvidos de fora do VNet que alberga o ponto final privado, serão:
 
-| Name                                                  | Tipo  | Valor                                                 |
+| Nome                                                  | Tipo  | Valor                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``foobar.service.signalr.net``                        | CNAME | ``foobar.privatelink.service.signalr.net``            |
 | ``foobar.privatelink.service.signalr.net``            | A     | \<Azure SignalR Service public IP address\>           |
@@ -66,7 +66,7 @@ Como mencionado anteriormente, pode negar ou controlar o acesso a clientes fora 
 
 Os registos de recursos DNS para 'foobar', quando resolvidos por um cliente no VNet que acolhe o ponto final privado, serão:
 
-| Name                                                  | Tipo  | Valor                                                 |
+| Nome                                                  | Tipo  | Valor                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``foobar.service.signalr.net``                        | CNAME | ``foobar.privatelink.service.signalr.net``            |
 | ``foobar.privatelink.service.signalr.net``            | A     | 10.1.1.5                                              |
@@ -129,7 +129,7 @@ Para obter mais informações sobre a configuração do seu próprio servidor DN
     ```console
     az login
     ```
-1. Selecione a sua Subscrição Azure
+1. Selecione a sua subscrição do Azure
     ```console
     az account set --subscription {AZURE SUBSCRIPTION ID}
     ```
@@ -200,6 +200,6 @@ Este constrangimento é o resultado das alterações ao DNS efetuadas quando o S
 
 Atualmente, não é possível configurar as regras [do Grupo de Segurança da Rede](../virtual-network/security-overview.md) (NSG) e as rotas definidas pelo utilizador para pontos finais privados. As regras NSG aplicadas à sub-rede que acolhe o ponto final privado são aplicadas ao ponto final privado. Uma solução limitada para esta questão é implementar as suas regras de acesso a pontos finais privados nas sub-redes de origem, embora esta abordagem possa exigir uma maior sobrecarga de gestão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configure controlo de acesso à rede](howto-network-access-control.md)
