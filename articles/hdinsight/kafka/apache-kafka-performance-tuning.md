@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.openlocfilehash: 752068af531c4a0ecc832d266f88105c14452ecb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75494921"
 ---
 # <a name="performance-optimization-for-apache-kafka-hdinsight-clusters"></a>Otimização de desempenho para os clusters do HDInsight no Apache Kafka
@@ -50,7 +50,7 @@ A configuração exigida pelo produtor `acks` determina o número de reconhecime
 
 Um produtor kafka pode ser configurado para comprimir mensagens antes de enviá-las para corretores. A `compression.type` definição especifica o codec de compressão a utilizar. Os codecs de compressão suportados são "gzip", "snappy" e "lz4". A compressão é benéfica e deve ser considerada se houver uma limitação na capacidade do disco.
 
-Entre os dois codecs de compressão comumente usados, `gzip` e tem uma relação de `snappy` `gzip` compressão mais alta, o que resulta numa menor utilização do disco ao custo de uma carga de CPU mais elevada. O `snappy` codec proporciona menos compressão com menos sobrecarga de CPU. Pode decidir qual o código a utilizar com base nas limitações do disco de corretagem ou do cpu do produtor. `gzip`pode comprimir dados a uma taxa cinco vezes superior `snappy` a .
+Entre os dois codecs de compressão comumente usados, `gzip` e tem uma relação de `snappy` `gzip` compressão mais alta, o que resulta numa menor utilização do disco ao custo de uma carga de CPU mais elevada. O `snappy` codec proporciona menos compressão com menos sobrecarga de CPU. Pode decidir qual o código a utilizar com base nas limitações do disco de corretagem ou do cpu do produtor. `gzip` pode comprimir dados a uma taxa cinco vezes superior `snappy` a .
 
 A utilização da compressão de dados aumentará o número de registos que podem ser armazenados num disco. Também pode aumentar a sobrecarga do CPU nos casos em que há um desfasamento entre os formatos de compressão que estão a ser usados pelo produtor e pelo corretor. uma vez que os dados devem ser comprimidos antes de enviar e depois descomprimidos antes do processamento.
 
@@ -80,7 +80,7 @@ Recomendamos que utilize pelo menos uma replicação de 3x para Kafka em Azure H
 
 Para obter mais informações sobre a replicação, consulte [Apache Kafka: replicação](https://kafka.apache.org/documentation/#replication) e [Apache Kafka: aumento do fator de replicação](https://kafka.apache.org/documentation/#basic_ops_increase_replication_factor).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Processing trillions of events per day with Apache Kafka on Azure](https://azure.microsoft.com/blog/processing-trillions-of-events-per-day-with-apache-kafka-on-azure/) (Processar biliões de eventos por dia com o Apache Kafka no Azure)
 * [O que é o Apache Kafka no HDInsight?](apache-kafka-introduction.md)

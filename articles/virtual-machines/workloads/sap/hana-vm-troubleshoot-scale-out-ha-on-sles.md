@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
 ms.openlocfilehash: 5c3a24bc9d754a15a0b372667fbcd689365a9aec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87088313"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verifique e resolução de problemas INSTALAÇÃO DE ALTA Disponibilidade DA ESCALA SAP HANA em SLES 12 SP3 
@@ -40,7 +40,7 @@ Este artigo ajuda-o a verificar a configuração do cluster Pacemaker para a esc
 
 ## <a name="important-notes"></a>Notas importantes
 
-Todos os testes para a escala SAP HANA em combinação com a replicação do sistema SAP HANA e pacemaker foram feitos apenas com SAP HANA 2.0. A versão do sistema operativo foi SUSE Linux Enterprise Server 12 SP3 para aplicações SAP. O mais recente pacote RPM, SAPHanaSR-ScaleOut da SUSE, foi usado para configurar o cluster Pacemaker.
+Todos os testes para a escala SAP HANA em combinação com a replicação do sistema SAP HANA e pacemaker foram feitos apenas com SAP HANA 2.0. A versão do sistema operativo foi SUSE Linux Enterprise Server 12 SP3 para aplicações SAP. O mais recente pacote RPM, SAPHanaSR-ScaleOut da SUSE, foi usado para montar o cluster Pacemaker.
 A SUSE publicou uma [descrição detalhada desta configuração otimizada pelo desempenho.][sles-hana-scale-out-ha-paper]
 
 Para os tipos de máquinas virtuais suportados para a escala SAP HANA, verifique o [diretório IAAS certificado da SAP HANA][sap-hana-iaas-list].

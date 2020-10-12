@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
 ms.openlocfilehash: f15bee7e802b04d04a3c87d7f84fc975b88bf260
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86536577"
 ---
 # <a name="azure-farmbeats-apis"></a>Azure FarmBeats APIs
@@ -71,7 +71,7 @@ Aqui estão os cabeçalhos de pedido mais comuns que deve especificar quando es 
 **Cabeçalho** | **Descrição e exemplo**
 --- | ---
 Content-Type  | O formato de pedido (Tipo de Conteúdo: aplicação/ <format> ). Para a Azure FarmBeats Datahub APIs, o formato é JSON. Tipo de conteúdo: aplicação/json
-Autorização  | Especifica o token de acesso necessário para fazer uma chamada da API. Autorização: Portador <> Access-Token
+Autorização  | Especifica o token de acesso necessário para fazer uma chamada da API. Autorização: <Access-Token> portador
 Aceitar | O formato de resposta. Para a Azure FarmBeats Datahub APIs, o formato é JSON. Aceitar: candidatura/json
 
 ### <a name="api-requests"></a>Pedidos de API

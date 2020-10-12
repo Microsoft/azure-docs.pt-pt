@@ -9,10 +9,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 93cabb566db02de7ef991fe9cdd293f8c399c3a3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91272961"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Mostrar dados de tráfego no mapa usando Azure Maps Android SDK
@@ -53,7 +53,7 @@ import static com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.flow;
 
 Utilize o seguinte corte de código para definir os dados de fluxo de tráfego. Semelhante ao código na secção anterior, passamos o valor de retorno do `flow` método para o `setTraffic` método. Há quatro valores que podem ser passados `flow` para , e cada valor desencadearia para devolver o respetivo `flow` valor. O valor de retorno será `flow` então passado como argumento para `setTraffic` . Consulte a tabela abaixo para estes quatro valores:
 
-|Valor do fluxo | Description|
+|Valor do fluxo | Descrição|
 | :-- | :-- |
 | TrafficFlow.NONE | Não exibe dados de tráfego no mapa |
 | TrafficFlow.RELATIVE | Mostra dados de tráfego relativos à velocidade de fluxo livre da estrada |

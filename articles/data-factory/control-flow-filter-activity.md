@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.openlocfilehash: 2c8ada22b4492bef0239b6f811d5a7bd58e58510
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81417215"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Atividade de filtro na Fábrica de Dados Azure
@@ -39,10 +39,10 @@ Pode utilizar uma atividade de filtro num oleoduto para aplicar uma expressão d
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-name | O nome da `Filter` atividade. | String | Yes
-tipo | Deve ser programado para **filtrar.** | String | Yes
-condição | Condições a utilizar para filtrar a entrada. | Expression | Yes
-itens | Matriz de entrada sobre o filtro deve ser aplicado. | Expression | Yes
+name | O nome da `Filter` atividade. | String | Sim
+tipo | Deve ser programado para **filtrar.** | String | Sim
+condição | Condições a utilizar para filtrar a entrada. | Expression | Sim
+itens | Matriz de entrada sobre o filtro deve ser aplicado. | Expression | Sim
 
 ## <a name="example"></a>Exemplo
 

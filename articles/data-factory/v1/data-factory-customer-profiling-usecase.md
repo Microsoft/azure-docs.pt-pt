@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 5436e50a23b73e1a10cf42b3dd8790c5b0620ac3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84021896"
 ---
 # <a name="use-case---customer-profiling"></a>Caso de utilização - Perfis de Clientes
 A Azure Data Factory é um dos muitos serviços utilizados para implementar o Conjunto de Inteligência Cortana de aceleradores de soluções.  Para mais informações sobre a Cortana Intelligence, visite [a Cortana Intelligence Suite.](https://www.microsoft.com/cortanaanalytics) Neste documento, descrevemos um caso de uso simples para ajudá-lo a começar a entender como a Azure Data Factory pode resolver problemas de análise comuns.
 
-## <a name="scenario"></a>Scenario
+## <a name="scenario"></a>Cenário
 A Contoso é uma empresa de jogos que cria jogos para várias plataformas: consolas de jogos, dispositivos portáteis e computadores pessoais (PCs). À medida que os jogadores jogam estes jogos, é produzido um grande volume de dados de registo que acompanha os padrões de utilização, o estilo de jogo e as preferências do utilizador.  Quando combinado com dados demográficos, regionais e de produtos, o Contoso pode realizar análises para os orientar sobre como melhorar a experiência dos jogadores e direcioná-los para upgrades e compras dentro do jogo. 
 
 O objetivo da Contoso é identificar oportunidades de venda/venda cruzada baseadas no histórico de jogos dos seus jogadores e adicionar funcionalidades convincentes para impulsionar o crescimento do negócio e proporcionar uma melhor experiência aos clientes. Para este caso de uso, usamos uma empresa de jogos como exemplo de um negócio. A empresa quer otimizar os seus jogos com base no comportamento dos jogadores. Estes princípios aplicam-se a qualquer negócio que queira envolver os seus clientes em torno dos seus bens e serviços e melhorar a experiência dos seus clientes.

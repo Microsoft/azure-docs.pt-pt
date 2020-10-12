@@ -1,17 +1,17 @@
 ---
-title: Desenvolver funções de Azure utilizando o Código do Estúdio Visual
+title: Desenvolver as Funções do Azure com o Visual Studio Code
 description: Aprenda a desenvolver e testar funções Azure utilizando a extensão de Funções Azure para Código do Estúdio Visual.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
 ms.openlocfilehash: 610c80dc5552eae4f2ad8442fa11b85f2eab35eb
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88206727"
 ---
-# <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desenvolver funções de Azure utilizando o Código do Estúdio Visual
+# <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desenvolver as Funções do Azure com o Visual Studio Code
 
 A [extensão de Funções Azure para Código de Estúdio Visual] permite-lhe desenvolver localmente funções e implantá-las para Azure. Se esta experiência for a sua primeira com funções Azure, pode aprender mais em [Uma introdução às Funções Azure](functions-overview.md).
 
@@ -259,7 +259,7 @@ Os seguintes passos publicam o seu projeto para uma nova app de função criada 
     | Selecione um tempo de execução para a sua nova aplicação | A sua linguagem de projeto | O tempo de execução deve coincidir com o projeto que vai publicar. |
     | Selecione um grupo de recursos para novos recursos | Criar novo grupo de recursos | Na próxima introdução, escreva um nome de grupo de recursos, `myResourceGroup` tipo, e, em seguida, selecione insira. Também pode selecionar um grupo de recursos existente. |
     | Selecione uma conta de armazenamento | Criar nova conta de armazenamento | Na próxima chamada, escreva um nome globalmente único para a nova conta de armazenamento utilizada pela sua aplicação de função e, em seguida, selecione Enter. Os nomes das contas de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas. Também pode selecionar uma conta existente. |
-    | Selecione uma localização para novos recursos | . | Selecione uma localização numa [região](https://azure.microsoft.com/regions/) perto de si ou perto de outros serviços a que as suas funções acedam. |
+    | Selecione uma localização para novos recursos | region | Selecione uma localização numa [região](https://azure.microsoft.com/regions/) perto de si ou perto de outros serviços a que as suas funções acedam. |
 
     Uma notificação aparece após a criação da sua aplicação de função e o pacote de implementação é aplicado. Selecione **Ver Saída** nesta notificação para ver os resultados da criação e implementação, incluindo os recursos Azure que criou.
 
@@ -294,7 +294,7 @@ Para executar o seu projeto Funções localmente, deve cumprir estes requisitos 
 
 * Instale os requisitos específicos para a linguagem escolhida:
 
-    | Linguagem | Requisito |
+    | Idioma | Requisito |
     | -------- | --------- |
     | **C#** | [Extensão C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)<br/>[Ferramentas da CLI de .NET core](/dotnet/core/tools/?tabs=netcore2x)   |
     | **Java** | [Debugger para extensão de Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 ou mais tarde](https://maven.apache.org/) |

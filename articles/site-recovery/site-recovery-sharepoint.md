@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
 ms.openlocfilehash: 08e971e52f994ec5fa5663708fa9f173daf33d80
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86135393"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Confiem a recuperação de desastres para uma aplicação sharePoint multi-nível para recuperação de desastres utilizando a recuperação do site Azure
 
-Este artigo descreve em detalhe como proteger uma aplicação SharePoint usando [a recuperação do site Azure](site-recovery-overview.md).
+Este artigo descreve em detalhe como proteger uma aplicação SharePoint usando  [a recuperação do site Azure](site-recovery-overview.md).
 
 
 ## <a name="overview"></a>Descrição geral
@@ -84,7 +84,7 @@ Siga [esta orientação](./vmware-azure-tutorial.md) para começar a replicar a 
 
 * Para obter orientações sobre a proteção do nível de base de dados em execução no servidor SQL, consulte o documento [Protect SQL Server.](site-recovery-sql.md)
 
-## <a name="networking-configuration"></a>Configuração de rede
+## <a name="networking-configuration"></a>Configuração da rede
 
 ### <a name="network-properties"></a>Propriedades da rede
 
@@ -170,7 +170,7 @@ Pode implementar os scripts de Recuperação do Local de Azure mais utilizados n
 
     * Este método pressupõe que uma cópia de segurança da base de dados "Administração de pesquisa" está disponível no site dr.
     * Uma vez que as outras bases de dados de Aplicação de Serviço de Pesquisa não são replicadas, precisam de ser recriadas. Para tal, navegue para a Administração Central e elimine a Aplicação do Serviço de Pesquisa. Em quaisquer servidores que acolhem o Índice de Pesquisa, elimine os ficheiros de índice.
-    * Re-crie a Aplicação do Serviço de Pesquisa e esta recria as bases de dados. Recomenda-se ter um script preparado que recria esta aplicação de serviço, uma vez que não é possível realizar todas as ações através do GUI. Por exemplo, definir a localização da unidade de índice e configurar a topologia de pesquisa só é possível utilizando cmdlets SharePoint PowerShell. Utilize o cmdlet Do Windows PowerShell Restore-SPEnterpriseSearchServiceApplication e especifique a base de dados da Administração de Pesquisa de registo e replicada, Search_Service__DB. Este cmdlet dá a configuração de pesquisa, esquema, propriedades geridas, regras e fontes e cria um conjunto padrão dos outros componentes.
+    * Re-crie a Aplicação do Serviço de Pesquisa e esta recria as bases de dados. Recomenda-se ter um script preparado que recria esta aplicação de serviço, uma vez que não é possível realizar todas as ações através do GUI. Por exemplo, definir a localização da unidade de índice e configurar a topologia de pesquisa só é possível utilizando cmdlets SharePoint PowerShell. Utilize o cmdlet do Windows PowerShell Restore-SPEnterpriseSearchServiceApplication e especifique a base de dados da Administração de Pesquisa, enviada e replicada, Search_Service__DB. Este cmdlet dá a configuração de pesquisa, esquema, propriedades geridas, regras e fontes e cria um conjunto padrão dos outros componentes.
     * Uma vez que a Aplicação do Serviço de Busca tenha sido recriada, tem de iniciar um rastreio completo para cada fonte de conteúdo restaurar o Serviço de Pesquisa. Perde-se algumas informações analíticas da quinta no local, como recomendações de pesquisa.
 
 7. Uma vez concluídos todos os passos, guarde o plano de recuperação e o plano final de recuperação será o seguinte.
@@ -199,5 +199,5 @@ Siga [esta orientação](site-recovery-failover.md) para fazer um failover.
 3.  Clique em 'Failover'.
 4.  Selecione o ponto de recuperação para iniciar o processo de failover.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Pode aprender mais sobre [a replicação de outras aplicações](site-recovery-workload.md) utilizando a Recuperação do Site.

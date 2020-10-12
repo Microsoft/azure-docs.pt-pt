@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
 ms.openlocfilehash: d16d14ff51cb9a7e71193d93c6755a8e4cb93ed0
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89481414"
 ---
 # <a name="assign-a-key-vault-access-policy-using-the-azure-portal"></a>Atribua uma política de acesso ao Cofre de Chaves utilizando o portal Azure
@@ -52,7 +52,7 @@ Para obter mais informações sobre a criação de grupos no Azure Ative Directo
     ![Salvar as alterações da política de acesso](../media/authentication/assign-policy-portal-05.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Segurança do Cofre Azure Key: Gestão de identidade e acesso](overview-security.md#identity-and-access-management)
 - [Prenda o cofre da chave.](secure-your-key-vault.md)

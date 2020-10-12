@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 06/18/2020
 ms.custom: seodec18, devx-track-csharp
 ms.openlocfilehash: 3a767cc8ae3c8c48e1e40e0735c33fa807ba0015
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88933519"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Criar consultas para listar os recursos do Batch de forma eficiente
@@ -55,7 +55,7 @@ Neste cenário de exemplo, se houver milhares de tarefas no trabalho, os resulta
 
 As APIs [de Lote .NET](/dotnet/api/microsoft.azure.batch) e [Lote REST](/rest/api/batchservice/) fornecem a capacidade de reduzir tanto o número de itens que são devolvidos numa lista, como a quantidade de informação que é devolvida para cada um. Fá-lo especificando **o filtro,** **selecione**e **expanda as cordas** ao executar consultas de lista.
 
-### <a name="filter"></a>Filtro
+### <a name="filter"></a>Filtrar
 
 A corda do filtro é uma expressão que reduz o número de itens que são devolvidos. Por exemplo, pode listar apenas as tarefas de execução para um trabalho, ou listar apenas nós de computação que estejam prontos para executar tarefas.
 

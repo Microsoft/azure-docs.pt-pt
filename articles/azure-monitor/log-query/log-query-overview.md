@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/19/2019
 ms.openlocfilehash: 5a47de51a90d926b47f6b465d6c10111407da9c6
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90033171"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Visão geral das consultas de registo no Azure Monitor
@@ -96,6 +96,6 @@ Além de trabalhar interativamente com consultas de log e seus resultados em Log
 - **Azure Monitor Regista API.**  A [Azure Monitor Logs API](https://dev.loganalytics.io) permite que qualquer cliente da API REST recupere dados de registo do espaço de trabalho.  O pedido da API inclui uma consulta que é executada contra o Azure Monitor para determinar os dados a recuperar.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Caminhe através de um [tutorial sobre a utilização do Log Analytics no portal Azure](get-started-portal.md).
 - Caminhe por um [tutorial sobre consultas de escrita.](get-started-queries.md)

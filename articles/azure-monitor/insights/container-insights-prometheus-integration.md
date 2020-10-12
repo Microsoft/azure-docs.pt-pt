@@ -4,10 +4,10 @@ description: Este artigo descreve como pode configurar o Monitor Azure para o ag
 ms.topic: conceptual
 ms.date: 04/22/2020
 ms.openlocfilehash: f5a9b364bc3e51307bd44d8338485f482bda6e1e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90971362"
 ---
 # <a name="configure-scraping-of-prometheus-metrics-with-azure-monitor-for-containers"></a>Configurar a apresentação de métricas Prometheus com o Azure Monitor para contentores
@@ -24,7 +24,7 @@ ms.locfileid: "90971362"
 
 A raspagem das métricas de Prometeu é suportada com clusters Kubernetes hospedados em:
 
-- Azure Kubernetes Service (AKS)
+- Serviço de Kubernetes do Azure (AKS)
 - Pilha Azure ou no local
 - Azure Red Hat OpenShift versão 3.x
 - Azure Red Hat OpenShift e Red Hat OpenShift versão 4.x
@@ -56,7 +56,7 @@ Quando um URL é especificado, o Monitor Azure para recipientes apenas raspa o p
 | | `prometheus.io/port` | Cadeia | 9102 | Especifique uma porta para raspar. Se a porta não estiver definida, ficará em incumprimento para o 9102. |
 | | `monitor_kubernetes_pods_namespaces` | Cadeia | Matriz separada por vírgula | Uma lista de espaços de nome para raspar métricas de kubernetes pods.<br> Por exemplo, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
 | Node-wide | `urls` | Cadeia | Matriz separada por vírgula | Ponto final HTTP (endereço IP ou caminho URL válido especificado). Por exemplo: `urls=[$NODE_IP/metrics]`. ($NODE_IP é um Azure Monitor específico para parâmetros de contentores e pode ser utilizado em vez de um endereço IP de nó. Deve ser tudo maiúscula.) |
-| Node-wide ou Cluster-wide | `interval` | Cadeia | Anos 60 | O intervalo de recolha é de um minuto (60 segundos). Pode modificar a coleção para as unidade *prometheus_data_collection_settings* *prometheus_data_collection_settingss* de tempo como s, m, h. |
+| Node-wide ou Cluster-wide | `interval` | Cadeia | Anos 60 | O intervalo de recolha é de um minuto (60 segundos). Pode modificar a coleção para as unidade *prometheus_data_collection_settings* *prometheus_data_collection_settings s* de tempo como s, m, h. |
 | Node-wide ou Cluster-wide | `fieldpass`<br> `fielddrop`| Cadeia | Matriz separada por vírgula | Pode especificar determinadas métricas a serem recolhidas ou não a partir do ponto final, definindo a listagem de permitir ( `fieldpass` ) e não permitir ( `fielddrop` ). Tem de definir a lista de autorizações primeiro. |
 
 ConfigMaps é uma lista global e pode haver apenas um ConfigMap aplicado ao agente. Não pode ter outro ConfigMaps a anular as coleções.
@@ -65,7 +65,7 @@ ConfigMaps é uma lista global e pode haver apenas um ConfigMap aplicado ao agen
 
 Execute os seguintes passos para configurar o seu ficheiro de configuração ConfigMap para os seguintes clusters:
 
-* Azure Kubernetes Service (AKS)
+* Serviço de Kubernetes do Azure (AKS)
 * Pilha Azure ou no local
 * Azure Red Hat OpenShift versão 4.x e Red Hat OpenShift versão 4.x
 
@@ -278,7 +278,7 @@ Se já implementou um ConfigMap para o seu cluster e pretende atualizá-lo com u
 
 Para os seguintes ambientes Kubernetes:
 
-- Azure Kubernetes Service (AKS)
+- Serviço de Kubernetes do Azure (AKS)
 - Pilha Azure ou no local
 - Azure Red Hat OpenShift e Red Hat OpenShift versão 4.x
 

@@ -16,17 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: altambaw
 ms.openlocfilehash: 41cc2bfa39160d26b5c5f09687ddf1fef9ec5803
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89290196"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou eliminar uma rede virtual de espreitar
 
 Aprenda a criar, alterar ou apagar um olhar de rede virtual. O espreitamento de redes virtuais permite-lhe ligar redes virtuais na mesma região e em regiões (também conhecidas como Global VNet Peering) através da rede de espinha dorsal Azure. Uma vez espreitadas, as redes virtuais ainda são geridas como recursos separados. Se é novo na rede virtual a espreitar, pode saber mais sobre isso na rede virtual que espreita a [visão geral](virtual-network-peering-overview.md) ou completando um [tutorial](tutorial-connect-virtual-networks-portal.md).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -147,7 +147,7 @@ As contas que utiliza para trabalhar com o espreguite de rede virtual devem ser 
 
 Se a sua conta não for atribuída a uma das funções anteriores, deve ser atribuída a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que seja atribuída a partir do quadro seguinte:
 
-| Ação                                                          | Name |
+| Ação                                                          | Nome |
 |---                                                              |---   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write  | Necessário para criar um espreitamento da rede virtual A para a rede virtual B. A rede virtual A deve ser uma rede virtual (Gestor de Recursos)          |
 | Microsoft.Network/virtualNetworks/peer/action                   | Necessário para criar um espreitamento da rede virtual B (Gestor de Recursos) para a rede virtual A                                                       |
@@ -155,7 +155,7 @@ Se a sua conta não for atribuída a uma das funções anteriores, deve ser atri
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/read   | Leia uma rede virtual a espreitar   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/delete | Excluir um olhar de rede virtual |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - É criado um peering de rede virtual entre redes virtuais criadas com o mesmo ou com diferentes modelos de implementação que existam na mesma ou em diferentes subscrições. Conclua um tutorial para um dos cenários seguintes:
 

@@ -4,10 +4,10 @@ description: Descreve como resolver erros de modelo inválidos ao implementar mo
 ms.topic: troubleshooting
 ms.date: 05/22/2020
 ms.openlocfilehash: 3e68d4634d0092d05222348ca0db0116422faec3
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87373815"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Resolver erros de modelo inválido

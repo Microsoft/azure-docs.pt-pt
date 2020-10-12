@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a7e4772ba2b3d8adf163d6f2932461e1e939ed84
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90052448"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>Quando utilizar um Fornecedor de Autenticação Multi-Factor Azure
@@ -72,6 +72,6 @@ Quando tiver confirmado que todas as definições foram migradas, pode navegar a
 > [!NOTE]
 > Os utilizadores com versões mais antigas da aplicação Microsoft Authenticator e do Azure MFA Server poderão ter de voltar a registar a sua aplicação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Configurar as Definições do Multi-Factor Authentication](howto-mfa-mfasettings.md)

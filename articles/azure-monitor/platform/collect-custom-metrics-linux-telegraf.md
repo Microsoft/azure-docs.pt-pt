@@ -8,10 +8,10 @@ ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
 ms.openlocfilehash: b80f27e490dd3b1890eab7740fb4650ba4280abb
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88207803"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Colete métricas personalizadas para um Linux VM com o agente InfluxData Telegraf
@@ -58,7 +58,7 @@ Criar um novo Linux VM:
 
 1. A VM é afixada ao dashboard do portal do Azure. Após o fim da colocação, o resumo VM abre-se automaticamente. 
 
-1. No painel VM, navegue para o separador **Identidade.** Certifique-se de que o seu VM tem uma identidade atribuída ao sistema definida para **On**. 
+1. No painel VM, navegue para o **separador Identidade.** Certifique-se de que o seu VM tem uma identidade atribuída ao sistema definida para **On**. 
  
     ![Pré-visualização da identidade da Telegraf VM](./media/collect-custom-metrics-linux-telegraf/connect-to-VM.png)
  

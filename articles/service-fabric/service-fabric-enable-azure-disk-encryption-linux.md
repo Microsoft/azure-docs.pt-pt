@@ -4,10 +4,10 @@ description: Este artigo descreve como ativar a encriptação do disco para os n
 ms.topic: article
 ms.date: 03/22/2019
 ms.openlocfilehash: c600d822d20b0e5a0ca613935b1dfa4be838fcec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78252820"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-linux"></a>Ativar encriptação de disco para os nódos de cluster de tecido de serviço Azure em Linux 
@@ -59,7 +59,7 @@ A pré-visualização da encriptação do disco para o conjunto de escala de má
 | ------------- |-------------| ------------|
 | Get-AzVmssDiskEncryptionStatus   | 1.0.0 ou mais tarde | Az.Compute |
 | Get-AzVmssVMDiskEncryptionStatus   | 1.0.0 ou mais tarde | Az.Compute |
-| Desativação-AzVmssDiskEncryption   | 1.0.0 ou mais tarde | Az.Compute |
+| Disable-AzVmssDiskEncryption   | 1.0.0 ou mais tarde | Az.Compute |
 | Get-AzVmssDiskEncryption   | 1.0.0 ou mais tarde | Az.Compute |
 | Get-AzVmssVMDiskEncryption   | 1.0.0 ou mais tarde | Az.Compute |
 | Set-AzVmssDiskEncryptionExtension   | 1.0.0 ou mais tarde | Az.Compute |
@@ -236,5 +236,5 @@ az vmss encryption disable -g <resourceGroupName> -n <VMSS name>
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste ponto, você deve ter um cluster seguro e saber como ativar e desativar a encriptação do disco para nós de cluster de tecido de serviço e conjuntos de escala de máquina virtual. Para obter orientações semelhantes sobre os nós de cluster de tecido de serviço no Linux, consulte [a encriptação do disco para windows](service-fabric-enable-azure-disk-encryption-windows.md). 

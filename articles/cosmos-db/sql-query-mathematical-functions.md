@@ -8,10 +8,10 @@ ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: bd53feb175c5be77f559a4d2e724a55e41df48eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85562822"
 ---
 # <a name="mathematical-functions-azure-cosmos-db"></a>Funções matemáticas (Azure Cosmos DB)  
@@ -39,20 +39,20 @@ As seguintes funções matemáticas incorporadas suportadas executam um cálculo
 * [ASIN](sql-query-asin.md)
 * [ATAN](sql-query-atan.md)
 * [ATN2](sql-query-atn2.md)
-* [TETO](sql-query-ceiling.md)
+* [CEILING](sql-query-ceiling.md)
 * [COS](sql-query-cos.md)
 * [COT](sql-query-cot.md)
-* [GRAUS](sql-query-degrees.md)
+* [DEGREES](sql-query-degrees.md)
 * [EXP](sql-query-exp.md)
-* [PISO](sql-query-floor.md)
+* [FLOOR](sql-query-floor.md)
 * [LOG](sql-query-log.md)
 * [LOG10](sql-query-log10.md)
 * [PI](sql-query-pi.md)
 * [POWER](sql-query-power.md)
 * [RADIANS](sql-query-radians.md)
 * [RAND](sql-query-rand.md)
-* [RODADA](sql-query-round.md)
-* [SINAL](sql-query-sign.md)
+* [ROUND](sql-query-round.md)
+* [SIGN](sql-query-sign.md)
 * [SIN](sql-query-sin.md)
 * [SQRT](sql-query-sqrt.md)
 * [SQUARE](sql-query-square.md)
@@ -62,7 +62,7 @@ As seguintes funções matemáticas incorporadas suportadas executam um cálculo
   
 Todas as funções matemáticas, exceto a RAND, são funções determinísticas. Isto significa que devolvem os mesmos resultados cada vez que são chamados com um conjunto específico de valores de entrada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Funciona O sistema Azure Cosmos DB](sql-query-system-functions.md)
 - [Introdução ao Azure Cosmos DB](introduction.md)

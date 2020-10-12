@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: tamram
 ms.openlocfilehash: 9a60c624b181a1efd2f6deebd349daa82214a8a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67183934"
 ---
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
@@ -70,7 +70,7 @@ Get-AzTableRow -table $cloudTable | ft
 
 Este comando produz resultados semelhantes ao quadro seguinte:
 
-| userid | o nome de utilizador | partição | rowkey |
+| userid | nome de utilizador | partição | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | partição1 | CA |
 | 3 | Christine | partição1 | WA |
@@ -85,7 +85,7 @@ Get-AzTableRow -table $cloudTable -partitionKey $partitionKey1 | ft
 
 Os resultados são semelhantes ao quadro seguinte:
 
-| userid | o nome de utilizador | partição | rowkey |
+| userid | nome de utilizador | partição | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | partição1 | CA |
 | 3 | Christine | partição1 | WA |
@@ -104,7 +104,7 @@ Esta consulta recupera um registo.
 |campo|valor|
 |----|----|
 | userid | 1 |
-| o nome de utilizador | Chris |
+| nome de utilizador | Chris |
 | PartitionKey | partição1 |
 | RowKey      | CA |
 
@@ -121,7 +121,7 @@ Esta consulta recupera um registo.
 |campo|valor|
 |----|----|
 | userid | 1 |
-| o nome de utilizador | Chris |
+| nome de utilizador | Chris |
 | PartitionKey | partição1 |
 | RowKey      | CA |
 
@@ -156,7 +156,7 @@ Os resultados mostram o recorde de Jessie2.
 |campo|valor|
 |----|----|
 | userid | 2 |
-| o nome de utilizador | Jessie2 |
+| nome de utilizador | Jessie2 |
 | PartitionKey | partição2 |
 | RowKey      | NM |
 

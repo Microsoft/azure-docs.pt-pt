@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 1f1120c78ef2a634c079705c85170d9742eabd1f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87087429"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Mover dados para uma Base de Dados SQL do Azure para o Azure Machine Learning
@@ -43,13 +43,13 @@ Os procedimentos aqui descritos exigem que tenha:
 
 Pode adaptar os procedimentos descritos aqui a um conjunto dos seus próprios dados ou seguir os passos descritos utilizando o conjunto de dados do Táxi de NYC. Para enviar o conjunto de dados do NYC Taxi para a sua base de dados do SQL Server, siga o procedimento descrito em [Dados de Importação a Granel para a Base de Dados do Servidor SQL](sql-walkthrough.md#dbload).
 
-## <a name="moving-data-from-a-flat-file-source-to-an-azure-sql-database"></a><a name="file-to-azure-sql-database"></a>Mover dados de uma fonte de ficheiro plano para uma Base de Dados Azure SQL
+## <a name="moving-data-from-a-flat-file-source-to-an-azure-sql-database"></a><a name="file-to-azure-sql-database"></a> Mover dados de uma fonte de ficheiro plano para uma Base de Dados Azure SQL
 Os dados em ficheiros planos (CSV ou TSV formatados) podem ser transferidos para uma Base de Dados SQL Azure utilizando uma consulta SQL de inserção a granel.
 
-### <a name="bulk-insert-sql-query"></a><a name="bulk-insert-sql-query"></a>Inserir a granel consulta SQL
+### <a name="bulk-insert-sql-query"></a><a name="bulk-insert-sql-query"></a> Inserir a granel consulta SQL
 Os passos para o procedimento utilizando a consulta de inserção a granel SQL são semelhantes às instruções para mover dados de uma fonte de ficheiro plana para o SQL Server num VM Azure. Para mais detalhes, consulte [a consulta DE INSERÇÃO A Granel SQL](move-sql-server-virtual-machine.md#insert-tables-bulkquery).
 
-## <a name="moving-data-from-sql-server-to-an-azure-sql-database"></a><a name="sql-on-prem-to-sazure-sql-database"></a>Transferir dados do SQL Server para uma Base de Dados SQL Azure
+## <a name="moving-data-from-sql-server-to-an-azure-sql-database"></a><a name="sql-on-prem-to-sazure-sql-database"></a> Transferir dados do SQL Server para uma Base de Dados SQL Azure
 Se os dados de origem forem armazenados no SQL Server, existem várias possibilidades de mover os dados para uma Base de Dados Azure SQL:
 
 1. [Exportação para Arquivo Plano](#export-flat-file)

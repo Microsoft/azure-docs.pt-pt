@@ -4,10 +4,10 @@ description: Receba notificações personalizadas sobre eventos de saúde de ser
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.openlocfilehash: 112774cb1f9e16b08225471e8dbc1bb79b1bd37d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86529102"
 ---
 # <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>Envie alertas de saúde do serviço Azure com a OpsGenie usando webhooks
@@ -82,7 +82,7 @@ Este artigo mostra-lhe como configurar alertas de saúde do serviço Azure com a
 
 1. Vá à [OpsGenie](https://www.opsgenie.com/) confirmar que a sua integração foi criada com sucesso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba como [configurar notificações webhook para os sistemas de gestão de problemas existentes](service-health-alert-webhook-guide.md).
 - Reveja o [esquema de alerta de registo de atividade webhook](../azure-monitor/platform/activity-log-alerts-webhook.md). 
 - Saiba mais sobre [as notificações de saúde do serviço.](./service-notifications.md)

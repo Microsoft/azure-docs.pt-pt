@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: cherylmc
 ms.openlocfilehash: 2f2184507e17e3ecae40bb33be4202c183d32b77
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91274238"
 ---
 # <a name="point-to-site-vpn-session-management"></a>Gestão de sessão VPN ponto-a-local
@@ -44,7 +44,7 @@ Para visualizar e desligar uma sessão utilizando o PowerShell:
    ```
 1. Copie o **VpnConnectionId** da sessão que pretende desligar.
 
-   :::image type="content" source="./media/p2s-session-management/powershell.png" alt-text="Exemplo do PowerShell":::
+   :::image type="content" source="./media/p2s-session-management/powershell.png" alt-text="Exemplo do portal":::
 1. Para desligar a sessão, executar o seguinte comando:
 
    ```azurepowershell-interactive

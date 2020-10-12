@@ -6,16 +6,16 @@ ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: b6df25b525975f2d4fe6a02064e81f359a804c58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81416257"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Equilibrar o seu cluster de tecido de serviço
 O Service Fabric Cluster Resource Manager suporta alterações dinâmicas de carga, reagindo a adições ou remoção de nós ou serviços. Também corrige automaticamente as violações de restrições e reequilibra proativamente o cluster. Mas com que frequência estas ações são tomadas, e o que as despoleta?
 
-Existem três categorias diferentes de trabalho que o Cluster Resource Manager realiza. São:
+Existem três categorias diferentes de trabalho que o Cluster Resource Manager realiza. A saber:
 
 1. Colocação – esta fase trata da colocação de quaisquer réplicas imponentes ou casos apátridas que estejam em falta. A colocação inclui tanto novos serviços como o manuseamento de réplicas declaradas ou casos apátridas que falharam. Apagar e largar réplicas ou casos são tratados aqui.
 2. Verificação de Restrições – esta fase verifica e corrige violações das diferentes restrições de colocação (regras) dentro do sistema. Exemplos de regras são coisas como garantir que os nós não estão sobrecapacidade e que os constrangimentos de colocação de um serviço são cumpridos.

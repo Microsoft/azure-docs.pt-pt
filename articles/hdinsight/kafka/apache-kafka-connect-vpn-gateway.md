@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-python
 ms.date: 03/04/2020
 ms.openlocfilehash: ca5bff7f8a14efc0916210296048e3731aec5a59
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87873471"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Connect to Apache Kafka on HDInsight through an Azure Virtual Network (Ligar ao Apache Kafka no HDInsight através de uma Rede Virtual do Azure)
@@ -58,7 +58,7 @@ O HDInsight não permite a ligação direta a Kafka através da internet públic
 
 Para obter mais informações sobre a utilização do HDInsight numa rede virtual, consulte [Plan a virtual network for Azure HDInsight clusters](../hdinsight-plan-virtual-network-deployment.md).
 
-## <a name="connect-to-apache-kafka-from-an-on-premises-network"></a><a id="on-premises"></a>Ligue-se a Apache Kafka a partir de uma rede no local
+## <a name="connect-to-apache-kafka-from-an-on-premises-network"></a><a id="on-premises"></a> Ligue-se a Apache Kafka a partir de uma rede no local
 
 Para criar um cluster Kafka que comunique com a sua rede no local, siga os passos no [Connect HDInsight para o seu](./../connect-on-premises-network.md) documento de rede no local.
 
@@ -74,7 +74,7 @@ Estes passos criam a seguinte configuração:
 
 Para verificar se um cliente Kafka pode ligar-se ao cluster a partir do local, utilize os passos na secção [de clientes Exemplo: Python.](#python-client)
 
-## <a name="connect-to-apache-kafka-with-a-vpn-client"></a><a id="vpnclient"></a>Conecte-se a Apache Kafka com um cliente VPN
+## <a name="connect-to-apache-kafka-with-a-vpn-client"></a><a id="vpnclient"></a> Conecte-se a Apache Kafka com um cliente VPN
 
 Utilize os passos desta secção para criar a seguinte configuração:
 
@@ -290,7 +290,7 @@ Por defeito, o Apache Zookeeper devolve aos clientes o nome de domínio dos corr
 
 Para ligar ao gateway VPN, utilize a secção __'Ligar ao Azul'__ do [documento de ligação Ponto-a-Local.](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#connect)
 
-## <a name="example-python-client"></a><a id="python-client"></a>Exemplo: Cliente python
+## <a name="example-python-client"></a><a id="python-client"></a> Exemplo: Cliente python
 
 Para validar a conectividade com a Kafka, utilize os seguintes passos para criar e executar um produtor e consumidor Python:
 

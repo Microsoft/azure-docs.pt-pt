@@ -8,10 +8,10 @@ ms.date: 02/20/2020
 ms.topic: article
 ms.service: azure-app-configuration
 ms.openlocfilehash: ae3417f991c0d810d8946cdaf358218ebbe4f6a5
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88590035"
 ---
 # <a name="reacting-to-azure-app-configuration-events"></a>Reagir a eventos de configuração de aplicativos Azure
@@ -29,7 +29,7 @@ Veja os [eventos de Configuração de Aplicações Route Azure para um ponto fin
 ## <a name="available-azure-app-configuration-events"></a>Eventos disponíveis de configuração de aplicativos Azure
 A grelha de eventos utiliza [subscrições de eventos](../event-grid/concepts.md#event-subscriptions) para encaminhar mensagens de evento para assinantes. As subscrições de eventos de configuração de aplicativos Azure podem incluir dois tipos de eventos:  
 
-> |Nome do Evento|Description|
+> |Nome do Evento|Descrição|
 > |----------|-----------|
 > |`Microsoft.AppConfiguration.KeyValueModified`|Disparado quando um valor-chave é criado ou substituído|
 > |`Microsoft.AppConfiguration.KeyValueDeleted`|Disparado quando um valor-chave é eliminado|
@@ -37,15 +37,15 @@ A grelha de eventos utiliza [subscrições de eventos](../event-grid/concepts.md
 ## <a name="event-schema"></a>Esquema de eventos
 Os eventos de Configuração de Aplicações Azure contêm todas as informações necessárias para responder às alterações nos seus dados. Pode identificar um evento de Configuração de Aplicações porque a propriedade eventType começa com "Microsoft.AppConfiguration". Informações adicionais sobre a utilização das propriedades do evento Event Grid estão documentadas no [esquema de eventos da Grade de Eventos.](../event-grid/event-schema.md)  
 
-> |Propriedade|Tipo|Description|
+> |Propriedade|Tipo|Descrição|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
 > |tópico|string|Full Azure Resource Manager id da Configuração de Aplicação que emite o evento.|
-> |subject|string|O URI do valor-chave que é o tema do evento.|
+> |Assunto|string|O URI do valor-chave que é o tema do evento.|
 > |eventTime|string|A data/hora em que o evento foi gerado, no formato ISO 8601.|
 > |eventType|string|"Microsoft.AppConfiguration.KeyValueModified" ou "Microsoft.AppConfiguration.KeyValueDeleted".|
 > |Id|string|Um identificador único deste evento.|
 > |dataVersion|string|A versão do esquema do objeto de dados.|
-> |metadataVersion|string|A versão de esquema de propriedades de alto nível.|
+> |metadadosVersão|string|A versão de esquema de propriedades de alto nível.|
 > |dados|objeto|Recolha de dados específicos de configuração de aplicativos Azure|
 > |data.key|string|A chave do valor-chave que foi modificada ou eliminada.|
 > |data.label|string|A etiqueta, se houver, do valor-chave que foi modificada ou eliminada.|

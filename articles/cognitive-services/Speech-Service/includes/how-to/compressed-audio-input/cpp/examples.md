@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/09/2020
 ms.author: trbye
 ms.openlocfilehash: b565bf3bae61cf92133b957bb75fdae9545c030e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81421727"
 ---
-Para transmitir num formato áudio comprimido para `PullAudioInputStream` `PushAudioInputStream`o serviço De Fala, crie ou . Em seguida, `AudioConfig` crie um a partir de uma instância da sua classe de fluxo, especificando o formato de compressão do fluxo.
+Para transmitir num formato áudio comprimido para o serviço Speech, criar `PullAudioInputStream` ou `PushAudioInputStream` . Em seguida, crie um `AudioConfig` a partir de um exemplo da sua classe de fluxo, especificando o formato de compressão do fluxo.
 
-Vamos supor que tem uma aula `pushStream` de fluxo de entrada chamada e está usando OPUS/OGG. O seu código pode parecer assim:
+Vamos supor que tem uma classe de fluxo de entrada chamada `pushStream` e está a usar OPUS/OGG. O seu código pode ser assim:
 
 ```cpp
 using namespace Microsoft::CognitiveServices::Speech;

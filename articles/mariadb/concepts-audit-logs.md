@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/24/2020
 ms.openlocfilehash: 7c9d59eee1e1ce69394301023b108952eaf46790
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85362429"
 ---
 # <a name="audit-logs-in-azure-database-for-mariadb"></a>Registos de auditoria na Base de Dados Azure para MariaDB
@@ -31,7 +31,7 @@ Outros parâmetros que pode ajustar incluem:
 - `audit_log_exclude_users`: Utilizadores MariaDB excluídos da exploração madeireira. Permite no máximo quatro utilizadores. O comprimento máximo do parâmetro é de 256 caracteres.
 
 > [!Note]
-> `audit_log_include_users`tem maior prioridade sobre `audit_log_exclude_users` . Por exemplo, se `audit_log_include_users`  =  `demouser` e , o `audit_log_exclude_users`  =  `demouser` utilizador será incluído nos registos de auditoria porque `audit_log_include_users` tem maior prioridade.
+> `audit_log_include_users` tem maior prioridade sobre `audit_log_exclude_users` . Por exemplo, se `audit_log_include_users`  =  `demouser` e , o `audit_log_exclude_users`  =  `demouser` utilizador será incluído nos registos de auditoria porque `audit_log_include_users` tem maior prioridade.
 
 | **Evento** | **Descrição** |
 |---|---|
@@ -59,10 +59,10 @@ As secções seguintes descrevem o que éprodução por registos de auditoria Ma
 | `TenantId` | Sua iD do seu inquilino |
 | `SourceSystem` | `Azure` |
 | `TimeGenerated [UTC]` | Carimbo de tempo quando o registo foi gravado na UTC |
-| `Type` | Tipo de tronco. Sempre`AzureDiagnostics` |
+| `Type` | Tipo de tronco. Sempre `AzureDiagnostics` |
 | `SubscriptionId` | GUID para a subscrição a que o servidor pertence |
 | `ResourceGroup` | Nome do grupo de recursos a que o servidor pertence |
-| `ResourceProvider` | Nome do fornecedor de recursos. Sempre`MICROSOFT.DBFORMARIADB` |
+| `ResourceProvider` | Nome do fornecedor de recursos. Sempre `MICROSOFT.DBFORMARIADB` |
 | `ResourceType` | `Servers` |
 | `ResourceId` | URI de recursos |
 | `Resource` | Nome do servidor |
@@ -89,10 +89,10 @@ O esquema abaixo aplica-se aos tipos de eventos GENERAL, DML_SELECT, DML_NONSELE
 | `TenantId` | Sua iD do seu inquilino |
 | `SourceSystem` | `Azure` |
 | `TimeGenerated [UTC]` | Carimbo de tempo quando o registo foi gravado na UTC |
-| `Type` | Tipo de tronco. Sempre`AzureDiagnostics` |
+| `Type` | Tipo de tronco. Sempre `AzureDiagnostics` |
 | `SubscriptionId` | GUID para a subscrição a que o servidor pertence |
 | `ResourceGroup` | Nome do grupo de recursos a que o servidor pertence |
-| `ResourceProvider` | Nome do fornecedor de recursos. Sempre`MICROSOFT.DBFORMARIADB` |
+| `ResourceProvider` | Nome do fornecedor de recursos. Sempre `MICROSOFT.DBFORMARIADB` |
 | `ResourceType` | `Servers` |
 | `ResourceId` | URI de recursos |
 | `Resource` | Nome do servidor |
@@ -102,7 +102,7 @@ O esquema abaixo aplica-se aos tipos de eventos GENERAL, DML_SELECT, DML_NONSELE
 | `event_class_s` | `general_log` |
 | `event_subclass_s` | `LOG`, `ERROR`, `RESULT` |
 | `event_time` | Consulta iniciar segundos em semda do tempo da UNIX |
-| `error_code_d` | Código de erro se a consulta falhar. `0`significa que não há erro |
+| `error_code_d` | Código de erro se a consulta falhar. `0` significa que não há erro |
 | `thread_id_d` | ID de fio que executou a consulta |
 | `host_s` | Vazio |
 | `ip_s` | Endereço IP do cliente que liga a MariaDB |
@@ -164,6 +164,6 @@ Assim que os seus registos de auditoria forem canalizados para Registos do Monit
     | order by TimeGenerated asc nulls last
     ``` 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Como configurar registos de auditoria no portal Azure](howto-configure-audit-logs-portal.md)

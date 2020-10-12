@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 02/27/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: 87a2da31802a8b6858e875c23ef1dbd2d6d006bc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86524859"
 ---
 # <a name="move-an-app-service-resource-to-another-region"></a>Mover um recurso de Serviço de Aplicações para outra região
@@ -106,6 +106,6 @@ Certos recursos, tais como certificados importados ou ligações híbridas, cont
 
 Elimine a aplicação de origem e o plano de Serviço de Aplicações. [Um plano de Serviço de Aplicações no nível não gratuito tem uma taxa, mesmo que nenhuma aplicação esteja a ser executada no mesmo.](app-service-plan-manage.md#delete-an-app-service-plan)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Clonagem de aplicativos Azure App usando PowerShell](app-service-web-app-cloning.md)
