@@ -1,6 +1,6 @@
 ---
-title: Partilhe os dashboards do portal Azure utilizando o Controlo de Acesso Baseado em Fun
-description: Este artigo explica como partilhar um dashboard no portal Azure utilizando o Controlo de Acesso Baseado em Funções.
+title: Partilhe os dashboards do portal Azure utilizando Role-Based Controlo de Acesso
+description: Este artigo explica como partilhar um dashboard no portal Azure utilizando Role-Based Controlo de Acesso.
 services: azure-portal
 documentationcenter: ''
 author: mgblythe
@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
 ms.openlocfilehash: b478272ff790121d914a51f8ee4c5cf250134f4d
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87923888"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Partilhar dashboards do Azure mediante a utilização do Controlo de Acesso Baseado em Funções
@@ -33,7 +33,7 @@ Todos os dashboards publicados são implementados como recursos Azure. Existem c
 
 ## <a name="understanding-access-control-for-dashboards"></a>Compreender o controlo de acessos para tabliers
 
-Com o Controlo de Acesso Baseado em Função (RBAC), pode atribuir utilizadores a funções em três níveis diferentes de âmbito:
+Com Role-Based Controlo de Acesso (RBAC), pode atribuir os utilizadores a funções em três níveis diferentes de âmbito:
 
 * subscrição
 * grupo de recursos

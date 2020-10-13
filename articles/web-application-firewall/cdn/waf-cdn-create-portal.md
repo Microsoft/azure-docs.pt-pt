@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 09/16/2020
 ms.author: victorh
 ms.openlocfilehash: c5505b9437a4bd8dced6a090817b17d5e29374f2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91327943"
 ---
 # <a name="tutorial-create-a-waf-policy-on-azure-cdn-using-the-azure-portal"></a>Tutorial: Criar uma política de WAF no Azure CDN usando o portal Azure
@@ -54,7 +54,7 @@ Em primeiro lugar, crie uma política de WAF básica com um Conjunto de Regras P
     
     > [!NOTE]
     > Se o ponto final estiver associado a uma política de WAF, é mostrado acinzentado. Primeiro, deve remover o Ponto Final da política associada e, em seguida, voltar a associar o ponto final a uma nova política da WAF.
-1. Selecione **'Rever + criar'** e, em seguida, selecione **Criar**.
+1. Selecione **Rever + criar** e, em seguida, selecione **Criar**.
 
 ## <a name="configure-web-application-firewall-policy-optional"></a>Configure a política de Firewall de aplicação web (opcional)
 

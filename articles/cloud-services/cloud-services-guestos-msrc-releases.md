@@ -13,10 +13,10 @@ ms.workload: tbd
 ms.date: 9/29/2020
 ms.author: yohaddad
 ms.openlocfilehash: bdcf9417aca6ece24e5ef577620734eeb48d9362
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91531161"
 ---
 # <a name="azure-guest-os"></a>Hóspede Azure OS
@@ -1438,7 +1438,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS16-147 |[3204063]   |Atualização de segurança para o Microsoft Uniscribe|2.58, 3.46, 4.39, 5.4 |Dez 13, 2016 |
 | MS16-149 |[3205655]   |Atualização de segurança para o Microsoft Windows|2.58, 3.46, 4.39, 5.4 |Dez 13, 2016 |
 | MS16-150 |[3205642]   |Atualização de segurança para o modo Kernel seguro |5.4 |Dez 13, 2016 |
-| MS16-151 |[3205651]   |Atualização de segurança para controladores de modo Kernel|2.58, 3.46, 4.39, 5.4 |Dez 13, 2016 |
+| MS16-151 |[3205651]   |Atualização de Segurança para motoristas de Kernel-Mode|2.58, 3.46, 4.39, 5.4 |Dez 13, 2016 |
 | MS16-152 |[3199709]   |Atualização de segurança para o Windows Kernel |5.4 |Dez 13, 2016 |
 | MS16-153 |[3207328] |Atualização de segurança para controlador do sistema de ficheiros de registo comum|2.58, 3.46, 4.39, 5.4 |Dez 13, 2016 |
 | MS16-155 |[3205640]   |Atualização de segurança para o quadro .NET |5.4 |Dez 13, 2016 |
@@ -1454,7 +1454,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS16-131 |[3199151]   |Atualização de segurança para o Controlo de Vídeo da Microsoft |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
 | MS16-132 |[3199120] |Atualização de segurança para componente da Microsoft |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
 | MS16-134 |[3193706] |Atualização de segurança para controlador do sistema de ficheiros de registo comum |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
-| MS16-135 |[3199135] |Atualização de segurança para controladores de modo Kernel |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
+| MS16-135 |[3199135] |Atualização de Segurança para motoristas de Kernel-Mode |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
 | MS16-137 |[3199173]   |Atualização de segurança para métodos de autenticação do Windows |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
 | MS16-138 |[3199647] |Atualização de segurança para o Hard Drive Virtual da Microsoft |5.3, 4.38, 3.45 |Nov 8, 2016 |
 | MS16-139 |[3199720] |Atualização de segurança para o Windows Kernel |2.57 |Nov 8.2016 |
@@ -1476,7 +1476,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | --- | --- | --- | --- | --- |
 | MS16-118 |[3192887] |Atualização de Segurança Cumulativa para o Internet Explorer |4.37, 3.44, 2.56 |11 de outubro de 2016 |
 | MS16-120 |[3192884] |Atualização de segurança para componente gráficos da Microsoft |4.37, 3.44, 2.56 |11 de outubro de 2016 |
-| MS16-123 |[3192892] |Atualização de segurança para controladores de modo Kernel |4.37, 3.44, 2.56 |11 de outubro de 2016 |
+| MS16-123 |[3192892] |Atualização de Segurança para motoristas de Kernel-Mode |4.37, 3.44, 2.56 |11 de outubro de 2016 |
 | MS16-124 |[3193227] |Atualização de segurança para registo do Windows |4.37, 3.44, 2.56 |11 de outubro de 2016 |
 | MS16-126 |[3196067] |Atualização de segurança para a API de Mensagens de Internet da Microsoft |2.56 |11 de outubro de 2016 |
 | MS16-101 |[3178465] |Atualização de segurança para métodos de autenticação do Windows |4.37, 3.44, 2.56 |11 de outubro de 2016 |
@@ -1497,7 +1497,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS16-114 |[3185879] |Atualização de segurança para o Servidor SMB do Windows |4.36, 3.43, 2.55 |13 de setembro de 2016 |
 | MS16-115 |[3188733] |Atualização de Segurança para PDF |4.35, 3.43 |13 de setembro de 2016 |
 | MS16-116 |[3188724] |Atualização de segurança na automatização OLE para motor de script vbscript |4.36, 3.43, 2.55 |13 de setembro de 2016 |
-| N/D |[3174644] |Suporte atualizado para troca de chaves Diffie-Hellman |4.36, 3.43, 2.55 |13 de setembro de 2016 |
+| N/D |[3174644] |Suporte atualizado para Diffie-Hellman troca de chaves |4.36, 3.43, 2.55 |13 de setembro de 2016 |
 | N/D |[3177723] |Atualização do Timezone - Egito cancela DST |4.36, 3.43, 2.55 |13 de setembro de 2016 |
 | N/D |[3179573] |Atualização de agosto de 2016 para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.55 |13 de setembro de 2016 |
 | N/D |[3179575] |Rollup de atualização de agosto de 2016 para Windows Server 2012 |3.43 |13 de setembro de 2016 |
@@ -1508,11 +1508,11 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | --- | --- | --- | --- | --- |
 | MS16-095 |[3177356] |Atualização de Segurança Cumulativa para o Internet Explorer |4.35, 3.42, 2.54 |9 de agosto de 2016 |
 | MS16-097 |[3177393] |Atualização de segurança para componente gráficos da Microsoft |4.35, 3.42, 2.54 |9 de agosto de 2016 |
-| MS16-098 |[3178466] |Atualização de segurança para controladores do modo Kernel do Windows |4.35, 3.42, 2.54 |9 de agosto de 2016 |
+| MS16-098 |[3178466] |Atualização de segurança para controladores de Kernel-Mode do Windows |4.35, 3.42, 2.54 |9 de agosto de 2016 |
 | MS16-100 |[3179577] |Atualização de segurança para arranque seguro |4.35, 3.42 |9 de agosto de 2016 |
 | MS16-101 |[3178465] |Atualização de segurança para métodos de autenticação do Windows |4.35, 3.42, 2.54 |9 de agosto de 2016 |
 | MS16-102 |[3182248] |Atualização de segurança para a Biblioteca PDF do Microsoft Windows |4.35, 3.42 |9 de agosto de 2016 |
-| Re-lançamento MS16-077 |[3165191] |Atualização de segurança para a Web Proxy Autodiscovery (WPAD) |4.35, 3.42, 2.54 |9 de agosto de 2016 |
+| MS16-077 Re-Release |[3165191] |Atualização de segurança para a Web Proxy Autodiscovery (WPAD) |4.35, 3.42, 2.54 |9 de agosto de 2016 |
 | N/D |[3172605] |Rollup de atualização de julho de 2016 para Windows 7 SP1 e Windows Server 2008 R2 SP1 |2.54 |9 de agosto de 2016 |
 | N/D |[3172615] |Rollup de atualização de julho de 2016 para Windows Server 2012 |3.42 |9 de agosto de 2016 |
 | N/D |[3172614] |Roll up de atualização de julho de 2016 para Windows RT 8.1, Windows 8.1 e Windows Server 2012 R2 |4.35 |9 de agosto de 2016 |
@@ -1600,7 +1600,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS16-031 |[3140410] |Atualização de segurança para o Microsoft Windows para abordar a elevação do privilégio |2.49 |8 de março de 2016 |
 | MS16-032 |[3143141] |Atualização de segurança para logon secundário para abordar a elevação do privilégio |4.30, 3.37, 2.49 |8 de março de 2016 |
 | MS16-033 |[3143142] |Atualização de segurança para motorista de classe de armazenamento em massa USB para abordar a elevação do privilégio |4.30, 3.37, 2.49 |8 de março de 2016 |
-| MS16-034 |[3143145] |Atualizações de segurança para o controlador do modo Kernel para abordar a elevação do privilégio |4.30, 3.37, 2.49 |8 de março de 2016 |
+| MS16-034 |[3143145] |Atualizações de segurança para Kernel-Mode condutor para abordar a Elevação do Privilégio |4.30, 3.37, 2.49 |8 de março de 2016 |
 
 ## <a name="february-2016-guest-os"></a>Os hóspedes de fevereiro de 2016
 | ID do boletim | Artigo KB dos pais | Descrição da Vulnerabilidade | SO convidado | Data Introduzida pela primeira vez |
@@ -1609,20 +1609,20 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS16-013 |[3134811] |Atualização de segurança para o Windows Journal para abordar a execução de código remoto |4.29, 3.36, 2.48 |9 de fevereiro de 2016 |
 | MS16-014 |[3134228] |Atualização de segurança para o Microsoft Windows para abordar a execução de código remoto |4.29, 3.36, 2.48 |9 de fevereiro de 2016 |
 | MS16-016 |[3136041] |Atualização de segurança para WebDAV para abordar a elevação do privilégio |4.29, 3.36, 2.48 |9 de fevereiro de 2016 |
-| MS16-018 |[3136082] |Atualização de segurança para o controlador do modo Kernel do Windows para abordar a elevação do privilégio |4.29, 3.36, 2.48 |9 de fevereiro de 2016 |
+| MS16-018 |[3136082] |Atualização de segurança para o Windows Kernel-Mode driver para abordar a elevação do privilégio |4.29, 3.36, 2.48 |9 de fevereiro de 2016 |
 | MS16-019 |[3137893] |Atualização de segurança para o quadro .NET para abordar a execução de código remoto |4.29, 3.36, 2.48 |9 de fevereiro de 2016 |
 | MS16-021 |[3133043] |Atualização de segurança para o servidor NPS RADIUS para abordar a negação de serviço |4.29, 3.36, 2.48 |9 de fevereiro de 2016 |
 | Microsoft Security Advisory |[3109853] |Atualização para melhorar a interoperabilidade do TLS |4.29, 3.36 |9 de fevereiro de 2016 |
-| Re-Lançamento - MS15-101 |[3089662] |Vulnerabilidades em .NET Framework poderiam permitir a elevação do privilégio |4.29, 3.36, 2.48 |9 de fevereiro de 2016 |
-| Re-Lançamento - MS15-118 |[3104507] |Atualizações de segurança para o quadro .NET para abordar a elevação do privilégio |4.29, 3.36, 2.48 |9 de fevereiro de 2016 |
-| Re-Lançamento - MS15-128 |[3104503] |Atualizações de segurança para componente gráficos da Microsoft para abordar a execução remota de código |4.29, 3.36, 2.48 |9 de fevereiro de 2016 |
+| Re-Release - MS15-101 |[3089662] |Vulnerabilidades em .NET Framework poderiam permitir a elevação do privilégio |4.29, 3.36, 2.48 |9 de fevereiro de 2016 |
+| Re-Release - MS15-118 |[3104507] |Atualizações de segurança para o quadro .NET para abordar a elevação do privilégio |4.29, 3.36, 2.48 |9 de fevereiro de 2016 |
+| Re-Release - MS15-128 |[3104503] |Atualizações de segurança para componente gráficos da Microsoft para abordar a execução remota de código |4.29, 3.36, 2.48 |9 de fevereiro de 2016 |
 
 ## <a name="january-2016-guest-os"></a>Janeiro 2016 Guest OS
 | ID do boletim | Artigo KB dos pais | Descrição da Vulnerabilidade | SO convidado | Data Introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
 | MS16-001 |[3124903] |Atualização de Segurança Cumulativa para o Internet Explorer |4.28, 3.35, 2.47 |12 de janeiro de 2016 |
 | MS16-003 |[3125540] |Atualização de Segurança Cumulativa para JScript e VBScript |2.47 |12 de janeiro de 2016 |
-| MS16-005 |[3124584] |Atualização de segurança para controladores do modo Kernel do Windows para abordar a execução de código remoto |4.28, 3.35, 2.47 |12 de janeiro de 2016 |
+| MS16-005 |[3124584] |Atualização de segurança para os controladores de Kernel-Mode Windows para abordar a execução de código remoto |4.28, 3.35, 2.47 |12 de janeiro de 2016 |
 | MS16-007 |[3124901] |Atualização de segurança para o Microsoft Windows para abordar a execução remota de código |4.28, 3.35, 2.47 |12 de janeiro de 2016 |
 | MS16-008 |[3124605] |Atualização de segurança para Kernel para abordar a elevação do privilégio |4.28, 3.35, 2.47 |12 de janeiro de 2016 |
 | Revisão do Aconselhamento de Segurança da Microsoft |[2755801] |Atualização para vulnerabilidades no Adobe Flash Player no Internet Explorer (Pacote KB: TBD) - Espaço reservado consultivo |4.28, 3.35 |12 de janeiro de 2016 |
@@ -1699,7 +1699,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS15-069 |[3072631] |Vulnerabilidades no Windows podem permitir a execução remota de código |4.22, 3.29, 2.41 |14 de julho de 2015 |
 | MS15-071 |[3068457] |Vulnerabilidade em NETLOGON pode permitir falsificação |4.22, 3.29, 2.41 |14 de julho de 2015 |
 | MS15-072 |[3069392] |Vulnerabilidade no condutor gráfico pode permitir a elevação do privilégio |4.22, 3.29, 2.41 |14 de julho de 2015 |
-| MS15-073 |[3070102] |Vulnerabilidades no condutor do modo Kernel podem permitir a elevação do privilégio |4.22, 3.29, 2.41 |14 de julho de 2015 |
+| MS15-073 |[3070102] |Vulnerabilidades no Kernel-Mode Driver podem permitir elevação de privilégios |4.22, 3.29, 2.41 |14 de julho de 2015 |
 | MS15-074 |[3072630] |Vulnerabilidade no serviço de instalação do Windows poderia permitir a elevação do privilégio |4.22, 3.29, 2.41 |14 de julho de 2015 |
 | MS15-075 |[3072633] |Vulnerabilidades no OLE podem permitir elevação de privilégio |4.22, 3.29, 2.41 |14 de julho de 2015 |
 | MS15-076 |[3067505] |Vulnerabilidade na chamada de procedimento remoto do Windows poderia permitir a elevação do privilégio |4.22, 3.29, 2.41 |14 de julho de 2015 |
@@ -1712,7 +1712,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS15-056 |[3058515] |Atualização de Segurança Cumulativa para o Internet Explorer |4.21, 3.28, 2.40 |9 de junho de 2015 |
 | MS15-057 |[3033890] |Vulnerabilidade no Windows Media Player pode permitir a execução remota de código |4.21, 3.28, 2.40 |9 de junho de 2015 |
 | MS15-060 |[3059317] |Vulnerabilidade nos controlos comuns da Microsoft pode permitir a execução remota de código |4.21, 3.28, 2.40 |9 de junho de 2015 |
-| MS15-061 |[3057839] |Vulnerabilidades em controladores do modo Kernel do Windows podem permitir a elevação do privilégio |4.21, 3.28, 2.40 |9 de junho de 2015 |
+| MS15-061 |[3057839] |Vulnerabilidades em windows Kernel-Mode drivers poderiam permitir a elevação de privilégios |4.21, 3.28, 2.40 |9 de junho de 2015 |
 | MS15-062 |[3062577] |Vulnerabilidade nos serviços da Federação de Diretórios Ativos poderia permitir a elevação do privilégio |4.21, 3.28, 2.40 |9 de junho de 2015 |
 | MS15-063 |[3063858] |Vulnerabilidade no Kernel do Windows pode permitir a elevação do privilégio |4.21, 3.28, 2.40 |9 de junho de 2015 |
 
@@ -1724,7 +1724,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS15-045 |[3046002] |Vulnerabilidade no Windows Journal pode permitir a execução remota de código |4.20, 3.27, 2.39 |12 de maio de 2015 |
 | MS15-048 |[3057134] |Vulnerabilidades em .NET Framework poderiam permitir a elevação do privilégio |4.20, 3.27, 2.39 |12 de maio de 2015 |
 | MS15-050 |[3055642] |Vulnerabilidade no Gestor de Controlo de Serviços poderia permitir a elevação do privilégio |4.20, 3.27, 2.39 |12 de maio de 2015 |
-| MS15-051 |[3057191] |Vulnerabilidades em controladores do modo Kernel do Windows podem permitir a elevação do privilégio |4.20, 3.27, 2.39 |12 de maio de 2015 |
+| MS15-051 |[3057191] |Vulnerabilidades em windows Kernel-Mode drivers poderiam permitir a elevação de privilégios |4.20, 3.27, 2.39 |12 de maio de 2015 |
 | MS15-052 |[3050514] |Vulnerabilidade no Kernel do Windows pode permitir o bypass de funcionalidades de segurança |4.20, 3.27, 2.39 |12 de maio de 2015 |
 | MS15-053 |[3057263] |Vulnerabilidades no motor de scripts JScript e VBScript podem permitir o bypass de funcionalidades de segurança |4.20, 3.27, 2.39 |12 de maio de 2015 |
 | MS15-054 |[3051768] |Vulnerabilidade no formato de ficheiro de consola de gestão da Microsoft poderia permitir a negação de serviço |4.20, 3.27, 2.39 |12 de maio de 2015 |

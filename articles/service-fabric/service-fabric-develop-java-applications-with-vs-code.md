@@ -7,10 +7,10 @@ ms.date: 06/29/2018
 ms.custom: devx-track-java
 ms.author: pepogors
 ms.openlocfilehash: cc65deb924a9f3367c2ea1d7c71544743ccf2697
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87327366"
 ---
 # <a name="develop-java-service-fabric-applications-with-visual-studio-code"></a>Desenvolver aplicações de tecido de serviço java com código de estúdio visual
@@ -37,7 +37,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
 ## <a name="open-the-application-in-vs-code"></a>Abra a aplicação em Código VS
 
-Abra o VS Code.  Clique no ícone Explorer na **Barra de Atividade** e clique em Abrir **Pasta,** ou clique em **Ficheiros -> Pasta Aberta**. Navegue para o *diretório ./service-fabric-java-quickstart/Vote* na pasta onde clonou o repositório e clique em **OK**. O espaço de trabalho deve conter os mesmos ficheiros apresentados na imagem abaixo.
+Abra o VS Code.  Clique no ícone Explorer na **Barra de Atividade** e clique em Abrir **Pasta,** ou clique em  **Ficheiros -> Pasta Aberta**. Navegue para o *diretório ./service-fabric-java-quickstart/Vote* na pasta onde clonou o repositório e clique em **OK**. O espaço de trabalho deve conter os mesmos ficheiros apresentados na imagem abaixo.
 
 ![Aplicação de voto de Java no espaço de trabalho](./media/service-fabric-develop-java-applications-with-vs-code/java-voting-application.png)
 

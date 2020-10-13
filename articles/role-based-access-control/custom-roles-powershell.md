@@ -15,10 +15,10 @@ ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 540da4103c3f7800521407441d645070e1e3e7ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84790216"
 ---
 # <a name="create-or-update-azure-custom-roles-using-azure-powershell"></a>Criar ou atualizar funções personalizadas Azure usando Azure PowerShell
@@ -399,8 +399,8 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Tutorial: Criar um papel personalizado Azure usando Azure PowerShell](tutorial-custom-role-powershell.md)
-- [Funções personalizadas Azure](custom-roles.md)
-- [Operações de fornecedor de recursos do Azure Resource Manager](resource-provider-operations.md)
+- [Funções personalizadas do Azure](custom-roles.md)
+- [Operações do fornecedor de recursos do Azure Resource Manager](resource-provider-operations.md)

@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: acomet
 ms.openlocfilehash: 03ea1b0cdfef30935b38078d0811d1408a78c41e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90937981"
 ---
 # <a name="use-power-bi-and-synapse-sql-serverless-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>Use power BI e Synapse SQL sem servidor para analisar os dados DB do Azure Cosmos com Synapse Link (pré-visualização)
@@ -46,7 +46,7 @@ A partir do espaço de trabalho Synapse vá o **separador Desenvolver,** selecio
 
 Cada espaço de trabalho vem com um ponto final sem servidor Sinapse SQL. Depois de criar um script SQL, a partir da barra de ferramentas na parte superior conecte-se ao **SQL on-demand**.
 
-:::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="Ative o script SQL para utilizar o ponto final sem servidor Sinaapse SQL no espaço de trabalho":::
+:::image type="content" source="./media/synapse-link-power-bi/enable-sql-on-demand-endpoint.png" alt-text="Adicione um script SQL ao espaço de trabalho Synapse Analytics":::
 
 Crie uma nova base de dados, denominada **RetailCosmosDB,** e uma vista SQL sobre os recipientes ativados pela Synapse Link. O seguinte comando mostra como criar uma base de dados:
 
@@ -106,7 +106,7 @@ GROUP BY p.[advertising], p.[storeId], p.[weekStarting], q.[largeHH]
 
 Selecione **Executar** que dá a seguinte tabela como resultado:
 
-:::image type="content" source="./media/synapse-link-power-bi/join-views-query-results.png" alt-text="Resultados de consulta após a adesão às vistas StoreDemographics e RetailSales":::
+:::image type="content" source="./media/synapse-link-power-bi/join-views-query-results.png" alt-text="Adicione um script SQL ao espaço de trabalho Synapse Analytics":::
 
 ## <a name="model-views-over-containers-with-power-bi"></a>Vistas do modelo sobre contentores com Power BI
 
@@ -141,7 +141,7 @@ Agora navegue para a janela do **relatório** e crie um relatório para comparar
 1. Arraste e deixe cair o **produto A** partir da visão **retailSales** para a lenda para selecionar uma linha de produto específica.
 Depois de escolher estas opções, deverá ver um gráfico como a seguinte imagem:
 
-:::image type="content" source="./media/synapse-link-power-bi/household-size-average-revenue-report.png" alt-text="Relatório que compara a importância relativa do tamanho das famílias com a receita média por loja":::
+:::image type="content" source="./media/synapse-link-power-bi/household-size-average-revenue-report.png" alt-text="Adicione um script SQL ao espaço de trabalho Synapse Analytics":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.openlocfilehash: 3452641b336308ddf46349064345b154e55aa53c
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88649164"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Obtenha dados de sensores de parceiros de sensores
@@ -124,7 +124,7 @@ Atualmente, a FarmBeats suporta os seguintes dispositivos:
 - **Nó**: Um dispositivo ao qual um ou mais sensores estão ligados.
 - **Gateway**: Um dispositivo ao qual se ligam um ou mais nós.
 
-Siga estes passos.
+Siga estes passos:
 
 1. Na página inicial, selecione **Dispositivos** do menu.
   A página **dispositivos** exibe o tipo de dispositivo, modelo, estado, a fazenda onde foi colocada e a última data atualizada para metadados. Por predefinição, a coluna da exploração está definida como *NU .* Pode optar por atribuir um dispositivo a uma quinta. Para obter mais informações, consulte [dispositivos De atribuir](#assign-devices).
@@ -134,7 +134,7 @@ Siga estes passos.
 
 ### <a name="view-sensors"></a>Ver sensores
 
-Siga estes passos.
+Siga estes passos:
 
 1. Na página inicial, **selecione Sensores** do menu.
   A página **sensores** apresenta detalhes sobre o tipo de sensor, a quinta a que está ligado, dispositivo-mãe, nome da porta, tipo de porta e o último estado atualizado.
@@ -163,7 +163,7 @@ Depois de os dados do sensor estiverem a fluir, pode atribuí-lo à quinta onde 
 
 ### <a name="visualize-sensor-data"></a>Visualizar dados de sensores
 
-Siga estes passos.
+Siga estes passos:
 
 1. Na página inicial, selecione **Quintas** no menu para ver a página **Farms.**
 2. Selecione a **Quinta** para a qual deseja ver os dados do sensor.
@@ -173,7 +173,7 @@ Siga estes passos.
 
 ## <a name="delete-a-sensor"></a>Apagar um sensor
 
-Siga estes passos.
+Siga estes passos:
 
 1. Na página inicial, selecione **Sensores** do menu para ver a página **dos Sensores.**
 2. Selecione o dispositivo que pretende eliminar e selecione **Eliminar** na janela de confirmação.
@@ -184,7 +184,7 @@ Uma mensagem de confirmação mostra que o sensor é eliminado com sucesso.
 
 ## <a name="delete-devices"></a>Eliminar dispositivos
 
-Siga estes passos.
+Siga estes passos:
 
 1. Na página inicial, selecione **Dispositivos** do menu para ver a página **dispositivos.**
 2. Selecione o dispositivo que pretende eliminar e selecione **Eliminar** na janela de confirmação.

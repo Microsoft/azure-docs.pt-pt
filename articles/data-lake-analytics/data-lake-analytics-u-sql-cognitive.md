@@ -8,10 +8,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 06/05/2018
 ms.openlocfilehash: 35973f3453daf61ee18b04b68e2fee4dd2e52402
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87125484"
 ---
 # <a name="get-started-with-the-cognitive-capabilities-of-u-sql"></a>Começar com as capacidades cognitivas da U-SQL

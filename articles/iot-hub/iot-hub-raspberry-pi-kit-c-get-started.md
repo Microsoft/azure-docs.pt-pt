@@ -11,10 +11,10 @@ ms.author: wesmc
 ms.custom:
 - 'Role: Cloud Development'
 ms.openlocfilehash: 5b86803b763039846e2101b9caf0232aafa4fa24
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87327468"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Ligue raspberry Pi ao Azure IoT Hub (C)
@@ -81,7 +81,7 @@ Os seguintes itens são opcionais:
 > Estes itens são opcionais porque a amostra de código suporta dados simulados do sensor.
 >
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 

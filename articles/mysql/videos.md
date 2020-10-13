@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 2c2fbb3352b159ce9f5231c56399638a1d393366
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87513864"
 ---
 # <a name="azure-database-for-mysql-videos"></a>Base de Dados Azure para vídeos mySQL
@@ -43,4 +43,4 @@ A Azure Database for PostgreSQL and Azure Database for MySQL reúne motores de b
 >[!VIDEO https://channel9.msdn.com/Events/Build/2017/B8045/player]
 [Aberto no Canal 9](https://channel9.msdn.com/events/Build/2017/B8045)
 
-Neste vídeo da conferência de maio de 2017 da Microsoft //Build, conheça a oferta gerida pela Microsoft mySQL em Azure. O vídeo percorre a estratégia da Microsoft para apoiar sistemas de base de dados Open-Source em Azure. O vídeo discute o que significa para si como desenvolvedor desenvolver ou implementar aplicações que utilizem o MySQL em Azure. Este vídeo mostra uma visão geral da arquitetura do serviço, e demonstra que a Base de Dados Azure para o MySQL está integrada com outros Serviços Azure, como web Apps.
+Neste vídeo da conferência de maio de 2017 da Microsoft //Build, conheça a oferta gerida pela Microsoft mySQL em Azure. O vídeo percorre a estratégia da Microsoft para apoiar Open-Source sistemas de base de dados em Azure. O vídeo discute o que significa para si como desenvolvedor desenvolver ou implementar aplicações que utilizem o MySQL em Azure. Este vídeo mostra uma visão geral da arquitetura do serviço, e demonstra que a Base de Dados Azure para o MySQL está integrada com outros Serviços Azure, como web Apps.

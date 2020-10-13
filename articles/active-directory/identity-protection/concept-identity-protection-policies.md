@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7587ed6d414a69cff67aca9446aebf6260c99fcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83736505"
 ---
 # <a name="identity-protection-policies"></a>Políticas do Identity Protection
@@ -30,7 +30,7 @@ A Proteção de Identidade pode ajudar as organizações a lançar a autenticaç
 
 Mais informações sobre a autenticação multi-factor Azure podem ser encontradas no artigo, [Como funciona: Autenticação Multi-Factor Azure](../authentication/concept-mfa-howitworks.md).
 
-## <a name="sign-in-risk-policy"></a>Política de risco de inscrição
+## <a name="sign-in-risk-policy"></a>Política de risco do início de sessão
 
 A Proteção de Identidade analisa os sinais de cada s indicado, tanto em tempo real como offline, e calcula uma pontuação de risco com base na probabilidade de o início não ter sido realizado pelo utilizador. Os administradores podem tomar uma decisão com base neste sinal de pontuação de risco para impor os requisitos organizacionais. Os administradores podem optar por bloquear o acesso, permitir o acesso ou permitir o acesso, mas requerem autenticação de vários fatores.
 
@@ -54,7 +54,7 @@ Se o risco for detetado, os utilizadores podem efetuar a autoassistência de aut
 > [!NOTE] 
 > Os utilizadores devem ter-se registado previamente para reiniciar a palavra-passe de autosserviço antes de desencadear a política de risco do utilizador.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Ativar o reset da palavra-passe de autosserviço AZure AD](../authentication/howto-sspr-deployment.md)
 

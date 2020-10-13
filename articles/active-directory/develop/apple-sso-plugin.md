@@ -14,10 +14,10 @@ ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: ec0ab4601e15129ecd8917e0e750a3e1661dc558
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91530702"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Microsoft Enterprise SSO plug-in para dispositivos Apple (Preview)
@@ -38,7 +38,7 @@ O plug-in Microsoft Enterprise SSO para dispositivos Apple oferece os seguintes 
 - Fornece contas SSO para Azure AD em todas as aplicações que suportam a funcionalidade Enterprise Single Sign-On da Apple.
 - Entregue automaticamente no Microsoft Authenticator e pode ser ativado por qualquer solução de gestão de dispositivos móveis (MDM).
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 Para utilizar o plug-in Microsoft Enterprise SSO para dispositivos Apple:
 
@@ -125,7 +125,7 @@ Se estiver a construir uma aplicação para cenários de Frontline Worker, consu
 
 ## <a name="how-the-sso-plug-in-works"></a>Como funciona o plug-in SSO
 
-O plug-in Microsoft Enterprise SSO baseia-se no [quadro de sign-on único da Apple.](https://developer.apple.com/documentation/authenticationservices/asauthorizationsinglesignonprovider?language=objc) Os fornecedores de identidade que a bordo do quadro podem intercetar o tráfego da rede para os seus domínios e melhorar ou alterar a forma como esses pedidos são tratados. Por exemplo, o plug-in SSO pode mostrar UI adicional para recolher credenciais de utilizador final de forma segura, exigir MFA ou fornecer silenciosamente fichas à aplicação.
+O plug-in Microsoft Enterprise SSO baseia-se no [quadro de Sign-On único da Apple.](https://developer.apple.com/documentation/authenticationservices/asauthorizationsinglesignonprovider?language=objc) Os fornecedores de identidade que a bordo do quadro podem intercetar o tráfego da rede para os seus domínios e melhorar ou alterar a forma como esses pedidos são tratados. Por exemplo, o plug-in SSO pode mostrar UI adicional para recolher credenciais de utilizador final de forma segura, exigir MFA ou fornecer silenciosamente fichas à aplicação.
 
 As aplicações nativas também podem implementar operações personalizadas e falar diretamente com o plug-in SSO.
 Você pode aprender sobre o quadro de inscrição única neste [vídeo WWDC 2019 da Apple](https://developer.apple.com/videos/play/tech-talks/301/)
@@ -154,6 +154,6 @@ Para suportar SSO para aplicações não MSAL, o plug-in SSO implementa um proto
 
 Em comparação com as aplicações baseadas no MSAL, o plug-in SSO atua de forma mais transparente para aplicações não MSAL, integrando-se com a experiência de login do navegador existente que as aplicações fornecem. O utilizador final veria a sua experiência familiar, com o benefício de não ter de realizar insusimentos adicionais em cada uma das aplicações. Por exemplo, em vez de exibir o selecionador de contas nativo, o plug-in SSO adiciona sessões SSO à experiência de picker de conta baseada na web. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o modo de dispositivo partilhado no iOS, consulte [o modo de dispositivo partilhado para dispositivos iOS](msal-ios-shared-devices.md).

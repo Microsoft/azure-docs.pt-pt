@@ -12,10 +12,10 @@ ms.date: 09/04/2020
 ms.topic: conceptual
 ms.custom: how-to
 ms.openlocfilehash: 95b41723d3cb398caad3a0cf388b7810deda78dc
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90938580"
 ---
 # <a name="use-the-studio-to-deploy-models-trained-in-the-designer"></a>Use o estúdio para implementar modelos treinados no designer

@@ -7,10 +7,10 @@ ms.custom: devx-track-csharp
 ms.date: 11/29/2017
 ms.author: cshoe
 ms.openlocfilehash: 32734ff9df2e55d24789742cd49984d8da212a17
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88212194"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Funções Azure SendGrid
@@ -363,7 +363,7 @@ A tabela que se segue lista as propriedades de configuração de encadernação 
 | apiKey | ApiKey | O nome de uma definição de aplicação que contém a sua chave API. Se não for definido, o nome de definição de aplicação predefinido é *AzureWebJobsSendGridApiKey*.| Não |
 | para| Para | O endereço de e-mail do destinatário. | Sim |
 | De| De | O endereço de e-mail do remetente. |  Sim |
-| subject| Assunto | O assunto do e-mail. | Sim |
+| Assunto| Assunto | O assunto do e-mail. | Sim |
 | texto| Texto | O conteúdo do e-mail. | Sim |
 
 As propriedades opcionais podem ter valores predefinidos definidos na ligação e adicionados ou ultrapassados programáticamente.

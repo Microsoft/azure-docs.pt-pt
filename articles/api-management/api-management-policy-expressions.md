@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
 ms.openlocfilehash: 7117ffcbaf4eba8d83a6e968f4fed7422673610b
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87844245"
 ---
 # <a name="api-management-policy-expressions"></a>Expressões políticas de gestão da API
@@ -33,12 +33,12 @@ Para obter mais informações:
 - Para descarregar as declarações de política, consulte as [amostras/políticas de gestão da API](https://github.com/Azure/api-management-samples/tree/master/policies) GitHub.
 
 
-## <a name="syntax"></a><a name="Syntax"></a>Sintaxe
+## <a name="syntax"></a><a name="Syntax"></a> Sintaxe
 As expressões de declaração única são incluídas, `@(expression)` onde está uma declaração de expressão `expression` C# bem formada.
 
 As expressões multi-afirmações são incluídas em `@{expression}` . Todos os caminhos de código dentro de expressões multi-afirmações devem terminar com uma `return` declaração.
 
-## <a name="examples"></a><a name="PolicyExpressionsExamples"></a>Exemplos
+## <a name="examples"></a><a name="PolicyExpressionsExamples"></a> Exemplos
 
 ```
 @(true)
@@ -71,7 +71,7 @@ As expressões podem ser usadas como valores de atributos ou valores de texto em
 > [!IMPORTANT]
 > Quando se utiliza expressões políticas, só há uma verificação limitada das expressões políticas quando a política é definida. As expressões são executadas pelo gateway no tempo de execução, quaisquer exceções geradas por expressões políticas resultam num erro de tempo de execução.
 
-## <a name="net-framework-types-allowed-in-policy-expressions"></a><a name="CLRTypes"></a>.NET Tipos-quadro permitidos em expressões políticas
+## <a name="net-framework-types-allowed-in-policy-expressions"></a><a name="CLRTypes"></a> .NET Tipos-quadro permitidos em expressões políticas
 A tabela que se segue lista os tipos de quadros .NET e os seus membros que são permitidos em expressões políticas.
 
 |Tipo|Membros apoiados|
@@ -205,7 +205,7 @@ A tabela que se segue lista os tipos de quadros .NET e os seus membros que são 
 |System.Xml. Linq.XText|Todos|
 |System.Xml.XmlNodeType|Todos|
 
-## <a name="context-variable"></a><a name="ContextVariables"></a>Variável de contexto
+## <a name="context-variable"></a><a name="ContextVariables"></a> Variável de contexto
 Uma variável nomeada `context` está implicitamente disponível em todas as [expressões](api-management-policy-expressions.md#Syntax)políticas. Os seus membros fornecem informações pertinentes ao `\request` . Todos os `context` membros são apenas leitura.
 
 |Variável de contexto|Métodos, propriedades e valores de parâmetros permitidos|

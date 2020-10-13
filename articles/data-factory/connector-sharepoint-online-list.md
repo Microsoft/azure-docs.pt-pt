@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: jingwang
 ms.openlocfilehash: f560a01c4ec00649157a9c43aedf0ed6cfc2e050
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "83871921"
 ---
 # <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory"></a>Copiar dados da Lista Online do SharePoint utilizando a Azure Data Factory
@@ -55,8 +55,8 @@ O conector Online SharePoint List utiliza a autenticação principal do serviço
     1. Abra o link do site Do SharePoint Online, por exemplo `https://[your_site_url]/_layouts/15/appinv.aspx` (substitua o URL do site).
     2. Pesse no ID da aplicação que registou, preencha os campos vazios e clique em "Criar".
 
-        - Domínio da aplicação:`localhost.com`
-        - URL de redirecionamento:`https://www.localhost.com`
+        - Domínio da aplicação: `localhost.com`
+        - URL de redirecionamento: `https://www.localhost.com`
         - Pedido de Permissão XML:
 
         ```xml
@@ -112,7 +112,7 @@ As seguintes propriedades são suportadas para um serviço ligado à Lista Onlin
 
 Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte [Datasets e serviços ligados](concepts-datasets-linked-services.md). A secção seguinte fornece uma lista das propriedades suportadas pelo conjunto de dados da tabela SAP.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade **tipo** do conjunto de dados deve ser definida para **SharePointOnlineLResource**. | Sim |
 | listName | O nome da Lista Online SharePoint. | Sim |
@@ -145,7 +145,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados da Lista Online do SharePoint, as seguintes propriedades são suportadas na secção **origem** da Atividade de Cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade **tipo** da fonte de Atividade de Cópia deve ser definida para **SharePointOnlineListSource**. | Sim |
 | consulta | Opções de consulta personalizadas OData para filtragem de dados. Exemplo: `"$top=10&$select=Title,Number"`. | Não |
@@ -189,16 +189,16 @@ Ao copiar dados da Lista Online do SharePoint, são utilizados os seguintes mape
 
 | **Tipo de dados SharePoint Online**                 | **Tipo de dados OData**                                  | **Tipo de dados provisórios da Azure Data Factory** |
 | ----------------------------------------------- | ---------------------------------------------------- | ---------------------------------------- |
-| Uma linha de texto                             | Edm.String                                           | String                                   |
-| Várias linhas de texto                          | Edm.String                                           | String                                   |
-| Escolha (menu para escolher)                    | Edm.String                                           | String                                   |
-| Número (1, 1.0, 100)                            | Edm.Double                                           | Double                                   |
-| Moeda ($, ≤, €)                              | Edm.Double                                           | Double                                   |
+| Uma linha de texto                             | Edm.String                                           | Cadeia                                   |
+| Várias linhas de texto                          | Edm.String                                           | Cadeia                                   |
+| Escolha (menu para escolher)                    | Edm.String                                           | Cadeia                                   |
+| Número (1, 1.0, 100)                            | Edm.Double                                           | Double (Duplo)                                   |
+| Moeda ($, ≤, €)                              | Edm.Double                                           | Double (Duplo)                                   |
 | Data e Hora                                   | Edm.DateTime                                         | DateTime                                 |
 | Procura (informação já neste site)       | Edm.Int32                                            | Int32                                    |
 | Sim/Não (caixa de verificação)                              | Edm.Boolean                                          | Booleano                                  |
 | Pessoa ou Grupo                                 | Edm.Int32                                            | Int32                                    |
-| Hiperligação ou Imagem                            | Edm.String                                           | String                                   |
+| Hiperligação ou Imagem                            | Edm.String                                           | Cadeia                                   |
 | Calculado (cálculo com base noutras colunas) | Edm.String / Edm.Double / Edm.DateTime / Edm.Boolean | Corda / Duplo / DataTime / Boolean     |
 | Anexo                                      | Não suportado                                        |                                          |
 | Resultado da Tarefa                                    | Não suportado                                        |                                          |
@@ -219,7 +219,7 @@ Pode copiar ficheiros do SharePoint Online utilizando a **atividade Web** para a
     - **Método**: POST
     - **Cabeçalhos:**
         - Tipo de conteúdo: aplicação/x-www-form-urlencoded
-    - **Corpo:** `grant_type=client_credentials&client_id=[Client-ID]@[Tenant-ID]&client_secret=[Client-Secret]&resource=00000003-0000-0ff1-ce00-000000000000/[Tenant-Name].sharepoint.com@[Tenant-ID]` . Substitua a identificação do cliente, o segredo do cliente, a identificação do inquilino e o nome do inquilino.
+    - **Corpo:**  `grant_type=client_credentials&client_id=[Client-ID]@[Tenant-ID]&client_secret=[Client-Secret]&resource=00000003-0000-0ff1-ce00-000000000000/[Tenant-Name].sharepoint.com@[Tenant-ID]` . Substitua a identificação do cliente, o segredo do cliente, a identificação do inquilino e o nome do inquilino.
 
     > [!CAUTION]
     > Descreva a opção Saída Segura para ser verdadeira na atividade web para evitar que o valor simbólico seja registado em texto simples. Quaisquer outras atividades que consumam este valor devem ter a sua opção de Entrada Segura definida como verdadeira.
@@ -239,6 +239,6 @@ Pode copiar ficheiros do SharePoint Online utilizando a **atividade Web** para a
 
 Para obter detalhes sobre as propriedades, consulte [a atividade de Lookup](control-flow-lookup-activity.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter uma lista de lojas de dados que a Copy Activity suporta como fontes e sumidouros na Azure Data Factory, consulte [lojas e formatos de dados suportados.](copy-activity-overview.md#supported-data-stores-and-formats)

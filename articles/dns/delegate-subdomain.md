@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 2/7/2019
 ms.author: rohink
 ms.openlocfilehash: add7674771fd19f6029a94c46624006f0cf30f1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84710886"
 ---
 # <a name="delegate-an-azure-dns-subdomain"></a>Delegado um subdomínio Azure DNS
@@ -65,9 +65,9 @@ Em seguida, crie um registo de servidor de nome (NS) para a zona **de engenharia
 Use nslookup para testar a delegação.
 
 1. Abra uma janela do PowerShell.
-2. No comando rápido, tipo`nslookup www.engineering.contoso.com.`
+2. No comando rápido, tipo `nslookup www.engineering.contoso.com.`
 3. Deverá receber uma resposta não autorizada que mostre o endereço **10.10.10.10.10**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [configurar DNS invertidos para serviços hospedados no Azure](dns-reverse-dns-for-azure-services.md).

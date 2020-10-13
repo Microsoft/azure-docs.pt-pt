@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 8/7/2020
 ms.author: baanders
 ms.openlocfilehash: 0146660fa50f9a136cd82483200ca2e6c6cc0b89
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87985886"
 ---
 > [!TIP]

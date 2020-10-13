@@ -9,10 +9,10 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: b941084c8a196081c2443364ed3fb52868386670
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84465062"
 ---
 Navegue para a conta de armazenamento para a qual gostaria de criar um ponto final privado. Na tabela de conteúdos para a conta de armazenamento, selecione **ligações de ponto final privados**e, em seguida, **+ ponto final privado** para criar um novo ponto final privado. 

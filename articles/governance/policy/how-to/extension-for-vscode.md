@@ -4,10 +4,10 @@ description: Saiba como usar a extensão da Política Azure para o Código do Es
 ms.date: 06/16/2020
 ms.topic: how-to
 ms.openlocfilehash: 9b3f27492bee5301e22e83ebf9734afa3de43897
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89648331"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Use a extensão da política Azure para código de estúdio visual
@@ -64,13 +64,13 @@ Para avaliar recursos e procurar pseudónimos, tem de se ligar à sua conta Azur
 
      A partir da extensão da Política Azure, **selecione Iniciar súm em Azure**.
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Screenshot do Código do Estúdio Visual e o ícone para a extensão da Política Azure." border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Screenshot de selecionar a nação Azure cloud iniciar súmite para Código de Estúdio Visual." border="false":::
 
    - Paleta de comando
 
      A partir da barra de menu, vá à **Paleta de**  >  **Comando,** e introduza **Azure: Iniciar Sedura**.
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Screenshot do sinal de nuvem Azure em opções para Código de Estúdio Visual a partir da Paleta de Comando." border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Screenshot de selecionar a nação Azure cloud iniciar súmite para Código de Estúdio Visual." border="false":::
 
 1. Siga o sinal em instruções para iniciar seduca. Depois de conectado, o nome da sua conta Azure é mostrado na barra de estado na parte inferior da janela Visual Studio Code.
 
@@ -125,7 +125,7 @@ Quando um recurso é selecionado, seja através da interface de pesquisa ou sele
 
 Uma vez que um recurso esteja aberto, pairando sobre o nome ou valor da propriedade do Gestor de Recursos exibe o pseudónimo da Política Azure se existir. Neste exemplo, o recurso é um `Microsoft.Compute/virtualMachines` tipo de recurso e as **propriedades.storageProfile.imageReference.offer** propriedade está sobreda. Pairar mostra os pseudónimos correspondentes.
 
-:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Screenshot da extensão da Política Azure para Visual Studio Code pairando sobre uma propriedade para exibir os nomes de pseudónimos." border="false":::
+:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Screenshot de selecionar a nação Azure cloud iniciar súmite para Código de Estúdio Visual." border="false":::
 
 > [!NOTE]
 > A extensão do Código VS expõe apenas as propriedades do modo Gestor de Recursos e não apresenta nenhumas propriedades [do modo Fornecedor de Recursos.](../concepts/definition-structure.md#mode)
@@ -156,7 +156,7 @@ Ao selecionar uma política ou atribuição, seja através da interface de pesqu
 
 A partir da barra de menu, vá à **Paleta de**Comando  >  **Ver,** e depois insira **Azure: Assine**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Rever exemplos nas [amostras da Azure Policy](../samples/index.md).
 - Reveja a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).

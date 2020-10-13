@@ -14,10 +14,10 @@ ms.date: 04/30/2018
 ms.author: jroth
 ms.custom: include file
 ms.openlocfilehash: 66a3ecd82ab61f25c99fd1268d9ce7567b057d66
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86050300"
 ---
 ## <a name="prepare-for-akv-integration"></a>Preparar para integração AKV
@@ -31,10 +31,10 @@ As secções seguintes descrevem estes pré-requisitos e as informações que pr
 
 [!INCLUDE [updated-for-az](./updated-for-az.md)]
 
-### <a name="install-azure-powershell"></a><a id="install"></a>Instalar Azure PowerShell
+### <a name="install-azure-powershell"></a><a id="install"></a> Instalar Azure PowerShell
 Certifique-se de que instalou o mais recente módulo Azure PowerShell. Para obter mais informações, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/install-az-ps).
 
-### <a name="register-an-application-in-your-azure-active-directory"></a><a id="register"></a>Registe uma candidatura no seu Diretório Ativo Azure
+### <a name="register-an-application-in-your-azure-active-directory"></a><a id="register"></a> Registe uma candidatura no seu Diretório Ativo Azure
 
 Em primeiro lugar, precisa de ter um [Diretório Ativo Azure](https://azure.microsoft.com/trial/get-started-active-directory/) (AAD) na sua subscrição. Entre muitos benefícios, isto permite-lhe conceder permissão para o seu cofre chave para determinados utilizadores e aplicações.
 
@@ -53,7 +53,7 @@ Em seguida, registe uma candidatura com a AAD. Isto lhe dará uma conta principa
 
 * Tem de autorizar este novo ID (ou ID do cliente) a ter as seguintes permissões de acesso: **obter,** **wrapKey,** **desembrulhar aKey**. Isto é feito com o [cmdlet Set-AzKeyVaultAccessPolicy.](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) Para mais informações, consulte [a visão geral do Cofre da Chave Azure](../articles/key-vault/key-vault-overview.md).
 
-### <a name="create-a-key-vault"></a><a id="createkeyvault"></a>Criar um cofre chave
+### <a name="create-a-key-vault"></a><a id="createkeyvault"></a> Criar um cofre chave
 Para utilizar o Cofre da Chave Azure para armazenar as chaves que utilizará para encriptação no seu VM, precisa de ter acesso a um cofre de chaves. Se ainda não montou o cofre da chave, crie um seguindo os passos do artigo "Começar com cofre [de chaves Azure".](../articles/key-vault/key-vault-overview.md) Antes de completar estes passos, existe algumas informações que precisa de recolher durante esta configuração que é necessária mais tarde quando ativar a integração do cofre de chave Azure no seu SQL VM.
 
 ```azurepowershell

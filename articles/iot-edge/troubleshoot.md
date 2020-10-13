@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 0e4ec7127df288ec1818df307da1ea9824141309
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87902461"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Resolução de problemas do seu dispositivo IoT Edge
@@ -71,7 +71,7 @@ iotedge support-bundle --since 6h
 
 ## <a name="check-your-iot-edge-version"></a>Verifique a sua versão IoT Edge
 
-Se estiver a executar uma versão mais antiga do IoT Edge, então o upgrade pode resolver o seu problema. A `iotedge check` ferramenta verifica se o daemon de segurança IoT Edge é a versão mais recente, mas não verifica as versões do hub e dos módulos de agente IoT Edge. Para verificar a versão dos módulos de tempo de execução no seu dispositivo, utilize os comandos `iotedge logs edgeAgent` e `iotedge logs edgeHub` . O número da versão é declarado nos registos quando o módulo começa.
+Se estiver a executar uma versão mais antiga do IoT Edge, uma atualização poderá resolver o problema. A `iotedge check` ferramenta verifica se o daemon de segurança IoT Edge é a versão mais recente, mas não verifica as versões do hub e dos módulos de agente IoT Edge. Para verificar a versão dos módulos de tempo de execução no seu dispositivo, utilize os comandos `iotedge logs edgeAgent` e `iotedge logs edgeHub` . O número da versão é declarado nos registos quando o módulo é iniciado.
 
 Para obter instruções sobre como atualizar o seu dispositivo, consulte [atualizar o daemon de segurança IoT Edge e o tempo de funcionaamento](how-to-update-iot-edge.md).
 

@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/22/2019
 ms.openlocfilehash: 9c4e9676208a5d2cfa8c0c04a97675a3c634e3d5
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87446794"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Portal OMS movendo-se para Azure

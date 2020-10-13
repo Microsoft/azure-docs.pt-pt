@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: aahi
 ms.openlocfilehash: 41dc99c206fb66aa87ccca6e40d6e9488f801a22
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91262438"
 ---
-# <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Quickstart: Criar um recurso de Serviços Cognitivos utilizando a Interface Azure Command-Line(CLI)
+# <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Quickstart: Criar um recurso de Serviços Cognitivos utilizando a Interface Command-Line Azure(CLI)
 
 Utilize este quickstart para começar com os Serviços Cognitivos Azure utilizando a [Interface da Linha de Comando Azure (CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -99,7 +99,7 @@ Ao criar um novo recurso, terá de conhecer o "tipo" de serviço que pretende ut
 | Reconhecedor de Formato            | `FormRecognizer`          |
 | Reconhecedor de Tinta Digital             | `InkRecognizer`           |
 
-### <a name="search"></a>Pesquisar
+### <a name="search"></a>Pesquisa
 
 | Serviço            | Tipo                  |
 |--------------------|-----------------------|
@@ -116,7 +116,7 @@ Ao criar um novo recurso, terá de conhecer o "tipo" de serviço que pretende ut
 | Serviços de Voz    | `SpeechServices`     |
 | Reconhecimento de Voz | `SpeakerRecognition` |
 
-### <a name="language"></a>Linguagem
+### <a name="language"></a>Idioma
 
 | Serviço            | Tipo                |
 |--------------------|---------------------|
@@ -160,7 +160,7 @@ az cognitiveservices account create \
 
 ## <a name="get-the-keys-for-your-resource"></a>Obtenha as chaves do seu recurso
 
-Para iniciar sessão na instalação local da Interface de Linha de Comando (CLI), utilize o comando [de login az.](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login)
+Para iniciar sessão na instalação local da Interface Command-Line (CLI), utilize o comando [de login az.](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login)
 
 ```azurecli-interactive
 az login
@@ -204,7 +204,7 @@ Para remover o grupo de recursos e os seus recursos associados, utilize o comand
 az group delete --name cognitive-services-resource-group
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * [Autenticar pedidos aos Serviços Cognitivos da Azure](authentication.md)
 * [O que é a Azure Cognitive Services?](Welcome.md)

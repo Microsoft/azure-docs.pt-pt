@@ -15,19 +15,19 @@ ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
 ms.openlocfilehash: 4990b81d929019b3d201f004176234fa0ea78339
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88118455"
 ---
-# <a name="single-sign-on-saml-protocol"></a>Protocolo SAML de assinatura única
+# <a name="single-sign-on-saml-protocol"></a>Protocolo SAML de Sign-On único
 
-Este artigo abrange os pedidos e respostas de autenticação SAML 2.0 que o Azure Ative Directory (Azure AD) suporta para o Sign-On Único (SSO).
+Este artigo abrange os pedidos e respostas de autenticação SAML 2.0 que o Azure Ative Directory (Azure AD) suporta para Sign-On Individuais (SSO).
 
 O diagrama do protocolo abaixo descreve a sequência de inscrição única. O serviço de nuvem (o prestador de serviços) utiliza uma ligação HTTP Redirect para passar um `AuthnRequest` elemento (pedido de autenticação) ao Azure AD (o fornecedor de identidade). Azure AD utiliza então uma ligação de post HTTP para colocar um `Response` elemento no serviço de nuvem.
 
-![Fluxo de trabalho de inscrição única (SSO)](./media/single-sign-on-saml-protocol/active-directory-saml-single-sign-on-workflow.png)
+![Fluxo de trabalho de Sign-On único (SSO)](./media/single-sign-on-saml-protocol/active-directory-saml-single-sign-on-workflow.png)
 
 > [!NOTE]
 > Este artigo discute a utilização de SAML para uma única súmis. Para obter mais informações sobre outras formas de lidar com um único sinal de acesso (por exemplo, utilizando o OpenID Connect ou a Autenticação Integrada do Windows), consulte [um único sinal de acesso às aplicações no Diretório Ativo Azure](../manage-apps/what-is-single-sign-on.md).
@@ -273,7 +273,7 @@ Isto contém reclamações sobre o assunto ou o utilizador. O seguinte excerto c
 ```        
 
 * **Denominação -** O valor do `Name` atributo é o nome principal do utilizador do utilizador `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` autenticado, tal como `testuser@managedtenant.com` .
-* **Reclamação do ObjectIdentifier** - O valor do `ObjectIdentifier` atributo é o do objeto de `http://schemas.microsoft.com/identity/claims/objectidentifier` `ObjectId` diretório que representa o utilizador autenticado em Azure AD. `ObjectId`é um identificador imutável, globalmente único e reutilizador seguro do utilizador autenticado.
+* **Reclamação do ObjectIdentifier** - O valor do `ObjectIdentifier` atributo é o do objeto de `http://schemas.microsoft.com/identity/claims/objectidentifier` `ObjectId` diretório que representa o utilizador autenticado em Azure AD. `ObjectId` é um identificador imutável, globalmente único e reutilizador seguro do utilizador autenticado.
 
 #### <a name="authnstatement"></a>Declaração de Authn
 

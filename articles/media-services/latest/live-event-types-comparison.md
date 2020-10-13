@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: c79d45cfac22f41f05071b619c444e7b7ab7956a
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89397309"
 ---
 # <a name="live-event-types-comparison"></a>Comparação de tipos de eventos ao vivo
@@ -38,13 +38,13 @@ A tabela a seguir compara as características dos tipos de Eventos Ao Vivo. Os t
 
 | Funcionalidade | Evento ao vivo de passagem | Standard ou Premium1080p Live Event |
 | --- | --- | --- |
-| A entrada bitrate única é codificada em vários bitrates na nuvem |No |Yes |
+| A entrada bitrate única é codificada em vários bitrates na nuvem |Não |Sim |
 | Resolução máxima em vídeo para feed de contribuição |4K (4096x2160 a 60 fotogramas/seg) |1080p (1920x1088 a 30 fotogramas/seg)|
 | Camadas máximas recomendadas no feed de contribuição|Até 12|Um áudio|
 | Camadas máximas na saída| O mesmo que a entrada|Até 6 (ver predefinições do sistema abaixo)|
 | Largura de banda agregada máxima dos alimentos para a contribuição|60 Mbps|N/D|
 | Bitrate máximo para uma única camada na contribuição |20 Mbps|20 Mbps|
-| Suporte para múltiplas faixas de áudio de idioma|Yes|No|
+| Suporte para múltiplas faixas de áudio de idioma|Sim|Não|
 | Codecs de vídeo de entrada suportados |H.264/AVC e H.265/HEVC|H.264/AVC|
 | Codecs de vídeo de saída suportados|O mesmo que a entrada|H.264/AVC|
 | Profundidade, entrada e saída de bit de vídeo suportados|Até 10 bits incluindo HDR 10/HLG|8-bit|
@@ -55,15 +55,15 @@ A tabela a seguir compara as características dos tipos de Eventos Ao Vivo. Os t
 | Protocolos de entrada|RTMP, fragmentado-MP4 (Streaming Suave)|RTMP, fragmentado-MP4 (Streaming Suave)|
 | Preço|Veja [a página de preços](https://azure.microsoft.com/pricing/details/media-services/) e clique no separador "Live Video"|Veja [a página de preços](https://azure.microsoft.com/pricing/details/media-services/) e clique no separador "Live Video"|
 | Tempo máximo de execução| 24 hrs x 365 dias, ao vivo linear | 24 hrs x 365 dias, live linear (pré-visualização)|
-| Capacidade de passar através de dados de legendas do CEA 608/708 incorporados|Yes|Yes|
-| Capacidade de ligar a Transcrição ao Vivo|Yes|Yes|
-| Suporte para inserção de ardósias|No|No|
-| Suporte para sinalização de anúncios via API| No|No|
-| Suporte para sinalização de anúncios através de mensagens scte-35 em banda|Yes|Yes|
-| Capacidade de recuperar de breves bancas no feed de contribuições|Yes|Parcial|
-| Suporte para GOPs de entrada não uniforme|Yes|Não – a entrada deve ter duração fixa do GOP|
-| Suporte para entrada de taxa de fotogramas variáveis|Yes|Não – a entrada deve ser fixa. Pequenas variações são toleradas, por exemplo, durante cenas de movimento elevado. Mas o feed de contribuição não pode baixar a taxa de fotogramas (por exemplo, para 15 fotogramas/segundo).|
-| Desligação automática do Live Event quando o feed de entrada é perdido|No|Depois de 12 horas, se não houver liveOutput em execução|
+| Capacidade de passar através de dados de legendas do CEA 608/708 incorporados|Sim|Sim|
+| Capacidade de ligar a Transcrição ao Vivo|Sim|Sim|
+| Suporte para inserção de ardósias|Não|Não|
+| Suporte para sinalização de anúncios via API| Não|Não|
+| Suporte para sinalização de anúncios através de mensagens scte-35 em banda|Sim|Sim|
+| Capacidade de recuperar de breves bancas no feed de contribuições|Sim|Parcial|
+| Suporte para GOPs de entrada não uniforme|Sim|Não – a entrada deve ter duração fixa do GOP|
+| Suporte para entrada de taxa de fotogramas variáveis|Sim|Não – a entrada deve ser fixa. Pequenas variações são toleradas, por exemplo, durante cenas de movimento elevado. Mas o feed de contribuição não pode baixar a taxa de fotogramas (por exemplo, para 15 fotogramas/segundo).|
+| Desligação automática do Live Event quando o feed de entrada é perdido|Não|Depois de 12 horas, se não houver liveOutput em execução|
 
 ## <a name="system-presets"></a>Predefinições do sistema
 
@@ -130,6 +130,6 @@ Por exemplo, se enviar um feed de contribuição a 720p para um Evento Ao Vivo c
 
 O codificante ao vivo está configurado para honrar as definições de bitrate na predefinição, independentemente do bitrate do feed de contribuição. Como resultado, o bitrate das camadas de saída pode exceder a do alimento para a contribuição. Por exemplo, se enviar um feed de contribuição com uma resolução de 720p a 1 Mbps, as camadas de saída permanecerão as mesmas que na [tabela](live-event-types-comparison.md#output-video-streams-for-default720p) acima.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Visão geral do streaming ao vivo](live-streaming-overview.md)

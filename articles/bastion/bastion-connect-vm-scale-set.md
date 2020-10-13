@@ -8,23 +8,23 @@ ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: charwen
 ms.openlocfilehash: e3dc7ce36e773b5a615b1abf4f50406fcb07826b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84744311"
 ---
 # <a name="connect-to-a-virtual-machine-scale-set-using-azure-bastion"></a>Ligue-se a um conjunto de escala de máquina virtual usando Azure Bastion
 
 Este artigo mostra-lhe como obter RDP de forma segura e perfeita para o seu conjunto de escala de máquina virtual Windows numa rede virtual Azure utilizando O Azure Bastion. Pode ligar-se a uma placa de escala de máquina virtual diretamente a partir do portal Azure. Ao utilizar o Azure Bastion, os VM não requerem um cliente, agente ou software adicional. Para mais informações sobre O Bastião Azure, consulte a [Visão Geral.](bastion-overview.md)
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Certifique-se de que criou um anfitrião Azure Bastion para a rede virtual em que reside o conjunto de escalas de máquina virtual. Para mais informações, consulte [Criar um anfitrião do Azure Bastion.](bastion-create-host-portal.md) Uma vez que o serviço Bastion é aloque e implementado na sua rede virtual, pode usá-lo para ligar a uma placa de escala de máquina virtual definida nesta rede virtual. O Bastion assume que está a utilizar o RDP para ligar a um conjunto de escala de máquina virtual do Windows e sSH para ligar ao conjunto de balanças de máquina virtual Linux. Para obter informações sobre a ligação a um Linux VM, consulte [Connect to a VM - Linux](bastion-connect-vm-ssh.md).
 
 ## <a name="connect-using-rdp"></a><a name="rdp"></a>Ligar usando RDP
 
-1. Abra o [portal Azure](https://portal.azure.com). Navegue para o conjunto de escala de máquina virtual a que pretende ligar.
+1. Abra o [portal do Azure](https://portal.azure.com). Navegue para o conjunto de escala de máquina virtual a que pretende ligar.
 
    ![navigate](./media/bastion-connect-vm-scale-set/1.png)
 2. Navegue para a instância de conjunto de escala de máquina virtual a que pretende ligar e, em seguida, selecione **Connect**. Ao utilizar uma ligação RDP, o conjunto de escala de máquina virtual deve ser um conjunto de balança de máquina virtual do Windows.
@@ -38,6 +38,6 @@ Certifique-se de que criou um anfitrião Azure Bastion para a rede virtual em qu
    ![ligar](./media/bastion-connect-vm-scale-set/4.png)
 5. A ligação RDP a esta máquina virtual via Bastion abrir-se-á diretamente no portal Azure (sobre HTML5) utilizando a porta 443 e o serviço Bastion.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia as [FAQ do Bastião.](bastion-faq.md)

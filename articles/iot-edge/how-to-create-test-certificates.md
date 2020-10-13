@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: e2ded81c3525de6f9c49d774594c73f9da2b5696
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84430672"
 ---
-# <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Criar certificados de demonstração para testar as funcionalidades do dispositivo IoT Edge
+# <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Criar certificados de demonstração para testar as funcionalidades dos dispositivos IoT Edge
 
 Os dispositivos IoT Edge requerem certificados para uma comunicação segura entre o tempo de funcionaamento, os módulos e quaisquer dispositivos a jusante.
 Se não tiver uma autoridade de certificados para criar os certificados necessários, pode utilizar certificados de demonstração para experimentar as funcionalidades IoT Edge no seu ambiente de teste.
