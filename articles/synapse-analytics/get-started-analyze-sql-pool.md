@@ -10,10 +10,10 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
 ms.openlocfilehash: 11c11d3e43f15b569a74c282b15a95525cea7e7c
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91620040"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Analisar dados com piscinas SQL dedicadas

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
 ms.openlocfilehash: bc649551986190f944e3225ff0914d091acd3f88
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619700"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Saiba como providenciar novos inquilinos e registá-los no catálogo
@@ -86,7 +86,7 @@ Para entender como a aplicação de Ingressos Wingtip implementa o novo provisio
 
 2. Para adicionar um breakpoint, coloque o seu cursor em qualquer lugar da linha que diz *New-Tenant ' .* Em seguida, pressione F9.
 
-   ![Screenshot mostra um script com New-Tenant destacado para adicionar um breakpoint.](./media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
+   ![A screenshot mostra um script com New-Tenant destacado para adicionar um breakpoint.](./media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
 
 3. Para executar o guião, prima F5.
 
@@ -103,7 +103,7 @@ Não precisa seguir explicitamente este fluxo de trabalho. Explica como depurar 
 
 * **Importar o módulo CatalogAndDatabaseManagement.psm1.** Fornece um catálogo e abstração ao nível do inquilino sobre as funções [de Gestão de Fragmentos.](elastic-scale-shard-map-management.md) Este módulo encapsula grande parte do padrão de catálogo e vale a pena explorar.
 * **Importar o módulo SubscriptionManagement.psm1.** Contém funções para iniciar sessão no Azure e selecionar a subscrição Azure com a quais pretende trabalhar.
-* **Obtenha detalhes de configuração.** Entre na Configuração Get usando F11 e veja como a aplicação config é especificada. Os nomes de recursos e outros valores específicos da aplicação são definidos aqui. Não altere estes valores até que esteja familiarizado com os scripts.
+* **Obtenha detalhes de configuração.** Entre em Get-Configuration usando F11 e veja como a app config é especificada. Os nomes de recursos e outros valores específicos da aplicação são definidos aqui. Não altere estes valores até que esteja familiarizado com os scripts.
 * **Pegue o objeto do catálogo.** Entre no Get-Catalog, que compõe e devolve um objeto de catálogo que é usado no script de nível superior. Esta função utiliza funções de Gestão de Fragmentos que são importadas de **AzureShardManagement.psm1**. O objeto do catálogo é composto pelos seguintes elementos:
 
    * $catalogServerFullyQualifiedName é construído utilizando o caule padrão mais o seu nome de utilizador: _ \<user\> catalog-.database.windows.net_.

@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/16/2018
 ms.openlocfilehash: 5363a1b7321bfcbb53b4494b51ee2ea2e7217782
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619649"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Implementar e explorar uma aplicação de multi-inquilinos com caco
@@ -96,7 +96,7 @@ Enquanto a aplicação estiver a ser implementada, descarregue o código fonte d
 > [!NOTE]
 > Os conteúdos executáveis (scripts, DLLs) podem ser bloqueados pelo Windows quando os ficheiros zip são descarregados de uma fonte externa e extraídos. Ao extrair os scripts de um ficheiro zip, utilize os seguintes passos para desbloquear o ficheiro .zip antes de extrair. Ao desbloquear o ficheiro .zip, certifique-se de que os scripts podem ser executados.
 
-1. Navegue pelo [wingtipTicketsSaaS-MultiTenantDb GitHub repo](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb).
+1. Navegue pelo [WingtipTicketsSaaS-MultiTenantDb GitHub repo](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb).
 2. Clique **em Clone ou descarregue.**
 3. Clique **em Baixar ZIP** e guarde o ficheiro.
 4. Clique com o botão direito no ficheiro **WingtipTicketsSaaS-MultiTenantDb-master.zip** e selecione **Propriedades**.

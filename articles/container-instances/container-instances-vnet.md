@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 07/02/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: e5a31742956c2ba9bd15026f7667c971c20694a3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91303013"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implementar instâncias de contentores numa rede virtual do Azure
@@ -34,7 +34,7 @@ Para implementar uma nova rede virtual e fazer com que o Azure crie automaticame
 * Nome da sub-rede
 * Prefixo de endereço de sub-rede no formato CIDR
 
-Os prefixos de endereço de rede virtual e sub-rede especificam os espaços de endereço para a rede virtual e sub-rede, respectivamente. Estes valores estão representados na notação de encaminhamento inter-domínio sem classe (CIDR), por exemplo `10.0.0.0/16` . Para obter mais informações sobre o trabalho com sub-redes, consulte [Adicionar, alterar ou eliminar uma sub-rede de rede virtual.](../virtual-network/virtual-network-manage-subnet.md)
+Os prefixos de endereço de rede virtual e sub-rede especificam os espaços de endereço para a rede virtual e sub-rede, respectivamente. Estes valores estão representados na notação de encaminhamento de Inter-Domain (CIDR) sem classe, por exemplo `10.0.0.0/16` . Para obter mais informações sobre o trabalho com sub-redes, consulte [Adicionar, alterar ou eliminar uma sub-rede de rede virtual.](../virtual-network/virtual-network-manage-subnet.md)
 
 Uma vez implantado o seu primeiro grupo de contentores com este método, pode implantar-se na mesma sub-rede especificando os nomes de rede virtual e sub-redes, ou o perfil de rede que o Azure cria automaticamente para si. Uma vez que o Azure delega a sub-rede para instâncias de contentores Azure, *só* pode colocar grupos de contentores na sub-rede.
 

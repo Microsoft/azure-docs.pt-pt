@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.openlocfilehash: 6971e62b20dc1155b875f69eb1d4da9d7b6e6887
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91627011"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto da aplicação do Azure Active Directory
@@ -46,7 +46,7 @@ Esta secção descreve os atributos encontrados no manifesto de aplicação.
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| ID | String |
+| ID | Cadeia |
 
 O identificador único para a aplicação no diretório. Este ID não é o identificador utilizado para identificar a aplicação em qualquer transação protocolar. É usado para fazer referência ao objeto em consultas de diretório.
 
@@ -130,7 +130,7 @@ Definido como verdadeiro se o pedido for partilhado com outros inquilinos; caso 
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| appId | String |
+| appId | Cadeia |
 
 Especifica o identificador único para a aplicação que é atribuída a uma aplicação pela Azure AD.
 
@@ -180,7 +180,7 @@ O nome do visor da aplicação.
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| errorUrl | String |
+| errorUrl | Cadeia |
 
 Sem apoio.
 
@@ -188,7 +188,7 @@ Sem apoio.
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-|groupMembershipClaims | String |
+|groupMembershipClaims | Cadeia |
 
 Configura a `groups` reclamação emitida num utilizador ou no token de acesso OAuth 2.0 que a app espera. Para definir este atributo, utilize um dos seguintes valores de cadeia válidos:
 
@@ -206,7 +206,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| página inicial |String |
+| página inicial |Cadeia |
 
 O URL para a página inicial da aplicação.
 
@@ -217,7 +217,7 @@ O URL para a página inicial da aplicação.
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-|objectId | String |
+|objectId | Cadeia |
 
 O identificador único para a aplicação no diretório.
 
@@ -233,7 +233,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| opcionalClaims | String |
+| opcionalClaims | Cadeia |
 
 As reclamações opcionais devolvidas no token pelo serviço de fichas de segurança para esta aplicação específica.
 
@@ -265,7 +265,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| informationalUrls | String |
+| informationalUrls | Cadeia |
 
 Especifica os links para os termos de serviço e declaração de privacidade da aplicação. Os termos de serviço e declaração de privacidade são divulgados aos utilizadores através da experiência de consentimento do utilizador. Para obter mais informações, consulte [Como: Adicionar Termos de serviço e declaração de privacidade para aplicações AD registadas.](howto-add-terms-of-service-privacy-statement.md)
 
@@ -322,7 +322,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| logoUrl | String |
+| logoUrl | Cadeia |
 
 Leia apenas o valor que aponta para o URL do CDN para o logotipo que foi carregado no portal.
 
@@ -336,7 +336,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| logoutUrl | String |
+| logoutUrl | Cadeia |
 
 O URL para sair da aplicação.
 
@@ -350,7 +350,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| name | String |
+| name | Cadeia |
 
 O nome do visor da aplicação.
 
@@ -431,7 +431,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| parentalControlSettings | String |
+| parentalControlSettings | Cadeia |
 
 - `countriesBlockedForMinors` especifica os países/regiões em que a aplicação está bloqueada para menores.
 - `legalAgeGroupRule` especifica a regra do grupo de idade legal que se aplica aos utilizadores da app. Pode ser definido para `Allow` , , , , ou `RequireConsentForPrivacyServices` `RequireConsentForMinors` `RequireConsentForKids` `BlockMinors` .
@@ -502,7 +502,7 @@ Esta propriedade está disponível apenas na experiência de **registos da App (
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| publisherDomain | String |
+| publisherDomain | Cadeia |
 
 O domínio do editor verificado para a aplicação. Só para ler.
 
@@ -578,7 +578,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| samlMetadataUrl | String |
+| samlMetadataUrl | Cadeia |
 
 O URL para os metadados SAML para a aplicação.
 
@@ -592,7 +592,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| signInUrl | String |
+| signInUrl | Cadeia |
 
 Especifica o URL para a página inicial da aplicação.
 
@@ -606,7 +606,7 @@ Exemplo:
 
 | Chave | Tipo de valor |
 | :--- | :--- |
-| signInAudience | String |
+| signInAudience | Cadeia |
 
 Especifica quais as contas da Microsoft suportadas para a aplicação atual. Os valores suportados são:
 - `AzureADMyOrg` - Utilizadores com uma conta de trabalho ou escola da Microsoft no inquilino AZure AD da minha organização (por exemplo, inquilino único)

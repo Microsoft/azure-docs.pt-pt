@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/27/2020
 ms.openlocfilehash: a0171481b97cff2ea085a80b387bff13590529a5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90905899"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrar a sua base de dados MySQL para a Dase de Dados do Azure para MySQL através da funcionalidade de captura e restauro
@@ -21,7 +21,7 @@ Este artigo explica duas formas comuns de fazer o back backs de apoio e restaura
 - Despejar e restaurar a partir da linha de comando (usando mysqldump)
 - Despejar e restaurar usando PHPMyAdmin
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 Para passar por este guia, você precisa ter:
 - [Criar Base de Dados Azure para servidor MySQL - Portal Azure](quickstart-create-mysql-server-database-using-azure-portal.md)
 - utilitário de linha de comando [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) instalado numa máquina.
@@ -67,7 +67,7 @@ Para se conectar, localize as informações de ligação na **visão geral** da 
 
 Adicione as informações de ligação na sua bancada MySQL Workbench.
 
-:::image type="content" source="./media/concepts-migrate-dump-restore/2_setup-new-connection.png" alt-text="Cadeia de conexão mysql workbench":::
+:::image type="content" source="./media/concepts-migrate-dump-restore/2_setup-new-connection.png" alt-text="Encontre as informações de ligação no portal Azure":::
 
 ## <a name="preparing-the-target-azure-database-for-mysql-server-for-fast-data-loads"></a>Preparar a base de dados Azure alvo para o servidor MySQL para cargas de dados rápidas
 Para preparar o target Azure Database para o servidor MySQL para cargas de dados mais rápidas, os seguintes parâmetros e configuração do servidor precisam de ser alterados.

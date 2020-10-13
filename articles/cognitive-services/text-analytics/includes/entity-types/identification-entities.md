@@ -10,10 +10,10 @@ ms.topic: include
 ms.date: 04/29/2020
 ms.author: aahi
 ms.openlocfilehash: 49a2b285d9494dfc5ca0863c021733b4bc874efa
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91779436"
 ---
 Esta categoria de entidade inclui informação financeira e formas oficiais de identificação. Disponível a partir da versão `2019-10-01` modelo. Os subtipos estão listados abaixo. 

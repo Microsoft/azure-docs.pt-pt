@@ -13,10 +13,10 @@ ms.custom:
 - mqtt
 - device-developer
 ms.openlocfilehash: f39efcbfe7f0094e9481049a1678dba8a045888f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91714244"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Ligar-se ao Azure IoT Central
@@ -299,7 +299,7 @@ Se o seu dispositivo não puder utilizar nenhum dos protocolos suportados, pode 
 
 Todos os dados trocados entre dispositivos e o seu Azure IoT Central estão encriptados. O IoT Hub autentica todos os pedidos de um dispositivo que se conecta a qualquer um dos pontos finais do IoT Hub virado para o dispositivo. Para evitar a troca de credenciais por cima do fio, um dispositivo utiliza fichas assinadas para autenticar. Para mais informações, consulte, [Controle o acesso ao IoT Hub](../../iot-hub/iot-hub-devguide-security.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Se você é um desenvolvedor de dispositivos, alguns passos sugeridos seguintes são:
 

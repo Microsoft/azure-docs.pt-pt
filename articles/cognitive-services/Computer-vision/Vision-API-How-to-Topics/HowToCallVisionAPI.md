@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 085da17a29e1d5ff1fa69a62e0029fb917d56bb1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5e404e4cc0e4131ba7ade5ec8ec6115e26268a2
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88936338"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965901"
 ---
 # <a name="call-the-computer-vision-api"></a>Chamar a API de Imagem Digitalizada
 
@@ -254,4 +254,4 @@ Estes erros são idênticos aos do vision.analyze, com o erro adicional do NãoS
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para utilizar a API REST, aceda à [Referência à API de Imagem Digitalizada](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/56f91f2e778daf14a499f21b).
+Para utilizar a API REST, aceda à [Referência à API de Imagem Digitalizada](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b).

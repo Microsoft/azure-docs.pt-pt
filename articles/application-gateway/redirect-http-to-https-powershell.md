@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: victorh
 ms.openlocfilehash: c4d1d16d07aaf92a0bc3cc365ac094893fc41c79
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91446527"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-azure-powershell"></a>Criar um gateway de aplicações com HTTP para https redirecionamento usando Azure PowerShell
@@ -331,6 +331,6 @@ Para aceitar o aviso de segurança se usou um certificado auto-assinado, selecio
 
 ![Testar o URL base no gateway de aplicação](./media/redirect-http-to-https-powershell/application-gateway-iistest.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Reescrever cabeçalhos HTTP e URL com Gateway de aplicação](rewrite-http-headers-url.md)

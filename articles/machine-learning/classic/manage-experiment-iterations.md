@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/20/2017
 ms.openlocfilehash: 374320c0becfecc6691af91b36a1d80b087300e6
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361948"
 ---
 # <a name="manage-experiment-runs-in-azure-machine-learning-studio-classic"></a>Gerir a experiência corre no Azure Machine Learning Studio (clássico)

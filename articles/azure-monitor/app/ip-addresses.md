@@ -2,15 +2,13 @@
 title: Endereços IP utilizados por Application Insights e Log Analytics Microsoft Docs
 description: Exceções de firewall do servidor exigidas por Insights de Aplicação
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/15/2020
-ms.openlocfilehash: e4c5331177541c7543b386bf8c489d6315fe0bc1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 755fd62482d7e453814cab5b5b617ba5eb0cc85a
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91299026"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932367"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Endereços IP utilizados pelo Application Insights e pela Análise de Registos
 O serviço [Azure Application Insights](./app-insights-overview.md) utiliza vários endereços IP. Poderá necessitar de saber estes endereços se a aplicação que está a monitorizar estiver hospedada atrás de uma firewall.
@@ -64,7 +62,7 @@ Portas abertas 80 (http) e 443 (https) para o tráfego de entrada destes endere�
 ### <a name="addresses-grouped-by-location"></a>Endereços agrupados por localização
 
 > [!NOTE]
-> Estes endereços estão listados através da notação de encaminhamento inter-domínio sem classe (CIDR). Isto significa que uma entrada como `51.144.56.112/28` esta equivale a 16 IPs a partir `51.144.56.112` e a terminar em `51.144.56.127` .
+> Estes endereços estão listados através da notação classless Inter-Domain Encaminhamento (CIDR). Isto significa que uma entrada como `51.144.56.112/28` esta equivale a 16 IPs a partir `51.144.56.112` e a terminar em `51.144.56.127` .
 
 ```
 Australia East

@@ -13,10 +13,10 @@ ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
 ms.openlocfilehash: e2cdf7d5213f1667b0b588cc5bfa9f105245b6b3
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619122"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell e o Azure CLI: Ativar a encriptação de dados transparente com a chave gerida pelo cliente a partir do Cofre da Chave Azure
@@ -123,7 +123,7 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
 
 # <a name="the-azure-cli"></a>[A CLI do Azure](#tab/azure-cli)
 
-Para instalar a versão necessária do Azure CLI (versão 2.0 ou posterior) e ligar-se à sua subscrição Azure, consulte [instalar e configurar a Interface de Linha de Comando 2.0 da Plataforma Cruzada Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Para instalar a versão necessária do Azure CLI (versão 2.0 ou posterior) e ligar-se à sua subscrição Azure, consulte [instalar e configurar a Interface Command-Line Interface 2.0 da Plataforma Cruzada Azure.](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 Para obter detalhes no Key Vault, consulte [Gerir o Cofre de Chaves utilizando o CLI 2.0](../../key-vault/general/manage-with-cli2.md) e como utilizar o Key Vault [soft-delete com o CLI](../../key-vault/general/soft-delete-cli.md).
 

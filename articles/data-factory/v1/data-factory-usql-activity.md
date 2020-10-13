@@ -14,10 +14,10 @@ ms.custom: devx-track-csharp
 manager: anandsub
 robots: noindex
 ms.openlocfilehash: 17e5b5eaea90b5f67ad91f0b09a51b2f1aeffd68
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91322620"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Transformar dados ao executar scripts U-SQL no Azure Data Lake Analytics 
@@ -48,9 +48,9 @@ A tabela a seguir fornece descrições para as propriedades genéricas utilizada
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| **tipo** |A propriedade tipo deve ser configurada para: **AzureDataLakeAnalytics**. |Yes |
-| **contaName** |Nome da conta Azure Data Lake Analytics. |Yes |
-| **dataLakeAnalyticsUri** |Azure Data Lake Analytics URI. |No |
+| **tipo** |A propriedade tipo deve ser configurada para: **AzureDataLakeAnalytics**. |Sim |
+| **contaName** |Nome da conta Azure Data Lake Analytics. |Sim |
+| **dataLakeAnalyticsUri** |Azure Data Lake Analytics URI. |Não |
 | **subscriçãoId** |Id de assinatura Azure |Não (Se não for especificada, utiliza-se a subscrição da fábrica de dados). |
 | **nome do Grupo de Recursos** |Nome do grupo de recursos do Azure |Não (Se não for especificado, é utilizado o grupo de recursos da fábrica de dados). |
 
@@ -64,9 +64,9 @@ Utilize a autenticação principal do serviço especificando as seguintes propri
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| **servicePrincipalId** | Especifique a identificação do cliente da aplicação. | Yes |
-| **servicePrincipalKey** | Especifique a chave da aplicação. | Yes |
-| **tenant** | Especifique a informação do inquilino (nome de domínio ou ID do inquilino) sob a qual a sua aplicação reside. Pode recuperá-lo pairando sobre o rato no canto superior direito do portal Azure. | Yes |
+| **servicePrincipalId** | Especifique a identificação do cliente da aplicação. | Sim |
+| **servicePrincipalKey** | Especifique a chave da aplicação. | Sim |
+| **tenant** | Especifique a informação do inquilino (nome de domínio ou ID do inquilino) sob a qual a sua aplicação reside. Pode recuperá-lo pairando sobre o rato no canto superior direito do portal Azure. | Sim |
 
 **Exemplo: Autenticação principal do serviço**
 ```json
@@ -92,8 +92,8 @@ Em alternativa, pode utilizar a autenticação credencial do utilizador para dat
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| **autorização** | Clique no botão **Authorize** no Editor de Fábrica de Dados e introduza a sua credencial que atribui o URL de autorização autogerado a esta propriedade. | Yes |
-| **sessionId** | Identificação da Sessão OAuth da Sessão de Autorização da OAuth. Cada ID de sessão é único e só pode ser usado uma vez. Esta definição é gerada automaticamente quando utiliza o Editor de Fábrica de Dados. | Yes |
+| **autorização** | Clique no botão **Authorize** no Editor de Fábrica de Dados e introduza a sua credencial que atribui o URL de autorização autogerado a esta propriedade. | Sim |
+| **sessionId** | Identificação da Sessão OAuth da Sessão de Autorização da OAuth. Cada ID de sessão é único e só pode ser usado uma vez. Esta definição é gerada automaticamente quando utiliza o Editor de Fábrica de Dados. | Sim |
 
 **Exemplo: Autenticação credencial do utilizador**
 ```json
@@ -208,16 +208,16 @@ A tabela seguinte descreve nomes e descrições de propriedades específicas a e
 
 | Propriedade            | Descrição                              | Obrigatório                                 |
 | :------------------ | :--------------------------------------- | :--------------------------------------- |
-| tipo                | A propriedade tipo deve ser definida para **DataLakeAnalyticsU-SQL**. | Yes                                      |
-| linkedServiceName   | Referência ao Azure Data Lake Analytics registado como um serviço ligado na Data Factory | Yes                                      |
+| tipo                | A propriedade tipo deve ser definida para **DataLakeAnalyticsU-SQL**. | Sim                                      |
+| linkedServiceName   | Referência ao Azure Data Lake Analytics registado como um serviço ligado na Data Factory | Sim                                      |
 | scriptPath          | Caminho para a pasta que contém o script U-SQL. O nome do ficheiro é sensível a casos. | Não (se utilizar o script)                   |
 | scriptLinkedService | Serviço ligado que liga o armazenamento que contém o script à fábrica de dados | Não (se utilizar o script)                   |
 | script              | Especifique o script inline em vez de especificar scriptPath e scriptLinkedService. Por exemplo: `"script": "CREATE DATABASE test"`. | Não (se utilizar scriptPath e scriptLinkedService) |
-| graus DeParallelismo | O número máximo de nós usados simultaneamente para gerir o trabalho. | No                                       |
-| prioridade            | Determina quais os trabalhos de todos os que estão na fila que devem ser selecionados para serem executados primeiro. Quanto menor for o número, maior é a prioridade. | No                                       |
-| parâmetros          | Parâmetros para o script U-SQL          | No                                       |
-| execuçãoVersão      | Versão de tempo de execução do motor U-SQL para usar | No                                       |
-| compilaçãoMode     | <p>Modo de compilação de U-SQL. Deve ser um destes valores:</p> <ul><li>**Semântica:** Apenas efetuar verificações semânticas e verificações de sanidade necessárias.</li><li>**Cheio:** Execute a compilação completa, incluindo verificação de sintaxe, otimização, geração de código, etc.</li><li>**SingleBox:** Execute a compilação completa, com a definição targetType para SingleBox.</li></ul><p>Se não especificar um valor para esta propriedade, o servidor determina o modo de compilação ideal. </p> | No                                       |
+| graus DeParallelismo | O número máximo de nós usados simultaneamente para gerir o trabalho. | Não                                       |
+| prioridade            | Determina quais os trabalhos de todos os que estão na fila que devem ser selecionados para serem executados primeiro. Quanto menor for o número, maior é a prioridade. | Não                                       |
+| parâmetros          | Parâmetros para o script U-SQL          | Não                                       |
+| execuçãoVersão      | Versão de tempo de execução do motor U-SQL para usar | Não                                       |
+| compilaçãoMode     | <p>Modo de compilação de U-SQL. Deve ser um destes valores:</p> <ul><li>**Semântica:** Apenas efetuar verificações semânticas e verificações de sanidade necessárias.</li><li>**Cheio:** Execute a compilação completa, incluindo verificação de sintaxe, otimização, geração de código, etc.</li><li>**SingleBox:** Execute a compilação completa, com a definição targetType para SingleBox.</li></ul><p>Se não especificar um valor para esta propriedade, o servidor determina o modo de compilação ideal. </p> | Não                                       |
 
 Consulte [SearchLogProcessing.txt Definição de Script](#sample-u-sql-script) para a definição do script. 
 

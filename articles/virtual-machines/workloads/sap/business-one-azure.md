@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ccec58f012dcd4b6371c15e79fa964600e775f54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ea10ee5b6fb14558e6bb93b83da0d5c46cff330
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654655"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977651"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One em Máquinas Virtuais do Azure
 Este documento fornece orientações para implantar o SAP Business One em Azure Virtual Machines. A documentação não substitui a documentação de instalação do Negócios um para a SAP. A documentação deve abranger as diretrizes básicas de planeamento e implantação para a infraestrutura Azure para executar aplicações do Business One.
@@ -95,7 +95,7 @@ A infraestrutura de rede que precisa de implementar em Azure depende se implemen
 A configuração simplificada apresentada introduz várias instâncias de segurança que permitem controlar e limitar o encaminhamento. Começa com 
 
 - O router/firewall no lado do cliente no local.
-- Segue-se o [Grupo de Segurança da Rede Azure](../../../virtual-network/security-overview.md) que pode utilizar para introduzir regras de encaminhamento e segurança para o Azure VNet em que executou a configuração sap Business one.
+- Segue-se o [Grupo de Segurança da Rede Azure](../../../virtual-network/network-security-groups-overview.md) que pode utilizar para introduzir regras de encaminhamento e segurança para o Azure VNet em que executou a configuração sap Business one.
 - Para evitar que os utilizadores do cliente Business One possam também ver o servidor que executa o servidor Business One, que executa a base de dados, deve separar o VM que hospeda o cliente Business one e o servidor de negócios em duas sub-redes diferentes dentro do VNet.
 - Voltaria a utilizar o Azure NSG atribuído às duas sub-redes diferentes para limitar o acesso ao servidor Business one.
 
@@ -111,7 +111,7 @@ Para o tipo de base de dados, SQL Server e SAP HANA estão disponíveis. Indepen
 
 Embora já salientado nos documentos específicos e genéricos da base de dados, deve familiarizar-se com:
 
-- [Gerir a disponibilidade de máquinas virtuais do Windows em Azure](../../windows/manage-availability.md) e [Gerir a disponibilidade de máquinas virtuais Linux em Azure](../../linux/manage-availability.md)
+- [Gerir a disponibilidade de máquinas virtuais do Windows em Azure](../../manage-availability.md) e [Gerir a disponibilidade de máquinas virtuais Linux em Azure](../../manage-availability.md)
 - [SLA para Máquinas Virtuais](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)
 
 Estes documentos devem ajudá-lo a decidir sobre a seleção de tipos de armazenamento e configuração de alta disponibilidade.

@@ -10,10 +10,10 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/17/2020
 ms.openlocfilehash: 453821e99f53a90a076ff13f010f2031a055cbf6
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91444185"
 ---
 # <a name="tutorial-create-azure-ad-users-using-azure-ad-applications"></a>Tutorial: Criar utilizadores de AD Azure usando aplicações AD Azure
@@ -294,7 +294,7 @@ Uma vez criado um principal de serviço em Azure AD, crie o utilizador na Base d
     myapp   E   EXTERNAL_USER   6d228f48-xxxx-xxxx-xxxx-xxxxxxxxxxxx
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Azure Ative Directory service principal com Azure SQL](authentication-aad-service-principal.md)
 - [Quais são as identidades geridas para os recursos do Azure?](../../active-directory/managed-identities-azure-resources/overview.md)

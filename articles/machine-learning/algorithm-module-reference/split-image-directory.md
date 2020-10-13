@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
 ms.openlocfilehash: fe5ba25904298fe1a394a4b01d6bdacc72d599c9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448686"
 ---
 # <a name="split-image-directory"></a>Dividir o Diretório da Imagem
@@ -52,7 +52,7 @@ Este módulo é particularmente útil quando é necessário separar os dados de 
 | Diretório de imagem de saída1 | ImageDirectory | Diretório de imagem que contém imagens selecionadas |
 | Diretório de imagem de saída2 | ImageDirectory | Diretório de imagem que contém todas as outras imagens |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
 

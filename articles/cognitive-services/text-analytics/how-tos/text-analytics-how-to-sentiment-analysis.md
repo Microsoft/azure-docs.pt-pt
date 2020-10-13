@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 08/25/2020
+ms.date: 10/09/2020
 ms.author: aahi
-ms.openlocfilehash: a0557c3ccf6510ab3ee2ae29cbef1fc754473345
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 570a21a307d60ab1e2c02d6481746576f5dcf0e3
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88933023"
+ms.locfileid: "91930293"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Como: Detetar sentimento usando a API de Análise de Texto
 
@@ -78,13 +78,13 @@ O tamanho do documento deve ser inferior a 5.120 caracteres por documento. Você
 
 Crie um pedido POST. Pode utilizar o [Carteiro](text-analytics-how-to-call-api.md) ou a **consola de testes API** nas seguintes ligações de referência para estruturar e enviar rapidamente uma. 
 
-#### <a name="version-30"></a>[Versão 3.0](#tab/version-3)
-
-[Referência v3 análise de sentimento](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Sentiment)
-
 #### <a name="version-31-preview1"></a>[Versão 3.1-pré-visualização.1](#tab/version-3-1)
 
 [Referência v3.1 análise de sentimento v3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Sentiment)
+
+#### <a name="version-30"></a>[Versão 3.0](#tab/version-3)
+
+[Referência v3 análise de sentimento](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/Sentiment)
 
 ---
 
@@ -95,10 +95,6 @@ Deite o ponto final HTTPS para análise de sentimento utilizando um recurso text
 > [!NOTE]
 > Pode encontrar a sua chave e ponto final para o seu recurso Text Analytics no portal azul. Estarão localizados na página **de arranque rápido** do recurso, sob **gestão de recursos.** 
 
-#### <a name="version-30"></a>[Versão 3.0](#tab/version-3)
-
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/sentiment`
-
 #### <a name="version-31-preview1"></a>[Versão 3.1-pré-visualização.1](#tab/version-3-1)
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment`
@@ -108,6 +104,10 @@ Para obter resultados de mineração de opinião, você deve incluir o `opinionM
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment?opinionMining=true`
 
 Este parâmetro é definido `false` por padrão. 
+
+#### <a name="version-30"></a>[Versão 3.0](#tab/version-3)
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/sentiment`
 
 ---
 
@@ -141,44 +141,6 @@ O Texto Analytics API é apátrida. Nenhum dado é armazenado na sua conta e os 
 A análise do sentimento devolve um rótulo de sentimento e uma pontuação de confiança para todo o documento, e cada frase dentro dele. Pontuações mais próximas de 1 indicam uma maior confiança na classificação do rótulo, enquanto as pontuações mais baixas indicam menor confiança. Um documento pode ter várias frases, e as pontuações de confiança dentro de cada documento ou frase somam 1.
 
 O resultado é devolvido imediatamente. Pode transmitir os resultados para uma aplicação que aceite o JSON ou guarde a saída para um ficheiro no sistema local. Em seguida, importe a saída para uma aplicação que pode usar para ordenar, pesquisar e manipular os dados. Devido ao suporte multilíngue e emoji, a resposta pode conter compensações de texto. Veja [como processar compensações](../concepts/text-offsets.md) para obter mais informações.
-
-#### <a name="version-30"></a>[Versão 3.0](#tab/version-3)
-
-### <a name="sentiment-analysis-v30-example-response"></a>Análise de Sentimento v3.0 exemplo resposta
-
-As respostas da Análise de Sentimento v3 contêm rótulos de sentimento e pontuações para cada frase e documento analisados.
-
-```json
-{
-    "documents": [
-        {
-            "id": "1",
-            "sentiment": "positive",
-            "confidenceScores": {
-                "positive": 1.0,
-                "neutral": 0.0,
-                "negative": 0.0
-            },
-            "sentences": [
-                {
-                    "sentiment": "positive",
-                    "confidenceScores": {
-                        "positive": 1.0,
-                        "neutral": 0.0,
-                        "negative": 0.0
-                    },
-                    "offset": 0,
-                    "length": 58,
-                    "text": "The restaurant had great food and our waiter was friendly."
-                }
-            ],
-            "warnings": []
-        }
-    ],
-    "errors": [],
-    "modelVersion": "2020-04-01"
-}
-```
 
 #### <a name="version-31-preview1"></a>[Versão 3.1-pré-visualização.1](#tab/version-3-1)
 
@@ -266,6 +228,44 @@ A Análise de Sentimento v3.1 oferece mineração de opinião para além do obje
                             "isNegated": false
                         }
                     ]
+                }
+            ],
+            "warnings": []
+        }
+    ],
+    "errors": [],
+    "modelVersion": "2020-04-01"
+}
+```
+
+#### <a name="version-30"></a>[Versão 3.0](#tab/version-3)
+
+### <a name="sentiment-analysis-v30-example-response"></a>Análise de Sentimento v3.0 exemplo resposta
+
+As respostas da Análise de Sentimento v3 contêm rótulos de sentimento e pontuações para cada frase e documento analisados.
+
+```json
+{
+    "documents": [
+        {
+            "id": "1",
+            "sentiment": "positive",
+            "confidenceScores": {
+                "positive": 1.0,
+                "neutral": 0.0,
+                "negative": 0.0
+            },
+            "sentences": [
+                {
+                    "sentiment": "positive",
+                    "confidenceScores": {
+                        "positive": 1.0,
+                        "neutral": 0.0,
+                        "negative": 0.0
+                    },
+                    "offset": 0,
+                    "length": 58,
+                    "text": "The restaurant had great food and our waiter was friendly."
                 }
             ],
             "warnings": []

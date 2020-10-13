@@ -13,10 +13,10 @@ ms.author: jrasnick
 ms.reviewer: sstein
 ms.date: 04/19/2020
 ms.openlocfilehash: 61160943fc5762fd492f61a75a44159f2ef9cab2
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448783"
 ---
 # <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Monitorizar o desempenho do Azure SQL Managed Instance e da Base de Dados SQL do Microsoft Azure com as vistas de gestão dinâmicas
@@ -769,6 +769,6 @@ CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS q
 ORDER BY highest_cpu_queries.total_worker_time DESC;
 ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 [Introdução à Base de Dados Azure SQL e Azure SQL Gestão de Instância](sql-database-paas-overview.md)
