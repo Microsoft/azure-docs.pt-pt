@@ -3,12 +3,12 @@ title: Descrição geral do exemplo de esquema dos Serviços Partilhados ISO 270
 description: Descrição geral e arquitetura do exemplo de esquema Serviços Partilhados ISO 27001. Este exemplo de esquema ajuda os clientes a avaliar controlos ISO 27001 específicos.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 09309fe05200cf8c7a958324f3412967296a8dc9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e02f34c424e3f68e67f2d0dc2f4541c57ce3882f
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87927356"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950555"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Descrição geral do exemplo de esquema dos Serviços Partilhados ISO 27001
 
@@ -27,12 +27,12 @@ Este ambiente é composto por vários serviços do Azure utilizados para fornece
 
 - [Funções do Azure](../../../../role-based-access-control/overview.md) utilizadas para a separação de responsabilidades a partir de uma perspetiva de plano de controlo. Antes da implementação de qualquer infraestrutura, são definidas três funções:
   - A função NetOps tem os direitos para gerir o ambiente de rede, incluindo as definições da firewall, definições do NSG, encaminhamento e outras funcionalidades de rede
-  - A função SecOps tem os direitos necessários para implementar e gerir o [Centro de Segurança do Azure](../../../../security-center/security-center-intro.md), definir [Políticas do Azure](../../../policy/overview.md) e outros direitos relacionados com segurança
-  - A função SysOps tem os direitos necessários para definir [Políticas do Azure](../../../policy/overview.md) na subscrição, gerir o [Log Analytics](../../../../azure-monitor/overview.md) em todo o ambiente, entre outros direitos operacionais
+  - A função SecOps tem os direitos necessários para implementar e gerir o [Centro de Segurança do Azure](../../../../security-center/security-center-introduction.md), definir as definições do [Azure Policy](../../../policy/overview.md) e outros direitos relacionados com segurança
+  - A função SysOps tem os direitos necessários para definir as definições do [Azure Policy](../../../policy/overview.md) na subscrição, gerir o [Log Analytics](../../../../azure-monitor/overview.md) em todo o ambiente, entre outros direitos operacionais
 - O [Log Analytics](../../../../azure-monitor/overview.md) é implementado como o primeiro serviço do Azure para garantir que todas as ações e serviços são registados numa localização central desde o momento em que inicia a implementação segura
 - Uma rede virtual que suporta sub-redes para conectividade para um datacenter no local, uma pilha de entrada e saída para conectividade Internet e uma sub-rede de serviço partilhado com NSGs e ASGs para microssegmentação completa, que contém:
   - Um anfitrião jumpbox ou bastion utilizado para fins de gestão, ao qual só é possível aceder através de uma [Azure Firewall](../../../../firewall/overview.md) implementada na sub-rede da pilha de entrada
-  - Duas máquinas virtuais com o Active Directory Domain Services (AD DS) e DNS acessíveis apenas através da jumpbox e que só podem ser configurada para replicar o AD através de uma ligação VPN ou [ExpressRoute](../../../../expressroute/expressroute-introduction.md) (não implementada pelo esquema)
+  - Duas máquinas virtuais com o Azure Active Directory Domain Services (Azure AD DS) e DNS acessíveis apenas através da jumpbox e que só podem ser configuradas para replicar o AD através de uma ligação VPN ou do [ExpressRoute](../../../../expressroute/expressroute-introduction.md) (não implementada pelo esquema)
   - Utilização do [Observador de Rede do Azure](../../../../network-watcher/network-watcher-monitoring-overview.md) e de proteção contra DDoS padrão
 - Uma instância do [Azure Key Vault](../../../../key-vault/general/overview.md) utilizada para alojar segredos utilizados para as VMs implementadas no ambiente de serviços partilhados
 

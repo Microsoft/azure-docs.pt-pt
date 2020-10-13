@@ -61,9 +61,11 @@
     - name: Implementar a recuperação após desastre para VMs
       href: disaster-recovery-for-virtual-machines.md
     - name: Implementar uma VM através da biblioteca de conteúdos
-      href: tutorial-deploy-vm-content-library.md
+      href: ./deploy-vm-content-library.md
     - name: Configurar o GitHub Enterprise Server
       href: github-enterprise-server.md
+    - name: Criar um túnel IPsec
+      href: create-ipsec-tunnel.md
     - name: Integração nativa do Azure
       items:
         - name: Gestão de API
