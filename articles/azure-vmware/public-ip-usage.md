@@ -4,10 +4,10 @@ description: Este artigo explica como utilizar a funcionalidade IP pública em A
 ms.topic: how-to
 ms.date: 10/30/2020
 ms.openlocfilehash: ec8af45a98e82a7c1c657776c4fee2c3ef068dca
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91744926"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-virtual-wan"></a>Como utilizar a funcionalidade IP pública em Azure Virtual WAN
@@ -120,7 +120,7 @@ Uma vez implantados todos os componentes, pode vê-los no grupo de Recursos adic
 
 1. **Selecione Adicione uma coleção de regras,** forneça os detalhes abaixo e selecione **Adicionar** e, em seguida, selecione Seguinte : Inteligência **de ameaça**.
 
-   -  Name
+   -  Nome
    -  Tipo de recolha de regras - DNAT
    -  Prioridade
    -  Ação de recolha de regras – Permitir

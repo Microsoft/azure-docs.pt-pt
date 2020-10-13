@@ -4,10 +4,10 @@ description: Descreve como definir o âmbito de descoberta para a avaliação e 
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.openlocfilehash: dfc9c12edd93fc720ef716fd43b04e0c193d5803
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88919731"
 ---
 # <a name="set-discovery-scope-for-vmware-vms"></a>Definir o âmbito de descoberta para VMware VMs

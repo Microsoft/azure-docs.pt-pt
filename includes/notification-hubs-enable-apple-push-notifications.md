@@ -9,10 +9,10 @@ ms.date: 02/10/2020
 ms.author: sethm
 ms.custom: include file
 ms.openlocfilehash: 1cb7753f54e9c1334e35635c227f776041631f1d
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88864836"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Gere o ficheiro de pedido de assinatura de certificado
@@ -183,7 +183,7 @@ No final destes passos deverá ter as seguintes informações para utilização 
     2. Na secção **de Software,** selecione **Apple Development**. Em seguida, selecione **Continuar**.
     3. No ecrã **Criar um novo certificado,** selecione **Escolha Ficheiro**.
     4. Navegue no certificado **de Pedido de Assinatura** de Certificado que criou anteriormente, selecione-o e, em seguida, selecione **Open**.
-    5. **Selecione Continuar**.
+    5. Selecione **Continuar**.
     6. Descarregue o certificado de desenvolvimento e lembre-se do local para o qual está guardado.
 
 1. Volte aos **Certificados, Identifiers & Profiles,** selecione **Perfis** do menu esquerdo e, em seguida, selecione para criar um **+** novo perfil. Aparece o novo ecrã **de perfil de provisionamento.**

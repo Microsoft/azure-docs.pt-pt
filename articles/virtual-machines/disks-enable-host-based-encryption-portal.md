@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: 4498e78b408f64ab5bc00b9f8730559b90c95d57
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88817907"
 ---
 # <a name="use-the-azure-portal-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Utilize o portal Azure para ativar a encriptação de ponta a ponta utilizando encriptação no anfitrião
@@ -63,7 +63,7 @@ Tem de implementar um novo VM para permitir a encriptação no hospedeiro, não 
 1. Na lâmina **Discos,** selecione **Sim** para **Encriptação no anfitrião**.
 1. Faça as restantes seleções como quiser.
 
-    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-disk-blade.png" alt-text="A screenshot da lâmina de criação de discos de criação de máquinas virtuais, a encriptação no anfitrião é realçada.":::
+    :::image type="content" source="media/virtual-machines-disks-encryption-at-host-portal/disks-encryption-at-host-disk-blade.png" alt-text="A screenshot da máquina virtual criação de lâminas básicas, região e tamanho V M são destacados.":::
 
 1. Termine o processo de implantação de VM, faça seleções que se adaptem ao seu ambiente.
 

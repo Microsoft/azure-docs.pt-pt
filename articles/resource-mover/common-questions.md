@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: raynew
 ms.openlocfilehash: 68e5f937b8ad8367abf488598bda311a39d462c6
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90600658"
 ---
 # <a name="common-questions"></a>Perguntas comuns
@@ -71,12 +71,12 @@ Sim, tanto em trânsito como em repouso.
 
 ### <a name="what-managed-identity-permissions-does-resource-mover-need"></a>Que permissões de identidade geridas precisa o Resource Mover?
 
-A Azure Resource Mover geriu a identidade precisa pelo menos destas permissões: 
+A identidade gerida do Azure Resource Mover precisa de, pelo menos, estas permissões: 
 
 - Permissão para escrever/criar recursos na subscrição do utilizador, disponível com a função *Contribuinte.* 
-- Permissão para criar atribuições de papéis. Normalmente disponível com as funções *de Administrador de* Acesso ao *Utilizador* ou com uma função personalizada que tem a *microsoft.Autorizações/atribuições de funções/escrever permissão* atribuída. Esta permissão não é necessária se a identidade gerida do recurso de partilha de dados já tiver acesso à loja de dados Azure. 
+- Permissão para criar atribuições de função. Normalmente disponível com as funções *de Administrador de* Acesso ao *Utilizador* ou com uma função personalizada que tem a *microsoft.Autorizações/atribuições de funções/escrever permissão* atribuída. Esta permissão não é necessária se a identidade gerida do recurso de partilha de dados já tiver acesso à loja de dados Azure. 
  
-Quando adiciona recursos no hub de Resource Mover no portal, as permissões são manuseadas automaticamente desde que o utilizador tenha as permissões acima descritas. Se adicionar recursos com o PowerShell, atribui permissões manualmente.
+Quando adiciona recursos no hub do Resource Mover no portal, as permissões são processadas automaticamente, desde que o utilizador tenha as permissões descritas acima. Se adicionar recursos com o PowerShell, atribui permissões manualmente.
 
 > [!IMPORTANT]
 > Recomendamos vivamente que não modifique ou remova atribuições de funções de identidade. 

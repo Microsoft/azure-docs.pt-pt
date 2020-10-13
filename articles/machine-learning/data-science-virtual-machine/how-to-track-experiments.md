@@ -10,10 +10,10 @@ ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.openlocfilehash: 205aed1811c3d9d21a10be7bc4f01c73eb7295b7
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89254805"
 ---
 # <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Acompanhe experiências e implemente modelos em Azure Machine Learning
@@ -165,7 +165,7 @@ Para implementar o modelo de diabetes, vá ao menu à esquerda no [Azure Machine
 
 Em seguida, clique no botão __Implementar__ no painel de detalhes do modelo:
 
-![Implementar](./media/how-to-track-experiments/mlflow-experiments-4.png)
+![Implementação](./media/how-to-track-experiments/mlflow-experiments-4.png)
 
 Vamos implantar o modelo para o Cluster de Inferências (Serviço Azure Kubernetes) que criamos no passo 1. Preencha os detalhes abaixo, fornecendo um nome para o serviço, e o nome do cluster de computação AKS (criado no passo 1). Recomendamos ainda que aumente a capacidade de reserva do __CPU__ para 1 (de 0,1) e a __capacidade de reserva__ de memória para 1 (a partir de 0,5) - pode fazer este aumento clicando em __Advanced__ e preenchendo os detalhes. Em seguida, clique em __Implementar__.
 
