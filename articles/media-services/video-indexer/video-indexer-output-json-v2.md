@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 08/27/2020
 ms.author: juliako
 ms.openlocfilehash: 6eecaaff836d3253d382fdf0280f9a15c3a7b00b
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89050867"
 ---
 # <a name="examine-the-video-indexer-output"></a>Examinar a saída do Indexador de Vídeo
@@ -122,7 +122,7 @@ Esta secção mostra o resumo dos insights.
 |processamentoProgress|O progresso do processamento durante o processamento (por exemplo, 20%).|
 |falhaDesco|O código de avaria se não for processado (por exemplo, 'Não suportadoFileType').|
 |falhaMessage|A mensagem de falha se não for processada.|
-|externoId|O ID externo do vídeo (se especificado pelo utilizador).|
+|externalId|O ID externo do vídeo (se especificado pelo utilizador).|
 |externaUrl|O url externo do vídeo (se especificado pelo utilizador).|
 |do IdP|Os metadados externos do vídeo (se especificado pelo utilizador).|
 |isAdult|Indica se o vídeo foi analisado manualmente e identificado como um vídeo adulto.|

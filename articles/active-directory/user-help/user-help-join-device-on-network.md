@@ -13,10 +13,10 @@ ms.date: 08/03/2018
 ms.author: curtand
 ms.reviewer: jairoc
 ms.openlocfilehash: efb3ee24add847baf8264eccdf71278be5ee9496
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91536975"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Junte-se ao seu dispositivo de trabalho na rede da sua organização
@@ -110,7 +110,7 @@ Pode certificar-se de que está unido olhando para as suas definições.
 
     ![Trabalho de acesso ou tela escolar com conta contoso conectada](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Depois de se juntar ao seu dispositivo na rede da sua organização, deverá poder aceder a todos os seus recursos utilizando a informação da sua conta de trabalho ou da sua escola.
 
 - Se a sua organização quiser que registe o seu dispositivo pessoal, como o seu telemóvel, consulte [registar o seu dispositivo pessoal na rede da sua organização.](user-help-register-device-on-network.md)

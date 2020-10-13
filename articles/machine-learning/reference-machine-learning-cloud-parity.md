@@ -12,10 +12,10 @@ author: Anurzeuii
 ms.date: 08/24/2020
 ms.custom: references_regions
 ms.openlocfilehash: 4a6f09fdff82b8e86c7fe75018c5267dba3c1b4a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90892976"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Azure Machine Learning paridade de nuvem soberana
@@ -34,7 +34,7 @@ Pretendemos proporcionar a máxima paridade entre a nossa nuvem pública e as re
 
 ## <a name="azure-government"></a>Azure Government 
 
-| Funcionalidade | Estado da nuvem pública  | EUA-Virgínia | EUA-Arizona| 
+| Funcionalidade | Estado da nuvem pública  | US-Virginia | US-Arizona| 
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | **Aprendizagem automática automatizada** | | | |
 | Criar e executar experiências em cadernos                                    | GA                   | SIM                | SIM         |
@@ -112,7 +112,7 @@ Pretendemos proporcionar a máxima paridade entre a nossa nuvem pública e as re
 
 ### <a name="azure-government-scenarios"></a>Cenários do Governo de Azure
 
-| Cenário                                                    | EUA-Virgínia | EUA-Arizona| Limitações  |
+| Cenário                                                    | US-Virginia | US-Arizona| Limitações  |
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|-------------|
 | **Configuração geral de segurança** |   | | |
 | Comunicação de rede privada entre serviços                                     | NO | NO | Nenhuma ligação privada atualmente | 
@@ -122,7 +122,7 @@ Pretendemos proporcionar a máxima paridade entre a nossa nuvem pública e as re
 | Root e SSH acesso a recursos computetivos.                                          | SIM | SIM |  |
 | Manter a segurança dos sistemas implantados (instâncias, pontos finais, etc.), incluindo proteção de pontos finais, remendos e registos |  PARCIAL|  PARCIAL |ACI por trás do VNet e ponto final privado atualmente não disponível |                                  
 | Controlo (desativação/limite/restrição) da utilização da integração ACI/AKS                    | PARCIAL| PARCIAL |ACI por trás do VNet e ponto final privado atualmente não disponível|
-| Controlo de Acesso Baseado em Função (RBAC) - Criações de funções personalizadas                           | SIM | SIM |  |
+| Role-Based Access Control (RBAC) - Criações de Função Personalizadas                           | SIM | SIM |  |
 | Controle o acesso às imagens ACR utilizadas pelo ML Service (Azure fornecido/mantido versus personalizado)  |PARCIAL|  PARCIAL | ACR por trás de ponto final privado e VNet não apoiado no Governo de Azure |
 | **Utilização geral do serviço de aprendizagem automática** |  | | |
 | Capacidade de ter um ambiente de desenvolvimento para construir um modelo, treinar esse modelo, acolhê-lo como um ponto final, e consumi-lo através de um webapp     | SIM | SIM |  |
@@ -134,7 +134,7 @@ Pretendemos proporcionar a máxima paridade entre a nossa nuvem pública e as re
 ### <a name="additional-azure-government-limitations"></a>Limitações adicionais do Governo Azure
 
 * Para os casos de cálculo da Azure Machine Learning, a capacidade de refrescar um símbolo com uma duração superior a 24 horas não está disponível no Governo de Azure.
-* O Model Profiling não suporta 4 CPUs na região EUA-Arizona.   
+* O Model Profiling não suporta 4 CPUs na região US-Arizona.   
 * As amostras de cadernos podem não funcionar no Governo de Azure se precisar de acesso aos dados públicos.
 * Endereços IP: O comando CLI utilizado no VNet e instruções [de túneis forçados](how-to-secure-training-vnet.md#forced-tunneling) não devolve os intervalos IP. Utilize as [gamas IP Azure e as etiquetas de serviço para o Governo Azure.](https://www.microsoft.com/download/details.aspx?id=57063)
 * Para os oleodutos programados, também fornecemos um mecanismo de gatilho baseado em bolhas. Este mecanismo não é suportado para espaços de trabalho CMK. Para ativar um gatilho à base de bolhas para espaços de trabalho CMK, tem de fazer uma configuração adicional. Para obter mais informações, consulte [Trigger uma série de um pipeline de aprendizagem automática a partir de uma Aplicação Lógica](how-to-trigger-published-pipeline.md).
@@ -229,7 +229,7 @@ Pretendemos proporcionar a máxima paridade entre a nossa nuvem pública e as re
 * A Azure China tem VM SKU limitado, especialmente para GPU SKU. Tem apenas família NCv3 (V100).
 * REST API Endpoints são diferentes do Azure global. Utilize o seguinte quadro para encontrar o ponto final da API REST para as regiões da Azure China:
 
-    | Ponto final DE REPOUSO                 | Global Azure                                 | China-Governo                           |
+    | Ponto final DE REPOUSO                 | Global Azure                                 | China-Government                           |
     |------------------|--------------------------------------------|--------------------------------------------|
     | Plano de gestão | `https://management.azure.com/`              | `https://management.chinacloudapi.cn/`       |
     | Plano de dados       | `https://{location}.experiments.azureml.net` | `https://{location}.experiments.ml.azure.cn` |

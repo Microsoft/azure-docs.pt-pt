@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
 ms.openlocfilehash: 67591e9227ff32e81b973c181da2c1374f0ded47
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91766664"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Configurar alertas personalizados para monitorizar rotas anunciadas
@@ -391,7 +391,7 @@ Uma vez analisado o JSON, a ação **Parse JSON Data Operations** armazena o con
 
    :::image type="content" source="./media/custom-route-alert-portal/condition-control.png" alt-text="Adicionar conta de automação":::
 
-5. Na lista **de Ações,** selecione **Controlo de Condições.** O Controlo de Condições é uma estrutura de controlo que compara os dados do seu fluxo de trabalho com valores ou campos específicos. Em seguida, pode especificar diferentes ações que são executadas com base em se os dados cumprem ou não a condição.
+5. Na lista **de Ações,** selecione **Controlo de Condições.** O Condition-Control é uma estrutura de controlo que compara os dados do seu fluxo de trabalho com valores ou campos específicos. Em seguida, pode especificar diferentes ações que são executadas com base em se os dados cumprem ou não a condição.
 
    :::image type="content" source="./media/custom-route-alert-portal/condition.png" alt-text="Adicionar conta de automação":::
 

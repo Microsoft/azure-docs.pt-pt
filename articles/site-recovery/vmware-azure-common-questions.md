@@ -4,10 +4,10 @@ description: Obtenha respostas a perguntas comuns sobre a recuperação de desas
 ms.date: 11/14/2019
 ms.topic: conceptual
 ms.openlocfilehash: 1d61b8556038959f6acab447fc0510830b1dd943
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89054976"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Perguntas comuns sobre a replicação do VMware para o Azure
@@ -22,7 +22,7 @@ Este artigo responde a questões comuns que podem surgir quando implementa a rec
 
 ### <a name="can-i-use-site-recovery-to-migrate-vmware-vms-to-azure"></a>Posso usar a Recuperação do Site para migrar VMware VMs para Azure?
 
-Yes. Além de utilizar a Recuperação do Site para configurar a recuperação total de desastres para VMware VMs, também pode utilizar a Recuperação do Site para migrar VMware VMs para Azure no local. Neste cenário, replica vMware VMs no local para Azure Storage. Depois, falhas de entradas no local para o Azure. Após o failover, as suas apps e cargas de trabalho estão disponíveis e em execução em VMs Azure. O processo é como preparar a recuperação total de desastres, exceto que numa migração não se pode fugir do Azure.
+Sim. Além de utilizar a Recuperação do Site para configurar a recuperação total de desastres para VMware VMs, também pode utilizar a Recuperação do Site para migrar VMware VMs para Azure no local. Neste cenário, replica vMware VMs no local para Azure Storage. Depois, falhas de entradas no local para o Azure. Após o failover, as suas apps e cargas de trabalho estão disponíveis e em execução em VMs Azure. O processo é como preparar a recuperação total de desastres, exceto que numa migração não se pode fugir do Azure.
 
 ### <a name="does-my-azure-account-need-permissions-to-create-vms"></a>A minha conta Azure precisa de permissões para criar VMs?
 
@@ -112,7 +112,7 @@ A Recuperação do Site replica VMware VMs e servidores físicos para discos ger
 
 ### <a name="can-i-replicate-new-machines-to-storage-accounts"></a>Posso replicar novas máquinas nas contas de armazenamento?
 
-Não. A partir de março de 2019, no portal Azure, só é possível replicar os discos geridos pelo Azure.
+N.º A partir de março de 2019, no portal Azure, só é possível replicar os discos geridos pelo Azure.
 
 A replicação de novos VMs numa conta de armazenamento só está disponível utilizando o PowerShell[(az.RecoveryServices module version 1.4.5](https://www.powershellgallery.com/packages/Az.RecoveryServices/1.4.5)) ou a API REST (versão 2018-01-10 ou 2016-08-10). [Aprenda](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell) a configurar a replicação utilizando os comandos PowerShell.
 
@@ -131,7 +131,7 @@ Sim, pode [facilmente alterar o tipo de disco gerido](../virtual-machines/window
 
 ### <a name="can-i-switch-replication-from-managed-disks-to-unmanaged-disks"></a>Posso mudar a replicação de discos geridos para discos não geridos?
 
-Não. Mudar de gerido para não gerido não é suportado.
+N.º Mudar de gerido para não gerido não é suportado.
 
 ## <a name="replication"></a>Replicação
 
@@ -176,7 +176,7 @@ Para a replicação de VMware para Azure, pode modificar o tamanho do disco de V
 
 ### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-server-without-impacting-ongoing-replication"></a>Posso migrar máquinas no local para um novo servidor vCenter sem afetar a replicação em curso?
 
-Não. Uma mudança de VMware Vcenter ou migração terá impacto na replicação contínua. Configurar a Recuperação do Local com o novo servidor vCenter e ativar novamente a replicação para máquinas.
+N.º Uma mudança de VMware Vcenter ou migração terá impacto na replicação contínua. Configurar a Recuperação do Local com o novo servidor vCenter e ativar novamente a replicação para máquinas.
 
 ### <a name="can-i-replicate-to-a-cache-or-target-storage-account-that-has-a-virtual-network-with-azure-firewalls-configured-on-it"></a>Posso replicar-me numa conta de armazenamento de cache ou alvo que tenha uma rede virtual (com firewalls Azure) configurada?
 
@@ -234,7 +234,7 @@ Recomendamos que [crie o VM do servidor de configuração](vmware-azure-deploy-c
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>Um servidor de configuração pode replicar-se em mais de uma região?
 
-Não. Para se replicar em mais de uma região, precisa de um servidor de configuração em cada região.
+N.º Para se replicar em mais de uma região, precisa de um servidor de configuração em cada região.
 
 ### <a name="can-i-host-a-configuration-server-in-azure"></a>Posso hospedar um servidor de configuração em Azure?
 
@@ -258,23 +258,23 @@ Recomendamos a utilização de cópias de segurança regulares do servidor de co
 
 ### <a name="when-im-setting-up-the-configuration-server-can-i-download-and-install-mysql-manually"></a>Quando estou a configurar o servidor de configuração, posso descarregar e instalar o MySQL manualmente?
 
-Yes. Descarregue o MySQL e coloque-o na pasta C:\Temp\ASRSetup. Em seguida, instale-o manualmente. Quando configurar o VM do servidor de configuração e aceitar os termos, o MySQL será listado como **já instalado** no Download **e instalado**.
+Sim. Descarregue o MySQL e coloque-o na pasta C:\Temp\ASRSetup. Em seguida, instale-o manualmente. Quando configurar o VM do servidor de configuração e aceitar os termos, o MySQL será listado como **já instalado** no Download **e instalado**.
 
 ### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>Posso evitar descarregar o MySQL mas deixar a Recuperação do Site instalá-lo?
 
-Yes. Descarregue o instalador MySQL e coloque-o na pasta C:\Temp\ASRSetup. Quando configurar o VM do servidor de configuração, aceite os termos e selecione **Descarregamento e instalação.** O portal utilizará o instalador que adicionou para instalar o MySQL.
+Sim. Descarregue o instalador MySQL e coloque-o na pasta C:\Temp\ASRSetup. Quando configurar o VM do servidor de configuração, aceite os termos e selecione **Descarregamento e instalação.** O portal utilizará o instalador que adicionou para instalar o MySQL.
 
 ### <a name="can-i-use-the-configuration-server-vm-for-anything-else"></a>Posso usar o VM do servidor de configuração para qualquer outra coisa?
 
-Não. Utilize o VM apenas para o servidor de configuração.
+N.º Utilize o VM apenas para o servidor de configuração.
 
 ### <a name="can-i-clone-a-configuration-server-and-use-it-for-orchestration"></a>Posso clonar um servidor de configuração e usá-lo para orquestração?
 
-Não. Crie um novo servidor de configuração para evitar problemas de registo.
+N.º Crie um novo servidor de configuração para evitar problemas de registo.
 
 ### <a name="can-i-change-the-vault-in-which-the-configuration-server-is-registered"></a>Posso alterar o cofre no qual o servidor de configuração está registado?
 
-Não. Depois de um cofre estar associado ao servidor de configuração, não pode ser alterado. [Saiba](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) como registar um servidor de configuração com um cofre diferente.
+N.º Depois de um cofre estar associado ao servidor de configuração, não pode ser alterado. [Saiba](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) como registar um servidor de configuração com um cofre diferente.
 
 ### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>Posso usar o mesmo servidor de configuração para a recuperação de desastres tanto de VMware vMs como de servidores físicos?
 
@@ -342,7 +342,7 @@ O Azure foi concebido para ser resiliente. A Recuperação do Sítio é concebid
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>Posso voltar a um local diferente?
 
-Yes. Se falhaste no Azure, podes falhar num local diferente se o original não estiver disponível. [Saiba mais](concepts-types-of-failback.md#alternate-location-recovery-alr).
+Sim. Se falhaste no Azure, podes falhar num local diferente se o original não estiver disponível. [Saiba mais](concepts-types-of-failback.md#alternate-location-recovery-alr).
 
 ### <a name="why-do-i-need-a-vpn-or-expressroute-with-private-peering-to-fail-back"></a>Por que preciso de uma VPN ou ExpressRoute com um olhar privado para falhar?
 
@@ -353,13 +353,13 @@ Quando recua do Azure, os dados do Azure são copiados de volta para o seu VM no
 
 ### <a name="can-i-set-up-replication-with-scripting"></a>Posso configurar a replicação com o scripting?
 
-Yes. Pode automatizar fluxos de trabalho de Recuperação de Sítio utilizando a API de Repouso, a PowerShell ou a Azure SDK. [Saiba mais](vmware-azure-disaster-recovery-powershell.md).
+Sim. Pode automatizar fluxos de trabalho de Recuperação de Sítio utilizando a API de Repouso, a PowerShell ou a Azure SDK. [Saiba mais](vmware-azure-disaster-recovery-powershell.md).
 
 ## <a name="performance-and-capacity"></a>Desempenho e capacidade
 
 ### <a name="can-i-throttle-replication-bandwidth"></a>Posso acelerar a largura de banda da replicação?
 
-Yes. [Saiba mais](site-recovery-plan-capacity-vmware.md).
+Sim. [Saiba mais](site-recovery-plan-capacity-vmware.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

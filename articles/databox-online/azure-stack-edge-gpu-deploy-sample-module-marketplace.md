@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: alkohli
 ms.openlocfilehash: 64d028892298a70e7588863bf9a3f4fc6f4ca609
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91760064"
 ---
 # <a name="deploy-a-gpu-enabled-iot-module-from-azure-marketplace-on-azure-stack-edge-pro-gpu-device"></a>Implementar um módulo IoT ativado pela GPU a partir do Azure Marketplace no dispositivo GPU Azure Stack Edge Pro

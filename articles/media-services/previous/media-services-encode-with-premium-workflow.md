@@ -15,10 +15,10 @@ ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 29a889fc15b1889711d08d3386920652a8bc8f57
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89269051"
 ---
 # <a name="advanced-encoding-with-media-encoder-premium-workflow"></a>Advanced encoding with Media Encoder Premium Workflow (Codificação avançada com o Media Encoder Premium Workflow)

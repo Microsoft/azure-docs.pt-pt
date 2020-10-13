@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: yegu
 ms.openlocfilehash: 145be11436eb4d0c4f6b892e5239ccacd838d780
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91654167"
 ---
 # <a name="high-availability-for-azure-cache-for-redis"></a>Alta disponibilidade para Azure Cache para Redis

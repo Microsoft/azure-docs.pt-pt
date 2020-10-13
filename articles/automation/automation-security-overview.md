@@ -7,10 +7,10 @@ ms.subservice: process-automation
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.openlocfilehash: bcb5f61c93bd4c3ff7c0f81ae808807f7deb71df
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91766091"
 ---
 # <a name="automation-account-authentication-overview"></a>Descrição geral da autenticação da conta de Automatização

@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
 ms.openlocfilehash: 29f7f824d96aedd80e490ba84c390be4d9493683
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90604245"
 ---
 # <a name="tutorial-assess-vmware-vms-for-migration-to-avs"></a>Tutorial: Avaliar VMware VMs para migração para AVS
@@ -44,8 +44,8 @@ Decida se pretende executar uma avaliação utilizando critérios de dimensionam
 
 **Avaliação** | **Detalhes** | **Recomendação**
 --- | --- | ---
-**As-is in-ins** | Avaliar com base em dados de configuração da máquina/metadados.  | O tamanho recomendado do nó em AVS baseia-se no tamanho VM no local, juntamente com as definições que especifica na avaliação para o tipo de nó, tipo de armazenamento e definição de falha de toleração.
-**Baseado no desempenho** | Avaliar com base em dados de desempenho dinâmicos recolhidos. | O tamanho recomendado do nó em AVS baseia-se em dados de CPU e utilização da memória, juntamente com as definições que especifica na avaliação para o tipo de nó, tipo de armazenamento e definição de falha de toleração.
+**Como está no local** | Avaliar com base em dados de configuração da máquina/metadados.  | O tamanho recomendado do nó em AVS baseia-se no tamanho VM no local, juntamente com as definições que especifica na avaliação para o tipo de nó, tipo de armazenamento e definição de falha de toleração.
+**Com base no desempenho** | Avaliar com base em dados de desempenho dinâmicos recolhidos. | O tamanho recomendado do nó em AVS baseia-se em dados de CPU e utilização da memória, juntamente com as definições que especifica na avaliação para o tipo de nó, tipo de armazenamento e definição de falha de toleração.
 
 ## <a name="run-an-assessment"></a>Executar uma avaliação
 
@@ -101,7 +101,7 @@ E executar uma avaliação da seguinte forma:
 
 11. Clique **em Guardar** se escoda alterações.
 
-    ![Propriedades de avaliação](./media/tutorial-assess-vmware-azure-vmware-solution/view-all.png)
+    ![Propriedades da avaliação](./media/tutorial-assess-vmware-azure-vmware-solution/view-all.png)
 
 12. In **Assess Servers**, clique **em Seguinte**.
 13. Em **Avaliar servidores**  >  **Selecione máquinas para avaliar,** para criar um novo grupo de servidores para avaliação, selecione **Create New**e especifique um nome de grupo. 
@@ -125,7 +125,7 @@ Uma avaliação avs descreve:
 Para visualizar uma avaliação:
 
 1. Nos **servidores**  >  **Azure Migrate: Avaliação do servidor,** clique no número ao lado **das Avaliações**.
-2. Em **Avaliações,** selecione uma avaliação para abri-la. 
+2. Em **Avaliações**, selecione uma avaliação para a abrir. 
 3. Reveja o resumo da avaliação. Também pode editar as propriedades de avaliação ou recalcular a avaliação.
  
 

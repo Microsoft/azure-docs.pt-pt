@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: conceptual
 ms.date: 10/02/2020
 ms.openlocfilehash: d63cec0e0697a15efe7f15be5f6f0daaa6d6a372
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761520"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Funções e condições do Azure Data Share 

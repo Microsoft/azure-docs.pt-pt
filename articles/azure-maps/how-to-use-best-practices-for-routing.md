@@ -8,27 +8,26 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 1c108c79cafb591dced6f6be0dd5c1b353ddac45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13c7178b4a0866066dc74e409f8f4bfcd21a23f4
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "90086407"
+ms.locfileid: "91874599"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Melhores práticas para o serviço Azure Maps Route
 
 As APIs da Rota e da Matriz de Rotas no [Serviço de Rota](https://docs.microsoft.com/rest/api/maps/route) de Mapas Azure podem ser utilizadas para calcular os horários estimados de chegada (ETAs) para cada rota solicitada. As APIs da Rota consideram fatores como informações de tráfego em tempo real e dados históricos de tráfego, como as velocidades típicas da estrada no dia da semana e hora do dia solicitados. As APIs devolvem as rotas mais curtas ou rápidas disponíveis para vários destinos de cada vez em sequência ou em ordem otimizada, com base no tempo ou na distância. Os utilizadores também podem solicitar rotas especializadas e detalhes para caminhantes, ciclistas e veículos comerciais como camiões. Neste artigo, partilharemos as melhores práticas para ligar para o Azure Maps [Route Service](https://docs.microsoft.com/rest/api/maps/route), e aprenderá como:
 
-> [!div class="checklist"]
-> * Escolha entre as ApIs de Rota e a API de Encaminhamento De Matriz
-> * Solicitar tempos de viagem históricos e previstos, com base nos dados de tráfego históricos e em tempo real
-> * Solicite detalhes da rota, como tempo e distância, para todo o percurso e cada etapa do percurso
-> * Rota de pedido para um veículo comercial, como um caminhão
-> * Solicite informações de tráfego ao longo de uma rota, como engarrafamentos e informações sobre portagens
-> * Solicite uma rota que consista em uma ou mais paragens (pontos de passagem)
-> * Otimize uma rota de uma ou mais paragens para obter a melhor ordem para visitar cada paragem (waypoint)
-> * Otimize rotas alternativas utilizando pontos de apoio. Por exemplo, oferecer rotas alternativas que passam por um posto de carregamento de veículos elétricos.
-> * Utilize o [Serviço de Rota](https://docs.microsoft.com/rest/api/maps/route) com o Azure Maps Web SDK
+ * Escolha entre as ApIs de Rota e a API de Encaminhamento De Matriz
+ * Solicitar tempos de viagem históricos e previstos, com base nos dados de tráfego históricos e em tempo real
+ * Solicite detalhes da rota, como tempo e distância, para todo o percurso e cada etapa do percurso
+ * Rota de pedido para um veículo comercial, como um caminhão
+ * Solicite informações de tráfego ao longo de uma rota, como engarrafamentos e informações sobre portagens
+ * Solicite uma rota que consista em uma ou mais paragens (pontos de passagem)
+ * Otimize uma rota de uma ou mais paragens para obter a melhor ordem para visitar cada paragem (waypoint)
+ * Otimize rotas alternativas utilizando pontos de apoio. Por exemplo, oferecer rotas alternativas que passam por um posto de carregamento de veículos elétricos.
+ * Utilize o [Serviço de Rota](https://docs.microsoft.com/rest/api/maps/route) com o Azure Maps Web SDK
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

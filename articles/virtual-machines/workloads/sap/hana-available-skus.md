@@ -15,10 +15,10 @@ ms.date: 09/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 6911128cfbaa87229a09bcea0d655c6110c2d208
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259786"
 ---
 # <a name="available-skus-for-hana-large-instances"></a>SKUs disponíveis para grandes instâncias HANA
@@ -48,7 +48,7 @@ A lista de instâncias disponíveis do Azure Large que são oferecidas listas co
 
 
 
-| SAP HANA certificado | Modelação | Memória Total | DRAM de memória | Optane memória | Armazenamento | Disponibilidade |
+| SAP HANA certificado | Modelo | Memória Total | DRAM de memória | Optane memória | Armazenamento | Disponibilidade |
 | --- | --- | --- | --- | --- | --- | --- |
 | SIM <br />[OLAP,](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2185) [OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2265) | SAP HANA em Azure S96<br /> – 2 x Intel® Xeon® Processador E7-8890 v4 <br /> 48 núcleos de CPU e 96 fios de CPU |  768 GB | 768 GB | --- | 3.0 TB | Disponível |
 | SIM <br /> [OLAP,](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2186) [OLTP](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure&recordid=2269) | SAP HANA em Azure S224<br /> – 4 x Processador Intel® Xeon® Platinum 8276 <br /> 112 núcleos de CPU e 224 fios de CPU |  3.0 TB | 3.0 TB | --- | 6.3 TB | Disponível |
@@ -86,8 +86,8 @@ A lista de instâncias disponíveis do Azure Large que são oferecidas listas co
 
 
 - Núcleos cpu = soma de núcleos de CPU não hiper-roscados da soma dos processadores da unidade do servidor.
-- Fios CPU = soma de fios de cálculo fornecidos por núcleos de CPU hiper roscados da soma dos processadores da unidade do servidor. A maioria das unidades são configuradas por padrão para usar a tecnologia de hiper rosca.
-- Com base nas recomendações do fornecedor S768m, S768xm e S960m não estão configurados para utilizar o Hyper-Threading para executar o SAP HANA.
+- Fios CPU = soma de fios de cálculo fornecidos por núcleos de CPU hiper roscados da soma dos processadores da unidade do servidor. A maioria das unidades são configuradas por padrão para usar Hyper-Threading Tecnologia.
+- Com base nas recomendações do fornecedor S768m, S768xm e S960m não estão configurados para utilizar Hyper-Threading para executar o SAP HANA.
 
 
 > [!IMPORTANT]

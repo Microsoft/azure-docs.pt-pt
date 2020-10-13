@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: df25278d37e518e99bc315a315e017b98c7f4e58
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89049388"
 ---
 # <a name="what-is-conditional-access-report-only-mode"></a>O que é o modo de relatório de acesso condicional?
@@ -38,7 +38,7 @@ O modo apenas de relatório é um novo estado de política de acesso condicional
 
 Quando uma política em modo apenas de relatório é avaliada para uma determinada entrada, existem quatro novos valores possíveis de resultados:
 
-| Resultado | Description |
+| Resultado | Descrição |
 | --- | --- |
 | Apenas relatório: Sucesso | Todas as condições de política configuradas, os controlos de subvenções não interativos necessários e os controlos de sessão foram satisfeitos. Por exemplo, um requisito de autenticação de vários fatores é preenchido por uma alegação de MFA já presente no token, ou uma política de dispositivo em conformidade é satisfeita com a realização de uma verificação do dispositivo num dispositivo em conformidade. |
 | Apenas relatório: Falha | Todas as condições políticas configuradas foram satisfeitas, mas nem todos os controlos de subvenção não interativos necessários ou os controlos de sessão foram satisfeitos. Por exemplo, uma política aplica-se a um utilizador em que um controlo de blocos é configurado, ou um dispositivo falha uma política de dispositivo conforme. |

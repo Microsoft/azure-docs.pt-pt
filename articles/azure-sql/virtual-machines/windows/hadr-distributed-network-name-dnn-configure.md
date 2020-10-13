@@ -15,10 +15,10 @@ ms.date: 06/02/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: ce3261eca8697ae1fabc07785353a4e845dadeba
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317009"
 ---
 # <a name="configure-a-distributed-network-name-for-an-fci"></a>Configurar um nome de rede distribuído para um FCI 
@@ -119,7 +119,7 @@ Para atualizar possíveis proprietários, siga estes passos:
    :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/fci-dnn-properties.png" alt-text="Menu de atalho para o recurso DNN, com o comando Propriedades em destaque.":::
 1. Limpe a caixa de verificação para quaisquer nós que não participem na instância do cluster de failover. A lista de possíveis proprietários para o recurso DNN deve corresponder à lista de possíveis proprietários para o recurso de instância sql Server. Por exemplo, assumindo que os Dados3 não participam na FCI, a imagem a seguir é um exemplo de remoção de Dados3 da lista de possíveis proprietários para o recurso DNN: 
 
-   :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/clear-check-for-nodes-not-in-fci.png" alt-text="Limpe a caixa de verificação ao lado dos nónões que não participam na FCI para possíveis proprietários do recurso DNN":::
+   :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/clear-check-for-nodes-not-in-fci.png" alt-text="Menu de atalho para o recurso DNN, com o comando Propriedades em destaque.":::
 
 1. Selecione **OK** para guardar as suas definições. 
 

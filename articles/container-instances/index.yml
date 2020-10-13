@@ -12,10 +12,10 @@ metadata:
   ms.author: danlep
   ms.date: 09/25/2019
   ms.openlocfilehash: 8dd403d9c1b2996c70c8d387e5305d2c8749bce8
-  ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/16/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "90705202"
 landingContent:
 - title: Acerca do Azure Container Instances

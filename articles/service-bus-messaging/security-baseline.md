@@ -8,10 +8,10 @@ ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 0f433c33f50506309e88b7ffa2c8aaf498fb3613
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761163"
 ---
 # <a name="azure-security-baseline-for-service-bus"></a>Linha de base de segurança Azure para Service Bus
@@ -715,7 +715,7 @@ O anti-malware da Microsoft está ativado no anfitrião subjacente que suporta o
 
 **Orientação**: A azure Service Bus fornece encriptação de dados em repouso com Azure Storage Service Encryption (Azure SSE). O Service Bus conta com o Azure Storage para armazenar os dados e, por padrão, todos os dados que são armazenados com o Azure Storage são encriptados utilizando as teclas geridas pela Microsoft. Se utilizar o Cofre de Chaves Azure para armazenar chaves geridas pelo cliente, certifique-se de cópias de segurança automáticas regulares das suas Chaves.
 
-Certifique-se de cópias de segurança automáticas regulares dos seus Segredos do Cofre de Chaves com o seguinte comando PowerShell: Backup-AzKeyVaultSecret
+Certifique-se de cópias de segurança automáticas regulares dos seus Segredos do Cofre chave com o seguinte comando PowerShell: Backup-AzKeyVaultSecret
 
 - [Como configurar chaves geridas pelo cliente para encriptar os dados do Azure Service Bus em repouso](configure-customer-managed-key.md)
 

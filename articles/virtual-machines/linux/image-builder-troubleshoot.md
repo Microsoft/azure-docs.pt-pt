@@ -7,12 +7,12 @@ ms.date: 10/02/2020
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: dd17057a56e8dfb269a22458b9aa20fefaab68bc
-ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
+ms.openlocfilehash: 7c937353c645ee5d977a52ec0f8e935eba19a940
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91661113"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969981"
 ---
 # <a name="troubleshoot-azure-image-builder-service"></a>Serviço de construtores de imagem Azure de resolução de problemas
 
@@ -522,7 +522,7 @@ PACKER ERR 2020/03/26 22:11:25 [INFO] RPC endpoint: Communicator ended with: 230
 O serviço Image Builder utiliza a porta 22 (Linux) ou 5986 (Windows) para ligar ao VM de construção, isto ocorre quando o serviço é desligado da construção VM durante uma construção de imagem. As razões para a desconexão podem variar, mas ativar ou configurar firewalls no script pode bloquear as portas acima.
 
 #### <a name="solution"></a>Solução
-Reveja os seus scripts para alterações/ativação de firewall, ou alterações no SSH ou WinRM, e certifique-se de que quaisquer alterações permitem uma conectividade constante entre o serviço e construa VM nas portas acima. Para obter mais informações sobre a rede do Image Builder, reveja os [requisitos.](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-networking)
+Reveja os seus scripts para alterações/ativação de firewall, ou alterações no SSH ou WinRM, e certifique-se de que quaisquer alterações permitem uma conectividade constante entre o serviço e construa VM nas portas acima. Para obter mais informações sobre a rede do Image Builder, reveja os [requisitos.](./image-builder-networking.md)
 
 ## <a name="devops-task"></a>Tarefa de DevOps 
 
@@ -547,7 +547,7 @@ Vá à conta de armazenamento > bolhas > contentores > troncos.
 ### <a name="troubleshooting-successful-builds"></a>Resolução de problemas com sucesso constrói
 Há talvez alguns casos em que precisa investigar construções bem sucedidas, e quer rever o registo. Como mencionado, se a construção de imagens for bem sucedida, o grupo de recursos de encenação que contém os registos será eliminado como parte da limpeza. No entanto, o que você pode fazer, é introduzir um sono após o comando inline, em seguida, obter os troncos à medida que a construção é pausada. Para isso siga estes passos:
  
-1. Atualize o comando inline, e adicione: Write-Host / Echo "Sleep" – isto lhe permitirá pesquisar no registo
+1. Atualize o comando inline, e adicione: Write-Host / Eco "Sleep" – isto lhe permitirá pesquisar no registo
 2. Adicione um sono durante pelo menos 10 mins, pode usar [o comando Start-Sleep](/powershell/module/microsoft.powershell.utility/start-sleep)ou `Sleep` Linux.
 3. Utilize o método acima para identificar a localização do registo e, em seguida, continue a descarregar/verificar o registo até que ele chegue ao sono.
 
@@ -586,7 +586,7 @@ Há talvez alguns casos em que precisa investigar construções bem sucedidas, e
 
 Se a construção não foi cancelada por um utilizador, foi cancelada pelo Agente utilizador Azure DevOps. O mais provável é que o tempo limite de 1 hora tenha ocorrido devido às capacidades do Azure DevOps. Se estiver a usar um projeto privado e um agente, obtém 60 minutos de tempo de construção. Se a construção exceder o tempo limite, o DevOps cancela a tarefa de execução.
 
-Para obter mais informações sobre as capacidades e limitações do Azure DevOps, consulte [os agentes hospedados pela Microsoft](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops#capabilities-and-limitations)
+Para obter mais informações sobre as capacidades e limitações do Azure DevOps, consulte [os agentes hospedados pela Microsoft](/azure/devops/pipelines/agents/hosted?view=azure-devops#capabilities-and-limitations)
  
 #### <a name="solution"></a>Solução
 
@@ -601,7 +601,7 @@ Please wait for the Windows Modules Installer
 ```
 
 #### <a name="solution"></a>Solução
-Em primeiro lugar, na verificação de construção de imagens, não são necessárias reinicializações pendentes adicionando um personalizador Windows Restart como a última personalização, e que toda a instalação do software está completa. Por último, adicione [/mode:vm](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-command-line-options) opção ao sysprep padrão que o AIB utiliza, ver abaixo, 'VMs criados a partir de imagens AIB não criam com sucesso' > 'Overriding the Commands'  
+Em primeiro lugar, na verificação de construção de imagens, não são necessárias reinicializações pendentes adicionando um personalizador Windows Restart como a última personalização, e que toda a instalação do software está completa. Por último, adicione [/mode:vm](/windows-hardware/manufacture/desktop/sysprep-command-line-options) opção ao sysprep padrão que o AIB utiliza, ver abaixo, 'VMs criados a partir de imagens AIB não criam com sucesso' > 'Overriding the Commands'  
 
  
 ## <a name="vms-created-from-aib-images-do-not-create-successfully"></a>VMs criados a partir de imagens AIB não criam com sucesso
@@ -672,6 +672,6 @@ Support Topic: Azure Features
 Support Subtopic: Azure Image Builder
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações, consulte [a visão geral do Azure Image Builder](image-builder-overview.md).

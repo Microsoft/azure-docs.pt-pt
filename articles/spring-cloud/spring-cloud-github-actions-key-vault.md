@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/08/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: 995d10b3c7064e462500e0bec4d5d8aa010afe64
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90888782"
 ---
 # <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Autenticar nuvem de primavera azure com cofre chave em ações do GitHub

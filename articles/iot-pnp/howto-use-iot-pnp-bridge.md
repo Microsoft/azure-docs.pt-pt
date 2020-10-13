@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 4c84fbb131809c92d597b46d18c53e46b636f8ef
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91613480"
 ---
 # <a name="how-to-connect-an--iot-plug-and-play-bridge-sample-running-on-linux-or-windows-to-iot-hub"></a>Como ligar uma amostra de ponte IoT Plug e Play que funciona no Linux ou windows ao IoT Hub

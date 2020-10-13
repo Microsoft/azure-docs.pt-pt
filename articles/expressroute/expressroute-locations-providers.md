@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/29/2020
 ms.author: duau
 ms.openlocfilehash: ec5790b44f281c7b7287e80369c7e4a0d5144542
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91825990"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute 

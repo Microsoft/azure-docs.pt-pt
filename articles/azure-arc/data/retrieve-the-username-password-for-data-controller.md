@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 8cabb48e3620f1a17d1bb9b87e1646ce2793143b
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761707"
 ---
 # <a name="retrieve-the-user-name-and-password-to-connect-to-the-arc-data-controller"></a>Obter o nome de utilizador e a palavra-passe para estabelecer ligação ao Controlador de Dados do Arc

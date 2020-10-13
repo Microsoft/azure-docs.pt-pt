@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurecli
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 8559e0adf1adf549d5bf3933dbb243c02a6d3ad9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 61907c53e0b0b0a58ea8a167583f02af35572f6f
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87494609"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940485"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Início Rápido: Definir e obter um segredo do Azure Key Vault com a CLI do Azure
 
@@ -74,7 +74,7 @@ Digite os comandos abaixo para criar um segredo no Key Vault chamado **ExamplePa
 az keyvault secret set --vault-name "Contoso-Vault2" --name "ExamplePassword" --value "hVFkk965BuUv"
 ```
 
-Agora, pode referenciar esta palavra-passe que adicionou ao Azure Key Vault com o respetivo URI. Use **https://Contoso-Vault2.vault.azure.net/secrets/ExamplePassword** para obter a versão atual. 
+Agora, pode referenciar esta palavra-passe que adicionou ao Azure Key Vault com o respetivo URI. Use **' https://Contoso-Vault2.vault.azure.net/secrets/ExamplePassword para** obter a versão atual. 
 
 Para ver o valor contido no segredo como texto simples:
 
@@ -84,7 +84,7 @@ az keyvault secret show --name "ExamplePassword" --vault-name "Contoso-Vault2"
 
 Agora, criou um Key Vault, armazenou um segredo e obteve-o.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Outros inícios rápidos e tutoriais desta coleção têm por base este início rápido. Se quiser continuar a trabalhar com os inícios rápidos e tutoriais subsequentes, pode manter estes recursos.
 Quando já não forem necessários, pode utilizar o comando [az group delete](/cli/azure/group) para remover o grupo de recursos e todos os recursos relacionados. Pode eliminar os recursos da seguinte forma:

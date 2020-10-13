@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3ec3e44c667d6821c4a6dc0779a760b65de5046e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d134914567c26d1f4823f5f6860e86d3e52d7dd3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89321911"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91989662"
 ---
 <a name="HOLTop"></a>
 
@@ -24,27 +24,34 @@ ms.locfileid: "89321911"
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
-* A versão mais recente do [.NET Core SDK](https://dotnet.microsoft.com/download/).
+* O [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) ou a versão atual de [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 * Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title=" crie um recurso de Visão de Computador crie um recurso de "  target="_blank"> Visão De Computador no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
     * Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação ao serviço de Visão De Computador. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
     * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
-* [Crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para o URL chave e ponto final, nomeado `COMPUTER_VISION_SUBSCRIPTION_KEY` `COMPUTER_VISION_ENDPOINT` e, respectivamente.
 
 ## <a name="setting-up"></a>Configuração
 
 ### <a name="create-a-new-c-application"></a>Criar uma nova aplicação C#
 
-Crie uma nova aplicação .NET Core no seu editor preferido ou IDE. 
+#### <a name="visual-studio-ide"></a>[Visual Studio IDE](#tab/visual-studio)
+
+Utilizando o Visual Studio, crie uma nova aplicação .NET Core. 
+
+### <a name="install-the-client-library"></a>Instalar a biblioteca do cliente 
+
+Depois de criar um novo projeto, instale a biblioteca do cliente clicando corretamente na solução de projeto no **Solution Explorer** e selecione **Gerir pacotes NuGet**. No gestor de pacotes que abre **selecione Navegar,** verificar **Incluir pré-relançar,** e procurar `Microsoft.Azure.CognitiveServices.Vision.ComputerVision` . Selecione a versão `6.0.0-preview.1` e, em seguida, **instale**. 
+
+#### <a name="cli"></a>[CLI](#tab/cli)
 
 Numa janela de consola (como cmd, PowerShell ou Bash), utilize o `dotnet new` comando para criar uma nova aplicação de consola com o nome `computer-vision-quickstart` . Este comando cria um projeto simples "Hello World" C# com um único ficheiro de origem: *ComputerVisionQuickstart.cs*.
 
-```dotnetcli
-dotnet new console -n computer-vision-quickstart
+```console
+dotnet new console -n (product-name)-quickstart
 ```
 
 Mude o seu diretório para a pasta de aplicações recém-criada. Pode construir a aplicação com:
 
-```dotnetcli
+```console
 dotnet build
 ```
 
@@ -58,6 +65,19 @@ Build succeeded.
 ...
 ```
 
+### <a name="install-the-client-library"></a>Instalar a biblioteca do cliente
+
+Dentro do diretório de aplicações, instale a biblioteca cliente Computer Vision para .NET com o seguinte comando:
+
+```console
+dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 6.0.0-preview.1
+```
+
+---
+
+> [!TIP]
+> Quer ver todo o ficheiro de código de arranque rápido de uma vez? Pode encontrá-lo no [GitHub,](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/ComputerVision/ComputerVisionQuickstart.cs)que contém os exemplos de código neste arranque rápido.
+
 A partir do diretório do projeto, abra o ficheiro *ComputerVisionQuickstart.cs* no seu editor preferido ou IDE. Adicione as `using` seguintes diretivas:
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_using)]
@@ -66,15 +86,19 @@ Na classe **programo** da aplicação, crie variáveis para o ponto final e chav
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_vars)]
 
-### <a name="install-the-client-library"></a>Instalar a biblioteca do cliente
+> [!IMPORTANT]
+> Aceda ao portal do Azure. Se o recurso de Visão De Computador que criou na secção **Pré-Requisitos** implementado com sucesso, clique no botão **'Ir a Recursos'** nos **Passos Seguintes**. Pode encontrar a sua chave e ponto final na **página chave e ponto final** do recurso, sob **gestão de recursos.** 
+>
+> Lembre-se de remover a chave do seu código quando terminar, e nunca postá-la publicamente. Para a produção, considere utilizar uma forma segura de armazenar e aceder às suas credenciais. Consulte o artigo [de segurança](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) dos Serviços Cognitivos para obter mais informações.
 
-Dentro do diretório de aplicações, instale a biblioteca cliente Computer Vision para .NET com o seguinte comando:
+No método da `Main` aplicação, adicione chamadas para os métodos utilizados neste arranque rápido. Vais criar isto mais tarde.
 
-```dotnetcli
-dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 6.0.0-preview.1
-```
 
-Se estiver a utilizar o Visual Studio IDE, a biblioteca do cliente está disponível como um pacote NuGet transferível.
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_client)]
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_analyzeinmain)]
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extracttextinmain)]
 
 ## <a name="object-model"></a>Modelo de objeto
 
@@ -103,17 +127,12 @@ Num novo método, instantaneamente um cliente com o seu ponto final e chave. Cri
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_auth)]
 
-Provavelmente vai querer chamar este método no `Main` método.
 
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_client)]
 
 ## <a name="analyze-an-image"></a>Analisar uma imagem
 
 O código que se segue define um método, `AnalyzeImageUrl` que utiliza o objeto do cliente para analisar uma imagem remota e imprimir os resultados. O método devolve uma descrição de texto, categorização, lista de tags, rostos detetados, bandeiras de conteúdo adulto, cores principais e tipo de imagem.
 
-Adicione o método de chamada no seu `Main` método.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_analyzeinmain)]
 
 ### <a name="set-up-test-image"></a>Configurar a imagem de teste
 
@@ -214,9 +233,6 @@ O código que se segue imprime informações sobre o tipo de &mdash; imagem, sej
 
 A Visão computacional pode ler texto visível numa imagem e convertê-lo num fluxo de caracteres. Para obter mais informações sobre o reconhecimento de texto, consulte o doc conceptual de [reconhecimento de caracteres óticos (OCR).](../../concept-recognizing-text.md#read-api) O código nesta secção utiliza a mais recente [versão SDK da Visão De Computador para a Leitura 3.0](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/6.0.0-preview.1) e define um método, `BatchReadFileUrl` que utiliza o objeto do cliente para detetar e extrair texto na imagem.
 
-Adicione o método de chamada no seu `Main` método.
-
-[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extracttextinmain)]
 
 ### <a name="set-up-test-image"></a>Configurar a imagem de teste
 
@@ -247,11 +263,19 @@ Adicione o seguinte código para analisar e exibir os dados de texto recuperados
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
+#### <a name="visual-studio-ide"></a>[Visual Studio IDE](#tab/visual-studio)
+
+Executar a aplicação clicando no botão **Debug** na parte superior da janela IDE.
+
+#### <a name="cli"></a>[CLI](#tab/cli)
+
 Executar o pedido do seu diretório de candidaturas com o `dotnet run` comando.
 
-```dotnetcli
+```dotnet
 dotnet run
 ```
+
+---
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

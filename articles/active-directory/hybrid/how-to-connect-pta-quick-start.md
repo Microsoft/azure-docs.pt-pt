@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0aefe95f3e78afc4b449539fd683ffc1fe525a15
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89280184"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Autenticação pass-through do Azure Ative Directory: Quickstart
@@ -79,7 +79,7 @@ Certifique-se de que existem os seguintes pré-requisitos.
 ### <a name="azure-government-cloud-prerequisite"></a>Azure Government nuvem pré-requisito
 Antes de ativar a autenticação pass-through através do Azure AD Connect com o Passo 2, descarregue a mais recente versão do agente PTA a partir do portal Azure.  Tem de se certificar de que o seu agente é versões **1.5.1742.0.** ou posterior.  Para verificar o seu agente consulte [agentes de autenticação de upgrade](how-to-connect-pta-upgrade-preview-authentication-agents.md)
 
-Depois de descarregar a versão mais recente do agente, proceda com as instruções abaixo para configurar a autenticação pass-through através do Azure AD Connect.
+Depois de descarregar a versão mais recente do agente, proceda com as instruções abaixo para configurar Pass-Through Autenticação através do Azure AD Connect.
 
 ## <a name="step-2-enable-the-feature"></a>Passo 2: Ativar a funcionalidade
 
@@ -172,7 +172,7 @@ Em segundo lugar, pode criar e executar um script de implementação sem supervi
 
 Smart Lockout ajuda a bloquear maus atores que estão a tentar adivinhar as palavras-passe dos seus utilizadores ou a usar métodos de força bruta para entrar. Ao configurar as definições de Bloqueio Inteligente em AD Azure e/ou configurações de bloqueio apropriadas no Ative Directory, os ataques podem ser filtrados antes de chegarem ao Ative Directory. Leia [este artigo](../authentication/howto-password-smart-lockout.md) para saber mais sobre como configurar as definições de Smart Lockout no seu inquilino para proteger as suas contas de utilizador.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Migrar de AD FS para Autenticação Pass-through](https://aka.ms/adfstoptadp) - Um guia detalhado para migrar de FS AD (ou outras tecnologias da federação) para a Autenticação Pass-through.
 - [Smart Lockout](../authentication/howto-password-smart-lockout.md): Saiba como configurar a capacidade de Bloqueio Inteligente no seu inquilino para proteger as contas do utilizador.
 - [Limitações atuais](how-to-connect-pta-current-limitations.md): Saiba quais os cenários suportados com a Autenticação Pass-through e quais não são.
