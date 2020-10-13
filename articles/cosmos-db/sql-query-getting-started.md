@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/24/2020
 ms.author: tisande
 ms.openlocfilehash: f4ee0c0af6939e71f696fc900ec2ab1343ca91df
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91802519"
 ---
 # <a name="getting-started-with-sql-queries"></a>Introdução às consultas SQL

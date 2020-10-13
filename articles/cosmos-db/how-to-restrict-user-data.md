@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/9/2019
 ms.author: tvoellm
 ms.openlocfilehash: 44a62643c459fb61e7a2a95c2a9dd55ea4f19111
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91570645"
 ---
 # <a name="restrict-user-access-to-data-operations-in-azure-cosmos-db"></a>Restringir o acesso dos utilizadores a operações de dados na Azure Cosmos DB

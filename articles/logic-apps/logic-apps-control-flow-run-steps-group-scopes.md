@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
 ms.openlocfilehash: 1ee8c7eabd33ad2d8773d55041fcdf54a7dd489b
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91575015"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Executar ações com base no estado de grupo utilizando âmbitos em Azure Logic Apps
@@ -82,7 +82,7 @@ Pode guardar a sua aplicação lógica a qualquer momento, por isso guarde o seu
       | **Distance unit** | <*sua preferência*> | Introduza a unidade de distância para calcular o seu percurso. Este exemplo usa este valor: "Mile" | 
       | **Travel mode** | Driving | Insira o modo de viagem para a sua rota. Este exemplo usa este valor "Driving" | 
       | **Transit Date-Time** | Nenhum | Aplica-se apenas ao modo de trânsito. | 
-      | **Tipo de data de trânsito** | Nenhum | Aplica-se apenas ao modo de trânsito. | 
+      | **Tipo de Date-Type de trânsito** | Nenhum | Aplica-se apenas ao modo de trânsito. | 
       ||||  
 
 1. [Adicione uma condição](../logic-apps/logic-apps-control-flow-conditional-statement.md) que verifique se o tempo de viagem atual com tráfego excede um tempo especificado. 

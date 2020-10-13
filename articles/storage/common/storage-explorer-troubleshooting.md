@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 07/28/2020
 ms.author: delhan
 ms.openlocfilehash: f24fb6c4d83da0d443702afaf673079363a9ffb0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91714452"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de resolução de problemas do Explorador de Armazenamento do Azure
@@ -405,7 +405,7 @@ Se o botão **Open In Explorer** no portal Azure não funcionar, certifique-se d
 * Google Chrome
 * Microsoft Internet Explorer
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Se nenhuma destas soluções funcionar para si, [abra um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues). Também pode fazê-lo selecionando a **emissão 'Relatório' para** o botão GitHub no canto inferior esquerdo.
 

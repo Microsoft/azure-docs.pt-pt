@@ -4,12 +4,12 @@ description: Fornece respostas a algumas das perguntas comuns sobre a Azure VMwa
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: fd0c0158106a24ba12fec42e41df69f246e7f3f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3e50a6a34a6588ecce8b9ecc3c6b358fddc38b7
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530481"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948719"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Perguntas frequentes sobre Azure VMware Solution
 
@@ -33,7 +33,7 @@ Todos os serviços da Azure estarão disponíveis para os clientes da Azure VMwa
 
 #### <a name="do-i-use-the-same-tools-that-i-use-now-to-manage-private-cloud-resources"></a>Uso as mesmas ferramentas que uso agora para gerir recursos privados em nuvem?
 
-Sim. O portal Azure é utilizado para implantação e várias operações de gestão. vCenter e NSX Manager são usados para gerir recursos vSphere e NSX-T.
+Yes. O portal Azure é utilizado para implantação e várias operações de gestão. vCenter e NSX Manager são usados para gerir recursos vSphere e NSX-T.
 
 #### <a name="can-i-manage-a-private-cloud-with-my-on-premises-vcenter"></a>Posso gerir uma nuvem privada com o meu vCenter no local?
 
@@ -45,7 +45,7 @@ Integrações específicas e casos de utilização podem ser avaliados caso a ca
 
 #### <a name="can-i-migrate-vsphere-vms-from-on-premises-environments-to-azure-vmware-solution-private-clouds"></a>Posso migrar vSphere VMs de ambientes no local para nuvens privadas Azure VMware Solution?
 
-Sim. A migração vM e vMotion podem ser usadas para mover VMs para uma nuvem privada se os requisitos padrão de vCenter [vCenter vMotion forem cumpridos.](https://kb.vmware.com/s/article/210695)
+Yes. A migração vM e vMotion podem ser usadas para mover VMs para uma nuvem privada se os requisitos padrão de vCenter [vCenter vMotion forem cumpridos.](https://kb.vmware.com/s/article/210695)
 
 #### <a name="is-a-specific-version-of-vsphere-required-in-on-premises-environments"></a>É necessária uma versão específica da vSphere em ambientes no local?
 
@@ -101,6 +101,10 @@ Tanto quanto sabemos, qualquer solução de backup que utilize o VMware VADP com
 
 Uma vez que estas soluções de backup são instaladas e geridas pelos clientes, podem contactar o respetivo ISV para apoio. 
 
+#### <a name="what-is-the-correct-storage-policy-for-the-dedup-set-up"></a>Qual é a política de armazenamento correta para a dedup criada?
+
+Utilize a política de armazenamento *thin_provision* para o seu modelo VM.  O padrão é *thick_provision*.
+
 ## <a name="hosts-clusters-and-private-clouds"></a>Anfitriões, aglomerados e nuvens privadas
 
 #### <a name="is-the-underlying-infrastructure-shared"></a>A infraestrutura subjacente é partilhada?
@@ -121,7 +125,7 @@ Os clusters de ensaio são três aglomerados de hospedeiros utilizados para aval
 
 #### <a name="can-i-use-high-end-hosts-for-trial-clusters"></a>Posso usar hospedeiros de alta qualidade para agrupamentos de ensaios?
 
-N.º Os anfitriões ESXi de gama alta estão reservados para uso em clusters de produção.
+Não. Os anfitriões ESXi de gama alta estão reservados para uso em clusters de produção.
 
 ## <a name="azure-vmware-solution-and-vmware-software"></a>Solução Azure VMware e software VMware
 
@@ -135,7 +139,7 @@ Sim, o NSX-T 2.5 é utilizado para a rede definida em nuvem privada Azure VMware
 
 #### <a name="can-i-use-vmware-nsx-v-in-a-private-cloud"></a>Posso usar VMware NSX-V numa nuvem privada?
 
-N.º NSX-T é a única versão suportada do NSX.
+Não. NSX-T é a única versão suportada do NSX.
 
 #### <a name="is-nsx-required-in-on-premises-environments-or-networks-that-connect-to-a-private-cloud"></a>O NSX é necessário em ambientes ou redes no local que se ligam a uma nuvem privada?
 
@@ -168,11 +172,13 @@ No portal Azure, permita a conectividade da internet para uma nuvem privada. Com
 
 #### <a name="do-i-need-to-restrict-access-from-the-internet-to-vms-on-logical-networks-in-a-private-cloud"></a>Preciso de restringir o acesso da internet a VMs em redes lógicas numa nuvem privada?
 
-N.º O tráfego de rede a entrar da internet diretamente para nuvens privadas não é permitido.
+Não. O tráfego de rede a entrar da internet diretamente para nuvens privadas não é permitido.
 
 #### <a name="do-i-need-to-restrict-internet-access-from-vms-on-logical-networks-to-the-internet"></a>Preciso de restringir o acesso à Internet de VMs em redes lógicas para a internet?
 
-Sim. Terá de usar o gestor NSX-T para criar uma firewall que restringe o acesso de VM à internet.
+Yes. Terá de usar o gestor NSX-T para criar uma firewall que restringe o acesso de VM à internet.
+
+
 
 ## <a name="accounts-and-privileges"></a>Contas e privilégios
 
@@ -211,7 +217,7 @@ Você precisará de uma conta Azure numa subscrição do Azure.
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>Como solicito um aumento da quota de anfitrião para a Azure VMware Solution?
 
-* Vai precisar de um [Acordo de Empresa Azure (EA)](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-agreements) com a Microsoft.
+* Vai precisar de um [Acordo de Empresa Azure (EA)](../cost-management-billing/manage/ea-portal-agreements.md) com a Microsoft.
 * Você precisará de uma conta Azure numa subscrição do Azure.
 
 Antes de criar o seu recurso Azure VMware Solution, terá de submeter um bilhete de apoio para que os seus nós tenham os seus nós atribuídos. Uma vez que a equipa de apoio recebe o seu pedido, leva até cinco dias úteis para confirmar o seu pedido e alocar os seus nós. Se tiver uma nuvem privada Azure VMware Solution e quiser mais nós atribuídos, passará pelo mesmo processo.

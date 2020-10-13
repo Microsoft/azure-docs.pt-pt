@@ -7,10 +7,10 @@ author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
 ms.openlocfilehash: 714a43ec197ac150488d4443c1eb6fe1be1da232
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91575525"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor Logs Clusters Dedicados
@@ -116,12 +116,12 @@ Deve ser 200 OK e um cabeçalho.
 
 O provisionamento do cluster Log Analytics demora algum tempo a ser concluído. Pode verificar o estado de provisionamento de várias formas:
 
-- Executar o comando Get-AzOperationalInsightsCluster PowerShell com o nome do grupo de recursos e verificar a propriedade ProvisioningState. O valor é *ProvisioningAccount* enquanto provisione e *conseguiu* quando concluído.
+- Executar Get-AzOperationalInsightsCluster comando PowerShell com o nome do grupo de recursos e verifique a propriedade ProvisioningState. O valor é *ProvisioningAccount* enquanto provisione e *conseguiu* quando concluído.
   ```powershell
   New-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} 
   ```
 
-- Copie o valor URL Azure-AsyncOperation da resposta e siga a verificação do estado das operações assíncronas.
+- Copie o valor de URL Azure-AsyncOperation da resposta e siga a verificação do estado das operações assíncronos.
 
 - Envie um pedido GET sobre o recurso *Cluster* e analise o valor *do Estado de provisionamento.* O valor é *ProvisioningAccount* enquanto provisione e *conseguiu* quando concluído.
 
@@ -218,7 +218,7 @@ Content-type: application/json
 
 A propagação do identificador chave leva alguns minutos para ser concluída. Pode verificar o estado de atualização de duas formas:
 
-- Copie o valor URL Azure-AsyncOperation da resposta e siga a verificação do estado das operações assíncronas. 
+- Copie o valor de URL Azure-AsyncOperation da resposta e siga a verificação do estado das operações assíncronos. 
 
    OU
 
@@ -319,7 +319,7 @@ Se utilizar as teclas geridas pelo cliente, os dados ingeridos são armazenados 
 
 Pode verificar o estado da associação do espaço de trabalho de duas formas:
 
-- Copie o valor URL Azure-AsyncOperation da resposta e siga a verificação do estado das operações assíncronas.
+- Copie o valor de URL Azure-AsyncOperation da resposta e siga a verificação do estado das operações assíncronos.
 
 - Enviar um [Espaço de Trabalho – Solicite](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) e observe a resposta. O espaço de trabalho associado tem um clusterResourceId em "funcionalidades".
 

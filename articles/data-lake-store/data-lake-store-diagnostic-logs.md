@@ -13,10 +13,10 @@ ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: cd1b03c8cecf84e75bac32be0570c2f4f3db9b2e
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91575542"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Aceder a registos de diagnóstico para Azure Data Lake Storage Gen1
@@ -117,25 +117,25 @@ Aqui está uma amostra de entrada no registo de pedidos formatados pela JSON. Ca
 #### <a name="request-log-schema"></a>Solicitar esquema de registo
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
-| hora |String |A horatampia (em UTC) do log |
-| resourceId |String |O ID do recurso que a operação teve lugar em |
-| categoria |String |A categoria de registo. Por exemplo, **Pedidos**. |
-| operationName |String |Nome da operação que está registada. Por exemplo, getfilestatus. |
-| resultType |String |O estado da operação, por exemplo, 200. |
-| callerIpAddress |String |O endereço IP do cliente fazendo o pedido |
-| correlationId |String |O ID do log que pode ser usado para agrupar um conjunto de entradas de registo relacionadas |
+| hora |Cadeia |A horatampia (em UTC) do log |
+| resourceId |Cadeia |O ID do recurso que a operação teve lugar em |
+| categoria |Cadeia |A categoria de registo. Por exemplo, **Pedidos**. |
+| operationName |Cadeia |Nome da operação que está registada. Por exemplo, getfilestatus. |
+| resultType |Cadeia |O estado da operação, por exemplo, 200. |
+| callerIpAddress |Cadeia |O endereço IP do cliente fazendo o pedido |
+| correlationId |Cadeia |O ID do log que pode ser usado para agrupar um conjunto de entradas de registo relacionadas |
 | identidade |Objeto |A identidade que gerou o log |
 | propriedades |JSON |Veja abaixo os detalhes |
 
 #### <a name="request-log-properties-schema"></a>Solicite esquema de propriedades de registo
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
-| HttpMethod |String |O método HTTP utilizado para a operação. Por exemplo, GET. |
-| Caminho |String |O caminho em que a operação foi realizada |
+| HttpMethod |Cadeia |O método HTTP utilizado para a operação. Por exemplo, GET. |
+| Caminho |Cadeia |O caminho em que a operação foi realizada |
 | PedidoContentLength |int |O comprimento do conteúdo do pedido HTTP |
-| ClientRequestId |String |O ID que identifica exclusivamente este pedido |
-| StartTime |String |O momento em que o servidor recebeu o pedido |
-| EndTime |String |O momento em que o servidor enviou uma resposta |
+| ClientRequestId |Cadeia |O ID que identifica exclusivamente este pedido |
+| StartTime |Cadeia |O momento em que o servidor recebeu o pedido |
+| EndTime |Cadeia |O momento em que o servidor enviou uma resposta |
 
 ### <a name="audit-logs"></a>Registos de auditoria
 Aqui está uma amostra de entrada no registo de auditoria formatado pela JSON. Cada bolha tem um objeto raiz chamado **registos** que contém uma variedade de objetos de log
@@ -166,20 +166,20 @@ Aqui está uma amostra de entrada no registo de auditoria formatado pela JSON. C
 #### <a name="audit-log-schema"></a>Esquema de registo de auditoria
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
-| hora |String |A horatampia (em UTC) do log |
-| resourceId |String |O ID do recurso que a operação teve lugar em |
-| categoria |String |A categoria de registo. Por exemplo, **Auditoria**. |
-| operationName |String |Nome da operação que está registada. Por exemplo, getfilestatus. |
-| resultType |String |O estado da operação, por exemplo, 200. |
-| resultSignature |String |Detalhes adicionais sobre a operação. |
-| correlationId |String |O ID do log que pode ser usado para agrupar um conjunto de entradas de registo relacionadas |
+| hora |Cadeia |A horatampia (em UTC) do log |
+| resourceId |Cadeia |O ID do recurso que a operação teve lugar em |
+| categoria |Cadeia |A categoria de registo. Por exemplo, **Auditoria**. |
+| operationName |Cadeia |Nome da operação que está registada. Por exemplo, getfilestatus. |
+| resultType |Cadeia |O estado da operação, por exemplo, 200. |
+| resultSignature |Cadeia |Detalhes adicionais sobre a operação. |
+| correlationId |Cadeia |O ID do log que pode ser usado para agrupar um conjunto de entradas de registo relacionadas |
 | identidade |Objeto |A identidade que gerou o log |
 | propriedades |JSON |Veja abaixo os detalhes |
 
 #### <a name="audit-log-properties-schema"></a>Esquema de propriedades de registo de auditoria
 | Nome | Tipo | Descrição |
 | --- | --- | --- |
-| Nome de stream |String |O caminho em que a operação foi realizada |
+| Nome de stream |Cadeia |O caminho em que a operação foi realizada |
 
 ## <a name="samples-to-process-the-log-data"></a>Amostras para processar os dados do registo
 Ao enviar registos de Azure Data Lake Storage Gen1 para Azure Monitor (ver [ver ou analisar dados recolhidos com registos do Azure Monitor procurar](../azure-monitor/learn/tutorial-viewdata.md) detalhes sobre a utilização de registos do Monitor Azure), a seguinte consulta devolverá uma tabela contendo uma lista de nomes de visualização do utilizador, a hora dos eventos e a contagem de eventos para a hora do evento juntamente com um gráfico visual. Pode ser facilmente modificado para mostrar ao utilizador GUID ou outros atributos:
@@ -193,7 +193,7 @@ search *
 
 A Azure Data Lake Storage Gen1 fornece uma amostra sobre como processar e analisar os dados de registo. Pode encontrar a amostra [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample) em. 
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 * [Visão geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Proteger dados no Armazenamento do Data Lake Ger1](data-lake-store-secure-data.md)
 

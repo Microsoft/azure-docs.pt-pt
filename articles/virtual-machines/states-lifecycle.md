@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
-ms.openlocfilehash: cd104a31fdba932481889db198ae3cc4998a4466
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c9641e722cf3892450bbfbea54f169ac6dc764b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88261893"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963300"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>Ciclo de vida de máquinas virtuais e estados
 
@@ -418,13 +418,13 @@ Uma vez concluída a operação, o VM transitará para um dos seguintes estados:
 
 ## <a name="vm-instance-view"></a>Vista de instância VM
 
-A api de opinião de exemplo fornece informações sobre o estado de execução da VM. Para mais informações, consulte as [Máquinas Virtuais - Exemplo Ver](https://docs.microsoft.com/rest/api/compute/virtualmachines/instanceview) documentação da API.
+A api de opinião de exemplo fornece informações sobre o estado de execução da VM. Para mais informações, consulte as [Máquinas Virtuais - Exemplo Ver](/rest/api/compute/virtualmachines/instanceview) documentação da API.
 
 O explorador de Recursos Azure fornece uma UI simples para visualizar o estado de execução VM: [Resource Explorer](https://resources.azure.com/).
 
 Os estados de provisionamento são visíveis nas propriedades de VM e na visualização de instâncias. Os estados de energia estão disponíveis, por exemplo, à vista de VM.
 
-Para recuperar o estado de potência de todos os VMs na sua subscrição, utilize as [Máquinas Virtuais - Liste Todas as API](https://docs.microsoft.com/rest/api/compute/virtualmachines/listall) com o status de **parâmetros Definidos** para *verdadeiros*.
+Para recuperar o estado de potência de todos os VMs na sua subscrição, utilize as [Máquinas Virtuais - Liste Todas as API](/rest/api/compute/virtualmachines/listall) com o status de **parâmetros Definidos** para *verdadeiros*.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -10,13 +10,13 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
 ms.openlocfilehash: 32e67bd7f30fecee3449935a35235844a047957b
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91574331"
 ---
-# <a name="iot-plug-and-play-architecture"></a>IoT Plug e Play arquitetura
+# <a name="iot-plug-and-play-architecture"></a>Arquitetura do IoT Plug and Play
 
 O IoT Plug and Play permite aos construtores de soluções integrar dispositivos inteligentes com as suas soluções sem qualquer configuração manual. No núcleo do IoT Plug and Play, está um _modelo_ de dispositivo que descreve as capacidades de um dispositivo para uma aplicação IoT Plug e Play. Este modelo é estruturado como um conjunto de interfaces que definem:
 
@@ -28,7 +28,7 @@ Cada modelo e interface tem um ID único.
 
 O seguinte diagrama mostra os elementos-chave de uma solução IoT Plug and Play:
 
-:::image type="content" source="media/concepts-architecture/pnp-architecture.png" alt-text="IoT Plug e Play arquitetura":::
+:::image type="content" source="media/concepts-architecture/pnp-architecture.png" alt-text="Arquitetura do IoT Plug and Play":::
 
 ## <a name="model-repository"></a>Repositório de modelos
 
@@ -66,7 +66,7 @@ Os SDKs do dispositivo ajudam um construtor de módulos a:
 - Adicione os controladores para os comandos definidos nas interfaces DTDL.
 - Envie telemetria para o centro de IoT.
 
-## <a name="iot-hub"></a>Hub IoT
+## <a name="iot-hub"></a>IoT Hub
 
 [O IoT Hub](../iot-hub/about-iot-hub.md) é um serviço hospedado na nuvem que funciona como um centro de mensagens central para a comunicação bidis entre a sua solução IoT e os dispositivos que gere.
 

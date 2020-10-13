@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/10/2020
-ms.openlocfilehash: dff5e73f9bb02357a6a6f74f5d0db08eee13e76e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: 38f3aaeddbdedb073d83a64a508eb9f4578f1c97
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332275"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948441"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copiar e transformar dados no armazenamento da Azure Blob utilizando a Azure Data Factory
 
@@ -242,6 +242,9 @@ Estas propriedades são suportadas para um serviço ligado ao armazenamento Azur
 | connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o tempo de funcionamento da integração Azure ou o tempo de integração auto-hospedado (se a sua loja de dados estiver numa rede privada). Se esta propriedade não for especificada, o serviço utiliza o tempo de execução de integração Azure padrão. |Não |
 
 >[!NOTE]
+>Se a sua conta blob permitir [a eliminação suave,](../storage/blobs/soft-delete-blob-overview.md)a autenticação principal do serviço não é suportada no Fluxo de Dados.
+
+>[!NOTE]
 >A autenticação principal do serviço é suportada apenas pelo serviço ligado do tipo "AzureBlobStorage", e não pelo serviço anterior de ligação do tipo "AzureStorage".
 
 **Exemplo:**
@@ -293,6 +296,9 @@ Estas propriedades são suportadas para um serviço ligado ao armazenamento Azur
 | serviceEndpoint | Especifique o ponto final do serviço de armazenamento Azure Blob com o padrão de `https://<accountName>.blob.core.windows.net/` . |Sim |
 | contaAndo | Especifique o tipo da sua conta de armazenamento. Os valores permitidos são: **Armazenamento** (finalidade geral v1), **ArmazenamentoV2** (finalidade geral v2), **BlobStorage**ou **BlockBlobStorage**. <br/> Quando se utiliza o serviço ligado a Azure Blob no fluxo de dados, a autenticação principal de identidade ou serviço gerida não é suportada quando o tipo de conta é vazio ou "Armazenamento". Especifique o tipo de conta adequada, escolha uma autenticação diferente ou atualize a sua conta de armazenamento para fins gerais v2. |Não |
 | connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o tempo de funcionamento da integração Azure ou o tempo de integração auto-hospedado (se a sua loja de dados estiver numa rede privada). Se esta propriedade não for especificada, o serviço utiliza o tempo de execução de integração Azure padrão. |Não |
+
+> [!NOTE]
+> Se a sua conta blob permitir [a eliminação suave,](../storage/blobs/soft-delete-blob-overview.md)a autenticação de identidade gerida não é suportada no Fluxo de Dados.
 
 > [!NOTE]
 > As identidades geridas para a autenticação de recursos Azure são suportadas apenas pelo serviço ligado ao tipo "AzureBlobStorage", e não pelo serviço ligado anterior do tipo "AzureStorage".

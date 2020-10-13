@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 01/08/2020
 ms.custom: sqldbrb=1
 ms.openlocfilehash: 6e60403344a0341b4aee74a001287c09ba67e114
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448898"
 ---
 # <a name="how-to-migrate-your-sqlite-database-to-azure-sql-database-serverless"></a>Como migrar a sua base de dados SQLite para o Azure SQL Database sem servidor
@@ -53,7 +53,7 @@ Depois de seguir os passos abaixo, a sua base de dados será migrada para o Azur
     - Arranque da ADF (Autor e Monitor a partir do serviço no portal Azure)
     - Clique no separador "Autor" (lápis azul) à esquerda
     - Clique em Conexões (inferior à esquerda), em seguida, integração tempos de execução
-    - Adicione o novo tempo de integração auto-hospedado, dê-lhe um nome, selecione *Opção 2*.
+    - Adicione novos Self-Hosted Prazo de Integração, dê-lhe um nome, selecione *Opção 2*.
 
 5. Crie um novo serviço ligado para a base de dados SQLite de origem na sua Fábrica de Dados.
 
@@ -106,7 +106,7 @@ Depois de seguir os passos abaixo, a sua base de dados será migrada para o Azur
 
 15. Selecione todas as tabelas da base de dados origem SQLite utilizando as caixas de verificação e mapeeee-as para as tabelas-alvo em Azure SQL. Uma vez executado o trabalho, você conseguiu migrar os seus dados da SQLite para Azure SQL!
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para começar, consulte [Quickstart: Crie uma única base de dados na Base de Dados Azure SQL utilizando o portal Azure](single-database-create-quickstart.md).
 - Para obter limites de recursos, consulte [os limites de recursos de nível de cálculo serverless](../../sql-database/sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5).

@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Gerir a governação da tag'
 description: Neste tutorial, você usa o efeito Modificar da Política Azure para criar e impor um modelo de governação de tags em recursos novos e existentes.
-ms.date: 08/17/2020
+ms.date: 10/05/2020
 ms.topic: tutorial
-ms.openlocfilehash: f49eedb00c98d3c362140fdca9b195a086903f10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9efeb27151cd3a32741f1bdb6d1d90d3304c5874
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88545510"
+ms.locfileid: "91876282"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Tutorial: Gerir a governação com a Política Azure
 
@@ -126,7 +126,12 @@ Em termos específicos de um ambiente Azure gerido pela Azure Policy, os requisi
         {
             "field": "name",
             "like": "prd-*"
+        },
+        {
+            "field": "tags['Env']",
+            "notEquals": "Production"
         }
+
     ]
     },
     "then": {

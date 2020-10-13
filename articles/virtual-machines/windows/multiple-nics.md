@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
-ms.openlocfilehash: ed1c5b749b778ef8334ea3b31ef17d3bf106484f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66a135cd1629aa2befcd4c56d835473791d62ce8
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87835549"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974010"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Criar e gerir uma máquina virtual Windows que tenha vários NICs
 As máquinas virtuais (VMs) em Azure podem ter vários cartões de interface de rede virtuais (NICs) ligados a eles. Um cenário comum é ter sub-redes diferentes para a conectividade frontal e traseira. Pode associar vários NICs num VM a várias sub-redes, mas essas sub-redes devem residir todas na mesma rede virtual (vNet). Este artigo detalha como criar um VM que tenha vários NICs ligados a ele. Também aprende a adicionar ou remover NICs de um VM existente. Diferentes [tamanhos VM](../sizes.md) suportam um número variado de NICs, por isso dimensione o seu VM em conformidade.
@@ -70,7 +70,7 @@ $myNic2 = New-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
     -SubnetId $backEnd.Id
 ```
 
-Normalmente, também se cria um [grupo de segurança](../../virtual-network/security-overview.md) de rede para filtrar o tráfego de rede para o VM e um [equilibrador](../../load-balancer/load-balancer-overview.md) de carga para distribuir tráfego por vários VMs.
+Normalmente, também se cria um [grupo de segurança](../../virtual-network/network-security-groups-overview.md) de rede para filtrar o tráfego de rede para o VM e um [equilibrador](../../load-balancer/load-balancer-overview.md) de carga para distribuir tráfego por vários VMs.
 
 ### <a name="create-the-virtual-machine"></a>Criar a máquina virtual
 Agora comece a construir a sua configuração VM. Cada tamanho VM tem um limite para o número total de NICs que pode adicionar a um VM. Para obter mais informações, consulte [os tamanhos do Windows VM](../sizes.md).
@@ -288,4 +288,4 @@ O Azure atribui um portal predefinido à primeira interface de rede (primária) 
     A rota listada com *192.168.1.1 no* **gateway,** é a rota que existe por padrão para a interface de rede primária. A rota com *192.168.2.1* em **Gateway,** é a rota que adicionou.
 
 ## <a name="next-steps"></a>Passos seguintes
-Reveja [os tamanhos do Windows VM](../sizes.md) quando estiver a tentar criar um VM que tenha vários NICs. Preste atenção ao número máximo de NICs que cada tamanho VM suporta. 
+Reveja [os tamanhos do Windows VM](../sizes.md) quando estiver a tentar criar um VM que tenha vários NICs. Preste atenção ao número máximo de NICs que cada tamanho VM suporta.
