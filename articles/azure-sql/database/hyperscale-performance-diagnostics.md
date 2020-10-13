@@ -11,10 +11,10 @@ ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
 ms.openlocfilehash: 7bd2b404627e21a80fc41a4561300d7252d1519c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84324402"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>SQL Hiperscale desempenho problemas de resolução de diagnósticos
@@ -67,11 +67,11 @@ Várias vistas dinâmicas geridas (DMVs) e eventos estendidos têm colunas e cam
 
 ## <a name="virtual-file-stats-and-io-accounting"></a>Estatísticas de ficheiros virtuais e contabilidade de IO
 
-Na Base de Dados Azure SQL, o [Sys.dm_io_virtual_file_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) DMF é a principal forma de monitorizar a SQL Database IO. As características de IO em Hiperescala são diferentes devido à sua [arquitetura distribuída.](service-tier-hyperscale.md#distributed-functions-architecture) Nesta secção, focamo-nos em IO (leituras e escritos) para ficheiros de dados como visto neste DMF. Em Hyperscale, cada ficheiro de dados visível neste DMF corresponde a um servidor de página remota. A cache RBPEX mencionada aqui é uma cache local baseada em SSD, que é uma cache não-cobrindo na réplica do cálculo.
+Na Base de Dados Azure SQL, o [DMF sys.dm_io_virtual_file_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) É a principal forma de monitorizar a Base de Dados SQL IO. As características de IO em Hiperescala são diferentes devido à sua [arquitetura distribuída.](service-tier-hyperscale.md#distributed-functions-architecture) Nesta secção, focamo-nos em IO (leituras e escritos) para ficheiros de dados como visto neste DMF. Em Hyperscale, cada ficheiro de dados visível neste DMF corresponde a um servidor de página remota. A cache RBPEX mencionada aqui é uma cache local baseada em SSD, que é uma cache não-cobrindo na réplica do cálculo.
 
 ### <a name="local-rbpex-cache-usage"></a>Utilização local de cache RBPEX
 
-Cache RBPEX local existe na réplica do cálculo, no armazenamento SSD local. Assim, iO contra esta cache é mais rápido do que IO contra servidores de página remota. Atualmente, [sys.dm_io_virtual_file_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) numa base de dados de Hiperescala tem uma linha especial reportando o IO contra a cache RBPEX local na réplica do cálculo. Esta linha tem o valor de 0 para ambos `database_id` e `file_id` colunas. Por exemplo, a consulta abaixo devolve as estatísticas de utilização RBPEX desde o arranque da base de dados.
+Cache RBPEX local existe na réplica do cálculo, no armazenamento SSD local. Assim, iO contra esta cache é mais rápido do que IO contra servidores de página remota. Atualmente, sys.dm_io_virtual_file_stats numa base de [dados](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) de Hiperescala tem uma linha especial reportando o IO contra a cache RBPEX local na réplica do cálculo. Esta linha tem o valor de 0 para ambos `database_id` e `file_id` colunas. Por exemplo, a consulta abaixo devolve as estatísticas de utilização RBPEX desde o arranque da base de dados.
 
 `select * from sys.dm_io_virtual_file_stats(0,NULL);`
 
@@ -97,11 +97,11 @@ Uma relação de leituras feitas no RBPEX com leituras agregadas feitas em todos
 
 ## <a name="data-io-in-resource-utilization-statistics"></a>IO de dados nas estatísticas de utilização de recursos
 
-Numa base de dados não-Hyperscale, a leitura combinada e a escrita de IOPS contra ficheiros de dados, relativamente ao limite de direito de [governação](/azure/sql-database/sql-database-resource-limits-database-server#resource-governance) de recursos IOPS, são reportados em [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) e [sys.resource_stats pontos](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) de vista, na `avg_data_io_percent` coluna. O mesmo valor é reportado no portal Azure como _Data IO Percentagem_.
+Numa base de dados não-Hyperscale, a leitura combinada e a escrita de IOPS contra ficheiros de dados, relativamente ao limite de dados de [governação](/azure/sql-database/sql-database-resource-limits-database-server#resource-governance) de recursos IOPS, são reportados em [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) e [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) pontos de vista, na `avg_data_io_percent` coluna. O mesmo valor é reportado no portal Azure como _Data IO Percentagem_.
 
 Numa base de dados de Hiperescala, esta coluna reporta sobre a utilização de dados IOPS relativamente ao limite de armazenamento local apenas na réplica do cálculo, especificamente IO contra RBPEX e `tempdb` . Um valor de 100% nesta coluna indica que a governação de recursos está a limitar o IOPS de armazenamento local. Se isto estiver correlacionado com um problema de desempenho, afina a carga de trabalho para gerar menos IO ou aumentar o objetivo do serviço de base de dados para aumentar o [limite](resource-limits-vcore-single-databases.md)de governação de recursos _Max Data IOPS_ . Para a governação de recursos do RBPEX lê e escreve, o sistema conta com iOs individuais de 8-KB, em vez de IOs maiores que podem ser emitidos pelo motor de base de dados SQL Server.
 
-O IO de dados contra servidores de páginas remotas não é reportado em visualizações de utilização de recursos ou no portal, mas é relatado no [Sys.dm_io_virtual_file_stats()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) DMF, como referido anteriormente.
+O IO de dados contra servidores de páginas remotas não é reportado em visualizações de utilização de recursos ou no portal, mas é reportado no [DMF sys.dm_io_virtual_file_stats,](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) como referido anteriormente.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

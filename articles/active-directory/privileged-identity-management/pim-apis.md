@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb102c23d80095b8eb79fc25d1c1fd9d7f374fce
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91529699"
 ---
 # <a name="microsoft-graph-apis-for-privileged-identity-management-preview"></a>APIs do Gráfico da Microsoft para Gestão de Identidade Privilegiada (Pré-visualização)
@@ -59,6 +59,6 @@ Se estiver a utilizar o Graph Explorer para testar as suas chamadas, pode especi
 
 1. Clique **em Modificar Permissões** para aplicar as alterações de permissão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Referência da Azure AD Gestão de Identidade Privilegiada API](/graph/api/resources/privilegedidentitymanagement-root?view=graph-rest-beta)

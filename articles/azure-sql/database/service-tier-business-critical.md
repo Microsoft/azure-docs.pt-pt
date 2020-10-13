@@ -13,10 +13,10 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 12/04/2018
 ms.openlocfilehash: 0067811316a8afd26828050d81215ecb5748c841
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85986706"
 ---
 # <a name="business-critical-tier---azure-sql-database-and-azure-sql-managed-instance"></a>Business Critical tier - Azure SQL Database e Azure SQL Managed Instance 
@@ -59,7 +59,7 @@ As principais razões pelas quais deve escolher o nível de serviço Business Cr
 - **Maior disponibilidade** - O nível De Negócios Crítico na configuração Multi-AZ garante disponibilidade de 99,995%, contra 99,99% do nível de Finalidade Geral.
 - **Rápida geo-recuperação** - O nível de operação Critical configurado com geo-replicação tem um objetivo garantido de ponto de recuperação (RPO) de 5 seg e objetivo de tempo de recuperação (RTO) de 30 seg para 100% das horas implantadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Encontrar características de recursos (número de núcleos, I/O, memória) do nível Business Critical em [SQL Managed Instance](../managed-instance/resource-limits.md#service-tier-characteristics), Base de dados única no [modelo vCore](resource-limits-vcore-single-databases.md#business-critical---provisioned-compute---gen4) ou [modelo DTU,](resource-limits-dtu-single-databases.md#premium-service-tier)ou piscina elástica no [modelo vCore](resource-limits-vcore-elastic-pools.md#business-critical---provisioned-compute---gen4) e [modelo DTU](resource-limits-dtu-elastic-pools.md#premium-elastic-pool-limits).
 - Saiba mais sobre os níveis [de Finalidade Geral](service-tier-general-purpose.md) e [Hiperescala.](service-tier-hyperscale.md)

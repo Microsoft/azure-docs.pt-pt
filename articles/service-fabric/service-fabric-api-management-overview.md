@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 06/22/2017
 ms.author: vturecek
 ms.openlocfilehash: bbde23dd888d179917f123d00745fb7d0099c2d2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86259295"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric with Azure API Management overview(Service Fabric com descrição geral da Gestão de API do Azure)
@@ -79,8 +79,8 @@ Neste exemplo, é criada uma nova instância de serviço apátrida para cada uti
 
   Cada serviço tem um nome único, mas os nomes não são conhecidos adiantado porque os serviços são criados em resposta à entrada de utilizador ou administração e, portanto, não podem ser codificados em políticas apim ou regras de encaminhamento. Em vez disso, o nome do serviço para o qual enviar um pedido é gerado na definição de política de back-end a partir do `name` valor fornecido na trajetória de pedido de URL. Por exemplo:
 
-  - Um pedido `/api/users/foo` é encaminhado para a instância de serviço`fabric:/app/users/foo`
-  - Um pedido `/api/users/bar` é encaminhado para a instância de serviço`fabric:/app/users/bar`
+  - Um pedido `/api/users/foo` é encaminhado para a instância de serviço `fabric:/app/users/foo`
+  - Um pedido `/api/users/bar` é encaminhado para a instância de serviço `fabric:/app/users/bar`
 
 ![Tecido de serviço com topologia de gestão API Azure][sf-apim-dynamic-stateless]
 
@@ -98,8 +98,8 @@ Neste exemplo, é criada uma nova instância de serviço estatal para cada utili
 
   Cada serviço tem um nome único, mas os nomes não são conhecidos adiantado porque os serviços são criados em resposta à entrada de utilizador ou administração e, portanto, não podem ser codificados em políticas apim ou regras de encaminhamento. Em vez disso, o nome do serviço para o qual enviar um pedido é gerado na definição de política de back-end a partir do `name` valor fornecido pela trajetória de pedido de URL. Por exemplo:
 
-  - Um pedido `/api/users/foo` é encaminhado para a instância de serviço`fabric:/app/users/foo`
-  - Um pedido `/api/users/bar` é encaminhado para a instância de serviço`fabric:/app/users/bar`
+  - Um pedido `/api/users/foo` é encaminhado para a instância de serviço `fabric:/app/users/foo`
+  - Um pedido `/api/users/bar` é encaminhado para a instância de serviço `fabric:/app/users/bar`
 
 Cada instância de serviço também é dividida usando o esquema de partição Int64 com duas divisórias e uma gama chave que se estende `Int64.MinValue` até `Int64.MaxValue` . A política de back-end calcula uma chave de partição dentro desse intervalo, convertendo o `id` valor fornecido no caminho de pedido de URL para um inteiro de 64 bits, embora qualquer algoritmo possa ser usado aqui para calcular a chave de partição. 
 

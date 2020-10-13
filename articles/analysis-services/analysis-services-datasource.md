@@ -8,10 +8,10 @@ ms.date: 08/21/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: b99ac957c9c5030b484b244223847be4aa53a39d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88749083"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Data sources supported in Azure Analysis Services (Origens de dados suportadas no Azure Analysis Services)
@@ -22,15 +22,15 @@ As fontes de dados e conectores mostrados no Get Data ou no Table Import Wizard 
 
 |Origem de dados  |Dentro da memória  |DirectQuery  |Notas |
 |---------|---------|---------|---------|
-|Base de Dados SQL do Azure      |   Yes      |    Yes      |<sup>[2,](#azprovider)</sup> <sup> [3](#azsqlmanaged)</sup>|
-|Azure Synapse Analytics (SQL DW)      |   Yes      |   Yes       |<sup>[2](#azprovider)</sup>|
-|Armazenamento de Blobs do Azure      |   Sim       |    No      | <sup>[1](#tab1400a)</sup> |
-|Armazenamento de Tabelas do Azure     |   Sim       |    No      | <sup>[1](#tab1400a)</sup>|
-|Azure Cosmos DB     |  Sim        |  No        |<sup>[1](#tab1400a)</sup> |
-|Azure Data Lake Store Gen1      |   Sim       |    No      |<sup>[1](#tab1400a)</sup> |
-|Azure Data Lake Store Gen2       |   Sim       |    No      |<sup>[1,](#tab1400a)</sup> <sup> [5](#gen2)</sup>|
-|Azure HDInsight HDFS    |     Sim     |   No       |<sup>[1](#tab1400a)</sup> |
-|Azure HDInsight Spark     |   Sim       |   No       |<sup>[1,](#tab1400a)</sup> <sup> [4](#databricks)</sup>|
+|Base de Dados SQL do Azure      |   Sim      |    Sim      |<sup>[2,](#azprovider)</sup> <sup> [3](#azsqlmanaged)</sup>|
+|Azure Synapse Analytics (SQL DW)      |   Sim      |   Sim       |<sup>[2](#azprovider)</sup>|
+|Armazenamento de Blobs do Azure      |   Sim       |    Não      | <sup>[1](#tab1400a)</sup> |
+|Armazenamento de Tabelas do Azure     |   Sim       |    Não      | <sup>[1](#tab1400a)</sup>|
+|Azure Cosmos DB     |  Sim        |  Não        |<sup>[1](#tab1400a)</sup> |
+|Azure Data Lake Store Gen1      |   Sim       |    Não      |<sup>[1](#tab1400a)</sup> |
+|Azure Data Lake Store Gen2       |   Sim       |    Não      |<sup>[1,](#tab1400a)</sup> <sup> [5](#gen2)</sup>|
+|Azure HDInsight HDFS    |     Sim     |   Não       |<sup>[1](#tab1400a)</sup> |
+|Azure HDInsight Spark     |   Sim       |   Não       |<sup>[1,](#tab1400a)</sup> <sup> [4](#databricks)</sup>|
 ||||
 
 **Notas:**
@@ -46,34 +46,34 @@ As fontes de dados e conectores mostrados no Get Data ou no Table Import Wizard 
 |Origem de dados | Dentro da memória | DirectQuery |Notas   |
 |  --- | --- | --- | --- |
 |Base de Dados do Access     |  Yes | Não |  |
-|Active Directory     |  Yes | No | <sup>[6](#tab1400b)</sup>  |
-|Analysis Services     |  Sim | No |  |
-|Sistema de Plataformas analíticas     |  Sim | No |  |
-|Ficheiro CSV  |Sim | No |  |
-|Dynamics 365     |  Sim | No | <sup>[6](#tab1400b)</sup> |
-|Livro do Excel     |  Sim | No |  |
-|Troca      |  Sim | No | <sup>[6](#tab1400b)</sup> |
-|Pasta      |Sim | No | <sup>[6](#tab1400b)</sup> |
-|IBM Informix  |Sim | No |  |
-|Documento JSON      |  Sim | No | <sup>[6](#tab1400b)</sup> |
-|Linhas do binário      | Sim | No | <sup>[6](#tab1400b)</sup> |
+|Active Directory     |  Yes | Não | <sup>[6](#tab1400b)</sup>  |
+|Analysis Services     |  Sim | Não |  |
+|Sistema de Plataformas analíticas     |  Sim | Não |  |
+|Ficheiro CSV  |Sim | Não |  |
+|Dynamics 365     |  Sim | Não | <sup>[6](#tab1400b)</sup> |
+|Livro do Excel     |  Sim | Não |  |
+|Troca      |  Sim | Não | <sup>[6](#tab1400b)</sup> |
+|Pasta      |Sim | Não | <sup>[6](#tab1400b)</sup> |
+|IBM Informix  |Sim | Não |  |
+|Documento JSON      |  Sim | Não | <sup>[6](#tab1400b)</sup> |
+|Linhas do binário      | Sim | Não | <sup>[6](#tab1400b)</sup> |
 |Base de Dados MySQL     | Yes | Não |  |
-|Feed OData      |  Yes | No | <sup>[6](#tab1400b)</sup> |
+|Feed OData      |  Yes | Não | <sup>[6](#tab1400b)</sup> |
 |Consulta ODBC     | Sim | Não |  |
-|OLEDB     |   Sim | No |  |
-|Oracle  | Sim  |Yes  | <sup>[9](#oracle)</sup> |
-|Base de Dados PostgreSQL   | Yes | No | <sup>[6](#tab1400b)</sup> |
-|Objetos do Salesforce|  Sim | No | <sup>[6](#tab1400b)</sup> |
-|Relatórios do Salesforce |Sim | No | <sup>[6](#tab1400b)</sup> |
-|SAP HANA     |  Sim | No |  |
-|SAP Business Warehouse    |  Sim | No | <sup>[6](#tab1400b)</sup> |
-|Lista do SharePoint      |   Sim | No | <sup>[6](#tab1400b)</sup>, <sup> [11](#filesSP)</sup> |
-|SQL Server |Sim   | Yes  | <sup>[7,](#sqlim)</sup> <sup> [8](#instgw)</sup> |
-|Armazém de dados do sql server |Yes   | Yes  | <sup>[7,](#sqlim)</sup> <sup> [8](#instgw)</sup> |
+|OLEDB     |   Sim | Não |  |
+|Oracle  | Sim  |Sim  | <sup>[9](#oracle)</sup> |
+|Base de Dados PostgreSQL   | Yes | Não | <sup>[6](#tab1400b)</sup> |
+|Objetos do Salesforce|  Sim | Não | <sup>[6](#tab1400b)</sup> |
+|Relatórios do Salesforce |Sim | Não | <sup>[6](#tab1400b)</sup> |
+|SAP HANA     |  Sim | Não |  |
+|SAP Business Warehouse    |  Sim | Não | <sup>[6](#tab1400b)</sup> |
+|Lista do SharePoint      |   Sim | Não | <sup>[6](#tab1400b)</sup>, <sup> [11](#filesSP)</sup> |
+|SQL Server |Sim   | Sim  | <sup>[7,](#sqlim)</sup> <sup> [8](#instgw)</sup> |
+|Armazém de dados do sql server |Sim   | Sim  | <sup>[7,](#sqlim)</sup> <sup> [8](#instgw)</sup> |
 |Base de Dados Sybase     |  Yes | Não |  |
-|Teradata | Yes  | Yes  | <sup>[10](#teradata)</sup> |
-|Ficheiro TXT  |Sim | No |  |
-|Mesa XML    |  Sim | No | <sup>[6](#tab1400b)</sup> |
+|Teradata | Sim  | Sim  | <sup>[10](#teradata)</sup> |
+|Ficheiro TXT  |Sim | Não |  |
+|Mesa XML    |  Sim | Não | <sup>[6](#tab1400b)</sup> |
 | | | |
 
 **Notas:**  

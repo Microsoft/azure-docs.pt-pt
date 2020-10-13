@@ -7,13 +7,13 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 10/08/2020
-ms.openlocfilehash: 4715d7173dd959d12350229e457717c908a83756
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.date: 01/13/2019
+ms.openlocfilehash: 65b6b1f783dbabc9ad2e1a4bf79008240d1b2726
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873239"
+ms.locfileid: "89659924"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Ligar a sistemas de ficheiros no local com o Azure Logic Apps
 
@@ -22,9 +22,6 @@ Com as Apps Lógicas Azure e o conector do Sistema de Ficheiros, pode criar tare
 - Criar, obter, apender, atualizar e eliminar ficheiros.
 - Listar ficheiros em pastas ou pastas de raiz.
 - Obtenha conteúdo de ficheiro e metadados.
-
-  > [!IMPORTANT]
-  > O conector do Sistema de Ficheiros suporta atualmente apenas sistemas de ficheiros Windows em sistemas operativos Windows.  
 
 Este artigo mostra como pode ligar-se a um sistema de ficheiros no local, conforme descrito por este cenário de exemplo: copiar um ficheiro que é enviado para o Dropbox para uma partilha de ficheiros e, em seguida, enviar um e-mail. Para conectar e aceder de forma segura aos sistemas no local, as aplicações lógicas utilizam o [portal de dados no local.](../logic-apps/logic-apps-gateway-connection.md) Se é novo em aplicações lógicas, [reveja o que é Azure Logic Apps?](../logic-apps/logic-apps-overview.md) Para obter informações técnicas específicas do conector, consulte a referência do [conector do Sistema de Ficheiros](/connectors/filesystem/).
 

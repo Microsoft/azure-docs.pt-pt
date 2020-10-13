@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: alkohli
 ms.openlocfilehash: 55cc3049e437cc18eac6dc537de3ee1c0d894c23
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87070339"
 ---
 # <a name="storsimple-solution-support"></a>Suporte da solução StorSimple
@@ -85,7 +85,7 @@ O apoio a questões relacionadas com a faturação e a gestão de subscrições 
 | B        | Impacto moderado do negócio: <ul><br> <li> O negócio do cliente tem perda moderada ou degradação de serviços, mas o trabalho pode razoavelmente continuar de forma deficiente. | Resposta inicial: <sup>1</sup><ul><br> <li> 2 horas ou menos para Premium. <br> <li> 4 horas ou menos para o Standard.                                      | <ul><li> Alocação de recursos adequados para sustentar o esforço contínuo durante o horário comercial, a menos que o cliente solicite optar por 24x7. <br> <li> Informações precisas de contacto para o proprietário do caso. |
 | C        | Impacto mínimo do negócio: <ul><br> <li> O negócio do cliente está a funcionar substancialmente com pequenos ou sem impedimentos de serviços.                                 | Resposta inicial: <sup>1</sup><ul> <br> <li> 4 horas ou menos para Premium. <br> <li> 8 horas ou menos para o Standard.                                      | <ul><li>Informações precisas de contacto para o proprietário do caso                                                                                                                                    |
  
-<sup>1</sup> A Microsoft pode reduzir o nível de gravidade de um caso de Severidade A se o cliente não for capaz de fornecer recursos ou respostas adequados para permitir que a Microsoft continue com os esforços de resolução de problemas.
+<sup>1 </sup> A Microsoft pode reduzir o nível de gravidade de um caso de Severidade A se o cliente não for capaz de fornecer recursos ou respostas adequados para permitir que a Microsoft continue com os esforços de resolução de problemas.
 
 <sup>2</sup> Os tempos de resposta esperados baseiam-se no suporte 24x7 em inglês para severidade A e horas de trabalho locais para Severidade B e C, e o apoio às horas de trabalho locais nas restantes línguas locais: japonês, taiwanês, chinês tradicional e coreano.
 
@@ -111,7 +111,7 @@ O suporte StorSimple 8000 Series Storage Arrays é fornecido com base na forma c
 
 
 
-*<text>* A cobertura premium não está disponível em todos os locais. Contacte a Microsoft na SSSupOps \@ microsoft.com para obter cobertura geográfica antes de adquirir o StorSimple Premium Support.*
+*<text> * A cobertura premium não está disponível em todos os locais. Contacte a Microsoft na SSSupOps \@ microsoft.com para obter cobertura geográfica antes de adquirir o StorSimple Premium Support.*
 
 ***O aparelho StorSimple deve ser implantado numa região onde o cliente esteja coberto pelo suporte Premier, a fim de poder beneficiar de uma atualização gratuita para o suporte StorSimple premium.*
 

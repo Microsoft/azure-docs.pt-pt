@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/18/2019
 ms.openlocfilehash: 9b190b5847c7412344e2bb09fd4000985816219b
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86085740"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Implementar e gerir as topologias da Tempestade Apache em Azure HDInsight
@@ -80,7 +80,7 @@ Pode utilizar as Ferramentas do Lago de Dados para o Estúdio Visual para submet
 
 ## <a name="submit-a-topology-programmatically"></a>Submeta uma topologia programática
 
-Pode implantar programáticamente uma topologia utilizando o serviço Nimbus. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology)fornece um exemplo de aplicação Java que demonstra como implementar e iniciar uma topologia através do serviço Nimbus.
+Pode implantar programáticamente uma topologia utilizando o serviço Nimbus. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) fornece um exemplo de aplicação Java que demonstra como implementar e iniciar uma topologia através do serviço Nimbus.
 
 ## <a name="monitor-and-manage-a-topology-in-visual-studio"></a>Monitorize e gere uma topologia em Visual Studio
 
@@ -266,7 +266,7 @@ Os pedidos à API REST devem utilizar *a autenticação básica,* pelo que tem d
 
 As informações que são devolvidas da API REST só podem ser utilizáveis dentro do cluster. Por exemplo, o nome de domínio totalmente qualificado (FQDN) devolvido para servidores [Apache ZooKeeper](https://zookeeper.apache.org/) não está acessível a partir da internet.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [desenvolver topologias baseadas em Java usando Apache Maven.](apache-storm-develop-java-topology.md)
 

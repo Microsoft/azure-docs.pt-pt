@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 60e75aff79913896bdf1dcdc8754b6ecf5620b06
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87272050"
 ---
 # <a name="publish-an-offer"></a>Publicar uma oferta
@@ -28,7 +28,7 @@ Inicia o processo de publicação da oferta especificada. Esta chamada é uma op
 
 |  **Nome**      |    **Descrição**                               |  **Tipo de dados** |
 |  ------------- |  ------------------------------------            |   -----------  |
-|  publisherId   | Identificador de editor, por exemplo`contoso`      |   Cadeia       |
+|  publisherId   | Identificador de editor, por exemplo `contoso`      |   Cadeia       |
 |  offerId       | Identificar oferta                                 |   Cadeia       |
 |  api-version   | Última versão da API                        |   Date         |
 |  |  |
@@ -85,8 +85,8 @@ Inicia o processo de publicação da oferta especificada. Esta chamada é uma op
 
 | **Código** |  **Descrição**                                                                                                                           |
 | ------   |  ----------------------------------------------------------------------------------------------------------------------------------------- |
-| 202   | `Accepted`- O pedido foi aceite com sucesso. A resposta contém um local que pode ser usado para rastrear a operação que é lançada. |
-| 400   | `Bad/Malformed request`- O organismo de resposta a erros pode fornecer mais informações.                                                               |
-| 422   | `Un-processable entity`- Indica que a entidade a publicar falhou na validação.                                                        |
-| 404   | `Not found`- A entidade especificada pelo cliente não existe.                                                                              |
+| 202   | `Accepted` - O pedido foi aceite com sucesso. A resposta contém um local que pode ser usado para rastrear a operação que é lançada. |
+| 400   | `Bad/Malformed request` - O organismo de resposta a erros pode fornecer mais informações.                                                               |
+| 422   | `Un-processable entity` - Indica que a entidade a publicar falhou na validação.                                                        |
+| 404   | `Not found` - A entidade especificada pelo cliente não existe.                                                                              |
 |  |  |

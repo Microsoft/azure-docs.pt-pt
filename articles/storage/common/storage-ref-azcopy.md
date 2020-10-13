@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 18972e991f08db7fa9548454a5c5cdc3ff0f552f
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87285191"
 ---
 # <a name="azcopy"></a>azcopy
@@ -38,11 +38,11 @@ Para relatar problemas ou para saber mais sobre a ferramenta, veja [https://gith
 
 **...-ajuda** Ajuda para a azcopia
       
-**--tipo de saída** (cadeia) formato da saída do comando. As escolhas incluem: texto, json. O valor predefinido é `text`. (predefinição) `text`
+**--tipo de saída**  (cadeia) formato da saída do comando. As escolhas incluem: texto, json. O valor predefinido é `text`. (predefinição) `text`
 
 **---sufixos de confiança microsoft-sfixixes** (cadeia) Especifica sufixos de domínio adicionais onde podem ser enviados tokens de login do Azure Ative Directory.  O padrão é '*.core.windows.net;*. core.chinacloudapi.cn; *.core.cloudapi.de;* core.usgovcloudapi.net.' Qualquer listado aqui é adicionado ao padrão. Para a segurança, só deve colocar os domínios microsoft Azure aqui. Separe várias entradas com pontos e vírgulas.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
 - [azcopy bench](storage-ref-azcopy-bench.md)

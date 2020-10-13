@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 10/22/2019
 ms.author: duau
 ms.openlocfilehash: 8ee7f42a4b05def7c2239c7a1e5bcef54f6f7e50
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89395779"
 ---
-# <a name="configure-macsec-on-expressroute-direct-ports"></a>Configurar MACsec em portas diretas ExpressRoute
+# <a name="configure-macsec-on-expressroute-direct-ports"></a>Configurar o MACsec em portas do ExpressRoute Direct
 
 Este artigo ajuda-o a configurar o MACsec para proteger as ligações entre os routers de borda e os routers de borda da Microsoft utilizando o PowerShell.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Antes de iniciar a configuração, confirme o seguinte:
 
@@ -59,7 +59,7 @@ Para iniciar a configuração, inicie sação na sua conta Azure e selecione a s
     $identity = New-AzUserAssignedIdentity  -Name "identity_name" -Location "resource_location" -ResourceGroupName "your_resource_group"
     ```
 
-    Se a Nova AzUserAssignedIdin não for reconhecida como um cmdlet PowerShell válido, instale o módulo seguinte (no modo administrador) e reexpede o comando acima.
+    Se New-AzUserAssignedIdentity não for reconhecido como um cmdlet PowerShell válido, instale o módulo seguinte (no modo administrador) e reexecute no comando acima.
 
     ```azurepowershell-interactive
     Install-Module -Name Az.ManagedServiceIdentity
@@ -134,7 +134,7 @@ Neste ponto, o MACsec é desativado nas portas ExpressRoute Direct do lado da Mi
 ### <a name="test-connectivity"></a>Testar conectividade
 Depois de configurar o MACsec (incluindo a atualização da chave MACsec) nas portas Direct ExpressRoute, [verifique](expressroute-troubleshooting-expressroute-overview.md) se as sessões de BGP dos circuitos estão a funcionar. Se ainda não tiver nenhum circuito nas portas, por favor crie um primeiro e instale o Azure Private Peering ou o Microsoft Peering do circuito. Se o MACsec estiver mal configurado, incluindo o desfasamento das chaves MACsec, entre os seus dispositivos de rede e os dispositivos de rede da Microsoft, não verá a resolução ARP na camada 2 e no estabelecimento de BGP na camada 3. Se tudo estiver configurado corretamente, deverá ver as rotas BGP publicitadas corretamente em ambas as direções e o fluxo de dados da sua aplicação em conformidade com o ExpressRoute.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 1. [Criar um circuito ExpressRoute no ExpressRoute Direct](expressroute-howto-erdirect.md)
 2. [Ligue um circuito ExpressRoute a uma rede virtual Azure](expressroute-howto-linkvnet-arm.md)
 3. [Verificar conectividade ExpressRoute](expressroute-troubleshooting-expressroute-overview.md)

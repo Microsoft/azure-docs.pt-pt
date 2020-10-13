@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/23/2019
 ms.openlocfilehash: 219b7c0586542ae371776d904d0206d52569ccd6
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86081830"
 ---
 # <a name="debug-apache-spark-applications-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>Aplicações Debug Apache Spark em um cluster HDInsight com Azure Toolkit para IntelliJ através de SSH
@@ -99,7 +99,7 @@ Este artigo fornece orientações passo a passo sobre como usar ferramentas HDIn
 
    ![Intellij Adicionar nova configuração](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-add-new-Configuration.png)
 
-1. Altere para **Executar remotamente no separador Cluster.** Introduza informações para **nome,** **cluster spark**e nome da **classe principal**. Em seguida, clique na **configuração avançada (Depuragem remota)**. As nossas ferramentas suportam o depurar com **os Executores.** Os **numExectors,** o valor predefinido é 5. É melhor não colocar mais de 3.
+1. Mude para **executar remotamente no separador Cluster.** Introduza informações para **Nome,** **agrupamento de faíscas**e **nome da classe principal.** Em seguida, clique na **configuração avançada (Depuragem remota)**. As nossas ferramentas suportam o depurar com **os Executores.** Os **numExectors,** o valor predefinido é 5. É melhor não colocar mais de 3.
 
    ![Configurações de depurações intellij Run](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-run-debug-configurations.png)
 
@@ -151,7 +151,7 @@ Este artigo fornece orientações passo a passo sobre como usar ferramentas HDIn
 
    ![Intellij Debug Remote Spark Job sem exceção](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/hdinsight-debug-without-exception.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 

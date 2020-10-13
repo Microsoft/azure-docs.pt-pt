@@ -14,10 +14,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9cb101e415499150cd3d825fe5f42ce0dbc766fb
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89662527"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Como a AZure AD fornece gestão governada em nuvem para cargas de trabalho no local
@@ -115,6 +115,6 @@ Em ambientes híbridos, a estratégia da Microsoft é permitir implementações 
 
 ![Arquitetura do Azure AD](media/cloud-governed-management-for-on-premises/image6.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre como começar esta viagem, consulte os planos de implantação da AD Azure, localizados em <https://aka.ms/deploymentplans> . Fornecem orientações de ponta a ponta sobre como implementar capacidades do Azure Ative Directory (Azure AD). Cada plano explica o valor do negócio, as considerações de planeamento, o design e os procedimentos operacionais necessários para lançar com sucesso as capacidades AD do Azure. A Microsoft atualiza continuamente os planos de implementação com as melhores práticas aprendidas com as implementações dos clientes e outros feedbacks quando adicionamos novas capacidades para gerir a partir da nuvem com Azure AD.

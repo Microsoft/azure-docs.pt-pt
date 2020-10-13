@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1a17f52e519a84c58c9ed5b75259cc0b96d0a175
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88949179"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Glossário de Proteção de Identidade Azure Ative
@@ -158,6 +158,6 @@ Utilizadores que têm deteções de risco, que são ativas ou remediadas
 ### <a name="vulnerability"></a>Vulnerabilidade
 Uma configuração ou condição no Azure Ative Directory, o que torna o diretório suscetível a explorações ou ameaças.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 - [Proteção de Identidade do Diretório Ativo Azure](./overview-identity-protection.md)

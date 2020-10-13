@@ -1,6 +1,6 @@
 ---
-title: Como executar o tempo de execução de integração auto-hospedado no recipiente Windows
-description: Saiba como executar o tempo de funcionação de integração auto-hospedado no recipiente Windows.
+title: Como executar Self-Hosted tempo de execução de integração no recipiente Windows
+description: Saiba como executar Self-Hosted tempo de execução de integração no recipiente Windows.
 services: data-factory
 ms.author: abnarain
 author: nabhishek
@@ -12,23 +12,23 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/05/2020
 ms.openlocfilehash: d6f292ff89a70de90e6b86f19f73de26963d997f
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87927581"
 ---
-# <a name="how-to-run-self-hosted-integration-runtime-in-windows-container"></a>Como executar o tempo de execução de integração auto-hospedado no recipiente Windows
+# <a name="how-to-run-self-hosted-integration-runtime-in-windows-container"></a>Como executar Self-Hosted tempo de execução de integração no recipiente Windows
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
-Este artigo explicará como executar o tempo de execução de integração auto-hospedado no recipiente Windows.
-A Azure Data Factory está a fornecer o suporte oficial do contentor do vidro do tempo de funcionamento da integração auto-hospedada. Você pode baixar o código fonte de construção do estivador e combinar o processo de construção e execução no seu próprio pipeline de entrega contínua. 
+Este artigo irá explicar como executar Self-Hosted tempo de execução de integração no recipiente Windows.
+A Azure Data Factory está a fornecer o suporte oficial do contentor do vidro do Self-Hosted o tempo de execução da integração. Você pode baixar o código fonte de construção do estivador e combinar o processo de construção e execução no seu próprio pipeline de entrega contínua. 
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 - [Requisitos do contentor do windows](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/system-requirements)
 - Docker Versão 2.3 e mais tarde 
-- Versão de runtime de integração auto-hospedada 4.11.7512.1 e posterior 
+- versão de prazo de execução de integração Self-Hosted 4.11.7512.1 e posterior 
 ## <a name="get-started"></a>Introdução 
 1.  Instale o Docker e ative o recipiente do Windows 
 2.  Transferir o código fonte de https://github.com/Azure/Azure-Data-Factory-Integration-Runtime-in-Windows-Container
@@ -53,7 +53,7 @@ docker run -d -e NODE_NAME="irNodeName" -e AUTH_KEY="IR_AUTHENTICATI
 Após 120 segundos de arranque, o verificador de saúde funcionará periodicamente a cada 30 segundos. Fornecerá o estado de saúde do IR ao motor do contentor. 
 
 ## <a name="limitations"></a>Limitações
-Atualmente não suportamos funcionalidades abaixo ao executar o tempo de execução de integração auto-hospedada no recipiente Windows:
+Atualmente não suportamos funcionalidades abaixo quando executamos Self-Hosted tempo de execução de integração no contentor Windows:
 - Procuração HTTP 
 - Comunicação de nó de nó encriptado com certificado TLS/SSL 
 - Gerar e importar backup 

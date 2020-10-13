@@ -11,10 +11,10 @@ ms.reviewer: ''
 ms.date: 01/25/2019
 ms.custom: seoapril2019, sqldbrb=1
 ms.openlocfilehash: 493c18efa8bad2e366424c8c8130754ce0098913
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85250718"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Padrões de arrendamento de base de dados SaaS multi-inquilinos
@@ -24,7 +24,7 @@ Este artigo descreve os vários modelos de arrendamento disponíveis para uma ap
 
 Ao conceber uma aplicação SaaS multi-arrendatário, deve escolher cuidadosamente o modelo de arrendamento que melhor se adequa às necessidades da sua aplicação.  Um modelo de arrendamento determina como os dados de cada inquilino são mapeados para armazenamento.  A sua escolha do modelo de arrendamento tem impacto no design e gestão de aplicações.  Mudar para um modelo diferente mais tarde é por vezes dispendioso.
 
-## <a name="a-saas-concepts-and-terminology"></a>R. Conceitos e terminologia de SaaS
+## <a name="a-saas-concepts-and-terminology"></a>A. Conceitos e terminologia de SaaS
 
 No modelo Software como Um Serviço (SaaS), a sua empresa não vende *licenças* para o seu software. Em vez disso, cada cliente faz pagamentos de renda à sua empresa, fazendo de cada cliente um *inquilino* da sua empresa.
 
@@ -186,14 +186,14 @@ A tabela seguinte resume as diferenças entre os principais modelos de arrendame
 | Medida | Aplicação autónoma | Base de dados por inquilino | Multi-inquilino sharded |
 | :---------- | :------------- | :------------------ | :------------------- |
 | Escala | Médio<br />1-100s | Muito alta <br />1-100.000s | Ilimitado<br />1-1.000.000s |
-| Isolamento de inquilinos | Muito alta  | Alta | Baixo; exceto para qualquer único inquilino (que está sozinho em um MT db). |
+| Isolamento de inquilinos | Muito alta  | Alto | Baixo; exceto para qualquer único inquilino (que está sozinho em um MT db). |
 | Custo da base de dados por inquilino | Alto; é dimensionado para picos. | Baixo; piscinas usadas. | O mais baixo, para pequenos inquilinos em MT DBs. |
 | Monitorização e gestão de desempenho | Apenas por inquilino | Agregado + por inquilino | Agregado; embora seja por inquilino apenas para solteiros. |
-| Complexidade do desenvolvimento | Baixa | Baixa | Médio; devido a estilhaços. |
+| Complexidade do desenvolvimento | Baixo | Baixo | Médio; devido a estilhaços. |
 | Complexidade operacional | Baixo-alto. Individualmente simples, complexo à escala. | Baixo-médio. Os padrões abordam a complexidade à escala. | Baixo-alto. A gestão individual de inquilinos é complexa. |
 | &nbsp; ||||
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Implementar e explorar uma aplicação wingtip multi-inquilino que utiliza o modelo SaaS de base de dados por inquilino - Azure SQL Database][docu-sql-db-saas-tutorial-deploy-wingtip-db-per-tenant-496y]
 

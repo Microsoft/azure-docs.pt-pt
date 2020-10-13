@@ -9,10 +9,10 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.openlocfilehash: 590416f077fc1ff9430e42e27217548476c9032f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87132777"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>As funcionalidades são informações sobre ações e contexto
@@ -131,7 +131,7 @@ Estas secções seguintes são práticas comuns para melhorar as funcionalidades
 
 Por exemplo, um tempotamp até ao segundo é uma característica muito escassa. Poderia tornar-se mais denso (eficaz) classificando os tempos em "manhã", "meio-dia", "tarde", etc.
 
-A informação de localização também beneficia tipicamente da criação de classificações mais amplas. Por exemplo, uma coordenada Latitude-Longitude como Lat: 47.67402° N, Long: 122.12154° W é demasiado precisa e força o modelo a aprender latitude e longitude como dimensões distintas. Quando está a tentar personalizar com base nas informações de localização, ajuda a agrupar informações de localização em sectores maiores. Uma maneira fácil de fazer isso é escolher uma precisão de arredondamento apropriada para os números Lat-Long, e combinar latitude e longitude em "áreas" tornando-os em uma corda. Por exemplo, uma boa forma de representar 47.67402° N, Long: 122.12154° W em regiões com aproximadamente alguns quilómetros de largura seria "localização":"34,3 , 12,1".
+A informação de localização também beneficia tipicamente da criação de classificações mais amplas. Por exemplo, uma coordenada Latitude-Longitude como Lat: 47.67402° N, Long: 122.12154° W é demasiado precisa e força o modelo a aprender latitude e longitude como dimensões distintas. Quando está a tentar personalizar com base nas informações de localização, ajuda a agrupar informações de localização em sectores maiores. Uma maneira fácil de fazer isso é escolher uma precisão de arredondamento adequada para os números Lat-Long, e combinar a latitude e a longitude em "áreas" tornando-os numa única corda. Por exemplo, uma boa forma de representar 47.67402° N, Long: 122.12154° W em regiões com aproximadamente alguns quilómetros de largura seria "localização":"34,3 , 12,1".
 
 
 #### <a name="expand-feature-sets-with-extrapolated-information"></a>Expandir conjuntos de funcionalidades com informações extrapoladas

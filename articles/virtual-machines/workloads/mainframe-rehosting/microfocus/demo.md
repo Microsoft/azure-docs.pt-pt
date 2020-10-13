@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 7fb72b9a7d0d655f99d1e5cf194f7c6f26976a37
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86508054"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Configurar Micro Focus CICS BankDemo para Micro Focus Enterprise Developer 4.0 em Azure
@@ -270,7 +270,7 @@ A última coisa que precisa fazer é configurar uma sessão de 3270 usando Rumba
 
 Parabéns! Está agora a executar uma aplicação CICS em Azure utilizando o Micro Focus Enterprise Server.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Executar servidor de empresa em contentores Docker em Azure](run-enterprise-server-container.md)
 - [Migração do Computador Central - Portal](/archive/blogs/azurecat/mainframe-migration-to-azure-portal)

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ccd1192c7597b5a088b1c50b5367030a616b9d77
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88919595"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portal de utilizador do Servidor Multi-Factor Authentication do Azure
@@ -158,7 +158,7 @@ Estas definições ficam visíveis para o utilizador no portal assim que forem a
 
 ### <a name="self-service-user-enrollment"></a>Inscrição de utilizador self-service
 
-Se pretender que os seus utilizadores iniciem sessão e se inscrevam, tem de selecionar o **Permitir que os utilizadores iniciem sessão** e permita que as opções **de inscrição** dos utilizadores no separador Definições.
+Se pretender que os seus utilizadores iniciem sessão e se inscrevam, tem de selecionar o Permitir que **os utilizadores iniciem sessão** e permita que as opções **de inscrição do utilizador** estejam no separador Definições. Lembre-se de que as definições selecionadas afetam a experiência de inscrição do utilizador.
 
 Por exemplo, quando um utilizador inicia sessão no portal de utilizador pela primeira vez, é direcionado para a página de Configuração de Utilizador do Multi-Factor Authentication do Azure. Dependendo de como tiver configurado o Multi-Factor Authentication do Azure, o utilizador poderá conseguir selecionar o método de autenticação.
 

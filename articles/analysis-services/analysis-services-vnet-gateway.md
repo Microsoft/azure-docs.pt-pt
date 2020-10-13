@@ -8,13 +8,13 @@ ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 912dab16cd854ae940b7bbdfe88a8da7adf1c5e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84197200"
 ---
-# <a name="use-gateway-for-data-sources-on-an-azure-virtual-network-vnet"></a>Utilize o gateway para fontes de dados numa Rede Virtual Azure (VNet)
+# <a name="use-gateway-for-data-sources-on-an-azure-virtual-network-vnet"></a>Utilizar o gateway das origens de dados numa Rede Virtual do Azure (VNet)
 
 Este artigo descreve a propriedade do servidor **AlwaysUseGateway** dos Serviços de Análise Azure para utilização quando as fontes de dados estão numa [Rede Virtual Azure (VNet)](../virtual-network/virtual-networks-overview.md).
 
@@ -35,7 +35,7 @@ Fontes de dados de instância gerida Azure SQL são executadas dentro do Azure V
     ![Use sempre a propriedade gateway](media/analysis-services-vnet-gateway/aas-ssms-always-property.png)
 
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 [Ligação a fontes de dados no local](analysis-services-gateway.md)   
 [Instale e configuure um portal de dados no local](analysis-services-gateway-install.md)   
 [Rede Virtual Azure (VNET)](../virtual-network/virtual-networks-overview.md)   

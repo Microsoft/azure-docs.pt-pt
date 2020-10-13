@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: contperfq1
 ms.date: 06/21/2019
 ms.openlocfilehash: 271cae3504601ffa42c077029541cef8c7726053
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91461041"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Configurar alertas para trabalhos do Azure Stream Analytics
@@ -65,7 +65,7 @@ Recomenda-se que os seguintes alertas sejam necessários para monitorizar o dese
 |Atraso da marca de água|Maior do que|Máximo|Quando o valor médio desta métrica ao longo dos últimos 15 minutos for maior do que a tolerância de chegada tardia (em segundos). Se não tiver modificado a tolerância de chegada tardia, o padrão é definido para 5 segundos.|Tente aumentar o número de SUs ou paralelizar a sua consulta. Para obter mais informações sobre as SUs, consulte [compreender e ajustar unidades de streaming.](stream-analytics-streaming-unit-consumption.md#how-many-sus-are-required-for-a-job) Para obter mais informações sobre a paralelização da sua consulta, consulte [a paralelização da consulta de alavancagem no Azure Stream Analytics](stream-analytics-parallelization.md).|
 |Erros de deserialização de entradas|Maior do que|Total|0|Examine a atividade ou registos de recursos e faça alterações apropriadas na entrada. Para obter mais informações sobre registos de recursos, consulte [Troubleshoot Azure Stream Analytics utilizando registos de recursos](stream-analytics-job-diagnostic-logs.md)|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Referência do idioma de consulta do Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)

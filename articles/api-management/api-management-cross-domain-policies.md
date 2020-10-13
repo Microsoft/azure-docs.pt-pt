@@ -14,22 +14,22 @@ ms.topic: article
 ms.date: 07/14/2020
 ms.author: apimpm
 ms.openlocfilehash: 99784e43130b70554c05ff79a10993f2b6eebbde
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86499618"
 ---
 # <a name="api-management-cross-domain-policies"></a>Políticas entre domínios da API Management
 Este tópico fornece uma referência para as seguintes políticas de Gestão da API. Para obter informações sobre políticas de adição e configuração, consulte [Políticas em Gestão de API.](https://go.microsoft.com/fwlink/?LinkID=398186)
 
-## <a name="cross-domain-policies"></a><a name="CrossDomainPolicies"></a>Políticas de domínio transversal
+## <a name="cross-domain-policies"></a><a name="CrossDomainPolicies"></a> Políticas de domínio transversal
 
 - [Permitir chamadas de domínio transversal](api-management-cross-domain-policies.md#AllowCrossDomainCalls) - Torna a API acessível a partir de clientes baseados no navegador Adobe Flash e Microsoft Silverlight.
 - [CORS](api-management-cross-domain-policies.md#CORS) - Adiciona suporte de partilha de recursos de origem cruzada (CORS) a uma operação ou a uma API para permitir chamadas de domínio transversal de clientes baseados no navegador.
 - [JSONP](api-management-cross-domain-policies.md#JSONP) - Adiciona JSON com suporte de enchimento (JSONP) a uma operação ou a uma API para permitir chamadas de domínio transversal de clientes baseados no navegador JavaScript.
 
-## <a name="allow-cross-domain-calls"></a><a name="AllowCrossDomainCalls"></a>Permitir chamadas de domínio transversal
+## <a name="allow-cross-domain-calls"></a><a name="AllowCrossDomainCalls"></a> Permitir chamadas de domínio transversal
 Utilize a `cross-domain` política para tornar a API acessível a clientes baseados no navegador Adobe Flash e Microsoft Silverlight.
 
 ### <a name="policy-statement"></a>Declaração política
@@ -63,7 +63,7 @@ Esta política pode ser utilizada nas [seguintes secções](./api-management-how
 - **Secções políticas:** entrada
 - **Âmbitos de política:** todos os âmbitos
 
-## <a name="cors"></a><a name="CORS"></a>CORS
+## <a name="cors"></a><a name="CORS"></a> CORS
 A `cors` política adiciona suporte de partilha de recursos de origem cruzada (CORS) a uma operação ou a uma API para permitir chamadas de domínio transversal de clientes baseados no navegador.
 
 O CORS permite que um navegador e um servidor interajam e determinem se permitem ou não pedidos específicos de origem cruzada (ou seja, chamadas XMLHttpRequests feitas a partir de JavaScript numa página web para outros domínios). Isto permite uma maior flexibilidade do que apenas permitir pedidos de origem do mesmo, mas é mais seguro do que permitir todos os pedidos de origem cruzada.
@@ -127,7 +127,7 @@ Este exemplo demonstra como apoiar pedidos de pré-voo, tais como aqueles com ca
 |Nome|Descrição|Obrigatório|Predefinição|
 |----------|-----------------|--------------|-------------|
 |cors|Elemento de raiz.|Sim|N/D|
-|de origem permitida|Contém `origin` elementos que descrevem as origens permitidas para pedidos de domínio cruzado. `allowed-origins`pode conter um único `origin` elemento que especifica para permitir qualquer `*` origem, ou um ou mais `origin` elementos que contenham um URI.|Sim|N/D|
+|de origem permitida|Contém `origin` elementos que descrevem as origens permitidas para pedidos de domínio cruzado. `allowed-origins` pode conter um único `origin` elemento que especifica para permitir qualquer `*` origem, ou um ou mais `origin` elementos que contenham um URI.|Sim|N/D|
 |origem|O valor pode ser `*` para permitir todas as origens, ou um URI que especifica uma única origem. O URI deve incluir um esquema, hospedeiro e porto.|Sim|Se a porta for omitida num URI, a porta 80 é utilizada para HTTP e a porta 443 é utilizada para HTTPS.|
 |métodos permitidos|Este elemento é necessário se forem permitidos métodos diferentes do GET ou DOM. Contém `method` elementos que especificam os verbos HTTP suportados. O valor `*` indica todos os métodos.|Não|Se esta secção não estiver presente, GET e POST são suportados.|
 |método|Especifica um verbo HTTP.|É necessário pelo menos um `method` elemento se a secção estiver `allowed-methods` presente.|N/D|
@@ -148,7 +148,7 @@ Esta política pode ser utilizada nas [seguintes secções](./api-management-how
 - **Secções políticas:** entrada
 - **Âmbitos de política:** todos os âmbitos
 
-## <a name="jsonp"></a><a name="JSONP"></a>JSONP
+## <a name="jsonp"></a><a name="JSONP"></a> JSONP
 A `jsonp` política adiciona o suporte JSON com estofamento (JSONP) a uma operação ou a uma API para permitir chamadas de domínio transversal de clientes baseados no navegador JavaScript. JSONP é um método utilizado nos programas JavaScript para solicitar dados de um servidor num domínio diferente. JSONP ignora a limitação imposta pela maioria dos navegadores web onde o acesso a páginas web deve estar no mesmo domínio.
 
 ### <a name="policy-statement"></a>Declaração política
@@ -165,7 +165,7 @@ A `jsonp` política adiciona o suporte JSON com estofamento (JSONP) a uma opera�
 
 Se ligar para o método sem o parâmetro de retorno ?cb=XXX, retornará o JSON simples (sem um invólucro de chamada de função).
 
-Se adicionar o parâmetro de `?cb=XXX` retorno, retornará um resultado JSONP, envolvendo os resultados originais do JSON em torno da função de retorno como`XYZ('<json result goes here>');`
+Se adicionar o parâmetro de `?cb=XXX` retorno, retornará um resultado JSONP, envolvendo os resultados originais do JSON em torno da função de retorno como `XYZ('<json result goes here>');`
 
 ### <a name="elements"></a>Elementos
 
@@ -185,7 +185,7 @@ Esta política pode ser utilizada nas [seguintes secções](./api-management-how
 - **Secções políticas:** saída
 - **Âmbitos de política:** todos os âmbitos
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre as políticas, consulte:
 

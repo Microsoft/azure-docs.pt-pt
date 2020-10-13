@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: 52bf42434640dc965999895549b4fa12a139dcce
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87284069"
 ---
 # <a name="find-results-in-bing-search-by-using-azure-logic-apps"></a>Encontre resultados em Bing Search utilizando aplicações Azure Logic
@@ -55,7 +55,7 @@ Ou, se a sua ligação já existe, forneça as informações necessárias para o
    | Consulta de pesquisa | Sim | <*palavras de pesquisa*> | Introduza as palavras-chave de pesquisa que pretende utilizar. |
    | Mercado | Sim | <*local*> | O local de busca. O padrão é "en-US", mas pode selecionar outro valor. |
    | Pesquisa segura | Sim | <*nível de pesquisa*> | O nível do filtro para excluir o conteúdo adulto. O padrão é "Moderado", mas seleciona outro nível. |
-   | de palavras | Não | <*contagem de resultados*> | Devolva o número especificado de resultados. O padrão é de 20, mas pode especificar outro valor. O número real de resultados devolvidos pode ser inferior ao número especificado. |
+   | Contagem | Não | <*contagem de resultados*> | Devolva o número especificado de resultados. O padrão é de 20, mas pode especificar outro valor. O número real de resultados devolvidos pode ser inferior ao número especificado. |
    | Desvio | Não | <*valor de salto*> | O número de resultados a saltar antes de devolver os resultados |
    |||||
 
@@ -106,7 +106,7 @@ Na lista de ações, selecione a ação desejada.
    | Consulta de pesquisa | Sim | <*expressão de pesquisa*> | Introduza uma expressão para consulta dos resultados do gatilho. Pode selecionar a partir dos campos na lista de conteúdos dinâmicos ou criar uma expressão com o construtor de expressão. |
    | Mercado | Sim | <*local*> | O local de busca. O padrão é "en-US", mas pode selecionar outro valor. |
    | Pesquisa segura | Sim | <*nível de pesquisa*> | O nível do filtro para excluir o conteúdo adulto. O padrão é "Moderado", mas seleciona outro nível. |
-   | de palavras | Não | <*contagem de resultados*> | Devolva o número especificado de resultados. O padrão é de 20, mas pode especificar outro valor. O número real de resultados devolvidos pode ser inferior ao número especificado. |
+   | Contagem | Não | <*contagem de resultados*> | Devolva o número especificado de resultados. O padrão é de 20, mas pode especificar outro valor. O número real de resultados devolvidos pode ser inferior ao número especificado. |
    | Desvio | Não | <*valor de salto*> | O número de resultados a saltar antes de devolver os resultados |
    |||||
 
@@ -124,7 +124,7 @@ Na lista de ações, selecione a ação desejada.
       ![Selecionar uma função](./media/connectors-create-api-bing-search/expression-select-function.png)
 
    3. Da lista de campos, selecione **Category**, que se converte para um parâmetro. 
-   Adicione uma vírgula após o primeiro parâmetro, e depois da vírgula, adicione esta palavra:`'tech'` 
+   Adicione uma vírgula após o primeiro parâmetro, e depois da vírgula, adicione esta palavra: `'tech'` 
 
       ![Selecione um campo](./media/connectors-create-api-bing-search/expression-select-field.png)
 

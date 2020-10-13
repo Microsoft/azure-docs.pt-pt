@@ -8,10 +8,10 @@ ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 627c0c77cc206cd1b3210fcfc7b2a9bbc3c6daea
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89401100"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Linha de segurança Azure para Máquinas Virtuais Linux
@@ -488,7 +488,7 @@ Em alternativa, pode permitir e a bordo dados de Azure Sentinel ou um SIEM de te
 
 **Orientação**: Nos casos em que um terceiro precise de aceder aos dados dos clientes (como durante um pedido de suporte), utilize o Customer Lockbox para máquinas virtuais Azure para rever e aprovar ou rejeitar pedidos de acesso aos dados do cliente.
 
-* [Lockbox do cliente para Microsoft Azure](../../security/fundamentals/customer-lockbox-overview.md)
+* [Sistema de Proteção de Dados do Cliente para o Microsoft Azure](../../security/fundamentals/customer-lockbox-overview.md)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável
 
@@ -1094,7 +1094,7 @@ Se estiver a utilizar a encriptação do disco Azure, pode restaurar o Azure VM 
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Garantir a proteção das cópias de segurança e das chaves geridas pelo cliente
 
-**Orientação**: Quando faz backup de VMs Azure com Backup Azure, os VMs são encriptados em repouso com encriptação do serviço de armazenamento (SSE). O Azure Backup também pode fazer backup de VMs Azure que são encriptados usando Azure Disk Encryption. A encriptação do disco Azure também se integra com chaves de encriptação chave Azure Key Vault (KEKs). Ativar a eliminação suave no cofre de chaves para proteger as chaves contra a eliminação acidental ou maliciosa. 
+**Orientação**: Quando faz backup de VMs Azure com Backup Azure, os VMs são encriptados em repouso com encriptação do serviço de armazenamento (SSE). O Azure Backup também pode fazer backup de VMs Azure que são encriptados usando Azure Disk Encryption. A encriptação do disco Azure também se integra com chaves de encriptação chave Azure Key Vault (KEKs). Ativar Soft-Delete no Cofre de Chaves para proteger as chaves contra a eliminação acidental ou maliciosa. 
 
 * [Excluir suave para VMs](../../backup/soft-delete-virtual-machines.md)
 
@@ -1192,7 +1192,7 @@ Se estiver a utilizar a encriptação do disco Azure, pode restaurar o Azure VM 
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](../../security/benchmarks/overview.md)
 - Saiba mais sobre [as linhas de base de segurança da Azure](../../security/benchmarks/security-baselines-overview.md)

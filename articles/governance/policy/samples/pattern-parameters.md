@@ -4,10 +4,10 @@ description: Este padrão de Política Azure fornece um exemplo de como usar par
 ms.date: 08/17/2020
 ms.topic: sample
 ms.openlocfilehash: 7bb991c43a1deee39dd047aa7d814c124712fe69
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89649948"
 ---
 # <a name="azure-policy-pattern-parameters"></a>Padrão de política azul: parâmetros
@@ -67,7 +67,7 @@ O parâmetro é então utilizado na **apóliceRule.em seguida,** bloquear para o
 
 :::code language="json" source="~/policy-templates/patterns/pattern-parameters-3.json" range="38-40" highlight="2":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja [outros padrões e definições incorporadas.](./index.md)
 - Reveja a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).
