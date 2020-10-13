@@ -14,10 +14,10 @@ ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b1ef7d587cd8bec636f42673941edb69647ee8cb
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449984"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivo para o que há de novo no Azure Ative Directory?
@@ -143,7 +143,7 @@ O serviço de fornecimento AD AZure fornece um rico conjunto de capacidades de c
 ### <a name="sspr-self-service-password-reset-now-requires-two-gates-for-admins-in-microsoft-azure-operated-by-21vianet-azure-china-21vianet"></a>A SSPR (redefinição da palavra-passe de autosserviço) requer agora dois portões para administradores no Microsoft Azure operados pela 21Vianet (Azure China 21Vianet) 
 
 **Tipo:** Alteração de recurso  
-**Categoria de serviço:** Reset da palavra-passe de autosserviço  
+**Categoria de serviço:** Self-Service Redefinição de password  
 **Capacidade do produto:** Proteção & de Segurança de Identidade
  
 Anteriormente no Microsoft Azure operado pela 21Vianet (Azure China 21Vianet), os administradores que usam a redefinição da palavra-passe de autosserviço (SSPR) para redefinir as suas próprias palavras-passe precisavam apenas de um "portal" (desafio) para provar a sua identidade. Em nuvens públicas e outras, os administradores geralmente devem usar dois portões para provar a sua identidade quando utilizam sSPR. Mas como não apoiámos SMS ou chamadas telefónicas no Azure China 21Vianet, permitimos que a palavra-passe de um portão seja reposta por administradores.
@@ -532,7 +532,7 @@ Para obter mais informações, consulte [o Add Google como um fornecedor de iden
 **Categoria de serviço:** Acesso Condicional  
 **Capacidade do produto:** Proteção & de Segurança de Identidade
 
-Azure AD para Microsoft Edge no iOS e Android agora suporta Azure AD Single Sign-On e Acesso Condicional:
+Azure AD para o Microsoft Edge no iOS e Android agora suporta Azure AD Single Sign-On e Acesso Condicional:
 
 - **Microsoft Edge single sign-on (SSO):** O login único está agora disponível em clientes nativos (como o Microsoft Outlook e o Microsoft Edge) para todas as aplicações ligadas ao AD Azure.
 
@@ -1256,7 +1256,7 @@ Para obter mais informações, consulte [Ativar as Auditorias de Segurança dos 
 
 **Tipo:** Nova **categoria de serviço de recurso:** Capacidade do produto B2B: B2B/B2C **Product capability:**
 
-A federação direta ajuda a facilitar o seu trabalho com parceiros cuja solução de identidade gerida por TI não é a AZure AD, trabalhando com sistemas de identidade que suportam os padrões SAML ou WS-Fed. Depois de configurar uma relação direta de federação com um parceiro, qualquer novo utilizador convidado que convidar desse domínio pode colaborar consigo usando a sua conta organizacional existente, tornando a experiência do utilizador para os seus hóspedes mais perfeita.
+A federação direta ajuda a facilitar o seu trabalho com parceiros cuja solução de identidade gerida por TI não é a AZure AD, trabalhando com sistemas de identidade que suportam os padrões DE SAML ou WS-Fed. Depois de configurar uma relação direta de federação com um parceiro, qualquer novo utilizador convidado que convidar desse domínio pode colaborar consigo usando a sua conta organizacional existente, tornando a experiência do utilizador para os seus hóspedes mais perfeita.
 
 Para obter mais informações, consulte [a federação direta com AD FS e fornecedores de terceiros para utilizadores convidados (pré-visualização)](../external-identities/direct-federation.md).
 
@@ -1344,7 +1344,7 @@ Para obter mais informações, consulte a documentação de referência da [API 
 
 Em junho de 2019, adicionámos estas 22 novas aplicações com apoio da Federação à galeria de aplicações:
 
-[Azure AD SAML Toolkit](../saas-apps/saml-toolkit-tutorial.md), [Otsuka Shokai (大塚商会)](../saas-apps/otsuka-shokai-tutorial.md), [ANAQUA](../saas-apps/anaqua-tutorial.md), [Cliente Azure VPN](https://portal.azure.com/), [ExpenseIn,](../saas-apps/expensein-tutorial.md) [Helper Helper](../saas-apps/helper-helper-tutorial.md), [Costpoint](../saas-apps/costpoint-tutorial.md), [GlobalOne,](../saas-apps/globalone-tutorial.md) [Mercedes-Benz In-Car Office,](https://me.secure.mercedes-benz.com/) [Skore,](https://app.justskore.it/) [Oracle Cloud Infrastructure Consola](../saas-apps/oracle-cloud-tutorial.md), [Autenticação CYBERArk SAML](../saas-apps/cyberark-saml-authentication-tutorial.md), [Scrible Edu,](https://www.scrible.com/sign-in/#/create-account) [PandaDoc,](../saas-apps/pandadoc-tutorial.md) [Perceptyx,](https://apexdata.azurewebsites.net/docs.microsoft.com/azure/active-directory/saas-apps/perceptyx-tutorial) [Proptimise OS](https://proptimise.co.uk/software/), [Vtiger CRM (SAML)](../saas-apps/vtiger-crm-saml-tutorial.md), Oracle Access Manager para merchandising oracle retail, Oracle Access Manager para Oracle E-Business Suite, Oracle IDCS para E-Business Suite, Oracle IDCS para PeopleSoft, Oracle IDCS para JD Edwards
+[Azure AD SAML Toolkit](../saas-apps/saml-toolkit-tutorial.md), [Otsuka Shokai (大塚商会)](../saas-apps/otsuka-shokai-tutorial.md), [ANAQUA](../saas-apps/anaqua-tutorial.md), [Cliente Azure VPN](https://portal.azure.com/), [ExpenseIn](../saas-apps/expensein-tutorial.md), [Helper Helper](../saas-apps/helper-helper-tutorial.md), [Costpoint](../saas-apps/costpoint-tutorial.md), [GlobalOne,](../saas-apps/globalone-tutorial.md) [Mercedes-Benz In-Car Office,](https://me.secure.mercedes-benz.com/) [Skore,](https://app.justskore.it/) [Oracle Cloud Consola de Infraestruturas](../saas-apps/oracle-cloud-tutorial.md), [Autenticação CYBERArk SAML](../saas-apps/cyberark-saml-authentication-tutorial.md), [Scrible Edu,](https://www.scrible.com/sign-in/#/create-account) [PandaDoc,](../saas-apps/pandadoc-tutorial.md) [Perceptyx,](https://apexdata.azurewebsites.net/docs.microsoft.com/azure/active-directory/saas-apps/perceptyx-tutorial) [Proptimise OS](https://proptimise.co.uk/software/), [Vtiger CRM (SAML)](../saas-apps/vtiger-crm-saml-tutorial.md), Oracle Access Manager para o Oracle Retail Merchandising, Oracle Access Manager para Oracle E-Business Suite, Oracle IDCS para E-Business Suite, Oracle IDCS para PeopleSoft, Oracle IDCS para JD Edwards
 
 Para obter mais informações sobre as aplicações, consulte a [integração da aplicação SaaS com o Azure Ative Directory.](https://aka.ms/appstutorial) Para obter mais informações sobre a listagem da sua aplicação na galeria de aplicações Azure AD, consulte [List a sua aplicação na galeria de aplicações Azure Ative.](https://aka.ms/azureadapprequest)
 
@@ -1942,7 +1942,7 @@ Para mais informações, consulte [a autenticação de código de acesso de emai
 
 Introduzimos três novas configurações de cookies, disponíveis para as suas aplicações que são publicadas através do Application Proxy:
 
-- **Utilize cookie HTTP-Only.** Define a bandeira **HTTPOnly** no acesso de procuração de aplicação e cookies de sessão. Ligar esta definição proporciona benefícios adicionais de segurança, tais como ajudar a evitar a cópia ou modificação de cookies através da scripting do lado do cliente. Recomendamos que ligue esta bandeira (escolha **Sim)** para os benefícios adicionais.
+- **Use HTTP-Only cookie.** Define a bandeira **HTTPOnly** no acesso de procuração de aplicação e cookies de sessão. Ligar esta definição proporciona benefícios adicionais de segurança, tais como ajudar a evitar a cópia ou modificação de cookies através da scripting do lado do cliente. Recomendamos que ligue esta bandeira (escolha **Sim)** para os benefícios adicionais.
 
 - **Use cookie seguro.** Define a bandeira **Secure** no seu acesso proxy de aplicação e cookies de sessão. Ligar esta definição proporciona benefícios adicionais de segurança, certificando-se de que os cookies são transmitidos apenas através de canais seguros TLS, como HTTPS. Recomendamos que ligue esta bandeira (escolha **Sim)** para os benefícios adicionais.
 
@@ -2250,11 +2250,11 @@ Para obter mais informações, consulte [Criar um grupo dinâmico e verificar o 
 
 ---
 
-### <a name="simplified-single-sign-on-sso-configuration-settings-for-some-third-party-apps"></a>Definições de configuração de sign-on única simplificada (SSO) para algumas aplicações de terceiros
+### <a name="simplified-single-sign-on-sso-configuration-settings-for-some-third-party-apps"></a>Configurações de configuração de Sign-On única simplificada (SSO) para algumas aplicações de terceiros
 
 **Tipo:** Nova **categoria de funcionalidades:** Capacidade do produto de aplicações **empresariais:** SSO
 
-Percebemos que a criação de um Único Sign-On (SSO) para aplicações de Software como serviço (SaaS) pode ser um desafio devido à natureza única de cada configuração de aplicações. Construímos uma experiência de configuração simplificada para preencher automaticamente as definições de configuração SSO para as seguintes aplicações SaaS de terceiros:
+Percebemos que a criação de aplicações Single Sign-On (SSO) para Software como serviço (SaaS) pode ser um desafio devido à natureza única de cada configuração de aplicações. Construímos uma experiência de configuração simplificada para preencher automaticamente as definições de configuração SSO para as seguintes aplicações SaaS de terceiros:
 
 - Zendesk
 
@@ -2323,7 +2323,7 @@ Para obter mais informações, consulte:
 
 ---
 
-### <a name="new-support-for-self-service-password-reset-from-the-windows-7881-lock-screen"></a>Novo suporte para autosserviço Palavra-Passe Reiniciado a partir do ecrã de bloqueio do Windows 7/8/8.1
+### <a name="new-support-for-self-service-password-reset-from-the-windows-7881-lock-screen"></a>Novo suporte para Self-Service redefinição de palavra-passe a partir do ecrã de bloqueio do Windows 7/8.1
 
 **Tipo:** Nova **categoria de serviço** de funcionalidade: Capacidade do produto SSPR: Autenticação do utilizador **Product capability:**
 
@@ -2361,7 +2361,7 @@ Para obter mais informações sobre as aplicações, consulte a [integração da
 
 **Tipo:** Nova **categoria de funcionalidades:** Capacidade do produto de aplicações **empresariais:** SSO
 
-Introduzimos novos métodos de transformação de reclamações, ToLower e ToUpper(), que podem ser aplicados a fichas SAML a partir da página de **configuração única de sign-on** baseada em SAML.
+Introduzimos novos métodos de transformação de reivindicações, ToLower e ToUpper(), que podem ser aplicados a fichas SAML a partir da página de **Configuração single Sign-On** baseada em SAML.
 
 Para obter mais informações, consulte [Como personalizar as reclamações emitidas no token SAML para aplicações empresariais em Azure AD](../develop/active-directory-saml-claims-customization.md)
 
@@ -2431,7 +2431,7 @@ Esta é uma pré-visualização pública opt-in. Os administradores podem ligar 
 
 ---
 
-### <a name="new-http-only-cookies-setting-in-azure-ad-application-proxy-apps"></a>Nova definição de cookies HTTP-Only em aplicações de procuração de aplicações AD Azure
+### <a name="new-http-only-cookies-setting-in-azure-ad-application-proxy-apps"></a>Definição de cookies de HTTP-Only nova em aplicativos proxy Azure AD Application
 
 **Tipo:** Nova **categoria de serviço de funcionalidade:** Capacidade de produto Proxy **app:** Controle de Acesso
 
@@ -2607,7 +2607,7 @@ A mais recente versão do Azure AD Connect inclui:
 
 - Correções de bugs e atualizações de suporte
 
-- Disponibilidade Geral da integração ping-federate
+- Disponibilidade Geral da integração Ping-Federate
 
 - Atualizações para o mais recente cliente SQL 2012
 
@@ -3353,18 +3353,18 @@ A mais recente versão do módulo de pré-visualização powerShell AzureAD cont
 
 Os novos cmdlets são:
 
-- Get-AzureADApplicationProxyApplicationApplicationApplication
+- Get-AzureADApplicationProxyApplication
 - Get-AzureADApplicationProxyApplicationConnectorGroup
 - Get-AzureADApplicationProxyConnector
 - Get-AzureADApplicationProxyConnectorGroup
 - Get-AzureADApplicationProxyConnectorGroupMembers
 - Get-AzureADApplicationProxyConnectorMemberOf
-- New-AzureADApplicationProxyApplicationApplicationApplication
+- New-AzureADApplicationProxyApplication
 - New-AzureADApplicationProxyConnectorGroup
-- Remove-AzureADApplicationProxyApplicationApplicationApplication
+- Remove-AzureADApplicationProxyApplication
 - Remove-AzureADApplicationProxyApplicationConnectorGroup
 - Remove-AzureADApplicationProxyConnectorGroup
-- Set-AzureADApplicationProxyApplicationApplicationApplication
+- Set-AzureADApplicationProxyApplication
 - Set-AzureADApplicationProxyApplicationConnectorGroup
 - Set-AzureADApplicationProxyApplicationCustomDomainCertificate
 - Set-AzureADApplicationProxyApplicationSingleSignOn
@@ -3381,8 +3381,8 @@ A mais recente versão do módulo AzureAD PowerShell contém cmdlets para gerir 
 
 Os cmdlets do Grupo que agora são lançados para Disponibilidade Geral são:
 
-- Grupo Get-AzureADMS
-- Grupo New-AzureADMS
+- Get-AzureADMSGroup
+- New-AzureADMSGroup
 - Remove-AzureADMSGroup
 - Set-AzureADMSGroup
 - Get-AzureADMSGroupLifecyclePolicy
@@ -3428,7 +3428,7 @@ Esta versão tem as seguintes atualizações e alterações:
 
 - Adicionou ações de configuração de writeback do dispositivo e uma barra de progresso para a inicialização da página.
 
-- Diagnósticos gerais melhorados com relatório HTML e recolha completa de dados num Relatório ZIP-Text/HTML.
+- Diagnóstico geral melhorado com relatório HTML e recolha completa de dados num relatório ZIP-Text/HTML.
 
 - Melhor fiabilidade da atualização automática e adicionação de telemetria adicional para garantir que a saúde do servidor pode ser determinada.
 

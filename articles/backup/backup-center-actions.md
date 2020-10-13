@@ -7,7 +7,7 @@ ms.openlocfilehash: 65ac6374b1a9571d0415bc097a6ee957874d3d44
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91854431"
 ---
 # <a name="perform-actions-using-backup-center"></a>Executar ações usando o Backup Center

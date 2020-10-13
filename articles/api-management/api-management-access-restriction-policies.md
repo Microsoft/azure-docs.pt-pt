@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: apimpm
 ms.openlocfilehash: 05ca16ad828525f2b09e4adf8f75be4667254614
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91535190"
 ---
 # <a name="api-management-access-restriction-policies"></a>Políticas de restrição de acesso à Gestão de API
@@ -551,7 +551,7 @@ Esta política pode ser utilizada nas [seguintes secções](./api-management-how
 -   **Secções políticas:** entrada
 -   **Âmbitos de política:** todos os âmbitos
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre as políticas, consulte:
 
