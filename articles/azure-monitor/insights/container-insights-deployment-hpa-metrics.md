@@ -4,10 +4,10 @@ description: Este artigo descreve que métricas de implantação & HPA (autoscal
 ms.topic: conceptual
 ms.date: 08/09/2020
 ms.openlocfilehash: ee1f0d4849a8382a898aaca84956ff78166e138f
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89570532"
 ---
 # <a name="deployment--hpa-metrics-with-azure-monitor-for-containers"></a>Implantação & métricas HPA com Monitor Azure para contentores
@@ -34,6 +34,6 @@ O Azure Monitor para contentores inicia automaticamente a monitorização dos A 
 
 O Azure Monitor para contentores inclui gráficos pré-configurados para as métricas listadas anteriormente na tabela como um livro para cada cluster. Pode encontrar as implementações & o livro de trabalho HPA **Implementações & HPA** diretamente de um cluster AKS selecionando livros de **trabalho** a partir do painel de esquerda e da lista de drop-down do **View Workbooks** no Insight.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja [as métricas do estado de Kube em Kubernetes](https://github.com/kubernetes/kube-state-metrics/tree/master/docs) para saber mais sobre as métricas do estado de Kube.

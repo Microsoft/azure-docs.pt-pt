@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/20/2020
 ms.author: allensu
-ms.openlocfilehash: d75f13f6a0621158bdb9a2f1682d0c85eaacb59d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 690543ebc91e346e77509fbf993493f6978374ee
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87836110"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Resolução de problemas Azure Rede Virtual NAT conectividade
@@ -51,7 +51,7 @@ Frequentemente, a causa principal da exaustão do SNAT é um anti-padrão para a
 4. Avalie se os padrões adequados são seguidos.
 5. Avalie se a exaustão da porta SNAT deve ser atenuada com endereços IP adicionais atribuídos ao recurso de gateway NAT.
 
-#### <a name="design-patterns"></a>Padrões de design
+#### <a name="design-patterns"></a>Padrões de estrutura
 
 Aproveite sempre que possível a reutilização da ligação e a ligação.  Estes padrões evitarão problemas de exaustão de recursos e resultarão em comportamentos previsíveis. Os primitivos para estes padrões podem ser encontrados em muitas bibliotecas e estruturas de desenvolvimento.
 
@@ -195,14 +195,6 @@ _**Solução:**_
 Não é necessário reiniciar uma máquina virtual configurando uma sub-rede para um recurso de gateway NAT.  No entanto, se uma máquina virtual for reiniciada, o estado de ligação é lavado.  Quando o estado de ligação tiver sido lavado, todas as ligações começarão a utilizar o endereço IP do recurso (es) do recurso GATEWAY NAT.  No entanto, este é um efeito colateral da máquina virtual sendo reiniciada e não um indicador de que é necessário um reboot.
 
 Se ainda tiver problemas, abra um caso de apoio para mais resolução de problemas.
-
-### <a name="connection-setup-time"></a>Tempo de configuração da ligação
-
-Uma vez que as regras de saída do Balancer de Carga atribuem estáticamente piscinas de portas SNAT a máquinas virtuais específicas, criar novos fluxos de saída é mais rápido do que usar o NAT de Rede Virtual. Por isso, quando mudar de Regras de Saída do Balanceador de Carga, poderá ver uma maior latência ao criar uma nova ligação de saída. Como explicado anteriormente, para maximizar o desempenho da sua aplicação, deve utilizar fluxos de longa duração (por exemplo, ligações TCP reutilizadas).
-
-_**Solução:**_
-
-Se estiver interessado principalmente na latência mínima de configuração de conibição, utilize as Regras de Saída do Balanceador de Carga.
 
 ## <a name="next-steps"></a>Passos seguintes
 

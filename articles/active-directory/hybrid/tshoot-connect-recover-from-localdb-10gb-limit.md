@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7ca5361d8500ecd4ea22a577d0a4dc7ced606eab
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89275907"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: como recuperar do limite de 10 GB da LocalDB
@@ -81,7 +81,7 @@ O nome da base de dados criada para Azure AD Connect é **ADSync**. Para realiza
 ### <a name="delete-run-history-data"></a>Eliminar dados de histórico de execução
 Por padrão, o Azure AD Connect retém até sete dias de dados de histórico de execução. Neste passo, eliminamos os dados do histórico de execução para recuperar o espaço DB para que o Serviço de Sincronização AD Connect Connect Azure possa voltar a sincronizar.
 
-1. Iniciar **o Gestor de Serviços de Sincronização** indo para START → Serviço de Sincronização.
+1. Inicie **o Gestor de Serviços de Sincronização** indo ao START → Serviço de Sincronização.
 
 2. Vá ao separador **operações.**
 
@@ -103,5 +103,5 @@ Em geral, o problema é indicativo de que o tamanho da base de dados de 10 GB j�
 * Para obter instruções sobre como configurar o SQL remoto com o Azure AD Connect, consulte o artigo [Instalação personalizada do Azure AD Connect](./how-to-connect-install-custom.md).
 * Para instruções sobre a migração rotativa de atualização do Azure AD Connect, consulte o artigo [Azure AD Connect: atualizar de uma versão anterior para a versão mais recente](./how-to-upgrade-previous-version.md#swing-migration).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

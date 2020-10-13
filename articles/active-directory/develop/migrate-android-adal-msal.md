@@ -13,12 +13,12 @@ ms.date: 09/6/2019
 ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: 21866bb7dab3d5a093ffc4655161b80853eadfc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2a6722cfff392a18629c8bb47fad0ad5ac1a95b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77084052"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966003"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Guia de migração ADAL para MSAL para Android
 
@@ -238,19 +238,16 @@ public interface SilentAuthenticationCallback {
 Em ADAL, há um tipo de exceção, `AuthenticationException` que inclui um método para recuperar o valor `ADALError` enum.
 No MSAL, há uma hierarquia de exceções, e cada um tem o seu próprio conjunto de códigos de erro específicos associados.
 
-Lista de Exceções MSAL
-
-|Exceção  | Descrição  |
-|---------|---------|
-| `MsalException`     | Exceção verificada por defeito lançada pela MSAL.  |
-| `MsalClientException`     | Lançado se o erro for do lado do cliente. |
-| `MsalArgumentException`     | Lançados se um ou mais argumentos de entradas forem inválidos. |
-| `MsalClientException`     | Lançado se o erro for do lado do cliente. |
-| `MsalServiceException`     | Lançado se o erro for o lado do servidor. |
-| `MsalUserCancelException`     | Lançado se o utilizador cancelar o fluxo de autenticação.  |
-| `MsalUiRequiredException`     | Jogado se o símbolo não puder ser refrescado silenciosamente.  |
-| `MsalDeclinedScopeException`     | Lançado se um ou mais âmbitos solicitados fossem recusados pelo servidor.  |
-| `MsalIntuneAppProtectionPolicyRequiredException` | Lançado se o recurso tiver a política de proteção MAMCA ativada. |
+| Exceção                                        | Descrição                                                         |
+|--------------------------------------------------|---------------------------------------------------------------------|
+| `MsalException`                                  | Exceção verificada por defeito lançada pela MSAL.                           |
+| `MsalClientException`                            | Lançado se o erro for do lado do cliente.                                 |
+| `MsalArgumentException`                          | Lançados se um ou mais argumentos de entradas forem inválidos.                 |
+| `MsalServiceException`                           | Lançado se o erro for o lado do servidor.                                 |
+| `MsalUserCancelException`                        | Lançado se o utilizador cancelar o fluxo de autenticação.                |
+| `MsalUiRequiredException`                        | Jogado se o símbolo não puder ser refrescado silenciosamente.                    |
+| `MsalDeclinedScopeException`                     | Lançado se um ou mais âmbitos solicitados fossem recusados pelo servidor. |
+| `MsalIntuneAppProtectionPolicyRequiredException` | Lançado se o recurso tiver a política de proteção MAMCA ativada.         |
 
 ### <a name="adalerror-to-msalexception-errorcode"></a>ADALError para MsalException ErrorCode
 

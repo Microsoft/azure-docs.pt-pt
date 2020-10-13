@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: 4f2b338b8629209363acb7bbe0533831a089fe6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d1233c97ec80d5a2efa8b53c68e9e07a823165d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447316"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977036"
 ---
 # <a name="windows-stop-error---0x00000074-bad-system-config-info"></a>Erro de paragem do Windows - 0x000000074 Bad System Config Info
 
@@ -27,7 +27,7 @@ Este artigo fornece medidas para resolver problemas em que o Windows não pode a
 
 ## <a name="symptom"></a>Sintoma
 
-Quando utilizar [diagnósticos boot](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para visualizar a imagem do VM, verá que a imagem exibe o código de paragem do Windows **#0x00000074** ou **BAD_SYSTEM_CONFIG_INFO**.
+Quando utilizar [diagnósticos boot](./boot-diagnostics.md) para visualizar a imagem do VM, verá que a imagem exibe o código de paragem do Windows **#0x00000074** ou **BAD_SYSTEM_CONFIG_INFO**.
 
 *O seu PC teve um problema e precisa de reiniciar. Pode recomeçar.* 
  *Para mais informações http://windows.com/stopcode sobre esta questão e possíveis correções, visite* 
@@ -58,7 +58,7 @@ O código de paragem **BAD_SYSTEM_CONFIG_INFO** ocorre se a colmeia de registo *
 
 ### <a name="create-and-access-a-repair-vm"></a>Criar e aceder a um VM de reparação
 
-1. Utilize os passos 1-3 dos Comandos de [Reparação VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar um VM de reparação.
+1. Utilize os passos 1-3 dos Comandos de [Reparação VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) para preparar um VM de reparação.
 1. Verifique se há corrupção de colmeias.
 1. Utilize ligação de ambiente de trabalho remoto para ligar ao VM de reparação.
 1. Copie a `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` pasta e guarde-a na sua divisória de disco saudável ou noutro local seguro. Faça o reforço desta pasta como precaução, uma vez que irá editar ficheiros de registo críticos. 
@@ -133,4 +133,4 @@ As instruções abaixo vão ajudá-lo a determinar se a causa foi devido à corr
    
 ### <a name="rebuild-the-vm"></a>Reconstruir o VM
 
-Utilize [o passo 5 dos Comandos de Reparação VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para reconstruir o VM.
+Utilize [o passo 5 dos Comandos de Reparação VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) para reconstruir o VM.

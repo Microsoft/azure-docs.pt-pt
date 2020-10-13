@@ -9,10 +9,10 @@ ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
 ms.openlocfilehash: 4411bd490ab72aa27fbf16a8598a9ff0dae7a5b5
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91358955"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configurar grupos de disponibilidade para SQL Server em máquinas virtuais RHEL em Azure 
@@ -532,7 +532,7 @@ Para adicionar o papel, executar o seguinte comando:
 az role definition create --role-definition "<filename>.json"
 ```
 
-Deverá ver o resultado seguinte:
+Deverá ver o seguinte resultado:
 
 ```output
 {
@@ -669,7 +669,7 @@ Uma vez terminada a configuração, pode verificar o estado do SQL Server e veri
 systemctl status mssql-server --no-pager
 ```
 
-Deverá ver o resultado seguinte:
+Deverá ver o seguinte resultado:
 
 ```output
 ● mssql-server.service - Microsoft SQL Server Database Engine
@@ -969,7 +969,7 @@ Vamos seguir o guia para [criar os recursos do grupo de disponibilidade no clust
     sudo pcs resource
     ```
 
-    Deverá ver o resultado seguinte:
+    Deverá ver o seguinte resultado:
     
     **RHEL 7** 
     
@@ -1051,7 +1051,7 @@ Vamos seguir o guia para [criar os recursos do grupo de disponibilidade no clust
     sudo pcs constraint list --full
     ```
 
-    Deverá ver o resultado seguinte:
+    Deverá ver o seguinte resultado:
     
     **RHEL 7**
 
