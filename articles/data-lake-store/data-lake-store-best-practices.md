@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
 ms.openlocfilehash: 291a5850540ea7d7d24a4a544c1eb65183df8ffb
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91667746"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Melhores práticas para a utilização do Azure Data Lake Storage Gen1
@@ -27,7 +27,7 @@ Neste artigo, você aprende sobre as melhores práticas e considerações para t
 
 A Azure Data Lake Storage Gen1 oferece controlos de acesso POSIX e auditoria detalhada para utilizadores, grupos e diretores de serviço azure Ative. Estes controlos de acesso podem ser definidos para ficheiros e pastas existentes. Os controlos de acesso também podem ser utilizados para criar predefinições que podem ser aplicadas a novos ficheiros ou pastas. Quando as permissões são definidas para pastas existentes e objetos infantis, as permissões devem ser propagadas novamente em cada objeto. Se houver um grande número de ficheiros, a propagação das permissões pode demorar muito tempo. O tempo desemtivos pode variar entre 30-50 objetos processados por segundo. Por isso, planeie a estrutura da pasta e os grupos de utilizadores adequadamente. Caso contrário, pode causar atrasos e problemas inesperados quando trabalha com os seus dados.
 
-Assuma que tem uma pasta com 100.000 objetos infantis. Se pegar no limite inferior de 30 objetos processados por segundo, para atualizar a permissão para toda a pasta pode demorar uma hora. Mais detalhes sobre data lake storage Gen1 ACLs estão disponíveis no [controle de acesso em Azure Data Lake Storage Gen1](data-lake-store-access-control.md). Para um melhor desempenho na atribuição de ACLs de forma recursiva, pode utilizar a Ferramenta de Linha de Comando do Lago de Dados Azure. A ferramenta cria múltiplos fios e lógica de navegação recursiva para aplicar rapidamente ACLs em milhões de ficheiros. A ferramenta está disponível para Linux e Windows, e a [documentação](https://github.com/Azure/data-lake-adlstool) e downloads para esta ferramenta podem ser [encontrados](https://aka.ms/adlstool-download) no GitHub. Estas mesmas melhorias de desempenho podem ser ativadas pelas suas próprias ferramentas escritas com os SDKs de armazenamento de data lake [e](data-lake-store-data-operations-net-sdk.md) [java.](data-lake-store-get-started-java-sdk.md)
+Assuma que tem uma pasta com 100.000 objetos infantis. Se pegar no limite inferior de 30 objetos processados por segundo, para atualizar a permissão para toda a pasta pode demorar uma hora. Mais detalhes sobre data lake storage Gen1 ACLs estão disponíveis no [controle de acesso em Azure Data Lake Storage Gen1](data-lake-store-access-control.md). Para um melhor desempenho na atribuição de ACLs de forma recursiva, pode utilizar a Ferramenta Command-Line do Lago de Dados Azure. A ferramenta cria múltiplos fios e lógica de navegação recursiva para aplicar rapidamente ACLs em milhões de ficheiros. A ferramenta está disponível para Linux e Windows, e a [documentação](https://github.com/Azure/data-lake-adlstool) e downloads para esta ferramenta podem ser [encontrados](https://aka.ms/adlstool-download) no GitHub. Estas mesmas melhorias de desempenho podem ser ativadas pelas suas próprias ferramentas escritas com os SDKs de armazenamento de data lake [e](data-lake-store-data-operations-net-sdk.md) [java.](data-lake-store-get-started-java-sdk.md)
 
 ### <a name="use-security-groups-versus-individual-users"></a>Utilize grupos de segurança contra utilizadores individuais
 
@@ -189,7 +189,7 @@ NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv
 
 No caso comum de os dados dos lotes serem tratados diretamente em bases de dados como a Hive ou as bases de dados tradicionais do SQL, não há necessidade de uma pasta **/dentro** **ou/fora,** uma vez que a saída já vai para uma pasta separada para a tabela Hive ou base de dados externa. Por exemplo, extratos diários de clientes aterrariam nas respetivas pastas, e a orquestração por algo como Azure Data Factory, Apache Oozie ou Apache Airflow desencadearia um trabalho diário de Hive ou Spark para processar e escrever os dados numa tabela da Colmeia.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * [Visão geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Controlo de acessos em Azure Data Lake Storage Gen1](data-lake-store-access-control.md)

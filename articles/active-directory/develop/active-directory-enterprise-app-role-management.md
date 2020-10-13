@@ -13,10 +13,10 @@ ms.topic: how-to
 ms.date: 04/22/2019
 ms.author: jeedes
 ms.openlocfilehash: 8ec87a8d78f73af48b662c5971dfe1803717f88a
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91704553"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Como: Configurar a alegação de papel emitida no token SAML para aplicações empresariais
@@ -263,7 +263,7 @@ Para eliminar uma função existente, execute os seguintes passos:
     > [!NOTE]
     > A função tem de ser desativada antes de poder ser removida.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais etapas, consulte a documentação da [aplicação.](../saas-apps/tutorial-list.md)
 

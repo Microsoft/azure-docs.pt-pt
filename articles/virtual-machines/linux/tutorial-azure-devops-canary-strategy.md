@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: 22f36448a4246f7cc8c66b2c4f8051c835ed939a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fafe2ba9ae65f95d8a2258ead5715cc0630202ba
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86510162"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963487"
 ---
 # <a name="tutorial---configure-the-canary-deployment-strategy-for-azure-linux-virtual-machines"></a>Tutorial - Configurar a estratégia de implantação canária para máquinas virtuais Azure Linux
 
@@ -25,7 +25,7 @@ ms.locfileid: "86510162"
 
 A Azure Pipelines fornece um conjunto totalmente em destaque de ferramentas de automação CI/CD para implementações em máquinas virtuais. Pode configurar um gasoduto de entrega contínua para um Azure VM a partir do portal Azure.
 
-Este artigo mostra como criar um pipeline CI/CD que utiliza a estratégia canária para implementações multi-tecnologia. O portal Azure também apoia outras estratégias como [rolar](https://aka.ms/AA7jlh8) e [azul-verde.](https://aka.ms/AA83fwu)
+Este artigo mostra como criar um pipeline CI/CD que utiliza a estratégia canária para implementações multi-tecnologia. O portal Azure também apoia outras estratégias como [rolar](./tutorial-devops-azure-pipelines-classic.md) e [azul-verde.](./tutorial-azure-devops-blue-green-strategy.md)
 
 ### <a name="configure-cicd-on-virtual-machines"></a>Configure CI/CD em máquinas virtuais
 
@@ -72,8 +72,8 @@ Utilizando a opção de entrega contínua, pode configurar as implementações c
    ![O painel de artefactos mostrando deploy.sh na pasta de implementação](media/tutorial-deployment-strategy/package.png)
 
 ## <a name="other-deployment-strategies"></a>Outras estratégias de implantação
-- [Configure a estratégia de implantação em rolo](https://aka.ms/AA7jlh8)
-- [Configurar a estratégia de implantação azul-verde](https://aka.ms/AA83fwu)
+- [Configure a estratégia de implantação em rolo](./tutorial-devops-azure-pipelines-classic.md)
+- [Configurar a estratégia de implantação azul-verde](./tutorial-azure-devops-blue-green-strategy.md)
 
 ## <a name="azure-devops-projects"></a>Azure DevOps Projects
 

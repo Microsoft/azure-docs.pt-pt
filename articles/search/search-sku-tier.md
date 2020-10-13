@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: c09c5b33f7960ffebfdfc8005537e75a249b8d99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b0ff0abe438b2be3602b10d1c449901ef916901
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89661099"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948090"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Escolha um nível de preços para Azure Cognitive Search
 
@@ -130,7 +130,7 @@ As seguintes sugestões podem ajudá-lo a baixar os custos ou gerir os custos de
 
 + Dimensione para operações intensivas de recursos como indexação e, em seguida, reajuste para baixo para cargas de trabalho regulares de consulta. Comece com a configuração mínima para Azure Cognitive Search (um SU composto por uma partição e uma réplica), e depois monitorize a atividade do utilizador para identificar padrões de utilização que indiquem a necessidade de mais capacidade. Se houver um padrão previsível, poderá sincronizar a escala com a atividade (precisaria de escrever código para automatizar isto).
 
-Além disso, visite [Billing e gestão](../cost-management-billing/manage/getting-started.md) de custos para ferramentas e funcionalidades incorporadas relacionadas com os gastos.
+Além disso, visite [Billing e gestão](../cost-management-billing/cost-management-billing-overview.md) de custos para ferramentas e funcionalidades incorporadas relacionadas com os gastos.
 
 Não é possível encerrar um serviço de pesquisa temporariamente. Os recursos dedicados estão sempre operacionais, alocados para uso exclusivo para o tempo de vida do seu serviço. A eliminação de um serviço é permanente e também elimina os seus dados associados.
 

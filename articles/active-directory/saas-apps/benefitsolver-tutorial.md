@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.openlocfilehash: 1105d2818d6410ffbbc08e0522adca212efe35b1
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91741708"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>Tutorial: Integração do Azure Ative Directory com Benefitsolver
@@ -93,7 +93,7 @@ Para configurar o Azure AD com o Benefitsolver, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -108,15 +108,15 @@ Para configurar o Azure AD com o Benefitsolver, execute os seguintes passos:
     c. Na caixa de texto **URL de resposta,** digite o URL utilizando o seguinte padrão: `https://www.benefitsolver.com/benefits/BenefitSolverView?page_name=single_signon_saml`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de inscrição, identificação e URL de resposta. Contacte [a equipa de suporte ao Cliente Benefitsolver](https://www.businessolver.com/contact) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL de Sign-On real, identifier e responder URL. Contacte [a equipa de suporte ao Cliente Benefitsolver](https://www.businessolver.com/contact) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. A aplicação Benefitsolver espera as afirmações DOL num formato específico. Configure os seguintes pedidos para este pedido. Pode gerir os valores destes atributos a partir da secção **Atributos** do Utilizador na página de integração de aplicações. Na **configuração de 'Sessão's Single's com página SAML,** clique em **Editar** o botão Editar para abrir o diálogo **de atributos do utilizador.**
+5. A aplicação Benefitsolver espera as afirmações DOL num formato específico. Configure os seguintes pedidos para este pedido. Pode gerir os valores destes atributos a partir da secção **Atributos** do Utilizador na página de integração de aplicações. Na **configuração single Sign-On com** a página SAML, clique no botão **Editar** para abrir o diálogo **de Atributos do Utilizador.**
 
     ![A screenshot mostra atributos do utilizador com o controlo de edição chamado.](common/edit-attribute.png)
 
 6. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** edite as alegações utilizando o **ícone Editar** ou adicione as alegações utilizando **adicionar uma nova alegação** para configurar o atributo de ficha SAML como mostrado na imagem acima e executar os seguintes passos: 
 
-    | Name |  Atributo de origem|
+    | Nome |  Atributo de origem|
     |---------------|----------------|
     | ClientID | Você precisa obter este valor da sua equipa de [suporte ao Cliente Benefitsolver.](https://www.businessolver.com/contact)|
     | ClientKey | Você precisa obter este valor da sua equipa de [suporte ao Cliente Benefitsolver.](https://www.businessolver.com/contact)|
@@ -142,7 +142,7 @@ Para configurar o Azure AD com o Benefitsolver, execute os seguintes passos:
 
     exemplo, Clique em **Guardar**.
 
-7. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+7. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -156,7 +156,7 @@ Para configurar o Azure AD com o Benefitsolver, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-benefitsolver-single-sign-on"></a>Configurar benefíciosolver único sign-on
+### <a name="configure-benefitsolver-single-sign-on"></a>Configure benefíciosolver single Sign-On
 
 Para configurar um único sign-on no lado **Benefitsolver,** você precisa enviar os **Metadadata XML** descarregados e URLs copiados apropriados do portal Azure para a equipa de [suporte Benefitsolver](https://www.businessolver.com/contact). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
