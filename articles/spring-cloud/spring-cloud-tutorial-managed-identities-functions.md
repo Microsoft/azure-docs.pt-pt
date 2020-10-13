@@ -7,10 +7,10 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/10/2020
 ms.openlocfilehash: 44268bf1b7805ece8de4a3499a7d53fc851af142
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91664992"
 ---
 # <a name="tutorial-use-a-managed-identity-to-invoke-azure-functions-from-an-azure-spring-cloud-app"></a>Tutorial: Use uma identidade gerida para invocar funções Azure a partir de uma aplicação Azure Spring Cloud
@@ -171,7 +171,7 @@ Esta amostra invocará a função desencadeada http, solicitando primeiro um tok
     
     Pode tentar passar valores diferentes para a função alterando o parâmetro do caminho.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * [Como permitir a identidade gerida atribuída pelo sistema para a aplicação Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-enable-system-assigned-managed-identity)
 * [Saiba mais sobre identidades geridas para recursos Azure](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)

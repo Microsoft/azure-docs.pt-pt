@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 10/01/2020
 ms.custom: seodec18
 ms.openlocfilehash: 6037ece7f4cbe0edc9cf44bded3ee34815f76a48
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91620210"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-gen1-environment"></a>Tutorial: Criar um ambiente Azure Time Series Insights Gen1
@@ -44,7 +44,7 @@ Aprenda a usar um acelerador de solução Azure IoT para gerar dados e começar 
 
 > [!VIDEO https://www.youtube.com/embed/6ehNf6AJkFo]
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 O ambiente Azure Time Series Insights é onde os dados do dispositivo são recolhidos e armazenados. Uma vez armazenados, o [Azure Time Series Insights Explorer](time-series-quickstart.md) e a [Azure Time Series Insights Query API](/rest/api/time-series-insights/gen1-query-api) podem ser utilizados para consultar e analisar os dados.
 

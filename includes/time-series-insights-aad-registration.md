@@ -10,10 +10,10 @@ ms.author: dpalled
 manager: cshankar
 ms.date: 10/02/2020
 ms.openlocfilehash: 7de4dc21391f7dbd817c56ce51606a808cf9e3c4
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91665821"
 ---
 1. No [portal Azure,](https://ms.portal.azure.com/)selecione **Azure Ative Directory**  >  **App registos**  >  **Novo registo**.
@@ -47,7 +47,7 @@ ms.locfileid: "91665821"
     1. **Os URIs de redirecionamento** devem corresponder ao endereço fornecido pelo pedido de autenticação:
 
         * Para aplicações hospedadas num ambiente de desenvolvimento local, selecione **Cliente Público (mobile & desktop)**. Certifique-se de definir **o cliente público** para **Sim**.
-        * Para aplicações de página única hospedadas no Azure App Service, selecione **Web**.
+        * Para Single-Page aplicações hospedadas no Azure App Service, selecione **Web**.
 
     1. Determine se um **URL logout** é apropriado.
 

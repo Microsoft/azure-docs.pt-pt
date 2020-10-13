@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/04/2020
 ms.author: jeedes
-ms.openlocfilehash: a1d74e79f2b375f481c6557c04deb80dcb929b99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62732f92d0739018863229da0a05646cfa817006
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554434"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91941036"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-new-relic-by-organization"></a>Tutorial: Azure Ative Directory integração única (SSO) com Nova Relíquia (Por Organização)
 
@@ -82,15 +82,15 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     a. Clique **em Carregar o ficheiro de metadados**.
 
-    ![image](common/upload-metadata.png)
+    ![A screenshot mostra a configuração básica do SAML com o link de ficheiro de metadados upload.](common/upload-metadata.png)
 
     b. Clique no **logotipo da pasta** para selecionar o ficheiro de metadados e clique em **Upload**.
 
-    ![image](common/browse-upload-metadata.png)
+    ![A screenshot mostra uma caixa de diálogo onde pode selecionar e carregar um ficheiro.](common/browse-upload-metadata.png)
 
     c. Uma vez que o ficheiro de metadados é carregado com sucesso, os valores de URL **de identificação** e **resposta** são preenchidos automaticamente na secção de Configuração BÁSICA SAML:
 
-    ![image](common/idp-intiated.png)
+    ![A screenshot mostra a Configuração BÁSICA SAML, onde pode introduzir o Identificador, Responder U R L e selecionar Guardar.](common/idp-intiated.png)
 
     > [!Note]
     > Se os valores de URL **de identificação** e **resposta** não estiverem a ser automaticamente poluídos, preencha os valores manualmente de acordo com o seu requisito.

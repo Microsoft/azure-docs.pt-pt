@@ -6,17 +6,17 @@ ms.author: mbullwin
 ms.topic: conceptual
 ms.date: 09/10/2020
 ms.openlocfilehash: 196be1caf91b6f1f1731d7c4afbfe72482c8f2ac
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90894550"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Recursos de Insights de Aplicação baseados no espaço de trabalho
 
 Os recursos baseados no espaço de trabalho suportam a integração total entre o Application Insights e o Log Analytics. Pode agora optar por enviar a telemetria Application Insights para um espaço de trabalho comum do Log Analytics, que lhe permite ter acesso total a todas as funcionalidades do Log Analytics, mantendo os registos de aplicações, infraestruturas e plataformas num único local consolidado.
 
-Isto também permite um controlo comum de acesso baseado em funções (RBAC) através dos seus recursos, e elimina a necessidade de consultas cruzadas/espaço de trabalho.
+Isto também permite que o Controle de Acesso Role-Based comum (RBAC) através dos seus recursos, e elimina a necessidade de consultas cruzadas/espaço de trabalho.
 
 > [!NOTE]
 > A ingestão de dados e a retenção de recursos de Insights de Aplicação baseados no espaço de trabalho são faturados através do espaço de trabalho Log Analytics onde os dados estão localizados. [Saiba mais]( ./pricing.md#workspace-based-application-insights) sobre a faturação dos recursos de Aplicações Insights baseados no espaço de trabalho.

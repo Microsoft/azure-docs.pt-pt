@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: bf70d4381a7d128f7a2716540b1318b39cd729b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1e300f2e18d7103cde374c5eba6877602ac3721
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602137"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961226"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Web-in com OpenID Connect em Azure Ative Directory B2C
 
@@ -274,13 +274,17 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 | --------- | -------- | ----------- |
 | {inquilino} | Sim | Nome do seu inquilino Azure AD B2C |
 | {política} | Sim | O fluxo do utilizador que pretende utilizar para assinar o utilizador fora da sua aplicação. |
-| id_token_hint| Não | Um token de ID previamente emitido para passar para o ponto final do logout como uma dica sobre a sessão autenticada atual do utilizador final com o cliente. `id_token_hint`O garante que o é um URL de resposta registado nas `post_logout_redirect_uri` definições de aplicação Azure AD B2C. |
+| id_token_hint| Não | Um token de ID previamente emitido para passar para o ponto final do logout como uma dica sobre a sessão autenticada atual do utilizador final com o cliente. `id_token_hint`O garante que o é um URL de resposta registado nas `post_logout_redirect_uri` definições de aplicação Azure AD B2C. Para obter mais informações, consulte [Secure your logout redirect](#secure-your-logout-redirect). |
 | client_id | Não* | O ID da aplicação que o [portal Azure](https://portal.azure.com/) atribuiu à sua aplicação.<br><br>\**Isto é necessário quando se utiliza `Application` a configuração SSO de isolamento e _o Pedido de ID ID_ no pedido de logout está definido para `No` .* |
 | post_logout_redirect_uri | Não | O URL para o que o utilizador deve ser redirecionado após a assinatura com sucesso. Se não estiver incluído, o Azure AD B2C mostra ao utilizador uma mensagem genérica. A menos que forneça um `id_token_hint` URL, não deve registar este URL como URL de resposta nas definições de aplicação Azure AD B2C. |
 | state | Não | Se um `state` parâmetro for incluído no pedido, o mesmo valor deve aparecer na resposta. O pedido deve verificar se os `state` valores do pedido e resposta são idênticos. |
 
 ### <a name="secure-your-logout-redirect"></a>Fixe o seu redirecionamento de logout
 
-Após o logout, o utilizador é redirecionado para o URI especificado no `post_logout_redirect_uri` parâmetro, independentemente dos URLs de resposta especificados para a aplicação. No entanto, se for aprovado um `id_token_hint` válido, o Azure AD B2C verifica que o valor da `post_logout_redirect_uri` correspondência corresponde a um dos URIs de redirecionamento configurados da aplicação antes de efetuar o redirecionamento. Se não tiver sido configurado um URL de resposta correspondente para a aplicação, é apresentada uma mensagem de erro e o utilizador não é redirecionado.
+Após o logout, o utilizador é redirecionado para o URI especificado no `post_logout_redirect_uri` parâmetro, independentemente dos URLs de resposta especificados para a aplicação. No entanto, se um válido `id_token_hint` for aprovado, e o **Token de ID requere em pedidos de logout** é ligado, Azure AD B2C verifica que o valor de `post_logout_redirect_uri` corresponde a um dos URIs de redirecionamento configurados da aplicação antes de efetivo do redirecionamento. Se não tiver sido configurado um URL de resposta correspondente para a aplicação, é apresentada uma mensagem de erro e o utilizador não é redirecionado.
 
+Para definir o ID Token necessário em pedidos de logout, consulte o comportamento da [sessão de configuração no Azure Ative Directory B2C,](session-behavior-custom-policy.md#secure-your-logout-redirect)e configurar o comportamento da [sessão usando políticas personalizadas no Azure Ative Directory B2C](session-behavior-custom-policy.md#secure-your-logout-redirect).
 
+## <a name="next-steps"></a>Passos seguintes
+
+- Saiba mais sobre [a sessão Azure AD B2C](session-overview.md).

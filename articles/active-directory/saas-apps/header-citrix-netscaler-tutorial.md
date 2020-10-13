@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 48fedf7f3a73ce7fde60a1df80d971a5d7f88dd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73eb6938f4b43c204ab8bc91217e4828454e222d
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88540629"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944232"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-netscaler-header-based-authentication"></a>Tutorial: Azure Ative Directory integração única de sign-on com Citrix NetScaler (autenticação baseada em cabeçalho)
 
@@ -392,7 +392,7 @@ Para ligar uma política de reescrita a um servidor virtual utilizando o GUI:
 
 1. No painel de **servidor virtual de equilíbrio de carga,** em **Definições Avançadas,** selecione **Políticas**. Todas as políticas configuradas para a sua instância NetScaler aparecem na lista.
  
-    ![Configuração Citrix NetScaler - Painel de servidor virtual de equilíbrio de carga](./media/header-citrix-netscaler-tutorial/header05.png)
+    ![Screenshot que mostra o separador "Configuração" com os campos "Nome", "Ação" e "Expressão" realçados e o botão "Criar" selecionados.](./media/header-citrix-netscaler-tutorial/header05.png)
 
     ![Configuração Citrix NetScaler - Painel de servidor virtual de equilíbrio de carga](./media/header-citrix-netscaler-tutorial/header06.png)
 

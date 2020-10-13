@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c8b18629a776dd98950f49b1f607cbc876abcd9c
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91628906"
 ---
 # <a name="create-a-new-configuration-for-azure-ad-connect-cloud-based-provisioning"></a>Criar uma nova configuração para o Azure AD Connect Provisioning baseado em nuvem
@@ -62,7 +62,7 @@ Pode procurar o agente para sincronizar utilizadores e grupos específicos utili
 ## <a name="attribute-mapping"></a>Mapeamento do atributo
 O fornecimento de nuvem AD Connect Azure permite-lhe mapear facilmente atributos entre os objetos de utilizador/grupo no local e os objetos em Azure AD.  Pode personalizar os mapeamentos de atributos padrão de acordo com as necessidades do seu negócio. Assim, pode alterar ou eliminar os mapeamentos de atributos existentes ou criar novos mapeamentos de atributos.  Para obter mais informações consulte [o mapeamento do atributo](how-to-attribute-mapping.md).
 
-## <a name="on-demand-provisioning"></a>Provisionamento a pedido
+## <a name="on-demand-provisioning"></a>Aprovisionamento a pedido
 O fornecimento de nuvem AD Connect Azure permite testar alterações de configuração, aplicando estas alterações a um único utilizador ou grupo.  Pode utilizar isto para validar e verificar se as alterações efetuadas à configuração foram corretamente aplicadas e estão a ser corretamente sincronizadas para a Azure AD.  Para obter mais informações, consulte [o provisionamento a pedido.](how-to-on-demand-provision.md)
 
 ## <a name="restart-provisioning"></a>Reiniciar o provisionamento 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
 ms.openlocfilehash: 390a8a49e9a47ee5e6845d85fe4fe02f514708e8
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362202"
 ---
 # <a name="how-does-hyper-v-replication-work"></a>Como funciona a replicação do Hiper-V?
@@ -80,7 +80,7 @@ I
 Se tiver largura de banda sobressalente para replicação e quiser aumentar os uploads, pode aumentar o número de linhas atribuídas para a tarefa de upload, da seguinte forma:
 
 1. Abra o registo com Regedit.
-2. Navegue para HKEY_LOCAL_MACHINE chave\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM
+2. Navegue para HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM chave
 3. Aumente o valor para o número de fios utilizados para o upload de dados para cada VM replicante. O valor predefinido é 4 e o valor máximo é de 32. 
 
 

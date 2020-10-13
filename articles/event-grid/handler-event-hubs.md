@@ -4,10 +4,10 @@ description: Descreve como pode usar os centros de eventos como manipuladores de
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: 4fb8027290831dbfed4b6d202d61d2d689274828
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91629629"
 ---
 # <a name="event-hub-as-an-event-handler-for-azure-event-grid-events"></a>Centro de eventos como manipulador de eventos para eventos Azure Event Grid
@@ -15,7 +15,7 @@ Um manipulador de eventos é o local onde o evento é enviado. O manipulador tom
 
 Use **Os Centros de Eventos** quando a sua solução obtém eventos da Grade de Eventos mais rapidamente do que pode processar os eventos. Uma vez que os eventos estejam em um centro de eventos, a sua aplicação pode processar eventos a partir do centro de eventos na sua própria agenda. Pode escalar o processamento do evento para lidar com os eventos que chegam.
 
-## <a name="tutorials"></a>Tutorials (Tutoriais)
+## <a name="tutorials"></a>Tutoriais
 Veja os exemplos seguintes: 
 
 |Título  |Descrição  |

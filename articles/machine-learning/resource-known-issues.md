@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 10/02/2020
 ms.openlocfilehash: c4250be15b1c4fdc5df81c0f0ba3623dedf6488f
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91667270"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Questões conhecidas e resolução de problemas em Azure Machine Learning
@@ -183,7 +183,7 @@ Para obter mais informações sobre a resolução de problemas, consulte os [pr�
   * Chrome (versão mais recente)
   * Firefox (versão mais recente)
 
-## <a name="set-up-your-environment"></a>Configurar o seu ambiente
+## <a name="set-up-your-environment"></a>Configurar o ambiente
 
 * **Problemas na criação do AmlCompute**: Existe uma rara possibilidade de alguns utilizadores que criaram o seu espaço de trabalho Azure Machine Learning a partir do portal Azure antes do lançamento do GA não serem capazes de criar AmlCompute nesse espaço de trabalho. Pode levantar um pedido de apoio contra o serviço ou criar um novo espaço de trabalho através do portal ou o SDK para se desbloquear imediatamente.
 
@@ -482,7 +482,7 @@ O controlo de acesso baseado em funções Azure pode ser usado para restringir a
 
 Para obter mais informações, consulte [Gerir os utilizadores e as funções.](how-to-assign-roles.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Ver mais artigos de resolução de problemas para Azure Machine Learning:
 

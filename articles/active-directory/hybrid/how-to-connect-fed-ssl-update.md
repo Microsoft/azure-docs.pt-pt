@@ -17,10 +17,10 @@ ms.custom: seohack1
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 451b50e70b98849dfc4654566d09a5a961abe451
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89279912"
 ---
 # <a name="update-the-tlsssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Atualizar o certificado TLS/SSL para uma exploração de Serviços da Federação de Diretórios Ativos (AD FS)
@@ -99,13 +99,13 @@ Depois de concluir a configuração, o Azure AD Connect apresenta a mensagem que
 
 * **Posso atualizar um subconjunto dos meus servidores agrícolas com o novo certificado TLS/SSL?**
 
-    Yes. Pode sempre executar novamente o **Certificado SSL de atualização** de tarefas para atualizar os restantes servidores. Na página de atualização de **certificados Select para SSL,** pode classificar a lista de servidores na **data de expiração do SSL** para aceder facilmente aos servidores que ainda não foram atualizados.
+    Sim. Pode sempre executar novamente o **Certificado SSL de atualização** de tarefas para atualizar os restantes servidores. Na página de atualização de **certificados Select para SSL,** pode classificar a lista de servidores na **data de expiração do SSL** para aceder facilmente aos servidores que ainda não foram atualizados.
 
 * **Removi o servidor na execução anterior, mas ainda está a ser mostrado como offline e listado na página dos Servidores FS da AD. Porque é que o servidor offline ainda lá está mesmo depois de o ter removido?**
 
     Remover o servidor da lista no Azure AD Connect não o remove na configuração AD FS. Azure AD Connect referências AD FS (Windows Server 2016 ou superior) para qualquer informação sobre a quinta. Se o servidor ainda estiver presente na configuração AD FS, será listado novamente na lista.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Azure AD Connect e federação](how-to-connect-fed-whatis.md)
 - [Gestão e personalização de Serviços da Federação de Diretórios Ativos com Azure AD Connect](how-to-connect-fed-management.md)

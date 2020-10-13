@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 361b27ce84417b30fe58ac7651f70f8c72f8a16a
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91627377"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>O Azure Ative Directory híbrido de resolução de problemas juntou-se a dispositivos de nível inferior 
@@ -67,7 +67,7 @@ Se o dispositivo não foi híbrido Azure AD, pode tentar fazer a ad AD híbrida,
 
     ![Local de trabalho Junte-se a Janelas](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
     
-   - Autoworkplace.exe é incapaz de autenticar silenciosamente com Azure AD ou AD FS. Isto pode ser causado por FS AD em falta ou mal configurado (para domínios federados) ou por falta ou configuração errada Azure AD Single Sign-On (para domínios geridos) ou problemas de rede. 
+   - Autoworkplace.exe é incapaz de autenticar silenciosamente com Azure AD ou AD FS. Isto pode ser causado por falta ou configuração errada AD FS (para domínios federados) ou falta ou configuração errada Azure AD Sem Emenda Sign-On (para domínios geridos) ou problemas de rede. 
    - Pode ser que a autenticação multi-factor (MFA) esteja ativada/configurada para o utilizador e a WIAORMULTIAUTHN não esteja configurada no servidor AD FS. 
    - Outra possibilidade é que a página home realm discovery (HRD) esteja à espera da interação do utilizador, o que impede ** queautoworkplace.exe** solicitem silenciosamente um token.
    - Pode ser que os URLs AD FS e Azure AD estejam desaparecidos na zona intranet do IE no cliente.

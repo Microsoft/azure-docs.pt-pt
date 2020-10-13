@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.openlocfilehash: c592055be1987786b94623bde5352e2a3cc0e092
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91630156"
 ---
 # <a name="speech-service-for-telephony-data"></a>Serviço de fala para dados de telefonia
@@ -70,7 +70,7 @@ A nossa latência de ponta a ponta é consideravelmente baixa para as várias te
 
 As nossas novas vozes também são indistinguíveis das vozes humanas. Podes usar as nossas vozes para dar ao teu bot a sua personalidade única.
 
-### <a name="search"></a>Pesquisar
+### <a name="search"></a>Pesquisa
 
 Outro fundamento da análise é identificar interações onde ocorreu um evento ou experiência específico. Isto é normalmente feito com uma de duas abordagens; ou uma pesquisa ad hoc onde o utilizador simplesmente escreve uma frase e o sistema responde, ou uma consulta mais estruturada onde um analista pode criar um conjunto de declarações lógicas que identificam um cenário numa chamada, e então cada chamada pode ser indexada contra esse conjunto de consultas. Um bom exemplo de pesquisa é a declaração de conformidade ubíqua "esta chamada deve ser registada para fins de qualidade... ". Muitas empresas querem certificar-se de que os seus agentes estão a fornecer esta isenção de responsabilidade aos clientes antes de a chamada ser realmente gravada. A maioria dos sistemas de análise tem a capacidade de tendência para os comportamentos encontrados por algoritmos de consulta/pesquisa, e este relato de tendências é, em última análise, uma das funções mais importantes de um sistema de análise. Através do [diretório de serviços cognitivos,](https://azure.microsoft.com/services/cognitive-services/directory/search/) a sua solução final-final pode ser significativamente melhorada com capacidades de indexação e pesquisa.
 

@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 28fb9da04c9c9d3e98b5226e1aee4cf5dde7183b
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91628677"
 ---
 # <a name="azure-active-directory-connect-cloud-provisioning-faq"></a>Azure Ative Directory Connect cloud provisioning FAQ
@@ -42,7 +42,7 @@ Com a sincronização Azure AD Connect, o fornecimento é executado no servidor 
 
 **P: Posso utilizar o fornecimento de nuvens para sincronizar a partir de múltiplas florestas de Diretório Ativo?**
 
-Yes. O fornecimento de nuvens pode ser usado para sincronizar a partir de múltiplas florestas de Ative Directory. No ambiente multi-florestal, todas as referências (exemplo, gestor) devem estar dentro do domínio.  
+Sim. O fornecimento de nuvens pode ser usado para sincronizar a partir de múltiplas florestas de Ative Directory. No ambiente multi-florestal, todas as referências (exemplo, gestor) devem estar dentro do domínio.  
 
 **P: Como é que o agente é atualizado?**
 

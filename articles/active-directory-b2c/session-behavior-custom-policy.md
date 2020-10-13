@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a2f20a4521efe2806c4bc66e4612b99caf84382a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31257d795dbd06da65e3d07e18a16d9bdf7e782a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85385268"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961107"
 ---
 # <a name="configure-session-behavior-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar comportamento de sessão usando políticas personalizadas no Azure Ative Directory B2C
 
@@ -26,9 +26,9 @@ A gestão [de sessão de sessão de sessão de sessão de sessão de sessão de 
 Pode utilizar as seguintes propriedades para gerir sessões de aplicações web:
 
 - **Duração da sessão de aplicações web (minutos)** - A vida útil do cookie de sessão do Azure AD B2C armazenado no navegador do utilizador após a autenticação bem sucedida.
-    - Predefinição = 86400 segundos (1440 minutos).
-    - Mínimo (inclusivo) = 900 segundos (15 minutos).
-    - Máximo (inclusivo) = 86400 segundos (1440 minutos).
+  - Predefinição = 86400 segundos (1440 minutos).
+  - Mínimo (inclusivo) = 900 segundos (15 minutos).
+  - Máximo (inclusivo) = 86400 segundos (1440 minutos).
 - **Tempo limite de sessão de aplicações web** - O [tipo de sessão expirado,](session-overview.md#session-expiry-type) *Rolling,* ou *Absoluto*. 
 - **Configuração única de entrada** - O âmbito de [sessão](session-overview.md#session-scope) do comportamento de sessão única (SSO) em várias aplicações e fluxos de utilizador no seu inquilino Azure AD B2C. 
 
@@ -44,18 +44,42 @@ Para alterar o comportamento da sessão e as configurações SSO, adicione um el
 </UserJourneyBehaviors>
 ```
 
-## <a name="single-sign-out"></a>Fim de sessão único
+## <a name="configure-sign-out-behavior"></a>Configurar o comportamento de assinatura
 
-### <a name="configure-the-applications"></a>Configurar as aplicações
+### <a name="secure-your-logout-redirect"></a>Fixe o seu redirecionamento de logout
+
+Após o logout, o utilizador é redirecionado para o URI especificado no `post_logout_redirect_uri` parâmetro, independentemente dos URLs de resposta especificados para a aplicação. No entanto, se um válido `id_token_hint` for aprovado e o **Token de ID requere em pedidos de logout** é ligado, Azure AD B2C verifica que o valor da `post_logout_redirect_uri` correspondência corresponde a um dos URIs de redirecionamento configurados da aplicação antes de efetuar o redirecionamento. Se não tiver sido configurado um URL de resposta correspondente para a aplicação, é apresentada uma mensagem de erro e o utilizador não é redirecionado. 
+
+Para exigir um Token de ID em pedidos de logout, adicione um elemento **UserJourneyBehaviors** dentro do elemento [RelyingParty.](relyingparty.md) Em seguida, desloque o **EnforceIdTokenHintOnLogout** do elemento **SingleSignOn** para `true` . O elemento **UserJourneyBehaviors** deve parecer-se com este exemplo:
+
+```xml
+<UserJourneyBehaviors>
+  <SingleSignOn Scope="Tenant" EnforceIdTokenHintOnLogout="true"/>
+</UserJourneyBehaviors>
+```
+
+Para configurar a sua aplicação Logout URL:
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Certifique-se de que está a utilizar o diretório que contém o seu inquilino Azure AD B2C selecionando o filtro **de subscrição Diretório +** no menu superior e escolhendo o diretório que contém o seu inquilino Azure AD B2C.
+1. Escolha **todos os serviços** no canto superior esquerdo do portal Azure e, em seguida, procure e selecione **Azure AD B2C**.
+1. Selecione **as inscrições da App**e, em seguida, selecione a sua aplicação.
+1. Selecione **Autenticação**.
+1. Na caixa de texto **URL logout,** digite o seu logout post redirecione URI e, em seguida, selecione **Save**.
+
+### <a name="single-sign-out"></a>Fim de sessão único
+
+#### <a name="configure-the-applications"></a>Configurar as aplicações
 
 Quando redireciona o utilizador para o ponto final de assinatura Azure AD B2C (tanto para os protocolos OAuth2 como PARA SAML), o Azure AD B2C limpa a sessão do utilizador do navegador.  Para permitir a [assinatura única,](session-overview.md#single-sign-out)descreva `LogoutUrl` a aplicação a partir do portal Azure:
 
 1. Navegue até ao [portal Azure.](https://portal.azure.com)
 1. Escolha o seu diretório Azure AD B2C clicando na sua conta no canto superior direito da página.
 1. No menu esquerdo, escolha **Azure AD B2C,** selecione **as inscrições da App**e, em seguida, selecione a sua aplicação.
-1. Selecione **Definições**, selecione **Propriedades**e, em seguida, encontre a caixa de texto **URL logout.** 
+1. Selecione **Autenticação**.
+1. Na caixa de texto **URL logout,** digite o seu logout post redirecione URI e, em seguida, selecione **Save**.
 
-### <a name="configure-the-token-issuer"></a>Configure o emitente simbólico 
+#### <a name="configure-the-token-issuer"></a>Configure o emitente simbólico 
 
 Para apoiar uma única assinatura, os perfis técnicos do emitente simbólico para o JWT e para a SAML devem especificar:
 

@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 04/29/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: ea11e2f5f8d89381723011686de9e22639997c01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ffa9502a42af9e927f82d7a135473ff702b76577
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90974143"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970712"
 ---
 # <a name="azure-instance-metadata-service-imds"></a>Serviço de metadados de caso Azure (IMDs)
 
@@ -35,7 +35,7 @@ Os pedidos devem igualmente conter um `Metadata: true` cabeçalho para garantir 
 > [!IMPORTANT]
 > O Serviço de Metadados de Exemplo não é um canal para dados sensíveis. O ponto final está aberto a todos os processos no VM. As informações expostas através deste serviço devem ser consideradas como informações partilhadas a todas as aplicações que estão dentro do VM.
 
-## <a name="usage"></a>Utilização
+## <a name="usage"></a>Usage
 
 ### <a name="accessing-azure-instance-metadata-service"></a>Aceder ao Serviço de Metadados de Exemplo de Azure
 
@@ -249,8 +249,8 @@ oferta | Oferecer informações para a imagem VM e só está presente para image
 osTipos | Linux ou Windows | 2017-04-02
 placementGroupId | Grupo de [colocação](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) do seu conjunto de escala de máquina virtual | 2017-08-01
 plano | [Plano](/rest/api/compute/virtualmachines/createorupdate#plan) contendo nome, produto e editor para um VM se for uma Imagem de Mercado Azure | 2018-04-02
-plataformaUpdateDomain |  [Atualização](manage-availability.md) do domínio em que o VM está a funcionar | 2017-04-02
-plataformaFaultDomain | [Domínio de avaria](manage-availability.md) em que o VM está a funcionar | 2017-04-02
+plataformaUpdateDomain |  [Atualização](../manage-availability.md) do domínio em que o VM está a funcionar | 2017-04-02
+plataformaFaultDomain | [Domínio de avaria](../manage-availability.md) em que o VM está a funcionar | 2017-04-02
 provedor | Provedor do VM | 2018-10-01
 publicKeys | [Coleção de Chaves Públicas](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) atribuídas ao VM e caminhos | 2018-04-02
 publicador | Editor da imagem VM | 2017-04-02
@@ -805,7 +805,7 @@ O serviço está **geralmente disponível** em todas as Nuvens Azure.
 
 Amostras de serviço de metadados de chamada utilizando diferentes idiomas dentro do VM:
 
-Idioma      | Exemplo
+Linguagem      | Exemplo
 --------------|----------------
 Bash          | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 C#            | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs

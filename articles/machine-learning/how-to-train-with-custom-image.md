@@ -11,10 +11,10 @@ ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
 ms.openlocfilehash: 8239d037d6bd68638998cbb36c47c7dac4bce30d
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91537621"
 ---
 # <a name="train-a-model-using-a-custom-docker-image"></a>Treine um modelo usando uma imagem personalizada do Docker
@@ -157,7 +157,7 @@ run.wait_for_completion(show_output=True)
 > [!WARNING]
 > A Azure Machine Learning executa scripts de formação copiando todo o diretório de origem. Se tiver dados sensíveis que não pretende fazer o upload, utilize um [ficheiro .ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) ou não o inclua no diretório de origem . Em vez disso, aceda aos seus dados através de uma [datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py&preserve-view=true).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste artigo, treinaste um modelo usando uma imagem personalizada do Docker. Veja estes outros artigos para saber mais sobre Azure Machine Learning.
 * [Métricas de corrida de pista](how-to-track-experiments.md) durante o treino
 * [Implemente um modelo](how-to-deploy-custom-docker-image.md) usando uma imagem personalizada do Docker.
