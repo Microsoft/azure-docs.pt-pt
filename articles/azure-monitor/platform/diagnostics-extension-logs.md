@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
 ms.openlocfilehash: 095fd0b534c0dffaf80d2464fb9734f295335b84
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87317183"
 ---
 # <a name="collect-data-from-azure-diagnostics-extension-to-azure-monitor-logs"></a>Recolher dados da extensão de diagnósticos do Azure para os Registos do Monitor Azure
@@ -24,13 +24,13 @@ A azure diagnostica extensões armazena dados numa conta de Armazenamento Azure.
 
 | Tipo de Registo | Tipo de Recurso | Localização |
 | --- | --- | --- |
-| Registos do IIS |Virtual Machines <br> Funções web <br> Funções de trabalhador |wad-iis-logfiles (Blob Storage) |
-| Syslog |Virtual Machines |LinuxsyslogVer2v0 (Armazenamento de Mesa) |
+| Registos do IIS |Máquinas Virtuais <br> Funções web <br> Funções de trabalhador |wad-iis-logfiles (Blob Storage) |
+| Syslog |Máquinas Virtuais |LinuxsyslogVer2v0 (Armazenamento de Mesa) |
 | Eventos Operacionais do Tecido de Serviço |Nó de tecido de serviço |WADServiceFabricSystemEventTable |
 | Eventos de ator confiáveis de tecido de serviço |Nó de tecido de serviço |WADServiceFabricReliableActorEventTable |
 | Eventos de serviço confiáveis de tecido de serviço |Nó de tecido de serviço |WADServiceFabricReliableServiceEventTable |
-| Registos do Evento Windows |Nó de tecido de serviço <br> Virtual Machines <br> Funções web <br> Funções de trabalhador |WADWindowsEventLogsTable (Armazenamento de Mesa) |
-| Registos ETW do Windows |Nó de tecido de serviço <br> Virtual Machines <br> Funções web <br> Funções de trabalhador |WADETWEventTable (Armazenamento de Mesa) |
+| Registos do Evento Windows |Nó de tecido de serviço <br> Máquinas Virtuais <br> Funções web <br> Funções de trabalhador |WADWindowsEventLogsTable (Armazenamento de Mesa) |
+| Registos ETW do Windows |Nó de tecido de serviço <br> Máquinas Virtuais <br> Funções web <br> Funções de trabalhador |WADETWEventTable (Armazenamento de Mesa) |
 
 ## <a name="data-types-not-supported"></a>Tipos de dados não suportados
 
@@ -47,7 +47,7 @@ Utilize o seguinte procedimento para permitir a recolha de dados de extensão de
 
 1. No portal Azure, vá ao **Log Analytics Workspaces** e selecione o seu espaço de trabalho.
 1. Clique em **registos de contas de Armazenamento** na secção Fontes de **Dados** do Espaço de Trabalho do menu.
-2. Clique **em Adicionar**.
+2. Clique  **em Adicionar**.
 3. Selecione a **conta de Armazenamento** que contém os dados a recolher.
 4. Selecione o **Tipo de Dados** que pretende recolher.
 5. O valor de Origem é automaticamente povoado com base no tipo de dados.

@@ -15,10 +15,10 @@ ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 278e5feb327c1376b7644050f414f680334d5c50
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91263237"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Pré-requisitos para criar grupos de disponibilidade sempre em sql server em máquinas virtuais Azure
@@ -232,7 +232,7 @@ Nos passos seguintes, configuure a máquina **ad-primar-dc** como controlador de
     ![Adicionar diálogo de papéis](./media/availability-group-manually-configure-prerequisites-tutorial-/23-addroles.png)
 
 7. Selecione **Seguinte** até chegar à secção **de Confirmação.** Selecione **o servidor de destino reinicie automaticamente se necessário** caixa de verificação.
-8. Selecione **Install** (Instalar).
+8. Selecione **Instalar**.
 9. Depois de as funcionalidades terminarem de ser instaladas, volte ao painel **do Gestor do Servidor.**
 10. Selecione a nova opção **AD DS** no painel esquerdo.
 11. Selecione o link **Mais** na barra de aviso amarela.
@@ -248,7 +248,7 @@ Nos passos seguintes, configuure a máquina **ad-primar-dc** como controlador de
     | **Opções de Controlador de Domínio** |**Senha DSRM** = Contoso!0000<br/>**Confirmar Senha** = Contoso!0000 |
 
 14. Selecione **Seguinte** para ver as outras páginas do assistente. Na página **Pré-Requisitos Verificar,** verifique se vê a seguinte mensagem: **Todas as verificações pré-requisitos passadas com sucesso**. Pode rever quaisquer mensagens de aviso aplicáveis, mas é possível continuar com a instalação.
-15. Selecione **Install** (Instalar). A máquina virtual **ad-primar-dc** reinicia automaticamente.
+15. Selecione **Instalar**. A máquina virtual **ad-primar-dc** reinicia automaticamente.
 
 ### <a name="note-the-ip-address-of-the-primary-domain-controller"></a>Note o endereço IP do controlador de domínio primário
 

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.workload: identity
 ROBOTS: NOINDEX
 ms.openlocfilehash: 1075cce9b9e3bc3267756bba84691788293fa8d2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88116315"
 ---
 # <a name="developer-guidance-for-the-azure-active-directory-conditional-access-feature"></a>Orientação do programador para a funcionalidade de Acesso Condicional do Diretório Ativo Azure
@@ -26,7 +26,7 @@ ms.locfileid: "88116315"
 
 A funcionalidade de Acesso Condicional no Azure Ative Directory (Azure AD) oferece uma das várias formas que pode usar para proteger a sua aplicação e proteger um serviço. O Acesso Condicional permite aos desenvolvedores e clientes empresariais proteger os serviços de várias formas, incluindo:
 
-* Multi-factor authentication
+* Autenticação multifator
 * Permitir apenas dispositivos inscritos intune para aceder a serviços específicos
 * Restringir as localizações dos utilizadores e as gamas IP
 
@@ -153,9 +153,9 @@ Neste cenário, percorremos o caso quando temos uma aplicação de uma página �
 
 Em ADAL.js, há algumas funções que obtêm fichas: `login()` `acquireToken(...)` , e `acquireTokenPopup(…)` `acquireTokenRedirect(…)` .
 
-* `login()`obtém um token de ID através de um pedido de inscrição interativa, mas não obtém fichas de acesso para qualquer serviço (incluindo uma API web protegida de acesso condicional).
-* `acquireToken(…)`pode então ser usado para obter silenciosamente um token de acesso, o que significa que não mostra UI em nenhuma circunstância.
-* `acquireTokenPopup(…)`e `acquireTokenRedirect(…)` ambos são usados para solicitar interativamente um símbolo para um recurso que significa que eles sempre mostram uI de inscrição.
+* `login()` obtém um token de ID através de um pedido de inscrição interativa, mas não obtém fichas de acesso para qualquer serviço (incluindo uma API web protegida de acesso condicional).
+* `acquireToken(…)` pode então ser usado para obter silenciosamente um token de acesso, o que significa que não mostra UI em nenhuma circunstância.
+* `acquireTokenPopup(…)` e `acquireTokenRedirect(…)` ambos são usados para solicitar interativamente um símbolo para um recurso que significa que eles sempre mostram uI de inscrição.
 
 Quando uma aplicação precisa de um token de acesso para chamar uma API web, tenta um `acquireToken(…)` . Se a sessão de token expirar ou precisarmos de cumprir uma política de Acesso Condicional, então a função *acquireToken* falha e a aplicação utiliza `acquireTokenPopup()` ou `acquireTokenRedirect()` .
 
@@ -173,9 +173,9 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 A nossa aplicação precisa de apanhar o `error=interaction_required` . A aplicação pode então utilizar `acquireTokenPopup()` ou `acquireTokenRedirect()` no mesmo recurso. O utilizador é obrigado a fazer uma autenticação multi-factor. Depois de o utilizador completar a autenticação multi-factor, a aplicação é emitida um novo token de acesso para o recurso solicitado.
 
-Para experimentar este cenário, consulte a nossa [amostra de código JS SPA Em nome de código.](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca) Esta amostra de código utiliza a política de Acesso Condicional e a API web que registou anteriormente com um JS SPA para demonstrar este cenário. Mostra como lidar corretamente com o desafio de reclamações e obter um token de acesso que pode ser usado para a sua API Web. Alternativamente, check-out a amostra de [código geralAngular.js](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) para orientação num SPA angular
+Para experimentar este cenário, consulte a nossa [amostra de código JS SPA Em nome de código.](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca) Esta amostra de código utiliza a política de Acesso Condicional e a API web que registou anteriormente com um JS SPA para demonstrar este cenário. Mostra como lidar corretamente com o desafio de reclamações e obter um token de acesso que pode ser usado para a sua API Web. Alternativamente, check-out a amostra de [ código geralAngular.js](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) para orientação num SPA angular
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * Para saber mais sobre as capacidades, consulte [o Acesso Condicional no Diretório Ativo Azure.](../conditional-access/overview.md)
 * Para obter mais amostras de código AZure, consulte [o repo de amostras de código do GitHub.](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory)

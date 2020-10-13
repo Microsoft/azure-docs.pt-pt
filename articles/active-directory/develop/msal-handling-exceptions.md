@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 60c61ff4753413d2241820400dcbc899e925eecc
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88120954"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>Lidar com exceções e erros da MSAL
@@ -36,7 +36,7 @@ Consulte a seguinte secção que corresponde ao idioma que está a usar para obt
 
 ## <a name="net"></a>[.NET](#tab/dotnet)
 
-Ao processar exceções .NET, pode utilizar o próprio tipo de exceção e o `ErrorCode` membro para distinguir entre exceções. `ErrorCode`valores são constantes do tipo [MsalError](/dotnet/api/microsoft.identity.client.msalerror?view=azure-dotnet).
+Ao processar exceções .NET, pode utilizar o próprio tipo de exceção e o `ErrorCode` membro para distinguir entre exceções. `ErrorCode` valores são constantes do tipo [MsalError](/dotnet/api/microsoft.identity.client.msalerror?view=azure-dotnet).
 
 Você também pode dar uma olhada nos campos de [MsalClientException,](/dotnet/api/microsoft.identity.client.msalexception?view=azure-dotnet) [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet), e [MsalUIRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet).
 
@@ -48,7 +48,7 @@ Aqui estão as exceções comuns que podem ser lançadas e algumas possíveis mi
 
 | Exceção | Código de erro | Mitigação|
 | --- | --- | --- |
-| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001: O utilizador ou administrador não consentiu em utilizar a aplicação com o iD '{appId}' denominado '{appName}'. Envie um pedido de autorização interativa para este utilizador e recurso.| Primeiro, tem de obter o consentimento do utilizador. Se não estiver a utilizar o .NET Core (que não tem UI web), ligue (apenas uma vez) `AcquireTokeninteractive` . Se estiver a utilizar o núcleo .NET ou não quiser fazer `AcquireTokenInteractive` um, o utilizador pode navegar até um URL para dar o seu consentimento: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read` . para `AcquireTokenInteractive` chamar:`app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
+| [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001: O utilizador ou administrador não consentiu em utilizar a aplicação com o iD '{appId}' denominado '{appName}'. Envie um pedido de autorização interativa para este utilizador e recurso.| Primeiro, tem de obter o consentimento do utilizador. Se não estiver a utilizar o .NET Core (que não tem UI web), ligue (apenas uma vez) `AcquireTokeninteractive` . Se estiver a utilizar o núcleo .NET ou não quiser fazer `AcquireTokenInteractive` um, o utilizador pode navegar até um URL para dar o seu consentimento: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read` . para `AcquireTokenInteractive` chamar: `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS50079: O utilizador é obrigado a utilizar a [autenticação multi-factor (MFA)](../authentication/concept-mfa-howitworks.md).| Não há atenuação. Se a MFA estiver configurada para o seu inquilino e o Azure Ative Directory (AAD) decidir aplicá-lo, tem de recuar para um fluxo interativo como `AcquireTokenInteractive` ou `AcquireTokenByDeviceCode` . .|
 | [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) |AADSTS90010: O tipo de subvenção não é suportado sobre os pontos finais */comuns* ou */consumidores.* Utilize as */organizações* ou ponto final específico do inquilino. Usou */comum.*| Como explicado na mensagem da Azure AD, a autoridade precisa de ter um inquilino ou outras *organizações.*|
 | [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) | AADSTS70002: O organismo de pedido deve conter o seguinte parâmetro: `client_secret or client_assertion` .| Esta exceção pode ser lançada se o seu pedido não tiver sido registado como um pedido de cliente público na Azure AD. No portal Azure, edite o manifesto para a sua aplicação e desatado `allowPublicClient` para `true` . |
@@ -63,7 +63,7 @@ A maior parte do tempo, quando `AcquireTokenSilent` falha, é porque a cache sim
 
 A interação visa fazer com que o utilizador faça uma ação. Algumas dessas condições são fáceis de resolver para os utilizadores (por exemplo, aceitar Termos de Utilização com um único clique), e algumas não podem ser resolvidas com a configuração atual (por exemplo, a máquina em questão precisa de se ligar a uma rede corporativa específica). Alguns ajudam a autenticação multi-factor do utilizador ou instalam o Microsoft Authenticator no seu dispositivo.
 
-### <a name="msaluirequiredexception-classification-enumeration"></a>`MsalUiRequiredException`enumeração classificação
+### <a name="msaluirequiredexception-classification-enumeration"></a>`MsalUiRequiredException` enumeração classificação
 
 A MSAL expõe um `Classification` campo, que pode ler para proporcionar uma melhor experiência de utilizador, por exemplo, para dizer ao utilizador que a sua palavra-passe expirou ou que terá de fornecer consentimento para utilizar alguns recursos. Os valores suportados fazem parte do `UiRequiredExceptionClassification` enum:
 
@@ -76,7 +76,7 @@ A MSAL expõe um `Classification` campo, que pode ler para proporcionar uma melh
 | UserPasswordExpired | A senha do utilizador expirou. | Ligue para AcquireTokenInteractively para que o utilizador possa redefinir a sua palavra-passe. |
 | PromptNeverFailed| A Autenticação Interativa foi chamada com o parâmetro prompt=nunca, forçando a MSAL a confiar nos cookies do navegador e a não exibir o navegador. Isto falhou. | Ligue para AcquireTokenInteractively() sem Prompt.Nenhum |
 | AcquireTokenSilentFailed | A MSAL SDK não tem informação suficiente para ir buscar um símbolo à cache. Isto pode ser porque não há fichas na cache ou uma conta não foi encontrada. A mensagem de erro tem mais detalhes.  | Ligue para AcquireTokenInteractively(). |
-| Nenhuma    | Não são fornecidos mais detalhes. A condição pode ser resolvida pela interação do utilizador durante o fluxo de autenticação interativa. | Ligue para AcquireTokenInteractively(). |
+| Nenhum    | Não são fornecidos mais detalhes. A condição pode ser resolvida pela interação do utilizador durante o fluxo de autenticação interativa. | Ligue para AcquireTokenInteractively(). |
 
 ## <a name="net-code-example"></a>exemplo de código .NET
 
@@ -244,13 +244,13 @@ No MSAL para Python, as exceções são raras porque a maioria dos erros são tr
 
 No MSAL para Java, existem três tipos de exceções: `MsalClientException` , e ; todas as que `MsalServiceException` `MsalInteractionRequiredException` herdam de `MsalException` .
 
-- `MsalClientException`é lançado quando ocorre um erro que é local para a biblioteca ou dispositivo.
-- `MsalServiceException`é lançado quando o serviço de fichas de segurança (STS) retorna uma resposta de erro ou outro erro de rede ocorre.
-- `MsalInteractionRequiredException`é jogado quando a interação da UI é necessária para que a autenticação tenha sucesso.
+- `MsalClientException` é lançado quando ocorre um erro que é local para a biblioteca ou dispositivo.
+- `MsalServiceException` é lançado quando o serviço de fichas de segurança (STS) retorna uma resposta de erro ou outro erro de rede ocorre.
+- `MsalInteractionRequiredException` é jogado quando a interação da UI é necessária para que a autenticação tenha sucesso.
 
 ### <a name="msalserviceexception"></a>MsalServiceException
 
-`MsalServiceException`expõe cabeçalhos HTTP devolvidos nos pedidos ao STS. Aceda-os através de`MsalServiceException.headers()`
+`MsalServiceException` expõe cabeçalhos HTTP devolvidos nos pedidos ao STS. Aceda-os através de `MsalServiceException.headers()`
 
 ### <a name="msalinteractionrequiredexception"></a>MsalInteractionRequiredException
 
@@ -260,13 +260,13 @@ A maior parte do tempo, quando falha, é porque a cache simbólica `AcquireToken
 
 Algumas condições que resultam neste erro são fáceis de resolver para os utilizadores. Por exemplo, podem ter de aceitar termos de utilização. Ou talvez o pedido não possa ser preenchido com a configuração atual porque a máquina precisa de se ligar a uma rede corporativa específica.
 
-A MSAL expõe um `reason` campo, que pode utilizar para proporcionar uma melhor experiência ao utilizador. Por exemplo, o `reason` campo pode levá-lo a dizer ao utilizador que a sua palavra-passe expirou ou que terá de fornecer consentimento para utilizar alguns recursos. Os valores suportados fazem parte do `InteractionRequiredExceptionReason` enum:
+A MSAL expõe um `reason` campo, que pode utilizar para proporcionar uma melhor experiência ao utilizador. Por exemplo, o `reason` campo pode levá-lo a dizer ao utilizador que a sua palavra-passe expirou ou que terá de fornecer consentimento para utilizar alguns recursos. Os valores suportados fazem parte do  `InteractionRequiredExceptionReason` enum:
 
 | Razão | Significado | Manuseamento recomendado |
 |---------|-----------|-----------------------------|
 | `BasicAction` | A condição pode ser resolvida pela interação do utilizador durante o fluxo de autenticação interativa | Chamada `acquireToken` com parâmetros interativos |
 | `AdditionalAction` | A condição pode ser resolvida através de uma interação corretiva adicional com o sistema fora do fluxo de autenticação interativa. | Ligue `acquireToken` com parâmetros interativos para mostrar uma mensagem que explique a ação corretiva a tomar. A aplicação de chamadas pode optar por ocultar fluxos que requerem ação adicional se o utilizador não conseguir completar a ação corretiva. |
-| `MessageOnly` | A condição não pode ser resolvida neste momento. Lance o fluxo de autenticação interativa para mostrar uma mensagem explicando a condição. | Ligue `acquireToken` com parâmetros interativos para mostrar uma mensagem que explique a condição. `acquireToken`retornará o `UserCanceled` erro depois de o utilizador ler a mensagem e fechar a janela. A aplicação pode optar por ocultar fluxos que resultem em mensagem se o utilizador não beneficiar da mensagem. |
+| `MessageOnly` | A condição não pode ser resolvida neste momento. Lance o fluxo de autenticação interativa para mostrar uma mensagem explicando a condição. | Ligue `acquireToken` com parâmetros interativos para mostrar uma mensagem que explique a condição. `acquireToken` retornará o `UserCanceled` erro depois de o utilizador ler a mensagem e fechar a janela. A aplicação pode optar por ocultar fluxos que resultem em mensagem se o utilizador não beneficiar da mensagem. |
 | `ConsentRequired`| O consentimento do utilizador está em falta ou foi revogado. |Ligue `acquireToken` com parâmetros interativos para que o utilizador possa dar o seu consentimento. |
 | `UserPasswordExpired` | A senha do utilizador expirou. | Chamada `acquireToken` com parâmetro interativo para que o utilizador possa redefinir a sua palavra-passe |
 | `None` |  Mais detalhes são fornecidos. A condição pode ser resolvida pela interação do utilizador durante o fluxo de autenticação interativa. | Chamada `acquireToken` com parâmetros interativos |

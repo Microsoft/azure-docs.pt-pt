@@ -10,18 +10,18 @@ ms.date: 09/21/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: df0bc6a07444070a0f14e632e81ad0bb787569c8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a0ce2c17586e5437047ff27cb67577b0480a83af
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91714767"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939346"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Adquirir um token da Azure AD para autorizar pedidos de um pedido de cliente
 
 Uma vantagem fundamental da utilização do Azure Ative Directory (Azure AD) com o armazenamento Azure Blob ou o armazenamento da fila é que as suas credenciais já não precisam de ser armazenadas no seu código. Em vez disso, pode solicitar um token de acesso OAuth 2.0 a partir da plataforma de identidade da Microsoft. A Azure AD autentica o principal de segurança (um utilizador, grupo ou principal de serviço) que executa a aplicação. Se a autenticação for bem sucedida, a Azure AD devolve o sinal de acesso à aplicação, e a aplicação pode então utilizar o token de acesso para autorizar pedidos para armazenamento de Azure Blob ou armazenamento de fila.
 
-Este artigo mostra como configurar a sua aplicação nativa ou aplicação web para autenticação com a plataforma de identidade microsoft 2.0 usando uma aplicação de amostra que está disponível para download. A aplicação da amostra apresenta .NET, mas outras línguas usam uma abordagem semelhante. Para obter mais informações sobre a plataforma de identidade 2.0 da Microsoft, consulte a [plataforma de identidade da Microsoft (v2.0) visão geral](../../active-directory/develop/v2-overview.md).
+Este artigo mostra como configurar a sua aplicação nativa ou aplicação web para autenticação com a plataforma de identidade da Microsoft usando uma aplicação de amostra que está disponível para download. A aplicação da amostra apresenta .NET, mas outras línguas usam uma abordagem semelhante. Para obter mais informações sobre a plataforma de identidade da Microsoft, consulte a [visão geral da plataforma de identidade da Microsoft.](../../active-directory/develop/v2-overview.md)
 
 Para obter uma visão geral do fluxo de concessão de código OAuth 2.0, consulte [o acesso autorizado às aplicações web do Azure Ative Directory utilizando o fluxo de concessão de código OAuth 2.0](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
@@ -247,7 +247,7 @@ public async Task<IActionResult> Blob()
 }
 ```
 
-Consentimento é o processo de um utilizador que concede autorização a um pedido de acesso a recursos protegidos em seu nome. A plataforma de identidade 2.0 da Microsoft suporta o consentimento incremental, o que significa que um principal de segurança pode solicitar um conjunto mínimo de permissões inicialmente e adicionar permissões ao longo do tempo, conforme necessário. Quando o seu código solicitar um token de acesso, especifique o âmbito das permissões de que a sua aplicação necessita. Para obter mais informações sobre o consentimento incremental, consulte [o consentimento incremental e dinâmico.](../../active-directory/azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent)
+Consentimento é o processo de um utilizador que concede autorização a um pedido de acesso a recursos protegidos em seu nome. A plataforma de identidade da Microsoft suporta o consentimento incremental, o que significa que um principal de segurança pode solicitar um conjunto mínimo de permissões inicialmente e adicionar permissões ao longo do tempo, conforme necessário. Quando o seu código solicitar um token de acesso, especifique o âmbito das permissões de que a sua aplicação necessita. Para obter mais informações sobre o consentimento incremental, consulte [o consentimento incremental e dinâmico.](../../active-directory/azuread-dev/azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent)
 
 ## <a name="view-and-run-the-completed-sample"></a>Ver e executar a amostra completa
 
@@ -288,7 +288,7 @@ No ficheiro *HomeController.cs,* atualize o URI que faz referência à bolha de 
 https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - [Plataforma de identidades da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/)
 - [Gerir direitos de acesso aos dados de armazenamento com o Azure RBAC](storage-auth-aad-rbac.md)

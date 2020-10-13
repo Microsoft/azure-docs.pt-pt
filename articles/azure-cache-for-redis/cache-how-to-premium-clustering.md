@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 06/13/2018
 ms.openlocfilehash: d37aa275a07586738bf7416cee6611bdc8284df3
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88004764"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>Como configurar o agrupamento Redis para um Premium Azure Cache para Redis
@@ -62,7 +62,7 @@ Para alterar o tamanho do cluster numa cache premium de execução com o cluster
 
 Para alterar o tamanho do cluster, utilize o slider ou escreva um número entre 1 e 10 na caixa de texto **de contagem de fragmentos** e clique **em OK** para guardar.
 
-Aumentar o tamanho do cluster aumenta a potência máxima e o tamanho da cache. Aumentar o tamanho do cluster não aumenta o máximo. ligações disponíveis para os clientes.
+Aumentar o tamanho do cluster aumenta a potência máxima e o tamanho da cache. Aumentar o tamanho do cluster não aumenta as ligações máximas disponíveis para os clientes.
 
 > [!NOTE]
 > Escalar um cluster executa o comando [MIGRATE,](https://redis.io/commands/migrate) que é um comando caro, por isso, para o mínimo impacto, considere executar esta operação durante horas não-pico. Durante o processo de migração, verá um pico na carga do servidor. Escalar um cluster é um processo de execução longo e o tempo de duração dependerá do número de chaves e do tamanho dos valores associados a essas teclas.

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/09/2020
 ms.openlocfilehash: ad0ff98174a81518fe26063f9ccc6acbbddbf8d6
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91442382"
 ---
 # <a name="archived-release-notes"></a>Notas de versão arquivadas
@@ -751,7 +751,7 @@ Esta versão fornece a Colmeia 1.2.1 e a Hive 2.1.0, além dos seguintes patches
 
 -   [*HIVE-18189*](https://issues.apache.org/jira/browse/HIVE-18189): Consulta de colmeia retornando resultados errados quando definido hive.groupby.orderby.position.alias to true.
 
--   [*HIVE-18258*](https://issues.apache.org/jira/browse/HIVE-18258): Vectorização: Grupo de redução por fusãopartial com colunas duplicadas é quebrado.
+-   [*HIVE-18258*](https://issues.apache.org/jira/browse/HIVE-18258): Vectorização: Reduce-Side GRUPO POR MERGEPARTIAL com colunas duplicadas é quebrado.
 
 -   [*HIVE-18293*](https://issues.apache.org/jira/browse/HIVE-18293): A Colmeia está a falhar em tabelas compactas contidas numa pasta que não é propriedade da hiveMetaStore.
 
@@ -859,7 +859,7 @@ Esta versão fornece a Colmeia 1.2.1 e a Hive 2.1.0, além dos seguintes patches
 
 -   [*HIVE-18189*](https://issues.apache.org/jira/browse/HIVE-18189): Ordem por posição não funciona quando o cbo é deficiente.
 
--   [*HIVE-18258*](https://issues.apache.org/jira/browse/HIVE-18258): Vectorização: Grupo de redução por fusãopartial com colunas duplicadas é quebrado.
+-   [*HIVE-18258*](https://issues.apache.org/jira/browse/HIVE-18258): Vectorização: Reduce-Side GRUPO POR MERGEPARTIAL com colunas duplicadas é quebrado.
 
 -   [*HIVE-18269*](https://issues.apache.org/jira/browse/HIVE-18269): LLAP: Fast llap io com gasoduto de processamento lento pode levar à OOM.
 
@@ -981,7 +981,7 @@ Em HDP-2.3.x e 2.4.x, em vez de enviar uma versão apache específica de Mahout,
 
 O ponto de revisão escolhido para Mahout em HDP 2.3.x e 2.4.x é do ramo "mahout-0.10.x" de Apache Mahout, a partir de 19 de dezembro de 2014, revisão 0f037cb03e77c096 no GitHub.
 
-Em HDP-2.5.x e 2.6.x, removemos a biblioteca "commons-httpclient" de Mahout porque a vemos como uma biblioteca obsoleta com possíveis problemas de segurança, e atualizámos o Hadoop-Client em Mahout para a versão 2.7.3, a mesma versão usada no HDP-2.5. Como resultado:
+Em HDP-2.5.x e 2.6.x, removemos a biblioteca "commons-httpclient" de Mahout porque a vemos como uma biblioteca obsoleta com possíveis problemas de segurança, e melhorámos o Hadoop-Client em Mahout para a versão 2.7.3, a mesma versão usada no HDP-2.5. Como resultado:
 
 -   Os postos de trabalho previamente compilados em Mahout terão de ser recompiliados no ambiente HDP-2.5 ou 2.6.
 
@@ -1139,7 +1139,7 @@ Esta versão fornece Spark 2.3.0 e os seguintes patches Apache:
 
 -   [SPARK-23598](https://issues.apache.org/jira/browse/SPARK-23598): Faça métodos no BufferedRowIterator público para evitar erros de tempo de funcionação para uma consulta grande.
 
--   [SPARK-23599](https://issues.apache.org/jira/browse/SPARK-23599): Adicione um gerador UUID a números pseudoaleatórios.
+-   [SPARK-23599](https://issues.apache.org/jira/browse/SPARK-23599): Adicione um gerador UUID a partir de números Pseudo-Random.
 
 -   [SPARK-23599](https://issues.apache.org/jira/browse/SPARK-23599): Utilize oGenerador Aleatório UuID em expressão Uuid.
 
@@ -1358,7 +1358,7 @@ As questões fixas representam problemas selecionados que foram previamente regi
 | BUG-92957              | [HIVE-11266](https://issues.apache.org/jira/browse/HIVE-11266)                                                                                                                                                                                                                 | contagem \* ( resultado errado com base em estatísticas de tabela para tabelas                                                   |
 | BUG-93097              | [RANGER-1944](https://issues.apache.org/jira/browse/RANGER-1944)                                                                                                                                                                                                               | Filtro de ação para auditoria de administração não está a funcionar                                                                           |
 | BUG-93335              | [HIVE-12315](https://issues.apache.org/jira/browse/HIVE-12315)                                                                                                                                                                                                                 | vectorization \_ \_ regress.q tem um problema de resultado errado para um duplo cálculo                                      |
-| BUG-93415              | [HIVE-18258](https://issues.apache.org/jira/browse/HIVE-18258), [HIVE-18310](https://issues.apache.org/jira/browse/HIVE-18310)                                                                                                                                                 | Vectorização: Grupo de redução por fusãopartial com colunas duplicadas é quebrado                                      |
+| BUG-93415              | [HIVE-18258](https://issues.apache.org/jira/browse/HIVE-18258), [HIVE-18310](https://issues.apache.org/jira/browse/HIVE-18310)                                                                                                                                                 | Vectorização: Reduce-Side GRUPO POR MERGEPARTIAL com colunas duplicadas é quebrado                                      |
 | BUG-93939              | [ATLAS-2294](https://issues.apache.org/jira/browse/ATLAS-2294)                                                                                                                                                                                                                 | Parâmetro extra "descrição" adicionado ao criar um tipo                                                               |
 | BUG-94007              | [PHOENIX-1751](https://issues.apache.org/jira/browse/PHOENIX-1751), [PHOENIX-3112](https://issues.apache.org/jira/browse/PHOENIX-3112)                                                                                                                                         | Phoenix Consultas devolve valores nulos devido às linhas parciais da HBase                                                          |
 | BUG-94266              | [HIVE-12505](https://issues.apache.org/jira/browse/HIVE-12505)                                                                                                                                                                                                                 | Insira o sobrepor na mesma zona encriptada silenciosamente falha em remover alguns ficheiros existentes                                   |

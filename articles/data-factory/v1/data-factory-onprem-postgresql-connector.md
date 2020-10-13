@@ -13,10 +13,10 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 37c83e77cadae002ff701a08c4b36a86f7cab9a0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87082839"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Mover dados do PostgreSQL usando a Azure Data Factory
@@ -72,14 +72,14 @@ A tabela seguinte fornece descrição para elementos JSON específicos do servi�
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| tipo |A propriedade tipo deve ser definida para: **OnPremisesPostgreSql** |Yes |
-| servidor |Nome do servidor PostgreSQL. |Yes |
-| base de dados |Nome da base de dados PostgreSQL. |Yes |
-| esquema |O nome do esquema na base de dados. O nome do esquema é sensível a maiíssimos. |No |
-| authenticationType |Tipo de autenticação utilizada para ligar à base de dados PostgreSQL. Os valores possíveis são: Anónimo, Básico e Windows. |Yes |
-| nome de utilizador |Especifique o nome do utilizador se estiver a utilizar a autenticação Básica ou o Windows. |No |
-| palavra-passe |Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. |No |
-| gatewayName |Nome do gateway que o serviço data factory deve usar para ligar à base de dados PostgreSQL no local. |Yes |
+| tipo |A propriedade tipo deve ser definida para: **OnPremisesPostgreSql** |Sim |
+| servidor |Nome do servidor PostgreSQL. |Sim |
+| base de dados |Nome da base de dados PostgreSQL. |Sim |
+| esquema |O nome do esquema na base de dados. O nome do esquema é sensível a maiíssimos. |Não |
+| authenticationType |Tipo de autenticação utilizada para ligar à base de dados PostgreSQL. Os valores possíveis são: Anónimo, Básico e Windows. |Sim |
+| nome de utilizador |Especifique o nome do utilizador se estiver a utilizar a autenticação Básica ou o Windows. |Não |
+| palavra-passe |Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. |Não |
+| gatewayName |Nome do gateway que o serviço data factory deve usar para ligar à base de dados PostgreSQL no local. |Sim |
 
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 Para obter uma lista completa de secções & propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criar conjuntos de dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjunto de dados.
@@ -317,7 +317,7 @@ Ao mover dados para PostgreSQL, os seguintes mapeamentos são usados do tipo Pos
 | cid | |Cadeia |
 | cidr | |Cadeia |
 | círculo | |Byte[], String |
-| data | |Datetime |
+| date | |Datetime |
 | encontro | |Cadeia |
 | dupla precisão |flutuar8 |Double (Duplo) |
 | inet | |Byte[], String |
