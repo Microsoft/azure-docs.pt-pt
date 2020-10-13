@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue
 ms.openlocfilehash: 76bbe60397ebb01aed5694d933b3067f778a4c21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85505601"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>Mover dados para o cluster vFXT - Ingestão de dados paralelos
@@ -185,7 +185,7 @@ user@build:/mnt/source > find . -mindepth 4 -maxdepth 4 -type d
 ./atj5b55c53be6-02/support/trace/rolling
 ```
 
-Redirecione este resultado para um ficheiro:`find . -mindepth 4 -maxdepth 4 -type d > /tmp/foo`
+Redirecione este resultado para um ficheiro: `find . -mindepth 4 -maxdepth 4 -type d > /tmp/foo`
 
 Em seguida, pode iterar através do manifesto, usando comandos BASH para contar ficheiros e determinar os tamanhos das subdiretivas:
 
@@ -280,13 +280,13 @@ Este método é um método simples e eficaz no tempo para conjuntos de dados at�
 
 A ``msrsync`` ferramenta também pode ser usada para mover dados para um ficheiro de núcleo de back-end para o cluster Avere. Esta ferramenta foi concebida para otimizar o uso da largura de banda executando ``rsync`` vários processos paralelos. Está disponível no GitHub em <https://github.com/jbd/msrsync> .
 
-``msrsync``rompe o diretório de origem em "baldes" separados e, em seguida, executa processos individuais ``rsync`` em cada balde.
+``msrsync`` rompe o diretório de origem em "baldes" separados e, em seguida, executa processos individuais ``rsync`` em cada balde.
 
 Os testes preliminares utilizando um VM de quatro núcleos mostraram a melhor eficiência quando utilizaram 64 processos. Utilize a ``msrsync`` opção ``-p`` para definir o número de processos para 64.
 
 Também pode usar o ``--inplace`` argumento com ``msrsync`` comandos. Se utilizar esta opção, considere executar um segundo comando (como com [o rsync](#use-a-two-phase-rsync-process), descrito acima) para garantir a integridade dos dados.
 
-``msrsync``só pode escrever de e para os volumes locais. A fonte e o destino devem ser acessíveis como suportes locais na rede virtual do cluster.
+``msrsync`` só pode escrever de e para os volumes locais. A fonte e o destino devem ser acessíveis como suportes locais na rede virtual do cluster.
 
 Para utilizar ``msrsync`` para preencher um volume de nuvem azul com um cluster Avere, siga estas instruções:
 

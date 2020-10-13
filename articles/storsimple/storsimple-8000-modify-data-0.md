@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
 ms.openlocfilehash: 1d5d57cab9906c04c5c207fa7df2d2fae6f749e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514601"
 ---
 # <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-8000-series-device"></a>Modifique as definições de interface de rede DATA 0 no seu dispositivo da série StorSimple 8000
@@ -47,10 +47,10 @@ Pode reconfigurar as definições de rede DATA 0 ligando-a à interface Windows 
 > [!NOTE]
 > Os IPs dos controladores fixos terão de ser reconfigurados através da lâmina de **definição** de rede do dispositivo StorSimple no portal Azure. Para mais informações, aceda a [Modificar interfaces de rede.](storsimple-8000-modify-device-config.md#modify-network-interfaces)
 
-## <a name="modify-data-0-network-settings-through-set-hcsnetinterface-cmdlet"></a>Modificar as definições de rede DATA 0 através do cmdlet Set-HcsNetInterface
+## <a name="modify-data-0-network-settings-through-set-hcsnetinterface-cmdlet"></a>Modificar as definições de rede DATA 0 através de Set-HcsNetInterface cmdlet
 Uma forma alternativa de reconfigurar a interface de rede DATA 0 é através da utilização do `Set-HcsNetInterface` cmdlet. O cmdlet é executado a partir da interface Windows PowerShell do seu dispositivo StorSimple. Ao utilizar este procedimento, os IPs fixos do controlador também podem ser configurados aqui. Execute os seguintes passos para modificar as definições DATA 0: 
 
-#### <a name="to-modify-data-0-network-settings-through-the-set-hcsnetinterface-cmdlet"></a>Para modificar as definições de rede DATA 0 através do cmdlet Set-HcsNetInterface
+#### <a name="to-modify-data-0-network-settings-through-the-set-hcsnetinterface-cmdlet"></a>Para modificar as definições de rede DATA 0 através do Set-HcsNetInterface cmdlet
 1. No menu de consola em série, escolha a opção 1, **faça login com acesso total**. Quando solicitado, forneça a palavra-passe do administrador do dispositivo. A palavra-passe predefinida é `Password1` .
 2. Na linha de comandos, escreva:
    
@@ -66,7 +66,7 @@ Uma forma alternativa de reconfigurar a interface de rede DATA 0 é através da 
      
      Para obter mais informações sobre a utilização deste cmdlet, aceda ao [Windows PowerShell para obter referência de cmdlet StorSimple](https://technet.microsoft.com/library/dn688161.aspx).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Para configurar interfaces de rede que não o DATA 0, pode utilizar as definições de [rede Configure no portal Azure](storsimple-8000-modify-device-config.md). 
 * Se tiver algum problema ao configurar as suas interfaces de rede, consulte [os problemas de implementação da Resolução de Problemas](storsimple-troubleshoot-deployment.md).
 

@@ -1,6 +1,6 @@
 ---
 title: Aplicativo Virtual Desktop MSIX anexa visão geral - Azure
-description: O que é anexação de aplicativo MSIX? Descubra neste artigo.
+description: O que é a anexação da aplicação MSIX? Descubra neste artigo.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,13 +9,13 @@ ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: c6bf296b5173a662b1e9dd7b025648e3f16d23c8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88556347"
 ---
-# <a name="what-is-msix-app-attach"></a>O que é anexação de aplicativo MSIX?
+# <a name="what-is-msix-app-attach"></a>O que é a anexação da aplicação MSIX?
 
 O MSIX é um novo formato de embalagem que oferece muitas funcionalidades destinadas a melhorar a experiência de embalagem para todas as aplicações do Windows. Para saber mais sobre a MSIX, consulte a [visão geral](/windows/msix/overview)do MSIX .
 
@@ -45,7 +45,7 @@ O anexo de aplicativo MSIX deve ser aplicável fora do VDI ou SBC.
 
 A tabela a seguir compara a característica chave do anexamento de aplicações MSIX e a camada de aplicativo.
 
-| Funcionalidade | Camadas tradicionais de aplicativos  | Anexação de aplicativos MSIX  |
+| Funcionalidade | Camadas tradicionais de aplicativos  | Anexação da aplicação MSIX  |
 |-----|-----------------------------|--------------------|
 | Formato               | Diferentes tecnologias de camadas de aplicativos requerem diferentes formatos proprietários. | Funciona com o formato de embalagem MSIX nativo.        |
 | Reembalagem por cima | Os formatos proprietários requerem sequenciação e reembalagem por atualização.         | As aplicações publicadas como MSIX não requerem reembalagem. No entanto, se o pacote MSIX não estiver disponível, a reembalagem ainda se aplica. |

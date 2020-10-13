@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 01/30/2020
 ms.openlocfilehash: c1f60888a3d1fda50e63c7d11ea5d871f7c1e9fc
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321344"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Azure SQL Database e Azure SQL Managed Instance
@@ -41,23 +41,23 @@ A tabela seguinte descreve as principais diferenças entre os níveis de serviç
 |:---:|:---:|:---:|:---:|:---:|
 | **Melhor para** | |  Oferece opções de cálculo e armazenamento equilibrados orientados para o orçamento. | A maioria das cargas de trabalho. Tamanho de armazenamento de escala automática até 100 TB, escala de cálculo vertical e horizontal de fluido, restauração rápida da base de dados. | Aplicações OLTP com alta taxa de transação e baixa latência IO. Oferece maior resiliência a falhas e falhas rápidas usando múltiplas réplicas sincronizadas atualizadas.|
 |  **Disponível no tipo de recurso:** ||SQL Database / SQL Managed Instance | Única base de dados Azure SQL | SQL Database / SQL Managed Instance |
-| **Tamanho do cálculo**| Base de Dados SQL | 1 a 80 vCores | 1 a 80 vCores | 1 a 80 vCores |
+| **Tamanho do cálculo**| SQL Database | 1 a 80 vCores | 1 a 80 vCores | 1 a 80 vCores |
 | | Instância Gerida do SQL | 4, 8, 16, 24, 32, 40, 64, 80 vCores | N/D | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
 | | Piscinas de instância gerida SQL | 2, 4, 8, 16, 24, 32, 40, 64, 80 vCores | N/D | N/D |
 | **Tipo de armazenamento** | Todos | Armazenamento remoto premium (por exemplo) | Armazenamento desacopdo com cache SSD local (por exemplo) | Armazenamento SSD local super rápido (por exemplo) |
-| **Tamanho da base de dados** | Base de Dados SQL | 5 GB - 4 TB | Até 100 TB | 5 GB - 4 TB |
+| **Tamanho da base de dados** | SQL Database | 5 GB - 4 TB | Até 100 TB | 5 GB - 4 TB |
 | | Instância Gerida do SQL  | 32 GB - 8 TB | N/D | 32 GB - 4 TB |
-| **Tamanho do armazenamento** | Base de Dados SQL | 5 GB - 4 TB | Até 100 TB | 5 GB - 4 TB |
+| **Tamanho do armazenamento** | SQL Database | 5 GB - 4 TB | Até 100 TB | 5 GB - 4 TB |
 | | Instância Gerida do SQL  | 32 GB - 8 TB | N/D | 32 GB - 4 TB |
-| **Tamanho tempDB** | Base de Dados SQL | [32 GB por vCore](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) | [32 GB por vCore](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5) | [32 GB por vCore](resource-limits-vcore-single-databases.md#business-critical---provisioned-compute---gen4) |
+| **Tamanho tempDB** | SQL Database | [32 GB por vCore](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) | [32 GB por vCore](resource-limits-vcore-single-databases.md#hyperscale---provisioned-compute---gen5) | [32 GB por vCore](resource-limits-vcore-single-databases.md#business-critical---provisioned-compute---gen4) |
 | | Instância Gerida do SQL  | [24 GB por vCore](../managed-instance/resource-limits.md#service-tier-characteristics) | N/D | Até 4 TB - [limitado pelo tamanho de armazenamento](../managed-instance/resource-limits.md#service-tier-characteristics) |
-| **Log write produção** | Base de Dados SQL | [1.875 MB/s por vCore (máx. 30 MB/s)](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) | 100 MB/s | [6 MB/s por vCore (máx. 96 MB/s)](resource-limits-vcore-single-databases.md#business-critical---provisioned-compute---gen4) |
+| **Log write produção** | SQL Database | [1.875 MB/s por vCore (máx. 30 MB/s)](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) | 100 MB/s | [6 MB/s por vCore (máx. 96 MB/s)](resource-limits-vcore-single-databases.md#business-critical---provisioned-compute---gen4) |
 | | Instância Gerida do SQL | [3 MB/s por vCore (máx. 22 MB/s)](../managed-instance/resource-limits.md#service-tier-characteristics) | N/D | [4 MB/s por vcore (máx. 48 MB/s)](../managed-instance/resource-limits.md#service-tier-characteristics) |
 |**Disponibilidade**|Todos| 99,99% |  [99,95% com uma réplica secundária, 99,99% com mais réplicas](service-tier-hyperscale-frequently-asked-questions-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99,99% <br/> [99,995% com zona redundante base de dados única](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
 |**Cópias de segurança**|Todos|RA-GRS, 7-35 dias (7 dias por defeito)| RA-GRS, 7 dias, recuperação constante do tempo no tempo (PITR) | RA-GRS, 7-35 dias (7 dias por defeito) |
 |**OLTP dentro da memória** | | N/D | N/D | Disponível |
 |**Réplicas só de leitura**| | 0 embutido <br> 0 - 4 utilizando [a geo-replicação](active-geo-replication-overview.md) | 0 - 4 embutidos | 1 incorporado, incluído no preço <br> 0 - 4 utilizando [a geo-replicação](active-geo-replication-overview.md) |
-|**Preços/faturação** | Base de Dados SQL | [vCore, armazenamento reservado e armazenamento de reserva](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>O IOPS não é cobrado. | [vCore para cada réplica e armazenamento usado](https://azure.microsoft.com/pricing/details/sql-database/single/) são carregados. <br/>IOPS ainda não cobrado. | [vCore, armazenamento reservado e armazenamento de reserva](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>O IOPS não é cobrado. |
+|**Preços/faturação** | SQL Database | [vCore, armazenamento reservado e armazenamento de reserva](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>O IOPS não é cobrado. | [vCore para cada réplica e armazenamento usado](https://azure.microsoft.com/pricing/details/sql-database/single/) são carregados. <br/>IOPS ainda não cobrado. | [vCore, armazenamento reservado e armazenamento de reserva](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>O IOPS não é cobrado. |
 || Instância Gerida do SQL | [vCore, armazenamento reservado e armazenamento de reserva](https://azure.microsoft.com/pricing/details/sql-database/managed/) são cobrados. <br/>IOPS não é cobrado| N/D | [vCore, armazenamento reservado e armazenamento de reserva](https://azure.microsoft.com/pricing/details/sql-database/managed/) são cobrados. <br/>O IOPS não é cobrado.| 
 |**Modelos de desconto**| | [Instâncias reservadas](reserved-capacity-overview.md)<br/>[Benefício Híbrido Azure](../azure-hybrid-benefit.md) (não disponível em subscrições de dev/teste)<br/>[Assinaturas Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test| [Benefício Híbrido Azure](../azure-hybrid-benefit.md) (não disponível em subscrições de dev/teste)<br/>[Assinaturas Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test| [Instâncias reservadas](reserved-capacity-overview.md)<br/>[Benefício Híbrido Azure](../azure-hybrid-benefit.md) (não disponível em subscrições de dev/teste)<br/>[Assinaturas Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test|
 

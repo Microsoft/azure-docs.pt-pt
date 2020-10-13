@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 09/30/2020
 ms.author: b-juche
-ms.openlocfilehash: beb1cc9957f7b43bc6ad9b9b6ee6c7707eb0c2d6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 56ae3ac1331ed054a1fb808ae06e990b67c06bae
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91571568"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91932418"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Novidades nos ficheiros Azure NetApp
 
@@ -31,7 +31,7 @@ Os Ficheiros Azure NetApp são atualizados regularmente. Este artigo fornece um 
 
   O Azure NetApp Files suporta agora a replicação transversal. Com esta nova capacidade de recuperação de desastres, pode replicar os volumes dos seus Ficheiros Azure NetApp de uma região Azure para outra de forma rápida e económica, protegendo os seus dados de falhas regionais imprevisíveis. A azure NetApp Files cruza a replicação da região alavanca a tecnologia ® NetApp SnapMirror; apenas os blocos alterados são enviados sobre a rede num formato comprimido e eficiente. Esta tecnologia proprietária minimiza a quantidade de dados necessários para se replicar em todas as regiões, poupando assim os custos de transferência de dados. Também encurta o tempo de replicação, para que possa alcançar um objetivo de ponto de restauro menor (RPO).
 
-* [Piscina manual da capacidade QoS](manage-manual-qos-capacity-pool.md) (pré-visualização)  
+* [Piscina manual da capacidade QoS](manual-qos-capacity-pool-introduction.md) (pré-visualização)  
 
     Num pool manual de capacidade QoS, pode atribuir a capacidade e a produção para um volume de forma independente. A produção total de todos os volumes criados com um pool manual de capacidade QoS é limitada pela produção total da piscina. É determinado pela combinação do tamanho da piscina e da produção de nível de serviço. Em alternativa, o tipo [QoS](azure-netapp-files-understand-storage-hierarchy.md#qos_types) de uma piscina de capacidade pode ser automático (automático), que é o padrão. Num pool de capacidade de QoS automático, a produção é atribuída automaticamente aos volumes da piscina, proporcional à quota de tamanho atribuída aos volumes.
 

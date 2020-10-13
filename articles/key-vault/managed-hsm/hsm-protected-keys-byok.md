@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: ambapat
 ms.openlocfilehash: ce275674704cd7538f25a2d3f31d0e65aecd7925
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91320630"
 ---
 # <a name="import-hsm-protected-keys-to-managed-hsm-byok"></a>Importa chaves protegidas pelo HSM para o HSM gerido (BYOK)
@@ -64,13 +64,13 @@ Para obter mais informações sobre as opções de login através do CLI, dê um
 |---|---|---|---|
 |nCipher|Fabricante,<br/>HSM como serviço|<ul><li>nShield família de HSMs</li><li>nShield como um serviço</ul>|[nCipher nova ferramenta e documentação BYOK](https://www.ncipher.com/products/key-management/cloud-microsoft-azure)|
 |Thales|Fabricante|<ul><li>Família Luna HSM 7 com a versão 7.3 ou mais recente</li></ul>| [Ferramenta e documentação Luna BYOK](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=3892db6ddb8fc45005c9143b0b961987&sysparm_article=KB0021016)|
-|Fortanix|Fabricante,<br/>HSM como serviço|<ul><li>Serviço de Gestão de Chaves auto-defendido (SDKMS)</li><li>Equinix SmartKey</li></ul>|[Exportação de chaves SDKMS para fornecedores de nuvem para BYOK - Cofre chave Azure](https://support.fortanix.com/hc/en-us/articles/360040071192-Exporting-SDKMS-keys-to-Cloud-Providers-for-BYOK-Azure-Key-Vault)|
+|Fortanix|Fabricante,<br/>HSM como serviço|<ul><li>Self-Defending Serviço de Gestão de Chaves (SDKMS)</li><li>Equinix SmartKey</li></ul>|[Exportação de chaves SDKMS para fornecedores de nuvem para BYOK - Cofre chave Azure](https://support.fortanix.com/hc/en-us/articles/360040071192-Exporting-SDKMS-keys-to-Cloud-Providers-for-BYOK-Azure-Key-Vault)|
 |Rio Marvell|Fabricante|Todos os HSMs de LiquidSecurity com<ul><li>Versão firmware 2.0.4 ou posterior</li><li>Versão firmware 3.2 ou mais recente</li></ul>|[Ferramenta e documentação Marvell BYOK](https://www.marvell.com/products/security-solutions/nitrox-hs-adapters/exporting-marvell-hsm-keys-to-cloud-azure-key-vault.html)|
 |Criptomático|ISV (Sistema de Gestão de Chaves empresariais)|Múltiplas marcas e modelos HSM, incluindo<ul><li>nCipher</li><li>Thales</li><li>Rio Utimaco</li></ul>Consulte [o site Cryptomathic para mais detalhes](https://www.cryptomathic.com/azurebyok)|[Ferramenta e documentação cryptomathic BYOK](https://www.cryptomathic.com/azurebyok)|
 
 ## <a name="supported-key-types"></a>Supported key types (Tipos de chaves suportados)
 
-|Nome da chave|Tipo de chave|Tamanho da chave|Origem|Description|
+|Nome da chave|Tipo de chave|Tamanho da chave|Origem|Descrição|
 |---|---|---|---|---|
 |Chave de troca (KEK)|RSA| 2.048-bit<br />3,072 bit<br />4.096-bit|HSM Gerido|Um par de chaves RSA apoiado pelo HSM gerado em HSM gerido|
 |Chave-alvo|RSA|2.048-bit<br />3,072 bit<br />4.096-bit|Fornecedor HSM|A chave a ser transferida para o HSM gerido|

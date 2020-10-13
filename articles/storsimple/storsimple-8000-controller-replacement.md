@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 9d8b75c48da2bb13d843258ead378d3e849da951
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514075"
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>Substitua um módulo controlador no seu dispositivo StorSimple
@@ -236,6 +236,6 @@ Se este LED estiver a piscar, o controlador está ativo e o outro controlador es
 | 1-6 |DADOS 0 – 5 portas de rede |
 | 7 |LED azul |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre [a substituição do componente de hardware StorSimple](storsimple-8000-hardware-component-replacement.md).
 

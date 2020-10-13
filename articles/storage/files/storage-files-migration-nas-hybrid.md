@@ -8,10 +8,10 @@ ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
 ms.openlocfilehash: fd8e845734169bcd73fa0e087c30c0f2fd6ef4f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85510310"
 ---
 # <a name="migrate-from-network-attached-storage-nas-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Migrar do Armazenamento Ligado à Rede (NAS) para uma implementação em nuvem híbrida com Azure File Sync
@@ -23,7 +23,7 @@ Este facto torna necessária uma migração dos seus ficheiros e este artigo gui
 
 O objetivo é mover as ações que tem no seu aparelho NAS para um Servidor Windows. Em seguida, utilize o Azure File Sync para uma implementação de nuvem híbrida. Esta migração tem de ser feita de forma a garantir a integridade dos dados de produção, bem como a disponibilidade durante a migração. Este último requer manter o tempo de inatividade ao mínimo, de modo a que possa encaixar ou apenas exceder ligeiramente as janelas de manutenção regulares.
 
-## <a name="migration-overview"></a>Descrição geral da Migração
+## <a name="migration-overview"></a>Descrição geral da migração
 
 Como mencionado no artigo geral de [migração](storage-files-migration-overview.md)dos Ficheiros Azure, é importante utilizar a ferramenta e abordagem corretas de cópia. O seu aparelho NAS está a expor as ações da SMB diretamente na sua rede local. O RoboCopy, incorporado no Windows Server, é a melhor forma de mover os seus ficheiros neste cenário de migração.
 
@@ -208,7 +208,7 @@ Terminou de migrar uma parte/grupo de ações numa raiz ou volume comum. (Depend
 Podes tentar executar algumas destas cópias em paralelo. Recomendamos o processamento do âmbito de uma partilha de ficheiros Azure de cada vez.
 
 > [!WARNING]
-> Depois de ter transferido todos os dados do SEU NAS para o Windows Server, e a sua migração está completa: Volte a ***todos os*** grupos de sincronização no portal Azure e ajuste o valor de espaço livre de nível de cloud para algo mais adequado para a utilização da cache, digamos 20%. 
+> Depois de ter transferido todos os dados do SEU NAS para o Windows Server, e a sua migração está completa: Volte a ***todos os***  grupos de sincronização no portal Azure e ajuste o valor de espaço livre de nível de cloud para algo mais adequado para a utilização da cache, digamos 20%. 
 
 A política de espaço livre de nível de nivelamento da nuvem atua a nível de volume com pontos finais potencialmente múltiplos do servidor sincronizados a partir dele. Se se esquecer de ajustar o espaço livre num ponto final de um servidor, a sincronização continuará a aplicar a regra mais restritiva e tentará manter 99% de espaço livre em disco, fazendo com que a cache local não esteja a funcionar como seria de esperar. A menos que seja seu objetivo ter apenas o espaço de nome para um volume que apenas contém dados de arquivo raramente acedidos e você está reservando o resto do espaço de armazenamento para outro cenário.
 
@@ -222,7 +222,7 @@ Quando o seu Servidor do Windows tiver capacidade disponível suficiente, a reex
 
 Verifique o link na secção seguinte para verificar problemas de resolução de problemas problemas com o Azure File Sync.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Há mais a descobrir sobre as ações de ficheiros Azure e a Azure File Sync. Os seguintes artigos ajudam a compreender opções avançadas, boas práticas e também contêm ajuda para resolver problemas. Estes artigos ligam-se à [documentação de partilha de ficheiros Azure](storage-files-introduction.md) conforme apropriado.
 

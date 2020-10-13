@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
 ms.openlocfilehash: 3cb9bee65ab7fa2c29185c40ecb48fd531192187
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91321718"
 ---
 # <a name="tutorial-how-to-display-route-directions-using-azure-maps-route-service-and-map-control"></a>Tutorial: Como exibir direções de rota usando o serviço de rota Azure Maps e o controlo do mapa
@@ -174,7 +174,7 @@ Neste tutorial, faremos a rota usando uma camada de linha. Os pontos de partida 
 
 3. Guarde **MapRoute.htmi** e refresque o seu navegador. O mapa está agora centrado em Seattle. O pino azul lágrima marca o ponto de partida. O pino azul redondo marca o ponto final.
 
-    :::image type="content" source="./media/tutorial-route-location/map-pins.png" alt-text="Ver ponto de partida e fim das rotas no mapa":::
+    :::image type="content" source="./media/tutorial-route-location/map-pins.png" alt-text="Renderização de mapas básicos do controlo do mapa":::
 
 <a id="getroute"></a>
 
@@ -216,7 +216,7 @@ Esta secção mostra-lhe como utilizar a API das Direções de Rota do Azure Map
 
 3. Guarde o ficheiro **MapRoute.html** e atualize o browser. O mapa deve agora mostrar a rota do início ao ponto final.
 
-     :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="Serviço de controlo e rota do mapa Azure":::
+     :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="Renderização de mapas básicos do controlo do mapa":::
 
 Pode obter o código fonte completo para a amostra [aqui.](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html) Uma amostra viva pode ser encontrada [aqui.](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
 

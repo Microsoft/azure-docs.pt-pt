@@ -4,10 +4,10 @@ description: Como modelar e descrever aplicações e serviços no Azure Service 
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.openlocfilehash: 84e6b2309fdb206771d4ea01aa03c7f355d6ff19
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85963738"
 ---
 # <a name="model-an-application-in-service-fabric"></a>Modelar uma aplicação em Tecido de Serviço
@@ -38,7 +38,7 @@ O diagrama seguinte mostra a relação entre aplicações e instâncias de servi
 > 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [a escalabilidade da aplicação.](service-fabric-concepts-scalability.md)
 - Saiba mais sobre [o estado de](service-fabric-concepts-state.md)serviço, [partição](service-fabric-concepts-partitioning.md)e [disponibilidade.](service-fabric-availability-services.md)
 - Leia sobre como as aplicações e serviços são definidos em [Candidaturas e manifestos de serviço.](service-fabric-application-and-service-manifests.md)

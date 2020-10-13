@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 05/26/2020
+ms.date: 04/24/2019
 ms.author: swmachan
-ms.openlocfilehash: 4b6214ebfaf4b9ed6dd97f6a6ac2f5c4ae164a59
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 3c5c74fc853b5a2425a58e1704aad43350cba212
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85964690"
 ---
 # <a name="unsupported-language-deployments"></a>Implementações de linguagens não suportadas
@@ -45,16 +45,16 @@ Uma vez apresentado, o modelo deixará de estar disponível no separador **trein
 
 ![Como migrar do Hub](media/unsupported-language-deployments/request-unsupported-trainings.jpg) 
 
-## <a name="whats-next"></a>Passos seguintes?
+## <a name="whats-next"></a>O que se segue?
 
-Os modelos selecionados para implantação são guardados assim que o Hub for desativado e todos os modelos não serem desprotendo.  Tem até 24 de maio para apresentar pedidos de implementação de modelos não suportados.  Implementaremos estes modelos no dia 15 de junho, altura em que estarão acessíveis através do Tradutor V3.  Além disso, estarão disponíveis através do Tradutor V2 até 1 de julho.  
+Os modelos selecionados para implantação são guardados assim que o Hub for desativado e todos os modelos não serem desprotendo.  Tem até 24 de maio para apresentar pedidos de implementação de modelos não suportados.  Implementaremos estes modelos no dia 15 de junho, altura em que estarão acessíveis através da API tradutora V3.  Além disso, estarão disponíveis através da API V2 até 1 de julho.  
 
 Para mais informações sobre datas importantes na depreciação do Hub consulte [aqui](https://www.microsoft.com/translator/business/hub/).
 Uma vez implantados, aplicar-se-ão os encargos normais de hospedagem.  Consulte [os preços](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/) para mais detalhes.  
 
 Ao contrário dos modelos standard de Tradutor Personalizado, os modelos Hub só estarão disponíveis numa única região, pelo que os custos de hospedagem multi-região não serão aplicados.  Uma vez implementado, poderá despreocupar o seu modelo Hub a qualquer momento através do projeto De Tradutor Personalizado migrado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Treine um modelo.](how-to-train-model.md)
-- Comece a utilizar o seu modelo de tradução personalizado implantado através [do Tradutor V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Comece a utilizar o seu modelo de tradução personalizado implementado através do [Microsoft Tradutor Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).

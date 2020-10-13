@@ -8,10 +8,10 @@ ms.date: 05/19/2020
 ms.author: dech
 ms.custom: devx-track-python, devx-track-csharp
 ms.openlocfilehash: 47ac6b4caf97b264df58732f8d031fc63091171e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89019271"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-c-notebooks-preview"></a>Use comandos e funcionalidades de cadernos incorporados em cadernos Azure Cosmos DB C# (pré-visualização)
@@ -117,12 +117,12 @@ Por exemplo, no exemplo *GetingStarted_Csharp.ipynb,* podemos imprimir a variáv
 
 :::image type="content" source="media/use-notebook-features-and-commands/csharp-query-cell.png" alt-text="Célula de consulta de Csharp":::
 
-:::image type="content" source="media/use-notebook-features-and-commands/csharp-nteract-built-in-chart.png" alt-text="explorador de dados nteract":::
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-nteract-built-in-chart.png" alt-text="Célula de consulta de Csharp":::
 
 ## <a name="use-built-in-dictionary-viewer"></a>Use o espectador de dicionário incorporado
 Você pode usar o espectador de dicionário incorporado para ver uma variável. Numa célula, coloque a variável que pretende visualizar na última linha, que será exibida automaticamente quando a célula é executada.
 
-:::image type="content" source="media/use-notebook-features-and-commands/csharp-built-in-dictionary-viewer.png" alt-text="Espectador de dicionário embutido":::
+:::image type="content" source="media/use-notebook-features-and-commands/csharp-built-in-dictionary-viewer.png" alt-text="Célula de consulta de Csharp":::
 
 ## <a name="upload-json-items-to-a-container"></a>Faça o upload de itens JSON para um recipiente
 Pode utilizar o ``%%upload`` comando mágico para enviar dados de um ficheiro JSON para um recipiente Azure Cosmos especificado. Utilize o seguinte comando para carregar os itens:
@@ -160,7 +160,7 @@ Pode utilizar o ``%%run`` comando mágico para executar outro caderno no seu esp
 ## <a name="reset-notebooks-workspace"></a>Redefinir espaço de trabalho de cadernos
 Para redefinir o espaço de trabalho dos blocos de notas para as definições predefinidos, selecione **Reset Workspace** na barra de comando. Isto removerá quaisquer pacotes instalados personalizados e reiniciará o servidor Jupyter. Os seus cadernos, ficheiros e recursos da Azure Cosmos não serão afetados.  
 
-:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Redefinir espaço de trabalho de cadernos":::
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Célula de consulta de Csharp":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -2,15 +2,13 @@
 title: Azure Monitor Application Insights esquema de recursos baseado no espaço de trabalho
 description: Conheça a nova estrutura de mesa e esquema para recursos baseados no espaço de trabalho do Azure Monitor Application Insights.
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/09/2020
-ms.openlocfilehash: 1d7275c928b4d25e200a3a8d3d690c7575c056e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f0bee64d74cfd5b6abef5c918c023974fda3fcf
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323184"
+ms.locfileid: "91931058"
 ---
 # <a name="workspace-based-resource-changes-preview"></a>Alterações de recursos baseadas no espaço de trabalho (pré-visualização)
 

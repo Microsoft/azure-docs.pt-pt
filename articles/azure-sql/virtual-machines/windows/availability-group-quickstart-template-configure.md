@@ -15,10 +15,10 @@ ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 207ee67c207f028b5f4bd45d99a7ef431429debb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91293577"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Utilize modelos de arranque rápido Azure para configurar um grupo de disponibilidade para O SQL Server em Azure VM
@@ -26,7 +26,7 @@ ms.locfileid: "91293577"
 
 Este artigo descreve como utilizar os modelos de arranque rápido do Azure para automatizar parcialmente a implementação de uma configuração de grupo de disponibilidade Always On para máquinas virtuais SQL Server (VMs) em Azure. Neste processo são utilizados dois modelos de arranque rápido Azure: 
 
-   | Modelo | Description |
+   | Modelo | Descrição |
    | --- | --- |
    | [101-sql-vm-ag-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-ag-setup) | Cria o cluster de failover do Windows e junta-lhe os VMs do SQL Server. |
    | [101-sql-vm-aglistener-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-aglistener-setup) | Cria o ouvinte do grupo de disponibilidade e configura o equilibrador de carga interno. Este modelo só pode ser utilizado se o cluster de failover do Windows tiver sido criado com o modelo **de configuração de 101 m2-vm-ag.** |
