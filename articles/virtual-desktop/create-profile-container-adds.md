@@ -7,10 +7,10 @@ ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: ea834ed874f3011d95f8b924df860576f72bc4ee
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88825618"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-azure-ad-ds"></a>Criar um recipiente de perfil com ficheiros Azure e Azure AD DS
@@ -146,7 +146,7 @@ Para configurar um recipiente de perfil FSLogix:
 
 3. Assim que o instalador for lançado, **selecione concordo com os termos e condições da licença.** Se aplicável, forneça uma nova chave.
 
-4. Selecione **Install** (Instalar).
+4. Selecione **Instalar**.
 
 5. Open **Drive C**, em seguida, vá a Program **Files**  >  **FSLogix**  >  **Apps** para se certificar de que o agente FSLogix foi corretamente instalado.
 

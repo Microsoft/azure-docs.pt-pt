@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 08/24/2020
 ms.author: inhenkel
 ms.openlocfilehash: dfd7b3dcc7e27dd1251c35c6272b5aa7f8036006
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88942411"
 ---
 # <a name="tutorial-store-azure-media-services-events-in-azure-log-analytics"></a>Tutorial: Armazenar eventos da Azure Media Services em Azure Log Analytics
@@ -124,7 +124,7 @@ Agora que está inscrito no evento, crie uma ação.
     > [!div class="mx-imgBorder"]
     > ![Tópico selecionado](media/tutorial-events-log-analytics/topic-selected.png)
 
-1. Selecione **a visão** de código da Aplicação Lógica. Procure as linhas entradas e do tipo de registo.
+1. Selecione **a visão** de código da Aplicação Lógica. Procure as linhas de entrada e Log-Type.
     > [!div class="mx-imgBorder"]
     > ![Vista de código de duas linhas](media/tutorial-events-log-analytics/code-view-two-lines.png)
 

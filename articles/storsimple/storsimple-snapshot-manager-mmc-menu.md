@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: 01064c3668b673baea7aedd9a65c92b03c48dc10
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90056008"
 ---
 # <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>Utilize as ações do menu MMC no StorSimple Snapshot Manager
@@ -98,7 +98,7 @@ Pode utilizar o menu **Ajuda** para visualizar a ajuda online disponível para o
 1. Clique no ícone do ambiente de trabalho para iniciar o StorSimple Snapshot Manager.
 2. No painel **Scope,** clique com o botão direito de qualquer nó ou expanda o nó e clique com o botão direito num item no painel **de resultados** e, em seguida, clique em **Ajuda**. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre a interface de [utilizador do StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md).
 * Saiba mais sobre [a utilização do StorSimple Snapshot Manager para administrar a sua solução StorSimple](storsimple-snapshot-manager-admin.md).
 

@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 82304052d6ed0c0169c24c19c58d53548b4479cc
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87423597"
 ---
 # <a name="bulk-delete-users-in-azure-active-directory"></a>Excluir a granel os utilizadores no Azure Ative Directory
@@ -89,7 +89,7 @@ Get-AzureADUser -Filter "UserType eq 'Member'"
 
 Verifique se os utilizadores que eliminou já não estão listados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Utilizadores adicionados a granel](users-bulk-add.md)
 - [Lista de utilizadores](users-bulk-download.md)

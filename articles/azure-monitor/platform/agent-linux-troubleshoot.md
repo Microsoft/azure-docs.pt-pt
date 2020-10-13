@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
 ms.openlocfilehash: c28a3b0f445ca905a882a7ede3fcfed2c1e673a4
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91531195"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>How to troubleshoot issues with the Log Analytics agent for Linux (Como resolver problemas com o agente do Log Analytics para Linux) 
@@ -298,7 +298,7 @@ Este erro indica que a extensão de Diagnóstico Linux (LAD) está instalada lad
 * O pacote OMI foi atualizado manualmente para uma versão mais recente em comparação com o que foi instalado pelo agente Log Analytics para o pacote Linux
 * Classe de registos de recursos DSC *não encontrou* erro no ficheiro `omsconfig.log` de registo
 * O agente do Log Analytics para os dados é apoiado
-* Registos DSC *A configuração atual não existe. Execute o comando Start-DscConfiguration com -Parâmetro Path para especificar um ficheiro de configuração e criar uma configuração atual primeiro.* no `omsconfig.log` ficheiro de registo, mas não existe nenhuma mensagem de registo sobre `PerformRequiredConfigurationChecks` operações.
+* Registos DSC *A configuração atual não existe. Execute Start-DscConfiguration comando com parâmetro -Path para especificar um ficheiro de configuração e criar uma configuração atual primeiro.* no `omsconfig.log` ficheiro de registo, mas não existe nenhuma mensagem de registo sobre `PerformRequiredConfigurationChecks` operações.
 
 ### <a name="resolution"></a>Resolução
 1. Instale todas as dependências como pacote auditado.

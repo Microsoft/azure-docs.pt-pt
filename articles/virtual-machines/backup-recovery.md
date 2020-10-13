@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 8/03/2020
 ms.author: cynthn
 ms.openlocfilehash: bb1abb5b94653893e131c09af6de1625b0bc7998
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87554852"
 ---
 # <a name="backup-and-restore-options-for-linux-virtual-machines-in-azure"></a>Opções de backup e restauro para máquinas virtuais Linux em Azure
@@ -45,5 +45,5 @@ Para obter mais informações sobre a criação de instantâneos, consulte:
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Pode experimentar o Azure Backup seguindo o tutorial "Back up Windows virtual machines" para [Linux](./linux/tutorial-backup-vms.md) ou [Windows](./windows/tutorial-backup-vms.md).

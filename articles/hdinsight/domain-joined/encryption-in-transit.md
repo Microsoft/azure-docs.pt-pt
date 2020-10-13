@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/24/2020
 ms.openlocfilehash: 25e38beb561ee954db2987643775f3a3c6e05737
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89668767"
 ---
 # <a name="ipsec-encryption-in-transit-for-azure-hdinsight"></a>Encriptação IPSec em trânsito para Azure HDInsight
@@ -42,7 +42,7 @@ Para criar um novo cluster com encriptação em trânsito ativada através do po
 
 1. No separador **Segurança + Rede,** clique na encriptação Enable na caixa de **verificação de trânsito.**
 
-    :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="Create cluster - ative a encriptação em trânsito.":::
+    :::image type="content" source="media/encryption-in-transit/enable-encryption-in-transit.png" alt-text="Criar cluster - separador de segurança e rede.":::
 
 ### <a name="create-a-cluster-with-encryption-in-transit-enabled-through-the-azure-cli"></a>Criar um cluster com encriptação em trânsito ativado através do CLI Azure
 
@@ -79,7 +79,7 @@ az group deployment create --name HDInsightEnterpriseSecDeployment \
     --parameters parameters.json
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Visão geral da segurança da empresa em Azure HDInsight](hdinsight-security-overview.md)
 * [Sincronizar os utilizadores do Azure Ative Directory para um cluster HDInsight](../disk-encryption.md).

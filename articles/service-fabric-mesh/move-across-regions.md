@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: subject-moving-resources
 ms.openlocfilehash: c842a065f108a924c6bffd70d6c2edbbd31b6dff
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86260149"
 ---
 # <a name="move-a-service-fabric-mesh-application-to-another-azure-region"></a>Mover uma aplicação de malha de tecido de serviço para outra região do Azure
@@ -56,7 +56,7 @@ Para completar a mudança da aplicação Rede de Malha de Tecido de Serviço, [e
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Mover recursos Azure através das regiões](../azure-resource-manager/management/move-region.md)
+* [Mova recursos do Azure entre regiões](../azure-resource-manager/management/move-region.md)
 * [Apoio à deslocação de recursos do Azure pelas regiões](../azure-resource-manager/management/region-move-support.md)
 * [Mover recursos para um novo grupo de recursos ou subscrição](../azure-resource-manager/management/move-resource-group-and-subscription.md)
 * [Suporte da operação de movimentação para recursos](../azure-resource-manager/management/move-support-resources.md

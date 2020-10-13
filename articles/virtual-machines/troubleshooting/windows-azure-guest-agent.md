@@ -12,10 +12,10 @@ ms.workload: infrastructure
 ms.date: 09/15/2020
 ms.author: genli
 ms.openlocfilehash: 597ea6e7ff7dbcfcb8a99d4e4de3c1b82915ee07
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90561266"
 ---
 # <a name="troubleshooting-windows-azure-guest-agent"></a>Problemas de resolução de janelas Azure Guest Agent

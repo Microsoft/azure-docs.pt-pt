@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: ddb99fd7a7ce8265a6e9c63555cd6a226caacc4c
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89440733"
 ---
 # <a name="datasets-in-azure-data-factory-version-1"></a>Conjuntos de dados na Azure Data Factory (versão 1)
@@ -79,13 +79,13 @@ A tabela a seguir descreve propriedades no JSON acima:
 
 | Propriedade | Descrição | Obrigatório | Predefinição |
 | --- | --- | --- | --- |
-| name |Nome do conjunto de dados. Ver [Azure Data Factory - Regras de nomeação](data-factory-naming-rules.md) para regras de nomeação. |Yes |ND |
-| tipo |Tipo do conjunto de dados. Especifique um dos tipos suportados pela Data Factory (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para mais informações, consulte o [tipo dataset](#Type). |Yes |ND |
-| estrutura |Esquema do conjunto de dados.<br/><br/>Para mais detalhes, consulte a [estrutura do Conjunto de Dados.](#Structure) |No |ND |
-| typeProperties | As propriedades do tipo são diferentes para cada tipo (por exemplo: Azure Blob, tabela Azure SQL). Para obter mais informações sobre os tipos suportados e as suas propriedades, consulte [o tipo Dataset](#Type). |Yes |ND |
-| externo | Bandeira booleana para especificar se um conjunto de dados é explicitamente produzido por um oleoduto de fábrica de dados ou não. Se o conjunto de dados de entrada para uma atividade não for produzido pelo gasoduto atual, esta bandeira seja verdadeira. Defina esta bandeira de forma verdadeira para o conjunto de dados de entrada da primeira atividade no oleoduto.  |No |false |
-| disponibilidade | Define a janela de processamento (por exemplo, de hora a hora ou diariamente) ou o modelo de corte para a produção do conjunto de dados. Cada unidade de dados consumidos e produzidos por uma atividade executada é chamada de fatia de dados. Se a disponibilidade de um conjunto de dados de saída for definida diariamente (frequência - dia, intervalo - 1), uma fatia é produzida diariamente. <br/><br/>Para mais detalhes, consulte a disponibilidade do Dataset. <br/><br/>Para obter mais informações sobre o modelo de corte de conjuntos de dados, consulte o artigo [de Agendamento e execução.](data-factory-scheduling-and-execution.md) |Yes |ND |
-| política |Define os critérios ou a condição que as fatias de conjunto de dados devem cumprir. <br/><br/>Para mais detalhes, consulte a secção [de política do Dataset.](#Policy) |No |ND |
+| name |Nome do conjunto de dados. Ver [Azure Data Factory - Regras de nomeação](data-factory-naming-rules.md) para regras de nomeação. |Sim |ND |
+| tipo |Tipo do conjunto de dados. Especifique um dos tipos suportados pela Data Factory (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para mais informações, consulte o [tipo dataset](#Type). |Sim |ND |
+| estrutura |Esquema do conjunto de dados.<br/><br/>Para mais detalhes, consulte a [estrutura do Conjunto de Dados.](#Structure) |Não |ND |
+| typeProperties | As propriedades do tipo são diferentes para cada tipo (por exemplo: Azure Blob, tabela Azure SQL). Para obter mais informações sobre os tipos suportados e as suas propriedades, consulte [o tipo Dataset](#Type). |Sim |ND |
+| externo | Bandeira booleana para especificar se um conjunto de dados é explicitamente produzido por um oleoduto de fábrica de dados ou não. Se o conjunto de dados de entrada para uma atividade não for produzido pelo gasoduto atual, esta bandeira seja verdadeira. Defina esta bandeira de forma verdadeira para o conjunto de dados de entrada da primeira atividade no oleoduto.  |Não |false |
+| disponibilidade | Define a janela de processamento (por exemplo, de hora a hora ou diariamente) ou o modelo de corte para a produção do conjunto de dados. Cada unidade de dados consumidos e produzidos por uma atividade executada é chamada de fatia de dados. Se a disponibilidade de um conjunto de dados de saída for definida diariamente (frequência - dia, intervalo - 1), uma fatia é produzida diariamente. <br/><br/>Para mais detalhes, consulte a disponibilidade do Dataset. <br/><br/>Para obter mais informações sobre o modelo de corte de conjuntos de dados, consulte o artigo [de Agendamento e execução.](data-factory-scheduling-and-execution.md) |Sim |ND |
+| política |Define os critérios ou a condição que as fatias de conjunto de dados devem cumprir. <br/><br/>Para mais detalhes, consulte a secção [de política do Dataset.](#Policy) |Não |ND |
 
 ## <a name="dataset-example"></a>Exemplo do conjunto de dados
 No exemplo seguinte, o conjunto de dados representa uma tabela chamada **MyTable** numa base de dados SQL.
@@ -191,10 +191,10 @@ Cada coluna da estrutura contém as seguintes propriedades:
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| name |O nome da coluna. |Yes |
-| tipo |Tipo de dados da coluna.  |No |
-| cultura |. Cultura baseada na NET a ser utilizada quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset` . A predefinição é `en-us`. |No |
-| formato |Cadeia de formato a utilizar quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset` . |No |
+| name |O nome da coluna. |Sim |
+| tipo |Tipo de dados da coluna.  |Não |
+| cultura |. Cultura baseada na NET a ser utilizada quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset` . A predefinição é `en-us`. |Não |
+| formato |Cadeia de formato a utilizar quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset` . |Não |
 
 As seguintes diretrizes ajudam-no a determinar quando incluir informações de estrutura e o que incluir na secção de **estrutura.**
 
@@ -233,11 +233,11 @@ A tabela a seguir descreve propriedades que pode utilizar na secção de disponi
 
 | Propriedade | Descrição | Obrigatório | Predefinição |
 | --- | --- | --- | --- |
-| frequência |Especifica a unidade de tempo para a produção de fatias de conjunto de dados.<br/><br/><b>Frequência suportada</b>: Minuto, Hora, Dia, Semana, Mês |Yes |ND |
-| intervalo |Especifica um multiplicador para a frequência.<br/><br/>"Intervalo de frequência x" determina a frequência com que a fatia é produzida. Por exemplo, se necessitar que o conjunto de dados seja cortado de hora a hora, define a <b>frequência</b> para <b>hora</b>, e <b>intervalo</b> para <b>1</b>.<br/><br/>Tenha em atenção que, se especificar **a frequência** como **Minuto,** deverá definir o intervalo para nada menos do que 15. |Yes |ND |
-| estilo |Especifica se a fatia deve ser produzida no início ou no fim do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Se **a frequência** estiver definida para **mês**, e **o estilo** está definido para **EndOfInterval**, a fatia é produzida no último dia do mês. Se **o estilo** estiver definido para **StartOfInterval,** a fatia é produzida no primeiro dia do mês.<br/><br/>Se **a frequência** estiver definida para o **Dia**, e o **estilo** estiver definido para **EndOfInterval,** a fatia é produzida na última hora do dia.<br/><br/>Se **a frequência** estiver definida para **Hora**, e o **estilo** estiver definido para **EndOfInterval,** a fatia é produzida no final da hora. Por exemplo, para uma fatia para o período das 13:00 às 14:00, a fatia é produzida às 14:00. |No |EndOfInterval |
-| anchorDateTime |Define a posição absoluta no tempo utilizado pelo programador para calcular os limites da fatia de conjunto de dados. <br/><br/>Note que se esta propriedade tem peças de data mais granulares do que a frequência especificada, as peças mais granulares são ignoradas. Por exemplo, se o **intervalo** for **de hora** a hora (frequência: hora e intervalo: 1) e a **âncoraDateTime** contiver **minutos e segundos**, então as partes de minutos e segundos do **anchorDateTime** são ignoradas. |No |01/01/0001 |
-| offset |Timepan pelo qual o início e o fim de todas as fatias de conjunto de dados são deslocados. <br/><br/>Note que se ambos **anchorDatime** e **offset** forem especificados, o resultado é a mudança combinada. |No |ND |
+| frequência |Especifica a unidade de tempo para a produção de fatias de conjunto de dados.<br/><br/><b>Frequência suportada</b>: Minuto, Hora, Dia, Semana, Mês |Sim |ND |
+| interval |Especifica um multiplicador para a frequência.<br/><br/>"Intervalo de frequência x" determina a frequência com que a fatia é produzida. Por exemplo, se necessitar que o conjunto de dados seja cortado de hora a hora, define a <b>frequência</b> para <b>hora</b>, e <b>intervalo</b> para <b>1</b>.<br/><br/>Tenha em atenção que, se especificar **a frequência** como **Minuto,** deverá definir o intervalo para nada menos do que 15. |Sim |ND |
+| estilo |Especifica se a fatia deve ser produzida no início ou no fim do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Se **a frequência** estiver definida para **mês**, e **o estilo** está definido para **EndOfInterval**, a fatia é produzida no último dia do mês. Se **o estilo** estiver definido para **StartOfInterval,** a fatia é produzida no primeiro dia do mês.<br/><br/>Se **a frequência** estiver definida para o **Dia**, e o **estilo** estiver definido para **EndOfInterval,** a fatia é produzida na última hora do dia.<br/><br/>Se **a frequência** estiver definida para **Hora**, e o **estilo** estiver definido para **EndOfInterval,** a fatia é produzida no final da hora. Por exemplo, para uma fatia para o período das 13:00 às 14:00, a fatia é produzida às 14:00. |Não |EndOfInterval |
+| anchorDateTime |Define a posição absoluta no tempo utilizado pelo programador para calcular os limites da fatia de conjunto de dados. <br/><br/>Note que se esta propriedade tem peças de data mais granulares do que a frequência especificada, as peças mais granulares são ignoradas. Por exemplo, se o **intervalo** for **de hora** a hora (frequência: hora e intervalo: 1) e a **âncoraDateTime** contiver **minutos e segundos**, então as partes de minutos e segundos do **anchorDateTime** são ignoradas. |Não |01/01/0001 |
+| offset |Timepan pelo qual o início e o fim de todas as fatias de conjunto de dados são deslocados. <br/><br/>Note que se ambos **anchorDatime** e **offset** forem especificados, o resultado é a mudança combinada. |Não |ND |
 
 ### <a name="offset-example"></a>exemplo offset
 Por padrão, `"frequency": "Day", "interval": 1` as fatias diárias () começam às 12:00 (meia-noite) Tempo Universal Coordenado (UTC). Se pretender que a hora de início seja 6 HORAS UTC, desapeje a compensação como mostrado no seguinte corte:
@@ -280,8 +280,8 @@ A secção **de política** na definição de conjunto de dados define os crité
 ### <a name="validation-policies"></a>Políticas de validação
 | Nome da política | Descrição | Aplicado a | Necessário | Predefinição |
 | --- | --- | --- | --- | --- |
-| tamanho mínimoS |Valida que os dados no **armazenamento Azure Blob** satisfazem os requisitos mínimos de tamanho (em megabytes). |Armazenamento de Blobs do Azure |No |ND |
-| sobrancelhas mínimas |Valida que os dados numa **base de dados Azure SQL** ou numa **tabela Azure** contém o número mínimo de linhas. |<ul><li>Base de Dados SQL do Azure</li><li>Tabela do Azure</li></ul> |No |ND |
+| tamanho mínimoS |Valida que os dados no **armazenamento Azure Blob** satisfazem os requisitos mínimos de tamanho (em megabytes). |Armazenamento de Blobs do Azure |Não |ND |
+| sobrancelhas mínimas |Valida que os dados numa **base de dados Azure SQL** ou numa **tabela Azure** contém o número mínimo de linhas. |<ul><li>Base de Dados SQL do Azure</li><li>Tabela do Azure</li></ul> |Não |ND |
 
 #### <a name="examples"></a>Exemplos
 **tamanho mínimoS:**
@@ -316,10 +316,10 @@ A menos que um conjunto de dados seja produzido pela Data Factory, deve ser marc
 
 | Nome | Descrição | Obrigatório | Valor predefinido |
 | --- | --- | --- | --- |
-| dataDelaia |É o momento de atrasar a verificação da disponibilidade dos dados externos para a fatia dada. Por exemplo, pode atrasar uma verificação de hora a hora utilizando esta definição.<br/><br/>A regulação aplica-se apenas ao presente momento. Por exemplo, se forem 13:00 pm agora e este valor é de 10 minutos, a validação começa às 13:10.<br/><br/>Note que esta definição não afeta fatias no passado. Fatias com **dados de fim de tempo de**  +  **fatiaDela agora**são  <  **Now** processadas sem demora.<br/><br/>Os tempos superiores às 23:59 horas devem ser especificados utilizando o `day.hours:minutes:seconds` formato. Por exemplo, para especificar 24 horas, não use 24:00:00. Em vez disso, use 1:00:00:00. Se utilizar 24:00:00, é tratado como 24 dias (24.00:00:00). Por 1 dia e 4 horas, especifique 1:04:00:00. |No |0 |
-| retryInterval |O tempo de espera entre um fracasso e a próxima tentativa. Esta definição aplica-se ao tempo presente. Se a tentativa anterior falhar, a próxima tentativa é após o período **de retryInterval.** <br/><br/>Se são 13:00 agora, começamos a primeira tentativa. Se a duração para completar a primeira verificação de validação for de 1 minuto e a operação falhar, a próxima repetição é de 1:00 + 1min (duração) + 1min (intervalo de repetição) = 1:02 PM. <br/><br/>Para fatias no passado, não há atraso. A repetição acontece imediatamente. |No |00:01:00 (1 minuto) |
-| retryTimeout |O tempo limite para cada tentativa de repetição.<br/><br/>Se esta propriedade estiver definida para 10 minutos, a validação deve ser concluída dentro de 10 minutos. Se demorar mais de 10 minutos a efetuar a validação, o tempo de retítu disso.<br/><br/>Se todas as tentativas para o tempo de validação, a fatia é marcada como **TimedOut**. |No |00:10:00 (10 minutos) |
-| máximaSRetry |O número de vezes para verificar a disponibilidade dos dados externos. O valor máximo permitido é de 10. |No |3 |
+| dataDelaia |É o momento de atrasar a verificação da disponibilidade dos dados externos para a fatia dada. Por exemplo, pode atrasar uma verificação de hora a hora utilizando esta definição.<br/><br/>A regulação aplica-se apenas ao presente momento. Por exemplo, se forem 13:00 pm agora e este valor é de 10 minutos, a validação começa às 13:10.<br/><br/>Note que esta definição não afeta fatias no passado. Fatias com **dados de fim de tempo de**  +  **fatiaDela agora**são  <  **Now** processadas sem demora.<br/><br/>Os tempos superiores às 23:59 horas devem ser especificados utilizando o `day.hours:minutes:seconds` formato. Por exemplo, para especificar 24 horas, não use 24:00:00. Em vez disso, use 1:00:00:00. Se utilizar 24:00:00, é tratado como 24 dias (24.00:00:00). Por 1 dia e 4 horas, especifique 1:04:00:00. |Não |0 |
+| retryInterval |O tempo de espera entre um fracasso e a próxima tentativa. Esta definição aplica-se ao tempo presente. Se a tentativa anterior falhar, a próxima tentativa é após o período **de retryInterval.** <br/><br/>Se são 13:00 agora, começamos a primeira tentativa. Se a duração para completar a primeira verificação de validação for de 1 minuto e a operação falhar, a próxima repetição é de 1:00 + 1min (duração) + 1min (intervalo de repetição) = 1:02 PM. <br/><br/>Para fatias no passado, não há atraso. A repetição acontece imediatamente. |Não |00:01:00 (1 minuto) |
+| retryTimeout |O tempo limite para cada tentativa de repetição.<br/><br/>Se esta propriedade estiver definida para 10 minutos, a validação deve ser concluída dentro de 10 minutos. Se demorar mais de 10 minutos a efetuar a validação, o tempo de retítu disso.<br/><br/>Se todas as tentativas para o tempo de validação, a fatia é marcada como **TimedOut**. |Não |00:10:00 (10 minutos) |
+| máximaSRetry |O número de vezes para verificar a disponibilidade dos dados externos. O valor máximo permitido é de 10. |Não |3 |
 
 
 ## <a name="create-datasets"></a>Criar conjuntos de dados
@@ -441,6 +441,6 @@ Pode criar conjuntos de dados que são traçados para um pipeline utilizando a p
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Para obter mais informações sobre os gasodutos, consulte [criar oleodutos.](data-factory-create-pipelines.md)
 - Para obter mais informações sobre como os oleodutos são programados e executados, consulte [Agendamento e execução na Azure Data Factory](data-factory-scheduling-and-execution.md).

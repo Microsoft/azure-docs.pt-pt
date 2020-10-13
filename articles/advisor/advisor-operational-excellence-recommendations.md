@@ -4,10 +4,10 @@ description: Utilize o Azure Advisor para otimizar e amadurecer a sua excelênci
 ms.topic: article
 ms.date: 10/24/2019
 ms.openlocfilehash: 036adb7e7d59bd78980c72b210ad41faea277d00
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88258481"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Alcançar a excelência operacional utilizando o Azure Advisor
@@ -57,7 +57,7 @@ A Azure Policy é um serviço em Azure que pode usar para criar, atribuir e geri
 ## <a name="no-validation-environment-enabled"></a>Nenhum ambiente de validação ativado
 O Azure Advisor determina que não tem um ambiente de validação ativado na subscrição atual. Ao criar as suas piscinas hospedeiras, selecionou \" o ambiente Nº \" para \" validação no \" separador propriedades. Ter pelo menos um pool de anfitriões com um ambiente de validação habilitado garante a continuidade do negócio através de implementações de serviços de desktop virtual do Windows com deteção precoce de potenciais problemas. [Saiba mais](https://docs.microsoft.com/azure/virtual-desktop/create-validation-host-pool)
 
-## <a name="ensure-production-non-validation-environment-to-benefit-from-stable-functionality"></a>Garantir o ambiente de produção (não validação) para beneficiar de uma funcionalidade estável
+## <a name="ensure-production-non-validation-environment-to-benefit-from-stable-functionality"></a>Garantir que o ambiente de produção (sem validação) beneficia de uma funcionalidade estável
 O Azure Advisor deteta que muitas das suas piscinas de anfitrião têm ambiente de validação ativado. Para que os ambientes de validação sirvam melhor o seu propósito, você deve ter pelo menos um, mas nunca mais de metade das suas piscinas de anfitrião em ambiente de validação. Ao ter um equilíbrio saudável entre as piscinas de anfitrião com ambiente de validação ativado e aqueles com ele desativados, será melhor utilizar os benefícios das implementações multistage que o Windows Virtual Desktop oferece com determinadas atualizações. Para corrigir este problema, abra as propriedades da piscina do anfitrião e selecione \" Não ao lado da \" \" definição de Ambiente de \" Validação.
 
 ## <a name="enable-traffic-analytics-to-view-insights-into-traffic-patterns-across-azure-resources"></a>Ativar a Análise de Tráfego para obter informações sobre os padrões de tráfego nos recursos do Azure

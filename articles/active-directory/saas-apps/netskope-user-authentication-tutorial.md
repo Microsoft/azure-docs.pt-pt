@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 4a2bd9b7240033df47f57dc3432ce50819d8754b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 62d6d5527cd917304e4c8bc0c4740f4edb772218
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544031"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939176"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netskope-user-authentication"></a>Tutorial: Azure Ative Directory integração única (SSO) com autenticação do utilizador netskope
 
@@ -92,7 +92,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     > [!NOTE]
     > Os valores de URL de inscrição não são reais. Atualizar o valor url de inscrição com o URL de inscrição real. Contacte a equipa de [suporte ao cliente de autenticação do utilizador netskope](mailto:support@netskope.com) para obter o valor de URL de inscrição. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-1. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+1. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -136,15 +136,15 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Clique no separador **Plataforma Ativa.**
 
-    ![Configuração de autenticação do utilizador netskope](./media/netskope-user-authentication-tutorial/user1.png)
+    ![A screenshot mostra plataforma ativa selecionada a partir de Definições.](./media/netskope-user-authentication-tutorial/user1.png)
 
 1. Desloque-se para **o PROXY FORWARD** e selecione **SAML**.
 
-    ![Configuração de autenticação do utilizador netskope](./media/netskope-user-authentication-tutorial/config-saml.png)
+    ![A screenshot mostra SAML selecionado a partir da Plataforma Ativa.](./media/netskope-user-authentication-tutorial/config-saml.png)
 
 1. Na página **definições DE SAML,** execute os seguintes passos:
 
-    ![Configuração de autenticação do utilizador netskope](./media/netskope-user-authentication-tutorial/configure-copyurls.png)
+    ![A screenshot mostra configurações SAML onde pode introduzir os valores descritos.](./media/netskope-user-authentication-tutorial/configure-copyurls.png)
 
     a. Copie o valor **do ID da Entidade SAML** e cole-o na caixa de texto **identifier** na secção **de Configuração Básica SAML** no portal Azure.
 
@@ -152,11 +152,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Clique **na CONTA ADD**.
 
-    ![Configuração de autenticação do utilizador netskope](./media/netskope-user-authentication-tutorial/config-addaccount.png)
+    ![A screenshot mostra ADD ACCOUNT selecionada no painel SAML.](./media/netskope-user-authentication-tutorial/config-addaccount.png)
 
 1. Na página **'Adicionar Conta SAML',** execute os seguintes passos:
 
-    ![Configuração de autenticação do utilizador netskope](./media/netskope-user-authentication-tutorial/config-settings1.png)
+    ![A screenshot mostra adicionar conta SAML onde pode introduzir os valores descritos.](./media/netskope-user-authentication-tutorial/config-settings1.png)
 
     a. Na caixa de texto **NAME,** forneça o nome Azure AD.
 
@@ -174,23 +174,23 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Clique no **separador Definições** a partir do painel de navegação esquerdo.
 
-    ![Criação do utilizador de autenticação do utilizador netskope](./media/netskope-user-authentication-tutorial/config-settings.png)
+    ![Screenshot mostra definição selecionada.](./media/netskope-user-authentication-tutorial/config-settings.png)
 
 1. Clique no separador **Plataforma Ativa.**
 
-    ![Criação do utilizador de autenticação do utilizador netskope](./media/netskope-user-authentication-tutorial/user1.png)
+    ![A screenshot mostra plataforma ativa selecionada a partir de Definições.](./media/netskope-user-authentication-tutorial/user1.png)
 
 1. Clique **no separador Utilizadores.**
 
-    ![Criação do utilizador de autenticação do utilizador netskope](./media/netskope-user-authentication-tutorial/add-user.png)
+    ![A screenshot mostra utilizadores selecionados a partir da Plataforma Ativa.](./media/netskope-user-authentication-tutorial/add-user.png)
 
 1. CLIQUE **EM UTILIZADORES DE ADD**.
 
-    ![Criação do utilizador de autenticação do utilizador netskope](./media/netskope-user-authentication-tutorial/user-add.png)
+    ![A screenshot mostra a caixa de diálogo do Utilizadores onde pode selecionar utilizadores ADD.](./media/netskope-user-authentication-tutorial/user-add.png)
 
 1. Introduza o endereço de e-mail do utilizador que pretende adicionar e clique em **ADD**.
 
-    ![Criação do utilizador de autenticação do utilizador netskope](./media/netskope-user-authentication-tutorial/add-user-popup.png)
+    ![O Screenshot mostra adicionar utilizadores onde pode introduzir uma lista de utilizadores.](./media/netskope-user-authentication-tutorial/add-user-popup.png)
 
 ## <a name="test-sso"></a>Teste SSO
 

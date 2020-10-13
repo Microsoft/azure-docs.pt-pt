@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 08/19/2020
+ms.date: 10/07/2020
 ms.author: alkohli
-ms.openlocfilehash: 026f476b888380b6f262a6a52c064c939e27e931
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 413847b7858549dc6130f219829b220b2857c7e2
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743204"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938895"
 ---
 # <a name="troubleshoot-issues-on-your-azure-stack-edge-pro-gpu-device"></a>Problemas de resolução de problemas no seu dispositivo GPU Azure Stack Edge Pro 
 
@@ -143,7 +143,7 @@ Aqui estão os erros que podem aparecer durante a configuração do Azure Resour
 | **Emissão / Erros** |  **Resolução** | 
 |------------|-----------------|
 |Problemas gerais|<li>[Verifique se o dispositivo Edge está configurado corretamente](#verify-the-device-is-configured-properly).<li> [Verifique se o cliente está configurado corretamente](#verify-the-client-is-configured-properly)|
-|Add-AzureRmEnvironment : Ocorreu um erro ao enviar o pedido.<br>Na linha:1 char:1<br>+ Add-AzureRmEnvironment -Name Az3 -ARMEndpoint " https://management.dbe ...|Este erro significa que o seu dispositivo Azure Stack Edge Pro não está acessível ou configurado corretamente. Verifique se o dispositivo Edge e o cliente estão configurados corretamente. Para orientação, consulte as **questões gerais** nesta tabela.|
+|Add-AzureRmEnvironment: Ocorreu um erro ao enviar o pedido.<br>Na linha:1 char:1<br>+ Add-AzureRmEnvironment -Nome Az3 -ARMEndpoint " https://management.dbe ...|Este erro significa que o seu dispositivo Azure Stack Edge Pro não está acessível ou configurado corretamente. Verifique se o dispositivo Edge e o cliente estão configurados corretamente. Para orientação, consulte as **questões gerais** nesta tabela.|
 |Erro devolvido do serviço. Consulte o InnerException para obter mais detalhes: A ligação subjacente foi fechada: Não foi possível estabelecer uma relação de confiança para o canal seguro SSL/TLS. |   Este erro deve-se, provavelmente, a uma ou mais etapas do certificado incorretamente realizadas. Pode encontrar orientação [aqui.](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-j-series-connect-resource-manager#step-2-create-and-install-certificates) |
 |Operação devolveu um código de estado inválido 'ServiceUnavailable' <br> O código de estado de resposta não indica sucesso: 503 (Serviço Indisponível). | Este erro pode ser o resultado de qualquer uma destas condições.<li>ArmStsPool está em estado de paragem.</li><li>Qualquer um dos websites de serviços Azure Resource Manager/Security token estão em baixo.</li><li>O recurso de cluster Azure Resource Manager está em baixo.</li><br><strong>Nota:</strong> Reiniciar o aparelho pode corrigir o problema, mas deve recolher o pacote de suporte para que possa desordiá-lo ainda mais.|
 |AADSTS50126: Nome de utilizador ou senha inválido.<br>ID de traço: 29317da9-52fc-4ba0-9778-446ae5625e5a<br>ID de correlação: 1b9752c4-8cbf-4304-a714-8a16527410f4<br>Horário: 2019-11-15 09:21:57Z: O servidor remoto devolveu um erro: (400) Mau Pedido.<br>Na linha:1 char:1 |Este erro pode ser o resultado de qualquer uma destas condições.<li>Para um nome de utilizador e senha inválidos, valide que o cliente alterou a palavra-passe do portal Azure seguindo os passos [aqui](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-j-series-set-azure-resource-manager-password) e, em seguida, utilizando a senha correta.<li>Para um ID inquilino inválido, o ID do inquilino é um GUID fixo e deve ser definido para `c0257de7-538f-415c-993a-1b87a031879d`</li>|
@@ -200,6 +200,7 @@ Aqui estão os erros relacionados com o armazenamento de bolhas no dispositivo A
 |A ligação está fora.|Inscreva-se no Azure Stack Edge Pro e verifique se está desbloqueado. Sempre que o dispositivo reinicia, fica bloqueado até alguém entrar.|
 
 
+
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre os [problemas conhecidos nesta versão](azure-stack-edge-gpu-2008-release-notes.md).
+- Saiba mais sobre como [resolver problemas de ativação do dispositivo](azure-stack-edge-gpu-troubleshoot-activation.md).

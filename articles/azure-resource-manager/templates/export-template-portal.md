@@ -4,10 +4,10 @@ description: Utilize o portal Azure para exportar um modelo de Gestor de Recurso
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.openlocfilehash: 0262517df11f0d91920fd7e44f96ff532ffbe63f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87423240"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Exportação única e multi-recursos para um modelo no portal Azure
@@ -55,7 +55,7 @@ Para exportar recursos criados através de um modelo de implementação clássic
 
 Se receber um aviso ao exportar um modelo que indique que um tipo de recurso não foi exportado, ainda pode descobrir as propriedades desse recurso. Para saber mais sobre as diferentes opções para visualizar propriedades de recursos, consulte [as propriedades de recursos Discover.](view-resources.md) Também pode olhar para a [API Azure REST](/rest/api/azure/) para o tipo de recurso.
 
-## <a name="export-template-from-a-resource-group"></a>Modelo de exportação de um grupo de recursos
+## <a name="export-template-from-a-resource-group"></a>Exportar modelo a partir de um grupo de recursos
 
 Exportar um ou mais recursos de um grupo de recursos:
 
@@ -119,7 +119,7 @@ Pode exportar o modelo que foi usado para implantar recursos existentes. O model
 
    ![Selecionar modelo](./media/export-template-portal/show-template-from-history.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como exportar modelos com [Azure CLI,](../management/manage-resource-groups-cli.md#export-resource-groups-to-templates) [Azure PowerShell,](../management/manage-resource-groups-powershell.md#export-resource-groups-to-templates)ou [REST API](/rest/api/resources/resourcegroups/exporttemplate).
 - Para aprender a sintaxe do modelo do Gestor de Recursos, consulte [compreender a estrutura e a sintaxe dos modelos do Gestor de Recursos Azure](template-syntax.md).

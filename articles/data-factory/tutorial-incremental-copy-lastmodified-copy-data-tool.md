@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 6/10/2020
 ms.openlocfilehash: 402214da75bffd278e12db94f089d64acd62221e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84730153"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Copie gradualmente ficheiros novos e alterados com base no LastModifiedDate utilizando a ferramenta Dados de Cópia
@@ -128,7 +128,7 @@ Prepare o seu armazenamento Blob para o tutorial completando estes passos:
 
      ![Escolha o ficheiro de entrada ou a página de pasta](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/check-binary-copy.png)
 
-5. Na página da **loja de dados destino,** selecione o serviço **AzureBlobStorage** que criou. Esta é a mesma conta de armazenamento que a loja de dados de origem. Em seguida, selecione **Seguinte**.
+5. Na página da **loja de dados destino,** selecione o serviço **AzureBlobStorage** que criou. Esta é a mesma conta de armazenamento que a loja de dados de origem. e selecione **Seguinte**.
 
 6. Na página **Escolher o ficheiro ou pasta de saída**, complete os seguintes passos:
 
@@ -181,7 +181,7 @@ Prepare o seu armazenamento Blob para o tutorial completando estes passos:
     ![Digitalizar ficheiros utilizando o Azure Storage Explorer](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs8.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Vá ao seguinte tutorial para aprender a transformar dados usando um cluster Apache Spark em Azure:
 
 > [!div class="nextstepaction"]
