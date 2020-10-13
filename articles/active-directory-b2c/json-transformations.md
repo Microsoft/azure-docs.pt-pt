@@ -12,10 +12,10 @@ ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 37df1a052a58271c239b8b3bcaa4808ab7c355f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85204375"
 ---
 # <a name="json-claims-transformations"></a>JSON reivindica transformações
@@ -58,8 +58,8 @@ O exemplo a seguir gera uma cadeia JSON com base no valor de reclamação de "em
 As seguintes alegações de transformação de resultados uma alegação de cadeia JSON que será o corpo do pedido enviado à SendGrid (um fornecedor de e-mail de terceiros). A estrutura do objeto JSON é definida pelos IDs na notação de pontos dos InputParameters e pelos TransformationClaimTypes dos InputClaims. Números na notação de pontos implicam matrizes. Os valores provêm dos valores do InputClaims e das propriedades "Valor" dos InputParameters.
 
 - Reclamações de entrada:
-  - **e-mail**, transformação reivindicação **personalizações tipo.0.to.0.email**: someone@example.com "
-  - **otp**, transformação tipo **de personalizações.0.dynamic_template_data.otp** "346349"
+  - **e-mail**, transformação reivindicação  **personalizações tipo.0.to.0.email**: someone@example.com "
+  - **otp**, tipo de reivindicação de transformação **personalizations.0.dynamic_template_data.otp** "346349"
 - Parâmetro de entrada:
   - **template_id**: "d-4c56ffb40fa648b1aaaa6822283f94f60"
   - **a partir de.email:** service@contoso.com "
@@ -100,7 +100,7 @@ Obtenha um elemento especificado a partir de dados JSON.
 | InputParameter | claimToExtract | string | o nome do elemento JSON a extrair. |
 | OutputClaim | extraídoClaim | string | O ClaimType que é produzido após esta transformação de sinistros foi invocado, o valor do elemento especificado no parâmetro de entrada _claimToExtract._ |
 
-No exemplo seguinte, a transformação das sinistros extraiu o `emailAddress` elemento dos dados do JSON:`{"emailAddress": "someone@example.com", "displayName": "Someone"}`
+No exemplo seguinte, a transformação das sinistros extraiu o `emailAddress` elemento dos dados do JSON: `{"emailAddress": "someone@example.com", "displayName": "Someone"}`
 
 ```xml
 <ClaimsTransformation Id="GetEmailClaimFromJson" TransformationMethod="GetClaimFromJson">
@@ -265,7 +265,7 @@ Obtém o primeiro elemento de uma matriz de dados JSON.
 | InputClaim | inputJsonClaim | string | Os ClaimTypes que são usados pela transformação de sinistros para obter o item da matriz JSON. |
 | OutputClaim | extraídoClaim | string | O ClaimType que é produzido após esta ReclamaçãoTransformação foi invocado, o primeiro elemento na matriz JSON. |
 
-No exemplo seguinte, a transformação de sinistros extrai o primeiro elemento (endereço de e-mail) da matriz JSON `["someone@example.com", "Someone", 6353399]` .
+No exemplo seguinte, a transformação de sinistros extrai o primeiro elemento (endereço de e-mail) da matriz JSON  `["someone@example.com", "Someone", 6353399]` .
 
 ```xml
 <ClaimsTransformation Id="GetEmailFromJson" TransformationMethod="GetSingleValueFromJsonArray">

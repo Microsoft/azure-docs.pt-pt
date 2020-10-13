@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: daperlov
 ms.openlocfilehash: 3e1c5f3b360960779dd58c8c05b25885df81d2e9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91276519"
 ---
 # <a name="delta-format-in-azure-data-factory"></a>Formato Delta na Azure Data Factory
@@ -77,7 +77,7 @@ A tabela abaixo lista as propriedades suportadas por um lavatório delta. Pode e
 | Folder path | O direto do lago delta | sim | Cadeia | folderPath |
 | Tipo de compressão | O tipo de compressão da tabela delta | não | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressãoType |
 | Nível de compressão | Escolha se a compressão se completa o mais rapidamente possível ou se o ficheiro resultante deve ser comprimido da melhor forma. | necessário se `compressedType` for especificado. | `Optimal` ou `Fastest` | compressãoLevel |
-| Limpeza | Especifique o limiar de retenção em horas para versões mais antigas da tabela. Um valor de 0 ou menos incumprimentos para 30 dias | sim | Integer (Número inteiro) | vácuo |
+| Limpeza | Especifique o limiar de retenção em horas para versões mais antigas da tabela. Um valor de 0 ou menos incumprimentos para 30 dias | sim | Número inteiro | vácuo |
 | Método de atualização | Especifique quais as operações de atualização permitidas no lago delta. Para métodos que não são inseridos, uma transformação de linha alterante anterior é necessária para marcar linhas. | sim | `true` ou `false` | deletable <br> inserível <br> atualizável <br> upsertable |
 
 ### <a name="delta-sink-script-example"></a>Exemplo de script de pia delta

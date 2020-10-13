@@ -4,10 +4,10 @@ description: Este artigo fornece uma visão detalhada do agente de servidores at
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.openlocfilehash: 20f56745127a5182a5dfa057a4496b127d78eac7
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91822188"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Visão geral do agente de servidores ativado pelo Azure Arc
@@ -23,7 +23,7 @@ O pacote de agente da máquina conectada Azure contém vários componentes lógi
 
 * O serviço de metadados de identificação de exemplo híbrido (HIMDS) gere a ligação ao Azure e à identidade Azure da máquina ligada.
 
-* O agente de Configuração de Hóspedes fornece a funcionalidade de Política de Hóspedes e Configuração de Hóspedes, tais como avaliar se a máquina está em conformidade com as políticas exigidas.
+* O agente de Configuração de Hóspedes fornece In-Guest funcionalidade de Política e Configuração de Hóspedes, tais como avaliar se a máquina está em conformidade com as políticas exigidas.
 
     Note o seguinte comportamento com a [configuração do hóspede Azure](../../governance/policy/concepts/guest-configuration.md) Policy para uma máquina desligada:
 
@@ -173,7 +173,7 @@ Após a instalação do agente 'Máquina Conectada' para o Windows, aplicam-se a
     |Nome do serviço |Nome a apresentar |Nome do processo |Descrição |
     |-------------|-------------|-------------|------------|
     |osds |Serviço de Metadados de Caso Híbrido Azure |himds.exe |Este serviço implementa o serviço de metadados Azure Instance (IMDS) para gerir a ligação ao Azure e a identidade Azure da máquina conectada.|
-    |DscService |Serviço de Configuração de Hóspedes |dsc_service.exe |A base de código de configuração do estado desejada (DSC v2) utilizada dentro do Azure para implementar a Política de Hóspedes.|
+    |DscService |Serviço de Configuração de Hóspedes |dsc_service.exe |A base de código de configuração do estado desejada (DSC v2) utilizada dentro do Azure para implementar a Política de In-Guest.|
 
 * As seguintes variáveis ambientais são criadas durante a instalação do agente.
 
@@ -224,7 +224,7 @@ Após a instalação do agente 'Máquina Conectada' para o Linux, aplicam-se as 
     |Nome do serviço |Nome a apresentar |Nome do processo |Descrição |
     |-------------|-------------|-------------|------------|
     |himdsd.service |Serviço de Metadados de Caso Híbrido Azure |/opt/azcmagent/bin/himds |Este serviço implementa o serviço de metadados Azure Instance (IMDS) para gerir a ligação ao Azure e a identidade Azure da máquina conectada.|
-    |dscd.service |Serviço de Configuração de Hóspedes |/opt/DSC/dsc_linux_service |Esta é a base de código de configuração do estado desejada (DSC v2) usada dentro do Azure para implementar a Política de Hóspedes.|
+    |dscd.service |Serviço de Configuração de Hóspedes |/opt/DSC/dsc_linux_service |Esta é a base de código de configuração do estado desejada (DSC v2) utilizada dentro do Azure para implementar a Política de In-Guest.|
 
 * Existem vários ficheiros de registo disponíveis para resolução de problemas. São descritos na tabela seguinte.
 

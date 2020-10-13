@@ -14,10 +14,10 @@ ms.custom: devx-track-azurecli
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: f4a71509c29555da2fdbc1e7eed2fd985237d6a5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91268779"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---azure-cli"></a>Tutorial: Codificar um ficheiro remoto baseado em URL e transmitir o vídeo - Azure CLI
@@ -48,7 +48,7 @@ az group create -n amsResourceGroup -l westus2
 
 ### <a name="create-an-azure-storage-account"></a>Criar uma conta de armazenamento do Azure
 
-Neste exemplo, criamos uma conta LRS Standard V2 de Propósito Geral.
+Neste exemplo, criamos uma conta LRS standard General-Purpose General-Purpose.
 
 Se quiser experimentar contas de armazenamento, use `--sku Standard_LRS` . Quando estiver a escolher um SKU para produção, considere `--sku Standard_RAGRS` usar, que fornece replicação geográfica para a continuidade do negócio. Para mais informações, consulte [as contas de armazenamento.](/cli/azure/storage/account)
 

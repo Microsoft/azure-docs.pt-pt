@@ -8,10 +8,10 @@ ms.date: 05/30/2019
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: d64ebb053ef01e375edd52ad0bf2c1f424f1b837
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84660827"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migrar VMs Azure para Discos Geridos em Azure
@@ -23,7 +23,7 @@ Com base nas suas necessidades, pode escolher entre quatro tipos de opções de 
 
 Pode migrar para Discos Geridos em seguintes cenários:
 
-|Scenario  |Artigo  |
+|Cenário  |Artigo  |
 |---------|---------|
 |Converter VMs autónomas e VMs num conjunto de disponibilidade para discos geridos     |[Converter VMs para utilizar discos geridos](convert-unmanaged-to-managed-disks.md)         |
 |Converter um único VM do clássico para o Gestor de Recursos em discos geridos     |[Criar um VM a partir de um VHD clássico](create-vm-specialized-portal.md)         |
@@ -32,7 +32,7 @@ Pode migrar para Discos Geridos em seguintes cenários:
 
 [!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [Discos Geridos](managed-disks-overview.md)
 - Reveja os [preços dos Discos Geridos.](https://azure.microsoft.com/pricing/details/managed-disks/)

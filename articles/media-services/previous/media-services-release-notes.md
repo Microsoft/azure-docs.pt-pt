@@ -15,10 +15,10 @@ ms.date: 10/01/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 4d335affa5a06bdb8e5c733c871654cf58947581
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91652963"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de lançamento da Azure Media Services
@@ -307,7 +307,7 @@ Foram anunciadas as seguintes novas funcionalidades:
 ## <a name="april-2015-release"></a><a id="april_changes_15"></a>Lançamento de abril de 2015
 ### <a name="general-media-services-updates"></a>Atualizações dos Serviços Gerais de Mídia
 * [Media Player](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/) foi anunciado.
-* A partir do Media Services REST 2.10, os canais configurados para ingerir um Protocolo de Mensagens em Tempo Real (RTMP) são criados com URLs de ingestão primária e secundária. Para obter mais informações, consulte [as configurações de ingestão de canais.](media-services-live-streaming-with-onprem-encoders.md#channel_input)
+* A partir do Media Services REST 2.10, os canais configurados para ingerir um protocolo de mensagens Real-Time (RTMP) são criados com URLs de ingestão primária e secundária. Para obter mais informações, consulte [as configurações de ingestão de canais.](media-services-live-streaming-with-onprem-encoders.md#channel_input)
 * O Azure Media Indexer foi atualizado.
 * Foi acrescentado o apoio à língua espanhola.
 * Foi adicionada uma nova configuração para o formato XML.
@@ -386,7 +386,7 @@ Os metadados REST dos Serviços de Comunicação Social são agora a versão 2.7
 
 O SDK dos Serviços de Comunicação Social para .NET é agora a versão 3.0.0.7
 
-### <a name="breaking-changes"></a><a id="sept_14_breaking_changes"></a>Quebra de mudanças
+### <a name="breaking-changes"></a><a id="sept_14_breaking_changes"></a>Alterações interruptivas
 * A origem foi renomeada para [StreamingEndpoint.]
 * Foi feita uma alteração no comportamento predefinido quando utiliza o portal Azure para codificar e publicar ficheiros MP4.
 
@@ -475,7 +475,7 @@ A partir desta versão, o Media Services SDK para .NET lida com erros transitór
 ### <a name="media-services-powershell-cmdlets-included-in-azure-sdk-tools"></a><a name="aug_13_powershell_changes"></a>Cmdlets PowerShell dos Serviços de Comunicação Social incluídos em ferramentas Azure SDK
 Os seguintes cmdlets PowerShell dos Serviços de Comunicação Social estão agora incluídos em [ferramentas Azure SDK:](https://github.com/Azure/azure-sdk-tools)
 
-* Serviços Get-AzureMedia 
+* Get-AzureMediaServices 
 
     Por exemplo: `Get-AzureMediaServicesAccount`
 * New-AzureMediaServicesAccount 

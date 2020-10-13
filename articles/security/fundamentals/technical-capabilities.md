@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
 ms.openlocfilehash: 3dd209d90947ebef7eb7b074992a55305005e7bb
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91399538"
 ---
 # <a name="azure-security-technical-capabilities"></a>Capacidades técnicas da segurança do Azure
@@ -150,7 +150,7 @@ O controlo de acesso em Azure começa numa perspetiva de faturação. O propriet
 
 ![Acesso seguro a recursos em Azure](./media/technical-capabilities/azure-security-technical-capabilities-fig3.png)
 
-As assinaturas também têm uma associação com um diretório. O diretório define um conjunto de utilizadores. Estes podem ser utilizadores do trabalho ou da escola que criaram o diretório, ou podem ser utilizadores externos (isto é, Contas Microsoft). As subscrições são acessíveis por um subconjunto dos utilizadores de diretórios que foram designados como Administrador de Serviço (SA) ou Coadministrador (CA); a única exceção é que, por razões antigas, as Contas Microsoft (anteriormente Windows Live ID) podem ser atribuídas como SA ou CA sem estarem presentes no diretório.
+As assinaturas também têm uma associação com um diretório. O diretório define um conjunto de utilizadores. Estes podem ser utilizadores do trabalho ou da escola que criaram o diretório, ou podem ser utilizadores externos (isto é, Contas Microsoft). As subscrições são acessíveis por um subconjunto dos utilizadores de diretórios que foram designados como Administrador de Serviço (SA) ou Co-Administrator (CA); a única exceção é que, por razões antigas, as Contas Microsoft (anteriormente Windows Live ID) podem ser atribuídas como SA ou CA sem estarem presentes no diretório.
 
 As empresas orientadas para a segurança devem concentrar-se em dar aos empregados as permissões exatas de que necessitam. Demasiadas permissões podem expor uma conta aos agressores. Poucas permissões significam que os empregados não conseguem fazer o seu trabalho de forma eficiente. [O controlo de acesso baseado em funções (Azure RBAC)](../../role-based-access-control/overview.md) ajuda a resolver este problema oferecendo uma gestão de acesso de grãos finos para o Azure.
 

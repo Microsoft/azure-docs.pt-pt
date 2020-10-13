@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8f5f1e123447bfff53a603bad23b0444a93e4a83
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88919629"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Configure Servidor de Autenticação Multi-Factor Azure para alta disponibilidade

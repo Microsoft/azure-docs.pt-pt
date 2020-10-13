@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
 ms.openlocfilehash: 0173d324da4f6cf2a24b825fe44fc07b7fe50b84
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87318135"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Monitorização contínua com monitor azure
@@ -27,7 +27,7 @@ Para obter a observabilidade em todo o seu ambiente, precisa de ativar a monitor
 
 - [Os Projetos Azure DevOps](../devops-project/overview.md) dão-lhe uma experiência simplificada com o seu código existente e repositório git, ou escolha entre uma das aplicações da amostra para criar um pipeline de Integração Contínua (CI) e Entrega Contínua (CD) para Azure.
 - [A monitorização contínua no seu oleoduto de libertação de DevOps](./app/continuous-monitoring.md) permite-lhe adiar ou reverter a sua implementação com base em dados de monitorização.
-- [O Status Monitor](./app/monitor-performance-live-website-now.md) permite-lhe instrumentar uma aplicação live .NET no Windows com Azure Application Insights, sem ter de modificar ou redistribuir o seu código.
+- [O Status Monitor](./app/monitor-performance-live-website-now.md)  permite-lhe instrumentar uma aplicação live .NET no Windows com Azure Application Insights, sem ter de modificar ou redistribuir o seu código.
 - Se tiver acesso ao código da sua aplicação, em seguida, ative a monitorização completa com [o Application Insights,](./app/app-insights-overview.md) instalando o Azure Monitor Application Insights SDK para [.NET](./learn/quick-monitor-portal.md), [Java,](./app/java-get-started.md) [Node.js, ](./learn/nodejs-quick-start.md)ou [quaisquer outras linguagens de programação.](./app/platforms.md) Isto permite-lhe especificar eventos personalizados, métricas ou vistas de página que sejam relevantes para a sua aplicação e para o seu negócio.
 
 

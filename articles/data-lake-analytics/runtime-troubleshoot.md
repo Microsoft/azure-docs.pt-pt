@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.workload: big-data
 ms.date: 10/10/2019
 ms.openlocfilehash: 39b4a3bc5e5f70a5699f4fd84ec86dc61cf21483
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87475265"
 ---
 # <a name="learn-how-to-troubleshoot-u-sql-runtime-failures-due-to-runtime-changes"></a>Saiba como resolver problemas de funcionamento do U-SQL devido a alterações no tempo de funcionamento
@@ -55,7 +55,7 @@ Existem dois possíveis problemas de versão de tempo de execução que pode enc
 
 2. Tem vindo a utilizar um tempo de execução não padrão, explicitamente ou implicitamente, quando este foi fixado na sua conta, e esse tempo de funcionação foi removido após algum tempo. Se encontrar tempo de execução em falta, por favor atualize os seus scripts para executar com o tempo de execução atual. Se precisar de tempo adicional, contacte o Microsoft Support
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 - [Visão geral do Azure Data Lake Analytics](data-lake-analytics-overview.md)
 - [Gerir a Azure Data Lake Analytics usando o portal Azure](data-lake-analytics-manage-use-portal.md)

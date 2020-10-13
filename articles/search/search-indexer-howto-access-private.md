@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/07/2020
 ms.openlocfilehash: 94763cee852893057348f8eea1fa74fa742f62a1
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91534731"
 ---
 # <a name="accessing-secure-resources-via-private-endpoints"></a>Acesso a recursos seguros através de pontos finais privados
@@ -164,7 +164,7 @@ Obtenha o estado do recurso de ligação privada partilhado utilizando a [API GE
 - Se o indexador for criado sem definir o `executionEnvironment` e executado com sucesso, significa que a Azure Cognitive Search decidiu que o seu ambiente de execução é o ambiente "privado" específico do serviço de pesquisa. No entanto, isto pode mudar com base numa variedade de fatores (recursos consumidos pelo indexante, a carga no serviço de pesquisa, e assim por diante) e pode falhar num ponto posterior - recomendamos vivamente que estabeleça o `executionEnvironment` ponto de garantir que não `"Private"` falhará no futuro.
 - [Quotas e limites](search-limits-quotas-capacity.md) determinam quantos recursos de ligação privada partilhados podem ser criados e dependem do SKU do serviço de pesquisa.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre os pontos finais privados:
 

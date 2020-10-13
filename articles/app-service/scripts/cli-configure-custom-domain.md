@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.custom: mvc, seodec18
 ms.openlocfilehash: bbae57f453cfd425da3d294ff96e40a229aa1a49
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88962728"
 ---
 # <a name="map-a-custom-domain-to-an-app-service-app-using-cli"></a>Mapear um domínio personalizado para uma aplicação do Serviço de Aplicações usando o CLI

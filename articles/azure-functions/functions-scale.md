@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: c5dd703851054b058d96440a3a994b9d10eecfa3
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91372668"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Dimensionamento e alojamento de Funções do Azure

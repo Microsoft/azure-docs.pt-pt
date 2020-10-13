@@ -14,10 +14,10 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.openlocfilehash: e034149372ba061ec958e0c1e22187d33009080c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91265838"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Como: Use a Azure PowerShell para criar um principal de serviço com um certificado
@@ -52,7 +52,7 @@ Pode definir o âmbito ao nível da subscrição, grupo de recursos ou recurso. 
 O exemplo seguinte inclui um cenário simples. Utiliza [o New-AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) para criar um principal de serviço com um certificado auto-assinado e utiliza [a Assinatura New-AzRole](/powershell/module/az.resources/new-azroleassignment) para atribuir o papel de [Leitor](../../role-based-access-control/built-in-roles.md#reader) ao principal do serviço. A atribuição da função está confinada à sua subscrição do Azure atualmente selecionada. Para selecionar uma subscrição diferente, utilize [o Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext).
 
 > [!NOTE]
-> O cmdlet New-SelfSignedCertificate e o módulo PKI não são atualmente suportados no PowerShell Core. 
+> O New-SelfSignedCertificate cmdlet e o módulo PKI não são atualmente suportados no PowerShell Core. 
 
 ```powershell
 $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" `

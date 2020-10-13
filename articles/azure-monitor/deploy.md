@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
 ms.openlocfilehash: 0a5c788b4429b5048a1b94fa8adfb2d9367982da
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90033477"
 ---
 # <a name="deploy-azure-monitor"></a>Implementar o Azure Monitor
@@ -192,6 +192,6 @@ Existem vários tipos de regras de alerta definidas pelo tipo de dados que utili
 - [Os alertas](app/monitor-web-app-availability.md) de aplicação permitem-lhe realizar testes proactivos de desempenho e disponibilidade da sua aplicação web. Você pode realizar um teste de ping simples sem custos, mas há um custo para testes mais complexos. Consulte [o Monitor a disponibilidade de qualquer website](app/monitor-web-app-availability.md) para uma descrição dos diferentes testes e detalhes sobre a sua criação.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte [o Monitor Azure em escala utilizando a política Azure](deploy-scale.md).

@@ -6,10 +6,10 @@ ms.date: 07/28/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.openlocfilehash: 4b4946da9f63299c7ba2b383d6c153673595a1ab
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87450391"
 ---
 # <a name="remove-update-management-from-automation-account"></a>Remover Gestão de Atualização da conta de Automação
@@ -30,7 +30,7 @@ Antes de poder desvincular a conta Automation do espaço de trabalho, tem de seg
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. No portal Azure, selecione **Todos os serviços**. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra sugestões com base na sua entrada. Selecione **Log Analytics**.
+2. No portal Azure, selecione **Todos os serviços**. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra sugestões com base na sua entrada. Selecione o **Log Analytics**.
 
 3. Na sua lista de espaços de trabalho Log Analytics, selecione o espaço de trabalho que escolheu quando ativar a Gestão de Atualização.
 
@@ -65,7 +65,7 @@ Enquanto tenta desvincular a conta Automation, pode acompanhar o progresso no me
 Se a Update Management foi configurada para suportar versões anteriores da monitorização Azure SQL, a configuração da funcionalidade poderia ter criado ativos de Automação que deve remover. Para a Gestão de Atualizações, pode querer remover os seguintes itens que já não são necessários:
 
    * Agendas de atualização - Cada um tem um nome que corresponde à implementação de atualização que criou.
-   * Grupos operários híbridos criados para a Gestão de Atualização - Cada um deles é nomeado da mesma forma para *machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8)*.
+   * Grupos operários híbridos criados para a Gestão de Atualização - Cada um deles é nomeado da mesma forma *para machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8)*.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -9,10 +9,10 @@ ms.date: 02/11/2020
 ms.topic: how-to
 manager: philmea
 ms.openlocfilehash: 0802169898cad51e9a5d208e546a004f7ea7b3c0
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653337"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Gerir a IoT Central a partir do portal Azure

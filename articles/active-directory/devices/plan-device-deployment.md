@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60d3e3c174ad9a3372df084cac9eb67270779298
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90563901"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planeie a sua implantação de dispositivos Azure Ative Directory
@@ -34,7 +34,7 @@ Existem vários métodos para integrar os seus dispositivos no Azure AD:
 
 * [Crie um AD Azure híbrido](concept-azure-ad-join-hybrid.md) entre dispositivos no seu Ative Directory e Azure AD. 
 
-## <a name="learn"></a>Learn
+## <a name="learn"></a>Saiba mais
 
 Antes de começar, certifique-se de que está familiarizado com a [visão geral](overview.md)da gestão da identidade do dispositivo .
 
@@ -66,7 +66,7 @@ Quando os projetos tecnológicos falham, normalmente fazem-no devido a expectati
 
 Para este plano, adicione as seguintes partes interessadas à sua lista:
 
-| Função| Description |
+| Função| Descrição |
 | - | - |
 | Administrador do dispositivo| Um representante da equipa de dispositivos que pode verificar se o plano irá satisfazer os requisitos do dispositivo da sua organização. |
 | Administrador de rede| Um representante da equipa de rede que pode certificar-se de que cumpre os requisitos da rede. |
