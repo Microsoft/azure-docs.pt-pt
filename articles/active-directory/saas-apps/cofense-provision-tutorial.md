@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/11/2020
 ms.author: Zhchia
 ms.openlocfilehash: d5de8b8089f97696af8d05fd88989cbd1858193e
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91611406"
 ---
 # <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>Tutorial: Configurar o Cofense Recipient Sync para o fornecimento automático de utilizadores
@@ -116,35 +116,35 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
    |nome.formatado|String|
    |name.givenName|String|
    |name.familyName|String|
-   |nome.honorificS suléix|String|
-   |phoneNumbers[type eq"work"].value|String|
-   |números de telefone[tipo eq"home"].valor|String|
-   |phoneNumbers[tipo eq"other"].value|String|
-   |phoneNumbers[type eq"pager"].value|String|
-   |números de telefone[tipo eq"mobile"].valor|String|
-   |phoneNumbers[type eq"fax"].value|String|
-   |endereços[tipo eq""other"].formatado|String|
-   |endereços[tipo eq"work"].formatado|String|
-   |endereços[tipo eq"work"].streetAddress|String|
-   |endereços[tipo eq"work"].localidade|String|
-   |endereços[tipo eq"work"].região|String|
-   |endereços[tipo eq"work"].postalCode|String|
+   |nome.honorificS suléix|Cadeia|
+   |phoneNumbers[type eq"work"].value|Cadeia|
+   |números de telefone[tipo eq"home"].valor|Cadeia|
+   |phoneNumbers[tipo eq"other"].value|Cadeia|
+   |phoneNumbers[type eq"pager"].value|Cadeia|
+   |números de telefone[tipo eq"mobile"].valor|Cadeia|
+   |phoneNumbers[type eq"fax"].value|Cadeia|
+   |endereços[tipo eq""other"].formatado|Cadeia|
+   |endereços[tipo eq"work"].formatado|Cadeia|
+   |endereços[tipo eq"work"].streetAddress|Cadeia|
+   |endereços[tipo eq"work"].localidade|Cadeia|
+   |endereços[tipo eq"work"].região|Cadeia|
+   |endereços[tipo eq"work"].postalCode|Cadeia|
    |endereços[tipo eq"work"].país|String|
    |título|String|
    |emails[type eq "work"].value|String|
-   |e-mails[tipo eq "casa"].valor|String|
-   |e-mails[tipo eq "outros"].valor|String|
+   |e-mails[tipo eq "casa"].valor|Cadeia|
+   |e-mails[tipo eq "outros"].valor|Cadeia|
    |preferiuLanguage|String|
    |nickName|String|
    |userType|String|
    |região|String|
    |timezone|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|Cadeia|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|Cadeia|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Referência|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|Cadeia|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|Cadeia|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:organization|Cadeia|
 
 10. Para configurar filtros de âmbito, veja as instruções seguintes disponibilizadas no [Tutorial de filtro de âmbito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 

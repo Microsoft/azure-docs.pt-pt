@@ -10,10 +10,10 @@ ms.date: 08/20/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: 5521e49c767a2510bf7c8c53cf6ac5e86b73b466
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87837181"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Planned maintenance notifications for virtual machine scale sets (Notificações de manutenção planeada para conjuntos de dimensionamento de máquinas virtuais)
@@ -106,7 +106,7 @@ Para saber mais sobre como configurar alertas de Registo de Atividade, consulte 
 
 Pode ver mais detalhes relacionados com a manutenção na visão geral dos conjuntos de escala de máquinas virtuais. Se pelo menos um VM no conjunto de escala de máquina virtual for incluído na onda de manutenção planeada, uma nova fita de notificação é adicionada perto do topo da página. Selecione a fita de notificação para ir à página **Manutenção.** 
 
-Na página **manutenção,** pode ver qual a instância VM afetada pela manutenção planeada. Para iniciar a manutenção, selecione a caixa de verificação que corresponde ao VM afetado. Em seguida, selecione **Iniciar a manutenção**.
+Na página **manutenção,** pode ver qual a instância VM afetada pela manutenção planeada. Para iniciar a manutenção, selecione a caixa de verificação que corresponde ao VM afetado. Em seguida, selecione  **Iniciar a manutenção**.
 
 Depois de iniciar a manutenção, os VMs afetados na sua balança de máquinas virtuais são submetidos a manutenção e estão temporariamente indisponíveis. Se perdeu a janela de autosserviço, ainda pode ver a janela de tempo quando o seu conjunto de escala de máquina virtual será mantido pelo Azure.
  

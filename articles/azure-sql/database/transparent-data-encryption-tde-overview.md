@@ -13,10 +13,10 @@ ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 06/15/2020
 ms.openlocfilehash: d9bc5e91d45b75c47cee31c45b937f7d3f0118b8
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87836688"
 ---
 # <a name="transparent-data-encryption-for-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Encriptação de dados transparente para base de dados SQL, SQL Managed Instance e Azure Synapse Analytics
@@ -71,7 +71,7 @@ A única exceção é quando exporta uma base de dados de e para a Base de Dados
 
 ## <a name="manage-transparent-data-encryption"></a>Gerir encriptação de dados transparentes
 
-# <a name="the-azure-portal"></a>[O portal Azure](#tab/azure-portal)
+# <a name="the-azure-portal"></a>[O portal do Azure](#tab/azure-portal)
 
 Gerir o TDE no portal Azure.
 

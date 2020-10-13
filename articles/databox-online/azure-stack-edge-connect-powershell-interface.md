@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: alkohli
 ms.openlocfilehash: 93678735237c25b19d04b7d901583ba785d7f594
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91613548"
 ---
 # <a name="manage-an-azure-stack-edge-pro-fpga-device-via-windows-powershell"></a>Gerir um dispositivo Azure Stack Edge Pro FPGA via Windows PowerShell

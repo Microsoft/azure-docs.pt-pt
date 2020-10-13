@@ -16,10 +16,10 @@ ms.date: 08/31/2020
 ms.author: willzhan
 ms.reviewer: juliako
 ms.openlocfilehash: 1bf01e98e418edfe8f15043d16a199b276b71020
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89266906"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>Design híbrido dos subsistemas DRM
@@ -97,7 +97,7 @@ Através da configuração de uma política de entrega de ativos, pode controlar
 
 Com base nas explicações na secção anterior, os **Content key**seguintes cinco cenários híbridos utilizam as - respetivas combinações de configuração da política de**entrega de ativos** (as amostras mencionadas na última coluna seguem a tabela):
 
-|**Conteúdo que hospeda & origem**|**Encriptação DRM**|**Entrega de licença DRM**|**Chave de conteúdo de configuração**|**Configure a política de entrega de ativos**|**Sample**|
+|**Conteúdo que hospeda & origem**|**Encriptação DRM**|**Entrega de licença DRM**|**Chave de conteúdo de configuração**|**Configure a política de entrega de ativos**|**Amostra**|
 |---|---|---|---|---|---|
 |AMS|AMS|AMS|Sim|Sim|Exemplo 1|
 |AMS|AMS|Terceiros|Sim|Sim|Exemplo 2|

@@ -4,10 +4,10 @@ description: Descreve como descobrir servidores no local para migração para Az
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.openlocfilehash: 743f18ce72e3f14fe54e0bbadff254ea03fc6278
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90604228"
 ---
 # <a name="tutorial-assess-servers-using-an-imported-csv-file"></a>Tutorial: Avaliar servidores usando um ficheiro CSV importado
@@ -18,10 +18,10 @@ Este tutorial mostra-lhe como avaliar as máquinas no local com a ferramenta Azu
 
 Se utilizar um ficheiro CSV, não precisa de configurar o aparelho Azure Migrate para descobrir e avaliar servidores. Pode controlar os dados que partilha no ficheiro, e grande parte dos dados são opcionais. Este método é útil se:
 
-- Pretende-se criar uma avaliação rápida e inicial antes de colocar o aparelho.
-- Não pode colocar o aparelho Azure Migrate na sua organização.
-- Não é possível partilhar credenciais que permitam o acesso a servidores no local.
-- As restrições de segurança impedem-no de recolher e enviar dados recolhidos pelo aparelho para a Azure.
+- Pretende criar uma avaliação rápida e inicial antes de implementar a aplicação.
+- Não pode implementar a aplicação do Azure Migrate na sua organização.
+- Não pode partilhar credenciais que permitam o acesso a servidores no local.
+- As restrições de segurança impedem que obtenha e envie dados recolhidos pela aplicação para o Azure.
 
 > [!NOTE]
 > Não é possível migrar servidores importados usando um ficheiro CSV.
@@ -29,7 +29,7 @@ Se utilizar um ficheiro CSV, não precisa de configurar o aparelho Azure Migrate
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Criar uma conta Azure
-> * Criar um projeto Azure Migrate
+> * Configurar um projeto do Azure Migrate
 > * Preparar um ficheiro CSV
 > * Importar o ficheiro
 > * Avaliar servidores
@@ -51,7 +51,7 @@ Para criar um projeto Azure Migrate, precisa de uma conta com:
 - Permissões de colaborador ou proprietário numa subscrição do Azure.
 - Permissões para registar aplicações do Azure Ative Directory.
 
-Se acabou de criar uma conta Azure gratuita, é o proprietário da sua subscrição. Se não for o proprietário da subscrição, trabalhe com o proprietário para atribuir as permissões da seguinte forma:
+Se acabou de criar uma conta gratuita do Azure, é o proprietário da sua subscrição. Se não for o proprietário da subscrição, trabalhe com o proprietário para atribuir as permissões da seguinte forma:
 
 1. No portal Azure, procure por "subscrições", e em **Serviços,** **selecione Subscrições**.
 
@@ -96,106 +96,106 @@ A ferramenta **Azure Migrate: Server Assessment** é adicionada por defeito ao n
 
 ## <a name="prepare-the-csv"></a>Preparar o CSV
 
-Descarregue o modelo CSV e adicione informações do servidor.
+Transfira o modelo CSV e adicione informações do servidor ao mesmo.
 
 ### <a name="download-the-template"></a>Transferir o modelo
 
-1. In **Migration Goals**  >  **Servers**  >  **Azure Migrate: Server Assessment**, select **Discover**.
-2. Nas **máquinas Discover**, selecione **Import using CSV**.
-3. Selecione **Baixar** para descarregar o modelo CSV. Em alternativa, pode [descarregá-lo diretamente.](https://go.microsoft.com/fwlink/?linkid=2109031)
+1. Em **Objetivos de Migração** > **Servidores** > **Azure Migrate: Avaliação do Servidor**, selecione **Detetar**.
+2. Em **Detetar máquinas**, selecione **Importar com CSV**.
+3. Selecione **Transferir** para transferir o modelo CSV. Como alternativa, pode [transferi-lo diretamente](https://go.microsoft.com/fwlink/?linkid=2109031).
 
-    ![Baixar o modelo CSV](./media/tutorial-discover-import/download-template.png)
+    ![Transferir o modelo CSV](./media/tutorial-discover-import/download-template.png)
 
 ### <a name="add-server-information"></a>Adicionar informações do servidor
 
-Recolha os dados do servidor e adicione-os ao ficheiro CSV.
+Obtenha dados do servidor e adicione-os ao ficheiro CSV.
 
-- Para recolher dados, pode exportá-lo a partir de ferramentas que utiliza para a gestão de servidores no local, como vMware vSphere ou a sua base de dados de gestão de configuração (CMDB).
-- Para rever os dados da amostra, descarregue o nosso [ficheiro de exemplo.](https://go.microsoft.com/fwlink/?linkid=2108405)
+- Para obter dados, pode exportá-los a partir de ferramentas que utiliza na gestão dos servidores no local, como o VMware vSphere ou a base de dados de gestão de configuração (CMDB).
+- Para analisar os dados de exemplo, transfira o nosso [ficheiro de exemplo](https://go.microsoft.com/fwlink/?linkid=2108405).
 
-A tabela seguinte resume os campos de ficheiros a preencher:
+A tabela seguinte resume os campos do ficheiro a preencher:
 
 **Nome do campo** | **Obrigatório** | **Detalhes**
 --- | --- | ---
-**Nome do servidor** | Yes | Recomendamos especificar o nome de domínio totalmente qualificado (FQDN).
+**Nome do servidor** | Yes | Recomendamos que especifique o nome de domínio completamente qualificado (FQDN).
 **Endereço IP** | No | Endereço do servidor.
-**Núcleos** | Yes | Número de núcleos de processador atribuídos ao servidor.
-**Memória** | Yes | RAM total, em MB, alocado ao servidor.
-**Nome do SO** | Yes | Sistema operativo do servidor. <br/> Os nomes do sistema operativo que correspondam ou contenham os nomes [desta](#supported-operating-system-names) lista são reconhecidos pela avaliação.
-**Versão OS** | No | Versão do sistema operativo do servidor.
-**Arquitetura de OS** | No | Arquitetura de SERVIDOR OS <br/> Valores válidos são: x64, x86, amd64, 32-bit ou 64-bit
-**Número de discos** | No | Não é necessário se forem fornecidos detalhes individuais do disco.
-**Disco 1 tamanho**  | No | Tamanho máximo do disco, em GB.<br/>Pode adicionar detalhes para mais discos [adicionando colunas](#add-multiple-disks) no modelo. Pode somar até oito discos.
-**Disk 1 ler ops** | No | Operações de leitura de disco por segundo.
-**Disk 1 escrever ops** | No | Operações de escrita de disco por segundo.
-**Produção de leitura de disco 1** | No | Dados lidos a partir do disco por segundo, em MB por segundo.
-**Saída de escrita do disco 1** | No | Dados escritos para disco por segundo, em MB por segundo.
-**Percentagem de utilização do CPU** | No | Percentagem de CPU usado.
-**Percentagem de utilização da memória** | No | Percentagem de RAM usado.
-**Total de discos lêem ops** | No | Operações de leitura de discos por segundo.
-**Os discos totais escrevem ops** | No | Operações de gravação de discos por segundo.
-**Total de discos lêem produção** | No | Dados lidos a partir do disco, em MB por segundo.
-**Total de discos escrevem produção** | No | Dados escritos para o disco, em MB por segundo.
-**Rede Em produção** | No | Dados recebidos pelo servidor, em MB por segundo.
-**Produção de Rede Para Fora** | No | Dados transmitidos pelo servidor, em MB por segundo.
+**Núcleos** | Yes | Número de núcleos do processador alocados ao servidor.
+**Memória** | Yes | Total de RAM, em MB, alocada ao servidor.
+**Nome do SO** | Yes | Sistema operativo do servidor. <br/> Os nomes dos sistemas operativos que correspondem ou contêm os nomes [nesta](#supported-operating-system-names) lista são reconhecidos pela avaliação.
+**Versão do SO** | No | Versão do sistema operativo do servidor.
+**Arquitetura de SO** | No | Arquitetura de SO do servidor <br/> Os valores válidos são: x64, x86, amd64, 32 bits ou 64 bits
+**Número de discos** | No | Não é necessário se forem indicados detalhes de discos individuais.
+**Tamanho do disco 1**  | No | Tamanho máximo do disco, em GB.<br/>Pode adicionar detalhes de mais discos ao [adicionar colunas](#add-multiple-disks) ao modelo. Pode adicionar até oito discos.
+**Operações de leitura do disco 1** | No | Operações de leitura do disco por segundo.
+**Operações de escrita do disco 1** | No | Operações de escrita do disco por segundo.
+**Débito de leitura do disco 1** | No | Dados lidos do disco por segundo, em MB por segundo.
+**Débito de escrita do disco 1** | No | Dados escritos no disco por segundo, em MB por segundo.
+**Percentagem de utilização da CPU** | No | Percentagem da CPU utilizada.
+**Percentagem de utilização da memória** | No | Percentagem da RAM utilizada.
+**Total de operações de leitura dos discos** | No | Operações de leitura de discos por segundo.
+**Total de operações de escrita dos discos** | No | Operações de gravação de discos por segundo.
+**Total de débito de leitura dos discos** | No | Dados lidos a partir do disco, em MB por segundo.
+**Total de débito de escrita dos discos** | No | Dados escritos para o disco, em MB por segundo.
+**Débito de Entrada na Rede** | No | Dados recebidos pelo servidor, em MB por segundo.
+**Débito de Saída da Rede** | No | Dados transmitidos pelo servidor, em MB por segundo.
 **Tipo de firmware** | No | Firmware do servidor. Os valores podem ser "BIOS" ou "UEFI".
 **Endereço MAC**| No | Endereço MAC do servidor.
 
 
 ### <a name="add-operating-systems"></a>Adicionar sistemas operativos
 
-A avaliação reconhece nomes específicos do sistema operativo. Qualquer nome que especifique deve corresponder exatamente a uma das cordas da lista de [nomes suportados](#supported-operating-system-names).
+A avaliação reconhece os nomes de sistemas operativos específicos. Qualquer nome especificado deve corresponder exatamente a uma das cadeias na [lista de nomes suportados](#supported-operating-system-names).
 
 ### <a name="add-multiple-disks"></a>Adicionar vários discos
 
-O modelo fornece campos predefinidos para o primeiro disco. Pode adicionar colunas semelhantes para até oito discos.
+O modelo disponibiliza campos predefinidos para o primeiro disco. Pode adicionar colunas semelhantes para até oito discos.
 
 Por exemplo, para especificar todos os campos para um segundo disco, adicione estas colunas:
 
-- Disco 2 tamanho
-- Disk 2 ler ops
-- Disk 2 escrever ops
-- Produção de leitura de disco 2
-- Produção de escrita de disco 2
+- Tamanho do disco 2
+- Operações de leitura do disco 2
+- Operações de escrita do disco 2
+- Débito de leitura do disco 2
+- Débito de escrita do disco 2
 
 
-## <a name="import-the-server-information"></a>Importar a informação do servidor
+## <a name="import-the-server-information"></a>Importar informações do servidor
 
 Depois de adicionar informações ao modelo CSV, importe o ficheiro CSV para a Avaliação do Servidor.
 
-1. Em Azure Migrate, em **máquinas Discover,** vá para o modelo completo.
+1. No Azure Migrate, em **Detetar máquinas**, aceda ao modelo concluído.
 2. Selecione **Import** (Importar).
-3. O estado de importação é indicado.
-    - Se os avisos aparecerem no estado, pode corrigi-los ou continuar sem os abordar.
-    - Para melhorar a precisão da avaliação, melhore as informações do servidor como sugerido nos avisos.
-    - Para visualizar e corrigir avisos, **selecione Baixar os dados de aviso . CSV**. Esta operação descarrega o CSV com avisos incluídos. Reveja os avisos e corrija os problemas conforme necessário.
-    - Se surgirem erros no estado de modo a que o estado de importação **seja falhado,** deve corrigir esses erros antes de poder continuar com a importação:
-        1. Descarregue o CSV, que agora inclui detalhes de erro.
-        1. Reveja e aborde os erros necessários. 
-        1. Faça o upload do ficheiro modificado novamente.
-4. Quando o estado de importação estiver **concluído,** a informação do servidor foi importada. Refresque se o processo de importação não parece estar completo.
+3. O estado da importação é mostrado.
+    - Se forem apresentados avisos no estado, pode corrigi-los ou continuar sem os resolver.
+    - Para melhorar a precisão da avaliação, melhore as informações do servidor conforme sugerido nos avisos.
+    - Para ver e corrigir os avisos, selecione **Transferir .CSV dos detalhes dos avisos**. Esta operação transfere o CSV com os avisos incluídos. Analise os avisos e corrija os problemas conforme necessário.
+    - Se forem apresentados erros no estado que fazem com que o estado da importação seja **Com falha**, tem de os corrigir para poder continuar com a importação:
+        1. Transfira o CSV, que agora inclui os detalhes dos erros.
+        1. Analise e resolva os erros conforme necessário. 
+        1. Carregue o ficheiro modificado novamente.
+4. Quando o estado da importação for **Concluído**, as informações do servidor foram importadas. Refresque se o processo de importação não parece estar completo.
 
 ## <a name="update-server-information"></a>Atualizar informações do servidor
 
-Pode atualizar as informações para um servidor importando novamente os dados do servidor com o mesmo **nome de Servidor**. Não é possível modificar o campo **de nomes do Servidor.** Atualmente, a eliminação de servidores não é suportada.
+Pode atualizar as informações de um servidor ao importar os respetivos dados novamente com o mesmo **Nome do servidor**. Não pode modificar o campo **Nome do servidor**. A eliminação de servidores não é atualmente suportada.
 
 ## <a name="verify-servers-in-the-portal"></a>Verificar servidores no portal
 
-Para verificar se os servidores aparecem no portal Azure após a descoberta:
+Para verificar se os servidores aparecem no portal do Azure após a deteção:
 
-1. Abra o painel Azure Migrate.
-2. No **Azure Migrate - Servidores**  >  **Azure Migrate:** Página de Avaliação do servidor, selecione o ícone que exibe a contagem para **servidores descobertos**.
-3. Selecione o **separador Baseado em Importação.**
+1. Abra o dashboard do Azure Migrate.
+2. Na página **Azure Migrate – Servidores** > **Azure Migrate: Avaliação do Servidor**, selecione o ícone que mostra a contagem de **Servidores detetados**.
+3. Selecione o separador **Com base na importação**.
 
 
 
-## <a name="supported-operating-system-names"></a>Nomes do sistema operativo suportados
+## <a name="supported-operating-system-names"></a>Nomes de sistemas operativos suportados
 
 Os nomes do sistema operativo fornecidos no CSV devem conter e corresponder. Se não o fizerem, não poderá avaliá-los. 
 
 **A-H** | **I-R** | **S-T** | **U-Z**
 --- | --- | --- | ---
-Apple Mac OS X 10<br/>Asianux 3<br/>Asianux 4<br/>Asianux 5<br/>CentOS<br/>CentOS 4/5<br/>CoreOS Linux<br/>Debian GNU/Linux 4<br/>Debian GNU/Linux 5<br/>Debian GNU/Linux 6<br/>Debian GNU/Linux 7<br/>Debian GNU/Linux 8<br/>FreeBSD | IBM OS/2<br/>MS-DOS<br/>Novell NetWare 5<br/>Novell NetWare 6<br/>Oracle Linux<br/>Oráculo Linux 4/5<br/>Oráculo Solaris 10<br/>Oracle Solaris 11<br/>Red Hat Enterprise Linux 2<br/>Red Hat Enterprise Linux 3<br/>Red Hat Enterprise Linux 4<br/>Red Hat Enterprise Linux 5<br/>Red Hat Enterprise Linux 6<br/>Red Hat Enterprise Linux 7<br/>Chapéu Vermelho Fedora | SCO OpenServer 5<br/>SCO OpenServer 6<br/>SCO UnixWare 7<br/> Serenity Systems eComStation 1<br/>Serenity Systems eComStation <br/>Sun Microsystems Solaris 8<br/>Sun Microsystems Solaris 9<br/><br/>SUSE Linux Enterprise 10<br/>Empresa SUSE Linux 11<br/>Empresa SUSE Linux 12<br/>Empresa SUSE Linux 8/9<br/>Empresa SUSE Linux 11<br/>SUSE abre SUSESUSE | Ubuntu Linux<br/>VMware ESXi 4<br/>VMware ESXi 5<br/>VMware ESXi 6<br/>Windows 10<br/>Windows 2000<br/>Windows 3<br/>Windows 7<br/>Windows 8<br/>Windows 95<br/>Windows 98<br/>Windows NT<br/>Windows Server (R) 2008<br/>Windows Server 2003<br/>Windows Server 2008<br/>Windows Server 2008 R2<br/>Windows Server 2012<br/>Windows Server 2012 R2<br/>Windows Server 2016<br/>Windows Server 2019<br/>Limiar do servidor do Windows<br/>Windows Vista<br/>Windows Web Server 2008 R2<br/>Windows 10 Professional
+Apple Mac OS X 10<br/>Asianux 3<br/>Asianux 4<br/>Asianux 5<br/>CentOS<br/>CentOS 4/5<br/>CoreOS Linux<br/>Debian GNU/Linux 4<br/>Debian GNU/Linux 5<br/>Debian GNU/Linux 6<br/>Debian GNU/Linux 7<br/>Debian GNU/Linux 8<br/>FreeBSD | IBM OS/2<br/>MS-DOS<br/>Novell NetWare 5<br/>Novell NetWare 6<br/>Oracle Linux<br/>Oracle Linux 4/5<br/>Oracle Solaris 10<br/>Oracle Solaris 11<br/>Red Hat Enterprise Linux 2<br/>Red Hat Enterprise Linux 3<br/>Red Hat Enterprise Linux 4<br/>Red Hat Enterprise Linux 5<br/>Red Hat Enterprise Linux 6<br/>Red Hat Enterprise Linux 7<br/>Red Hat Fedora | SCO OpenServer 5<br/>SCO OpenServer 6<br/>SCO UnixWare 7<br/> Serenity Systems eComStation 1<br/>Serenity Systems eComStation <br/>Sun Microsystems Solaris 8<br/>Sun Microsystems Solaris 9<br/><br/>SUSE Linux Enterprise 10<br/>SUSE Linux Enterprise 11<br/>SUSE Linux Enterprise 12<br/>SUSE Linux Enterprise 8/9<br/>SUSE Linux Enterprise 11<br/>SUSE openSUSE | Ubuntu Linux<br/>VMware ESXi 4<br/>VMware ESXi 5<br/>VMware ESXi 6<br/>Windows 10<br/>Windows 2000<br/>Windows 3<br/>Windows 7<br/>Windows 8<br/>Windows 95<br/>Windows 98<br/>Windows NT<br/>Windows Server (R) 2008<br/>Windows Server 2003<br/>Windows Server 2008<br/>Windows Server 2008 R2<br/>Windows Server 2012<br/>Windows Server 2012 R2<br/>Windows Server 2016<br/>Windows Server 2019<br/>Windows Server Threshold<br/>Windows Vista<br/>Windows Web Server 2008 R2<br/>Windows 10 Professional
 
 ## <a name="next-steps"></a>Passos seguintes
 

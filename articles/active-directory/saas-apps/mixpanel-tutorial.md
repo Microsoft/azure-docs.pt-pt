@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/28/2019
 ms.author: jeedes
-ms.openlocfilehash: eecd7281c925fa26ade3aa140df310e69f3385c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 123b85905a5c56949a0c1d35bb1e37215ed8097c
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554735"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940723"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mixpanel"></a>Tutorial: Integração do Diretório Ativo Azure com o Mixpanel
 
@@ -130,15 +130,15 @@ Para configurar o Azure AD com o Mixpanel, execute os seguintes passos:
 
 3. Clique no separador **de segurança Access** e, em seguida, clique em Alterar as **definições**.
    
-    ![Configurações mixpanel](./media/mixpanel-tutorial/tutorial_mixpanel_08.png) 
+    ![A screenshot mostra o separador de segurança Access onde pode alterar as definições.](./media/mixpanel-tutorial/tutorial_mixpanel_08.png) 
 
 4. Na página de diálogo do **certificado,** clique em **Escolher o ficheiro** para fazer o upload do certificado descarregado e, em seguida, clique em **SEGUINTE**.
    
-    ![Configurações mixpanel](./media/mixpanel-tutorial/tutorial_mixpanel_09.png) 
+    ![A screenshot mostra a caixa de diálogo do certificado change where you can choose a certificate file.](./media/mixpanel-tutorial/tutorial_mixpanel_09.png) 
 
 5.  Na caixa de texto URL de autenticação na página de diálogo URL de **autenticação,** cole o valor do URL de **Login** que copiou a partir do portal Azure e, em seguida, clique em **SEGUINTE**.
    
-    ![Configurações mixpanel](./media/mixpanel-tutorial/tutorial_mixpanel_10.png) 
+    ![A screenshot mostra o painel de autenticação U R L de autenticação, onde pode copiar o seu Login U R L.](./media/mixpanel-tutorial/tutorial_mixpanel_10.png) 
 
 6. Clique em **Done** (Concluído).
 
@@ -205,7 +205,7 @@ O objetivo desta secção é criar um utilizador chamado Britta Simon in Mixpane
 
 4. Na caixa de texto do membro da **equipa,** escreva o endereço de e-mail da Britta no Azure.
    
-    ![Configurações mixpanel](./media/mixpanel-tutorial/tutorial_mixpanel_11.png) 
+    ![A screenshot mostra o separador Equipa onde adiciona um endereço ao Convite.](./media/mixpanel-tutorial/tutorial_mixpanel_11.png) 
 
 5. Clique **em Convidar.** 
 

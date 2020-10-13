@@ -8,10 +8,10 @@ ms.author: sunila
 ms.service: postgresql
 ms.custom: subject-policy-compliancecontrols
 ms.openlocfilehash: 766c0b5090c65a048a954be8feab151f1d13ab74
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91826696"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-database-for-postgresql"></a>Controlos de conformidade regulamentar da política Azure para a base de dados Azure para PostgreSQL

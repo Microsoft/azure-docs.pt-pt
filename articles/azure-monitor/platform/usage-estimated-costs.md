@@ -9,10 +9,10 @@ ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
 ms.openlocfilehash: eb96537f67c61fb31759da020068f784d0e89993
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87323405"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Monitorização da utilização e dos custos estimados no Azure Monitor
@@ -70,11 +70,11 @@ A partir daqui, você pode perfurar a partir deste resumo de custo acumulado par
 Mais detalhes sobre a sua utilização estão disponíveis [descarregando a sua utilização a partir do portal Azure.](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal) Na folha de cálculo descarregada, pode ver a utilização por recurso Azure por dia. Nesta folha de cálculo do Excel, a utilização dos recursos de Insights de Aplicação pode ser encontrada através da primeira filtragem na coluna "Meter Category" para mostrar "Application Insights" e "Log Analytics", e depois adicionar um filtro na coluna "Instance ID" que é "contém microsoft.insights/componentes".  A maioria dos Insights de Aplicação é reportada em metros com a categoria de medidor de Log Analytics, uma vez que existe um único backend de registos para todos os componentes do Monitor Azure.  Apenas os recursos de Insights de Aplicação em níveis de preços antigos e testes web em várias etapas são reportados com uma categoria de medidor de Insights de aplicação.  A utilização é mostrada na coluna "Quantidade Consumida" e a unidade para cada entrada é mostrada na coluna "Unidade de Medida".  Estão disponíveis mais detalhes para o ajudar a [entender a fatura do Microsoft Azure](../../cost-management-billing/understand/review-individual-bill.md). 
 
 > [!NOTE]
-> A **utilização da Gestão de Custos** no centro **Azure Cost Management + Billing** é a abordagem preferida para compreender amplamente os custos de monitorização.  As experiências **de utilização e custos estimados** para [insights de registo](./manage-cost-storage.md#understand-your-usage-and-estimate-costs) e [aplicações](../app/pricing.md#understand-your-usage-and-estimate-costs) fornecem insights mais profundos para cada uma dessas partes do Azure Monitor.
+> A **utilização da Gestão de Custos** no centro **Azure Cost Management + Billing** é a abordagem preferida para compreender amplamente os custos de monitorização.  As experiências **de utilização e custos estimados** para [insights de registo](./manage-cost-storage.md#understand-your-usage-and-estimate-costs)  e [aplicações](../app/pricing.md#understand-your-usage-and-estimate-costs) fornecem insights mais profundos para cada uma dessas partes do Azure Monitor.
 
 Outra opção para visualizar a utilização do Monitor Azure é a página **de utilização e custos estimados** no hub do Monitor. Isto mostra a utilização de funcionalidades de monitorização principais tais como [alerta, métricas, notificações,](https://azure.microsoft.com/pricing/details/monitor/) [Azure Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/)e [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). Para os clientes nos planos de preços disponíveis antes de abril de 2018, isto também inclui o uso do Log Analytics adquirido através da oferta Insights e Analytics.
 
-Nesta página, os utilizadores podem ver o seu uso de recursos nos últimos 31 dias, agregados por subscrição. `Drill-ins`mostrar tendências de utilização ao longo do período de 31 dias. Muitos dados precisam de se juntar para esta estimativa, por isso, por favor, seja paciente à medida que a página se carrega.
+Nesta página, os utilizadores podem ver o seu uso de recursos nos últimos 31 dias, agregados por subscrição. `Drill-ins` mostrar tendências de utilização ao longo do período de 31 dias. Muitos dados precisam de se juntar para esta estimativa, por isso, por favor, seja paciente à medida que a página se carrega.
 
 Este exemplo mostra a utilização da monitorização e uma estimativa dos custos resultantes:
 

@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 08/17/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 8c9e6462beb48e3326de3c2348b73053f717e032
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: ee7a0ca1abedd2f80cd8f5fe66e603315a10966f
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91441276"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939533"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Tutorial: Instruções passo a passo para criar uma nova app HoloLens Unitity usando âncoras espaciais Azure
 
@@ -25,7 +25,7 @@ Para concluir este tutorial, confirme que tem:
 
 1. Uma máquina Windows com <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017+</a> instalada com a carga de **trabalho de desenvolvimento** da Plataforma Universal Windows e o componente Windows **10 SDK (10.0.18362.0 ou mais recente)** e <a href="https://git-scm.com/download/win" target="_blank">Git para Windows</a>.
 2. A [extensão do estúdio visual C++/WinRT (VSIX)](https://aka.ms/cppwinrt/vsix) para Visual Studio deve ser instalada a partir do [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
-3. Um dispositivo HoloLens com [modo de desenvolvimento](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) ativado. Este artigo requer um dispositivo HoloLens com a Atualização do [Windows 10 de outubro de 2018](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018 ) (também conhecida como RS5). Para atualizar a versão mais recente do HoloLens, abra a aplicação **Definições,** vá a **Update & Security**, selecione o botão Verificar para **atualizações.**
+3. Um dispositivo HoloLens com [modo de desenvolvimento](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) ativado. Este artigo requer um dispositivo HoloLens com a [atualização do Windows 10 May 2020](https://docs.microsoft.com/windows/mixed-reality/whats-new/release-notes-may-2020 ). Para atualizar a versão mais recente do HoloLens, abra a aplicação **Definições,** vá a **Update & Security**, selecione o botão Verificar para **atualizações.**
 
 ## <a name="getting-started"></a>Introdução
 
@@ -236,6 +236,6 @@ Agora permite adicionar código que irá criar & colocar uma esfera verde uma ve
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=234-271)]
 
-Já está! Execute a sua aplicação a partir do **Visual Studio** uma última vez para experimentar todo o cenário de ponta a ponta. Mova-se em torno do seu dispositivo, e coloque a sua esfera branca. Então, continue a mover a cabeça para capturar dados ambientais até que a esfera fique amarela. A tua âncora local será carregada, e a tua esfera ficará azul. Por fim, toque mais uma vez no ecrã para remover a âncora local e inicie uma consulta para a sua contraparte na nuvem. Continue a mover o seu dispositivo até que a sua âncora espacial em nuvem esteja localizada. Uma esfera verde deve aparecer na localização correta, e pode repetir todo o cenário novamente.
+Já está. Execute a sua aplicação a partir do **Visual Studio** uma última vez para experimentar todo o cenário de ponta a ponta. Mova-se em torno do seu dispositivo, e coloque a sua esfera branca. Então, continue a mover a cabeça para capturar dados ambientais até que a esfera fique amarela. A tua âncora local será carregada, e a tua esfera ficará azul. Por fim, toque mais uma vez no ecrã para remover a âncora local e inicie uma consulta para a sua contraparte na nuvem. Continue a mover o seu dispositivo até que a sua âncora espacial em nuvem esteja localizada. Uma esfera verde deve aparecer na localização correta, e pode repetir todo o cenário novamente.
 
 [!INCLUDE [AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md)]

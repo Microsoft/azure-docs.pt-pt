@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: duau
 ms.openlocfilehash: 1a8064c3ff89c0bc8b0ceb5249492b912c219ce8
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91535836"
 ---
 # <a name="caching-with-azure-front-door"></a>Caching com Azure Front Door
@@ -113,13 +113,13 @@ As purgas de cache na porta da frente são insensíveis. Além disso, são agnó
 2. Cache-Control: max-age=\<seconds>
 3. Expira: \<http-date>
 
-Cabeçalhos de resposta cache-Control que indicam que a resposta não será em cache como Cache-Control: privado, Cache-Control: no-cache e Cache-Control: não há loja é honrada.  Se não houver cache-control, o comportamento padrão é que a Porta Frontal cache o recurso por X quantidade de tempo onde X é escolhido aleatoriamente entre 1 a 3 dias.
+Cache-Control cabeçalhos de resposta que indicam que a resposta não será em cache, como o Cache-Control: privado, Cache-Control: no-cache e Cache-Control: não há loja é honrada.  Se não houver Cache-Control, o comportamento padrão é que a Porta Frontal cache o recurso por X quantidade de tempo onde X é escolhido aleatoriamente entre 1 a 3 dias.
 
 ## <a name="request-headers"></a>Cabeçalhos do pedido
 
 Os seguintes cabeçalhos de pedido não serão encaminhados para um backend quando utilizar o caching.
 - Comprimento do conteúdo
-- Codificação de transferências
+- Transfer-Encoding
 
 ## <a name="cache-duration"></a>Duração da cache
 
@@ -127,7 +127,7 @@ A duração da cache pode ser configurada tanto no Front Door Designer como no R
 
 A duração da cache definida através do Rules Engine é uma verdadeira sobreposição de cache, o que significa que utilizará o valor de substituição independentemente do cabeçalho de resposta de origem.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
 - Saiba [como funciona o Front Door](front-door-routing-architecture.md).

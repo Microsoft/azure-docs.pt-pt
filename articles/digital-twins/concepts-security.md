@@ -8,10 +8,10 @@ ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.openlocfilehash: 4dc768b92a9ffbeafc31ef81d065237f47fb645e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331884"
 ---
 # <a name="secure-azure-digital-twins"></a>Secure Azure Digital Twins

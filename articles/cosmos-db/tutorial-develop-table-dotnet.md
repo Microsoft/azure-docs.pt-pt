@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 12/03/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 47b3706d1fb46ab7e115d79c2f06f6264c8b423e
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91666519"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Introdução ao armazenamento de API de Tabela do Azure Cosmos DB e Tabelas do Azure com o SDK .NET
@@ -173,7 +173,7 @@ Agora pode inscrever-se no portal Azure e verificar se os dados existem na tabel
 
 :::image type="content" source="./media/tutorial-develop-table-standard/results-in-portal.png" alt-text="Ver e copiar a CADEIA DE LIGAÇÃO PRIMÁRIA no painel Cadeia de Ligação":::
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Agora pode proceder ao próximo tutorial e aprender a migrar dados para a conta AZure Cosmos DB Table API. 
 

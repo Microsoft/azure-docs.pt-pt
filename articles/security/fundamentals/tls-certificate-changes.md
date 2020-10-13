@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.openlocfilehash: cbc79261035ef0f8671b9e43e1332ad68d1c9d39
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91654191"
 ---
 # <a name="azure-tls-certificate-changes"></a>Alterações no certificado Azure TLS  
@@ -75,9 +75,9 @@ Aqui estão algumas formas de detetar se a sua aplicação é impactada:
 
 - Se tiver um ambiente onde as regras de firewall são definidas para permitir chamadas de saída apenas para locais específicos de verificação da Lista de Revogação de Certificados (CRL) e/ou protocolo de verificação do certificado online (OCSP). Você precisará permitir os seguintes URLs CRL e OCSP:
 
-    - http://crl3&#46;digicert&#46;com
-    - http://crl4&#46;digicert&#46;com
-    - http://ocsp&#46;digicert&#46;com
+    - http://crl3&#46;d igicert&#46;com
+    - http://crl4&#46;d igicert&#46;com
+    - http://ocsp&#46;d igicert&#46;com
     - http://www&#46rede de&#46;de ;d-trust
     - http://root-c3-ca2-2009&#46;ocsp&#46;d-trust&#46;net
     - http://crl&#46;microsoft&#46;com

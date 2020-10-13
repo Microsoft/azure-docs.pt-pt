@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 04b5c9464c614c32f178e35e72cee98450007a62
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4c48f25f1d4bd3822a93d2c780dd148d9e29827
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91772792"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940536"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Fornecer acesso a chaves, certificados e segredos do Cofre Chave com um controlo de acesso baseado em funções Azure (pré-visualização)
 
@@ -70,7 +70,7 @@ O novo modelo de permissão Azure RBAC para o cofre de chaves fornece alternativ
 Para adicionar atribuições de funções, você deve ter:
 
 - Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-- `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete` permissões, tais como [Administrador de Acesso ao Utilizador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles.md#user-access-administrator) ou [Proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles.md#owner)
+- `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete` permissões, tais como [Administrador de Acesso ao Utilizador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#user-access-administrator) ou [Proprietário](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>Ativar permissões Azure RBAC no Cofre de Chaves
 

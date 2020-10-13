@@ -12,10 +12,10 @@ ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: c305292e915e02a1b53eb140ccd052990efbd315
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91827308"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Alterar a forma como uma conta de armazenamento é replicada
@@ -198,7 +198,7 @@ Se migrar a sua conta de armazenamento de GRS para LRS, não há custo adicional
 > [!IMPORTANT]
 > Se migrar a sua conta de armazenamento de RA-GRS para GRS ou LRS, essa conta é faturada como RA-GRS por mais 30 dias além da data em que foi convertida.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 - [Redundância de armazenamento Azure](storage-redundancy.md)
 - [Verifique a propriedade da Última Hora do Sincronização para obter uma conta de armazenamento](last-sync-time-get.md)

@@ -8,10 +8,10 @@ ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: ab42acbc07072f48d28b3adb5bc4c65672f257bc
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91314322"
 ---
 # <a name="security-control-v2-data-protection"></a>Controlo de Segurança V2: Proteção de Dados

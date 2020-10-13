@@ -9,10 +9,10 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 09/11/2020
 ms.openlocfilehash: 47d1f3c78a303f7a45457a435fa11f074c41d7aa
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91316159"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Fluxos de dados de mapeamento de resolução de problemas na Azure Data Factory
@@ -71,7 +71,7 @@ Se estiver a executar o fluxo de dados numa execução de teste de depuragem a p
 - **Recomendação**: Contacte a equipa de produtos da Microsoft sobre este problema para obter mais detalhes
 
  ### <a name="error-code-df-executor-partitiondirectoryerror"></a>Código de erro: DF-Executor-PartitionDirectoryError
-- **Mensagem**: O caminho de origem especificado tem ou vários diretórios divididos (por <Source Path> exemplo/<Diretório raiz de partição 1>/a=10/b=20, <Source Path> /<Diretório raiz de partição 2>/c=10/d=30) ou diretório dividido com outro ficheiro ou diretório não dividido (por exemplo <Source Path> /<Diretório raiz de partição 1>/a=10/b=20, <Source Path> /Diretório 2/1), remover o diretório de raiz de partição da via de origem e lê-lo através de uma transformação de fonte separada.
+- **Mensagem**: O caminho de origem especificado tem ou vários diretórios divididos (por <Source Path> exemplo/<Diretório raiz de partição 1>/a=10/b=20, <Source Path> /<Diretório raiz de partição 2>/c=10/d=30) ou diretório dividido com outro ficheiro ou diretório não dividido (por exemplo <Source Path> /<Diretório raiz de partição 1>/a=10/b=20, <Source Path> /Diretório 2/file1), remover o diretório de raiz de partição da via de origem e lê-lo através de uma transformação de fonte separada.
 - **Causas**: O caminho de origem tem vários diretórios divididos ou diretórios divididos com outro ficheiro ou diretório não dividido.
 - **Recomendação**: Retire o diretório de raiz partido do caminho da origem e leia-o através de uma transformação separada da fonte.
 
@@ -130,7 +130,7 @@ Se estiver a executar o fluxo de dados numa execução de teste de depuragem a p
 Para obter mais ajuda para resolver problemas, experimente estes recursos:
 *  [Blog da Fábrica de Dados](https://techcommunity.microsoft.com/t5/azure-data-factory/bg-p/AzureDataFactoryBlog)
 *  [Pedidos de recursos da Data Factory](https://feedback.azure.com/forums/270578-data-factory)
-*  [Vídeos Azure](https://www.youtube.com/channel/UC2S0k7NeLcEm5_IhHUwpN0g/videos)
+*  [Vídeos do Azure](https://www.youtube.com/channel/UC2S0k7NeLcEm5_IhHUwpN0g/videos)
 *  [Microsoft Q&Uma página de perguntas](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
 *  [Stack Overflow Forum para a Fábrica de Dados](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informações do Twitter sobre a Data Factory](https://twitter.com/hashtag/DataFactory)
