@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9e3925d2c14d51785ed4fe00a508ea353490e1cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4159b464493a34e17a04f17540b3f9c7a20f4740
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89669024"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971800"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>Gerir certificados num dispositivo IoT Edge
 
@@ -33,10 +33,13 @@ Para saber mais sobre os diferentes tipos de certificados e suas funções, cons
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* Um dispositivo IoT Edge, que funciona no [Windows](how-to-install-iot-edge-windows.md) ou [linux](how-to-install-iot-edge-linux.md).
+* Um dispositivo IoT Edge.
+
+  Se não tiver um dispositivo IoT Edge configurado, pode criar um numa máquina virtual Azure. Siga os passos num dos artigos de arranque rápido para [criar um dispositivo Linux virtual](quickstart-linux.md) ou criar um dispositivo Virtual [Windows](quickstart.md).
+
 * Possua um certificado de autoridade de certificados de raiz (CA), auto-assinado ou adquirido a uma autoridade de certificados comerciais fidedignas como Baltimore, Verisign, DigiCert ou GlobalSign.
 
-Se ainda não tiver uma autoridade de certificados de raiz, mas quiser experimentar funcionalidades IoT Edge que requerem certificados de produção (como cenários de gateway) pode [criar certificados de demonstração para testar as funcionalidades do dispositivo IoT Edge](how-to-create-test-certificates.md).
+  Se ainda não tiver uma autoridade de certificados de raiz, mas quiser experimentar funcionalidades IoT Edge que requerem certificados de produção (como cenários de gateway) pode [criar certificados de demonstração para testar as funcionalidades do dispositivo IoT Edge](how-to-create-test-certificates.md).
 
 ### <a name="create-production-certificates"></a>Criar certificados de produção
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d0df2199a2afdbea1ee1c6c543df324e9fe3cc3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02755c164e72e3149497ee8e3c1fdc19141fd54f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91450765"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973636"
 ---
 # <a name="nfs-v41-volumes-on-azure-netapp-files-for-sap-hana"></a>Volumes NFS v4.1 no Azure NetApp Files para SAP HANA
 
@@ -130,8 +130,8 @@ O "volume de registo"**(/hana/log)** é utilizado para escrever o registo de red
 O mesmo se aplica ao volume a que utiliza, escrever cópias de dados HANA completas.  
  
 
-## <a name="backup"></a>Backup
-Além de cópias de segurança de streaming e serviço Azure Back a cópia de segurança das bases de dados SAP HANA, conforme descrito no guia de backup do [artigo Backup para SAP HANA em Máquinas Virtuais Azure,](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)o Azure NetApp Files abre a possibilidade de realizar cópias de segurança instantâneas baseadas em armazenamento. 
+## <a name="backup"></a>Cópia de segurança
+Além de cópias de segurança de streaming e serviço Azure Back a cópia de segurança das bases de dados SAP HANA, conforme descrito no guia de backup do [artigo Backup para SAP HANA em Máquinas Virtuais Azure,](./sap-hana-backup-guide.md)o Azure NetApp Files abre a possibilidade de realizar cópias de segurança instantâneas baseadas em armazenamento. 
 
 O SAP HANA suporta:
 
@@ -195,4 +195,4 @@ root # > azcopy sync '/hana/data/SID/mnt00001/.snapshot' 'https://azacsnaptmytes
 ## <a name="next-steps"></a>Passos seguintes
 Leia o artigo:
 
-- [SAP HANA alta disponibilidade para máquinas virtuais Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview)
+- [SAP HANA alta disponibilidade para máquinas virtuais Azure](./sap-hana-availability-overview.md)

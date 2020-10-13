@@ -5,12 +5,12 @@ author: sebastianpick
 ms.author: sepick
 ms.date: 02/04/2020
 ms.topic: article
-ms.openlocfilehash: 8d42087008f1812bc3713456025ed3be351d0917
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad9d135df428c79df745ad24d9e7382e06599168
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "84022185"
+ms.locfileid: "91893208"
 ---
 # <a name="late-stage-reprojection"></a>Reprojeção da última fase
 
@@ -34,7 +34,9 @@ Se for, a sua aplicação utilizará O LSR de profundidade, caso contrário util
 
 Para que o LSR de profundidade funcione, a aplicação do cliente deve fornecer um tampão de profundidade válido que contenha toda a geometria relevante a considerar durante o LSR.
 
-O LSR de profundidade tenta estabilizar a moldura de vídeo com base no conteúdo do tampão de profundidade fornecido. Como consequência, o conteúdo que não lhe foi prestado, como objetos transparentes, não pode ser ajustado pelo LSR e pode mostrar artefactos de instabilidade e reprojecção.
+O LSR de profundidade tenta estabilizar a moldura de vídeo com base no conteúdo do tampão de profundidade fornecido. Como consequência, o conteúdo que não lhe foi prestado, como objetos transparentes, não pode ser ajustado pelo LSR e pode mostrar artefactos de instabilidade e reprojecção. 
+
+Para mitigar a instabilidade da reprojecção para objetos transparentes, pode forçar a escrita de tampão de profundidade. Consulte a bandeira do material *TransparênciaDescreva* os materiais [Color](color-materials.md) e [PBR.](pbr-materials.md) Note, no entanto, que a qualidade visual da interação de objetos transparentes/opacos pode sofrer ao permitir esta bandeira.
 
 ## <a name="planar-lsr"></a>Planar LSR
 

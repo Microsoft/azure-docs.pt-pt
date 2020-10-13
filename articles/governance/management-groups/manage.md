@@ -3,12 +3,12 @@ title: Como trabalhar com os seus grupos de gestão - Azure Governance
 description: Saiba como ver, manter, atualizar e eliminar a hierarquia do seu grupo de gestão.
 ms.date: 08/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 82eeb2520815ddac69d27ddccd58c842c3e33deb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c10333e5be746aa0ca696d235f2d5fed75060e9d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531042"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951949"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerir os seus recursos com grupos de gestão
 
@@ -349,7 +349,7 @@ GET https://management.azure.com/providers/Microsoft.Management/managementgroups
 
 Para saber mais sobre os grupos de gestão, veja:
 
-- [Criar grupos de gestão para organizar recursos do Azure](./create.md)
+- [Criar grupos de gestão para organizar recursos do Azure](./create-management-group-portal.md)
 - [Como alterar, eliminar ou gerir os seus grupos de gestão](./manage.md)
 - [Rever os grupos de gestão no Módulo de Recursos do Azure PowerShell](/powershell/module/az.resources#resources)
 - [Rever os grupos de gestão na API REST](/rest/api/resources/managementgroups)

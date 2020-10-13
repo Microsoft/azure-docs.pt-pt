@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/27/2020
 ms.author: cynthn
-ms.openlocfilehash: 12db42b0edb3d3e27756593f3dfb079804a4145f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06f682bc697f93d436e2cd71b161c01e1360944a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84170059"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973993"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Como abrir portas a uma máquina virtual com o portal Azure
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -78,4 +78,4 @@ Neste artigo, criou um grupo de segurança de rede, criou uma regra de entrada q
 
 Pode encontrar informações sobre a criação de ambientes mais detalhados nos seguintes artigos:
 - [Visão geral do Gestor de Recursos Azure](../../azure-resource-manager/management/overview.md)
-- [Grupos de segurança](../../virtual-network/security-overview.md)
+- [Grupos de segurança](../../virtual-network/network-security-groups-overview.md)

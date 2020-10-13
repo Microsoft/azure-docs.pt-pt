@@ -7,12 +7,12 @@ ms.date: 01/30/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 9a6a56491a327d5d4eafc2c05dc2b54b137096b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3642a621253b79fdfcdd8cb2b648dee534c6758
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88752070"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968690"
 ---
 # <a name="reduce-costs-with-azure-disks-reservation"></a>Reduzir custos com a Reserva de Discos do Azure
 
@@ -89,7 +89,7 @@ Depois de adquirir uma reserva, é automaticamente aplicada a quaisquer recursos
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
-Pode cancelar, trocar ou reembolsar reservas dentro de certas limitações. Para obter mais informações, veja [Trocas e reembolsos personalizados das Reservas do Azure](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
+Pode cancelar, trocar ou reembolsar reservas dentro de certas limitações. Para obter mais informações, veja [Trocas e reembolsos personalizados das Reservas do Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="expiration-of-a-reservation"></a>Expiração de uma reserva
 

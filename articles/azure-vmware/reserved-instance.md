@@ -3,12 +3,12 @@ title: Economize custos com a Azure VMware Solution reservado instância
 description: Saiba como comprar uma instância reservada para a Azure VMware Solution.
 ms.topic: how-to
 ms.date: 10/02/2020
-ms.openlocfilehash: a477b1730d70ec729a2be333b545b6faeb009998
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa354d4fbfef868ea1e6783656be7871669f200d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91492491"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951422"
 ---
 # <a name="save-costs-with-azure-vmware-solution"></a>Economize custos com a Azure VMware Solution
 
@@ -22,7 +22,7 @@ Casos reservados estão disponíveis com algumas exceções.
 
 -   **Quota**   insuficiente - Uma reserva que seja atribuída a uma subscrição única/partilhada deve ter a quota de anfitriões disponível na subscrição para o novo caso reservado. Pode [criar um pedido de aumento de quota](enable-azure-vmware-solution.md) para resolver esta questão.
 
--   **Oferta Elegibilidade**- Você precisará de um [Acordo de Empresa Azure (EA)](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-agreements)   com a Microsoft.
+-   **Oferta Elegibilidade**- Você precisará de um [Acordo de Empresa Azure (EA)](../cost-management-billing/manage/ea-portal-agreements.md)   com a Microsoft.
 
 -   Restrições de **capacidade**   - Em circunstâncias raras, o Azure limita a compra de novas reservas para a Azure VMware Solution host SKUs, devido à baixa capacidade numa região.
 
@@ -54,7 +54,7 @@ Para comprar uma instância:
    | ------------ | ------------ |
    | Subscrição | A assinatura usada para pagar a reserva. Os custos de reserva são cobrados de acordo com o método de pagamento indicado na subscrição. O tipo de subscrição deve ser um acordo de empresa (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou Microsoft Customer Agreement ou uma subscrição individual com taxas pay-as-you-go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Os custos são deduzidos do saldo de fidelização monetária, se disponível, ou cobrados como utilização excedida. Para uma subscrição com taxas pay-as-you-go, os encargos são cobrados no cartão de crédito ou no método de pagamento da fatura na subscrição. |
    | Âmbito        | O âmbito da reserva pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar:<br><ul><li><b>Âmbito de grupo de recursos único — Aplica o desconto de reserva aos recursos correspondentes apenas no grupo de recursos selecionado.</li><li><b>Âmbito de subscrição único — Aplica o desconto de reserva aos recursos correspondentes na subscrição selecionada.</li><li><b>Âmbito compartilhado — Aplica o desconto de reserva aos recursos correspondentes em subscrições elegíveis que estão no contexto de faturação. Para os clientes da EA, o contexto de faturação é a inscrição. Para subscrições individuais com taxas pay as you go, o âmbito da faturação reside em todas as subscrições elegíveis criadas pelo administrador de conta.</li></ul>       |
-   | Region       | A região de Azure que está coberta pela reserva.   |
+   | Região       | A região de Azure que está coberta pela reserva.   |
    | Tamanho do anfitrião    | AV36    |
    | Termo         | Um ano ou três anos.  |
    | Quantidade     | O número de casos a serem comprados dentro da reserva. A quantidade é o número de anfitriões da Azure VMware Solution que podem obter o desconto de faturação.    |

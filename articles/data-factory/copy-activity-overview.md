@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/12/2020
 ms.author: jingwang
-ms.openlocfilehash: 8e1a08af1be3d9b5cfb011516d00a8c0548994bf
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 5eade0ad48dcdd1f0c18ef6e65e498a7b9c79c15
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946179"
+ms.locfileid: "91951691"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia na Azure Data Factory
 
@@ -186,10 +186,11 @@ Consulte [o Schema e o mapeamento do tipo de dados](copy-activity-schema-and-typ
 Além de copiar dados da loja de dados de origem para afundar, também pode configurar para adicionar colunas de dados adicionais para copiar junto ao lavatório. Por exemplo:
 
 - Quando copiar a partir de uma fonte baseada em ficheiros, guarde o caminho relativo do ficheiro como uma coluna adicional para rastrear de que ficheiro os dados provêm.
+- Duplique a coluna de origem especificada como outra coluna. 
 - Adicione uma coluna com expressão ADF, para anexar variáveis do sistema ADF como o nome do gasoduto/iD do gasoduto, ou armazenar outro valor dinâmico da produção da atividade a montante.
 - Adicione uma coluna com valor estático para satisfazer as suas necessidades de consumo a jusante.
 
-Pode encontrar a seguinte configuração no separador fonte de origem da atividade da cópia: 
+Pode encontrar a seguinte configuração no separador fonte de origem da atividade da cópia. Também pode mapear essas colunas adicionais no [mapeamento de esquemas de](copy-activity-schema-and-type-mapping.md#schema-mapping) cópia como de costume, utilizando os nomes das colunas definidas. 
 
 ![Adicionar colunas adicionais na atividade de cópia](./media/copy-activity-overview/copy-activity-add-additional-columns.png)
 
@@ -200,7 +201,7 @@ Para configurá-lo programáticamente, adicione o `additionalColumns` imóvel na
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| micos adicionais | Adicione colunas de dados adicionais para copiar para afundar.<br><br>Cada objeto sob a `additionalColumns` matriz representa uma coluna extra. O `name` define o nome da coluna, e o indica o valor de `value` dados dessa coluna.<br><br>Os valores de dados permitidos são:<br>- **`$$FILEPATH`** - uma variável reservada indica para armazenar o caminho relativo dos ficheiros de origem para o caminho da pasta especificado no conjunto de dados. Aplicar a fonte baseada em ficheiros.<br>- **Expressão**<br>- **Valor estático** | Não |
+| micos adicionais | Adicione colunas de dados adicionais para copiar para afundar.<br><br>Cada objeto sob a `additionalColumns` matriz representa uma coluna extra. O `name` define o nome da coluna, e o indica o valor de `value` dados dessa coluna.<br><br>Os valores de dados permitidos são:<br>- **`$$FILEPATH`** - uma variável reservada indica para armazenar o caminho relativo dos ficheiros de origem para o caminho da pasta especificado no conjunto de dados. Aplicar a fonte baseada em ficheiros.<br>- **$$COLUMN:<source_column_name>** - um padrão variável reservado indica duplicar a coluna de origem especificada como outra coluna<br>- **Expressão**<br>- **Valor estático** | Não |
 
 **Exemplo:**
 
@@ -218,6 +219,10 @@ Para configurá-lo programáticamente, adicione o `additionalColumns` imóvel na
                     {
                         "name": "filePath",
                         "value": "$$FILEPATH"
+                    },
+                    {
+                        "name": "newColName",
+                        "value": "$$COLUMN:SourceColumnA"
                     },
                     {
                         "name": "pipelineName",
@@ -258,7 +263,7 @@ Esta funcionalidade é suportada ao copiar dados de qualquer fonte para as segui
 
 Por predefinição, a atividade Copy para de copiar dados e retorna uma falha quando as linhas de dados de origem são incompatíveis com as linhas de dados do lavatório. Para que a cópia tenha sucesso, pode configurar a atividade Copy para saltar e registar as linhas incompatíveis e copiar apenas os dados compatíveis. Consulte [a tolerância à falha da atividade da cópia](copy-activity-fault-tolerance.md) para obter detalhes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes quickstarts, tutoriais e amostras:
 
 - [Copiar dados de um local para outro local na mesma conta de armazenamento Azure Blob](quickstart-create-data-factory-dot-net.md)

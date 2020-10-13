@@ -2,7 +2,7 @@
 title: Permitir auditorias de segurança para serviços de domínio Azure AD Microsoft Docs
 description: Saiba como permitir que as auditorias de segurança centralizem o registo de eventos para análise e alertas nos Serviços de Domínio AD Azure
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 662362c3-1a5e-4e94-ae09-8e4254443697
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 98e64f1ea1196b6fd773514d4dad5b6e178a6898
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: b9656b62e2c689d0993fb16c1f1d66b14d3430c6
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88722539"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967737"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Permitir auditorias de segurança para serviços de domínio de diretório ativo Azure
 

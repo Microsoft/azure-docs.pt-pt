@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/31/2020
 ms.author: robreed
-ms.openlocfilehash: e50c0b0fcb883b43650a5d99cea5aa39bae1cd94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0bb1e4cb9b24c9b46f623e1604930367b82a47eb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89426270"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973823"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de Script Personalizado para o Windows
 
@@ -48,7 +48,7 @@ Pode configurar a extensão para utilizar as suas credenciais de armazenamento A
 
 ### <a name="internet-connectivity"></a>Conectividade da Internet
 
-Se precisar de descarregar um script externo, como no GitHub ou no Azure Storage, então é necessário abrir firewall adicional e portas do Grupo de Segurança de Rede. Por exemplo, se o seu script estiver localizado no Azure Storage, pode permitir o acesso usando tags de serviço Azure NSG para [armazenamento.](../../virtual-network/security-overview.md#service-tags)
+Se precisar de descarregar um script externo, como no GitHub ou no Azure Storage, então é necessário abrir firewall adicional e portas do Grupo de Segurança de Rede. Por exemplo, se o seu script estiver localizado no Azure Storage, pode permitir o acesso usando tags de serviço Azure NSG para [armazenamento.](../../virtual-network/network-security-groups-overview.md#service-tags)
 
 Se o seu script estiver num servidor local, poderá ainda necessitar de firewall adicional e as portas do Grupo de Segurança de Rede precisam de ser abertas.
 
@@ -124,15 +124,15 @@ Estes itens devem ser tratados como dados sensíveis e especificados na configur
 
 | Nome | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
-| publicador | Microsoft.Compute | string |
-| tipo | CustomScriptExtension | string |
+| apiVersion | 2015-06-15 | data |
+| publicador | Microsoft.Compute | cadeia |
+| tipo | CustomScriptExtension | cadeia |
 | typeHandlerVersion | 1.10 | int |
 | fileUris (por exemplo) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | matriz |
 | timetamp (por exemplo) | 123456789 | Inteiro de 32 bits |
-| commandToExecute (por exemplo) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
-| armazenamentoSame de número de armazenamento (por exemplo) | exemplostorageacct | string |
-| armazenamentoSColho (por exemplo) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
+| commandToExecute (por exemplo) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | cadeia |
+| armazenamentoSame de número de armazenamento (por exemplo) | exemplostorageacct | cadeia |
+| armazenamentoSColho (por exemplo) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | cadeia |
 | entidade geridaId (por exemplo) | { } ou { "clientId": "31b403a-c364-4240-a7ff-d85fb6cd7232" } ou {"objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" } | objeto json |
 
 >[!NOTE]

@@ -2,7 +2,7 @@
 title: Criar e utilizar políticas de palavra-passe nos Serviços de Domínio Azure AD ! Microsoft Docs
 description: Saiba como e porquê usar políticas de palavra-passe de grão fino para proteger e controlar senhas de conta num domínio gerido por Azure AD DS.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: e3e524df2e98229698a86a721b7312a4d054ff70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: 240b96a47c84ec3b15a356edc35549a4a197b219
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86040049"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967972"
 ---
 # <a name="password-and-account-lockout-policies-on-active-directory-domain-services-managed-domains"></a>Políticas de bloqueio de passwords e de conta em domínios geridos por Serviços de Domínio de Diretório Ativo
 
