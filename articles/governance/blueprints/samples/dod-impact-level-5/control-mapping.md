@@ -1,24 +1,24 @@
 ---
 title: Controlos de amostra de amostra do DoD Impact Level 5
-description: Controlo do mapeamento da amostra de planta do DoD Impact Level 5. Cada controlo é mapeado para uma ou mais Políticas Azure que ajudam na avaliação.
+description: Controlo do mapeamento da amostra de planta do DoD Impact Level 5. Cada controlo é mapeado para uma ou mais definições da Política Azure que ajudam na avaliação.
 ms.date: 09/17/2020
 ms.topic: sample
-ms.openlocfilehash: 6cd92cba69367c611a0e3a3c435e41e973a80d73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc187480f5342f076a7f07f058e8e570a0e7f146
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540545"
+ms.locfileid: "91929494"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-5-blueprint-sample"></a>Mapeamento de controlo da amostra de planta do DoD Impact Level 5
 
-O artigo seguinte detalha como o Azure Blueprints Department of Defense Impact Level 5 (DoD IL5) mapes de amostra para os controlos do DoD Impact Level 5. Para obter mais informações sobre os controlos, consulte [o Guia de Requisitos de Segurança da Computação em Nuvem do DoD (SRG)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/Cloud_Computing_SRG_v1r3.pdf). A Defense Information Systems Agency (DISA) é uma agência do Departamento de Defesa dos EUA (DoD) que é responsável pelo desenvolvimento e manutenção do Guia de Requisitos de Segurança da Computação em Nuvem do DoD (SRG). O SRG define os requisitos de segurança de base para os fornecedores de serviços na nuvem (CSPs) que hospedam informações, sistemas e aplicações do DoD, e para a utilização do DoD de serviços na nuvem.  
+O artigo seguinte detalha como o Azure Blueprints Department of Defense Impact Level 5 (DoD IL5) mapes de amostra para os controlos do DoD Impact Level 5. Para obter mais informações sobre os controlos, consulte [o Guia de Requisitos de Segurança da Computação em Nuvem do DoD (SRG)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/Cloud_Computing_SRG_v1r3.pdf).
+A Defense Information Systems Agency (DISA) é uma agência do Departamento de Defesa dos EUA (DoD) que é responsável pelo desenvolvimento e manutenção do Guia de Requisitos de Segurança da Computação em Nuvem do DoD (SRG). O SRG define os requisitos de segurança de base para os fornecedores de serviços na nuvem (CSPs) que hospedam informações, sistemas e aplicações do DoD, e para a utilização do DoD de serviços na nuvem.  
 
 Os seguintes mapeamentos são para os comandos **DoD Impact Level 5.** Utilize a navegação no direito de saltar diretamente para um mapeamento de controlo específico. Muitos dos controlos mapeados são implementados com uma iniciativa [da Política Azure.](../../../policy/overview.md) Para rever a iniciativa completa, abra **a Política** no portal Azure e selecione a página **Definições.** Em seguida, encontre e selecione a ** \[ iniciativa política de pré-visualização \] : DoD Impact Level 5** incorporada.
 
 > [!IMPORTANT]
-> Cada controlo abaixo está associado a uma ou mais definições [da Política Azure.](../../../policy/overview.md) Estas políticas podem ajudá-lo a avaliar o [cumprimento](../../../policy/how-to/get-compliance-data.md) do controlo; no entanto, muitas vezes não há um 1:1 ou um jogo completo entre um controlo e uma ou mais políticas. Como tal, **a Conformidade** na Política Azure refere-se apenas às próprias políticas; isto não garante que esteja totalmente em conformidade com todos os requisitos de um controlo. Além disso, a norma de conformidade inclui controlos que não são abordados por nenhuma definição da Política Azure neste momento. Portanto, o cumprimento da Política Azure é apenas uma visão parcial do seu estado de conformidade geral. As associações entre controlos e definições de Política Azure para esta amostra de projeto de conformidade podem mudar ao longo do tempo.
-> Para ver a história da mudança, consulte o [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/dod-impact-level-5/control-mapping.md).
+> Cada controlo abaixo está associado a uma ou mais definições [da Política Azure.](../../../policy/overview.md) Estas políticas podem ajudá-lo a avaliar o [cumprimento](../../../policy/how-to/get-compliance-data.md) do controlo; no entanto, muitas vezes não há um para um ou um jogo completo entre um controlo e uma ou mais políticas. Como tal, **a Conformidade** na Política Azure refere-se apenas às próprias políticas; isto não garante que esteja totalmente em conformidade com todos os requisitos de um controlo. Além disso, a norma de conformidade inclui controlos que não são abordados por nenhuma definição da Política Azure neste momento. Portanto, o cumprimento da Política Azure é apenas uma visão parcial do seu estado de conformidade geral. As associações entre controlos e definições de Política Azure para esta amostra de projeto de conformidade podem mudar ao longo do tempo. Para ver a história da mudança, consulte o [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/dod-impact-level-5/control-mapping.md).
 
 ## <a name="ac-2-account-management"></a>Gestão de Conta AC-2
 
@@ -48,7 +48,7 @@ O acesso de máquina virtual just-in-time (JIT) bloqueia o tráfego de entrada p
 
 A partilha de recursos de origem cruzada (CORS) pode permitir que os recursos dos Serviços de Aplicação sejam solicitados a partir de um domínio externo. A Microsoft recomenda que apenas os domínios necessários interajam com as suas aplicações API, função e web. Esta planta atribui uma definição [de Política Azure](../../../policy/overview.md) para ajudá-lo a monitorizar as restrições de acesso a recursos CORS no Centro de Segurança Azure. Compreender as implementações do CORS pode ajudá-lo a verificar se os controlos de fluxo de informação são implementados.
 
-- O CORS não deve permitir que todos os recursos tenham acesso às suas Aplicações Web
+- O CORS não deve permitir que todos os recursos acedam às suas Aplicações Web
 
 ## <a name="ac-5-separation-of-duties"></a>AC-5 Separação de Deveres
 
@@ -238,7 +238,8 @@ Este plano fornece definições de política que auditam registos com a análise
 
 ## <a name="ra-5-vulnerability-scanning"></a>Varredura de vulnerabilidade RA-5
 
-Esta planta ajuda-o a gerir as vulnerabilidades do sistema de informação atribuindo definições [de Política Azure](../../../policy/overview.md) que monitorizam vulnerabilidades do sistema operativo, vulnerabilidades SQL e vulnerabilidades de máquinas virtuais no Azure Security Center. O Azure Security Center fornece capacidades de reporte que lhe permitem ter informações em tempo real sobre o estado de segurança dos recursos Azure implantados. Esta planta também atribui definições de política que auditam e aplicam a Segurança Avançada de Dados em servidores SQL. A segurança avançada de dados incluiu a avaliação de vulnerabilidades e as capacidades avançadas de proteção de ameaças para ajudá-lo a compreender as vulnerabilidades nos seus recursos implantados.
+Esta planta ajuda-o a gerir as vulnerabilidades do sistema de informação atribuindo definições [de Política Azure](../../../policy/overview.md) que monitorizam vulnerabilidades do sistema operativo, vulnerabilidades SQL e vulnerabilidades de máquinas virtuais no Azure Security Center.
+O Azure Security Center fornece capacidades de reporte que lhe permitem ter informações em tempo real sobre o estado de segurança dos recursos Azure implantados. Esta planta também atribui definições de política que auditam e aplicam a Segurança Avançada de Dados em servidores SQL. A segurança avançada de dados incluiu a avaliação de vulnerabilidades e as capacidades avançadas de proteção de ameaças para ajudá-lo a compreender as vulnerabilidades nos seus recursos implantados.
 
 - A segurança avançada dos dados deve ser ativada em SqL Managed Instance
 - A segurança avançada dos dados deve ser ativada nos seus servidores SQL
@@ -255,8 +256,7 @@ O nível padrão de negação de serviço distribuído (DDoS) da Azure fornece f
 
 ## <a name="sc-7-boundary-protection"></a>Proteção de Fronteiras SC-7
 
-Esta planta ajuda-o a gerir e a controlar a fronteira do sistema, atribuindo uma definição [de Política Azure](../../../policy/overview.md) que monitoriza as recomendações de endurecimento do grupo de segurança da rede no Centro de Segurança Azure. O Azure Security Center analisa os padrões de tráfego da Internet face às máquinas virtuais e fornece recomendações de regras do grupo de segurança da rede para reduzir a potencial superfície de ataque.
-Além disso, este plano também atribui definições de política que monitorizam pontos finais, aplicações e contas de armazenamento desprotegidas. Pontos finais e aplicações que não estejam protegidas por uma firewall, e contas de armazenamento com acesso sem restrições podem permitir o acesso não intencional a informações contidas no sistema de informação.
+Esta planta ajuda-o a gerir e a controlar a fronteira do sistema, atribuindo uma definição [de Política Azure](../../../policy/overview.md) que monitoriza as recomendações de endurecimento do grupo de segurança da rede no Centro de Segurança Azure. O Azure Security Center analisa os padrões de tráfego da Internet face às máquinas virtuais e fornece recomendações de regras do grupo de segurança da rede para reduzir a potencial superfície de ataque. Além disso, este plano também atribui definições de política que monitorizam pontos finais, aplicações e contas de armazenamento desprotegidas. Pontos finais e aplicações que não estejam protegidas por uma firewall, e contas de armazenamento com acesso sem restrições podem permitir o acesso não intencional a informações contidas no sistema de informação.
 
 - O acesso através da Internet face ao ponto final deve ser restringido
 - As contas de armazenamento devem restringir o acesso à rede

@@ -8,10 +8,10 @@ ms.author: viviali
 ms.date: 10/4/2019
 ms.topic: conceptual
 ms.openlocfilehash: f996bb2d5126ef038ca872aee1f1893979a5229b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87081003"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Visualize e analise os seus dados Azure IoT Central num painel power BI
@@ -55,13 +55,13 @@ Quando abrir o ficheiro PBIX, certifique-se de que lê e segue as instruções n
 
 O ficheiro PBIX contém os dispositivos e o relatório **de telemetria** mostra uma visão histórica da telemetria que foi enviada por dispositivos. Fornece uma desagregação dos diferentes tipos de telemetria, e também mostra a telemetria mais recente enviada por dispositivos.
 
-:::image type="content" source="media/howto-connect-powerbi/report.png" alt-text="Power BI Devices e Relatório de Telemetria":::
+:::image type="content" source="media/howto-connect-powerbi/report.png" alt-text="Pipeline de solução de BI de potência":::
 
 ## <a name="pipeline-resources"></a>Recursos de gasodutos
 
 Você pode aceder a todos os recursos Azure que compõem o oleoduto no portal Azure. Todos os recursos estão no grupo de recursos que criaste quando criaste o oleoduto.
 
-:::image type="content" source="media/howto-connect-powerbi/azure-deployment.png" alt-text="Vista do portal Azure do grupo de recursos":::
+:::image type="content" source="media/howto-connect-powerbi/azure-deployment.png" alt-text="Pipeline de solução de BI de potência":::
 
 A lista que se segue descreve o papel de cada recurso no gasoduto:
 

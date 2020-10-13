@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
 ms.openlocfilehash: 9b9dcd683915c17ae6909ebb88927d275e9a5896
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89505289"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Use a Colmeia Apache como uma ferramenta de extrato, transformação e carga (ETL)
@@ -87,7 +87,7 @@ Se o alvo para os dados não for uma base de dados, pode gerar um ficheiro no fo
 
 Se precisar de executar várias operações nos dados como parte do processo ETL, considere como os gere. Com operações controladas por um programa externo, e não como um fluxo de trabalho dentro da solução, decida se algumas operações podem ser executadas em paralelo. E detetar quando cada trabalho termina. Usar um mecanismo de fluxo de trabalho como Oozie dentro de Hadoop pode ser mais fácil do que tentar orquestrar uma sequência de operações usando scripts externos ou programas personalizados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [ETL em escala](apache-hadoop-etl-at-scale.md)
 * [`Operationalize a data pipeline`](../hdinsight-operationalize-data-pipeline.md)

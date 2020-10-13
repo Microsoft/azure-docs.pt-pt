@@ -16,10 +16,10 @@ ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
 ms.openlocfilehash: 67b635f09cb9407279e89b5f7b8526dab3c08946
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87068527"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Afinação do desempenho TCP/IP para VMs Azure
@@ -210,7 +210,7 @@ Pode utilizar o `Get-NetTCPSetting` comando PowerShell para visualizar os valore
 Get-NetTCPSetting
 ```
 
-Pode definir o tamanho inicial da janela TCP e o fator de escala TCP no Windows utilizando o `Set-NetTCPSetting` comando PowerShell. Para obter mais informações, consulte [Set-NetTCPSetting](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps).
+Pode definir o tamanho inicial da janela TCP e o fator de escala TCP no Windows utilizando o `Set-NetTCPSetting` comando PowerShell. Para obter mais informações, consulte  [Set-NetTCPSetting](https://docs.microsoft.com/powershell/module/nettcpip/set-nettcpsetting?view=win10-ps).
 
 ```powershell
 Set-NetTCPSetting

@@ -4,10 +4,10 @@ description: Este artigo resume o suporte de backup do Azure quando utiliza o Mi
 ms.date: 02/17/2019
 ms.topic: conceptual
 ms.openlocfilehash: 011e115c7f3cc94b03ffd9ad2467406c60738033
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332700"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Matriz de suporte para backup com o Microsoft Azure Backup Server ou System Center DPM
@@ -102,7 +102,7 @@ Pode implementar o MABS num VM Azure Stack para que possa gerir a cópia de segu
 **.Net Framework on MABS** | O MABS VM necessita do Quadro 3.NET 3.3 SP1 ou posteriormente instalado nele.
 **Domínio MABS** | O MABS VM deve ser associado a um domínio. Um utilizador de domínio com privilégios administrativos deve instalar MABS no VM.
 **Backup de dados Azure Stack VM** | Pode fazer o back up ficheiros, pastas e aplicativos.
-**Backup apoiado** | Estes sistemas operativos são suportados para VMs que pretende apoiar:<br/><br/> Canal Semestrais do Windows Server (Datacenter, Enterprise, Standard)<br/><br/> Windows Server 2016, Windows Server 2012 R2, Windows Server 2008 R2
+**Backup apoiado** | Estes sistemas operativos são suportados para VMs que pretende apoiar:<br/><br/> Windows Server Semi-Annual Channel (Datacenter, Enterprise, Standard)<br/><br/> Windows Server 2016, Windows Server 2012 R2, Windows Server 2008 R2
 **Suporte do SQL Server para VMs Azure Stack** | Back up SQL Server 2016, SQL Server 2014, SQL Server 2012 SP1.<br/><br/> Recua e recupera uma base de dados.
 **Suporte SharePoint para VMs Azure Stack** | SharePoint 2016, SharePoint 2013, SharePoint 2010.<br/><br/> Recue e recupere uma quinta, base de dados, fronte e servidor web.
 **Requisitos de rede para VMs apoiados** | Todos os VMs na carga de trabalho Azure Stack devem pertencer à mesma rede virtual e pertencer à mesma subscrição.
