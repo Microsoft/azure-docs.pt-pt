@@ -2,13 +2,13 @@
 title: Funções de modelos
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para recuperar valores, trabalhar com cordas e numéricos e recuperar informações de implantação.
 ms.topic: conceptual
-ms.date: 09/01/2020
-ms.openlocfilehash: c78e9481e6f2ba1f17389992aab2712719fc4c3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: a479b81d0f0bc378f77885cbd644e70d7be1d857
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378411"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961175"
 ---
 # <a name="arm-template-functions"></a>Funções do modelo ARM
 
@@ -104,9 +104,11 @@ O Gestor de Recursos fornece as seguintes funções para trabalhar com condiçõ
 
 * [and](template-functions-logical.md#and)
 * [bool](template-functions-logical.md#bool)
+* [falso](template-functions-logical.md#false)
 * [se](template-functions-logical.md#if)
 * [não](template-functions-logical.md#not)
 * [ou](template-functions-logical.md#or)
+* [verdade](template-functions-logical.md#true)
 
 <a id="add" aria-hidden="true"></a>
 <a id="copyindex" aria-hidden="true"></a>
@@ -141,10 +143,12 @@ O Gestor de Recursos fornece as seguintes funções para trabalhar com inteiros:
 O Gestor de Recursos fornece várias funções para trabalhar com objetos.
 
 * [contém](template-functions-object.md#contains)
+* [criarObject](template-functions-object.md#createobject)
 * [vazio](template-functions-object.md#empty)
 * [intersecção](template-functions-object.md#intersection)
 * [json](template-functions-object.md#json)
 * [length](template-functions-object.md#length)
+* [nulo](template-functions-object.md#null)
 * [união](template-functions-object.md#union)
 
 <a id="extensionResourceId" aria-hidden="true"></a>

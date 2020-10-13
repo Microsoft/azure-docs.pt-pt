@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 10/01/2020
 ms.author: trbye
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
-zone_pivot_groups: speech-full-stack-objectivec-swift
+zone_pivot_groups: programming-languages-set-eighteen
 keywords: texto para a fala
-ms.openlocfilehash: 91f7d9cd6393b7ce73dad53cc825ae98fb749f92
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d08433d259c005220829fb74df11515e221616a8
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91332485"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940752"
 ---
 # <a name="get-started-with-text-to-speech"></a>Introdução à conversão de texto em voz
 
@@ -44,6 +44,10 @@ ms.locfileid: "91332485"
 
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Python Basics include](includes/how-to/text-to-speech-basics/text-to-speech-basics-python.md)]
+::: zone-end
+
+::: zone pivot="programming-language-curl"
+[!INCLUDE [REST include](includes/how-to/text-to-speech-basics/text-to-speech-basics-curl.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-spx"

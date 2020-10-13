@@ -8,12 +8,12 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: 7e8ccc832cdf12176cd88cce0157c08d8bf92507
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5baa6d57bd3895640f1654cf7a5ebca52f101cbe
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87372591"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970576"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-by-using-run-command"></a>Executar scripts de concha no seu Linux VM usando o Comando de Execução
 
@@ -39,7 +39,7 @@ Aplicam-se as seguintes restrições quando utiliza o Comando de Execução:
 * A conectividade de saída do VM é necessária para devolver os resultados do script.
 
 > [!NOTE]
-> Para funcionar corretamente, o Comando de Execução requer conectividade (porta 443) para endereços IP públicos Azure. Se a extensão não tiver acesso a estes pontos finais, os scripts podem ser executados com sucesso, mas não devolvem os resultados. Se estiver a bloquear o tráfego na máquina virtual, pode utilizar [tags de serviço](../../virtual-network/security-overview.md#service-tags) para permitir o tráfego para endereços IP públicos Azure utilizando a `AzureCloud` etiqueta.
+> Para funcionar corretamente, o Comando de Execução requer conectividade (porta 443) para endereços IP públicos Azure. Se a extensão não tiver acesso a estes pontos finais, os scripts podem ser executados com sucesso, mas não devolvem os resultados. Se estiver a bloquear o tráfego na máquina virtual, pode utilizar [tags de serviço](../../virtual-network/network-security-groups-overview.md#service-tags) para permitir o tráfego para endereços IP públicos Azure utilizando a `AzureCloud` etiqueta.
 
 ## <a name="available-commands"></a>Comandos disponíveis
 
@@ -85,7 +85,7 @@ Depois de escolher o comando, selecione **Executar** para executar o script. Ap�
 O exemplo a seguir utiliza o [cmdlet Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand) para executar um script PowerShell num Azure VM. O cmdlet espera que o script referenciado no `-ScriptPath` parâmetro seja local para onde o cmdlet está sendo executado.
 
 ```powershell-interactive
-Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
+Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
 ```
 
 ## <a name="limiting-access-to-run-command"></a>Limitação do acesso ao Comando de Execução

@@ -10,13 +10,13 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: fb628df5151f9124d7b7f319ff109ffca030ee90
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317349"
 ---
-# <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Criar um grupo de servidores de hiperescala pós-escala Azure Arc
+# <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Criar um grupo de servidores do PostgreSQL Hyperscale preparado para o Azure Arc
 
 Este documento descreve os passos para criar um grupo de servidores de hiperescala PostgreSQL em Azure Arc.
 
@@ -196,7 +196,7 @@ psql postgresql://postgres:<EnterYourPassword>@10.0.0.4:30655
 
     > \* Nos documentos acima, salte as secções **Iniciar sessão No portal Azure,**& **Criar uma Base de Dados Azure para PostgreSQL - Hiperescala (Citus)**. Implemente os passos restantes na sua implantação do Arco Azure. Estas secções são específicas da Base de Dados Azure para a Hiperescala Pós-SQL (Citus) oferecida como um serviço PaaS na nuvem Azure, mas as outras partes dos documentos são diretamente aplicáveis à sua Hiperescala Pós-Altura pós-SQL ativada pelo Arco Azure.
 
-- [Dimensione a sua Base de Dados de Azure para o grupo de servidores de hiperescala PostgreSQL](scale-out-postgresql-hyperscale-server-group.md)
+- [Aumentar horizontalmente o grupo de servidores de Hyperscale da Base de Dados do Azure para PostgreSQL](scale-out-postgresql-hyperscale-server-group.md)
 - [Configuração de armazenamento e conceitos de armazenamento de Kubernetes](storage-configuration.md)
 - [Expansão das reclamações de volume persistentes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
 - [Modelo de recurso Kubernetes](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)

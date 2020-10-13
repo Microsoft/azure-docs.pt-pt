@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 05/20/2020
 ms.openlocfilehash: 3487b5a069b1862ec302a979318ea78722b1433c
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361692"
 ---
 # <a name="standard-contract-for-microsoft-commercial-marketplace"></a>Contrato Padrão para o mercado comercial da Microsoft
@@ -50,4 +50,4 @@ Durante o processo de compra no portal Azure, os clientes poderão ver os termos
 
 ## <a name="api"></a>API
 
-Os clientes podem usar o Get-AzureRmMarketplaceTerms para recuperar os termos de uma oferta e aceitá-la. O Contrato-Tipo e as alterações associadas serão devolvidos na saída do CMDLET.
+Os clientes podem usar Get-AzureRmMarketplaceTerms para recuperar os termos de uma oferta e aceitá-la. O Contrato-Tipo e as alterações associadas serão devolvidos na saída do CMDLET.

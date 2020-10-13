@@ -11,10 +11,10 @@ ms.date: 06/01/2017
 ms.author: jaboes
 ms.subservice: disks
 ms.openlocfilehash: 298c6e4f33fff99fff01b6b911ec77c78f1fbd26
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91666556"
 ---
 # <a name="using-disks-in-azure-resource-manager-templates"></a>Utilização de discos em modelos de gestor de recursos Azure
@@ -258,7 +258,7 @@ Para obter um exemplo completo do modelo de como criar um disco SSD standard com
 
 Para obter informações completas sobre as especificações da API REST, reveja a [documentação da API do disco gerido](/rest/api/manageddisks/disks/disks-create-or-update). Encontrará cenários adicionais, bem como valores padrão e aceitáveis que podem ser submetidos à API através de implementações de modelos. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * Para modelos completos que usam discos geridos, visite as seguintes ligações Azure Quickstart Repo.
     * [Windows VM com disco gerido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)

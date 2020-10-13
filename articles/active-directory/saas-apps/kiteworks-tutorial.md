@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: jeedes
-ms.openlocfilehash: ae504a7dcd6f598c13b5fabffaca4ec6ec067e4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7cb6a9691e1b3186e6493b4ae0b62857fb03f38c
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88549936"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944053"
 ---
 # <a name="tutorial-integrate-kiteworks-with-azure-active-directory"></a>Tutorial: Integrar kiteworks com diretório ativo Azure
 
@@ -100,11 +100,11 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na barra de ferramentas na parte superior, clique em **Definições**.
 
-    ![Configurar Sign-On Individuais](./media/kiteworks-tutorial/tutorial_kiteworks_06.png)
+    ![Screenshot que mostra o ícone "Definições" na barra de ferramentas selecionada.](./media/kiteworks-tutorial/tutorial_kiteworks_06.png)
 
 1. Na secção **de Autenticação e Autorização,** clique em **SSO Configuração**.
 
-    ![Configurar Sign-On Individuais](./media/kiteworks-tutorial/tutorial_kiteworks_07.png)
+    ![Screenshot que mostra "S S O Setup" selecionado a partir da secção "Autenticação e Autorização".](./media/kiteworks-tutorial/tutorial_kiteworks_07.png)
 
 1. Na página SSO Configuração, execute os seguintes passos:
 

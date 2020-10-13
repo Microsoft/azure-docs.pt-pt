@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
 ms.openlocfilehash: eb5b4ab8a23a374aec54d65dd5390ab3fec3e905
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91445486"
 ---
 # <a name="url-rewrite-custom-forwarding-path"></a>Reescrita de URLs (caminho de reencaminhamento personalizado)
@@ -54,7 +54,7 @@ Existem configurações opcionais adicionais que também pode especificar para q
 
 * **Configuração cache** - Se desativado ou não especificado, os pedidos que correspondam a esta regra de encaminhamento não tentarão utilizar o conteúdo em cache e, em vez disso, irão sempre buscar a partir do backend. Leia mais sobre [Caching com Porta frontal.](front-door-caching.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
 - Saiba [como funciona o Front Door](front-door-routing-architecture.md).

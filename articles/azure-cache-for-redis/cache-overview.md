@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: overview
 ms.date: 05/12/2020
-ms.openlocfilehash: 26f6c8e3aceddc6f766bb43a1e384d761dee32bf
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8ec2a302226e3dc44701209a8cbb47b7814a5a2c
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91631386"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91874854"
 ---
 # <a name="azure-cache-for-redis"></a>Cache do Azure para Redis
 A Azure Cache for Redis fornece uma loja de dados na memória com base no software de código aberto [Redis](https://redis.io/). O Redis melhora o desempenho e a escalabilidade de uma aplicação que utiliza fortemente as lojas de dados de backend. É capaz de processar grandes volumes de pedidos, mantendo dados frequentemente acedidos na memória do servidor que podem ser escritos e lidos rapidamente. A Redis traz uma solução crítica de baixa latência e armazenamento de dados de alto rendimento para aplicações modernas.
@@ -70,7 +70,7 @@ Deve considerar o seguinte ao escolher um Cache Azure para o nível Redis.
 * **Memória**: Os níveis Básico e Standard oferecem 250 MB – 53 GB. O nível Premium oferece até 1,2 TB (como cluster) ou 120 GB (não agrupados). Para mais informações, consulte [a Cache Azure para redis pricing](https://azure.microsoft.com/pricing/details/cache/).
 * **Desempenho da rede**: Se tiver uma carga de trabalho que exija uma elevada produção, o nível Premium oferece mais largura de banda em comparação com Standard ou Basic. Também dentro de cada nível, caches de tamanho maior têm mais largura de banda devido ao VM subjacente que hospeda a cache. Para mais informações, consulte [a Cache Azure para o desempenho do Redis.](cache-planning-faq.md#azure-cache-for-redis-performance)
 * **Produção**: O nível Premium oferece o máximo de produção disponível. Se o servidor de cache ou o cliente atingir os limites de largura de banda, poderá receber intervalos de tempo do lado do cliente. Para mais informações, consulte a tabela a seguir.
-* **Alta disponibilidade**: Azure Cache for Redis garante que uma cache Standard/Premium está disponível de acordo com o nosso [SLA](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). O SLA cobre apenas a conectividade com os pontos finais da cache. O SLA não cobre a proteção contra a perda de dados. Recomendamos a utilização da funcionalidade de persistência de dados Redis no nível Premium para aumentar a resiliência contra a perda de dados.
+* **Alta disponibilidade**: Azure Cache for Redis fornece várias opções [de alta disponibilidade.](cache-high-availability.md) Garante que uma cache Standard/Premium está disponível de acordo com o nosso [SLA.](https://azure.microsoft.com/support/legal/sla/cache/v1_0/) O SLA cobre apenas a conectividade com os pontos finais da cache. O SLA não cobre a proteção contra a perda de dados. Recomendamos a utilização da funcionalidade de persistência de dados Redis no nível Premium para aumentar a resiliência contra a perda de dados.
 * **Retenção de dados Redis**: O nível Premium permite-lhe persistir os dados da cache numa conta de Armazenamento Azure. Numa cache Basic/Standard, todos os dados são armazenados apenas na memória. As questões subjacentes às infraestruturas podem resultar em potenciais perdas de dados. Recomendamos a utilização da funcionalidade de persistência de dados Redis no nível Premium para aumentar a resiliência contra a perda de dados. A Azure Cache para Redis oferece opções RDB e AOF (pré-visualização) na persistência de Redis. Para obter mais informações, consulte [Como configurar a persistência para uma Cache Premium Azure para Redis](cache-how-to-premium-persistence.md).
 * **Redis cluster**: Para criar caches maiores que 120 GB, ou para obter dados de fragmentos em vários nós Redis, pode utilizar o clustering Redis, que está disponível no nível Premium. Cada nó consiste num par de cache primário/réplica para uma elevada disponibilidade. Para obter mais informações, consulte [Como configurar o agrupamento para uma Cache Premium Azure para Redis.](cache-how-to-premium-clustering.md)
 * **Segurança reforçada e isolamento de rede**: A implantação da Rede Virtual Azure (VNET) proporciona uma maior segurança e isolamento para o seu Azure Cache para Redis, bem como sub-redes, políticas de controlo de acesso e outras funcionalidades para restringir ainda mais o acesso. Para obter mais informações, consulte [Como configurar o suporte da Rede Virtual para uma Cache Premium Azure para Redis.](cache-how-to-premium-vnet.md)
