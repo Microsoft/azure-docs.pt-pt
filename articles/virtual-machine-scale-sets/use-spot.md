@@ -10,10 +10,10 @@ ms.date: 03/25/2020
 ms.reviewer: jagaveer
 ms.custom: jagaveer, devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: 4c5386e2fad0ebdd30ca8f9a8f4933e8adaf5d6b
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91729020"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>VMs Azure Spot para conjuntos de escala de máquina virtual 

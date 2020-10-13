@@ -9,10 +9,10 @@ ms.date: 09/29/2020
 ms.author: harshacs
 ms.custom: MVC
 ms.openlocfilehash: dd9d36e0f51c96a177b8bd310b75f64c948fc034
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91814597"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-azure-vmware-solution-vms"></a>Configurar a recuperação de desastres para Azure para VMs de Solução VMware Azure

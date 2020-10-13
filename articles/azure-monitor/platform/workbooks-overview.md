@@ -1,19 +1,17 @@
 ---
 title: Descrição Geral dos Livros do Azure Monitor
 description: Saiba como os livros fornecem uma tela flexível para análise de dados e a criação de relatórios visuais ricos dentro do portal Azure.
-author: mrbullwinkle
 manager: carmonm
 services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.author: mbullwin
-ms.openlocfilehash: e8ce4feaec6571adfb15f5928a6eb7c910173353
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd0c08fa968f9d029f1b89be1183ab374f1b5348
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825786"
+ms.locfileid: "91932401"
 ---
 # <a name="azure-monitor-workbooks"></a>Livros de trabalho do Monitor Azure
 

@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
 ms.openlocfilehash: 4cbeea8ad20d41daff3d4ad086a36df5e988991f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449246"
 ---
 # <a name="health-probes"></a>Sondas do estado de funcionamento
@@ -72,7 +72,7 @@ Uma vez que qualquer backend retorne a um estado saudável, então a Porta front
 
 Se tiver um único backend na sua piscina de backend, pode optar por desativar as sondas de saúde reduzindo a carga no backend da sua aplicação. Mesmo que tenha várias costas na piscina de backend, mas apenas um deles está em estado ativado, pode desativar as sondas de saúde.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
 - Saiba [como funciona o Front Door](front-door-routing-architecture.md).

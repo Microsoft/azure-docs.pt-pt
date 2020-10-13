@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 59c899d2450e9d439426239384945258e8df694a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd534443c56612d0c0d67c228cba154fb1db18c3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91266654"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967057"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Construa um ponto final SCIM e configuure o fornecimento de utilizadores com Azure AD
 
@@ -747,7 +747,7 @@ Barra mínima TLS 1.2 Cipher Suites:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>Gamas IP
-O serviço de prestação de AD Azure opera atualmente ao abrigo dos Intervalos IP para AzureActiveDirectory, conforme [listado aqui.](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all) Pode adicionar as gamas IP listadas na tag AzureActiveDirectory para permitir o tráfego do serviço de fornecimento AZure AD na sua aplicação. 
+O serviço de prestação de AD Azure opera atualmente ao abrigo dos Intervalos IP para AzureActiveDirectory, conforme [listado aqui.](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all) Pode adicionar as gamas IP listadas na tag AzureActiveDirectory para permitir o tráfego do serviço de fornecimento AZure AD na sua aplicação. Note que terá de rever cuidadosamente a lista de gama IP para endereços computados. Um endereço como '40.126.25.32' poderia estar representado na lista de intervalos de IP como '40.126.0.0/18'. Também pode recuperar programaticamente a lista de gama IP utilizando a seguinte [API](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list).
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Passo 3: Construir um ponto final SCIM
 

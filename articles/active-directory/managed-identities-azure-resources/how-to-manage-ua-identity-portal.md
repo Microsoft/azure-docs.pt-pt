@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/26/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5045c81f280d9d7687a466aed2e918d21eec697
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ad91c916a6134f2507e74df6e87478421a00f43
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266392"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977430"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Criar, listar, excluir ou atribuir uma função a uma identidade gerida atribuída pelo utilizador utilizando o portal Azure
 
@@ -45,7 +45,7 @@ Para criar uma identidade gerida atribuída ao utilizador, a sua conta necessita
     - **Região**: Escolha uma região para implantar a identidade gerida atribuída pelo utilizador, por **exemplo, os EUA Ocidentais.**
     - **Nome**: Este é o nome da sua identidade gerida atribuída pelo utilizador, por exemplo UAI1.
     ![Criar uma identidade gerida atribuída ao utilizador](./media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
-4. Clique **em Rever + caixa** para rever as alterações.
+4. Clique **em 'Rever' + criar** para rever as alterações.
 5. Clique em **Criar**.
 
 ## <a name="list-user-assigned-managed-identities"></a>Lista de identidades geridas atribuídas pelo utilizador

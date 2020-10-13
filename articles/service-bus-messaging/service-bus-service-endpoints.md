@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 1b62f69bad4484239b3a6c5d6f7ae910fbdef03f
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91843384"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>Permitir o acesso ao espaço de nomes do Azure Service Bus a partir de redes virtuais específicas

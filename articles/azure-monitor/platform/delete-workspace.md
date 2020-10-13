@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
 ms.openlocfilehash: 292e446d5b713a43f77ee5e579d7e6dd5905ff69
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448533"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Apagar e recuperar o espaço de trabalho do Azure Log Analytics

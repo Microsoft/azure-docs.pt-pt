@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/11/2018
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c072298bf5cce4e22fe50d2474c7abe6b915f74
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c523c276e736b1fb0d78531eda87b9b64635b2a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88919510"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966683"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>Configurar o Servidor Multi-Factor Authentication do Azure para aplicações Web IIS
 

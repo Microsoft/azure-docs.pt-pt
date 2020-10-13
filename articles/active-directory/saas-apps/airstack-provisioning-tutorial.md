@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.author: Zhchia
 ms.openlocfilehash: 3990f9533aa6746011b1f070139b39ec884711c8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91305921"
 ---
 # <a name="tutorial-configure-airstack-for-automatic-user-provisioning"></a>Tutorial: Configure Airstack para o provisionamento automático do utilizador
@@ -117,7 +117,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![E-mail de Notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Save** (Guardar).
+7. Clique em **Guardar**.
 
 8. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to Airstack**.
 

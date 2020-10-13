@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: allensu
 ms.openlocfilehash: 295bc0a20a547bf944f48af6711b18af34571b02
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362585"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>Azure CDN da Verizon Premium regras referência do motor
@@ -67,7 +67,7 @@ O fluxo de trabalho através do qual uma política pode ser aplicada quer ao amb
 
 ![Fluxo de trabalho de implementação de políticas](./media/cdn-verizon-premium-rules-engine-reference/policy-deployment-workflow.png)
 
-|Passo |Description |
+|Passo |Descrição |
 |---------|---------|
 |[Criar Rascunho](https://docs.vdms.com/cdn/index.html#HRE/AdministeringDraftsandRules.htm#Create)    |    Um rascunho consiste num conjunto de regras que definem como os pedidos para o seu conteúdo devem ser tratados pela CDN.     |
 |Rascunho de bloqueio   |     Uma vez finalizado um projeto, este deve ser bloqueado e convertido numa política apenas de leitura.    |
@@ -93,7 +93,7 @@ Texto que é interpretado como um valor literal trata todos os caracteres especi
 
 Texto que é interpretado como um valor wildcard atribui significado adicional a caracteres especiais. A tabela a seguir descreve como o seguinte conjunto de caracteres é interpretado:
 
-Caráter | Description
+Caráter | Descrição
 ----------|------------
 \ | Uma pestana é usada para escapar a qualquer um dos caracteres especificados nesta tabela. Uma pestana deve ser especificada diretamente antes do carácter especial que deve ser escapado.<br/>Por exemplo, a seguinte sintaxe escapa a um asterisco: `\*`
 % | É utilizado um símbolo percentual para indicar a codificação de URL (por exemplo, `%20` ).
@@ -105,7 +105,7 @@ Espaço | Um caractere espacial indica que uma condição de correspondência po
 
 Expressões regulares definem um padrão que é procurado dentro de um valor de texto. A notação de expressão regular define significados específicos para uma variedade de símbolos. A tabela a seguir indica como os caracteres especiais são tratados por condições de correspondência e funcionalidades que suportam expressões regulares.
 
-Personagem Especial | Description
+Personagem Especial | Descrição
 ------------------|------------
 \ | Uma retrocesso escapa ao personagem que o segue, o que faz com que esse personagem seja tratado como um valor literal em vez de assumir o seu significado de expressão regular. Por exemplo, a seguinte sintaxe escapa a um asterisco: `\*`
 % | O significado de um símbolo percentual depende da sua utilização.<br/><br/> `%{HTTPVariable}`: Esta sintaxe identifica uma variável HTTP.<br/>`%{HTTPVariable%Pattern}`: Esta sintaxe utiliza um símbolo percentual para identificar uma variável HTTP e como um delimiter.<br />`\%`: Escapar de um símbolo percentual permite-lhe ser utilizado como um valor literal ou para indicar codificação de URL (por exemplo, `\%20` ).

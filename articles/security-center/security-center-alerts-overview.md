@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: memildin
 ms.openlocfilehash: 7228368645023ffc7debbc84adb8e3b7c27b1bbb
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91728442"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertas de segurança no Centro de Segurança do Azure

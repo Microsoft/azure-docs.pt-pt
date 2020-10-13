@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 03/05/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e4797c3e089e0ae9d15cc604e9f93605978b36c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d72aa65f18896ebbecf651da32558059ba782cc
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87419772"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968400"
 ---
 # <a name="enable-on-premises-azure-active-directory-password-protection"></a>Ativar no local Azure Ative Directory Password Protection
 

@@ -9,10 +9,10 @@ ms.date: 05/08/2020
 ms.author: buhollan
 ms.custom: devx-track-js
 ms.openlocfilehash: 4d6dae8a4f4ed83af3103e95e711bacdb62cf522
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91326172"
 ---
 # <a name="set-up-local-development-for-azure-static-web-apps-preview"></a>Configurar o desenvolvimento local para pré-visualização de aplicações web estáticas Azure
@@ -75,7 +75,7 @@ A extensão live server para Visual Studio Code fornece um servidor web de desen
 
 1. Digite **o clone** na caixa de pesquisa e selecione **Git: Clone**.
 
-    :::image type="content" source="media/local-development/command-palette-git-clone.png" alt-text="opção de clone git no Código do Estúdio Visual":::
+    :::image type="content" source="media/local-development/command-palette-git-clone.png" alt-text="Nova janela de repo do GitHub":::
 
 1. Introduza o seguinte valor para **URL repositório**.
 
@@ -87,7 +87,7 @@ A extensão live server para Visual Studio Code fornece um servidor web de desen
 
 1. Quando for solicitado para abrir o repositório clonado, selecione **Open**.
 
-    :::image type="content" source="media/local-development/open-new-window.png" alt-text="Abra em nova janela":::
+    :::image type="content" source="media/local-development/open-new-window.png" alt-text="Nova janela de repo do GitHub":::
 
 Visual Studio Code abre o projeto clonado no editor.
 
@@ -99,7 +99,7 @@ Visual Studio Code abre o projeto clonado no editor.
 
     Um separador de navegador abre para exibir a aplicação.
 
-    :::image type="content" source="media/local-development/vanilla-api-site.png" alt-text="Site estático simples em execução no navegador":::
+    :::image type="content" source="media/local-development/vanilla-api-site.png" alt-text="Nova janela de repo do GitHub":::
 
     Esta aplicação faz um pedido HTTP para o `api/message` ponto final. Neste momento, esse pedido está a falhar porque a parte da API desta aplicação precisa de ser iniciada.
 
@@ -113,13 +113,13 @@ Como parte do processo de criação da API, é criada uma configuração de lan�
 
 1. Uma nova instância terminal abre mostrando a saída do processo de construção da API.
 
-    :::image type="content" source="media/local-development/terminal-api-debug.png" alt-text="API em execução no terminal visual Studio Code":::
+    :::image type="content" source="media/local-development/terminal-api-debug.png" alt-text="Nova janela de repo do GitHub":::
 
    A barra de estado no Código do Estúdio Visual é agora laranja. Esta cor indica que a API está agora em funcionamento e o depurante está ligado.
 
 1. Em seguida, pressione **Ctrl/Cmd** e clique no URL no terminal para abrir uma janela do navegador que chama a API.
 
-    :::image type="content" source="media/local-development/hello-from-api-endpoint.png" alt-text="Resultado do ecrã do navegador da chamada API":::
+    :::image type="content" source="media/local-development/hello-from-api-endpoint.png" alt-text="Nova janela de repo do GitHub":::
 
 ### <a name="debugging-the-api"></a>Depurar a API
 
@@ -127,19 +127,19 @@ Como parte do processo de criação da API, é criada uma configuração de lan�
 
 1. Clique na margem esquerda na linha 2 para definir um ponto de rutura. Aparece um ponto vermelho que indica que o ponto de rutura está definido.
 
-    :::image type="content" source="media/local-development/breakpoint-set.png" alt-text="Breakpoint no Código do Estúdio Visual":::
+    :::image type="content" source="media/local-development/breakpoint-set.png" alt-text="Nova janela de repo do GitHub":::
 
 1. No navegador, atualize a página em execução em <http://127.0.0.1:7071/api/message> .
 
 1. O ponto de rutura é atingido no Código do Estúdio Visual e a execução do programa é interrompida.
 
-   :::image type="content" source="media/local-development/breakpoint-hit.png" alt-text="Breakpoint hit em Visual Studio Code":::
+   :::image type="content" source="media/local-development/breakpoint-hit.png" alt-text="Nova janela de repo do GitHub":::
 
    Uma [experiência completa de depuragem está disponível no Código do Estúdio Visual](https://code.visualstudio.com/Docs/editor/debugging) para a sua API.
 
 1. Pressione o botão **Continuar** na barra de depuração para continuar a execução.
 
-    :::image type="content" source="media/local-development/continue-button.png" alt-text="Continue o botão no Código do Estúdio Visual":::
+    :::image type="content" source="media/local-development/continue-button.png" alt-text="Nova janela de repo do GitHub":::
 
 ### <a name="calling-the-api-from-the-application"></a>Chamando a API da aplicação
 
@@ -192,7 +192,7 @@ Para obter mais informações sobre a configuração de ficheiros ambientais par
 
 1. Digite **servidor ao vivo** e selecione Live **Server: Stop Live Server**.
 
-    :::image type="content" source="media/local-development/stop-live-server.png" alt-text="Parar o comando do Servidor Ao Vivo na paleta de comando do Estúdio Visual":::
+    :::image type="content" source="media/local-development/stop-live-server.png" alt-text="Nova janela de repo do GitHub":::
 
 1. Prima **F1** para abrir a Paleta de Comandos.
 
@@ -200,7 +200,7 @@ Para obter mais informações sobre a configuração de ficheiros ambientais par
 
 1. Refresque a aplicação em execução em `http://locahost:3000` . O navegador apresenta agora a mensagem devolvida da API.
 
-    :::image type="content" source="media/local-development/hello-from-api.png" alt-text="Olá da API exibido no navegador":::
+    :::image type="content" source="media/local-development/hello-from-api.png" alt-text="Nova janela de repo do GitHub":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 4a98207ef5b03f77a4f741894ec210f7551c5933
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c890e9fbda316bfa7f5f3a42572f35ca73811ea
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "89378139"
+ms.locfileid: "91931806"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>SaaS cumpre APIs versão 2 no mercado comercial
 
@@ -205,12 +205,12 @@ Exemplo do corpo de resposta:
 
 ```json
 {
-    "id": "<guid>",  // purchased SaaS subscription ID 
-    "subscriptionName": "Contoso Cloud Solution", // SaaS subscription name 
-    "offerId": "offer1", // purchased offer ID
-    "planId": "silver", // purchased offer's plan ID
-    "quantity": "20", // number of purchased seats, might be empty if the plan is not per seat
-    "subscription": { // full SaaS subscription details, see Get Subscription APIs response body for full description
+  "id": "<guid>", // purchased SaaS subscription ID
+  "subscriptionName": "Contoso Cloud Solution", // SaaS subscription name
+  "offerId": "offer1", // purchased offer ID
+  "planId": "silver", // purchased offer's plan ID
+  "quantity": "20", // number of purchased seats, might be empty if the plan is not per seat
+  "subscription": { // full SaaS subscription details, see Get Subscription APIs response body for full description
     "id": "<guid>",
     "publisherId": "contoso",
     "offerId": "offer1",
@@ -220,27 +220,23 @@ Exemplo do corpo de resposta:
       "emailId": "test@test.com",
       "objectId": "<guid>",
       "tenantId": "<guid>",
-"pid": "<ID of the user>"
+      "pid": "<ID of the user>"
     },
     "purchaser": {
       "emailId": "test@test.com",
       "objectId": "<guid>",
       "tenantId": "<guid>",
-"pid": "<ID of the user>"
+      "pid": "<ID of the user>"
     },
     "planId": "silver",
     "term": {
       "termUnit": "P1M",
-                   startDate": "2019-05-31", 
-   "endDate": "2019-06-29",
+      "startDate": "2019-05-31",
+      "endDate": "2019-06-29"
     },
     "isTest": true,
     "isFreeTrial": false,
-    "allowedCustomerOperations": [
-      "Delete",
-      "Update",
-      "Read"
-    ],
+    "allowedCustomerOperations": ["Delete", "Update", "Read"],
     "sandboxType": "None",
     "sessionMode": "None"
   }
@@ -282,9 +278,9 @@ Uma vez configurada a conta SaaS para um cliente final, o editor deve ligar para
 *Solicitar exemplo de carga útil:*
 
 ```json
-{ // needed for validation of the activation request
-    "planId": "gold", // purchased plan, cannot be empty
-    "quantity": "" // purchased number of seats, can be empty if plan is not per seat
+{  // needed for validation of the activation request
+  "planId": "gold", // purchased plan, cannot be empty
+  "quantity": "" // purchased number of seats, can be empty if plan is not per seat
 }
 ```
 
@@ -342,73 +338,69 @@ Código: 200 Devolve a lista de todas as subscrições existentes para todas as 
 ```json
 {
   "subscriptions": [
-      {
-          "id": "<guid>", // purchased SaaS subscription ID
-          "name": "Contoso Cloud Solution", // SaaS subscription name
-          "publisherId": "contoso", // publisher ID
-          "offerId": "offer1", // purchased offer ID
-          "planId": "silver", // purchased plan ID
-          "quantity": "10", // purchased amount of seats, will be empty if plan is not per seat
-          "beneficiary": { // email address, user ID and tenant ID for which SaaS subscription was purchased.
-              "emailId": " test@contoso.com",
-              "objectId": "<guid>",
-              "tenantId": "<guid>",
-              "pid": "<ID of the user>"
-          },
-          "purchaser": { // email address, user ID and tenant ID that purchased the SaaS subscription. These could be different from beneficiary information for reseller (CSP) purchase
-              "emailId": " test@contoso.com",
-              "objectId": "<guid>",
-              "tenantId": "<guid>",
-              "pid": "<ID of the user>"
-          },
-            "term": { // The period for which the subscription was purchased. 
-                "startDate": "2019-05-31", //format: YYYY-MM-DD. This is the date when the subscription was activated by the ISV and the billing started. This field is relevant only for Active and Suspended subscriptions.
-                "endDate": "2019-06-30", // This is the last day the subscription is valid. Unless stated otherwise, the automatic renew will happen the next day. This field is relevant only for Active and Suspended subscriptions.
-                "termUnit": "P1M" // where P1M is monthly and P1Y is yearly. Also reflected in the startDate and endDate values
-          },
-          "allowedCustomerOperations": [
-              "Read", "Update", "Delete" 
-          ], // Indicates operations allowed on the SaaS subscription for beneficiary. For CSP-initiated purchases, this will always be "Read" because the customer cannot update or delete subscription in this flow.  Purchaser can perform all operations on the subscription.
-          "sessionMode": "None", // not relevant
-          "isFreeTrial": true, // true - the customer subscription is currently in free trial, false - the customer subscription is not currently in free trial. (Optional field -– if not returned, the value is false.)
-          "isTest": false, // not relevant
-          "sandboxType": "None", // not relevant
-          "saasSubscriptionStatus": "Subscribed" // Indicates the status of the operation. Can be one of the following: PendingFulfillmentStart, Subscribed, Suspended or Unsubscribed.
+    {
+      "id": "<guid>", // purchased SaaS subscription ID
+      "name": "Contoso Cloud Solution", // SaaS subscription name
+      "publisherId": "contoso", // publisher ID
+      "offerId": "offer1", // purchased offer ID
+      "planId": "silver", // purchased plan ID
+      "quantity": "10", // purchased amount of seats, will be empty if plan is not per seat
+      "beneficiary": { // email address, user ID and tenant ID for which SaaS subscription was purchased.
+        "emailId": " test@contoso.com",
+        "objectId": "<guid>",
+        "tenantId": "<guid>",
+        "pid": "<ID of the user>"
       },
-// next SaaS subscription details, might be a different offer
-{
-          "id": "<guid1>", 
-          "name": "Contoso Cloud Solution1", 
-          "publisherId": "contoso", 
-          "offerId": "offer2", 
-          "planId": "gold", 
-          "quantity": "", 
-          "beneficiary": {
-              "emailId": " test@contoso.com",
-              "objectId": "<guid>",
-              "tenantId": "<guid>",
-              "pid": "<ID of the user>"
-          },
-          "purchaser": { 
-              "emailId": "purchase@csp.com ",
-              "objectId": "<guid>",
-              "tenantId": "<guid>",
-               "pid": "<ID of the user>"
-          },
-            "term": { 
-                "startDate": "2019-05-31",
-                "endDate": "2020-04-30",
-                "termUnit": "P1Y"
-          },
-          "allowedCustomerOperations": [
-              "Read" 
-          ], 
-          "sessionMode": "None",
-          "isFreeTrial": false,
-          "isTest": false,
-          "sandboxType": "None",
-          "saasSubscriptionStatus": "Suspended"
-      }
+      "purchaser": { // email address, user ID and tenant ID that purchased the SaaS subscription. These could be different from beneficiary information for reseller (CSP) purchase
+        "emailId": " test@contoso.com",
+        "objectId": "<guid>",
+        "tenantId": "<guid>",
+        "pid": "<ID of the user>"
+      },
+      "term": { // The period for which the subscription was purchased.
+        "startDate": "2019-05-31", //format: YYYY-MM-DD. This is the date when the subscription was activated by the ISV and the billing started. This field is relevant only for Active and Suspended subscriptions.
+        "endDate": "2019-06-30", // This is the last day the subscription is valid. Unless stated otherwise, the automatic renew will happen the next day. This field is relevant only for Active and Suspended subscriptions.
+        "termUnit": "P1M" // where P1M is monthly and P1Y is yearly. Also reflected in the startDate and endDate values
+      },
+      "allowedCustomerOperations": ["Read", "Update", "Delete"], // Indicates operations allowed on the SaaS subscription for beneficiary. For CSP-initiated purchases, this will always be "Read" because the customer cannot update or delete subscription in this flow.  Purchaser can perform all operations on the subscription.
+      "sessionMode": "None", // not relevant
+      "isFreeTrial": true, // true - the customer subscription is currently in free trial, false - the customer subscription is not currently in free trial. (Optional field -– if not returned, the value is false.)
+      "isTest": false, // not relevant
+      "sandboxType": "None", // not relevant
+      "saasSubscriptionStatus": "Subscribed" // Indicates the status of the operation. Can be one of the following: PendingFulfillmentStart, Subscribed, Suspended or Unsubscribed.
+    },
+    // next SaaS subscription details, might be a different offer
+    {
+      "id": "<guid1>",
+      "name": "Contoso Cloud Solution1",
+      "publisherId": "contoso",
+      "offerId": "offer2",
+      "planId": "gold",
+      "quantity": "",
+      "beneficiary": {
+        "emailId": " test@contoso.com",
+        "objectId": "<guid>",
+        "tenantId": "<guid>",
+        "pid": "<ID of the user>"
+      },
+      "purchaser": {
+        "emailId": "purchase@csp.com ",
+        "objectId": "<guid>",
+        "tenantId": "<guid>",
+        "pid": "<ID of the user>"
+      },
+      "term": {
+        "startDate": "2019-05-31",
+        "endDate": "2020-04-30",
+        "termUnit": "P1Y"
+      },
+      "allowedCustomerOperations": ["Read"],
+      "sessionMode": "None",
+      "isFreeTrial": false,
+      "isTest": false,
+      "sandboxType": "None",
+      "saasSubscriptionStatus": "Suspended"
+    }
   ],
   "@nextLink": "https:// https://marketplaceapi.microsoft.com/api/saas/subscriptions/?continuationToken=%5b%7b%22token%22%3a%22%2bRID%3a%7eYeUDAIahsn22AAAAAAAAAA%3d%3d%23RT%3a1%23TRC%3a2%23ISV%3a1%23FPC%3aAgEAAAAQALEAwP8zQP9%2fFwD%2b%2f2FC%2fwc%3d%22%2c%22range%22%3a%7b%22min%22%3a%22%22%2c%22max%22%3a%2205C1C9CD673398%22%7d%7d%5d&api-version=2018-08-31" // url that contains continuation token to retrieve next page of the SaaS subscriptions list, if empty or absent, this is the last page. ISV can use this url as is to retrieve the next page or extract the value of continuation token from this url.
 }
@@ -452,35 +444,35 @@ Código: 200 Devolução de detalhes para uma subscrição SaaS com base no `sub
 
 ```json
 {
-        "id":<guid>, // purchased SaaS subscription ID
-        "name":"Contoso Cloud Solution", // SaaS subscription name
-         "publisherId": "contoso", // publisher ID
-          "offerId": "offer1", // purchased offer ID
-          "planId": "silver", // purchased plan ID
-          "quantity": "10", // purchased amount of seats, will be empty if plan is not per seat
-         "beneficiary": { // email address, user ID and tenant ID for which SaaS subscription is purchased.
-              "emailId": "test@contoso.com",
-              "objectId": "<guid>",
-              "tenantId": "<guid>",
-              "pid": "<ID of the user>"
-          },
-          "purchaser": { // email address ,user ID and tenant ID that purchased the SaaS subscription.  These could be different from beneficiary information for reseller (CSP) scenario
-              "emailId": "test@test.com",
-              "objectId": "<guid>",
-              "tenantId": "<guid>",
-              "pid": "<ID of the user>"
-          },
-        "allowedCustomerOperations": ["Read", "Update", "Delete"], // Indicates operations allowed on the SaaS subscription for beneficiary.  For CSP-initiated purchases, this will always be "Read" because the customer cannot update or delete subscription in this flow.  Purchaser can perform all operations on the subscription.
-        "sessionMode": "None", // not relevant
-        "isFreeTrial": false, // true - the customer subscription is currently in free trial, false - the customer subscription is not currently in free trial. Optional field – if not returned the value is false.
-          "isTest": false, // not relevant
-          "sandboxType": "None", // not relevant
-          "saasSubscriptionStatus": " Subscribed " // Indicates the status of the operation: PendingFulfillmentStart, Subscribed, Suspended or Unsubscribed.
-          "term": { // the period for which the subscription was purchased 
-            "startDate": "2019-05-31", //format: YYYY-MM-DD. This is the date when the subscription was activated by the ISV and the billing started. This field is relevant only for Active and Suspended subscriptions.
-            "endDate": "2019-06-29", // This is the last day the subscription is valid. Unless stated otherwise, the automatic renew will happen the next day. This field is relevant only for Active and Suspended subscriptions.
-            "termUnit": "P1M" //where P1M is monthly and P1Y is yearly. Also reflected in the startDate and endDate values.
-        }
+  "id": "<guid>", // purchased SaaS subscription ID
+  "name": "Contoso Cloud Solution", // SaaS subscription name
+  "publisherId": "contoso", // publisher ID
+  "offerId": "offer1", // purchased offer ID
+  "planId": "silver", // purchased plan ID
+  "quantity": "10", // purchased amount of seats, will be empty if plan is not per seat
+  "beneficiary": { // email address, user ID and tenant ID for which SaaS subscription is purchased.
+    "emailId": "test@contoso.com",
+    "objectId": "<guid>",
+    "tenantId": "<guid>",
+    "pid": "<ID of the user>"
+  },
+  "purchaser": { // email address ,user ID and tenant ID that purchased the SaaS subscription.  These could be different from beneficiary information for reseller (CSP) scenario
+    "emailId": "test@test.com",
+    "objectId": "<guid>",
+    "tenantId": "<guid>",
+    "pid": "<ID of the user>"
+  },
+  "allowedCustomerOperations": ["Read", "Update", "Delete"], // Indicates operations allowed on the SaaS subscription for beneficiary.  For CSP-initiated purchases, this will always be "Read" because the customer cannot update or delete subscription in this flow.  Purchaser can perform all operations on the subscription.
+  "sessionMode": "None", // not relevant
+  "isFreeTrial": false, // true - the customer subscription is currently in free trial, false - the customer subscription is not currently in free trial. Optional field – if not returned the value is false.
+  "isTest": false, // not relevant
+  "sandboxType": "None", // not relevant
+  "saasSubscriptionStatus": " Subscribed ", // Indicates the status of the operation: PendingFulfillmentStart, Subscribed, Suspended or Unsubscribed.
+  "term": { // the period for which the subscription was purchased
+    "startDate": "2019-05-31", //format: YYYY-MM-DD. This is the date when the subscription was activated by the ISV and the billing started. This field is relevant only for Active and Suspended subscriptions.
+    "endDate": "2019-06-29", // This is the last day the subscription is valid. Unless stated otherwise, the automatic renew will happen the next day. This field is relevant only for Active and Suspended subscriptions.
+    "termUnit": "P1M" //where P1M is monthly and P1Y is yearly. Also reflected in the startDate and endDate values.
+  }
 }
 ```
 
@@ -524,17 +516,18 @@ Exemplo do corpo de resposta:
 
 ```json
 {
-    "plans": [{
-        "planId": "Platinum001",
-        "displayName": "Private platinum plan for Contoso", // display name of the plan as it appears in the marketplace
-        "isPrivate": true //true or false
+  "plans": [
+    {
+      "planId": "Platinum001",
+      "displayName": "Private platinum plan for Contoso", // display name of the plan as it appears in the marketplace
+      "isPrivate": true //true or false
     },
-{ 
-        "planId": "gold",
-        "displayName": "Gold plan for Contoso", 
-        "isPrivate": false //true or false
+    {
+      "planId": "gold",
+      "displayName": "Gold plan for Contoso",
+      "isPrivate": false //true or false
     }
-]
+  ]
 }
 ```
 
@@ -574,7 +567,7 @@ Esta API só pode ser chamada para subscrições Ativas.  Qualquer plano pode se
 
 ```json
 {
-    "planId": "gold" // the ID of the new plan to be purchased
+  "planId": "gold" // the ID of the new plan to be purchased
 }
 ```
 
@@ -639,7 +632,7 @@ A quantidade de lugares não pode ser mais do que o permitido no plano atual.  N
 
 ```json
 {
-    "quantity": 5 // the new amount of seats to be purchased
+  "quantity": 5 // the new amount of seats to be purchased
 }
 ```
 
@@ -763,18 +756,21 @@ Código: 200 Devoluções pendentes de reposição da subscrição saas especifi
 *Exemplo de carga útil de resposta:*
 
 ```json
-{"operations": [{
-    "id": "<guid>",  //Operation ID, should be provided in the operations patch API call
-    "activityId": "<guid>", //not relevant
-    "subscriptionId": "<guid>", // subscriptionId of the SaaS subscription that is being reinstated
-    "offerId": "offer1",  // purchased offer ID
-    "publisherId": "contoso",  
-    "planId": "silver",  // purchased plan ID
-    "quantity": "20", // purchased amount of seats, will be empty is not relevant
-    "action": "Reinstate", 
-    "timeStamp": "2018-12-01T00:00:00",  // UTC
-    "status": "InProgress" // the only status that can be returned in this case
-}]
+{
+  "operations": [
+    {
+      "id": "<guid>", //Operation ID, should be provided in the operations patch API call
+      "activityId": "<guid>", //not relevant
+      "subscriptionId": "<guid>", // subscriptionId of the SaaS subscription that is being reinstated
+      "offerId": "offer1", // purchased offer ID
+      "publisherId": "contoso",
+      "planId": "silver", // purchased plan ID
+      "quantity": "20", // purchased amount of seats, will be empty is not relevant
+      "action": "Reinstate",
+      "timeStamp": "2018-12-01T00:00:00", // UTC
+      "status": "InProgress" // the only status that can be returned in this case
+    }
+  ]
 }
 ```
 
@@ -824,19 +820,18 @@ Código: 200 Obtém detalhes para a operação SaaS especificada.
 ```json
 Response body:
 {
-    "id  ": "<guid>", //Operation ID, should be provided in the patch operation API call
-    "activityId": "<guid>", //not relevant
-    "subscriptionId":"<guid>", // subscriptionId of the SaaS subscription for which this operation is relevant
-    "offerId": "offer1", // purchased offer ID
-    "publisherId": "contoso",  
-    "planId": "silver", // purchased plan ID
-    "quantity": "20", // purchased amount of seats 
-    "action": "ChangePlan", // Can be ChangePlan, ChangeQuantity or Reinstate
-    "timeStamp": "2018-12-01T00:00:00", // UTC
-    "status": "InProgress", // Possible values: NotStarted, InProgress, Failed, Succeed, Conflict (new quantity / plan is the same as existing)
-
-"errorStatusCode": "",
-"errorMessage": ""
+  "id  ": "<guid>", //Operation ID, should be provided in the patch operation API call
+  "activityId": "<guid>", //not relevant
+  "subscriptionId": "<guid>", // subscriptionId of the SaaS subscription for which this operation is relevant
+  "offerId": "offer1", // purchased offer ID
+  "publisherId": "contoso",
+  "planId": "silver", // purchased plan ID
+  "quantity": "20", // purchased amount of seats
+  "action": "ChangePlan", // Can be ChangePlan, ChangeQuantity or Reinstate
+  "timeStamp": "2018-12-01T00:00:00", // UTC
+  "status": "InProgress", // Possible values: NotStarted, InProgress, Failed, Succeed, Conflict (new quantity / plan is the same as existing)
+  "errorStatusCode": "",
+  "errorMessage": ""
 }
 ```
 
@@ -879,8 +874,8 @@ A `operationId` chamada para esta API pode ser recuperada a partir do valor devo
 *Solicitar exemplo de carga útil:*
 
 ```json
-{ 
-    "status": "Success"    // Allowed Values: Success/Failure. Indicates the status of the operation on ISV side.
+{
+  "status": "Success" // Allowed Values: Success/Failure. Indicates the status of the operation on ISV side.
 }
 ```
 
@@ -925,7 +920,7 @@ O editor deve implementar um webhook no serviço SaaS para manter o estado de su
 ```json
 // end customer changed a quantity of purchased seats for a plan on Microsoft side
 {
-  "id": <guid>, // this is the operation ID to call with get operation API
+  "id": "<guid>", // this is the operation ID to call with get operation API
   "activityId": "<guid>", // do not use
   "subscriptionId": "guid", // The GUID identifier for the SaaS resource which status changes
   "publisherId": "contoso", // A unique string identifier for each publisher
@@ -934,24 +929,24 @@ O editor deve implementar um webhook no serviço SaaS para manter o estado de su
   "quantity": " 25", // the most up-to-date number of seats, can be empty if not relevant
   "timeStamp": "2019-04-15T20:17:31.7350641Z", // UTC time when the webhook was called
   "action": "ChangeQuantity", // the operation the webhook notifies about
-  "status": "Success" // Can be either InProgress or Success  
+  "status": "Success" // Can be either InProgress or Success
 }
 ```
 
 ```json
 // end customer's payment instrument became valid again, after being suspended, and the SaaS subscription is being reinstated
 {
-  "id": <guid>, 
-  "activityId": <guid>, 
-  "subscriptionId": "guid", 
+  "id": "<guid>",
+  "activityId": "<guid>",
+  "subscriptionId": "<guid>",
   "publisherId": "contoso",
   "offerId": "offer2 ",
-  "planId": "gold", 
-  "quantity": " 20", 
+  "planId": "gold",
+  "quantity": " 20",
   "timeStamp": "2019-04-15T20:17:31.7350641Z",
   "action": "Reinstate",
-  "status": "In Progress" 
-} 
+  "status": "In Progress"
+}
 ```
 
 ## <a name="development-and-testing"></a>Desenvolvimento e teste

@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6109f35c42d4b4a44430eeb99ec115f4cdc1a619
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91812561"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Relatórios de provisionamento no portal Azure Ative Directory (pré-visualização)
@@ -61,7 +61,7 @@ Os registos de provisionamento fornecem respostas às seguintes questões:
 
 Pode aceder aos registos de provisionamento selecionando **Registos de Provisionamento** na secção de **Monitorização** da lâmina do **Diretório Ativo Azure** no [portal Azure](https://portal.azure.com). Pode levar até duas horas para que alguns registos de provisionamento apareçam no portal.
 
-![Registos de aprovisionamento](./media/concept-provisioning-logs/access-provisioning-logs.png "Registos de aprovisionamento")
+![Registos de provisionamento](./media/concept-provisioning-logs/access-provisioning-logs.png "Registos de aprovisionamento")
 
 
 Um registo de provisionamento tem uma visão de lista padrão que mostra:
@@ -86,7 +86,7 @@ Isto permite-lhe apresentar campos adicionais ou remover campos que já são apr
 
 Selecione um item na vista da lista para obter informações mais detalhadas.
 
-![Informações detalhadas](./media/concept-provisioning-logs/steps.png "Filtro")
+![Informações detalhadas](./media/concept-provisioning-logs/steps.png "Filtrar")
 
 
 ## <a name="filter-provisioning-activities"></a>Atividades de provisão de filtros
@@ -100,7 +100,7 @@ Na vista predefinitiva, pode selecionar os seguintes filtros:
 - Ação
 
 
-![Adicionar filtros](./media/concept-provisioning-logs/default-filter.png "Filtro")
+![Adicionar filtros](./media/concept-provisioning-logs/default-filter.png "Filtrar")
 
 O filtro **identidade** permite especificar o nome ou a identidade que lhe interessa. Esta identidade pode ser um utilizador, grupo, papel ou outro objeto. Pode pesquisar pelo nome ou identificação do objeto. O ID varia por cenário. Por exemplo, ao aprovisionar um objeto do Azure AD à SalesForce, o ID de Origem é o ID do objeto do utilizador em Azure AD enquanto o TargetID é o ID do utilizador em Salesforce. Ao ser fornecida de Workday a Ative Directory, o ID de Origem é o ID do trabalhador do Workday. Note que o nome do utilizador pode nem sempre estar presente na coluna Identidade. Haverá sempre uma identificação. 
 
@@ -191,7 +191,7 @@ O separador **Passos** descreve os passos dados para a disposição de um objeto
 
 
 
-![A screenshot mostra o separador Passos, que mostra os passos de provisionamento.](./media/concept-provisioning-logs/steps.png "Filtro")
+![A screenshot mostra o separador Passos, que mostra os passos de provisionamento.](./media/concept-provisioning-logs/steps.png "Filtrar")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>Resolução de problemas e recomendações

@@ -8,10 +8,10 @@ author: navits09
 ms.author: navits
 ms.date: 06/17/2020
 ms.openlocfilehash: a7a77cc18ddc1ab8664d49aa3c2ac049a683ed3d
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710639"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Criar uma oferta do Dynamics 365 for Operations

@@ -9,10 +9,10 @@ ms.date: 08/23/2019
 ms.author: dech
 ms.custom: devx-track-js
 ms.openlocfilehash: aa0f0878366e7afc51f066502c24c09a9981027b
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91801363"
 ---
 # <a name="nodejs-examples-to-manage-data-in-azure-cosmos-db"></a>Node.js exemplos para gerir dados em Azure Cosmos DB

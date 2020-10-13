@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 3e3dce20f447b47ad78deea617b513c50f552733
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 24229c331d0c7c4b2327e8e609e9d75b6654868f
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893633"
+ms.locfileid: "91931989"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Consulta o gráfico gémeo Azure Digital Twins
 
@@ -47,14 +47,14 @@ WHERE ...
 
 ### <a name="count-items"></a>Contar itens
 
-Pode contar o número de gémeos num conjunto de resultados utilizando a `Select COUNT` cláusula:
+Pode contar o número de itens num conjunto de resultados utilizando a `Select COUNT` cláusula:
 
 ```sql
 SELECT COUNT() 
 FROM DIGITALTWINS
 ``` 
 
-Adicione uma `WHERE` cláusula para contar o número de gémeos que cumprem determinados critérios. Aqui estão alguns exemplos de contagem com um filtro aplicado baseado no tipo de modelo gémeo (para mais informações sobre esta sintaxe, ver [*Consulta por modelo*](#query-by-model) abaixo):
+Adicione uma `WHERE` cláusula para contar o número de itens que satisfazem determinados critérios. Aqui estão alguns exemplos de contagem com um filtro aplicado baseado no tipo de modelo gémeo (para mais informações sobre esta sintaxe, ver [*Consulta por modelo*](#query-by-model) abaixo):
 
 ```sql
 SELECT COUNT() 
@@ -68,7 +68,7 @@ WHERE IS_OF_MODEL('dtmi:sample:Room;1') AND c.Capacity > 20
 Também pode usar `COUNT` juntamente com a `JOIN` cláusula. Aqui está uma consulta que conta todas as lâmpadas contidas nos painéis luminosos das salas 1 e 2:
 
 ```sql
-SELECT COUNT(LightBulb)  
+SELECT COUNT()  
 FROM DIGITALTWINS Room  
 JOIN LightPanel RELATED Room.contains  
 JOIN LightBulb RELATED LightPanel.contains  

@@ -8,10 +8,10 @@ ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 75344204e03920c96d0868ad584b8701813fabf0
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91569529"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Linha de Base de Segurança Azure para Cosmos DB
@@ -334,7 +334,7 @@ Como aceder programáticamente às teclas utilizando o Azure Ative Directory: ht
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4: Utilize um único sinal de sso com o Azure Ative Directory
 
-**Orientação**: A Azure Cosmos DB utiliza dois tipos de chaves para autorizar os utilizadores e não suporta o Sign-On Único (SSO) ao nível do plano de dados. O acesso ao plano de controlo da Cosmos DB está disponível através da REST API e suporta a SSO. Para autenticar, desacorda o cabeçalho de Autorização para os seus pedidos num Token Web JSON que obtenha do Azure Ative Directory.
+**Orientação**: A Azure Cosmos DB utiliza dois tipos de chaves para autorizar os utilizadores e não suporta Sign-On (SSO) ao nível do plano de dados. O acesso ao plano de controlo da Cosmos DB está disponível através da REST API e suporta a SSO. Para autenticar, desacorda o cabeçalho de Autorização para os seus pedidos num Token Web JSON que obtenha do Azure Ative Directory.
 
 Compreenda a Base de Dados Azure para cosmos DB REST API: https://docs.microsoft.com/rest/api/cosmos-db/
 
@@ -991,7 +991,7 @@ Como apoiar chaves do cofre chave: https://docs.microsoft.com/powershell/module/
 
 **Orientação**: Se a base de dados ou o contentor forem eliminados, pode arquivar um bilhete de suporte ou chamar o suporte do Azure para restaurar os dados a partir de cópias de segurança online automáticas. O suporte Azure está disponível para planos selecionados apenas como Standard, Developer, e planos superiores a eles. Para restaurar uma imagem específica da cópia de segurança, a Azure Cosmos DB requer que os dados estão disponíveis durante a duração do ciclo de backup para esse instantâneo.
 
-Teste a restauração dos seus segredos armazenados no Cofre da Chave Azure usando o PowerShell. O cmdlet Restore-AzureKeyVaultKey cria uma chave no cofre de chaves especificado. Esta chave é uma réplica da chave de apoio no ficheiro de entrada e tem o mesmo nome que a chave original.
+Teste a restauração dos seus segredos armazenados no Cofre da Chave Azure usando o PowerShell. O Restore-AzureKeyVaultKey cmdlet cria uma chave no cofre de chaves especificado. Esta chave é uma réplica da chave de apoio no ficheiro de entrada e tem o mesmo nome que a chave original.
 
 Compreenda as cópias de segurança automatizadas da Azure Cosmos:
 
@@ -1013,11 +1013,11 @@ https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyva
 
 **Orientação**: Como todos os dados do utilizador armazenados em Cosmos DB estão encriptados em repouso e no transporte, não é necessário tomar nenhuma ação. Outra forma de colocar isto é que a encriptação em repouso está "on" por padrão. Não há controlos para desligá-lo ou ligar. A Azure Cosmos DB utiliza encriptação AES-256 em todas as regiões onde a conta está a funcionar.
 
-Ativar a eliminação suave no cofre de chaves para proteger as chaves contra a eliminação acidental ou maliciosa.
+Ativar Soft-Delete no Cofre de Chaves para proteger as chaves contra a eliminação acidental ou maliciosa.
 
 Compreenda a encriptação de dados em Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest
 
-Como permitir a eliminação de soft-delete no cofre de chaves: https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
+Como permitir Soft-Delete no Cofre de Chaves: https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
 **Monitorização do Centro de Segurança Azure**: Sim
 

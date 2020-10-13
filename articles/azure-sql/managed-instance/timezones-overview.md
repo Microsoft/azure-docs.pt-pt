@@ -10,13 +10,13 @@ ms.topic: reference
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
-ms.date: 05/25/2020
-ms.openlocfilehash: fc1532fab23ec520722ea71d814496e786b91651
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: 7b95ddfdb75dd5e5951a9c95442798692582fe6a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617932"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978378"
 ---
 # <a name="time-zones-in-azure-sql-managed-instance"></a>Fusos horários em Azure SQL Gestded Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -95,7 +95,7 @@ Usar o mesmo fuso horário através de uma instância primária e secundária nu
 
 ## <a name="limitations"></a>Limitações
 
-- O fuso horário do caso gerido existente não pode ser alterado.
+- O fuso horário do caso gerido existente não pode ser alterado. Como uma solução alternativa, crie uma nova instância gerida com o fuso horário adequado e, em seguida, execute uma cópia de segurança manual e restaure, ou o que recomendamos, realizar uma [restauração pontual transversal](https://docs.microsoft.com/azure/azure-sql/managed-instance/point-in-time-restore?tabs=azure-portal#restore-an-existing-database).
 - Os processos externos lançados a partir dos trabalhos do SqL Server Agent não observam o fuso horário do caso.
 
 ## <a name="list-of-supported-time-zones"></a>Lista de fusos horários suportados

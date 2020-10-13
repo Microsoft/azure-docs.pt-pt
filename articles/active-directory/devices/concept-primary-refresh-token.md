@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 000bc150b1a4addb4b68bd86b8d72524ec1015fc
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91450414"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>O que é um Token de Atualização Primário?
@@ -87,7 +87,7 @@ Um PRT é renovado em dois métodos diferentes:
    * Uma aplicação solicita ao WAM um token de acesso silenciosamente, mas não há nenhum token de atualização disponível para essa aplicação. Neste caso, a WAM usa o PRT para solicitar um token para a app e recebe de volta um novo PRT na resposta.
    * Uma aplicação solicita ao WAM um token de acesso, mas o PRT é inválido ou a AZure AD requer autorização adicional (por exemplo, Autenticação Multi-Factor Azure). Neste cenário, a WAM inicia uma logon interativa que exige ao utilizador a reauthenticação ou a prestação de verificação adicional e é emitido um novo PRT sobre a autenticação bem sucedida.
 
-Num ambiente ADFS, a linha de visão direta para o controlador de domínio não é necessária para renovar o PRT. A renovação do PRT requer apenas /adfs/serviços/trust/2005/usernamemixed e /adfs/services/trust/13/usernamemixed endpoints habilitados no proxy através do protocolo WS-Trust.
+Num ambiente ADFS, a linha de visão direta para o controlador de domínio não é necessária para renovar o PRT. A renovação do PRT requer apenas /adfs/serviços/trust/2005/usernamemixed e /adfs/services/trust/13/usernamemixed endpoints habilitados no proxy através da utilização do protocolo WS-Trust.
 
 Os pontos finais de transporte do Windows são necessários para a autenticação de senha apenas quando uma palavra-passe é alterada, e não para renovação de PRT.
 
@@ -203,6 +203,6 @@ Os seguintes diagramas ilustram os detalhes subjacentes na emissão, renovação
 > [!NOTE]
 > O fluxo SSO do navegador descrito nos passos acima não se aplica a sessões em modos privados como o InPrivate no Microsoft Edge ou Incógnito no Google Chrome (quando se utiliza a extensão das Contas Microsoft).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre problemas relacionados com o PRT, consulte o artigo [O Diretório híbrido Azure Ative de resolução de problemas juntou-se aos dispositivos Windows 10 e Windows Server 2016](troubleshoot-hybrid-join-windows-current.md).

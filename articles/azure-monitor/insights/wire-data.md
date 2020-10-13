@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/29/2020
 ms.openlocfilehash: 06698ad3ab2ceb76278e23bc1ac0002b9c2284f9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91445775"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Solução de Dados de Fio 2.0 (Pré-visualização) no Monitor Azure
@@ -414,7 +414,7 @@ Os dados por fio recolhem metadados sobre o tráfego de rede com os agentes que 
 | RemoteIPLongitude | Valor da longitude do IP |
 | RemoteIPLatitude | Valor da latitude do IP |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Registos de pesquisa](../log-query/log-query-overview.md) para ver registos detalhados da pesquisa dos dados por fio.
 

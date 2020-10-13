@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: genli
 ms.openlocfilehash: 4cec8f77cacc5d3492dd6a5f8a8baa060f910763
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91650601"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Repor uma palavra-passe do Windows local da VM do Azure offline
