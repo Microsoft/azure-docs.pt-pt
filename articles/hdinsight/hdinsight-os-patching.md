@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/21/2020
 ms.openlocfilehash: 005bfd4b7e7d062640a79896ccd3d7f76e3d6fb3
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91447203"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Configure o calendário de remendos de SISTEMA para clusters HDInsight baseados em Linux
@@ -73,7 +73,7 @@ O `install-updates-schedule-reboots` guião aceita dois parâmetros numéricos, 
 > [!NOTE]
 > A opção 'Restart' programado faz um reinício automático dos nós de cluster remendados durante um período de 12 a 24 horas e tem em conta considerações de elevado domínio de disponibilidade, de atualização e de domínio de avaria. O Programado Restart não termina as cargas de trabalho de funcionamento, mas pode retirar a capacidade do cluster interinamente quando os nós não estiverem disponíveis, levando a tempos de processamento mais longos. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter etapas específicas sobre a utilização de ações de script, consulte as seguintes secções em [conjuntos HDInsight baseados em Linux utilizando ação de script](hdinsight-hadoop-customize-cluster-linux.md):
 

@@ -1,20 +1,20 @@
 ---
 title: Criar uma floresta de recursos de serviços de domínio Azure AD usando a Azure PowerShell Microsoft Docs
 description: Neste artigo, aprenda a criar e configurar uma floresta de recursos de recursos do Azure Ative Directory Domain Services e floresta de saída para um ambiente de Serviços de Domínio de Diretório Ativo no local utilizando a Azure PowerShell.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.author: iainfou
-ms.openlocfilehash: 893085179c27ce88c3e310170715e2f83a59ddc7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: e914c273adc632449ed31915127fe6d261a8d56c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88723168"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960954"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Crie uma floresta de recursos de serviços de diretório ativo Azure e uma confiança florestal de saída para um domínio no local usando a Azure PowerShell
 

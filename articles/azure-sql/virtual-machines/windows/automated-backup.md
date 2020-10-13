@@ -14,10 +14,10 @@ ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 7cc28aef76158f039f1174fc76d0ed29e8f67aea
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91565144"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Cópia de segurança automática v2 para máquinas virtuais Azure (Gestor de Recursos)
@@ -56,7 +56,7 @@ A tabela a seguir descreve as opções que podem ser configuradas para cópia de
 
 ### <a name="basic-settings"></a>Definições Básicas
 
-| Definição | Alcance (Padrão) | Description |
+| Definição | Alcance (Padrão) | Descrição |
 | --- | --- | --- |
 | **Cópia de Segurança Automatizada** | Ativar/Desativar (Desativado) | Permite ou desativa backup automatizado para um Azure VM que executa o SQL Server 2016/2017 Developer, Standard ou Enterprise. |
 | **Período de Retenção** | 1-30 dias (30 dias) | O número de dias para reter reforços. |
@@ -66,7 +66,7 @@ A tabela a seguir descreve as opções que podem ser configuradas para cópia de
 
 ### <a name="advanced-settings"></a>Definições Avançadas
 
-| Definição | Alcance (Padrão) | Description |
+| Definição | Alcance (Padrão) | Descrição |
 | --- | --- | --- |
 | **Backups de bases de dados do sistema** | Ativar/Desativar (Desativado) | Quando ativado, esta funcionalidade também confirma as bases de dados do sistema: Master, MSDB e Model. Para as bases de dados MSDB e Model, verifique se estão em modo de recuperação total se pretender que sejam tomadas cópias de segurança de registo. Os backups de registo nunca são levados para o Mestre. E não há reforços para o TempDB. |
 | **Horário de backup** | Manual/Automatizado (Automatizado) | Por predefinição, o calendário de backup é automaticamente determinado com base no crescimento do registo. A agenda manual de cópias de segurança permite ao utilizador especificar a janela de tempo para cópias de segurança. Neste caso, as cópias de segurança só ocorrem na frequência especificada e durante a janela de tempo especificada de um determinado dia. |

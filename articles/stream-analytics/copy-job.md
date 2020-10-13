@@ -8,17 +8,17 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/11/2019
 ms.openlocfilehash: e0214cb9515a5974f1de9a27760dc037f7593f30
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90892307"
 ---
 # <a name="copy-or-back-up-azure-stream-analytics-jobs"></a>Copiar ou apoiar trabalhos de Azure Stream Analytics
 
 Pode copiar ou fazer cópias de segurança dos seus trabalhos Azure Stream Analytics usando Visual Studio Code ou Visual Studio. Copiar um trabalho para outra região não copia o último tempo de saída. Portanto, não pode utilizar [**A última**](https://docs.microsoft.com/azure/stream-analytics/start-job#start-options) opção interrompida ao iniciar o trabalho copiado.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/).
 
 * Inicie sessão no [portal do Azure](https://portal.azure.com/).

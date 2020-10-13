@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 0e44280c0a6c0d39c98e3aeecd5e9a3707332e81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3950cc16cd8661ee4e509cf14d12f561cb29c4ea
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88236578"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940710"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Quais as novidades na Base de Dados Azure SQL & SQL Managed Instance?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -72,7 +72,7 @@ Esta tabela proporciona uma comparação rápida para a mudança na terminologia
 
 ---
 
-## <a name="sql-managed-instance-new-features-and-known-issues"></a>SQL Managed Instance novas funcionalidades e problemas conhecidos
+## <a name="new-features"></a>Novas funcionalidades
 
 ### <a name="sql-managed-instance-h2-2019-updates"></a>SQL Gestão de Ocorrências H2 2019 atualizações
 
@@ -93,10 +93,11 @@ As seguintes funcionalidades estão ativadas no modelo de implementação sql Ma
   - O novo [papel de contribuinte](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) incorporado permite a separação do dever (SoD) o cumprimento dos princípios de segurança e o cumprimento das normas empresariais.
   - SQL Managed Instance está disponível nas seguintes regiões do Governo Azure para GA (EUA Gov Texas, EUA Gov Arizona) bem como na China Norte 2 e China East 2. Também está disponível nas seguintes regiões públicas: Austrália Central, Austrália Central 2, Brasil Sul, França Sul, UAE Central, UAE North, África do Sul Norte, África do Sul Oeste.
 
-### <a name="known-issues"></a>Problemas conhecidos
+## <a name="known-issues"></a>Problemas conhecidos
 
 |Problema  |Data descoberta  |Estado  |Data resolvida  |
 |---------|---------|---------|---------|
+|[INSERÇÃO A GRANEL](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql) em Azure SQL e `BACKUP` / `RESTORE` declaração em Instância Gerida não pode usar Azure AD Manage Identity para autenticar para armazenamento Azure|Sep 2020|Tem Solução||
 |[Diretor de serviço não pode aceder a Azure AD e AKV](#service-principal-cannot-access-azure-ad-and-akv)|Agosto 2020|Tem Solução||
 |[Restaurar a cópia de segurança manual sem o CHECKSUM pode falhar](#restoring-manual-backup-without-checksum-might-fail)|Maio de 2020|Resolvido|Junho de 2020|
 |[Agente torna-se sem resposta ao modificar, desativar ou permitir empregos existentes](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maio de 2020|Resolvido|Junho de 2020|
@@ -124,6 +125,21 @@ As seguintes funcionalidades estão ativadas no modelo de implementação sql Ma
 |A base de dados pontual restaurada do nível Business Critical para o nível de Finalidade Geral não será bem sucedida se a base de dados de origem contiver objetos OLTP na memória.||Resolvido|Out 2019|
 |Funcionalidade de correio de base de dados com servidores de correio externos (não-Azure) utilizando ligação segura||Resolvido|Out 2019|
 |Bases de dados contidas não suportadas em SQL Gestd Instance||Resolvido|Ago 2019|
+
+### <a name="bulk-insert-and-backuprestore-statements-cannot-use-managed-identity-to-access-azure-storage"></a>Inserção a granel e backup/restauro não podem utilizar identidade gerida para aceder ao armazenamento do Azure
+
+A declaração de inserção a granel não pode ser utilizada `DATABASE SCOPED CREDENTIAL` com identidade gerida para autenticar para o armazenamento da Azure. Como solução alternativa, mude para a autenticação SIGNATURE DE ACESSO PARTILHADO. O exemplo a seguir não funcionará no Azure SQL (base de dados e instância gerida):
+
+```sql
+CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Identity';
+GO
+CREATE EXTERNAL DATA SOURCE MyAzureBlobStorage
+  WITH ( TYPE = BLOB_STORAGE, LOCATION = 'https://****************.blob.core.windows.net/curriculum', CREDENTIAL= msi_cred );
+GO
+BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzureBlobStorage');
+```
+
+**Solução alternativa**: Utilize [a Assinatura de Acesso Partilhado para autenticar para armazenamento](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage).
 
 ### <a name="service-principal-cannot-access-azure-ad-and-akv"></a>Diretor de serviço não pode aceder a Azure AD e AKV
 

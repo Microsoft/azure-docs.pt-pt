@@ -4,10 +4,10 @@ description: Configure a análise de dependência sem agente na Avaliação do S
 ms.topic: how-to
 ms.date: 6/08/2020
 ms.openlocfilehash: 57e5add810cf4fac232bce08fc7ca96df0a7c3a0
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91667474"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>Analisar dependências de máquinas (sem agente)
@@ -144,7 +144,7 @@ Descarregue o módulo PowerShell a partir de [Azure PowerShell Samples](https://
 
 ### <a name="log-in-to-azure"></a>Iniciar sessão no Azure
 
-1. Inicie sessão na sua subscrição Azure utilizando o cmdlet Connect-AzAccount.
+1. Inicie sessão na sua subscrição Azure utilizando o Connect-AzAccount cmdlet.
 
     ```PowerShell
     Connect-AzAccount
@@ -197,7 +197,7 @@ O Azure Migrate oferece um modelo power BI que pode utilizar para visualizar as 
 1. Descarregue o módulo PowerShell e o modelo Power BI a partir de [Azure PowerShell Samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale) repo no GitHub.
 
 2. Faça login em Azure usando as instruções abaixo: 
-- Inicie sessão na sua subscrição Azure utilizando o cmdlet Connect-AzAccount.
+- Inicie sessão na sua subscrição Azure utilizando o Connect-AzAccount cmdlet.
 
     ```PowerShell
     Connect-AzAccount
@@ -243,6 +243,6 @@ O Azure Migrate oferece um modelo power BI que pode utilizar para visualizar as 
 7. Visualizar o mapa das ligações de rede filtrando por servidores e processos. Guarde o ficheiro.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 [Máquinas de grupo](how-to-create-a-group.md) para avaliação.

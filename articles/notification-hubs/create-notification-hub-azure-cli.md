@@ -14,12 +14,12 @@ ms.author: dbradish
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5361931328ed107c7cc130b633a40b1582828aa1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ebed70a99e8e906db802099e052e69ab2575d737
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90024141"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875037"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Quickstart: Criar um centro de notificação Azure utilizando o Azure CLI
 
@@ -32,17 +32,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 > [!IMPORTANT]
-> Os Centros de Notificação requerem a versão 2.0.67 ou posterior do Azure CLI. Execute `az --version` para ver que versão e bibliotecas dependentes estão instaladas. Para instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
-
-## <a name="install-the-azure-cli-extension"></a>Instale a extensão Azure CLI
-
-Para trabalhar com referências de extensão da CLI do Azure, terá primeiro de instalar a extensão. As extensões Azure CLI dão-lhe acesso a comandos experimentais e pré-lançamento que não foram enviados como parte do núcleo CLI. Para saber mais sobre as extensões, incluindo a atualização e a desinstalação, veja [Utilizar extensões com a CLI do Azure](/cli/azure/azure-cli-extensions-overview).
-
-Instale a extensão Azure CLI para os Centros de Notificação.
-
-```azurecli
-az extension add --name notification-hub
-```
+> Os Centros de Notificação requerem a versão 2.0.67 ou posterior do Azure CLI. Executar [a versão az](/cli/azure/reference-index?#az_version) para encontrar a versão e bibliotecas dependentes que estão instaladas. Para atualizar para a versão mais recente, executar [atualização az](/cli/azure/reference-index?#az_upgrade).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -166,7 +156,7 @@ az group create --name spnhubrg --location eastus
    > [!NOTE]
    > Um [espaço de nome de Centros de Notificação](/cli/azure/ext/notification-hub/notification-hub/namespace/authorization-rule#ext-notification-hub-az-notification-hub-namespace-authorization-rule-list-keys) e um centro de [notificação](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys) têm políticas de acesso separadas. Certifique-se de que está a utilizar a referência Azure CLI correta ao consultar as teclas e as cordas de ligação.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, utilize o comando de eliminação do [grupo AZ](/cli/azure/group) para remover o grupo de recursos e todos os recursos relacionados:
 

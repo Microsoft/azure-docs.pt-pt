@@ -12,10 +12,10 @@ ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8884711bbb32054ca1d8e4d9f9e7dee753f0c629
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361930"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure Virtual Machines planejamento e implementação para SAP NetWeaver
@@ -620,7 +620,7 @@ A figura acima mostra que duas subscrições Azure têm subgrupos de endereço I
 
 A VPN ponto-a-local requer que todas as máquinas de clientes se conectem com a sua própria VPN em Azure. Para os cenários SAP, estamos a olhar para, a conectividade ponto-a-local não é prática. Por conseguinte, não são dadas mais referências à conectividade VPN ponto-a-local.
 
-Mais informações podem ser encontradas aqui
+Pode encontrar mais informações aqui
 * [Configure uma ligação ponto-a-local a um VNet utilizando o portal Azure](../../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 * [Configurar uma ligação de Ponto a Site a uma VNet com o PowerShell](../../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
 
@@ -963,7 +963,7 @@ Durante o download, os VHDs ou Discos Geridos não podem estar ativos. Mesmo ao 
   Save-AzVhd -ResourceGroupName <resource group name of storage account> -SourceUri http://<storage account name>.blob.core.windows.net/<container name>/sapidedata.vhd -LocalFilePath E:\Azure_downloads\sapidesdata.vhd
   ```
 
-  Para mais detalhes sobre o cmdlet Save-AzVhd, consulte aqui <https://docs.microsoft.com/powershell/module/az.compute/save-Azvhd> .
+  Para mais detalhes sobre o Save-AzVhd cmdlet, consulte <https://docs.microsoft.com/powershell/module/az.compute/save-Azvhd> aqui.
 
 #### <a name="azure-cli"></a>CLI do Azure
 * Descarregar um Disco Gerido primeiro precisa de ter acesso à bolha subjacente do Disco Gerido. Em seguida, pode copiar a bolha subjacente para uma nova conta de armazenamento e fazer o download da bolha desta conta de armazenamento.
@@ -998,7 +998,7 @@ Os discos de dados também podem ser Geridos Discos. Neste caso, o Disco Gerido 
 
 ##### <a name="powershell"></a>PowerShell
 
-Pode utilizar cmdlets Azure PowerShell para copiar um VHD como mostrado [neste artigo][storage-powershell-guide-full-copy-vhd]. Para criar um novo Disco Gerido, utilize o New-AzDiskConfig e o New-AzDisk como mostrado no exemplo seguinte.
+Pode utilizar cmdlets Azure PowerShell para copiar um VHD como mostrado [neste artigo][storage-powershell-guide-full-copy-vhd]. Para criar um novo Disco Gerido, utilize New-AzDiskConfig e New-AzDisk como mostrado no exemplo seguinte.
 
 ```powershell
 $config = New-AzDiskConfig -CreateOption Copy -SourceUri "/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Compute/disks/<disk name>" -Location <location>
@@ -1168,7 +1168,7 @@ A experiência das implementações da SAP nos últimos dois anos ensinou-nos al
 >
 
 ---
-* O Premium Storage está a apresentar um melhor desempenho significativo, especialmente para as gravações críticas de registos de transações. Para cenários SAP que se espera que entreguem produção como desempenho, é altamente recomendado usar VM-Series que possa alavancar o Azure Premium Storage.
+* O Premium Storage está a apresentar um melhor desempenho significativo, especialmente para as gravações críticas de registos de transações. Para cenários SAP que se espera que entreguem produção como desempenho, é altamente recomendado usar VM-Series que possam alavancar o Azure Premium Storage.
 
 Tenha em mente que o disco, que contém o SO, e como recomendamos, os binários do SAP e da base de dados (VM base) também não se limitam a 127 GB. Agora pode ter até 1 TB de tamanho. Isto deve ser espaço suficiente para manter todos os ficheiros necessários, incluindo, por exemplo, registos de trabalho em lote SAP.
 
@@ -1219,7 +1219,7 @@ A azure Geo-replicação funciona localmente em cada VHD em um VM e não replica
 >
 > Para definir a automonto, consulte a documentação da linha de comando executável diskpart.exe aqui:
 >
-> * [Opções de linha de comando diskpart](/previous-versions/windows/it-pro/windows-xp/bb490893(v=technet.10))
+> * [Opções de Command-Line de parte de disco](/previous-versions/windows/it-pro/windows-xp/bb490893(v=technet.10))
 > * [Automount](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc753703(v=ws.11))
 >
 > A janela da linha de comando do Windows deve ser aberta como administrador.
@@ -1738,7 +1738,7 @@ A arquitetura geral da extensão Azure para SAP parece:
 
 Os casos sap em execução em Azure também precisam de ser acessíveis a partir do SAProuter.
 
-![Ligação da rede SAP-Router][planning-guide-figure-2600]
+![Ligação de rede SAP-Router][planning-guide-figure-2600]
 
 Um SAProuter permite a comunicação TCP/IP entre os sistemas participantes se não houver ligação IP direta. Isto proporciona a vantagem de que não é necessária qualquer ligação de ponta a ponta entre os parceiros de comunicação a nível da rede. O SAProuter está a ouvir a porta 3299 por defeito.
 Para ligar as instâncias SAP através de um SAProuter, é necessário dar a cadeia SAProuter e o nome do anfitrião a qualquer tentativa de ligação.
@@ -1936,7 +1936,7 @@ Consulte aqui informações adicionais sobre o arranque automático para casos S
 * [Como ativar o arranque automático da Base de Dados HANA](http://sapbasisinfo.com/blog/2016/08/15/enabling-autostart-of-sap-hana-database-on-server-boot-situation/)
 
 ### <a name="larger-3-tier-sap-systems"></a>Sistemas SAP de 3 níveis maiores
-Os aspetos de Alta Disponibilidade das configurações DE SAP de 3 níveis já foram discutidos em secções anteriores. Mas e os sistemas onde os requisitos do servidor DBMS são demasiado grandes para o ter localizado em Azure, mas a camada de aplicação SAP poderia ser implantada em Azure?
+High-Availability aspetos das configurações DE SAP de 3 níveis já foram discutidos em secções anteriores. Mas e os sistemas onde os requisitos do servidor DBMS são demasiado grandes para o ter localizado em Azure, mas a camada de aplicação SAP poderia ser implantada em Azure?
 
 #### <a name="location-of-3-tier-sap-configurations"></a>Localização das configurações SAP de 3 níveis
 Não é suportado para dividir o próprio nível de aplicação ou o nível de aplicação e DBMS entre as instalações e o Azure. Um sistema SAP ou está completamente implantado no local ou em Azure. Também não é suportado para ter alguns dos servidores de aplicações executados no local e alguns outros em Azure. Este é o ponto de partida da discussão. Também não estamos a apoiar que os componentes DBMS de um sistema SAP e a camada de servidor de aplicação SAP sejam implantados em duas regiões diferentes do Azure. Por exemplo, a camada de aplicação DBMS nos EUA e SAP no Centro dos EUA. Razão para não suportar tais configurações é a sensibilidade de latência da arquitetura SAP NetWeaver.

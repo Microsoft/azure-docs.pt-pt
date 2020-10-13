@@ -3,12 +3,12 @@ title: Funções do modelo - cadeia
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure para trabalhar com cordas.
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 42df0317658971b9e9bf3fb805c9a5ff44efaf45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0733ffc790854c60dca46da3f763738b7820215
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "85962072"
+ms.locfileid: "91874718"
 ---
 # <a name="string-functions-for-arm-templates"></a>Funções de corda para modelos ARM
 
@@ -27,6 +27,7 @@ O Gestor de Recursos fornece as seguintes funções para trabalhar com cordas no
 * [formato](#format)
 * [guid](#guid)
 * [indexOf](#indexof)
+* [json](#json)
 * [último](#last)
 * [lastIndexOf](#lastindexof)
 * [length](#length)
@@ -894,6 +895,12 @@ A saída do exemplo anterior com os valores predefinidos é:
 | firstString | int | 2 |
 | últimastragem | int | 0 |
 | não Confuso | int | -1 |
+
+## <a name="json"></a>json
+
+`json(arg1)`
+
+Converte uma cadeia JSON válida num tipo de dados JSON. Para mais informações, consulte [a função json](template-functions-object.md#json).
 
 ## <a name="last"></a>último
 

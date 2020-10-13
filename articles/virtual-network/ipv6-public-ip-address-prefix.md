@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
 ms.openlocfilehash: ff33bf771065e7af209934a5c54b6f8f2e34835e
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91666788"
 ---
 # <a name="reserved-public-ipv6-address-prefix"></a>Prefixo de endereço público reservado IPv6
@@ -38,7 +38,7 @@ Estão disponíveis os seguintes tamanhos de prefixo IP públicos:
 -  Tamanho mínimo do prefixo IPv6: /127 = 2 endereços
 -  Tamanho máximo do prefixo IPv6: /124 = 16 endereços
 
-O tamanho do prefixo é especificado como um tamanho de máscara inter-domínio sem classe (CIDR). Por exemplo, uma máscara de /128 representa um endereço IPv6 individual, uma vez que os endereços IPv6 são compostos por 128 bits.
+O tamanho do prefixo é especificado como um tamanho de máscara de encaminhamento de Inter-Domain (CIDR) sem classe. Por exemplo, uma máscara de /128 representa um endereço IPv6 individual, uma vez que os endereços IPv6 são compostos por 128 bits.
 
 ## <a name="pricing"></a>Preços
  
@@ -49,7 +49,7 @@ O IPv6 é suportado em IPs públicos básicos apenas com uma atribuição "dinâ
 
 Como uma boa prática, recomendamos que utilize iPs públicos standard e balanceadores de carga padrão para as suas aplicações IPv6.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 - Reserve um [prefixo de endereço IPv6](ipv6-reserve-public-ip-address-prefix.md)público.
 - Saiba mais sobre [os endereços IPv6](ipv6-overview.md).
 - Saiba [como criar e utilizar os IPs públicos](virtual-network-public-ip-address.md) (tanto IPv4 como IPv6) em Azure.

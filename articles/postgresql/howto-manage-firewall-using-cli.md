@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 5/6/2019
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: cd96a4e8af5faab618f3302c423675b2dadca79a
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710860"
 ---
 # <a name="create-and-manage-firewall-rules-in-azure-database-for-postgresql---single-server-using-azure-cli"></a>Criar e gerir regras de firewall na Base de Dados Azure para PostgreSQL - Servidor Único usando Azure CLI
@@ -79,7 +79,7 @@ az postgres server firewall-rule delete --resource-group myresourcegroup --serve
 ```
 Após o sucesso, não há saída. Após falha, o texto da mensagem de erro é devolvido.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 - Da mesma forma, pode utilizar um navegador web para criar e gerir a [Base de Dados Azure para regras de firewall postgreSQL utilizando o portal Azure](howto-manage-firewall-using-portal.md).
 - Conheça mais sobre a [Base de Dados Azure para as regras de firewall do Servidor PostgreSQL](concepts-firewall-rules.md).
 - Acesso mais seguro ao seu servidor através da [criação e gestão de pontos finais de serviço de Rede Virtual e regras utilizando o Azure CLI](howto-manage-vnet-using-cli.md).

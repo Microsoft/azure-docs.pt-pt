@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 07/28/2020
 ms.author: aahi
 ms.openlocfilehash: 77b75b1134bbc8366478b1f9f4d14e86e9684f70
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91709539"
 ---
 # <a name="supported-entity-categories-in-the-text-analytics-api-v3"></a>Categorias de entidades apoiadas no Text Analytics API v3
@@ -37,6 +37,6 @@ Utilize este artigo para encontrar as categorias de entidades que podem ser devo
 
 ***
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * [Como utilizar o reconhecimento de entidade nomeada em análise de texto](how-tos/text-analytics-how-to-entity-linking.md)

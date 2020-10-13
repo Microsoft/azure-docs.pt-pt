@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: charwen
 ms.openlocfilehash: 1e76fffd17ee565d4103ca8a7bf1523bbd16209d
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91445378"
 ---
 # <a name="enable-and-work-with-bastion-resource-logs"></a>Enable and work with Bastion resource logs (Ativar e trabalhar com registos do recurso do Bastion)
@@ -77,6 +77,6 @@ Para aceder aos registos de diagnóstico, pode utilizar diretamente a conta de a
    }
    ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia as [FAQ do Bastião.](bastion-faq.md)

@@ -13,10 +13,10 @@ manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 09/29/2020
 ms.openlocfilehash: 158adb6b35b488c310bd2912d4076b86579383a4
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91446412"
 ---
 # <a name="manage-packages-with-azure-ssis-integration-runtime-package-store"></a>Gerir pacotes com loja de pacotes de runtime de integração Azure-SSIS
@@ -209,6 +209,6 @@ dtutil /SQL YourFolder\YourPackage3 /ENCRYPT FILE;Z:\YourFolder\YourPackage3.dts
 
 Se configurar as lojas de pacotes Azure-SSIS IR em cima dos Ficheiros Azure, os seus pacotes implantados aparecerão neles quando ligar ao seu Azure-SSIS IR em SSMS 2019 ou versões posteriores.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode reedição/edição dos oleodutos ADF gerados automaticamente com atividades do Pacote SSIS executado ou criar novos no portal ADF. Para obter mais informações, consulte [os pacotes Run SSIS como executar as atividades do Pacote SSIS em oleodutos ADF.](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)

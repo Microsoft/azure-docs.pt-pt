@@ -8,10 +8,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.openlocfilehash: e0dcd5db36e41093bf1cd75779770b04df2fc26a
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710656"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Criar uma oferta da aplicação Power BI
@@ -119,7 +119,7 @@ Os clientes devem aceitar estes termos antes de poderem experimentar a sua ofert
 
 Aqui definirá os detalhes da oferta que são apresentados no mercado. Isto inclui o nome da oferta, descrição, imagens, e assim por diante.
 
-### <a name="language"></a>Linguagem
+### <a name="language"></a>Idioma
 
 Selecione o idioma no qual a sua oferta será listada. Atualmente, **inglês (Estados Unidos)** é a única opção disponível.
 
@@ -146,7 +146,7 @@ Aqui está um exemplo de como as informações de oferta aparecem no Microsoft A
 10. Descrição
 11. Screenshots/vídeos
 
-### <a name="name"></a>Name
+### <a name="name"></a>Nome
 
 O nome que aqui entra apresenta como título da sua oferta. Este campo está pré-preenchido com o texto que inseriu na caixa **de pseudónimos Oferta** quando criou a oferta. Pode alterar este nome posteriormente.
 

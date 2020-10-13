@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
 ms.openlocfilehash: 56f5072c90a699270a92af317976c8f56bd3e2cb
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91536533"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Implementar SAP IDES EHP7 SP3 para SAP ERP 6.0 em Azure
@@ -105,7 +105,7 @@ Criou com sucesso uma conta SAP CAL que é capaz de:
 
     ![Modo Básico SAP CAL: Criar instância](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
 
-1. Clique em **Create** (Criar). Após algum tempo, dependendo do tamanho e complexidade da solução (a SAP CAL fornece uma estimativa), o estado é mostrado como ativo e pronto a ser utilizado: 
+1. Clique em **Criar**. Após algum tempo, dependendo do tamanho e complexidade da solução (a SAP CAL fornece uma estimativa), o estado é mostrado como ativo e pronto a ser utilizado: 
 
     ![Casos SAP CAL](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic12a.png)
 

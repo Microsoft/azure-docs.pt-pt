@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: aahi
 ms.openlocfilehash: 93fdf2884ca6593cfdb4fb2878ba0dd21246266d
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91446346"
 ---
 # <a name="how-to-configure-metrics-and-fine-tune-detecting-configuration"></a>Como: Configurar métricas e configuração de deteção de afinação
@@ -174,7 +174,7 @@ Clique num incidente para ir à página **de análise de Incidentes** onde pode 
 Se quiser ser notificado sempre que for detetada uma anomalia, pode subscrever alertas para a métrica, utilizando um gancho. Consulte [alertas de configuração e obtenha notificações usando um gancho](alerts.md) para obter mais informações.
 
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 - [Configurar alertas e obter notificações através de um alerta](alerts.md)
 - [Ajustar a deteção de anomalias através de comentários](anomaly-feedback.md)
 - [Diagnosticar um incidente.](diagnose-incident.md)

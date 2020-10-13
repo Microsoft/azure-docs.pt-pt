@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 8/7/2020
 ms.openlocfilehash: 9212142ff6f43a84b141b0781fbe9828eebcbd40
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91537162"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Replicar dados na Base de Dados Azure para o MySQL
@@ -35,7 +35,7 @@ Para saltar as tabelas de replicação do seu servidor de origem (hospedados no 
 
 Reveja a documentação do [MySQL](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#option_mysqld_replicate-wild-ignore-table) para saber mais sobre este parâmetro.
 
-### <a name="requirements"></a>Requirements
+### <a name="requirements"></a>Requisitos
 - A versão do servidor de origem deve ser pelo menos a versão 5.6 do MySQL. 
 - As versões de servidor de origem e réplica devem ser as mesmas. Por exemplo, ambos devem ser a versão 5.6 do MySQL ou ambas devem ser a versão 5.7 do MySQL.
 - Cada mesa deve ter uma chave primária.
@@ -46,11 +46,11 @@ Reveja a documentação do [MySQL](https://dev.mysql.com/doc/refman/8.0/en/repli
 - Certifique-se de que a máquina que hospeda o servidor de origem permite o tráfego de entrada e saída na porta 3306.
 - Certifique-se de que o servidor de origem tem um **endereço IP público,** o DNS é acessível ao público ou tem um nome de domínio totalmente qualificado (FQDN).
 
-### <a name="other"></a>Outros
+### <a name="other"></a>Outro
 - A replicação de dados só é suportada nos níveis de preços otimizados para fins gerais e memória.
 - Os identificadores globais de transações (GTID) não são suportados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba como configurar a [replicação de dados](howto-data-in-replication.md)
 - Saiba mais [sobre a replicação em Azure com réplicas de leitura](concepts-read-replicas.md)
 - Saiba como [migrar dados com tempo mínimo de inatividade usando DMS](howto-migrate-online.md)

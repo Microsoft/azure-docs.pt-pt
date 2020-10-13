@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.openlocfilehash: 1f1af53388f177dc348c5cb805ef8e6fbe9f9436
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710826"
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-postgresql---single-server"></a>Migração mínima para a base de dados Azure para PostgreSQL - Servidor Único
@@ -23,6 +23,6 @@ O Azure DMS realiza uma carga inicial das suas instalações para a Azure Databa
 
 :::image type="content" source="./media/howto-migrate-online/ContinuousSync.png" alt-text="Sincronização contínua com o Serviço de Migração da Base de Dados Azure":::
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 - Veja a modernização da aplicação de vídeo [com o Microsoft Azure,](https://medius.studios.ms/Embed/Video/BRK2102?sid=BRK2102)que contém uma demonstração que mostra como migrar aplicações PostgreSQL para Azure Database for PostgreSQL.
 - Consulte o tutorial [Migrar PostgreSQL para Azure Database para PostgreSQL on-line usando DMS](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online).

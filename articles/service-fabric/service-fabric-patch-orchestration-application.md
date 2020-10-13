@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
 ms.openlocfilehash: 8f92501bdb8261a67d3dc2b8aefbe1fb1498ef1e
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91445888"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corrigir o sistema operativo Windows no seu cluster de Tecido de Serviço
@@ -166,7 +166,7 @@ Pode configurar o comportamento do POA para satisfazer as suas necessidades. Sob
 | WURescheduleCount     | int <br> (Predefinição: *5*)                  | O número máximo de vezes que o serviço reage a atualização do Windows se uma operação falhar persistentemente.          |
 | WURescheduleTimeInMinutes | int <br>(Predefinição: *30)* | O intervalo em que o serviço reagenda as atualizações do Windows se a falha persistir. |
 | WuFrequency           | Cadeia separada por vírgula (Padrão: *Semanal, quarta-feira, 7:00:00)*     | A frequência para instalar atualizações do Windows. O formato e os valores possíveis são: <br>- Mensalmente, DD, HH:MM:SS (exemplo: *Mensal, 5, 12:22:32*). Os valores permitidos para _DD_ de campo (dia) são números de 1 a 28 e _último_. <br>- Semanal, Dia, HH:MM:SS (exemplo: *Semanal, terça-feira, 12:22:32)*  <br>- Diariamente, HH:MM:SS (exemplo: *Diariamente, 12:22:32)*  <br>- Semana, Dia, HH:MM:SS (exemplo: *2, sexta-feira, 21:00:00* indica 21:00 UTC na sexta-feira da 2ª semana de cada mês) <br>- *Nenhum* indica que as atualizações do Windows não devem ser feitas.  <br><br> Os tempos estão na UTC.|
-| AcceptWindowsUpdateEula | Booleano <br>(Predefinição: *verdadeiro)* | Ao definir esta bandeira, a aplicação aceita o Contrato de Licença de Utilizador Final para a atualização do Windows em nome do proprietário da máquina.              |
+| AcceptWindowsUpdateEula | Booleano <br>(Predefinição: *verdadeiro)* | Ao definir esta bandeira, a aplicação aceita o Contrato de Licença End-User para atualização do Windows em nome do proprietário da máquina.              |
 
 > [!TIP]
 > Se pretender que as atualizações do Windows ocorram imediatamente, `WUFrequency` desative-se em relação ao tempo de implementação da aplicação. Por exemplo, suponha que você tem um cluster de teste de cinco nós e planeie implementar a app por volta das 17:00 UTC. Se assumir que a atualização ou implantação da aplicação demora no máximo 30 minutos, desaline a WUFrequency como *Daily, 17:30:00*.
@@ -439,7 +439,7 @@ R: O POA utiliza o Service Fabric Repair Manager para criar tarefas de reparaç�
 
 ## <a name="disclaimers"></a>Exclusões de Responsabilidade
 
-- A POA aceita o Contrato de Licença de Utilizador Final para a Atualização do Windows em nome do utilizador. Opcionalmente, a definição pode ser desligada na configuração da aplicação.
+- A POA aceita o Contrato de Licença End-User para a Atualização do Windows em nome do utilizador. Opcionalmente, a definição pode ser desligada na configuração da aplicação.
 
 - O POA recolhe telemetria para acompanhar o uso e o desempenho. A telemetria da aplicação segue a definição da definição de telemetria do tecido de serviço (que está ligado por predefinição).
 

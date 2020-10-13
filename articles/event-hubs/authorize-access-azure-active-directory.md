@@ -4,16 +4,16 @@ description: Este artigo fornece informações sobre a autorização de acesso a
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.openlocfilehash: 48d2bc1aa3389459077bb7b8df0ac63ce1e1a438
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91566266"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autorizar o acesso aos recursos do Event Hubs utilizando o Azure Ative Directory
 O Azure Event Hubs suporta a utilização do Azure Ative Directory (Azure AD) para autorizar pedidos aos recursos do Event Hubs. Com o Azure AD, pode utilizar o controlo de acesso baseado em funções (RBAC) para conceder permissões a um principal de segurança, que pode ser um utilizador ou um diretor de serviço de aplicação. Para saber mais sobre papéis e atribuições de papéis, consulte [compreender os diferentes papéis.](../role-based-access-control/overview.md)
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Quando um diretor de segurança (um utilizador ou uma aplicação) tenta aceder a um recurso do Event Hubs, o pedido deve ser autorizado. Com o Azure AD, o acesso a um recurso é um processo em duas etapas. 
 
  1. Primeiro, a identidade do diretor de segurança é autenticada, e um token OAuth 2.0 é devolvido. O nome do recurso para solicitar um token é `https://eventhubs.azure.net/` . Para os clientes kafka, o recurso para solicitar um token é `https://<namespace>.servicebus.windows.net` .
@@ -33,7 +33,7 @@ Quando um papel de Azure é atribuído a um diretor de segurança da AZure, a Az
 ## <a name="azure-built-in-roles-for-azure-event-hubs"></a>Azure papéis incorporados para Azure Event Hubs
 A Azure fornece as seguintes funções incorporadas do Azure para autorizar o acesso aos dados do Event Hubs utilizando Azure AD e OAuth:
 
-| Função | Description | 
+| Função | Descrição | 
 | ---- | ----------- | 
 | [Proprietário de dados Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) | Use esta função para dar acesso completo aos recursos do Event Hubs. |
 | [Remetente de dados do Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) | Use esta função para dar acesso ao envio aos recursos do Event Hubs. |

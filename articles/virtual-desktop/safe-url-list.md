@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f9f68d3734cd7de83a2ddd376caefa410c619d61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90db861a4ef4fc951844d3ae82a51d20cf9dc8c5
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "89291114"
+ms.locfileid: "91875109"
 ---
 # <a name="safe-url-list"></a>Lista de URLs seguros
 
@@ -19,17 +19,19 @@ Terá de desbloquear certos URLs para que a sua implementação virtual do Windo
 
 ## <a name="virtual-machines"></a>Máquinas virtuais
 
-As máquinas virtuais Azure que cria para o Windows Virtual Desktop devem ter acesso aos seguintes URLs:
+As máquinas virtuais Azure que cria para o Windows Virtual Desktop devem ter acesso aos seguintes URLs na nuvem comercial Azure:
 
 |Endereço|Porta TCP de saída|Objetivo|Etiqueta de serviço|
 |---|---|---|---|
 |*.wvd.microsoft.com|443|Tráfego de serviço|WindowsVirtualDesktop|
-|mrsglobalsteus2prod.blob.core.windows.net|443|Atualizações da pilha de agente e SXS|AzureCloud|
-|*.core.windows.net|443|Tráfego de agentes|AzureCloud|
-|*.servicebus.windows.net|443|Tráfego de agentes|AzureCloud|
 |gcs.prod.monitoring.core.windows.net|443|Tráfego de agentes|AzureCloud|
+|production.diagnostics.monitoring.core.windows.net|443|Tráfego de agentes|AzureCloud|
+|*xt.blob.core.windows.net|443|Tráfego de agentes|AzureCloud|
+|*eh.servicebus.windows.net|443|Tráfego de agentes|AzureCloud|
+|*xt.table.core.windows.net|443|Tráfego de agentes|AzureCloud|
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Ativação do Windows|Internet|
+|mrsglobalsteus2prod.blob.core.windows.net|443|Atualizações da pilha de agente e SXS|AzureCloud|
 |wvdportalstorageblob.blob.core.windows.net|443|Suporte ao portal Azure|AzureCloud|
 | 169.254.169.254 | 80 | [Ponto final do serviço de metadados Azure Instance](../virtual-machines/windows/instance-metadata-service.md) | N/D |
 | 168.63.129.16 | 80 | [Monitorização de sessão de saúde anfitrião](../virtual-network/security-overview.md#azure-platform-considerations) | N/D |
@@ -39,16 +41,33 @@ As máquinas virtuais Azure que cria para o Windows Virtual Desktop devem ter ac
 >
 >Recomendamos que utilize tags FQDN ou tags de serviço em vez de URLs para evitar problemas de serviço. Os URLs e tags listados apenas correspondem a sites e recursos virtuais do Windows Virtual Desktop. Não incluem URLs para outros serviços como o Azure Ative Directory.
 
-A tabela que se segue lista URLs opcionais aos que as suas máquinas virtuais Azure podem ter acesso:
+As máquinas virtuais Azure que cria para o Windows Virtual Desktop devem ter acesso aos seguintes URLs na nuvem do Governo Azure:
 
 |Endereço|Porta TCP de saída|Objetivo|Etiqueta de serviço|
 |---|---|---|---|
-|*.microsoftonline.com|443|Autenticação para serviços online da Microsoft|Nenhum|
+|*.wvd.microsoft.us|443|Tráfego de serviço|WindowsVirtualDesktop|
+|gcs.monitoring.core.usgovcloudapi.net|443|Tráfego de agentes|AzureCloud|
+|monitoring.core.usgovcloudapi.net|443|Tráfego de agentes|AzureCloud|
+|fairfax.warmpath.usgovcloudapi.net|443|Tráfego de agentes|AzureCloud|
+|*xt.blob.core.usgovcloudapi.net|443|Tráfego de agentes|AzureCloud|
+|*.servicebus.usgovcloudapi.net|443|Tráfego de agentes|AzureCloud|
+|*xt.table.core.usgovcloudapi.net|443|Tráfego de agentes|AzureCloud|
+|Kms.core.usgovcloudapi.net|1688|Ativação do Windows|Internet|
+|mrsglobalstugviffx.core.usgovcloudapi.net|443|Atualizações da pilha de agente e SXS|AzureCloud|
+|wvdportalstorageblob.blob.core.usgovcloudapi.net|443|Suporte ao portal Azure|AzureCloud|
+| 169.254.169.254 | 80 | [Ponto final do serviço de metadados Azure Instance](../virtual-machines/windows/instance-metadata-service.md) | N/D |
+| 168.63.129.16 | 80 | [Monitorização de sessão de saúde anfitrião](../virtual-network/security-overview.md#azure-platform-considerations) | N/D |
+
+A tabela que se segue lista URLs opcionais aos que as suas máquinas virtuais Azure podem ter acesso:
+
+|Endereço|Porta TCP de saída|Objetivo|Azure Gov|
+|---|---|---|---|
+|*.microsoftonline.com|443|Autenticação para serviços online da Microsoft|login.microsoftonline.us|
 |*.events.data.microsoft.com|443|Serviço de Telemetria|Nenhum|
 |www.msftconnecttest.com|443|Deteta se o SO está ligado à internet|Nenhum|
 |*.prod.do.dsp.mp.microsoft.com|443|Windows Update|Nenhum|
-|login.windows.net|443|Iniciar sôms nos Serviços Online da Microsoft, Microsoft 365|Nenhum|
-|*.sfx.ms|443|Atualizações para software de cliente OneDrive|Nenhum|
+|login.windows.net|443|Iniciar sôms nos Serviços Online da Microsoft, Microsoft 365|login.microsoftonline.us|
+|*.sfx.ms|443|Atualizações para software de cliente OneDrive|oneclient.sfx.ms|
 |*.digicert.com|443|Verificação de revogação do certificado|Nenhum|
 
 >[!NOTE]
@@ -66,15 +85,15 @@ A tabela que se segue lista URLs opcionais aos que as suas máquinas virtuais Az
 
 Quaisquer clientes de Ambiente de Trabalho remoto que utilize devem ter acesso aos seguintes URLs:
 
-|Endereço|Porta TCP de saída|Objetivo|Clientes(s)|
-|---|---|---|---|
-|*.wvd.microsoft.com|443|Tráfego de serviço|Todos|
-|*.servicebus.windows.net|443|Dados de resolução de problemas|Todos|
-|go.microsoft.com|443|Microsoft FWLinks|Todos|
-|aka.ms|443|Encurtador de URL da Microsoft|Todos|
-|docs.microsoft.com|443|Documentação|Todos|
-|privacy.microsoft.com|443|Declaração de privacidade|Todos|
-|query.prod.cms.rt.microsoft.com|443|Atualizações de clientes|Ambiente de Trabalho do Windows|
+|Endereço|Porta TCP de saída|Objetivo|Clientes(s)|Azure Gov|
+|---|---|---|---|---|
+|*.wvd.microsoft.com|443|Tráfego de serviço|Todos|*.wvd.microsoft.us|
+|*.servicebus.windows.net|443|Dados de resolução de problemas|Todos|*.servicebus.usgovcloudapi.net|
+|go.microsoft.com|443|Microsoft FWLinks|Todos|Nenhum|
+|aka.ms|443|Encurtador de URL da Microsoft|Todos|Nenhum|
+|docs.microsoft.com|443|Documentação|Todos|Nenhum|
+|privacy.microsoft.com|443|Declaração de privacidade|Todos|Nenhum|
+|query.prod.cms.rt.microsoft.com|443|Atualizações de clientes|Ambiente de Trabalho do Windows|Nenhum|
 
 >[!IMPORTANT]
 >A abertura destes URLs é essencial para uma experiência confiável do cliente. O bloqueio do acesso a estes URLs não é suportado e irá afetar a funcionalidade do serviço.

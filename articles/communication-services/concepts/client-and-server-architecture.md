@@ -10,10 +10,10 @@ ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.openlocfilehash: b844f61963081bf355837fd26254915112cbce11
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91666947"
 ---
 # <a name="client-and-server-architecture"></a>Arquitetura de Clientes e Servidores
@@ -75,12 +75,12 @@ Pode querer trocar dados arbitrários entre os utilizadores, por exemplo, para s
 - **Chamar a biblioteca de clientes** - Os dispositivos numa chamada têm acesso a APIs para envio e receção de dados pelo canal de chamadas. Esta é a forma mais fácil de adicionar comunicação de dados a uma interação existente.
 - **STUN/TURN** - Azure Communication Services disponibiliza os serviços STUN e TURN compatíveis com as normas. Isto permite-lhe construir uma camada de transporte fortemente personalizada em cima destes primitivos padronizados. Pode autoriar o seu próprio cliente em conformidade com padrões ou utilizar bibliotecas de código aberto, como [o WinRTC.](https://github.com/microsoft/winrtc)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criação de fichas de acesso ao utilizador](../quickstarts/access-tokens.md)
 
-Para obter mais informações, veja os seguintes artigos:
+Para obter mais informações, veja os artigos seguintes:
 
 - Saiba mais [sobre a autenticação](../concepts/authentication.md)
 - Conheça as [soluções PSTN e SMS](../concepts/telephony-sms/plan-solution.md)

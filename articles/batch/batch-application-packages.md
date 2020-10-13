@@ -8,10 +8,10 @@ ms.custom:
 - devx-track-csharp
 - contperfq1
 ms.openlocfilehash: 1bacb0c71c05aeb983bfa9ebf71873a22fea39a1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91277704"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementar aplicações para calcular os nóns com pacotes de aplicações batch
@@ -77,7 +77,7 @@ O serviço Batch utiliza o Azure Storage para armazenar os seus pacotes de aplic
 
 Para ver as aplicações na sua conta Batch, selecione **Aplicações** no menu de navegação à esquerda.
 
-:::image type="content" source="media/batch-application-packages/app_pkg_02.png" alt-text="Screenshot do item do menu aplicações no portal Azure.":::
+:::image type="content" source="media/batch-application-packages/app_pkg_02.png" alt-text="Diagrama que mostra uma visão de alto nível das aplicações e pacotes de aplicações.":::
 
 A seleção desta opção de menu abre a janela **Aplicações.** Esta janela apresenta o ID de cada aplicação na sua conta e as seguintes propriedades:
 
@@ -101,7 +101,7 @@ Para criar uma nova aplicação, adicione um pacote de aplicações e especifiqu
 
 Na sua conta Batch, selecione **Aplicações** e, em seguida, **selecione Adicionar**.
 
-:::image type="content" source="media/batch-application-packages/app_pkg_05.png" alt-text="Screenshot do novo processo de criação de aplicações no portal Azure.":::
+:::image type="content" source="media/batch-application-packages/app_pkg_05.png" alt-text="Diagrama que mostra uma visão de alto nível das aplicações e pacotes de aplicações.":::
 
 Introduza as seguintes informações:
 
@@ -128,7 +128,7 @@ Tal como fez para a nova aplicação, especifique a **versão** para o seu novo 
 
 Para atualizar ou eliminar um pacote de aplicações existente, selecione a aplicação na secção **Aplicações** da sua conta Batch. Selecione a elipse na linha do pacote de aplicações que pretende modificar e, em seguida, selecione a ação que pretende realizar.
 
-:::image type="content" source="media/batch-application-packages/app_pkg_07.png" alt-text="Screenshot mostrando a atualização e eliminando opções para pacotes de aplicações no portal Azure.":::
+:::image type="content" source="media/batch-application-packages/app_pkg_07.png" alt-text="Diagrama que mostra uma visão de alto nível das aplicações e pacotes de aplicações.":::
 
 Se selecionar **Update,** poderá carregar um novo ficheiro .zip. Isto substituirá o ficheiro .zip anterior que carregou para esta versão.
 

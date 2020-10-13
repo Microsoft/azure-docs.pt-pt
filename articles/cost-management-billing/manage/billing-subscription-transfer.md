@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: ef497439d77fef63f4b0c902aee06428a30c5ff5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1fedad7dac4c253c68a0f27d0e0470123833a3be
+ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91276735"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91666114"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de faturação de uma subscrição do Azure para outra conta
 
@@ -56,7 +56,7 @@ Quando se inscreve no Azure, é criado um inquilino do Azure Active Directory (A
 
 Quando cria uma nova subscrição, esta é alojada no inquilino do Azure AD da sua conta. Se quiser conceder a outras pessoas acesso à sua subscrição ou aos seus recursos, precisa de convidá-las para aderirem ao seu inquilino. Fazê-lo ajuda a controlar o acesso às suas subscrições e recursos.
 
-Quando transfere a propriedade de faturação da sua subscrição para uma conta noutro inquilino do Azure AD, pode mover a subscrição para o inquilino da nova conta. Se o fizer, deixarão de ter acesso todos os utilizadores, grupos ou principais de serviço que tiverem [atribuições de funções do Azure](../../role-based-access-control/role-assignments-portal.md) para gerir subscrições e respetivos recursos. Apenas o utilizador na nova conta que aceite o seu pedido de transferência terá acesso para gerir os recursos. O novo proprietário tem de adicionar manualmente estes utilizadores à subscrição para conceder acesso ao utilizador que o perdeu. Para obter mais informações, veja [Transferir uma subscrição do Azure para outro diretório do Azure AD (Pré-visualização)](../../role-based-access-control/transfer-subscription.md).
+Quando transfere a propriedade de faturação da sua subscrição para uma conta noutro inquilino do Azure AD, pode mover a subscrição para o inquilino da nova conta. Se o fizer, deixarão de ter acesso todos os utilizadores, grupos ou principais de serviço que tiverem [atribuições de funções do Azure](../../role-based-access-control/role-assignments-portal.md) para gerir subscrições e respetivos recursos. Apenas o utilizador na nova conta que aceite o seu pedido de transferência terá acesso para gerir os recursos. O novo proprietário tem de adicionar manualmente estes utilizadores à subscrição para conceder acesso ao utilizador que o perdeu. Para obter mais informações, veja [Transferir uma subscrição do Azure para outro diretório do Azure AD](../../role-based-access-control/transfer-subscription.md).
 
 ## <a name="transfer-visual-studio-and-partner-network-subscriptions"></a>Transferir subscrições do Visual Studio e do Partner Network
 

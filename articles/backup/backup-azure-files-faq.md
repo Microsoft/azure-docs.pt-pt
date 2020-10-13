@@ -3,12 +3,12 @@ title: FAQ sobre como Fazer Cópias de Segurança de Ficheiros do Azure
 description: Neste artigo, descubra respostas a perguntas comuns sobre como proteger as suas partilhas de ficheiros Azure com o serviço de Backup Azure.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 74d8cc9cdb1d9c01c8238f205ae485b61d665cd7
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: e2b6afb25e189ee2848f25c0ba59d843baf37090
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91729071"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940840"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Perguntas sobre a cópia de segurança de Ficheiros do Azure
 
@@ -78,20 +78,20 @@ Todas as imagens tiradas pelo Azure Backup podem ser acedidas através da visual
 
 ### <a name="what-happens-after-i-move-a-backed-up-file-share-to-a-different-subscription"></a>O que acontece depois de mudar uma parte de ficheiro suspensa para uma subscrição diferente?
 
-Uma vez que uma partilha de ficheiros é transferida para uma subscrição diferente, é considerada como uma nova partilha de ficheiros pela Azure Backup. Seguem-se os passos recomendados:
+Uma vez que uma partilha de ficheiros é transferida para uma subscrição diferente, é considerada como uma nova partilha de ficheiros pela Azure Backup. Estes são os passos recomendados:
  
-Cenário: Digamos que tem uma partilha de ficheiros FS1 na subscrição S1 e está protegido através do cofre V1. Agora quer mover a sua parte do ficheiro para a subscrição S2.
+Cenário: Digamos que tem uma partilha de *ficheiros FS1* na subscrição *S1* e está protegido usando o cofre *V1.* Agora quer mover a sua parte do ficheiro para a subscrição *S2*.
  
-1.  Mover a conta de armazenamento e a partilha de ficheiros desejadas (FS1) para uma subscrição diferente (S2).
-2.  No cofre V1, acionar a proteção contra o gatilho com a eliminação da operação de dados para FS1.
+1.  Mover a conta de armazenamento e a partilha de ficheiros desejadas (FS1) para a subscrição diferente (S2).
+2.  No cofre V1, desencadeie a proteção de paragem com a eliminação da operação de dados para FS1.
 3.  Desagregar a conta de armazenamento que hospeda FS1 do cofre V1.
-4.  Reconfigure a cópia de segurança para fS1, agora transferida para S2, com um cofre (V2) na subscrição S2. 
+4.  Reconfigure a cópia de segurança para o FS1, agora transferida para S2, com um cofre (V2) na assinatura S2. 
  
-Por favor, note que depois de reconfigurar a cópia de segurança com v2, as imagens que foram tiradas com V1 deixarão de ser geridas pela Azure Backup e, portanto, terá de apagar essas imagens manualmente de acordo com o seu requisito.
+Note que depois de reconfigurar a cópia de segurança com v2, as imagens que foram tiradas com V1 deixarão de ser geridas pela Azure Backup. Por isso, terá de apagar as fotos manualmente de acordo com os seus requisitos.
 
 ### <a name="can-i-move-my-backed-up-file-share-to-a-different-resource-group"></a>Posso mover a minha parte de ficheiros de apoio para um grupo de recursos diferente?
  
-Sim, pode mover a sua partilha de ficheiros com apoio para um grupo de recursos diferente. No entanto, terá de reconfigurar a cópia de segurança para a partilha de ficheiros, uma vez que seria tratada como um novo recurso pela Azure Backup. Além disso, os instantâneos que foram criados antes da mudança do grupo de recursos, deixarão de ser geridos pelo backup do Azure . Por isso, terá de apagar as imagens manualmente de acordo com o seu requisito.
+Sim, pode mover a sua partilha de ficheiros com apoio para um grupo de recursos diferente. No entanto, terá de reconfigurar a cópia de segurança para a partilha de ficheiros, uma vez que será tratada como um novo recurso pela Azure Backup. Além disso, os instantâneos que foram criados antes do movimento do grupo de recursos deixarão de ser geridos por backup do Azure. Por isso, terá de apagar as fotos manualmente de acordo com os seus requisitos.
 
 ### <a name="what-is-the-maximum-retention-i-can-configure-for-backups"></a>Qual é a retenção máxima que posso configurar para reforços?
 

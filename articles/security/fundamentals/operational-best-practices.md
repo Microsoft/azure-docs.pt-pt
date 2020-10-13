@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 7c429ad04a4c1e881c84c3af9dfa9ee553963917
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 5696bd167010ae81249eeac3134b79d3d5307288
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629799"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91943871"
 ---
 # <a name="azure-operational-security-best-practices"></a>Melhores práticas de Segurança Operacional da Azure
 Este artigo fornece um conjunto de boas práticas operacionais para proteger os seus dados, aplicações e outros ativos em Azure.
@@ -116,7 +116,7 @@ A pontuação segura, que se baseia nos controlos do Center for Internet Securit
 **Detalhe**: Siga as [recomendações de segurança](../../security-center/security-center-recommendations.md) no Centro de Segurança a partir de início, com os itens de maior prioridade.
 
 **Melhores práticas**: Integrar alertas do Centro de Segurança na sua solução de informação de segurança e gestão de eventos (SIEM).   
-**Detalhe**: A maioria das organizações com um SIEM usam-na como centro de compensação para alertas de segurança que requerem uma resposta analista. Os eventos processados produzidos pelo Security Center são publicados no Registo de Atividades do Azure, um dos registos disponíveis através do Azure Monitor. O Azure Monitor oferece um oleoduto consolidado para encaminhar qualquer um dos seus dados de monitorização para uma ferramenta SIEM. Consulte [alertas de segurança de exportação e recomendações](../../security-center/continuous-export.md#configure-siem-integration-via-azure-event-hubs) para instruções.. Se estiver a utilizar o Azure Sentinel, consulte [o Connect Azure Security Center](../../sentinel/connect-azure-security-center.md).
+**Detalhe**: A maioria das organizações com um SIEM usam-na como centro de compensação para alertas de segurança que requerem uma resposta analista. Os eventos processados produzidos pelo Security Center são publicados no Registo de Atividades do Azure, um dos registos disponíveis através do Azure Monitor. O Azure Monitor oferece um oleoduto consolidado para encaminhar qualquer um dos seus dados de monitorização para uma ferramenta SIEM. Consulte [alertas stream para uma solução siem, soar ou gestão de serviços de TI](../../security-center/export-to-siem.md) para obter instruções. Se estiver a utilizar o Azure Sentinel, consulte [o Connect Azure Security Center](../../sentinel/connect-azure-security-center.md).
 
 **Melhores práticas**: Integre os registos Azure com o seu SIEM.   
 **Detalhe**: Utilize [o Monitor Azure para recolher e exportar dados](/azure/azure-monitor/overview#integrate-and-export-data). Esta prática é fundamental para permitir a investigação de incidentes de segurança, e a retenção de registos on-line é limitada. Se estiver a utilizar o Azure Sentinel, consulte [as fontes de dados do Connect](../../sentinel/connect-data-sources.md).
@@ -221,7 +221,7 @@ Para obter mais informações, consulte [Criar e gerir políticas para impor o c
 ## <a name="monitor-azure-ad-risk-reports"></a>Monitor Azure Relatórios de risco AD
 A grande maioria das falhas de segurança ocorre quando os atacantes têm acesso a um ambiente roubando a identidade de um utilizador. Descobrir identidades comprometidas não é tarefa fácil. O Azure AD utiliza algoritmos de aprendizagem automática adaptativa e heurística para detetar ações suspeitas relacionadas com as suas contas de utilizador. Cada ação suspeita detetada é armazenada num registo chamado deteção de [risco.](../../active-directory/reports-monitoring/concept-risk-events.md) As deteções de risco são registadas nos relatórios de segurança da AZure. Para mais informações, leia sobre os [utilizadores em relatório](../../active-directory/reports-monitoring/concept-user-at-risk.md) de segurança de risco e o [relatório de segurança de entradas de risco](../../active-directory/reports-monitoring/concept-risky-sign-ins.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte as [melhores práticas e padrões](best-practices-and-patterns.md) de segurança da Azure para obter mais boas práticas de segurança quando estiver a desenhar, implementar e gerir as suas soluções em nuvem utilizando o Azure.
 
 Estão disponíveis os seguintes recursos para fornecer informações mais gerais sobre a segurança da Azure e serviços relacionados com a Microsoft:

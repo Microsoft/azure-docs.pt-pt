@@ -8,10 +8,10 @@ author: emuench
 ms.author: mingshen
 ms.date: 08/07/2020
 ms.openlocfilehash: 46749015d5141053eaea3f2f251bbba7d9455481
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91709021"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Crie uma oferta de máquina virtual Azure no Azure Marketplace
@@ -31,7 +31,7 @@ Ao publicar as suas ofertas no Azure Marketplace, pode:
 - Obtenha pistas de alta qualidade destes mercados.
 - Obtenha os seus serviços promovidos pelas equipas de vendas e televendas da Microsoft.
 
-### <a name="before-you-begin"></a>Before you begin
+### <a name="before-you-begin"></a>Antes de começar
 
 Se ainda não o fez, reveja o [guia de publicação da oferta de máquinas Virtuais](../marketplace-virtual-machines.md) e este material Azure Virtual Machine:
 
@@ -180,7 +180,7 @@ Na página de **listagem da Oferta,** define os detalhes da oferta, tais como no
 
 ### <a name="marketplace-details"></a>Detalhes do mercado
 
-#### <a name="name"></a>Name
+#### <a name="name"></a>Nome
 
 O nome que aqui entra é mostrado aos clientes como o título da sua listagem de oferta. Este campo é preenchido automaticamente com o nome que inseriu na caixa **de pseudónimos Oferta** quando criou a oferta. Pode alterar este nome posteriormente. O nome:
 
@@ -226,7 +226,7 @@ Forneça o site de suporte onde os clientes podem chegar à sua equipa de apoio.
 
 Forneça informações de contacto para os parceiros da Microsoft utilizarem quando os seus clientes abrirem um bilhete de suporte. Esta informação não está listada no Azure Marketplace.
 
-- Name
+- Nome
 - E-mail
 - Telefone
 
@@ -234,7 +234,7 @@ Forneça informações de contacto para os parceiros da Microsoft utilizarem qua
 
 Forneça informações de contacto para que a Microsoft possa utilizar quando houver problemas com a sua oferta, incluindo problemas com a certificação. Esta informação não está listada no Azure Marketplace.
 
-- Name
+- Nome
 - E-mail
 - Telefone
 
