@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
 ms.openlocfilehash: e9491757852b42faef40c107540e0ce3da3c7f99
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91650906"
 ---
 # <a name="querying-data-from-azure-time-series-insights-gen2"></a>Consulta dados da Azure Time Series Insights Gen2
@@ -24,7 +24,7 @@ Azure Time Series Insights Gen2 permite a consulta de dados sobre eventos e meta
 Três categorias primárias de API estão disponíveis no Azure Time Series Insights Gen2:
 
 * **APIs ambiente**: Estas APIs permitem consultas sobre o ambiente da Azure Time Series Insights Gen2. Estes podem ser usados para recolher a lista de ambientes a que o chamador tem acesso e metadados ambientais.
-* **ApIs de modelos de séries de tempo (TSM-Q):** Permite criar, ler, atualizar e eliminar (CRUD) operações em metadados armazenados no Modelo da Série De Tempo do ambiente. Estes podem ser usados para aceder e editar os casos, tipos e hierarquias.
+* **Séries de tempo Model-Query (TSM-Q) APIs**: Permite criar, ler, atualizar e eliminar (CRUD) operações em metadados armazenados no Modelo da Série De Tempo do ambiente. Estes podem ser usados para aceder e editar os casos, tipos e hierarquias.
 * **APIs de Séries de Tempo (TSQ):** Permite a recuperação de dados de telemetria ou eventos tal como é registado a partir do fornecedor de origem e permite cálculos e agregações performativas nos dados utilizando funções avançadas de escalar e agregação.
 
 Azure Time Series Insights Gen2 usa uma rica linguagem de expressão baseada em cordas, [Expressão de Séries De Tempo (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax), para expressar cálculos em [Variáveis séries de tempo](./concepts-variables.md).
@@ -41,7 +41,7 @@ As APIs do núcleo seguinte são suportadas.
 * [Obter Ambientes Disponibilidade API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/getavailability): Devolve a distribuição da contagem de eventos sobre o tempo do `$ts` evento. Esta API ajuda a determinar se existem eventos no ambiente, devolvendo a contagem de eventos quebrados em intervalos de tempo, se houver algum.
 * [Obtenha o Evento Schema API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/geteventschema): Devolve os metadados de esquema de evento para um determinado período de pesquisa. Esta API ajuda a recuperar todos os metadados e propriedades disponíveis no esquema para o período de pesquisa dado.
 
-## <a name="time-series-model-query-tsm-q-apis"></a>ApIs modelo de séries de tempo (TSM-Q)
+## <a name="time-series-model-query-tsm-q-apis"></a>Model-Query ApIs da Série De Tempo (TSM-Q)
 
 A maioria destas APIs suportam a operação de execução de lotes para permitir operações CRUD em várias entidades do Modelo série de tempo:
 

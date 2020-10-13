@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 1afa5df20c9bcbf63f8ad9f527e54f622eba3d19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/10/2020
+ms.openlocfilehash: f4a7f5581703ae6932f3b40e62085fed76f5e6f2
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90893787"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945707"
 ---
 # <a name="filter-based-feature-selection"></a>Seleção de funcionalidades baseadas em filtro
 
@@ -90,8 +90,14 @@ Escolhe-se uma métrica estatística padrão. O módulo calcula a correlação e
 
     - Se especificar menos colunas de resultados do que as colunas de características, as características são classificadas por pontuação descendente. Apenas as características superiores são devolvidas. 
 
-7.  Envie o pipeline ou selecione o módulo de seleção de funções baseada no filtro e, em seguida, selecione **Executar selecionado**.
+7.  Envie o oleoduto.
 
+> [!IMPORTANT]
+> Se vai utilizar a **Seleção de Recursos Baseados** em Filtros em inferência, tem de utilizar [o Select Columns Transform](./select-columns-transform.md) para armazenar o resultado selecionado e aplicar a [Transformação](./apply-transformation.md) para aplicar a transformação selecionada para o conjunto de dados de pontuação.
+>
+> Consulte a seguinte imagem para construir o seu pipeline, para garantir que as seleções de colunas são as mesmas para o processo de pontuação.
+> [!div class="mx-imgBorder"]
+> ![Gasoduto de amostra](media/module/filter-based-feature-selection-score.png)
 
 ## <a name="results"></a>Results
 
@@ -133,7 +139,7 @@ Se utilizar a correlação Pearson numa característica numérica e num rótulo 
 -   Se uma coluna designada como coluna de recurso tiver todos os valores em falta, o módulo atribui uma pontuação zero.   
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
 

@@ -2,13 +2,13 @@
 title: Criar um novo recurso baseado no espaço de trabalho do Azure Monitor Insights Microsoft Docs
 description: Conheça os passos necessários para permitir os novos recursos baseados no espaço de trabalho do Azure Monitor Application Insights.
 ms.topic: conceptual
-ms.date: 09/10/2020
-ms.openlocfilehash: 29fa9f1dc401ac4132d9c6c0d8c054b3f4a154ac
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.date: 10/06/2020
+ms.openlocfilehash: 9b91e5065729bee6af3f8018c36930e132eb1a15
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932435"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945418"
 ---
 # <a name="workspace-based-application-insights-resources"></a>Recursos de Insights de Aplicação baseados no espaço de trabalho
 
@@ -205,7 +205,11 @@ A partir do painel de recursos do Application Insights, selecione **Propriedades
 
 A funcionalidade de exportação contínua do legado não é suportada por recursos baseados no espaço de trabalho. Em vez disso, selecione **Definições de Diagnóstico**  >  **adicionar definição** de diagnóstico a partir do seu recurso Application Insights. Pode selecionar todas as tabelas ou um subconjunto de tabelas para arquivar numa conta de armazenamento ou para transmitir para um Azure Event Hub.
 
-## <a name="next-steps"></a>Passos seguintes
+> [!NOTE]
+> Atualmente, não existem encargos adicionais para a exportação de telemetria. As informações sobre os preços desta funcionalidade estarão disponíveis na página de preços do [Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).  Antes do início da faturação, serão enviadas notificações. Caso opte por continuar a utilizar <feature name> após o período de pré-aviso, será cobrado à taxa aplicável. 
+ 
+
+## <a name="next-steps"></a>Próximos passos
 
 * [Explorar métricas](../platform/metrics-charts.md)
 * [Escrever consultas da Análise](../log-query/log-query-overview.md)

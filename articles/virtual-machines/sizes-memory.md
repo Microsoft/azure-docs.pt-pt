@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
-ms.openlocfilehash: ea58eeac5a77f2e1eaf2a7756de6d36a3fc0626b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f18f830b690acdca67058da6ed6a0907406e66c
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87825502"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945972"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Tamanhos de máquina virtual otimizados de memória
 
@@ -36,7 +36,7 @@ Os tamanhos de VM otimizados pela memória oferecem uma relação memória-CPU a
 
 - A [série Ev4 e Esv4](ev4-esv4-series.md) é executado em processadores Intel &reg; Xeon &reg; Platinum 8272CL (Cascade Lake) de 2ª Geração numa configuração hiper roscada, são ideais para várias aplicações empresariais intensivas de memória e apresentam até 504 GiB de RAM. Conta com a [Intel Turbo Boost Technology &reg; 2.0,](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html) [Intel Hyper-Threading &reg; Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) e [Intel Advanced Vetor &reg; Extensions 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html). As séries Ev4 e Esv4 não incluem um disco temporário local. Para obter mais informações, consulte os [tamanhos Azure VM sem disco temporário local.](azure-vms-no-temp-disk.md)
 
-- A [série Edv4 e Edsv4](edv4-edsv4-series.md) funciona em processadores Intel &reg; Xeon &reg; Platinum 8272CL (Cascade Lake) de 2ª Geração, ideais para bases de dados extremamente grandes ou outras aplicações que beneficiam de altas contagens de VCPU e grandes quantidades de memória. Além disso, estes tamanhos VM incluem armazenamento SSD local rápido e maior para aplicações que beneficiam de baixa latência, armazenamento local de alta velocidade. Apresenta uma velocidade do relógio Turbo de 3,4 GHz, [Intel Turbo Boost Technology &reg; 2.0,](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html) [Intel Hyper-Threading &reg; Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) e [Extensões de Vetores Avançados Intel &reg; 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html).
+- A [série Edv4 e Edsv4](edv4-edsv4-series.md) funciona em processadores Intel &reg; Xeon &reg; Platinum 8272CL (Cascade Lake) de 2ª Geração, ideais para bases de dados extremamente grandes ou outras aplicações que beneficiam de altas contagens de VCPU e grandes quantidades de memória. Além disso, estes tamanhos VM incluem armazenamento SSD local rápido e maior para aplicações que beneficiam de baixa latência, armazenamento local de alta velocidade. Dispõe de todas as velocidades do relógio Turbo core de 3,4 GHz, [Intel Turbo Boost Technology &reg; 2.0,](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html) [Intel Hyper-Threading &reg; Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) e [Intel Advanced Vetor &reg; Extensions 512 (Intel AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html).
 
 - A [série M](m-series.md) oferece uma alta contagem de VCPU (até 128 vCPUs) e uma grande quantidade de memória (até 3,8 TiB). Também é ideal para bases de dados extremamente grandes ou outras aplicações que beneficiam de altas contagens de vCPU e grandes quantidades de memória.
 
@@ -53,7 +53,7 @@ O Azure Compute oferece tamanhos de máquinas virtuais que são isolados a um ti
 - [Computação de elevado desempenho](sizes-hpc.md)
 - [Gerações anteriores](sizes-previous-gen.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre como [as unidades de computação Azure (ACU)](acu.md) podem ajudá-lo a comparar o desempenho do cálculo em Azure SKUs.
 

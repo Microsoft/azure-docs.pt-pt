@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 0f43b667b94e39548d81e6c6258d987f47074cb1
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: e70586fc2000e90b00d06d16bf5ba8df0bf5442f
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761333"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944987"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-java"></a>Quickstart: Interaja com um dispositivo IoT Plug and Play que está ligado à sua solução (Java)
 
@@ -76,7 +76,7 @@ Em [Configurar o seu ambiente para os quickstarts e tutoriais IoT Plug and Play]
 Neste arranque rápido, utilize uma solução IoT de amostra escrita em Java para interagir com o dispositivo de amostra que acabou de configurar.
 
 > [!NOTE]
-> Esta amostra utiliza o **com.microsoft.azure.sdk.iot.service.*;** espaço de nome do cliente de **serviço IoT Hub**. Para saber mais sobre como recuperar o ID do modelo, consulte o [guia do desenvolvedor.](concepts-developer-guide-service.md)
+> Esta amostra utiliza o **com.microsoft.azure.sdk.iot.service** namespace do cliente de **serviço IoT Hub**. Para saber mais sobre as APIs, incluindo as gémeas digitais API, consulte o [guia de desenvolvedores de serviços.](concepts-developer-guide-service.md)
 
 1. Abra outra janela do terminal para utilizar como terminal **de serviço.**
 
@@ -88,7 +88,7 @@ Neste arranque rápido, utilize uma solução IoT de amostra escrita em Java par
     mvm exec:java -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.service.Thermostat"
     ```
 
-### <a name="get-digital-twin"></a>Obter twin digital
+### <a name="get-device-twin"></a>Obter dispositivo twin
 
 O seguinte corte de código mostra como recuperar o dispositivo gémeo no serviço:
 
@@ -99,9 +99,9 @@ twinClient.getTwin(twin);
 System.out.println("Model Id of this Twin is: " + twin.getModelId());
 ```
 
-### <a name="update-a-digital-twin"></a>Atualize um gémeo digital
+### <a name="update-a-device-twin"></a>Atualizar um dispositivo gémeo
 
-O seguinte corte de código mostra-lhe como usar um *patch* para atualizar propriedades através do twin digital:
+O seguinte corte de código mostra-lhe como usar um *patch* para atualizar propriedades através do dispositivo twin:
 
 ```java
 String propertyName = "targetTemperature";
@@ -137,7 +137,7 @@ System.out.println("Method result status is: " + result.getStatus());
 
 A saída do dispositivo mostra como o dispositivo responde a este comando.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, aprendeu a ligar um dispositivo IoT Plug e Play a uma solução IoT. Para saber mais sobre os modelos ioT Plug e Play, consulte:
 
