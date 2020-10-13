@@ -1,18 +1,25 @@
 ---
 title: Migrar para o Bridge to Kubernetes
 services: azure-dev-spaces
-ms.date: 09/21/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
 description: Descreve os processos que alimentam a Azure Dev Spaces
 keywords: Espaços Azure Dev, Dev Spaces, Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores, Ponte para Kubernetes
-ms.openlocfilehash: b585ee20efb7b377a041152996ef41d8c59c539e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc7f4f095a0306beffc0e224d7e813f7f02455da
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997171"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962858"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Migrar para o Bridge to Kubernetes
+
+> [!IMPORTANT]
+> AZure Dev Spaces será reformado a 31 de outubro de 2023. Os desenvolvedores devem passar a usar Bridge para Kubernetes, uma ferramenta de desenvolvimento de clientes.
+>
+> O objetivo da Azure Dev Spaces era facilitar o desenvolvimento dos desenvolvedores em Kubernetes. Uma troca significativa na abordagem da Azure Dev Spaces estava a sobrecarregar os desenvolvedores para compreender as configurações de Docker e Kubernetes, bem como os conceitos de implantação de Kubernetes. Com o tempo, tornou-se também claro que a abordagem de Azure Dev Spaces não diminuiu efetivamente a velocidade de desenvolvimento do loop interno em Kubernetes. A ponte para Kubernetes diminui efetivamente a velocidade do desenvolvimento do loop interno e evita encargos desnecessários para os desenvolvedores.
+>
+> A missão principal permanece inalterada: Construir as melhores experiências de desenvolvedor para desenvolver, testar e depurar código de microservice no contexto da aplicação maior.
 
 A ponte para Kubernetes oferece uma alternativa de peso mais leve a muitos dos cenários de desenvolvimento que funcionam com a Azure Dev Spaces. Bridge to Kubernetes é uma experiência do lado do cliente usando extensões em [Visual Studio][vs]e Visual   Studio [Code][vsc].  
 

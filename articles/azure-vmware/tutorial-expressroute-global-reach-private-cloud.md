@@ -4,10 +4,10 @@ description: Saiba como criar o ExpressRoute Global Reach olhando para uma nuvem
 ms.topic: tutorial
 ms.date: 09/21/2020
 ms.openlocfilehash: 07b7e1c2636f3754eda56af574586a1027403d3e
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91576732"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Tutorial: Ambientes de pares no local para uma nuvem privada
@@ -23,7 +23,7 @@ Neste tutorial, ficará a saber como:
 > * Utilize o [portal Azure](#azure-portal-method) ou o [CLI Azure num método Cloud Shell](#azure-cli-in-a-cloud-shell-method) na subscrição do circuito _1_ para permitir o espreitamento do ExpressRoute Global Reach nas instalações para a nuvem privada ExpressRoute Global Reach
 
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Antes de permitir a conectividade entre dois circuitos ExpressRoute utilizando o ExpressRoute Global Reach, reveja a documentação sobre como permitir a [conectividade em diferentes subscrições do Azure](../expressroute/expressroute-howto-set-global-reach-cli.md#enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions).  
 
@@ -109,7 +109,7 @@ Neste tutorial, aprendeu a criar uma segunda chave de autorização para o circu
 Continue até ao próximo tutorial para aprender a implementar e configurar a solução VMware HCX para a sua nuvem privada Azure VMware Solution.
 
 > [!div class="nextstepaction"]
-> [Implementar e configurar VMware HCX](tutorial-deploy-vmware-hcx.md)
+> [Implementar e configurar o VMware HCX](tutorial-deploy-vmware-hcx.md)
 
 
 <!-- LINKS - external-->

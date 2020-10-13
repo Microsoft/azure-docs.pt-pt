@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: 2a64e595f0ea07510f416be56a54a3c74294b95d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa33106f200b2edb3b710c6b0e08208bd4da8ace
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653626"
+ms.locfileid: "91932265"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>PERGUNTAS Frequentes Sobre Ficheiros Azure NetApp
 
@@ -31,13 +31,13 @@ Este artigo responde a perguntas frequentes (FAQs) sobre ficheiros Azure NetApp.
 
 N.º O caminho dos dados da NFS não passa pela Internet. O Azure NetApp Files é um serviço nativo do Azure que está implantado na Rede Virtual Azure (VNet) onde o serviço está disponível. O Azure NetApp Files utiliza uma sub-rede delegada e fornece uma interface de rede diretamente no VNet. 
 
-Consulte as Diretrizes para o planeamento da [rede Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) para obter mais detalhes.  
+Consulte as Diretrizes para o planeamento da [rede Azure NetApp Files](./azure-netapp-files-network-topologies.md) para obter mais detalhes.  
 
 ### <a name="can-i-connect-a-vnet-that-i-already-created-to-the-azure-netapp-files-service"></a>Posso ligar um VNet que já criei ao serviço Azure NetApp Files?
 
 Sim, pode ligar VNets que criou ao serviço. 
 
-Consulte as Diretrizes para o planeamento da [rede Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) para obter mais detalhes.  
+Consulte as Diretrizes para o planeamento da [rede Azure NetApp Files](./azure-netapp-files-network-topologies.md) para obter mais detalhes.  
 
 ### <a name="can-i-mount-an-nfs-volume-of-azure-netapp-files-using-dns-fqdn-name"></a>Posso montar um volume NFS de Ficheiros Azure NetApp usando o nome DNS FQDN?
 
@@ -146,7 +146,7 @@ O Azure NetApp Files suporta SMB 2.1 e SMB 3.1 (que inclui suporte para SMB 3.0)
 
 ### <a name="is-an-active-directory-connection-required-for-smb-access"></a>É necessária uma ligação ative directory para acesso SMB? 
 
-Sim, tem de criar uma ligação Ative Directory antes de implantar um volume SMB. Os controladores de domínio especificados devem estar acessíveis pela sub-rede delegada dos Ficheiros Azure NetApp para uma ligação bem sucedida.  Consulte [Criar um volume SMB](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb) para mais detalhes. 
+Sim, tem de criar uma ligação Ative Directory antes de implantar um volume SMB. Os controladores de domínio especificados devem estar acessíveis pela sub-rede delegada dos Ficheiros Azure NetApp para uma ligação bem sucedida.  Consulte [Criar um volume SMB](./azure-netapp-files-create-volumes-smb.md) para mais detalhes. 
 
 ### <a name="how-many-active-directory-connections-are-supported"></a>Quantas ligações ative directy são suportadas?
 
@@ -156,7 +156,7 @@ Uma ligação AD é configurada por conta NetApp; a ligação AD só é visível
 
 ### <a name="does-azure-netapp-files-support-azure-active-directory"></a>Os ficheiros Azure NetApp suportam o Azure Ative Directory? 
 
-Tanto os [Serviços de Domínio Azure Ative (AD)](https://docs.microsoft.com/azure/active-directory-domain-services/overview) como [os Serviços de Domínio do Diretório Ativo (DS AD)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) são suportados. Pode utilizar controladores de domínio ative diretório existentes com ficheiros Azure NetApp. Os controladores de domínio podem residir em Azure como máquinas virtuais, ou nas instalações via ExpressRoute ou S2S VPN. O Azure NetApp Files não suporta a participação da AD no [Azure Ative Directory](https://azure.microsoft.com/resources/videos/azure-active-directory-overview/) neste momento.
+Tanto os [Serviços de Domínio Azure Ative (AD)](../active-directory-domain-services/overview.md) como [os Serviços de Domínio do Diretório Ativo (DS AD)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) são suportados. Pode utilizar controladores de domínio ative diretório existentes com ficheiros Azure NetApp. Os controladores de domínio podem residir em Azure como máquinas virtuais, ou nas instalações via ExpressRoute ou S2S VPN. O Azure NetApp Files não suporta a participação da AD no [Azure Ative Directory](https://azure.microsoft.com/resources/videos/azure-active-directory-overview/) neste momento.
 
 Se estiver a utilizar ficheiros Azure NetApp com Serviços de Domínio do Diretório Ativo Azure, o percurso da unidade organizacional é `OU=AADDC Computers` quando configura o Ative Directory para a sua conta NetApp.
 
@@ -171,7 +171,7 @@ O tamanho do volume reportado pelo cliente SMB é o tamanho máximo que o volume
 <!--
 ### Does Azure NetApp Files support LDAP signing? 
 
-Yes, Azure NetApp Files supports LDAP signing by default. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](https://docs.microsoft.com/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).
+Yes, Azure NetApp Files supports LDAP signing by default. This functionality enables secure LDAP lookups between the Azure NetApp Files service and the user-specified [Active Directory Domain Services domain controllers](/windows/win32/ad/active-directory-domain-services). For more information, see [ADV190023 | Microsoft Guidance for Enabling LDAP Channel Binding and LDAP Signing](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).
 --> 
 
 ## <a name="dual-protocol-faqs"></a>Perguntas frequentes de dois protocolos
@@ -224,7 +224,7 @@ O Azure NetApp Files fornece volumes NFS e SMB.  Pode utilizar qualquer ferramen
 
 O NetApp oferece uma solução baseada em SaaS, [NetApp Cloud Sync.](https://cloud.netapp.com/cloud-sync-service)  A solução permite-lhe replicar dados NFS ou SMB para exportações de Ficheiros NFS ou SMB. 
 
-Também pode utilizar uma grande variedade de ferramentas gratuitas para copiar dados. Para o NFS, pode utilizar ferramentas de carga de trabalho como [o rsync](https://rsync.samba.org/examples.html) para copiar e sincronizar dados de origem num volume de Ficheiros Azure NetApp. Para a SMB, pode utilizar [a robocopia](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) de carga de trabalho da mesma forma.  Estas ferramentas também podem replicar permissões de ficheiros ou pastas. 
+Também pode utilizar uma grande variedade de ferramentas gratuitas para copiar dados. Para o NFS, pode utilizar ferramentas de carga de trabalho como [o rsync](https://rsync.samba.org/examples.html) para copiar e sincronizar dados de origem num volume de Ficheiros Azure NetApp. Para a SMB, pode utilizar [a robocopia](/windows-server/administration/windows-commands/robocopy) de carga de trabalho da mesma forma.  Estas ferramentas também podem replicar permissões de ficheiros ou pastas. 
 
 Os requisitos para a migração de dados das instalações para os Ficheiros Azure NetApp são os seguintes: 
 
@@ -239,7 +239,7 @@ O Azure NetApp Files fornece volumes NFS e SMB.  Qualquer ferramenta de cópia b
 
 O NetApp oferece uma solução baseada em SaaS, [NetApp Cloud Sync.](https://cloud.netapp.com/cloud-sync-service)  A solução permite-lhe replicar dados NFS ou SMB para exportações de Ficheiros NFS ou SMB. 
 
-Também pode utilizar uma grande variedade de ferramentas gratuitas para copiar dados. Para o NFS, pode utilizar ferramentas de carga de trabalho como [o rsync](https://rsync.samba.org/examples.html) para copiar e sincronizar dados de origem num volume de Ficheiros Azure NetApp. Para a SMB, pode utilizar [a robocopia](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) de carga de trabalho da mesma forma.  Estas ferramentas também podem replicar permissões de ficheiros ou pastas. 
+Também pode utilizar uma grande variedade de ferramentas gratuitas para copiar dados. Para o NFS, pode utilizar ferramentas de carga de trabalho como [o rsync](https://rsync.samba.org/examples.html) para copiar e sincronizar dados de origem num volume de Ficheiros Azure NetApp. Para a SMB, pode utilizar [a robocopia](/windows-server/administration/windows-commands/robocopy) de carga de trabalho da mesma forma.  Estas ferramentas também podem replicar permissões de ficheiros ou pastas. 
 
 Os requisitos para replicar um volume de Ficheiros Azure NetApp para outra região do Azure são os seguintes: 
 - Certifique-se de que os Ficheiros Azure NetApp estão disponíveis na região alvo do Azure.
@@ -257,8 +257,8 @@ N.º O serviço Azure Import/Export não suporta atualmente ficheiros Azure NetA
 
 ## <a name="next-steps"></a>Passos seguintes  
 
-- [Microsoft Azure ExpressRoute FAQs](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)
-- [Microsoft Azure Virtual Network FAQ](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq)
-- [Como criar um pedido de suporte do Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)
-- [Azure Data Box](https://docs.microsoft.com/azure/databox)
+- [Microsoft Azure ExpressRoute FAQs](../expressroute/expressroute-faqs.md)
+- [Microsoft Azure Virtual Network FAQ](../virtual-network/virtual-networks-faq.md)
+- [Como criar um pedido de suporte do Azure](../azure-portal/supportability/how-to-create-azure-support-request.md)
+- [Azure Data Box](../databox/index.yml)
 - [PERGUNTAS Frequentes sobre desempenho SMB para ficheiros Azure NetApp](azure-netapp-files-smb-performance.md)

@@ -12,13 +12,13 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.openlocfilehash: fee727e16909355fe614b875ff61d4d38f7a98ce
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91804386"
 ---
-# <a name="manage-app-consent-policies"></a>Gerir políticas de consentimento de aplicativos
+# <a name="manage-app-consent-policies"></a>Gerir as políticas de consentimento da aplicação
 
 Com o Azure AD PowerShell, pode ver e gerir políticas de consentimento de aplicações.
 

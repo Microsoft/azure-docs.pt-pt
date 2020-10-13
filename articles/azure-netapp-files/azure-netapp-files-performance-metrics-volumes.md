@@ -7,12 +7,12 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
 ms.date: 08/07/2019
-ms.openlocfilehash: a254465d9055fcf1cf10a2a1d6eb82b2afc16f0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf25ef59bc1ea5db61dcfb3c76c0d978cb1f95d0
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "82692273"
+ms.locfileid: "91931841"
 ---
 # <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Recomendações do teste da referência de desempenho do Azure NetApp Files
 
@@ -24,7 +24,7 @@ Para compreender as características de desempenho de um volume de Ficheiros Azu
 
 ### <a name="vm-instance-sizing"></a>Tamanho de instância VM
 
-Para obter melhores resultados, certifique-se de que está a utilizar uma caixa de máquina virtual (VM) adequadamente dimensionada para realizar os testes. Os exemplos que se seguem utilizam uma Standard_D32s_v3 instância. Para obter mais informações sobre tamanhos de instâncias VM, consulte [tamanhos para máquinas virtuais Windows em Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) para VMs baseados no Windows e [tamanhos para máquinas virtuais Linux em Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para VMs baseados em Linux.
+Para obter melhores resultados, certifique-se de que está a utilizar uma caixa de máquina virtual (VM) adequadamente dimensionada para realizar os testes. Os exemplos que se seguem utilizam uma Standard_D32s_v3 instância. Para obter mais informações sobre tamanhos de instâncias VM, consulte [tamanhos para máquinas virtuais Windows em Azure](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-network%252ftoc.json) para VMs baseados no Windows e [tamanhos para máquinas virtuais Linux em Azure](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) para VMs baseados em Linux.
 
 ### <a name="azure-netapp-files-volume-sizing"></a>Dimensionamento de volume de ficheiros Azure NetApp
 
@@ -113,7 +113,7 @@ Também pode criar um dashboard no Azure Monitor para Ficheiros Azure NetApp, in
 
 ### <a name="azure-monitor-api-access"></a>Acesso Azure Monitor API
 
-Pode aceder aos balcões do Azure NetApp Files utilizando chamadas REST API. Consulte [métricas suportadas com o Azure Monitor: Microsoft.NetApp/netAppAccounts/capacityPools/Volumes](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftnetappnetappaccountscapacitypoolsvolumes) para balcões para piscinas e volumes de capacidade.
+Pode aceder aos balcões do Azure NetApp Files utilizando chamadas REST API. Consulte [métricas suportadas com o Azure Monitor: Microsoft.NetApp/netAppAccounts/capacityPools/Volumes](../azure-monitor/platform/metrics-supported.md#microsoftnetappnetappaccountscapacitypoolsvolumes) para balcões para piscinas e volumes de capacidade.
 
 O exemplo a seguir mostra um URL GET para visualização do tamanho do volume lógico:
 

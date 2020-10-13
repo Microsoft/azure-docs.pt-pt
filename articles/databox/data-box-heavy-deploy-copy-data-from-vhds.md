@@ -9,18 +9,18 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 01031159d1894c7cb5f36b48f268186dff21fd22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 755d0077abcba71d705a14643f5c2b28001bfa13
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77471334"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951439"
 ---
 # <a name="tutorial-use-data-box-heavy-to-import-data-as-managed-disks-in-azure"></a>Tutorial: Use data box pesado para importar dados como discos geridos em Azure
 
 Este tutorial descreve como usar a Caixa de Dados Azure Heavy para migrar vHDs no local para discos geridos em Azure. Os VHDs dos VMs no local são copiados para Data Box Heavy como bolhas de página e são enviados para a Azure como discos geridos. Estes discos geridos podem então ser ligados aos VMs Azure.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Rever pré-requisitos
@@ -75,11 +75,11 @@ Se estiver a utilizar um computador anfitrião do Windows Server, execute estes 
     > [!NOTE]
     > As credenciais de todas as ações para discos geridos são idênticas.
 
-    ![Obter credenciais de partilhas 1](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
+    ![Obter credenciais de partilhas](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
 
 2. A partir da caixa de diálogo de dados de partilha de acesso e cópia, copie o **nome de utilizador** e a **palavra-passe** para a partilha. Clique em **OK**.
     
-    ![Obter credenciais de partilhas 1](media/data-box-deploy-copy-data-from-vhds/get-share-credentials2.png)
+    ![Obter credenciais de partilhas 2](media/data-box-deploy-copy-data-from-vhds/get-share-credentials2.png)
 
 3. Para aceder às ações associadas ao seu recurso *(mydbmdrg1* no exemplo seguinte) a partir do computador anfitrião, abra uma janela de comando. Na linha de comandos, escreva:
 
@@ -101,7 +101,7 @@ Se estiver a utilizar um computador anfitrião do Windows Server, execute estes 
 
 4. Prima Windows + R. Na janela **Executar**, especifique o `\\<device IP address>\<ShareName>`. Clique em **OK** para abrir o Explorador de Ficheiros.
     
-    ![Ligar à partilha através do Explorador de Ficheiros 2](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer1.png)
+    ![Ligar à partilha através do Explorador de Ficheiros](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer1.png)
 
     Deve agora ver as seguintes pastas pré-fundamentadas dentro de cada ação.
     
@@ -114,7 +114,7 @@ Se estiver a utilizar um computador anfitrião Linux, execute os seguintes passo
 
 1. Forneça os endereços IP dos clientes permitidos que podem aceder à partilha. Na IU Web local, aceda à página **Ligar e copiar**. Em **Definições de NFS**, clique em **Acesso de cliente NFS**.
 
-    ![Configurar o acesso de cliente NFS 1](media/data-box-deploy-copy-data-from-vhds/nfs-client-access1.png)
+    ![Configure o acesso ao cliente NFS](media/data-box-deploy-copy-data-from-vhds/nfs-client-access1.png)
 
 2. Forneça o endereço IP do cliente NFS e clique em **Adicionar**. Pode configurar o acesso para vários clientes NFS ao repetir este passo. Clique em **OK**.
 

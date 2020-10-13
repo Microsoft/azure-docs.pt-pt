@@ -3,15 +3,15 @@ title: Gerir grupos de aplicações para o portal de desktop virtual do Windows 
 description: Como gerir os grupos de aplicações virtual do Windows Desktop com o portal Azure.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 09/04/2020
+ms.date: 10/09/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: beac9f64b12a07d2fc900099ee1f107e4981f17e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec26f021ffa581b0713973904c97349df83a08ef
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320222"
+ms.locfileid: "91930276"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>Tutorial: Gerir grupos de aplicações com o portal Azure
 
@@ -124,7 +124,7 @@ O processo de implantação fará as seguintes coisas por si:
 - Crie um link para um modelo de Gestor de Recursos Azure com base na sua configuração que pode descarregar e guardar para mais tarde.
 
 >[!IMPORTANT]
->Só é possível criar 50 grupos de candidatura para cada inquilino do Azure Ative Directory. Adicionámos este limite devido às limitações de serviço para a recuperação de feeds para os nossos utilizadores. Este limite não se aplica aos grupos de aplicações criados no Windows Virtual Desktop (clássico).
+>Só é possível criar 200 grupos de candidatura para cada inquilino do Azure Ative Directory. Adicionámos este limite devido às limitações de serviço para a recuperação de feeds para os nossos utilizadores. Este limite não se aplica aos grupos de aplicações criados no Windows Virtual Desktop (clássico).
 
 ## <a name="next-steps"></a>Passos seguintes
 

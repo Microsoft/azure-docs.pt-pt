@@ -115,13 +115,13 @@
               href: partner-center-portal/azure-vm-create-offer.md
             - name: Criar recursos técnicos de VM do Azure
               items:
-                - name: Certificação de máquinas virtuais - problemas e soluções
+                - name: Problemas de certificação de máquinas virtuais
                   href: partner-center-portal/vm-certification-issues-solutions.md
                 - name: Criar um recurso técnico de VM do Azure
                   href: partner-center-portal/create-azure-vm-technical-asset.md
                 - name: FAQ dos recursos técnicos de VM do Azure
                   href: partner-center-portal/common-issues-during-vhd-creation.md
-                - name: Testar uma Máquina Virtual implementada a partir de um VHD
+                - name: Testar uma máquina virtual implementada a partir de um VHD
                   href: partner-center-portal/azure-vm-image-certification.md
                 - name: URI de SAS
                   items:
@@ -324,17 +324,27 @@
       href: marketplace-faq-publisher-guide.md
     - name: FAQ de migração do Cloud Partner Portal
       href: cloud-partner-portal-migration-faq.md
+    - name: Horário de funcionamento para oportunidade de negócio
+      href: 'https://aka.ms/marketplaceofficehours'
+    - name: Horário de funcionamento para técnicas e publicação
+      href: 'https://aka.ms/marketplacepublishingofficehours'
     - name: Opções de suporte do Centro de Parceiros
       href: partner-center-portal/support.md
+    - name: Anúncios do Centro de Parceiros
+      href: /partner-center/announcements
+    - name: Comunidade de Parceiros da Microsoft
+      href: 'https://www.microsoftpartnercommunity.com/'
+    - name: Fórum da Comunidade de Parceiros
+      href: 'https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222'
     - name: Disponibilidade geográfica e moedas
       href: marketplace-geo-availability-currencies.md
+    - name: Localizar o Inquilino e os IDs do Objeto
+      href: find-tenant-object-id.md
     - name: Países e regiões suportados
       href: sell-from-countries.md
-    - name: Etiquetas HTML suportadas
-      href: supported-html-tags.md
     - name: Códigos de país e região de venda conjunta
       href: partner-center-portal/commercial-marketplace-co-sell-countries.md
     - name: Códigos de distrito de venda conjunta
       href: partner-center-portal/commercial-marketplace-co-sell-states.md
-    - name: 'Fóruns, blogues e ligações rápidas'
-      href: marketplace-roadmap.md
+    - name: Etiquetas HTML suportadas
+      href: supported-html-tags.md

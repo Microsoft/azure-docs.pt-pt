@@ -13,12 +13,12 @@ ms.date: 10/09/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 4d915cee962546e355ee9d53c683581730bbbf36
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 77cb3b0c13a6bfe41c6f7a1a5a0f9d7278aea1db
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91778859"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930157"
 ---
 # <a name="microsoft-identity-web-authentication-library"></a>Biblioteca de autenticação Microsoft Identity Web
 
@@ -44,6 +44,7 @@ O Microsoft Identity Web está disponível no NuGet como um conjunto de pacotes 
 - [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) - O pacote principal. Requerido por todas as aplicações que utilizam a Microsoft Identity Web.
 - [Microsoft.Identity.web.uI](https://www.nuget.org/packages/Microsoft.Identity.Web.UI) - Opcional. Adiciona UI para o utilizador iniciar sôm e iniciar sedus e um controlador associado para aplicações web.
 - [Microsoft.Identity.web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) - Opcional. Proporciona interação simplificada com a API do Gráfico microsoft.
+- [Microsoft.Identity.web.MicrosoftGraphBeta](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraphBeta) - Opcional. Fornece interação simplificada com o [ponto final beta](/graph/api/overview?view=graph-rest-beta&preserve-view=true)da API do Microsoft Graph .
 
 #### <a name="project-templates"></a>Modelos de projeto
 
@@ -69,7 +70,7 @@ dotnet new blazorserver2 --auth SingleOrg --calls-graph --client-id &quot;000000
 
 #### <a name="github"></a>GitHub
 
-Microsoft Identity Web é um projeto de código aberto hospedado no GitHub: [AzureAD/microsoft-identity-web](https://github.com/AzureAD/microsoft-identity-web?azure-portal=true)
+Microsoft Identity Web é um projeto de código aberto hospedado no GitHub: <a href="https://github.com/AzureAD/microsoft-identity-web" target="_blank">AzureAD/microsoft-identity-web <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
 
 O [wiki do repositório](https://github.com/AzureAD/microsoft-identity-web/wiki) contém documentação adicional, e se precisar de ajuda ou descobrir um bug, pode [arquivar um problema](https://github.com/AzureAD/microsoft-identity-web/issues).
 
@@ -98,8 +99,8 @@ Para ver a Microsoft Identity Web em ação, experimente o nosso tutorial do Bla
 
 O wiki Web da Microsoft Identity no GitHub contém documentação de referência extensiva para vários aspetos da biblioteca. Por exemplo, a utilização do certificado, o consentimento incremental e a referência de acesso condicional podem ser consultados aqui:
 
-- [Utilização de certificados com Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates?azure-portal=true) (GitHub)
-- [Consentimento incremental e acesso condicional](https://github.com/AzureAD/microsoft-identity-web/wiki/Managing-incremental-consent-and-conditional-access?azure-portal=true) (GitHub)
+- <a href="https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates" target="_blank">Utilização de certificados com <span class="docon docon-navigate-external x-hidden-focus"></span> Microsoft.Identity.Web</a> (GitHub)
+- <a href="https://github.com/AzureAD/microsoft-identity-web/wiki/Managing-incremental-consent-and-conditional-access" target="_blank">Consentimento incremental e <span class="docon docon-navigate-external x-hidden-focus"></span> acesso condicional</a> (GitHub)
 
 <!-- LINKS -->
 <!--  [miw-certs]: microsoft-identity-web-certificates.md  -->

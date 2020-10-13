@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 683a3fc148d3521366beef4427e87200ea81a9f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f90d84b5897175dbda0a24591893c4e41a06822a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445732"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973585"
 ---
 # <a name="deploy-azure-sql-edge"></a>Implementar borda Azure SQL 
 
@@ -25,8 +25,7 @@ Azure SQL Edge é um motor de base de dados relacional otimizado para implementa
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/).
 * Inicie sessão no [portal do Azure](https://portal.azure.com/).
 * Criar um [Hub Azure IoT](../iot-hub/iot-hub-create-through-portal.md).
-* Registar um [dispositivo de borda IoT a partir do portal Azure](../iot-edge/how-to-register-device-portal.md).
-* Prepare o dispositivo IoT Edge para [implantar o módulo IoT Edge a partir do portal Azure](../iot-edge/how-to-deploy-modules-portal.md).
+* Criar um [dispositivo Azure IoT Edge](../iot-edge/how-to-install-iot-edge.md).
 
 > [!NOTE]   
 > Para implementar um Azure Linux VM como um dispositivo IoT Edge, consulte este [guia de arranque rápido](../iot-edge/quickstart-linux.md).

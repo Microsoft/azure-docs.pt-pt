@@ -3,12 +3,12 @@ title: Gestão do ciclo de vida da Azure VMware Solution VMs
 description: Aprenda a gerir todos os aspetos do ciclo de vida dos VMS da sua Solução VMware Azure com ferramentas nativas do Microsoft Azure.
 ms.topic: conceptual
 ms.date: 09/11/2020
-ms.openlocfilehash: 10e721996b2e3186417a702d2d7473b36b11237f
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.openlocfilehash: 452fa6bf4610c9d0dcb46587242e8d6df9cebd0d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91575486"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950368"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Gestão do ciclo de vida da Azure VMware Solution VMs
 
@@ -58,7 +58,7 @@ Os VMs de Solução VMware Azure podem ser monitorizados através do MMA (també
 
 **O Azure Security Center** fornece uma proteção avançada de ameaças através das suas cargas de trabalho híbridas na nuvem e nas instalações. Avaliará a vulnerabilidade dos VMS da Solução VMware Azure e levantará alertas conforme necessário. Estes alertas de segurança podem ser encaminhados para o Azure Monitor para resolução.
 - O Centro de Segurança Azure não necessita de implantação. Para obter mais informações, consulte uma lista de [funcionalidades suportadas para máquinas virtuais.](../security-center/security-center-services.md)
-- Para adicionar VMs de Solução VMware Azure e VMs não-Azure ao Azure Security Center, consulte [computadores Windows a bordo do Azure Security Center](../security-center/quick-onboard-windows-computer.md) e [computadores Linux a bordo do Azure Security Center](../security-center/quick-onboard-linux-computer.md).
+- Para adicionar VMs de Solução VMware Azure e VMs não-Azure ao Azure Security Center, consulte [computadores Windows a bordo do Azure Security Center](../security-center/quickstart-onboard-machines.md) e [computadores Linux a bordo do Azure Security Center](../security-center/quickstart-onboard-machines.md).
 - Depois de adicionar VMs, o Azure Security Center analisa o estado de segurança dos recursos para identificar potenciais vulnerabilidades. Também fornece recomendações no separador Visão Geral. Para mais informações, consulte [as recomendações de segurança no Centro de Segurança Azure.](../security-center/security-center-recommendations.md)
 - Pode definir políticas de segurança no Centro de Segurança Azure. Para obter informações sobre a configuração das suas políticas de segurança, consulte [trabalhar com políticas de segurança.](../security-center/tutorial-security-policy.md)
 

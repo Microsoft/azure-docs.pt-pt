@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: dac1a09b7984cdc8deca22ced1e8018a761979e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1796566c0a775e5810c387a01e0b54983727fa37
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531620"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951405"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Adicionar autocompleto e sugestões a aplicativos clientes
 
@@ -67,7 +67,7 @@ As respostas são moldadas pelos parâmetros do pedido. Para concluir automatica
 
 Para sugestões, deve aperfeiçoar ainda mais a resposta para evitar duplicados ou o que parece ser resultados não relacionados. Para controlar os resultados, inclua mais parâmetros sobre o pedido. Os seguintes parâmetros aplicam-se tanto a autocompletos como a sugestões, mas são talvez mais necessários para sugestões, especialmente quando um sugestivo inclui vários campos.
 
-| Parâmetro | Utilização |
+| Parâmetro | Usage |
 |-----------|-------|
 | **$select** | Se tiver **várias fontesFields** num sugestivo, utilize **$select** para escolher qual o campo que contribui com valores `$select=GameTitle` (). |
 | **searchFields** | Restrinja a consulta a campos específicos. |
@@ -141,7 +141,7 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 Se estiver a utilizar C# e uma aplicação MVC, **HomeController.cs** ficheiro no diretório dos Controladores é onde poderá criar uma classe para resultados sugeridos. Em .NET, a função Sugerir baseia-se no [método DocumentsOperationsExtensions.Suggest](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest). Para obter mais informações sobre o .NET SDK, consulte [Como utilizar a Azure Cognitive Search a partir de uma aplicação .NET](./search-howto-dotnet-sdk.md).
 
-O `InitSearch` método cria um cliente índice HTTP autenticado para o serviço de Pesquisa Cognitiva Azure. As propriedades na classe [SuggestParameters](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters) determinam quais os campos que são pesquisados e devolvidos nos resultados, no número de partidas e na utilização de correspondências difusas. 
+O `InitSearch` método cria um cliente índice HTTP autenticado para o serviço de Pesquisa Cognitiva Azure. As propriedades na classe [SuggestParameters](/dotnet/api/microsoft.azure.search.models.suggestparameters) determinam quais os campos que são pesquisados e devolvidos nos resultados, no número de partidas e na utilização de correspondências difusas. 
 
 Para o autocompleto, a correspondência difusa é limitada a uma distância de edição (um carácter omitido ou extraviado). Note que a correspondência difusa em consultas autocompletas pode por vezes produzir resultados inesperados dependendo do tamanho do índice e de como é fragmento. Para mais informações, consulte [os conceitos de partição e de fragmentos.](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards)
 
