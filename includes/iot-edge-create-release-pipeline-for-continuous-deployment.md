@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 08/26/2020
 ms.author: v-tcassi
 ms.openlocfilehash: 706b2306fbe9f2a744d2874a8b55f78fa2fc8e4d
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89302956"
 ---
 ## <a name="create-a-release-pipeline-for-continuous-deployment"></a>Criar um gasoduto de libertação para implantação contínua
@@ -33,7 +33,7 @@ Crie um novo oleoduto e adicione uma nova etapa:
 
    ![Clique em adicionar na área de artefactos da interface](./media/iot-edge-create-release-pipeline-for-continuous-deployment/add-artifacts.png)
 
-5. Na **página Adicionar um artefacto**, selecione **Construir** como o **tipo Fonte**. Escolha o projeto e o pipeline de construção que criou. Se desejar, pode alterar o **pseudónimo Fonte** para algo mais descritivo. Em seguida, selecione **Adicionar**.
+5. Na **página Adicionar um artefacto**, selecione **Construir** como o **tipo Fonte**. Escolha o projeto e o pipeline de construção que criou. Se desejar, pode alterar o **pseudónimo Fonte** para algo mais descritivo. Em seguida, **selecione Adicionar**.
 
    ![Na página de adicionar um artefacto, selecione Adicionar para criar o artefacto](./media/iot-edge-create-release-pipeline-for-continuous-deployment/add-artifact.png)
 

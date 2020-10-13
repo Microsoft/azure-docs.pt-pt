@@ -15,17 +15,17 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: c03950d64c9ead17dfa5c07ef70ab2b7ee0e90bb
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89296656"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Monitorize métricas de Serviços de Mídia e registos de diagnóstico via Azure Monitor
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-[O Azure Monitor](../../azure-monitor/overview.md) permite monitorizar métricas e registos de diagnóstico que o ajudam a entender como as suas aplicações estão a funcionar. Todos os dados recolhidos pelo Azure Monitor enquadram-se num dos dois tipos fundamentais: métricas e registos. Pode monitorizar os registos de diagnóstico dos Serviços de Comunicação Social e criar alertas e notificações para as métricas e registos recolhidos. Pode visualizar e analisar os dados das métricas utilizando o [explorador métrica.](../../azure-monitor/platform/metrics-getting-started.md) Pode enviar registos para [o Azure Storage,](https://azure.microsoft.com/services/storage/)transmiti-los para [Azure Event Hubs,](https://azure.microsoft.com/services/event-hubs/)exportá-los para [Log Analytics](https://azure.microsoft.com/services/log-analytics/)ou utilizar serviços de terceiros.
+[O Azure Monitor](../../azure-monitor/overview.md) permite monitorizar métricas e registos de diagnóstico que o ajudam a entender como as suas aplicações estão a funcionar. Todos os dados recolhidos pelo Azure Monitor enquadram-se num de dois tipos fundamentais: métricas e registos. Pode monitorizar os registos de diagnóstico dos Serviços de Comunicação Social e criar alertas e notificações para as métricas e registos recolhidos. Pode visualizar e analisar os dados das métricas utilizando o [explorador métrica.](../../azure-monitor/platform/metrics-getting-started.md) Pode enviar registos para [o Azure Storage,](https://azure.microsoft.com/services/storage/)transmiti-los para [Azure Event Hubs,](https://azure.microsoft.com/services/event-hubs/)exportá-los para [Log Analytics](https://azure.microsoft.com/services/log-analytics/)ou utilizar serviços de terceiros.
 
 Para obter uma visão geral detalhada, consulte [as métricas do Monitor Azure](../../azure-monitor/platform/data-platform.md) e [os registos de diagnóstico do Monitor Azure](../../azure-monitor/platform/platform-logs-overview.md).
 
@@ -111,7 +111,7 @@ Algumas coisas que pode examinar com os principais registos de diagnóstico de e
 
 Ver [como monitorizar os registos de diagnóstico do Media Service](media-services-diagnostic-logs-howto.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Como recolher e consumir dados de registo dos seus recursos Azure](../../azure-monitor/platform/platform-logs-overview.md)
 * [Criar, ver e gerir alertas de métricas com o Azure Monitor](../../azure-monitor/platform/alerts-metric.md)
