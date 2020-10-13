@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 7ec61bf4db949649c993fad4a3255b55626cb259
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23ca4be9387754c84dc256dd72b131bd5b76b458
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88056232"
+ms.locfileid: "91876469"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Tutorial: Desenvolver módulos IoT Edge para dispositivos Linux
 
@@ -177,19 +177,19 @@ O modelo de solução que criou inclui código de amostra para um módulo IoT Ed
 
 Cada módulo pode ter múltiplas filas *de entrada* e *saída* declaradas no seu código. O hub IoT Edge em funcionamento no dispositivo encaminha as mensagens da saída de um módulo para a entrada de um ou mais módulos. O código específico para declarar entradas e saídas varia entre as línguas, mas o conceito é o mesmo em todos os módulos. Para obter mais informações sobre o encaminhamento entre módulos, consulte [as rotas de Declarar](module-composition.md#declare-routes).
 
-O código de amostra C# que vem com o modelo de projeto utiliza a [Classe MóduloClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet) do IoT Hub SDK para .NET.
+O código de amostra C# que vem com o modelo de projeto utiliza a [Classe MóduloClient](/dotnet/api/microsoft.azure.devices.client.moduleclient) do IoT Hub SDK para .NET.
 
 1. Abra o ficheiro **Program.cs,** que está dentro dos **módulos/pasta SampleModule.**
 
 2. Em program.cs, encontre o método **SetInputMessageHandlerAsync.**
 
-3. O método [SetInputMessageHandlerAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync?view=azure-dotnet) configura uma fila de entrada para receber mensagens recebidas. Reveja este método e veja como iniciaisiza uma fila de entrada chamada **input1**.
+3. O método [SetInputMessageHandlerAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync) configura uma fila de entrada para receber mensagens recebidas. Reveja este método e veja como iniciaisiza uma fila de entrada chamada **input1**.
 
    ![Encontre o nome de entrada no construtor SetInputMessageCallback](./media/tutorial-develop-for-linux/declare-input-queue.png)
 
 4. Em seguida, encontre o método **SendEventAsync.**
 
-5. O método [SendEventAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync?view=azure-dotnet) processa mensagens recebidas e configura uma fila de saída para as transmitir. Reveja este método e faça com que inicialize uma fila de saída chamada **output1**.
+5. O método [SendEventAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync) processa mensagens recebidas e configura uma fila de saída para as transmitir. Reveja este método e faça com que inicialize uma fila de saída chamada **output1**.
 
    ![Encontre o nome de saída em SendEventToOutputAsync](./media/tutorial-develop-for-linux/declare-output-queue.png)
 

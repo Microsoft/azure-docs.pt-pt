@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 9ae3ef133fa1b246c09fe0a9aa4ec27b0f75fd19
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 524df7805207ce517c7ae805fb17de1b041a2248
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531581"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876044"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Ligações DB Azure Cosmos para Funções Azure 1.x
 
@@ -178,7 +178,7 @@ Os atributos não são suportados pelo JavaScript.
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `CosmosDBTrigger` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido para `cosmosDBTrigger` . |
 |**direção** | n/a | Deve ser definido para `in` . Este parâmetro é definido automaticamente quando cria o gatilho no portal Azure. |
@@ -211,9 +211,11 @@ O gatilho requer uma segunda coleção que usa para armazenar _arrendamentos_ so
 
 O gatilho não indica se um documento foi atualizado ou inserido, apenas fornece o documento em si. Se precisar de lidar com atualizações e inserções de forma diferente, poderá fazê-lo implementando campos de tempotamp para inserção ou atualização.
 
-## <a name="input"></a>Entrada
+## <a name="input"></a>Input
 
 O enlace de entrada do Azure Cosmos DB utiliza a API do SQL para obter um ou mais documentos do Azure Cosmos DB e passa-os para o parâmetro de entrada da função. Os parâmetros de consulta ou o ID do documento podem ser determinados com base no acionador que invoca a função.
+
+## <a name="input---example"></a>Entrada - exemplo
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -1113,7 +1115,7 @@ Os atributos não são suportados pelo JavaScript.
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `DocumentDB` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**tipo**     | n/a | Deve ser definido para `documentdb` .        |
 |**direção**     | n/a | Deve ser definido para `in` .         |
@@ -1146,6 +1148,8 @@ As atualizações não são efetuadas automaticamente após a saída da função
 ## <a name="output"></a>Saída
 
 A ligação de saída DB da Azure Cosmos permite-lhe escrever um novo documento numa base de dados DB da Azure Cosmos utilizando a API SQL.
+
+## <a name="output---example"></a>Saída - exemplo
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -1452,7 +1456,7 @@ Os atributos não são suportados pelo JavaScript.
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `DocumentDB` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 |**tipo**     | n/a | Deve ser definido para `documentdb` .        |
 |**direção**     | n/a | Deve ser definido para `out` .         |

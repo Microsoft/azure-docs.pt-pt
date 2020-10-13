@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 10/14/2019
 ms.author: cherylmc
 ms.openlocfilehash: 07eae453441ea8bff81d7cdb60f9c46c08a22829
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91851183"
 ---
 # <a name="configure-a-custom-ipsec-policy-for-virtual-wan-using-the-portal"></a>Configure uma política personalizada do IPsec para o WAN virtual usando o portal

@@ -11,18 +11,22 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 33842707f04e55b311aeeabe2f1bbc83204ec0c9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 126df6e7f4d227c20c2173a1e2d4c0d7361b043f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83652273"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962450"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Início Rápido: Definir e obter um segredo do Azure Key Vault com o portal do Azure
 
 O Azure Key Vault é um serviço cloud que funciona como um arquivo de segredos seguro. Pode armazenar chaves, palavras-passe, certificados e outros segredos em segurança. Os cofres de chaves do Azure podem ser criados e geridos através do portal do Azure. Neste início rápido, vai criar um cofre de chaves e utilizá-lo para armazenar um segredo. Para obter mais informações sobre o Key Vault, reveja a [Descrição Geral](../general/overview.md).
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Para mais informações sobre segredos, consulte (about-secrets.md).
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+- Uma subscrição Azure - [crie uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -46,6 +50,9 @@ Tome nota das duas propriedades listadas abaixo:
 
 * **Nome do Cofre**: no exemplo, o nome é **Contoso-Vault2**. Irá utilizar este nome para outros passos.
 * **URI do Cofre**: no exemplo, isto é https://contoso-vault2.vault.azure.net/. As aplicações que utilizam o cofre através da respetiva API têm de utilizar este URI.
+
+Também pode criar o Key Vault com Azure CLI e PowerShell: Criar cofre de chaves utilizando o Cofre de Chaves [PowerShell](../general/quick-create-powershell.md) 
+ [Create usando O Azure CLI](../general/quick-create-cli.md)
 
 Nesta altura, a sua conta do Azure é a única autorizada a realizar as operações neste novo cofre.
 
@@ -90,5 +97,8 @@ Quando já não for necessário, elimine o grupo de recursos, que elimina o Key 
 Neste arranque rápido, criaste um Cofre-Chave e guardaste um segredo nele. Para saber mais sobre o Key Vault e como integrá-lo com as suas aplicações, continue para os artigos abaixo.
 
 - Leia uma [visão geral do cofre da chave Azure](../general/overview.md)
+- Ler [Acesso seguro a um cofre de chaves](../general/secure-your-key-vault.md)
+- Ver [utilizar o cofre de chaves com app Service Web App](../general/tutorial-net-create-vault-azure-web-app.md)
+- Ver [Use Key Vault com aplicação implantada em VM](../general/tutorial-net-virtual-machine.md)
 - Consulte o [guia do desenvolvedor do Azure Key Vault](../general/developers-guide.md)
 - Rever [as melhores práticas do Azure Key Vault](../general/best-practices.md)

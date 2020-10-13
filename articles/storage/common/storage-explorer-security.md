@@ -8,10 +8,10 @@ ms.topic: best-practice
 ms.date: 07/30/2020
 ms.author: cralvord
 ms.openlocfilehash: e3bbe39077cf6d7781f7e11fde044cf272aa83e8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91714377"
 ---
 # <a name="azure-storage-explorer-security-guide"></a>Guia de segurança do Azure Storage Explorer
@@ -100,6 +100,6 @@ Ao permitir o acesso público a um recipiente de bolhas, recomendamos as seguint
 - **Não permita o acesso do público a um recipiente de bolhas que possa conter quaisquer dados potencialmente sensíveis.** Certifique-se de que o seu recipiente blob está livre de todos os dados privados.
 - **Não carrede dados potencialmente sensíveis para um recipiente de bolhas com acesso blob ou contentor.** 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - [Recomendações de segurança](https://docs.microsoft.com/azure/storage/blobs/security-recommendations)

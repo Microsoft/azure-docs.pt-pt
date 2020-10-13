@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/11/2019
 ms.openlocfilehash: 06763624231fde344990da6d0a4639bcccdedf00
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448870"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Migração da base de dados SQL Server para Base de Dados Azure SQL
@@ -119,7 +119,7 @@ Além de pesquisar na Internet e utilizar estes recursos, utilize a [página de 
 > [!IMPORTANT]
 > Azure SQL Managed Instance permite-lhe migrar uma instância do SQL Server existente e as suas bases de dados com problemas mínimos de compatibilidade. Ver [O que é um caso gerido](../managed-instance/sql-managed-instance-paas-overview.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Utilize o script no blogue de Engenheiros do Azure SQL EMEA para [Monitorizar a utilização de tempdb durante a migração](https://blogs.msdn.microsoft.com/azuresqlemea/2016/12/28/lesson-learned-10-monitoring-tempdb-usage/).
 - Utilize o script no blogue de Engenheiros do Azure SQL EMEA para [Monitorizar o espaço do registo de transações da base de dados enquanto a migração está a ocorrer](https://docs.microsoft.com/archive/blogs/azuresqlemea/lesson-learned-7-monitoring-the-transaction-log-space-of-my-database).

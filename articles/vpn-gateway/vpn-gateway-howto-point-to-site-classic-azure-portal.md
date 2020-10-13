@@ -1,18 +1,18 @@
 ---
-title: 'Ligar um computador a uma rede virtual através de Ponto a Site e autenticação de certificado: Portal do Azure clássico | Microsoft Docs'
+title: 'Ligue um computador a uma rede virtual utilizando a autenticação point-to-site e certificado: Azure portal clássico / Microsoft Docs'
 description: Crie uma ligação de gateway de VPN Ponto a Site clássica utilizando o portal do Azure.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 01/09/2020
+ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: f68631771b8f86d995108112b1243ab38bf826bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf0618c120a7fe572aa55b423d36dce3ef5656da
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "84984782"
+ms.locfileid: "91876197"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>Configure uma ligação ponto-a-local utilizando a autenticação de certificado (clássico)
 
@@ -79,31 +79,11 @@ Antes de começar, verifique se tem uma assinatura Azure. Se ainda não tiver um
 
 ### <a name="part-1-create-a-virtual-network"></a>Parte 1: criar uma rede virtual
 
-Se ainda não tiver uma rede virtual (VNet), crie uma. As capturas de ecrã são disponibilizadas como exemplos. Não se esqueça de substituir os valores pelos seus. Para criar uma VNet com o portal do Azure, siga os passos abaixo:
+Se já tiver uma VNet, certifique-se de que as definições são compatíveis com a conceção do seu gateway de VPN. Tenha em especial atenção as sub-redes que se possam sobrepor a outras redes.
 
-1. No menu do [portal do Azure](https://portal.azure.com) ou a partir da **Home page**, selecione **Criar um recurso**. A **New** nova página abre.
+[!INCLUDE [basic classic vnet](../../includes/vpn-gateway-vnet-classic.md)]
 
-2. No campo **'Pesquisar no mercado',** insira *a rede virtual* e selecione a rede **Virtual** a partir da lista de devoluções. A página **de rede Virtual** abre.
-
-3. A partir da lista **de modelos de implementação,** selecione **Classic**e, em seguida, selecione **Criar**. A página **de rede virtual Create** abre.
-
-4. Na página **Criar rede virtual**, configure as definições da VNet. Nesta página, deve adicionar o seu primeiro espaço de endereços e um único intervalo de endereços de sub-rede. Uma vez concluída a criação da VNet, pode voltar atrás e adicionar sub-redes e espaços de endereços adicionais.
-
-   ![Página Criar rede virtual](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/vnet125.png)
-
-5. Selecione a **Subscrição** que pretende utilizar na lista de drop-down.
-
-6. Selecione um Grupo de **Recursos**existente. Ou criar um novo grupo de recursos selecionando **Criar novo** e introduzir um nome. Se estiver a criar um novo grupo de recursos, nomeie o grupo de recursos de acordo com os valores de configuração planeados. Para mais informações sobre grupos de recursos, veja [Descrição Geral do Azure Resource Manager](../azure-resource-manager/management/overview.md#resource-groups).
-
-7. Selecione uma **localização** para o seu VNet. Esta definição determina a localização geográfica dos recursos que implementa para este VNet.
-
-8. Selecione **Criar** para criar o VNet. Na página **de Notificações,** verá uma **mensagem de implementação em andamento.**
-
-8. Após a criação da sua rede virtual, a mensagem na página de **Notificações** altera a **implementação conseguiu**. Selecione **Pin para painel de instrumentos** se quiser encontrar facilmente o seu VNet no painel de instrumentos. 
-
-10. Adicione um servidor DNS (opcional). Depois de criar a rede virtual, pode adicionar o endereço IP de um servidor DNS para a resolução de nomes. O endereço IP do servidor DNS especificado deve ser o endereço de um servidor DNS que possa resolver os nomes dos recursos na sua VNet.
-
-    Para adicionar um servidor DNS, selecione **servidores DNS** da sua página VNet. Em seguida, insira o endereço IP do servidor DNS que pretende utilizar e selecione **Guardar**.
+[!INCLUDE [basic classic DNS](../../includes/vpn-gateway-dns-classic.md)]
 
 ### <a name="part-2-create-a-gateway-subnet-and-a-dynamic-routing-gateway"></a>Parte 2: Criar uma sub-rede de gateway e um gateway dinâmico de encaminhamento
 

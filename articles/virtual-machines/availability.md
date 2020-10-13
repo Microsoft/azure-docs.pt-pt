@@ -6,12 +6,12 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 3826019a19aa744cb03737ed7f0c985f8063a1aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4009f3c132c76f6632d6bb706649befa746001f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88815611"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972531"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Opções de disponibilidade das máquinas virtuais no Azure
 
@@ -51,7 +51,7 @@ Conjuntos de escala de máquina virtual Azure permitem criar e gerir um grupo de
 
 **Domínios de avaria e domínios de atualização**
 
-Os conjuntos de escala de máquina virtual simplificam o design para uma alta disponibilidade, alinhando domínios de falhas e domínios de atualização. Só terá de definir a contagem de domínios de avaria para o conjunto de escalas. O número de domínios de avaria disponíveis para os conjuntos de escala pode variar por região. Ver [Gerir a disponibilidade de máquinas virtuais em Azure](./windows/manage-availability.md).
+Os conjuntos de escala de máquina virtual simplificam o design para uma alta disponibilidade, alinhando domínios de falhas e domínios de atualização. Só terá de definir a contagem de domínios de avaria para o conjunto de escalas. O número de domínios de avaria disponíveis para os conjuntos de escala pode variar por região. Ver [Gerir a disponibilidade de máquinas virtuais em Azure](./manage-availability.md).
 
 
 ## <a name="availability-sets"></a>Conjuntos de disponibilidade
@@ -61,7 +61,7 @@ Num conjunto de disponibilidade, os VMs são automaticamente distribuídos por e
 
 Para as VMs que utilizam os [Managed Disks do Azure](./faq-for-disks.md), as VMs são alinhadas com domínios de falha de discos geridos ao utilizar um conjunto de disponibilidade gerido. Este alinhamento garante que todos os discos geridos ligados a uma VM estão dentro do mesmo domínio de falha do disco gerido. 
 
-Apenas as VMs com discos geridos podem ser criadas num conjunto de disponibilidade gerido. O número de domínios de falha do disco gerido varia por região - dois ou três domínios de falha do disco gerido por região. Pode ler mais sobre estes domínios de falha de disco geridos para [VMs Linux](./linux/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set) ou [VMs do Windows](./windows/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set).
+Apenas as VMs com discos geridos podem ser criadas num conjunto de disponibilidade gerido. O número de domínios de falha do disco gerido varia por região - dois ou três domínios de falha do disco gerido por região. Pode ler mais sobre estes domínios de falha de disco geridos para [VMs Linux](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) ou [VMs do Windows](./manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
 ![Conjunto de disponibilidade gerido](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
 

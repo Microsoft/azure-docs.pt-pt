@@ -8,7 +8,7 @@ ms.openlocfilehash: d38d4ffc868d442980cda576ea158704231f9efb
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91856335"
 ---
 # <a name="authenticate-publishing-clients-azure-event-grid"></a>Autenticar clientes editoriais (Azure Event Grid)
