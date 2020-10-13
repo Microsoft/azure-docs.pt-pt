@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 3f7298ec7bba82eaddc4a002723f44bc5da68433
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 899fddf08a817126ce775733da38ffd10ab3ab23
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945350"
+ms.locfileid: "91952119"
 ---
 # <a name="azure-security-centers-overview-page"></a>Página geral do Centro de Segurança Azure
 
@@ -38,7 +38,7 @@ A **barra de menu superior** oferece:
 
 No centro da página encontram-se **quatro azulejos centrais,** cada um ligado a um dashboard dedicado para mais detalhes:
 - **Pontuação segura** - O Security Center avalia continuamente os seus recursos, subscrições e organização para questões de segurança. Em seguida, agrega todas as conclusões numa única pontuação para que possa dizer, num ápice, a sua situação de segurança atual: quanto maior for a pontuação, menor o nível de risco identificado. [Saiba mais](secure-score-security-controls.md).
-- **Compliance** - O Security Center fornece informações sobre a sua postura de conformidade com base em avaliações contínuas do seu ambiente Azure. O Security Center analisa fatores de risco no seu ambiente de nuvem híbrida de acordo com as melhores práticas de segurança. Estas avaliações são mapeadas para controlos de conformidade de um conjunto de normas apoiadas. [Saiba mais.](security-center-compliance-dashboard.md)
+- **Compliance** - O Security Center fornece informações sobre a sua postura de conformidade com base em avaliações contínuas do seu ambiente Azure. O Security Center analisa fatores de risco no seu ambiente de nuvem híbrida de acordo com as melhores práticas de segurança. Estas avaliações são mapeadas para controlos de conformidade de um conjunto de normas apoiadas. [Saiba mais](security-center-compliance-dashboard.md).
 - **Azure Defender** - Esta é a plataforma de proteção da carga de trabalho em nuvem (CWPP) integrada no Centro de Segurança para cargas avançadas, inteligentes, de proteção das suas cargas de trabalho Azure e híbridas. O azulejo mostra a cobertura dos seus recursos conectados (para as subscrições atualmente selecionadas) e os alertas recentes, codificados por cores por severidade. [Saiba mais](azure-defender.md).
 - **Inventário** - O azulejo mostra o número de VMs não monitorizados e um simples barómetro dos seus recursos monitorizados pelo Centro de Segurança. [Saiba mais](asset-inventory.md).
 
@@ -49,7 +49,7 @@ O **painel Insights** oferece itens personalizados para o seu ambiente, incluind
 - As recomendações ativas com mais recursos impactados
 - Publicações recentes de blogs por especialistas do Azure Security Center
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Esta página introduziu a página geral do Centro de Segurança. Para obter informações relacionadas, consulte:
 

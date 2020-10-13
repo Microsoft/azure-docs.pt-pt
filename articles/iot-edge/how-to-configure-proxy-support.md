@@ -10,12 +10,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - contperfq1
-ms.openlocfilehash: e6c85ba79c21c9a8120feebc02477506eb93d2e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d5e5e6cc77c7fe1d32f0834831ef1b930ee834d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89500373"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966173"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configurar um dispositivo IoT Edge para comunicar através de um servidor proxy
 
@@ -25,7 +25,7 @@ Este artigo percorre os seguintes quatro passos para configurar e, em seguida, g
 
 1. [**Instale o tempo de execução IoT Edge no seu dispositivo**](#install-the-runtime-through-a-proxy)
 
-   Os scripts de instalação IoT Edge retiram pacotes e ficheiros da internet, pelo que o seu dispositivo necessita de comunicar através do servidor proxy para fazer esses pedidos. Para dispositivos Windows, o script de instalação também fornece uma opção [de instalação offline.](how-to-install-iot-edge-windows.md#offline-or-specific-version-installation)
+   Os scripts de instalação IoT Edge retiram pacotes e ficheiros da internet, pelo que o seu dispositivo necessita de comunicar através do servidor proxy para fazer esses pedidos. Para dispositivos Windows, o script de instalação também fornece uma opção de instalação offline.
 
    Este passo é um processo único para configurar o dispositivo IoT Edge quando o configurar pela primeira vez. As mesmas ligações também são necessárias quando atualiza o tempo de funcionação do IoT Edge.
 
@@ -65,7 +65,7 @@ Quer o seu dispositivo IoT Edge seja executado no Windows ou linux, tem de acede
 
 ### <a name="linux-devices"></a>Dispositivos Linux
 
-Se estiver a instalar o tempo de funcionamento do IoT Edge num dispositivo Linux, configurge o gestor de pacotes para passar pelo seu servidor proxy para aceder ao pacote de instalação. Por exemplo, [Configurar apta a utilizar um http-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). Assim que o seu gestor de pacotes estiver configurado, siga as instruções no [tempo de funcionamento do Azure IoT Edge no Linux,](how-to-install-iot-edge-linux.md) como de costume.
+Se estiver a instalar o tempo de funcionamento do IoT Edge num dispositivo Linux, configurge o gestor de pacotes para passar pelo seu servidor proxy para aceder ao pacote de instalação. Por exemplo, [Configurar apta a utilizar um http-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). Uma vez configurado o seu gestor de pacotes, siga as instruções no tempo de [funcionamento do Azure IoT Edge,](how-to-install-iot-edge.md) como de costume.
 
 ### <a name="windows-devices"></a>Dispositivos Windows
 
@@ -93,7 +93,7 @@ $proxyCredential = (Get-Credential).GetNetworkCredential()
 Deploy-IoTEdge -InvokeWebRequestParameters @{ '-Proxy' = '<proxy URL>'; '-ProxyCredential' = $proxyCredential }
 ```
 
-Para obter mais informações sobre parâmetros de procuração, consulte [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest). Para obter mais informações sobre as opções de instalação do Windows, incluindo a instalação offline, consulte [o tempo de execução do Azure IoT Edge no Windows](how-to-install-iot-edge-windows.md).
+Para obter mais informações sobre parâmetros de procuração, consulte [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest). Para obter mais informações sobre os parâmetros de instalação do Windows, consulte [os scripts PowerShell para IoT Edge no Windows](reference-windows-scripts.md).
 
 ## <a name="configure-the-daemons"></a>Configure os daemons
 

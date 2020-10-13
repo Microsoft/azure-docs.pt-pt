@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 754c106db42f3f0695ad023e736993bee82e9757
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67c7c71e1f1f3eb9e76aa4938cb4a0a15ca405c8
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82133925"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978803"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Implementar módulos Azure IoT Edge a partir do portal Azure
 
@@ -25,7 +25,9 @@ Este artigo mostra como o portal Azure o guia através da criação de um manife
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um [hub IoT](../iot-hub/iot-hub-create-through-portal.md) na sua assinatura Azure.
-* Um [dispositivo IoT Edge](how-to-register-device.md#register-in-the-azure-portal) com o tempo de execução IoT Edge instalado.
+* Um dispositivo IoT Edge.
+
+  Se não tiver um dispositivo IoT Edge configurado, pode criar um numa máquina virtual Azure. Siga os passos num dos artigos de arranque rápido para [criar um dispositivo Linux virtual](quickstart-linux.md) ou criar um dispositivo Virtual [Windows](quickstart.md).
 
 ## <a name="configure-a-deployment-manifest"></a>Configure um manifesto de implantação
 

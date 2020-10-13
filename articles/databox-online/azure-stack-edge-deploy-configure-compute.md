@@ -9,20 +9,20 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: b19bac439035da85d542d62f33e813822edc38d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2961bbf65fe1cf3ddf59c648f506cee85e248a5
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904586"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951626"
 ---
-# <a name="tutorial-transform-data-with-azure-stack-edge-pro"></a>Tutorial: Transformar dados com Azure Stack Edge Pro
+# <a name="tutorial-transform-the-data-with-azure-stack-edge-pro"></a>Tutorial: Transforme os dados com Azure Stack Edge Pro
 
 Este tutorial descreve como configurar um papel computacional no seu dispositivo Azure Stack Edge Pro. Depois de configurar o papel de computação, o Azure Stack Edge Pro pode transformar dados antes de enviá-los para o Azure.
 
 Este procedimento pode demorar cerca de 10 a 15 minutos para ser concluído.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Configure computação
@@ -55,11 +55,11 @@ Para configurar o cálculo no seu Azure Stack Edge Pro, irá criar um recurso Io
     |IoT Hub     | Escolha entre **Novo** ou **Já.** <br> Por predefinição, é utilizado um escalão Standard (S1) para criar um recurso IoT. Para utilizar um recurso IoT de escalão gratuito, crie um e, em seguida, selecione o recurso existente. <br> Em cada caso, o recurso IoT Hub utiliza o mesmo grupo de subscrição e recursos que é utilizado pelo recurso Azure Stack Edge.     |
     |Nome     |Insira um nome para o seu recurso IoT Hub.         |
 
-    ![Começar com o computo](./media/azure-stack-edge-deploy-configure-compute/configure-compute-2.png)
+    ![Começar com o compute 2](./media/azure-stack-edge-deploy-configure-compute/configure-compute-2.png)
 
 4. Selecione **Criar**. A criação de recursos IoT Hub demora alguns minutos. Após a criação do recurso IoT Hub, as atualizações de azulejos **de computação Configure** para mostrar a configuração do cálculo. Para confirmar que a função de computação Edge foi configurada, selecione **Ver Computação** no azulejo **do cálculo Configure.**
     
-    ![Começar com o computo](./media/azure-stack-edge-deploy-configure-compute/configure-compute-3.png)
+    ![Começar com o computo 3](./media/azure-stack-edge-deploy-configure-compute/configure-compute-3.png)
 
     > [!NOTE]
     > Se o diálogo **Configure Compute** for fechado antes de o IoT Hub estar associado ao dispositivo Azure Stack Edge Pro, o Hub IoT é criado mas não é mostrado na configuração do cálculo. 
@@ -138,19 +138,19 @@ Para verificar se o módulo está em funcionamento, faça o seguinte:
  
 1. No File Explorer, ligue-se às ações edge local e Edge que criou anteriormente.
 
-    ![Verificar a transformação dos dados](./media/azure-stack-edge-deploy-configure-compute/verify-data-2.png) 
+    ![Verificar a transformação de dados 2](./media/azure-stack-edge-deploy-configure-compute/verify-data-2.png) 
  
 1. Adicione os dados à partilha local.
 
-    ![Verificar a transformação dos dados](./media/azure-stack-edge-deploy-configure-compute/verify-data-3.png) 
+    ![Verificar a transformação de dados 3](./media/azure-stack-edge-deploy-configure-compute/verify-data-3.png) 
  
     Os dados são movidos para a partilha na cloud.
 
-    ![Verificar a transformação dos dados](./media/azure-stack-edge-deploy-configure-compute/verify-data-4.png)  
+    ![Verificar a transformação de dados 4](./media/azure-stack-edge-deploy-configure-compute/verify-data-4.png)  
 
     Os dados são então empurrados da parte da nuvem para a conta de armazenamento. Para ver os dados, vá ao Explorador de Armazenamento.
 
-    ![Verificar a transformação dos dados](./media/azure-stack-edge-deploy-configure-compute/verify-data-5.png) 
+    ![Verifique a transformação de dados 5](./media/azure-stack-edge-deploy-configure-compute/verify-data-5.png) 
  
 Concluiu o processo de validação.
 

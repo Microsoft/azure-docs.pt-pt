@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 951c1fd89f9e943b72c32492ff40dae3bd07bb61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf7e596c8ed057a3244ed2b12de59d02c4ba2cae
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88794481"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977940"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Cenários do Azure Disk Encryption em VMs do Windows
 
@@ -158,7 +158,7 @@ Os discos NVMe serão não ininitializados os seguintes cenários:
 
 - Iniciar VM após alocação de negócios
 - Cura de serviço
-- Backup
+- Cópia de segurança
 
 Nestes cenários, os discos NVMe precisam de ser inicializados após o início do VM. Para ativar a encriptação nos discos NVMe, executar o comando para ativar a Encriptação do Disco Azure novamente após a inicialização dos discos NVMe.
 
@@ -262,7 +262,7 @@ A Azure Disk Encryption não funciona para os seguintes cenários, funcionalidad
 - Encriptação de sistemas de ficheiros partilhados/distribuídos como (mas não limitados a) DFS, GFS, DRDB e CephFS.
 - Mover um VMs encriptado para outra subscrição ou região.
 - Criar uma imagem ou instantâneo de um VM encriptado e usá-lo para implementar VMs adicionais.
-- Gen2 VMs (ver: [Suporte para a geração 2 VMs em Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
+- Gen2 VMs (ver: [Suporte para a geração 2 VMs em Azure](../generation-2.md#generation-1-vs-generation-2-capabilities))
 - VMs da série M com discos de acelerador de escrita.
 - Aplicação de ADE a um VM que tenha discos encriptados com [encriptação do lado do servidor com teclas geridas pelo cliente](disk-encryption.md) (SSE + CMK). Aplicar SSE + CMK a um disco de dados num VM encriptado com ADE também é um cenário não suportado.
 - Migrar um VM que é encriptado com ADE, ou **que já** foi encriptado com ADE, para [encriptação do lado do servidor com teclas geridas pelo cliente](disk-encryption.md).

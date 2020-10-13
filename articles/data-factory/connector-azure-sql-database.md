@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/21/2020
-ms.openlocfilehash: 7cfb47ad4cad600f06aba2039f4b6a4b04722085
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: 7072adfcfd276d6420d8ffd7331c59ead7edd288
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332139"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952051"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copiar e transformar dados na Base de Dados Azure SQL utilizando a Azure Data Factory
 
@@ -43,6 +43,8 @@ Para a atividade copy, este conector Azure SQL Database suporta estas funções:
 - Copiar dados utilizando a autenticação SQL e o Azure Ative Directory (Azure AD) A autenticação de fichas de aplicação com um principal serviço ou identidades geridas para recursos Azure.
 - Como fonte, recuperar dados utilizando uma consulta SQL ou um procedimento armazenado. Também pode optar por copiar paralelamente a partir de uma fonte de base de dados Azure SQL, consulte a cópia paralela da secção [de base de dados SQL](#parallel-copy-from-sql-database) para obter mais detalhes.
 - Como pia, criar automaticamente a tabela de destino, se não existir com base no esquema de origem; anexar dados a uma tabela ou invocar um procedimento armazenado com lógica personalizada durante a cópia.
+
+Se utilizar o [nível sem servidor](../azure-sql/database/serverless-tier-overview.md)Azure SQL Database , note que quando o servidor está parado, a atividade falha em vez de esperar que o currículo automático esteja pronto. Pode adicionar atividades de redação ou cadeia de atividades adicionais para se certificar de que o servidor está ao vivo após a execução real.
 
 >[!NOTE]
 > A base de dados Azure SQL [Sempre encriptada](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) não é suportada por este conector agora. Para trabalhar, pode utilizar um [conector ODBC genérico](connector-odbc.md) e um controlador ODBC do SQL Server através de um tempo de integração auto-hospedado. Saiba mais [na secção "Sempre Encriptado".](#using-always-encrypted) 
@@ -691,7 +693,7 @@ Quando os dados são copiados de ou para Azure SQL Database, os seguintes mapeam
 | binary |Byte[] |
 | bit |Booleano |
 | char |String, Char[] |
-| date |DateTime |
+| data |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
 | Datatimeoff |Início de execução de tempo de data |

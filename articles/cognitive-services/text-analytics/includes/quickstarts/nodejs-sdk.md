@@ -6,16 +6,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 07/27/2020
+ms.date: 10/07/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
 ms.custom: devx-track-js
-ms.openlocfilehash: 5d9c3c8e795b6651595a17d540aafa849ce81471
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c24a50926fe028dcbf42d3642ae3ec5c9ae84f5b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91401047"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977854"
 ---
 <a name="HOLTop"></a>
 
@@ -147,11 +147,12 @@ O objeto de resposta é uma lista que contém as informações de análise de ca
 
 * [Autenticação do Cliente](#client-authentication)
 * [Análise de Sentimentos](#sentiment-analysis) 
-* [Deteção linguística](#language-detection)
+* [Mineração de opinião](#opinion-mining)
+* [Deteção de idioma](#language-detection)
 * [Reconhecimento de entidade nomeada](#named-entity-recognition-ner)
 * [Ligação de entidades](#entity-linking)
 * Informação Identificativa
-* [Extração de frase-chave](#key-phrase-extraction)
+* [Extração de expressões-chave](#key-phrase-extraction)
 
 ## <a name="client-authentication"></a>Autenticação de Cliente
 

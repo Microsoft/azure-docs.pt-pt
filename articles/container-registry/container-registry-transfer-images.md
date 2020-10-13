@@ -2,14 +2,14 @@
 title: Transferir artefactos
 description: Transferir coleções de imagens ou outros artefactos de um registo de contentores para outro registo, criando um gasoduto de transferência utilizando contas de armazenamento Azure
 ms.topic: article
-ms.date: 05/08/2020
+ms.date: 10/07/2020
 ms.custom: ''
-ms.openlocfilehash: ed848380457862fee506bf5111789e5d44545bdd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd2cee972ef173853572b871bc80b92b28c505cd
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91253416"
+ms.locfileid: "91932605"
 ---
 # <a name="transfer-artifacts-to-another-registry"></a>Transferir artefactos para outro registo
 
@@ -21,7 +21,7 @@ Para transferir artefactos, cria-se um *gasoduto de transferência* que replica 
 * O blob é copiado da conta de armazenamento de origem para uma conta de armazenamento alvo
 * A bolha na conta de armazenamento alvo é importada como artefactos no registo alvo. Pode configurar o gasoduto de importação para ativar sempre que o artefacto blob atualiza no armazenamento do alvo.
 
-A transferência é ideal para copiar conteúdo entre dois registos de contentores Azure em nuvens fisicamente desligadas, mediados por contas de armazenamento em cada nuvem. Para cópia de imagem de registos de contentores em nuvens conectadas, incluindo Docker Hub e outros vendedores de nuvem, [recomenda-se a importação de imagens.](container-registry-import-images.md)
+A transferência é ideal para copiar conteúdo entre dois registos de contentores Azure em nuvens fisicamente desligadas, mediados por contas de armazenamento em cada nuvem. Se em vez disso pretender copiar imagens de registos de contentores em nuvens conectadas, incluindo Docker Hub e outros vendedores de nuvem, [recomenda-se a importação de imagens.](container-registry-import-images.md)
 
 Neste artigo, utiliza as implementações do modelo do Azure Resource Manager para criar e executar o pipeline de transferência. O CLI Azure é utilizado para a provisionar os recursos associados, tais como segredos de armazenamento. Recomenda-se a versão 2.2.0 ou posterior do Azure CLI. Se precisar de instalar ou atualizar a CLI, veja [Instalar a CLI do Azure][azure-cli].
 
@@ -32,11 +32,18 @@ Esta funcionalidade está disponível no nível de serviço de registo de conten
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Registos de contentores** - É necessário um registo de origem existente com artefactos para transferir e um registo-alvo. A transferência de ACR destina-se ao movimento através de nuvens fisicamente desligadas. Para testes, os registos de origem e alvo podem estar na mesma ou numa subscrição Azure diferente, inquilino do Ative Directory ou nuvem. Se precisar de criar um registo, consulte [Quickstart: Crie um registo de contentores privados utilizando o Azure CLI](container-registry-get-started-azure-cli.md). 
-* **Contas de armazenamento** - Crie contas de armazenamento de origem e alvo numa subscrição e localização à sua escolha. Para efeitos de teste, pode utilizar a mesma subscrição ou subscrições que os registos de origem e alvo. Para cenários de nuvem cruzada, normalmente cria-se uma conta de armazenamento separada em cada nuvem. Se necessário, crie as contas de armazenamento com o [CLI Azure](../storage/common/storage-account-create.md?tabs=azure-cli) ou outras ferramentas. 
+* **Registos de contentores** - É necessário um registo de origem existente com artefactos para transferir e um registo-alvo. A transferência de ACR destina-se ao movimento através de nuvens fisicamente desligadas. Para testes, os registos de origem e alvo podem estar na mesma ou numa subscrição Azure diferente, inquilino do Ative Directory ou nuvem. 
+
+   Se precisar de criar um registo, consulte [Quickstart: Crie um registo de contentores privados utilizando o Azure CLI](container-registry-get-started-azure-cli.md). 
+* **Contas de armazenamento** - Crie contas de armazenamento de origem e alvo numa subscrição e localização à sua escolha. Para efeitos de teste, pode utilizar a mesma subscrição ou subscrições que os registos de origem e alvo. Para cenários de nuvem cruzada, normalmente cria-se uma conta de armazenamento separada em cada nuvem. 
+
+  Se necessário, crie as contas de armazenamento com o [CLI Azure](../storage/common/storage-account-create.md?tabs=azure-cli) ou outras ferramentas. 
 
   Crie um recipiente blob para transferência de artefactos em cada conta. Por exemplo, criar um contentor denominado *transferência*. Dois ou mais oleodutos de transferência podem partilhar a mesma conta de armazenamento, mas devem utilizar diferentes âmbitos de contentores de armazenamento.
-* **Cofres-chave** - Os cofres-chave são necessários para armazenar segredos simbólicos SAS usados para aceder a contas de armazenamento de fontes e alvos. Crie os cofres-chave de origem e alvo na mesma subscrição ou subscrições do Azure que os registos de origem e alvo. Se necessário, crie cofres-chave com o [CLI Azure](../key-vault/secrets/quick-create-cli.md) ou outras ferramentas.
+* **Cofres-chave** - Os cofres-chave são necessários para armazenar segredos simbólicos SAS usados para aceder a contas de armazenamento de fontes e alvos. Crie os cofres-chave de origem e alvo na mesma subscrição ou subscrições do Azure que os registos de origem e alvo. Para fins de demonstração, os modelos e comandos utilizados neste artigo também assumem que os cofres-chave de origem e alvo estão localizados nos mesmos grupos de recursos que os registos de origem e alvo, respectivamente. Esta utilização de grupos de recursos comuns não é necessária, mas simplifica os modelos e comandos utilizados neste artigo.
+
+   Se necessário, crie cofres-chave com o [CLI Azure](../key-vault/secrets/quick-create-cli.md) ou outras ferramentas.
+
 * **Variáveis ambientais** - Por exemplo, os comandos neste artigo, definir as seguintes variáveis ambientais para os ambientes de origem e alvo. Todos os exemplos são formatados para a casca bash.
   ```console
   SOURCE_RG="<source-resource-group>"
@@ -62,7 +69,7 @@ A autenticação de armazenamento utiliza fichas SAS, geridas como segredos em c
 
 ### <a name="things-to-know"></a>Aspetos importantes
 * O ExportPipeline e o ImportPipeline estarão tipicamente em diferentes inquilinos do Ative Directory associados às nuvens de origem e destino. Este cenário requer identidades geridas separadas e cofres-chave para os recursos de exportação e importação. Para efeitos de teste, estes recursos podem ser colocados na mesma nuvem, partilhando identidades.
-* Os exemplos do pipeline criam identidades geridas pelo sistema para aceder a segredos chave do cofre. As exportPipelines e ImportPipelines também suportam identidades atribuídas pelo utilizador. Neste caso, deve configurar os cofres-chave com políticas de acesso para as identidades. 
+* Por padrão, os modelos ExportPipeline e ImportPipeline permitem cada um um sistema de identidade gerida para aceder a segredos chave do cofre. Os modelos ExportPipeline e ImportPipeline também suportam uma identidade atribuída ao utilizador que fornece. 
 
 ## <a name="create-and-store-sas-keys"></a>Criar e armazenar chaves SAS
 
@@ -152,7 +159,13 @@ A `options` propriedade para os oleodutos de exportação suporta valores opcion
 
 ### <a name="create-the-resource"></a>Criar o recurso
 
-Executar [o grupo de implementação az criar][az-deployment-group-create] para criar o recurso. O exemplo a seguir dá nome à exportação de *implantaçãoPipeline*.
+O [grupo de implementação run az cria][az-deployment-group-create] para criar um recurso chamado *exportPipeline,* como mostrado nos seguintes exemplos. Por padrão, com a primeira opção, o modelo de exemplo permite uma identidade atribuída ao sistema no recurso ExportPipeline. 
+
+Com a segunda opção, pode fornecer ao recurso uma identidade atribuída ao utilizador. (Criação da identidade atribuída ao utilizador não mostrada.)
+
+Com qualquer uma das opções, o modelo configura a identidade para aceder ao token SAS no cofre da chave de exportação. 
+
+#### <a name="option-1-create-resource-and-enable-system-assigned-identity"></a>Opção 1: Criar recursos e permitir a identidade atribuída ao sistema
 
 ```azurecli
 az deployment group create \
@@ -162,10 +175,23 @@ az deployment group create \
   --parameters azuredeploy.parameters.json
 ```
 
+#### <a name="option-2-create-resource-and-provide-user-assigned-identity"></a>Opção 2: Criar recurso e fornecer identidade atribuída ao utilizador
+
+Neste comando, forneça o ID de recursos da identidade atribuída ao utilizador como parâmetro adicional.
+
+```azurecli
+az deployment group create \
+  --resource-group $SOURCE_RG \
+  --template-file azuredeploy.json \
+  --name exportPipeline \
+  --parameters azuredeploy.parameters.json \
+  --parameters userAssignedIdentity="/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUserAssignedIdentity"
+```
+
 Na saída do comando, tome nota do ID do recurso `id` ( ) do gasoduto. Pode armazenar este valor numa variável ambiental para utilização posterior executando o show do [grupo de implantação az][az-deployment-group-show]. Por exemplo:
 
 ```azurecli
-EXPORT_RES_ID=$(az group deployment show \
+EXPORT_RES_ID=$(az deployment group show \
   --resource-group $SOURCE_RG \
   --name exportPipeline \
   --query 'properties.outputResources[1].id' \
@@ -198,20 +224,39 @@ A `options` propriedade para o gasoduto de importação suporta valores opcionai
 
 ### <a name="create-the-resource"></a>Criar o recurso
 
-Executar [o grupo de implementação az criar][az-deployment-group-create] para criar o recurso.
+O [grupo de implementação executar az cria][az-deployment-group-create] para criar um recurso chamado *importPipeline,* como mostrado nos exemplos seguintes. Por padrão, com a primeira opção, o modelo de exemplo permite uma identidade atribuída ao sistema no recurso ImportPipeline. 
+
+Com a segunda opção, pode fornecer ao recurso uma identidade atribuída ao utilizador. (Criação da identidade atribuída ao utilizador não mostrada.)
+
+Com qualquer uma das opções, o modelo configura a identidade para aceder ao token SAS no cofre da chave de importação. 
+
+#### <a name="option-1-create-resource-and-enable-system-assigned-identity"></a>Opção 1: Criar recursos e permitir a identidade atribuída ao sistema
 
 ```azurecli
 az deployment group create \
   --resource-group $TARGET_RG \
   --template-file azuredeploy.json \
-  --parameters azuredeploy.parameters.json \
-  --name importPipeline
+  --name importPipeline \
+  --parameters azuredeploy.parameters.json 
 ```
 
-Se pretender executar a importação manualmente, tome nota do ID do recurso ( `id` ) do gasoduto. Pode armazenar este valor numa variável ambiental para utilização posterior executando o show do [grupo de implantação az][az-deployment-group-show]. Por exemplo:
+#### <a name="option-2-create-resource-and-provide-user-assigned-identity"></a>Opção 2: Criar recurso e fornecer identidade atribuída ao utilizador
+
+Neste comando, forneça o ID de recursos da identidade atribuída ao utilizador como parâmetro adicional.
 
 ```azurecli
-IMPORT_RES_ID=$(az group deployment show \
+az deployment group create \
+  --resource-group $TARGET_RG \
+  --template-file azuredeploy.json \
+  --name importPipeline \
+  --parameters azuredeploy.parameters.json \
+  --parameters userAssignedIdentity="/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUserAssignedIdentity"
+```
+
+Se pretender executar a importação manualmente, tome nota do ID do recurso ( `id` ) do gasoduto. Pode armazenar este valor numa variável ambiental para utilização posterior, executando o comando de exibição do [grupo de implantação az.][az-deployment-group-show] Por exemplo:
+
+```azurecli
+IMPORT_RES_ID=$(az deployment group show \
   --resource-group $TARGET_RG \
   --name importPipeline \
   --query 'properties.outputResources[1].id' \
@@ -246,12 +291,22 @@ az deployment group create \
   --parameters azuredeploy.parameters.json
 ```
 
+Para uma utilização posterior, guarde o ID de recurso do gasoduto executado numa variável ambiental:
+
+```azurecli
+EXPORT_RUN_RES_ID=$(az deployment group show \
+  --resource-group $SOURCE_RG \
+  --name exportPipelineRun \
+  --query 'properties.outputResources[0].id' \
+  --output tsv)
+```
+
 Pode levar vários minutos para os artefactos exportarem. Quando a implantação estiver concluída com sucesso, verifique a exportação de artefactos listando a bolha exportada no recipiente de *transferência* da conta de armazenamento de origem. Por exemplo, executar o comando da [lista de bolhas de armazenamento az:][az-storage-blob-list]
 
 ```azurecli
 az storage blob list \
-  --account-name $SOURCE_SA
-  --container transfer
+  --account-name $SOURCE_SA \
+  --container transfer \
   --output table
 ```
 
@@ -300,11 +355,21 @@ Executar [o grupo de implementação az criar][az-deployment-group-create] para 
 ```azurecli
 az deployment group create \
   --resource-group $TARGET_RG \
+  --name importPipelineRun \
   --template-file azuredeploy.json \
   --parameters azuredeploy.parameters.json
 ```
 
-Quando a implantação estiver concluída com sucesso, verifique a importação de artefactos listando os repositórios no registo do contentor-alvo. Por exemplo, executar [a lista de repositórios az acr][az-acr-repository-list]:
+Para uma utilização posterior, guarde o ID de recurso do gasoduto executado numa variável ambiental:
+
+```azurecli
+IMPORT_RUN_RES_ID=$(az deployment group show \
+  --resource-group $TARGET_RG \
+  --name importPipelineRun \
+  --query 'properties.outputResources[0].id' \
+  --output tsv)
+
+When deployment completes successfully, verify artifact import by listing the repositories in the target container registry. For example, run [az acr repository list][az-acr-repository-list]:
 
 ```azurecli
 az acr repository list --name <target-registry-name>
@@ -329,20 +394,20 @@ az deployment group create \
 
 ## <a name="delete-pipeline-resources"></a>Eliminar recursos de gasoduto
 
-Para eliminar um recurso de pipeline, elimine a sua implementação de Gestor de Recursos utilizando o comando de eliminação do [grupo de implantação az.][az-deployment-group-delete] Os seguintes exemplos eliminam os recursos do gasoduto criados neste artigo:
+Os seguintes comandos de exemplo utilizam [a az recursos para eliminar][az-resource-delete] os recursos do pipeline criados neste artigo. Os IDs de recursos foram previamente armazenados em variáveis ambientais.
 
-```azurecli
-az deployment group delete \
-  --resource-group $SOURCE_RG \
-  --name exportPipeline
+```
+# Delete export resources
+az resource delete \
+--resource-group $SOURCE_RG \
+--ids $EXPORT_RES_ID $EXPORT_RUN_RES_ID \
+--api-version 2019-12-01-preview
 
-az deployment group delete \
-  --resource-group $SOURCE_RG \
-  --name exportPipelineRun
-
-az deployment group delete \
-  --resource-group $TARGET_RG \
-  --name importPipeline  
+# Delete import resources
+az resource delete \
+--resource-group $TARGET_RG \
+--ids $IMPORT_RES_ID $IMPORT_RUN_RES_ID \
+--api-version 2019-12-01-preview
 ```
 
 ## <a name="troubleshooting"></a>Resolução de problemas
@@ -374,8 +439,6 @@ Para importar imagens de um único contentor para um registo de contentores Azur
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-identity-create]: /cli/azure/identity#az-identity-create
-[az-identity-show]: /cli/azure/identity#az-identity-show
 [az-login]: /cli/azure/reference-index#az-login
 [az-keyvault-secret-set]: /cli/azure/keyvault/secret#az-keyvault-secret-set
 [az-keyvault-secret-show]: /cli/azure/keyvault/secret#az-keyvault-secret-show
@@ -387,3 +450,4 @@ Para importar imagens de um único contentor para um registo de contentores Azur
 [az-deployment-group-show]: /cli/azure/deployment/group#az-deployment-group-show
 [az-acr-repository-list]: /cli/azure/acr/repository#az-acr-repository-list
 [az-acr-import]: /cli/azure/acr#az-acr-import
+[az-resource-delete]: /cli/azure/resource#az-resource-delete

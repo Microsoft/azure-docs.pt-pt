@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 44f22f365699ddc345849df78d6e27c2703d785b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8fbf765168fd848a2ae349badf4017289b5a4380
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904685"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952272"
 ---
-# <a name="use-the-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Utilize o portal Azure para gerir ações no seu Azure Stack Edge Pro
+# <a name="use-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Use o portal Azure para gerir ações no seu Azure Stack Edge Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
@@ -41,7 +41,7 @@ Efetue os seguintes passos no portal do Azure para criar uma partilha.
     
     Os nomes das partilhas só podem conter números, letras minúsculas e hífenes. O nome da partilha tem de ter entre 3 e 63 carateres e começar com uma letra ou um número. Cada hífen tem de ser precedido e seguido de um caráter que não seja um hífen.
 
-3. Selecione um **Tipo** para a partilha. O tipo pode ser **SMB** ou **NFS**, sendo que SMB é a predefinição. SMB é o padrão para clientes Windows, e NFS é utilizado para clientes Linux. Dependendo se escolher a partilha SMB ou NFS, as opções apresentadas são ligeiramente diferentes.
+3. Selecione um **Tipo** para a partilha. O tipo pode ser **SMB** ou **NFS,** sendo o SMB o padrão. SMB é o padrão para clientes Windows, e NFS é utilizado para clientes Linux. Dependendo se escolher a partilha SMB ou NFS, as opções apresentadas são ligeiramente diferentes.
 
 4. Forneça uma **Conta de armazenamento** onde reside a partilha. É criado um contentor na conta de armazenamento com o nome da partilha, se o contentor ainda não existir. Se o contentor já existir, é utilizado o contentor existente.
 
@@ -59,19 +59,19 @@ Efetue os seguintes passos no portal do Azure para criar uma partilha.
 
 7. Para aceder facilmente às ações dos módulos de computação Edge, utilize o ponto de montagem local. **Selecione Utilize a partilha com o cálculo Edge** para que a partilha seja montada automaticamente após a sua criação. Quando esta opção é selecionada, o módulo Edge também pode utilizar o cálculo com o ponto de montagem local.
 
-8. Clique em **Criar** para criar a partilha. Será notificado de que a criação da partilha está em curso. Depois de criar a partilha com as definições especificadas, o painel **Partilhas** é atualizado para refletir a nova partilha.
+8. Clique em **Criar** para criar a partilha. Será notificado de que a criação da partilha está em curso. Após a criação da partilha com as definições especificadas, a lâmina **de partilha** atualiza-se para refletir a nova ação.
 
 ## <a name="add-a-local-share"></a>Adicione uma parte local
 
 1. No portal Azure, vá ao seu recurso Azure Stack Edge e, em seguida, vá ao **Gateway > Shares**. **Selecione + Adicione a partilha** na barra de comando.
 
-    ![Selecione adicionar a partilha](media/azure-stack-edge-j-series-manage-shares/add-local-share-1.png)
+    ![Selecione adicionar a partilha 2](media/azure-stack-edge-j-series-manage-shares/add-local-share-1.png)
 
 2. Em **Adicionar Partilha**, especifique as definições de partilha. Indique um nome exclusivo para a partilha.
     
     Os nomes de partilha só podem conter números, letras minúsculas e maiúsculas e hífenes. O nome da partilha tem de ter entre 3 e 63 carateres e começar com uma letra ou um número. Cada hífen tem de ser precedido e seguido de um caráter que não seja um hífen.
 
-3. Selecione um **Tipo** para a partilha. O tipo pode ser **SMB** ou **NFS**, sendo que SMB é a predefinição. SMB é o padrão para clientes Windows, e NFS é utilizado para clientes Linux. Dependendo se escolher a partilha SMB ou NFS, as opções apresentadas são ligeiramente diferentes.
+3. Selecione um **Tipo** para a partilha. O tipo pode ser **SMB** ou **NFS,** sendo o SMB o padrão. SMB é o padrão para clientes Windows, e NFS é utilizado para clientes Linux. Dependendo se escolher a partilha SMB ou NFS, as opções apresentadas são ligeiramente diferentes.
 
    > [!IMPORTANT]
    > Certifique-se de que a conta de Armazenamento Azure que utiliza não tem políticas de imutabilidade definidas se estiver a usá-la com um dispositivo Azure Stack Edge Pro ou Data Box Gateway. Para obter mais informações, consulte [Definir e gerir políticas de imutabilidade para armazenamento de bolhas](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
@@ -86,7 +86,7 @@ Efetue os seguintes passos no portal do Azure para criar uma partilha.
 
     ![Criar ações locais](media/azure-stack-edge-j-series-manage-shares/add-local-share-2.png)
 
-    Vê uma notificação de que a criação de ações está em curso. Depois de criar a partilha com as definições especificadas, o painel **Partilhas** é atualizado para refletir a nova partilha.
+    Vê uma notificação de que a criação de ações está em curso. Após a criação da partilha com as definições especificadas, a lâmina **de partilha** atualiza-se para refletir a nova ação.
 
     ![Ver atualizações Partilhar lâmina](media/azure-stack-edge-j-series-manage-shares/add-local-share-3.png)
     
@@ -125,7 +125,7 @@ Faça os seguintes passos no portal Azure para desmontar uma parte.
 
 1. No portal Azure, vá ao seu recurso Azure Stack Edge e, em seguida, vá ao **Gateway > Shares**.
 
-    ![Selecionar partilha](media/azure-stack-edge-j-series-manage-shares/unmount-share-1.png)
+    ![Selecione share 2](media/azure-stack-edge-j-series-manage-shares/unmount-share-1.png)
 
 2. Na lista das ações, selecione a parte que pretende desmontar. Certifique-se de que a parte que desmonta não é utilizada por nenhum módulo. Se a partilha for utilizada por um módulo, verá problemas com o módulo correspondente. Selecione **Desmonte**.
 
@@ -145,7 +145,7 @@ Efetue os seguintes passos no portal do Azure para eliminar uma partilha.
 
 1. Na lista de partilhas, selecione e clique na partilha que pretende eliminar.
 
-    ![Selecionar partilha](media/azure-stack-edge-j-series-manage-shares/delete-share-1.png)
+    ![Selecione partilha 3](media/azure-stack-edge-j-series-manage-shares/delete-share-1.png)
 
 2. Clique em **Eliminar**.
 
@@ -169,7 +169,7 @@ Efetue os seguintes passos no portal do Azure para atualizar uma partilha.
 
 1.  No portal do Azure, aceda a **Partilhas**. Selecione e clique na partilha que pretende atualizar.
 
-    ![Selecionar partilha](media/azure-stack-edge-j-series-manage-shares/refresh-share-1.png)
+    ![Selecione partilha 4](media/azure-stack-edge-j-series-manage-shares/refresh-share-1.png)
 
 2.  Clique em **Atualizar**. 
 

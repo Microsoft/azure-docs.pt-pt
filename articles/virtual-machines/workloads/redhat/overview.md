@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: overview
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 7394cb50010bddddf8f8eff4b4f04eaf4d3231b6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b08a7d6ab271c266ba850d72d5a8b23a06dc5a3f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87052113"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977668"
 ---
 # <a name="red-hat-workloads-on-azure"></a>Cargas de carga de chapéu vermelho em Azure
 
@@ -41,11 +41,11 @@ Azure também oferece Imagens de Ouro de Chapéu Vermelho `rhel-byos` (). Estas 
 * Saiba como [localizar imagens de ouro do chapéu vermelho no portal Azure, no Azure CLI ou no Cmdlet PowerShell](./byos.md).
 
 > [!NOTE]
-> A faturação dupla é incorrida quando um utilizador paga duas vezes por subscrições RHEL. Este cenário geralmente acontece quando um cliente usa Red Hat Subscription-Manager para anexar um direito num VM pay-as-you-go RHEL. Por exemplo, um cliente que usa o Subscription-Manager para anexar um direito de pacotes SAP numa imagem de pay-as-you-go rhel é faturado indiretamente duas vezes porque pagam duas vezes pela RHEL. Pagam uma vez através da taxa de prémio pay-as-you-go e uma vez através da sua assinatura SAP. Este cenário não acontece com os utilizadores de imagem BYOS.
+> A faturação dupla é incorrida quando um utilizador paga duas vezes por subscrições RHEL. Este cenário geralmente acontece quando um cliente usa o Red Hat Subscription-Manager para anexar um direito num VM pay-as-you-go rhel. Por exemplo, um cliente que usa Subscription-Manager para anexar um direito de pacotes SAP numa imagem de pay-as-you-go rhel é faturado indiretamente duas vezes porque pagam duas vezes pela RHEL. Pagam uma vez através da taxa de prémio pay-as-you-go e uma vez através da sua assinatura SAP. Este cenário não acontece com os utilizadores de imagem BYOS.
 
 ### <a name="generation-2-images"></a>Imagens da geração 2
 
-As máquinas virtuais de geração 2 (VMs) fornecem algumas funcionalidades mais recentes em comparação com os VMs da Geração 1. Para mais informações, consulte a [documentação da Geração 2.](../../linux/generation-2.md) A principal diferença de uma perspetiva de imagem RHEL é que os VMs da Geração 2 usam um UEFI em vez de interface de firmware BIOS. Também usam uma Tabela de Partição GUID (GPT) em vez de um recorde de arranque principal (MBR) no tempo de arranque. A utilização de um GPT permite, entre outras coisas, tamanhos de disco de SO superiores a 2 TB. Além disso, os [VMs da série Mv2](../../mv2-series.md) funcionam apenas em imagens da Geração 2.
+As máquinas virtuais de geração 2 (VMs) fornecem algumas funcionalidades mais recentes em comparação com os VMs da Geração 1. Para mais informações, consulte a [documentação da Geração 2.](../../generation-2.md) A principal diferença de uma perspetiva de imagem RHEL é que os VMs da Geração 2 usam um UEFI em vez de interface de firmware BIOS. Também usam uma Tabela de Partição GUID (GPT) em vez de um recorde de arranque principal (MBR) no tempo de arranque. A utilização de um GPT permite, entre outras coisas, tamanhos de disco de SO superiores a 2 TB. Além disso, os [VMs da série Mv2](../../mv2-series.md) funcionam apenas em imagens da Geração 2.
 
 As imagens RHEL Generation 2 estão disponíveis no Mercado Azure. Procure "gen2" na imagem SKU na lista de todas as imagens que aparecem quando utiliza o Azure CLI. Vá ao separador **Avançado** no processo de implementação de VM para implementar uma Geração 2 VM.
 

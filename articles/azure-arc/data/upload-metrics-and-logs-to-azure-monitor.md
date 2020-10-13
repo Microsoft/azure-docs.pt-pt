@@ -9,19 +9,19 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: d508e2e24ac35171d87cdba9cb79981dfb8764e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69a2bc002b2ccccba90bde5b6c92d162b6e78815
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757474"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952255"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Faça upload de dados de utilização, métricas e registos para o Azure Monitor
 
 Periodicamente, pode exportar informações de utilização para efeitos de faturação, métricas de monitorização e registos e, em seguida, enviá-la para Azure.  A exportação e upload de qualquer um destes três tipos de dados também criará e atualizará o controlador de dados, a instância gerida pelo SQL e os recursos do grupo de servidores de hiperescala PostgreSQL em Azure.
 
 > [!NOTE] 
-Durante o período de pré-visualização, não há qualquer custo para a utilização de serviços de dados ativados pelo Azure Arc.
+> Durante o período de pré-visualização, não há qualquer custo para a utilização de serviços de dados ativados pelo Azure Arc.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

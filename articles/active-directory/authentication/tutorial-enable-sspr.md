@@ -6,16 +6,16 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/13/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0797ff744dbbf9fb139503d73be7d60118762ac2
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: cbbf1a6aebf54c7928fe0636262055f37d7f93bd
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91530736"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966547"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutorial: Permitir que os utilizadores desbloqueiem a sua conta ou repôs palavras-passe utilizando o reset da palavra-passe de autosserviço do Azure Ative Directory
 
@@ -128,7 +128,7 @@ Com sSPR ativado e configurado, teste o processo SSPR com um utilizador que faz 
 
 1. Siga os passos de verificação para redefinir a sua palavra-passe. Quando estiver concluído, deverá receber uma notificação por e-mail de que a sua palavra-passe foi reposta.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Num tutorial seguinte nesta série, configurar a gravação da palavra-passe. Esta funcionalidade escreve alterações de palavra-passe de Azure AD SSPR de volta para um ambiente AD no local. Se quiser continuar com esta série tutorial para configurar a gravação de passwords, não desative agora a SSPR.
 
@@ -139,7 +139,7 @@ Se já não pretender utilizar a funcionalidade SSPR que configuraste como parte
 1. A partir da página **Propriedades,** sob a opção *Redefiniu a palavra-passe de serviço de auto-ar,* escolha **Nenhum**.
 1. Para aplicar a alteração SSPR, **selecione Guardar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ativou o autosserviço do Azure AD para um grupo selecionado de utilizadores. Aprendeu a:
 

@@ -3,12 +3,12 @@ title: Aprenda Azure Policy para Kubernetes
 description: Saiba como a Azure Policy usa o Rego e o Open Policy Agent para gerir clusters que executam Kubernetes em Azure ou no local.
 ms.date: 09/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 67c6af4842ea1f404468497930b08c36ecd1abb9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3478a98ef98001ee8a2e3bb502bf289ed52285e7
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540256"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951541"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Compreender o Azure Policy para clusters do Kubernetes
 
@@ -27,7 +27,7 @@ A Azure Policy for Kubernetes suporta os seguintes ambientes de cluster:
 > [!IMPORTANT]
 > Os addons para AKS Engine e Arc ativados Kubernetes estão em **pré-visualização**. A Azure Policy for Kubernetes suporta apenas piscinas de nól de Linux e definições políticas incorporadas. As definições políticas incorporadas estão na categoria **Kubernetes.** As definições de política de pré-visualização limitadas com o efeito **EnforceOPAConstraint** e **EnforceRegoPolicy** e a categoria **de Serviço Kubernetes conexa** são _depreciadas._ Em vez disso, utilize a _auditoria_ de efeitos e _negue_ com o modo Fornecedor de Recursos `Microsoft.Kubernetes.Data` .
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Overview (Descrição geral)
 
 Para ativar e utilizar a Política Azure com o seu cluster Kubernetes, tome as seguintes ações:
 
@@ -57,6 +57,7 @@ As seguintes limitações gerais aplicam-se ao Add-on de Política Azure para os
 - As instalações do Gatekeeper fora do Azure Policy Add-on não são suportadas. Desinstale quaisquer componentes instalados por uma instalação anterior do Gatekeeper antes de ativar o Add-on de Política Azure.
 - [As razões para o incumprimento](../how-to/determine-non-compliance.md#compliance-reasons) não estão disponíveis para o `Microsoft.Kubernetes.Data` 
    [modo Fornecedor de Recursos.](./definition-structure.md#resource-provider-modes) Utilizar [detalhes do Componente](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
+- [As isenções](./exemption-structure.md) não são suportadas para [os modos fornecedores de recursos.](./definition-structure.md#resource-provider-modes)
 
 As seguintes limitações aplicam-se apenas ao Add-on da Política Azure para a AKS:
 

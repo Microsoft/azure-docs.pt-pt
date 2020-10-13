@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: b-juche
-ms.openlocfilehash: e1be0879af02fac0f7ae926a02ea23fd6be84de4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9f2a1f9125d25caa9506e954cab3b94dfcb5c24
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325694"
+ms.locfileid: "91932282"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerir instantâneos com o Azure NetApp Files
 
@@ -65,7 +65,7 @@ A funcionalidade **de política instantânea** está atualmente em pré-visualiz
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
     ```
-Também pode utilizar [comandos Azure CLI](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) `az feature register` e registar a funcionalidade e exibir o estado de `az feature show` registo. 
+Também pode utilizar [comandos Azure CLI](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` e registar a funcionalidade e exibir o estado de `az feature show` registo. 
 
 ### <a name="create-a-snapshot-policy"></a>Criar uma política instantânea 
 

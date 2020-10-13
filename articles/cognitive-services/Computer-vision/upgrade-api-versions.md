@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 08/11/2020
 ms.author: pafarley
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5910c40729d07d5a759b2e5cc7b7a4272524c150
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3394156b073df54d6582dc43571137b21df29cd
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91253858"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968944"
 ---
 # <a name="upgrade-from-read-v2x-to-read-v3x"></a>Upgrade de Ler v2.x para Ler v3.x
 
@@ -55,7 +55,7 @@ Quando a chamada `Get Read Operation Result` for bem sucedida, devolve um campo 
  
 |Ler 2.x |Ler 3.x  |
 |----------|-----------|
-|`"NotStarted"` |   `"notStarted"`|
+|`"NotStarted"` |    `"notStarted"`|
 |`"Running"` | `"running"`|
 |`"Failed"` | `"failed"`|
 |`"Succeeded"` | `"succeeded"`|
@@ -194,7 +194,7 @@ Quando a chamada `Get Recognize Text Operation Result` for bem sucedida, devolve
  
 |Reconhecer Texto 2.x |Ler 3.x  |
 |----------|-----------|
-|`"NotStarted"` |   `"notStarted"`|
+|`"NotStarted"` |    `"notStarted"`|
 |`"Running"` | `"running"`|
 |`"Failed"` | `"failed"`|
 |`"Succeeded"` | `"succeeded"`|

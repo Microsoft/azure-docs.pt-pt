@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
-ms.openlocfilehash: b61bbacf889df23455266fb81124e14ef44388d2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 283eb9b9cbdc03813cf7c765c9ef3be5965919eb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91336127"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978344"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Extensões e funcionalidades de máquina virtual para Linux
 
@@ -65,7 +65,7 @@ Os pacotes de extensão são descarregados do repositório de extensão de armaz
 > [!IMPORTANT]
 > Se bloqueou o acesso a *168.63.129.16* utilizando a firewall do hóspede, então as extensões falham independentemente do acima.
 
-Os agentes só podem ser usados para descarregar pacotes de extensão e estado de reporte. Por exemplo, se uma instalação de extensão precisar de descarregar um script do GitHub (Script Personalizado) ou precisar de acesso ao Azure Storage (Azure Backup), então devem ser abertas portas adicionais do Firewall/Network Security Group. As extensões diferentes têm requisitos diferentes, uma vez que são aplicações por si só. Para extensões que requerem acesso ao Azure Storage, pode permitir o acesso usando tags de serviço Azure NSG para [armazenamento.](../../virtual-network/security-overview.md#service-tags)
+Os agentes só podem ser usados para descarregar pacotes de extensão e estado de reporte. Por exemplo, se uma instalação de extensão precisar de descarregar um script do GitHub (Script Personalizado) ou precisar de acesso ao Azure Storage (Azure Backup), então devem ser abertas portas adicionais do Firewall/Network Security Group. As extensões diferentes têm requisitos diferentes, uma vez que são aplicações por si só. Para extensões que requerem acesso ao Azure Storage, pode permitir o acesso usando tags de serviço Azure NSG para [armazenamento.](../../virtual-network/network-security-groups-overview.md#service-tags)
 
 Para redirecionar os pedidos de tráfego de agentes, o Agente Linux tem suporte para servidor de procuração. No entanto, este suporte ao servidor proxy não aplica extensões. Deve configurar cada extensão individual para trabalhar com um representante.
 
@@ -403,7 +403,7 @@ Também pode remover uma extensão no portal Azure da seguinte forma:
 
 ## <a name="common-vm-extension-reference"></a>Referência comum de extensão VM
 
-| Nome de extensão | Description | Mais informações |
+| Nome de extensão | Descrição | Mais informações |
 | --- | --- | --- |
 | Extensão de script personalizado para Linux |Executar scripts contra uma máquina virtual Azure |[Extensão de script personalizado para Linux](custom-script-linux.md) |
 | Extensão de acesso da VM |Recuperar o acesso a uma máquina virtual Azure |[Extensão de acesso da VM](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |

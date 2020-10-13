@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c69f2ce964d9171197771d783358dcef2ca60726
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 7473da6289d4b871ae77f18fab4c00cebcb55d98
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319530"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977019"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Atribuir ou remover licenças no portal Azure Ative Directory
 
@@ -102,11 +102,11 @@ Certifique-se de que qualquer pessoa que precise de usar um serviço AD Azure li
 
 1. Na página **'Atribuir',** selecione **Utilizadores e grupos**e, em seguida, procure e selecione o grupo que está a atribuir a licença.
 
-    ![Atribuir página de licença, com pesquisa destacada e Selecionar opções](media/license-users-groups/assign-group-license-blade-with-highlight.png)
+    ![Atribuir página de licença, com pesquisa destacada e Selecionar opções 2](media/license-users-groups/assign-group-license-blade-with-highlight.png)
 
 1. Selecione **opções de atribuição**, certifique-se de que tem as opções de licença apropriadas ligadas e, em seguida, selecione **OK**.
 
-    ![Página de opção de licença, com todas as opções disponíveis no plano de licença](media/license-users-groups/license-option-blade-group-assignments.png)
+    ![Página de opção de licença, com todas as opções disponíveis no plano de licença 2](media/license-users-groups/license-option-blade-group-assignments.png)
 
     As atualizações da página **da licença atribuir** para mostrar que um utilizador é selecionado e que as atribuições estão configuradas.
 
@@ -135,12 +135,12 @@ Pode remover uma licença da página de utilizador Azure AD de um utilizador, da
 
 1. Selecione **Remover a licença**.
 
-    ![Página de grupos licenciados com opção de licença remover em destaque](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
+    ![Página de grupos licenciados com opção de licença Remover destacada 2](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
     
     > [!NOTE]
     > Quando uma conta de utilizador no local sincronizada com a Azure AD cai fora do alcance da sincronização ou quando a sincronização é removida, o utilizador é eliminado em Azure AD. Quando isto ocorrer, as licenças atribuídas ao utilizador diretamente ou através de licenças baseadas em grupo serão marcadas como **suspensas** em vez de **eliminadas**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de ter atribuído as suas licenças, pode realizar os seguintes processos:
 

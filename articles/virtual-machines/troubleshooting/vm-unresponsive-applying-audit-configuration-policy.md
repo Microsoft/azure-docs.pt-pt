@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: bc41783bf977806b5f9bba5b953f1f581ad07f18
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff21975c34c28d7476635467e0c1abb8e6575e35
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89299529"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977957"
 ---
 # <a name="virtual-machine-is-unresponsive-while-applying-audit-policy-configuration-policy"></a>A máquina virtual não responde ao aplicar a política de configuração da política de auditoria
 
@@ -27,7 +27,7 @@ Este artigo fornece medidas para resolver problemas em que a máquina virtual (V
 
 ## <a name="symptom"></a>Sintoma
 
-Quando utilizar [diagnósticos boot](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para visualizar a imagem do VM, verá que a imagem mostra que o sistema operativo (OS) não respondeu durante uma bota com a mensagem Aplicando a política de **configuração da política de auditoria**.
+Quando utilizar [diagnósticos boot](./boot-diagnostics.md) para visualizar a imagem do VM, verá que a imagem mostra que o sistema operativo (OS) não respondeu durante uma bota com a mensagem Aplicando a política de **configuração da política de auditoria**.
 
   ![O arranque do SISTEMA com a mensagem: "Aplicar a política de configuração da política de auditoria"](./media/vm-unresponsive-applying-audit-configuration-policy/1.png)
 
@@ -54,7 +54,7 @@ Eis a política problemática: Configuração do *computador\Políticas\Modelos 
 
 ### <a name="create-and-access-a-repair-vm"></a>Criar e aceder a um VM de reparação
 
-1. Utilize os passos 1-3 dos Comandos de [Reparação VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar um VM de reparação.
+1. Utilize os passos 1-3 dos Comandos de [Reparação VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) para preparar um VM de reparação.
 1. Utilizando ligação de ambiente de trabalho remoto, ligue-se ao VM de reparação.
 
 ### <a name="disable-the-policy"></a>Desativar a política
@@ -153,7 +153,7 @@ Eis a política problemática: Configuração do *computador\Políticas\Modelos 
    
 ### <a name="rebuild-the-virtual-machine"></a>Reconstruir a máquina virtual
 
-1. Utilize [o passo 5 dos Comandos de Reparação VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para reconstruir o VM.
+1. Utilize [o passo 5 dos Comandos de Reparação VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) para reconstruir o VM.
 
 1. Teste se as suas botas VM normalmente para ver se o problema corrigiu o problema.
 
@@ -175,11 +175,11 @@ Para resolver este problema, bastaria primeiro recolher o ficheiro de despejo de
 
 #### <a name="attach-the-os-disk-to-a-new-repair-vm"></a>Fixe o disco DE a um novo VM de reparação
 
-1. Utilize os passos 1-3 dos Comandos de [Reparação VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar um novo VM de reparação.
+1. Utilize os passos 1-3 dos Comandos de [Reparação VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) para preparar um novo VM de reparação.
 1. Utilizando ligação de ambiente de trabalho remoto, ligue-se ao VM de reparação.
 
 #### <a name="locate-the-dump-file-and-submit-a-support-ticket"></a>Localize o ficheiro de despejo e envie um bilhete de apoio
 
 1. Na vM de reparação, vá à pasta do janela no disco oss anexado. Se a letra do controlador atribuída ao disco de sos anexado estiver rotulada como *F,* então tem de ir a `F:\Windows` .
 1. Localize o `memory.dmp` ficheiro e, em seguida, [envie um bilhete de apoio](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) com o ficheiro de despejo de memória.
-1. Se tiver problemas em localizar o `memory.dmp` ficheiro, utilize [chamadas de interrupção não mascarada (NMI) na consola em série.](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows#use-the-serial-console-for-nmi-calls) Siga o guia para [gerar um ficheiro de despejo de falhas utilizando chamadas NMI aqui](https://docs.microsoft.com/windows/client-management/generate-kernel-or-complete-crash-dump).
+1. Se tiver problemas em localizar o `memory.dmp` ficheiro, utilize [chamadas de interrupção não mascarada (NMI) na consola em série.](./serial-console-windows.md#use-the-serial-console-for-nmi-calls) Siga o guia para [gerar um ficheiro de despejo de falhas utilizando chamadas NMI aqui](/windows/client-management/generate-kernel-or-complete-crash-dump).

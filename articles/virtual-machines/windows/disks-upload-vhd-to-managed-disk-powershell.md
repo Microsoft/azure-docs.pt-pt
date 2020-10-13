@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: ec765e2eb635449140d60ee98762e35aea12fe44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25d8c36cc42c3f1d1cc2a8477a7361ba45bec706
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88689614"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977923"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-powershell"></a>Faça o upload de um VHD para Azure ou copie um disco gerido para outra região - Azure PowerShell
 
@@ -77,7 +77,7 @@ Agora que tem um SAS para o seu disco gerido vazio, pode usá-lo para definir o 
 
 Utilize o AzCopy v10 para enviar o seu ficheiro VHD local para um disco gerido especificando o SAS URI gerado.
 
-Este upload tem a mesma produção que o [HDD padrão](disks-types.md#standard-hdd)equivalente . Por exemplo, se tiver um tamanho que equivale a S4, terá uma produção de até 60 MiB/s. Mas, se tiver um tamanho que equivale a S70, terá uma produção de até 500 MiB/s.
+Este upload tem a mesma produção que o [HDD padrão](../disks-types.md#standard-hdd)equivalente . Por exemplo, se tiver um tamanho que equivale a S4, terá uma produção de até 60 MiB/s. Mas, se tiver um tamanho que equivale a S70, terá uma produção de até 500 MiB/s.
 
 ```
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas.AccessSAS --blob-type PageBlob

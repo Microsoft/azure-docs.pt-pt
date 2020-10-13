@@ -6,17 +6,17 @@ ms.service: virtual-machines
 ms.topic: how-to
 ms.date: 09/25/2020
 ms.author: cynthn
-ms.openlocfilehash: a85f5cb9cc519b180354445ca9ca2f8dd0354c23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d99f8c380b486ed818aff64782ca817dab41c916
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91370204"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975286"
 ---
 # <a name="deploy-to-dedicated-hosts-using-the-azure-cli"></a>Implementar para anfitriões dedicados usando o CLI Azure
  
 
-Este artigo guia-o através da forma de criar um [anfitrião dedicado](dedicated-hosts.md) a Azure para hospedar as suas máquinas virtuais (VMs). 
+Este artigo guia-o através da forma de criar um [anfitrião dedicado](../dedicated-hosts.md) a Azure para hospedar as suas máquinas virtuais (VMs). 
 
 Certifique-se de que instalou a versão 2.0.70 ou posterior do Azure CLI e inscreveu-se numa conta Azure utilizando `az login` . 
 
@@ -319,8 +319,8 @@ az group delete -n myDHResourceGroup
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para mais informações, consulte a visão geral dos [anfitriões dedicados.](dedicated-hosts.md)
+- Para mais informações, consulte a visão geral dos [anfitriões dedicados.](../dedicated-hosts.md)
 
-- Também pode criar anfitriões dedicados utilizando o [portal Azure.](dedicated-hosts-portal.md)
+- Também pode criar anfitriões dedicados utilizando o [portal Azure.](../dedicated-hosts-portal.md)
 
 - Existe o modelo de amostra, encontrado [aqui,](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md)que usa ambas as zonas e domínios de avaria para máxima resiliência numa região.

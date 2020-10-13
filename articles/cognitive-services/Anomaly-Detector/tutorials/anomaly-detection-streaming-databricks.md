@@ -11,12 +11,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: 95ab400d645a2a2761e39c191cdb85e49e1c7a27
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 642012a638100a3ad1cb8d9334f5af01adb6ad7a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245609"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979177"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Tutorial: Deteção de anomalias em dados de streaming utilizando Azure Databricks
 
@@ -63,7 +63,7 @@ Nesta secção, cria-se um espaço de trabalho Azure Databricks utilizando o [po
 
 1. No portal Azure, **selecione Criar um recurso**  >  **Analytics**  >  **Azure Databricks**.
 
-    ![Databricks no portal Azure](../media/tutorials/azure-databricks-on-portal.png "Databricks no portal Azure")
+    ![Azure Databricks no portal](../media/tutorials/azure-databricks-on-portal.png "Databricks no portal Azure")
 
 3. No serviço **Azure Databricks,** forneça os seguintes valores para criar um espaço de trabalho databricks:
 
@@ -115,7 +115,7 @@ Para receber um fluxo de tweets, tem de criar uma aplicação no Twitter. Siga o
 
 3. Na página da aplicação, selecione o separador **Chaves e Tokens de Acesso** e copie os valores de **Chave de Consumidor** e **Segredo de Consumidor**. Além disso, selecione **Criar o meu token de acesso** para gerar os tokens de acesso. Copie os valores de **Token de Acesso** e **Segredo de Token de Acesso**.
 
-    ![Detalhes da aplicação do Twitter](../media/tutorials/twitter-app-key-secret.png "Detalhes da aplicação do Twitter")
+    ![Detalhes da aplicação do Twitter 2](../media/tutorials/twitter-app-key-secret.png "Detalhes da aplicação do Twitter")
 
 Guarde os valores que obteve da aplicação do Twitter. Vai precisar dos valores mais tarde no tutorial.
 
@@ -193,7 +193,7 @@ Nesta secção, vai criar dois blocos de notas na área de trabalho do Databrick
 
 2. Na caixa de diálogo **Create Notebook,** **insira SendTweetsToEventHub** como nome, selecione **Scala** como idioma e selecione o cluster Spark que criou anteriormente.
 
-    ![Criar caderno em Databricks](../media/tutorials/databricks-notebook-details.png "Criar caderno em Databricks")
+    ![Detalhes do caderno](../media/tutorials/databricks-notebook-details.png "Criar caderno em Databricks")
 
     Selecione **Criar**.
 
@@ -679,7 +679,7 @@ Resultado como abaixo:
 +--------------------+-------+
 ```
 
-Já está! Utilizando a Azure Databricks, transmitiu dados com sucesso para a Azure Event Hubs, consumiu os dados de fluxo usando o conector Event Hubs e, em seguida, executou a deteção de anomalias em dados de streaming em tempo real.
+Já está. Utilizando a Azure Databricks, transmitiu dados com sucesso para a Azure Event Hubs, consumiu os dados de fluxo usando o conector Event Hubs e, em seguida, executou a deteção de anomalias em dados de streaming em tempo real.
 Embora neste tutorial, a granularidade seja de hora a hora, pode sempre mudar a granularidade para satisfazer as suas necessidades.
 
 ## <a name="clean-up-resources"></a>Limpar recursos

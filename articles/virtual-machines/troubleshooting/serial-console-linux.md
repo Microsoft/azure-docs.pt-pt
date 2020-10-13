@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 9a31a22a5b037162198f594d9bcf35c91a0a4654
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25e3a9cb363ae4e64b953aeb7a6da4e2e66c9fc7
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306876"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977104"
 ---
 # <a name="azure-serial-console-for-linux"></a>Consola de Série do Azure para Linux
 
@@ -73,7 +73,7 @@ Oracle Linux        | Acesso à consola em série ativado por predefinição.
 ### <a name="custom-linux-images"></a>Imagens personalizadas do Linux
 Para ativar a consola em série para a sua imagem Personalizada Linux VM, permita o acesso à consola no ficheiro */etc/inittab* para executar um terminal ligado `ttyS0` . Por exemplo: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Também pode precisar de gerar um getty no ttyS0. Isto pode ser feito `systemctl start serial-getty@ttyS0.service` com.
 
-Também vai querer adicionar ttys0 como o destino para a saída em série. Para obter mais informações sobre a configuração de uma imagem personalizada para trabalhar com a consola em série, consulte os requisitos gerais do sistema na [Create e carreque um Linux VHD em Azure](https://aka.ms/createuploadvhd#general-linux-system-requirements).
+Também vai querer adicionar ttys0 como o destino para a saída em série. Para obter mais informações sobre a configuração de uma imagem personalizada para trabalhar com a consola em série, consulte os requisitos gerais do sistema na [Create e carreque um Linux VHD em Azure](../linux/create-upload-generic.md#general-linux-system-requirements).
 
 Se estiver a construir um núcleo personalizado, considere permitir estas bandeiras do núcleo: `CONFIG_SERIAL_8250=y` e `CONFIG_MAGIC_SYSRQ_SERIAL=y` . O ficheiro de configuração está tipicamente localizado no caminho */boot/.*
 
@@ -114,7 +114,7 @@ Se um utilizador estiver ligado à consola em série e outro utilizador solicita
 ## <a name="accessibility"></a>Acessibilidade
 A acessibilidade é um foco chave para a Consola em Série Azure. Para tal, garantimos que a consola em série está totalmente acessível.
 
-### <a name="keyboard-navigation"></a>Navegação do teclado
+### <a name="keyboard-navigation"></a>Navegação através do teclado
 Utilize a tecla **'Separador'** no teclado para navegar na interface da consola em série a partir do portal Azure. A sua localização será destacada no ecrã. Para deixar o foco da janela da consola em série, prima **Ctrl** + **F6** no seu teclado.
 
 ### <a name="use-serial-console-with-a-screen-reader"></a>Use a Consola em Série com um leitor de ecrã
@@ -128,7 +128,7 @@ Problema                           |   Mitigação
 Pressionar **Insira** depois do banner de ligação não fazer com que seja visualizada uma indicação de entrada. | O GRUB não pode ser configurado corretamente. Executar os seguintes comandos: `grub2-mkconfig -o /etc/grub2-efi.cfg` e/ou `grub2-mkconfig -o /etc/grub2.cfg` . Para mais informações, ver [Hitting enter não faz nada.](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md) Este problema pode ocorrer se estiver a executar um VM personalizado, um aparelho endurecido ou um config GRUB que faz com que o Linux não se conecte à porta de série.
 O texto da consola em série ocupa apenas uma parte do tamanho do ecrã (muitas vezes após a utilização de um editor de texto). | As consolas em série não suportam negociar sobre o tamanho da janela[(RFC 1073),](https://www.ietf.org/rfc/rfc1073.txt)o que significa que não haverá sinal SIGWINCH enviado para atualizar o tamanho do ecrã e o VM não terá conhecimento do tamanho do seu terminal. Instale xterm ou um utilitário similar para fornecer-lhe o `resize` comando e, em seguida, executar `resize` .
 Colar cordas compridas não funciona. | A consola em série limita o comprimento das cordas coladas no terminal aos caracteres de 2048 para evitar sobrecargas na largura de banda da porta em série.
-Entrada de teclado errático em imagens SLES BYOS. A entrada do teclado só é esporadicamente reconhecida. | Este é um problema com o pacote Plymouth. Plymouth não deve ser executado em Azure, uma vez que não precisa de um ecrã de respingo e Plymouth interfere com a capacidade da plataforma de usar a Consola Em Série. Remova Plymouth com `sudo zypper remove plymouth` e, em seguida, reinicie. Em alternativa, modifique a linha de núcleo do seu config GRUB, `plymouth.enable=0` apimindo-se até ao fim da linha. Pode fazê-lo [editando a entrada de arranque na hora do arranque,](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles)ou editando a linha GRUB_CMDLINE_LINUX `/etc/default/grub` em , reconstruindo GRUB com , e, em `grub2-mkconfig -o /boot/grub2/grub.cfg` seguida, reiniciando.
+Entrada de teclado errático em imagens SLES BYOS. A entrada do teclado só é esporadicamente reconhecida. | Este é um problema com o pacote Plymouth. Plymouth não deve ser executado em Azure, uma vez que não precisa de um ecrã de respingo e Plymouth interfere com a capacidade da plataforma de usar a Consola Em Série. Remova Plymouth com `sudo zypper remove plymouth` e, em seguida, reinicie. Em alternativa, modifique a linha de núcleo do seu config GRUB, `plymouth.enable=0` apimindo-se até ao fim da linha. Pode fazê-lo [editando a entrada de arranque na hora do arranque,](./serial-console-grub-single-user-mode.md#single-user-mode-in-suse-sles)ou editando a linha GRUB_CMDLINE_LINUX `/etc/default/grub` em , reconstruindo GRUB com , e, em `grub2-mkconfig -o /boot/grub2/grub.cfg` seguida, reiniciando.
 
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
@@ -139,7 +139,7 @@ A. Fornecer feedback criando um problema gitHub em  https://aka.ms/serialconsole
 
 **Q. A consola em série suporta a cópia/pasta?**
 
-A. Sim. Utilize **ctrl** + **Shift** + **C** e **Ctrl** + **Shift** + **V** para copiar e colar no terminal.
+A. Yes. Utilize **ctrl** + **Shift** + **C** e **Ctrl** + **Shift** + **V** para copiar e colar no terminal.
 
 **Q. Posso usar a consola em série em vez de uma ligação SSH?**
 
@@ -166,7 +166,7 @@ A. Sim, é! Ver [consola em série para conjuntos de escala de máquinas virtuai
 
 **Q. Se eu configurar o meu VM ou a escala de máquina virtual definida usando apenas a autenticação da chave SSH, ainda posso usar a consola em série para ligar à minha instância de conjunto de escala de vm/máquina virtual?**
 
-A. Sim. Como a consola em série não necessita de chaves SSH, basta configurar uma combinação username/password. Pode fazê-lo selecionando a **palavra-passe Reset** no portal Azure e utilizando essas credenciais para iniciar súbs na consola em série.
+A. Yes. Como a consola em série não necessita de chaves SSH, basta configurar uma combinação username/password. Pode fazê-lo selecionando a **palavra-passe Reset** no portal Azure e utilizando essas credenciais para iniciar súbs na consola em série.
 
 ## <a name="next-steps"></a>Passos seguintes
 * Utilize a consola em série para aceder ao [GRUB e ao modo de utilizador único](serial-console-grub-single-user-mode.md).

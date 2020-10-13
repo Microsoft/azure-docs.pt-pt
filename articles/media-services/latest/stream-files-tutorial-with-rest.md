@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 08/31/2020
+ms.date: 10/12/2020
 ms.author: inhenkel
-ms.openlocfilehash: 350584984bff82c7dc80aff38044d887f981424c
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 023c4d685804b2c6c201f44ab672139d56338cdb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89256760"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91979109"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Tutorial: Encode a remote file based on URL and stream the video - REST (Codificar ficheiros remotos com base no URL e transmitir o vídeo em fluxo - REST)
 
@@ -38,7 +38,7 @@ Este tutorial mostrar-lhe como:
 > * Configurar o Postman
 > * Enviar pedidos através do Postman
 > * Testar o URL de transmissão em fluxo
-> * Limpar os recursos
+> * Limpar recursos
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -117,7 +117,7 @@ Nesta secção, enviamos pedidos que são relevantes para a codificação e cria
     A seguinte operação **POST** é enviada.
 
     ```
-    https://login.microsoftonline.com/:tenantId/oauth2/token
+    https://login.microsoftonline.com/:aadTenantDomain/oauth2/token
     ```
 
 4. A resposta volta com o token e define a variável de ambiente "AccessToken" como o valor de token. Para ver o código que define "AccessToken", clique no separador **Testes**. 
@@ -386,7 +386,7 @@ Geralmente, deve limpar tudo, exceto objetos que está a planear reutilizar (nor
 
 Para eliminar um recurso, selecione a operação "Eliminar…" sob o recurso que pretende eliminar.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se já não precisa de nenhum dos recursos presentes no seu grupo de recursos, incluindo as contas de armazenamento que criou e os Serviços de Multimédia que carregou neste tutorial, elimine o grupo de recursos que criou anteriormente.  
 

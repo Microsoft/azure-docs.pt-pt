@@ -1,20 +1,20 @@
 ---
 title: Serviços de Domínio Azure Azure migram de uma rede virtual clássica Microsoft Docs
 description: Saiba como migrar um domínio gerido pelos Serviços de Domínio Azure AD existentes do modelo de rede virtual Clássico para uma rede virtual baseada em Gestores de Recursos.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/24/2020
-ms.author: iainfou
-ms.openlocfilehash: ef05704ea03316ef0c95510e27ee630ddcfb0b44
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.author: joflore
+ms.openlocfilehash: a66268c0cd0c2382b412873ec7f78b87d3491594
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91266909"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968179"
 ---
 # <a name="migrate-azure-active-directory-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Migrar serviços de domínio do diretório ativo do Azure do modelo de rede virtual clássico para o Gestor de Recursos
 
@@ -87,7 +87,7 @@ As etapas de alto nível envolvidas neste cenário de migração de exemplo incl
 1. Crie uma rede virtual que espreita entre a rede virtual Clássica e a nova rede virtual Do Gestor de Recursos.
 1. Mais tarde, [migrar os recursos adicionais][migrate-iaas] da rede virtual Clássica, conforme necessário.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 À medida que prepara e migra um domínio gerido, existem algumas considerações em torno da disponibilidade de serviços de autenticação e gestão. O domínio gerido não está disponível durante um período de tempo durante a migração. As aplicações e serviços que dependem do Azure AD DS experimentam tempo de inatividade durante a migração.
 
