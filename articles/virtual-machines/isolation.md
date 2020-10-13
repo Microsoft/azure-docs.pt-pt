@@ -7,12 +7,13 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/18/2019
 ms.author: sttsinar
-ms.openlocfilehash: d6a77cac049ef32949eeba4cbd6fe9217100a360
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.reviewer: ayshak
+ms.openlocfilehash: 7b1956d704bbdf9475f04efcbdc4b6ee75bb50b2
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666845"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996294"
 ---
 # <a name="virtual-machine-isolation-in-azure"></a>Isolamento de máquina virtual em Azure
 
@@ -64,7 +65,7 @@ Como os tamanhos de VM isolados são tamanhos ligados ao hardware, o Azure forne
 ### <a name="q-what-are-the-milestones-for-d15_v2-or-ds15_v2-isolation-retirement"></a>P: Quais são os marcos para a D15_v2 ou DS15_v2 a reforma do isolamento? 
 **A:** 
  
-| Date | Ação |
+| Data | Ação |
 |---|---| 
 | 18 de novembro de 2019 | Disponibilidade de D/DS15i_v2 (PAYG, 1 ano RI) | 
 | 14 de maio de 2020 | Último dia para comprar D/DS15i_v2 1 ano RI | 

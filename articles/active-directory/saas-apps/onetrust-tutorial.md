@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 2c840f123d74222770f1d044e085cf131f5ab708
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf2ac8cda9df18bf02b93446605ed2283562cf6b
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88547975"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996194"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onetrust-privacy-management-software"></a>Tutorial: Integração do Azure Ative Directory com o OneTrust Privacy Management Software
 
@@ -101,7 +101,7 @@ Para configurar o Azure AD com o OneTrust Privacy Management Software, execute o
 
 4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![OneTrust Privacy Management Software Domain e URLs informações únicas de acesso](common/idp-intiated.png)
+    ![Screenshot que mostra a secção "Configuração Básica S A M L" com as caixas de texto "Identifier" e "Answer U R L" realçadas e o botão "Save" selecionado.](common/idp-intiated.png)
 
     a. Na caixa de texto **identifier,** digite um URL: `https://www.onetrust.com/saml2`
 

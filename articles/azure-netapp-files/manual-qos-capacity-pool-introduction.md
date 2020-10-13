@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 10/12/2020
 ms.author: b-juche
-ms.openlocfilehash: 14b905c69f0dab933159b414028db3e985d314a3
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 239b985bf45942afbff8ca49d7e15ead24456304
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91935838"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993988"
 ---
-# <a name="manual-qos-capacity-pool"></a>Piscina manual de capacidade QoS
+# <a name="manual-qos-capacity-pool"></a>Conjunto de capacidade QoS manual
 
 Este artigo fornece uma introdução à funcionalidade de capacidade de qualidade de serviço manual (QoS).
 
@@ -34,6 +34,10 @@ Num pool *manual* de capacidade QoS, pode atribuir a capacidade e a produção p
 Num pool de capacidade de QoS *automático,* a produção é atribuída automaticamente aos volumes da piscina, proporcional à quota de tamanho atribuída aos volumes.  
 
 Consulte [a hierarquia de armazenamento dos ficheiros Escandaço do Azure NetApp](azure-netapp-files-understand-storage-hierarchy.md) e [considerações de desempenho para ficheiros Azure NetApp](azure-netapp-files-performance-considerations.md) para considerações sobre os tipos de QoS.
+
+## <a name="example-of-using-manual-qos"></a>Exemplo de utilização do QoS manual
+
+Quando utiliza um pool manual de capacidade QoS com, por exemplo, um sistema SAP HANA, uma base de dados Oracle, ou outras cargas de trabalho que exijam vários volumes, o pool de capacidade pode ser usado para criar estes volumes de aplicação.  Cada volume pode fornecer o tamanho e a produção individuais para satisfazer os requisitos de aplicação.  Consulte [os exemplos de limites de produção de volumes num pool manual de capacidade QoS](azure-netapp-files-service-levels.md#throughput-limit-examples-of-volumes-in-a-manual-qos-capacity-pool) para obter detalhes sobre os benefícios.  
 
 ## <a name="how-to-specify-the-manual-qos-type"></a>Como especificar o tipo QoS manual
 

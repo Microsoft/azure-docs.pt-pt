@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: jeedes
-ms.openlocfilehash: 0ebcb746e10ae910c695e52fb053fc5d0b316e70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8958e16ef4b1b7033fa0757e2a70eb053896b143
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543912"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996569"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-opsgenie"></a>Tutorial: Azure Ative Directory integração única (SSO) com OpsGenie
 
@@ -133,15 +133,15 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 3. Para ativar o SSO, **selecione Ativado**.
    
-    ![Definições OpsGenie](./media/opsgenie-tutorial/tutorial-opsgenie-07.png) 
+    ![Screenshot que mostra a caixa de verificação "Ativada" selecionada.](./media/opsgenie-tutorial/tutorial-opsgenie-07.png) 
 
 4. Na secção **Fornecedor,** clique no separador **Azure Ative Directory.**
    
-    ![Definições OpsGenie](./media/opsgenie-tutorial/tutorial-opsgenie-08.png) 
+    ![Screenshot que mostra a secção "Fornecedor" com o separador "Azure Ative Directory" selecionado.](./media/opsgenie-tutorial/tutorial-opsgenie-08.png) 
 
 5. Na página de diálogo do Diretório Ativo Azure, execute os seguintes passos:
    
-    ![Definições OpsGenie](./media/opsgenie-tutorial/tutorial-opsgenie-09.png)
+    ![Screenshot que mostra a secção "Single sign-on" com o toggle "Enable single sign-on", "S A M L 2.0 Endpoint" e "Metadados U R L".](./media/opsgenie-tutorial/tutorial-opsgenie-09.png)
     
     a. Copie o valor **ID URI** da aplicação e cole-o na caixa de texto **Identifier (Entity ID)** na secção **de Configuração BÁSICA SAML** no portal Azure.
 
@@ -169,7 +169,7 @@ O objetivo desta secção é criar um utilizador chamado B.Simon in OpsGenie.
 
 4. No diálogo **do Utilizador Adicionar,** execute os seguintes passos:
    
-    ![Definições OpsGenie](./media/opsgenie-tutorial/tutorial-opsgenie-11.png)
+    ![Screenshot que mostra o diálogo "Adicionar utilizador" com as caixas de texto "Email" e "Nome Completo" realçadas, e o botão "Guardar" selecionado.](./media/opsgenie-tutorial/tutorial-opsgenie-11.png)
    
     a. Na caixa de texto **de e-mail,** digite o endereço de e-mail de B.Simon endereçado no Diretório Ativo Azure.
    

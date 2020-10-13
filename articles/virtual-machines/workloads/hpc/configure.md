@@ -1,24 +1,18 @@
 ---
 title: Configuração e Otimização da InfiniBand ativadas pela série H e máquinas virtuais da série N Azure
 description: Saiba como configurar e otimizar a série H ativada pela InfiniBand e VMs da série N para HPC.
-services: virtual-machines
-documentationcenter: ''
 author: vermagit
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines
-ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 08/07/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: d4661c0819d214a2c750eb1582559f8d8a5959ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ecfe1df273834ae38bd6bb94980444f5e34f786
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88006609"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994824"
 ---
 # <a name="configure-and-optimize-vms"></a>Configurar e otimizar VMs
 

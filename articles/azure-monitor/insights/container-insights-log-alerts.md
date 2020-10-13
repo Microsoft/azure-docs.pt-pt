@@ -3,12 +3,12 @@ title: Alertas de registo do Azure Monitor para contentores Microsoft Docs
 description: Este artigo descreve como criar alertas de registo personalizados para memória e utilização de CPU do Azure Monitor para recipientes.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 8c02442fef9b174075065e7852b7a25233899c48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddf898978bdaf51cb81a95c3209855c51212280f
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294551"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995257"
 ---
 # <a name="how-to-create-log-alerts-from-azure-monitor-for-containers"></a>Como criar alertas de registo do Azure Monitor para contentores
 
@@ -307,4 +307,4 @@ Esta secção percorre a criação de uma regra de alerta de medição métrica 
 
 - Consulte [exemplos de consulta](container-insights-log-search.md#search-logs-to-analyze-data) de registos para ver consultas e exemplos pré-definidos para avaliar ou personalizar para alertar, visualizar ou analisar os seus clusters.
 
-- Para saber mais sobre o Azure Monitor e como monitorizar outros aspetos do seu cluster Kubernetes, consulte o desempenho do [cluster De Kubernetes](container-insights-analyze.md) e [veja a saúde do cluster Kubernetes.](container-insights-health.md)
+- Para saber mais sobre o Azure Monitor e como monitorizar outros aspetos do seu cluster Kubernetes, consulte o desempenho do [cluster De Kubernetes](container-insights-analyze.md) e [veja a saúde do cluster Kubernetes.](./container-insights-overview.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 14cb0d70e1c5ce2be0cf810e8a24d9bc596eeb6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2d244fa6ea42a85483b3067cf58fc9384a86dee
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544065"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996592"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>Tutorial: Integração do Azure Ative Directory com o OnTrack
 
@@ -118,11 +118,11 @@ Para configurar o Azure AD com o OnTrack, execute os seguintes passos:
 
 5. A aplicação OnTrack espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos. Clique **em Editar** o ícone para abrir o diálogo **dos Atributos do Utilizador.**
 
-    ![image](common/edit-attribute.png)
+    ![Screenshot que mostra o diálogo "Atributos do Utilizador" com o ícone "Editar" selecionado no topo direito.](common/edit-attribute.png)
 
 6. Além de acima, a aplicação OnTrack espera que alguns mais atributos sejam repercutidos na resposta SAML. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** execute os seguintes passos para adicionar o atributoken SAML, tal como mostrado na tabela abaixo:
 
-    | Nome | Atributo de origem|
+    | Name | Atributo de origem|
     | -------------- | ----------------|    
     | User-Role      | "42F432" |
     | Hyperion-Code  | "12345" |
@@ -132,7 +132,7 @@ Para configurar o Azure AD com o OnTrack, execute os seguintes passos:
 
     a. Clique **Em Adicionar nova reivindicação** para abrir o diálogo de reclamações do utilizador **Gerir.**
 
-    ![image](common/new-save-attribute.png)
+    ![Screenshot que mostra o diálogo "Reclamações do Utilizador" com as ações "Adicionar nova reivindicação" e "Salvar" selecionadas.](common/new-save-attribute.png)
 
     ![image](common/new-attribute-details.png)
 

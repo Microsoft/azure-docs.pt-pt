@@ -1,26 +1,18 @@
 ---
 title: FAQ - Monitor Azure para Soluções SAP Microsoft Docs
 description: Neste artigo, aprenda respostas a perguntas frequentes (FAQ) sobre o monitor Azure para soluções SAP.
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
-manager: juergent
-editor: ''
-tags: azure-resource-manager
-keywords: ''
-ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.openlocfilehash: f70aa684a089e0f21cb50932e212b71f77df0e01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.reviewer: cynthn
+ms.openlocfilehash: f584601c2dcbea989f1b68d9fbac5a7f53a59d86
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987238"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994230"
 ---
 # <a name="azure-monitor-for-sap-solutions-faq-preview"></a>Monitor Azure para soluções SAP FAQ (pré-visualização)
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
@@ -72,7 +64,7 @@ As pré-visualizações estão excluídas dos contratos de nível de serviço. L
 Atualmente pode monitorizar a base de dados HANA, a infraestrutura subjacente, o cluster de alta disponibilidade e o servidor Microsoft SQL na pré-visualização pública.  
 
  - **Este serviço substitui o gestor da SAP Solution?**  
-N.º Os clientes ainda podem usar o gestor da SAP Solution para monitorização de processos empresariais.  
+Não. Os clientes ainda podem usar o gestor da SAP Solution para monitorização de processos empresariais.  
 
  - **Qual é o valor deste serviço sobre soluções tradicionais como SAP HANA Cockpit/Studio?**  
 O Azure Monitor for SAP Solutions não é específico da base de dados HANA. O Azure Monitor for SAP Solutions também suporta o AnyDB.  

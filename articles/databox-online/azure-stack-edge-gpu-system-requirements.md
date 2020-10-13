@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 10/12/2020
 ms.author: alkohli
-ms.openlocfilehash: e542480db4ed82cf84c6ce04c62e2a07b6193f4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d835507a17417f8b500c0fc13d0a662e606a37ff
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320732"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996422"
 ---
 # <a name="system-requirements-for-azure-stack-edge-pro-with-gpu"></a>Requisitos do sistema para Azure Stack Edge Pro com GPU 
 
@@ -32,21 +32,29 @@ Os requisitos do sistema para o Azure Stack Edge Pro incluem:
 
 [!INCLUDE [Supported protocols for clients accessing device](../../includes/azure-stack-edge-gateway-supported-client-protocols.md)]
 
-## <a name="supported-storage-accounts"></a>Contas de armazenamento do Azure
+## <a name="supported-azure-storage-accounts"></a>Contas de armazenamento suportadas do Azure
 
 [!INCLUDE [Supported storage accounts](../../includes/azure-stack-edge-gateway-supported-storage-accounts.md)]
 
-## <a name="supported-tiered-storage-accounts"></a>Contas de armazenamento diferenciadas suportadas
+## <a name="supported-edge-storage-accounts"></a>Contas de armazenamento suportadas edge
 
-Quando geridas a partir de Azure Stack, as seguintes contas de armazenamento hierárquicas são suportadas com interfaces SMB/NFS/REST.
+As seguintes contas de armazenamento Edge são suportadas com a interface REST do dispositivo. As contas de armazenamento Edge são criadas no dispositivo. Para obter mais informações, consulte [as contas de armazenamento Edge.](azure-stack-edge-j-series-manage-storage-accounts.md#about-edge-storage-accounts)
 
 |Tipo  |Conta de armazenamento  |Comentários  |
 |---------|---------|---------|
 |Standard     |GPv1: Blob de Bloco         |         |
-|    |  Armazenamento de bolhas: Blob do Bloco       | Suportado apenas para o NAS     |
 
-*As bolhas de página e os ficheiros Azure não são atualmente suportados no Azure Stack.
-**Nível quente e frio não existe em Azure Stack. Utilize o Azure PowerShell para mover os dados para o nível de arquivo uma vez que os dados são carregados. Para instruções passo a passo, vá ao [Use Azure PowerShell para definir o nível blob]()
+*As bolhas de página e os ficheiros Azure não estão atualmente suportados.
+
+## <a name="supported-local-azure-resource-manager-storage-accounts"></a>Contas de armazenamento do Gestor de Recursos Azure
+
+Estas contas de armazenamento são criadas através do dispositivo APIs local quando está a ligar-se ao Gestor de Recursos Azure local. São suportadas as seguintes contas de armazenamento:
+
+|Tipo  |Conta de armazenamento  |Comentários  |
+|---------|---------|---------|
+|Standard     |GPv1: Blob de Bloco, Blob de Página        | O tipo SKU é Standard_LRS       |
+|Premium     |GPv1: Blob de Bloco, Blob de Página        | O tipo SKU é Premium_LRS        |
+
 
 ## <a name="supported-storage-types"></a>Tipos de armazenamento suportados
 
@@ -73,7 +81,7 @@ Utilize a seguinte tabela para configuração de porta para os servidores que ho
 
 | Porto não. | Dentro ou fora | Âmbito portuário | Necessário | Orientação |
 |----------|-----------|------------|----------|----------|
-| TCP 443 (HTTPS)| Saída       | WAN        | Sim      | Saída aberta para provisão IoT Edge. Esta configuração é necessária quando se utilizam scripts manuais ou serviço de provisionamento de dispositivos Azure IoT (DPS).|
+| TCP 443 (HTTPS)| Saída       | WAN        | Yes      | Saída aberta para provisão IoT Edge. Esta configuração é necessária quando se utilizam scripts manuais ou serviço de provisionamento de dispositivos Azure IoT (DPS).|
 
 Para obter informações completas, aceda às [regras de configuração de Firewall e porta para a implementação do IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
 

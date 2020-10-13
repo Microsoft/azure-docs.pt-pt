@@ -3,12 +3,12 @@ title: Configure Monitor Azure para recolha de dados de agente de contentores Mi
 description: Este artigo descreve como pode configurar o Monitor Azure para o agente de contentores controlar a recolha de registos de variáveis stdout/stderr e ambiente.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 039c6355bef638aae0b2ef074f006aabc04185c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 675b9c9c109ee8bb3b0087523bf5af46ce2c5270
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84299286"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994607"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Configurar a recolha de dados do agente para o Azure Monitor para contentores
 
@@ -134,7 +134,7 @@ A saída apresentará semelhantes às seguintes com as versões de esquema de an
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- O Monitor Azure para contentores não inclui um conjunto de alertas predefinidos. Reveja os [alertas de desempenho da Create com o Azure Monitor para que os recipientes](container-insights-alerts.md) aprendam a criar alertas recomendados para alta utilização de CPU e memória para suportar os seus DevOps ou processos e procedimentos operacionais.
+- O Monitor Azure para contentores não inclui um conjunto de alertas predefinidos. Reveja os [alertas de desempenho da Create com o Azure Monitor para que os recipientes](./container-insights-log-alerts.md) aprendam a criar alertas recomendados para alta utilização de CPU e memória para suportar os seus DevOps ou processos e procedimentos operacionais.
 
 - Com a monitorização habilitada a recolher a saúde e a utilização de recursos do seu cluster AKS ou híbrido e cargas de trabalho a funcionar sobre eles, aprenda [a utilizar o](container-insights-analyze.md) Azure Monitor para recipientes.
 

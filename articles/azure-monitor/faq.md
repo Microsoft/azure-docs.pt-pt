@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 06b92d982b42d97849994b4a21696b72461efe1f
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 4b7f596d2184d25229cc1a8e496d0d78eaaabdb6
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893769"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994668"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor perguntas frequentes
 
-Este Microsoft FAQ é uma lista de perguntas comumente feitas sobre o Azure Monitor. Se tiver alguma pergunta adicional, vá ao [fórum de discussão](https://docs.microsoft.com/answers/questions/topics/single/24223.html) e publique as suas perguntas. Quando uma pergunta é frequentemente feita, adicionamo-la a este artigo para que possa ser encontrada de forma rápida e fácil.
+Este Microsoft FAQ é uma lista de perguntas comumente feitas sobre o Azure Monitor. Se tiver alguma pergunta adicional, vá ao [fórum de discussão](/answers/questions/topics/single/24223.html) e publique as suas perguntas. Quando uma pergunta é frequentemente feita, adicionamo-la a este artigo para que possa ser encontrada de forma rápida e fácil.
 
 
 ## <a name="general"></a>Geral
@@ -37,7 +37,7 @@ O Azure Monitor está ativado no momento em que cria uma nova subscrição do Az
 Aceda a todas as funcionalidades e dados do Azure Monitor **no** menu Azure. A secção de **Monitorização** do menu de diferentes serviços Azure fornece acesso às mesmas ferramentas com dados filtrados a um determinado recurso. Os dados do Azure Monitor também estão acessíveis para uma variedade de cenários usando CLI, PowerShell e uma API REST.
 
 ### <a name="is-there-an-on-premises-version-of-azure-monitor"></a>Existe uma versão no local do Azure Monitor?
-N.º O Azure Monitor é um serviço de nuvem escalável que processa e armazena grandes quantidades de dados, embora o Azure Monitor possa monitorizar recursos que estão no local e em outras nuvens.
+Não. O Azure Monitor é um serviço de nuvem escalável que processa e armazena grandes quantidades de dados, embora o Azure Monitor possa monitorizar recursos que estão no local e em outras nuvens.
 
 ### <a name="can-azure-monitor-monitor-on-premises-resources"></a>O Azure Monitor pode monitorizar os recursos no local?
 Sim, além de recolher dados de monitorização a partir de recursos Azure, o Azure Monitor pode recolher dados de máquinas virtuais e aplicações em outras nuvens e no local. Consulte [as fontes de monitorização dos dados do Azure Monitor](platform/data-sources.md).

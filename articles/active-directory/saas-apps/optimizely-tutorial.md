@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 4564019f540d0dd08c8e0b2827b4a6b7df9c2cf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b963e0b4797af8269b87f704edca231f000c9372
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543997"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996690"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Tutorial: Integração do Azure Ative Directory com a Optimizely
 
@@ -110,17 +110,17 @@ Para configurar o Azure AD com otimização, execute os seguintes passos:
 
 5. A sua aplicação Optimizely espera as afirmações DE SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos. Clique **em Editar** o ícone para abrir o diálogo **dos Atributos do Utilizador.**
 
-    ![image](common/edit-attribute.png)
+    ![Screenshot que mostra o diálogo "Atributos do Utilizador" com o ícone "Editar" no top-right selecionado.](common/edit-attribute.png)
 
 6. Além de acima, a aplicação Optimizely espera que alguns mais atributos sejam repercutidos na resposta SAML. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** execute os seguintes passos para adicionar o atributoken SAML, tal como mostrado na tabela abaixo:
 
-    | Nome | Atributo de origem |
+    | Name | Atributo de origem |
     | ---------------| --------------- |
     | e-mail | user.mail |
     
     a. Clique **Em Adicionar nova reivindicação** para abrir o diálogo de reclamações do utilizador **Gerir.**
 
-    ![image](common/new-save-attribute.png)
+    ![Screenshot que mostra o diálogo "User Claims" com as ações "Adicionar nova reivindicação" e "Salvar" em destaque.](common/new-save-attribute.png)
 
     ![image](common/new-attribute-details.png)
 
@@ -164,7 +164,7 @@ Para configurar o Azure AD com otimização, execute os seguintes passos:
 
 4. Clique no nome da conta no canto superior direito e, em seguida, **definições de conta**.
 
-    ![Azure AD Single Sign-On](./media/optimizely-tutorial/tutorial_optimizely_09.png)
+    ![Screenshot que mostra o nome da conta selecionado no canto superior direito, com "Definições de Conta" selecionadas no menu.](./media/optimizely-tutorial/tutorial_optimizely_09.png)
 
 5. No separador Conta, verifique a caixa **Ativar SSO** sob único sinal na secção **'Vista Geral'.**
   
@@ -231,7 +231,7 @@ Nesta secção, cria-se um utilizador chamado Britta Simon em Optimizely.
 
 2. Para adicionar um novo colaborador ao projeto, clique em **Novo Colaborador.**
    
-    ![Criar um utilizador de teste AZure AD](./media/optimizely-tutorial/create_aaduser_10.png)
+    ![Screenshot que mostra a página inicial optimizdamente com o separador "Colaboradores" e o botão "Novo Colaborador" selecionado.](./media/optimizely-tutorial/create_aaduser_10.png)
 
 3. Preencha o endereço de e-mail e atribua-lhes uma função. Clique **em Convidar.**
 

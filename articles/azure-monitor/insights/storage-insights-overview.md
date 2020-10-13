@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 6d6754594a321d297d983f9bd7e90ce074857919
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c030c1548a931bc749ad799a5aa88813c35d19cd
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961980"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91997029"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitorizar o seu serviço de armazenamento com o Azure Monitor para armazenamento
 
@@ -31,7 +31,7 @@ Combinado, entrega:
 
 * **Personalizável** onde pode alterar quais as métricas que deseja ver, modificar ou definir limiares que se alinham com os seus limites, e guardar como seu próprio livro de trabalho. Os gráficos do livro podem ser fixados ao painel Azure.  
 
-Esta funcionalidade não requer que você ative ou configure nada, as métricas de armazenamento das suas contas de armazenamento são recolhidas por padrão. Se não estiver familiarizado com as métricas disponíveis no Azure Storage, veja a descrição e definição nas métricas de Armazenamento Azure, revendo [as métricas de armazenamento Azure](../../storage/common/monitor-storage.md).
+Esta funcionalidade não requer que você ative ou configure nada, as métricas de armazenamento das suas contas de armazenamento são recolhidas por padrão. Se não estiver familiarizado com as métricas disponíveis no Azure Storage, veja a descrição e definição nas métricas de Armazenamento Azure, revendo [as métricas de armazenamento Azure](../../storage/blobs/monitor-blob-storage.md).
 
 >[!NOTE]
 >Não há qualquer custo para aceder a esta funcionalidade e só será cobrado para as funcionalidades essenciais do Azure Monitor que configura ou ativa, conforme descrito na página de detalhes de preços do [Azure Monitor.](https://azure.microsoft.com/pricing/details/monitor/)
@@ -67,7 +67,7 @@ O contador de azulejos ao abrigo das listas de down-down revira o número total 
 Selecione um valor nas colunas **Disponibilidade**, **Latência E2E**, **Latência do Servidor**e tipo de erro **de transação/Erros** direciona-o para um relatório adaptado ao tipo específico de métricas de armazenamento que correspondem à coluna selecionada para essa conta de armazenamento. Para obter mais informações sobre os livros de trabalho de cada categoria, consulte a secção [de livros de armazenamento detalhado abaixo.](#detailed-storage-workbooks) 
 
 >[!NOTE]
->Para obter mais informações sobre quais os erros que podem ser mostrados no relatório, consulte o [esquema do Tipo de Resposta](../../storage/common/monitor-storage-reference.md#metrics-dimensions) e procure tipos de resposta como **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. Dependendo das contas de armazenamento selecionadas, se houver mais de três tipos de erros relatados, todos os outros erros são representados na categoria de **Outros**.
+>Para obter mais informações sobre quais os erros que podem ser mostrados no relatório, consulte o [esquema do Tipo de Resposta](../../storage/blobs/monitor-blob-storage-reference.md#metrics-dimensions) e procure tipos de resposta como **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. Dependendo das contas de armazenamento selecionadas, se houver mais de três tipos de erros relatados, todos os outros erros são representados na categoria de **Outros**.
 
 O limiar **de disponibilidade** predefinido é:
 
@@ -274,4 +274,3 @@ Cada livro é guardado na conta de armazenamento em que o guardou. Tente encontr
 * Saiba os cenários que os livros de trabalho são projetados para apoiar, como autorizar novos e personalizar relatórios existentes, e mais através da revisão [criar relatórios interativos com os livros de trabalho do Azure Monitor.](../platform/workbooks-overview.md)
 
 * Para obter um guia aprofundado sobre a utilização de Storage Analytics e outras ferramentas para identificar, diagnosticar e resolver problemas relacionados com o Armazenamento Azure, consulte [Monitor, diagnóstico e resolução de problemas do Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
-

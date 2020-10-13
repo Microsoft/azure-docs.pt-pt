@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 57d04fff069e7cd7d766125bc7364cf4648911ad
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 43d593a65fd08542eb2829fcebcea81ea0c99986
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948352"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995453"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Metas de escalabilidade e desempenho de Ficheiros do Azure
 
@@ -94,7 +94,9 @@ Para ajudá-lo a planear a sua implantação para cada uma das fases, abaixo est
 ### <a name="initial-one-time-provisioning"></a>Provisão única inicial
 
 **Enumeração inicial da mudança de nuvem**: Quando um novo grupo de sincronização é criado, a enumeração inicial da mudança de nuvem é o primeiro passo que irá executar. Neste processo, o sistema irá enumerar todos os itens na Azure File Share. Durante este processo, não haverá atividade sincronizada, ou seja, nenhum itens será descarregado do ponto final da nuvem para o ponto final do servidor e nenhum itens será carregado do ponto final do servidor para o ponto final da nuvem. A atividade de sincronização será retomada assim que a enumeração inicial da alteração da nuvem estiver concluída.
-A taxa de desempenho é de 7 objetos por segundo. Os clientes podem estimar o tempo que levará para completar a enumeração inicial da alteração da nuvem, determinando o número de itens na partilha de nuvem e usando as seguintes fórmulas para obter o tempo em dias. Tempo (em dias) para a enumeração inicial da nuvem = (Número de objetos no ponto final da nuvem)/(7*60*60*24)
+A taxa de desempenho é de 7 objetos por segundo. Os clientes podem estimar o tempo que levará para completar a enumeração inicial da alteração da nuvem, determinando o número de itens na partilha de nuvem e usando as seguintes fórmulas para obter o tempo em dias. 
+
+   **Tempo (em dias) para a enumeração inicial da nuvem = (Número de objetos no ponto final da nuvem)/((7 * 60 * 60 * 24)**
 
 **Produção de download de namespace** Quando um novo ponto final do servidor é adicionado a um grupo de sincronização existente, o agente Azure File Sync não descarrega nenhum dos conteúdos do ficheiro a partir do ponto final da nuvem. Primeiro sincroniza o espaço de nome completo e, em seguida, desencadeia a chamada de fundo para descarregar os ficheiros, quer na sua totalidade, quer, se o tiering da nuvem estiver ativado, para a política de tiering de nuvem definida no ponto final do servidor.
 
@@ -117,7 +119,7 @@ Como guia geral para a sua implantação, deve ter em mente algumas coisas:
 - O produto do objeto escala aproximadamente proporcionalmente ao número de grupos de sincronização no servidor. Dividir dados em vários grupos de sincronização num servidor produz melhor produção, que também é limitada pelo servidor e pela rede.
 - A produção do objeto é inversamente proporcional à produção mib por segundo. Para ficheiros mais pequenos, experimentará uma produção mais elevada em termos do número de objetos processados por segundo, mas menor MiB por segundo. Inversamente, para ficheiros maiores, obterá menos objetos processados por segundo, mas mais alto MiB por segundo. A produção miB por segundo é limitada pelos alvos de escala de Ficheiros Azure.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Planear uma implementação de Ficheiros do Azure](storage-files-planning.md)
 - [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)

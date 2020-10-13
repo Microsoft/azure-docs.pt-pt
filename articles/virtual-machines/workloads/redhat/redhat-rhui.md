@@ -1,22 +1,18 @@
 ---
 title: Infraestrutura de atualização de chapéu vermelho Microsoft Docs
 description: Saiba mais sobre a Infraestrutura de Atualização de Chapéu Vermelho para instâncias on-demand Red Hat Enterprise Linux no Microsoft Azure
-services: virtual-machines-linux
-documentationcenter: ''
 author: asinn826
-manager: BorisB2015
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: dadfd3abfad0c588f53d47cb7ab1eb138d4f90ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.reviewer: cynthn
+ms.openlocfilehash: 3bdbd84785053b79198479305e1ca76e133a46f3
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89612516"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994277"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Infraestrutura de atualização de chapéu vermelho para red hat enterprise Linux VMs em Azure
  [A Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permite que os fornecedores de nuvem, como o Azure, espelham o conteúdo do repositório apresentado pelo Chapéu Vermelho, criem repositórios personalizados com conteúdo específico do Azure e disponibilizem-no para os VMs do utilizador final.

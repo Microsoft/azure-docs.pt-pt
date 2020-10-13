@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: d0a19a95a0a0d2353070068b2113e11efe471ccc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c7fb3841958ac80431f7cb3d97ddb01bd3661a7
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88553984"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995239"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a>Tutorial: Integração do Azure Ative Directory com o PerformanceCentre
 
@@ -128,19 +128,19 @@ Para configurar o Azure AD com o PerformanceCentre, execute os seguintes passos:
 
 2. No separador do lado esquerdo, clique em **Configurar**.
    
-    ![Azure AD Single Sign-On][10]
+    ![Screenshot que mostra o menu "PerformanceCenter" com "Configurar" selecionado.][10]
 
 3. No separador do lado esquerdo, clique em **Miscelâneas**e, em seguida, clique **em Single Sign On**.
    
-    ![Azure AD Single Sign-On][11]
+    ![Screenshot que mostra o separador "Configurar" com "Sign-On único" selecionado a partir do menu "Diversos".][11]
 
 4. Como **Protocolo**, selecione **SAML**.
    
-    ![Azure AD Single Sign-On][12]
+    ![Screenshot que mostra a secção "Configuração de Sign-On Única" com "S A M L" selecionada no menu "Protocolo".][12]
 
 5. Abra o seu ficheiro de metadados descarregado no bloco de notas, copie o conteúdo, cole-o na caixa de texto **do Fornecedor de Identidade** e, em seguida, clique em **Guardar**.
    
-    ![Azure AD Single Sign-On][13]
+    ![Screenshot que mostra a caixa de texto "Fornecedor de Identidade Metadados".][13]
 
 6. Verifique se os valores para o **URL base** da entidade e URL **de ID da entidade** estão corretos.
     
@@ -207,7 +207,7 @@ O objetivo desta secção é criar um utilizador chamado Britta Simon no Perform
 
 2. No menu à esquerda, clique em **Interrelate**e, em seguida, clique em **Criar Participante**.
    
-    ![Criar Utilizador][400]
+    ![Screenshot que mostra a página "PerformanceCenter" da empresa "Interrelate -Participantes" com o botão "Criar Participante" selecionado.][400]
 
 3. No **Interrelate - Criar** diálogo de participante, execute os seguintes passos:
    
