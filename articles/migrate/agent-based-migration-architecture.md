@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: raynew
 ms.openlocfilehash: 90e499b436a3ae44fa29cec1138d939a106a4db7
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91357170"
 ---
 # <a name="agent-based-migration-architecture"></a>Arquitetura de migração baseada em agentes
@@ -115,7 +115,7 @@ Se precisar de implementar um servidor de processo de escala, utilize esta tabel
 
 O tráfego VMware que se replica no Azure passa por um servidor de processo específico. Pode limitar a produção de upload, estrangulando a largura de banda nas máquinas que estão a funcionar como servidores de processo. Pode influenciar a largura de banda utilizando esta chave de registo:
 
-- O HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM o valor do registo especifica o número de fios que são utilizados para transferência de dados (replicação inicial ou delta) de um disco. Um valor mais elevado aumenta a largura de banda da rede que é usada para a replicação. O valor predefinido é quatro. O valor máximo é de 32. Monitorize o tráfego para otimizar o valor.
+- O valor de registo HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM especifica o número de fios que são utilizados para transferência de dados (replicação inicial ou delta) de um disco. Um valor mais elevado aumenta a largura de banda da rede que é usada para a replicação. O valor predefinido é quatro. O valor máximo é de 32. Monitorize o tráfego para otimizar o valor.
 - Além disso, pode acelerar a largura de banda na máquina do servidor de processo da seguinte forma:
 
     1. Na máquina do servidor de processo, abra o encaixe MMC de backup Azure. Há um atalho no ambiente de trabalho ou na pasta C:\Program Files\Microsoft Azure Recovery Services Agent\bin. 

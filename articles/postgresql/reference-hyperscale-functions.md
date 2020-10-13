@@ -8,10 +8,10 @@ ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
 ms.openlocfilehash: 16c3a45e0d88a0546772b3fdc855c90f2e450d14
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91250336"
 ---
 # <a name="functions-in-the-hyperscale-citus-sql-api"></a>Funções na Hiperescala (Citus) SQL API
@@ -450,7 +450,7 @@ A estratégia de incumprimento é adequada nestas circunstâncias:
 
 Se algum destes pressupostos não se mantiver, então o reequilíbrio padrão pode resultar num mau plano. Neste caso, poderá personalizar a estratégia, utilizando o `rebalance_strategy` parâmetro.
 
-É aconselhável [chamáget_rebalance_table_shards_plan](#get_rebalance_table_shards_plan) antes de executar os fragmentos de mesa de reequilíbrio, \_ para ver e verificar as \_ ações a serem executadas.
+É aconselhável [chamá get_rebalance_table_shards_plan](#get_rebalance_table_shards_plan) antes de executar os fragmentos de mesa de reequilíbrio, \_ para ver e verificar as \_ ações a serem executadas.
 
 #### <a name="arguments"></a>Argumentos
 

@@ -4,10 +4,10 @@ description: Este artigo fornece uma visão geral da funcionalidade Captura que 
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 1b79db7a7f8d0fe03b21e005ef696d5fe55ac0a1
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91613412"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Capture eventos através de Azure Event Hubs em Azure Blob Storage ou Azure Data Lake Storage
@@ -53,7 +53,7 @@ Uma vez configurado, o Event Hubs Capture funciona automaticamente quando envia 
 
 ## <a name="setting-up-event-hubs-capture"></a>Criação de Captura de Centros de Eventos
 
-Pode configurar o Tempo de Criação do Centro de Eventos utilizando o [portal Azure,](https://portal.azure.com)ou utilizando modelos de Gestor de Recursos Azure. Para obter mais informações, veja os seguintes artigos:
+Pode configurar o Tempo de Criação do Centro de Eventos utilizando o [portal Azure,](https://portal.azure.com)ou utilizando modelos de Gestor de Recursos Azure. Para obter mais informações, veja os artigos seguintes:
 
 - [Ativar a funcionalidade de Captura de Hubs de Eventos no portal do Azure](event-hubs-capture-enable-through-portal.md)
 - [Criar um espaço de nomes de Hubs de Eventos com o hub de um evento e ativar a Captura através de um modelo do Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 72658a97f89b14529e8ccb3639cb1b78f1b92316
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e3dce20f447b47ad78deea617b513c50f552733
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91848812"
+ms.locfileid: "91893633"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Consulta o gráfico gémeo Azure Digital Twins
 
@@ -43,6 +43,38 @@ Pode selecionar os vários itens "top" numa consulta utilizando a `Select TOP` c
 SELECT TOP (5)
 FROM DIGITALTWINS
 WHERE ...
+```
+
+### <a name="count-items"></a>Contar itens
+
+Pode contar o número de gémeos num conjunto de resultados utilizando a `Select COUNT` cláusula:
+
+```sql
+SELECT COUNT() 
+FROM DIGITALTWINS
+``` 
+
+Adicione uma `WHERE` cláusula para contar o número de gémeos que cumprem determinados critérios. Aqui estão alguns exemplos de contagem com um filtro aplicado baseado no tipo de modelo gémeo (para mais informações sobre esta sintaxe, ver [*Consulta por modelo*](#query-by-model) abaixo):
+
+```sql
+SELECT COUNT() 
+FROM DIGITALTWINS 
+WHERE IS_OF_MODEL('dtmi:sample:Room;1') 
+SELECT COUNT() 
+FROM DIGITALTWINS c 
+WHERE IS_OF_MODEL('dtmi:sample:Room;1') AND c.Capacity > 20
+```
+
+Também pode usar `COUNT` juntamente com a `JOIN` cláusula. Aqui está uma consulta que conta todas as lâmpadas contidas nos painéis luminosos das salas 1 e 2:
+
+```sql
+SELECT COUNT(LightBulb)  
+FROM DIGITALTWINS Room  
+JOIN LightPanel RELATED Room.contains  
+JOIN LightBulb RELATED LightPanel.contains  
+WHERE IS_OF_MODEL(LightPanel, 'dtmi:contoso:com:lightpanel;1')  
+AND IS_OF_MODEL(LightBulb, 'dtmi:contoso:com:lightbulb ;1')  
+AND Room.$dtId IN ['room1', 'room2'] 
 ```
 
 ### <a name="query-by-property"></a>Consulta por propriedade

@@ -3,12 +3,12 @@ title: Como criar políticas de Configuração de Convidado para o Windows
 description: Saiba como criar uma política de configuração de hóspedes Azure Policy para windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 3c8ab71b4ffc87209d190bc7ede0257f1377ff2b
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: ef571857664739c055912cb6460c4638d4cad32b
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91728935"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893123"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Como criar políticas de Configuração de Convidado para o Windows
 
@@ -88,7 +88,7 @@ Quando a Configuração de Hóspedes audita uma máquina, a sequência de evento
 
 Os parâmetros na Política Azure que passam valores para as atribuições de Configuração de Convidados devem ser do tipo _de corda._ Não é possível passar matrizes através de parâmetros, mesmo que o recurso DSC suporte matrizes.
 
-### <a name="get-targetresource-requirements"></a>Requisitos get-TargetResource
+### <a name="get-targetresource-requirements"></a>requisitos Get-TargetResource
 
 A função `Get-TargetResource` tem requisitos especiais para a Configuração do Hóspede que não foram necessários para a Configuração do Estado do Windows Desired.
 
@@ -210,7 +210,7 @@ New-GuestConfigurationPackage `
   -Configuration './Config/AuditBitlocker.mof'
 ```
 
-Depois de criar o pacote Configuração, mas antes de publicá-lo no Azure, pode testar a embalagem a partir da sua estação de trabalho ou ambiente CI/CD. O cmdlet GuestConfiguration `Test-GuestConfigurationPackage` inclui o mesmo agente no seu ambiente de desenvolvimento que é utilizado dentro das máquinas Azure. Utilizando esta solução, pode fazer testes de integração localmente antes de lançar para ambientes de nuvem faturada.
+Depois de criar o pacote de Configuração, mas antes de publicá-lo no Azure, pode testar o pacote a partir da sua estação de trabalho ou ambiente de integração contínua e implementação contínua (CI/CD). O cmdlet GuestConfiguration `Test-GuestConfigurationPackage` inclui o mesmo agente no seu ambiente de desenvolvimento que é utilizado dentro das máquinas Azure. Utilizando esta solução, pode fazer testes de integração localmente antes de lançar para ambientes de nuvem faturada.
 
 Uma vez que o agente está realmente a avaliar o ambiente local, na maioria dos casos você precisa executar o teste-cmdlet na mesma plataforma de SO que você planeia auditar. O teste utiliza apenas módulos incluídos no pacote de conteúdos.
 
@@ -233,7 +233,7 @@ O cmdlet também suporta a entrada do gasoduto PowerShell. Encaneie a saída do 
 New-GuestConfigurationPackage -Name AuditBitlocker -Configuration ./Config/AuditBitlocker.mof | Test-GuestConfigurationPackage
 ```
 
-O próximo passo é publicar o ficheiro para o armazenamento de bolhas. O script abaixo contém uma função que pode utilizar para automatizar esta tarefa. Os comandos utilizados na `publish` função requerem o `Az.Storage` módulo.
+O próximo passo é publicar o ficheiro no Azure Blob Storage. O script abaixo contém uma função que pode utilizar para automatizar esta tarefa. Os comandos utilizados na `publish` função requerem o `Az.Storage` módulo.
 
 ```azurepowershell-interactive
 function publish {

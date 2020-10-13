@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: aahi
 ms.openlocfilehash: e17f2015ed4428cfd3c1a6c8a7bc4f92854a6b71
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710605"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API de Sms Analytics REST
@@ -116,12 +116,12 @@ O serviço aceita pedido até 1 MB de tamanho. Se estiver a utilizar o Carteiro 
 
    No Carteiro, a resposta é exibida na janela seguinte para baixo, como um único documento JSON, com um item para cada documento ID fornecido no pedido.
 
-## <a name="see-also"></a>Veja também 
+## <a name="see-also"></a>Consulte também 
 
  [Visão geral da análise de texto](../overview.md)  
  [Perguntas Mais Frequentes (FAQ)](../text-analytics-resource-faq.md)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Detetar idioma](text-analytics-how-to-language-detection.md)

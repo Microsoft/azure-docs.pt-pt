@@ -4,12 +4,12 @@ description: Conheça as políticas de suporte do Serviço Azure Kubernetes (AKS
 services: container-service
 ms.topic: article
 ms.date: 09/18/2020
-ms.openlocfilehash: 188416d9ef6f8e7568b10e8ccbb405be0bff315d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86b1c0bba30b41a2ee17cfbdf05286c4d2b3fb8a
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888980"
+ms.locfileid: "91892715"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Políticas de apoio ao Serviço Azure Kubernetes
 
@@ -130,8 +130,7 @@ Só pode personalizar os NSGs em sub-redes personalizadas. Não pode personaliza
 
 ## <a name="stopped-or-de-allocated-clusters"></a>Aglomerados parados ou desatribuidos
 
-De acordo com a seguinte, a desalocar manualmente todos os nós de cluster através do IaaS APIs/CLI/Portal torna o cluster fora de suporte.
-A única forma suportada de parar/desatribuer todos os nós é [parar o aglomerado de aks, que irá preservar o estado de cluster por até 12 meses.
+Como indicado anteriormente, a desalominação manual de todos os nós do cluster através do IAAS APIs/CLI/portal torna o cluster fora de suporte. A única forma suportada de parar/desatribuir todos os nós é [parar o cluster AKS,](start-stop-cluster.md#stop-an-aks-cluster)que preserva o estado de cluster por até 12 meses.
 
 Os aglomerados que estão parados por mais de 12 meses deixarão de preservar o estado. 
 

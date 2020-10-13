@@ -13,10 +13,10 @@ ms.author: srbozovi
 ms.reviewer: sstein
 ms.date: 12/04/2018
 ms.openlocfilehash: a9a2b904bd7526f00a8f8a5d013be0c1e42e38a8
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91617371"
 ---
 # <a name="determine-the-management-endpoint-ip-address---azure-sql-managed-instance"></a>Determinar o endereço IP do ponto final de gestão - Azure SQL Gestd Instance 

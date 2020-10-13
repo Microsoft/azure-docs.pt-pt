@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1b6e2ac9d80c1c3bf76b4a3d4c44f0654100670f
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89567423"
 ---
 # <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Alterar funções de recursos para um pacote de acesso na gestão de direitos Azure AD
@@ -180,7 +180,7 @@ Na gestão de direitos, a Azure AD processará alterações a granel para atribu
 
 Quando remove um membro de uma equipa, eles também são removidos do Grupo Microsoft 365. A remoção da funcionalidade de chat da equipa poderá ser atrasada. Para mais informações, consulte [a adesão ao Grupo.](/microsoftteams/office-365-groups#group-membership)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Crie um grupo básico e adicione membros usando o Azure Ative Directory](../fundamentals/active-directory-groups-create-azure-portal.md)
 - [Como: Configurar a alegação de papel emitida no token SAML para aplicações empresariais](../develop/active-directory-enterprise-app-role-management.md)

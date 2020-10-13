@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.openlocfilehash: e677aef7a90e7372c5af4bfa48c6160c439b3ee8
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91707970"
 ---
 # <a name="firewall-rules-in-azure-database-for-postgresql---single-server"></a>Regras de firewall na Base de Dados Azure para PostgreSQL - Servidor Único
@@ -71,7 +71,7 @@ Considere os seguintes pontos quando o acesso à Base de Dados do Microsoft Azur
 
    Por exemplo, poderá ver o seguinte erro se estiver a ligar a partir de um Azure VM numa sub-rede que tenha **o Microsoft.Sql** ativado mas não tem nenhuma regra VNet correspondente:  `FATAL: Client from Azure Virtual Networks is not allowed to access the server`
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 * [Criar e gerir a Base de Dados Azure para regras de firewall postgreSQL utilizando o portal Azure](howto-manage-firewall-using-portal.md)
 * [Criar e gerir a Base de Dados de Azure para regras de firewall postgresQL usando Azure CLI](howto-manage-firewall-using-cli.md)
 * [Pontos finais de serviço VNet na Base de Dados Azure para PostgreSQL](./concepts-data-access-and-security-vnet.md)

@@ -13,10 +13,10 @@ ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 9fe4d5cfb4b0b31a257dfecdeeb191a9c7920772
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91403177"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>Uma API web que chama APIs web: configuração de código

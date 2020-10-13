@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/08/2020
 ms.openlocfilehash: 2f4e0728a863521f772f4d1c9531b07f427bfb3e
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89595099"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controlo de fontes na Azure Data Factory
@@ -148,7 +148,7 @@ O painel de configuração mostra as seguintes definições de repositório GitH
 | **Tipo repositório** | O tipo de repositório de código Azure Repos. | GitHub |
 | **Use GitHub Enterprise** | Caixa de verificação para selecionar GitHub Enterprise | não selecionado (padrão) |
 | **URL da Empresa GitHub** | O URL raiz gitHub Enterprise (deve ser HTTPS para o servidor local gitHub Enterprise). Por exemplo: `https://github.mydomain.com`. Só é necessário se **a Utilização da GitHub Enterprise** for selecionada | `<your GitHub enterprise url>` |                                                           
-| **Conta do GitHub** | O nome da sua conta GitHub. Este nome pode ser encontrado em https: \/ /github.com/{account name}/{repository name}. Navegar nesta página leva-o a introduzir credenciais GitHub OAuth na sua conta GitHub. | `<your GitHub account name>` |
+| **Conta GitHub** | O nome da sua conta GitHub. Este nome pode ser encontrado em https: \/ /github.com/{account name}/{repository name}. Navegar nesta página leva-o a introduzir credenciais GitHub OAuth na sua conta GitHub. | `<your GitHub account name>` |
 | **Nome do Repositório**  | O teu nome de repositório de código GitHub. As contas do GitHub contêm repositórios de Git para gerir o seu código fonte. Pode criar um novo repositório ou usar um repositório existente que já está na sua conta. | `<your repository name>` |
 | **Ramo de colaboração** | O seu ramo de colaboração GitHub que é usado para a publicação. Por defeito, o seu mestre. Altere esta definição no caso de pretender publicar recursos a partir de outra sucursal. | `<your collaboration branch>` |
 | **Pasta raiz** | A sua pasta de raiz no seu ramo de colaboração GitHub. |`<your root folder name>` |
@@ -255,7 +255,7 @@ Depois de remover a associação com o repo atual, pode configurar as suas defin
 > [!IMPORTANT]
 > Remover a configuração do Git de uma fábrica de dados não apaga nada do repositório. A fábrica conterá todos os recursos publicados. Pode continuar a editar a fábrica diretamente contra o serviço.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre monitorização e gestão de gasodutos, consulte [o Monitor e gere os gasodutos programáticamente.](monitor-programmatically.md)
 * Para implementar a integração e implantação contínuas, consulte [integração e entrega contínua (CI/CD) na Azure Data Factory](continuous-integration-deployment.md).

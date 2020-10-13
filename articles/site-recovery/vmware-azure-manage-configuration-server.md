@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 5748ff87e94daef80b140e015371eb7a334fffac
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361488"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Gerir o servidor de configuração para recuperação após desastre dos servidores físicos/VM VMware
@@ -212,7 +212,7 @@ Executar o ficheiro de instalação da seguinte forma:
 
 ### <a name="parameters"></a>Parâmetros
 
-|Nome do Parâmetro| Tipo | Description| Valores|
+|Nome do Parâmetro| Tipo | Descrição| Valores|
 |-|-|-|-|
 | /ServerMode|Necessário|Especifica se a configuração e os servidores de processos devem ser instalados, ou apenas o servidor de processos|CS<br>PS|
 |/InstallLocation|Necessário|A pasta na qual os componentes são instalados| Qualquer pasta no computador|

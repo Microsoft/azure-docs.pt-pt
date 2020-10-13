@@ -8,10 +8,10 @@ ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 420ab87591e230592ec8f728c6acb155266b5912
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91403531"
 ---
 # <a name="security-control-v2-governance-and-strategy"></a>Controlo de Segurança V2: Governação e Estratégia
@@ -255,7 +255,7 @@ Esta estratégia deve incluir orientações, políticas e normas documentadas pa
 Para mais informações, consulte as seguintes referências:
 - [Benchmark de segurança Azure - Backup e recuperação](security-controls-v2-backup-recovery.md)
 
-- [Quadro Azure Well-Architecture - Backup e recuperação de desastres para aplicações Azure](/azure/architecture/framework/resiliency/backup-and-recovery)
+- [Azure Well-Architecture Framework - Backup e recuperação de desastres para aplicações do Azure](/azure/architecture/framework/resiliency/backup-and-recovery)
 
 - [Quadro de Adoção Azure - continuidade das empresas e recuperação de desastres](/azure/cloud-adoption-framework/ready/enterprise-scale/business-continuity-and-disaster-recovery)
 

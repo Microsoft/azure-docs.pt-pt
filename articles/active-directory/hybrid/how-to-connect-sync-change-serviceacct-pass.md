@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4dcc7ed6076c3bac723d709f50f1b3ab2ce8f58
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319933"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>Alterar a senha de conta de serviço ADSync
@@ -74,7 +74,7 @@ Se precisar de abandonar a chave de encriptação, utilize os seguintes procedim
 Primeiro pode parar o serviço no Gestor de Controlo de Serviços do Windows.  Certifique-se de que o serviço não está a funcionar quando tentar detê-lo.  Se for, espere até que termine e depois pare.
 
 
-1. Aceda ao Gestor de Controlo de Serviços do Windows (START → Serviços).
+1. Aceda ao Gestor de Controlo de Serviços do Windows (START → Services).
 2. Selecione **Microsoft Azure AD Sync** e clique em Stop.
 
 #### <a name="abandon-the-existing-encryption-key"></a>Abandone a chave de encriptação existente
@@ -116,7 +116,7 @@ Não é possível fornecer diretamente a palavra-passe da conta de serviço Azur
 Agora que o Serviço de Sincronização tem acesso à chave de encriptação e a todas as palavras-passe de que necessita, pode reiniciar o serviço no Gestor de Controlo de Serviços do Windows:
 
 
-1. Aceda ao Gestor de Controlo de Serviços do Windows (START → Serviços).
+1. Aceda ao Gestor de Controlo de Serviços do Windows (START → Services).
 2. Selecione **Microsoft Azure AD Sync** e clique em Reiniciar.
 
 ## <a name="next-steps"></a>Passos seguintes

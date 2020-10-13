@@ -4,10 +4,10 @@ description: Visão geral da Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.openlocfilehash: c8089e907f555ac970fea06361a2ab1bbc944778
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91536499"
 ---
 # <a name="azure-resource-health-faq"></a>FAQ de Saúde de Recursos Azure
@@ -76,7 +76,7 @@ Enquanto o [estado do Azure](https://status.azure.com) e o painel de saúde do s
 Não, a informação de saúde está disponível para todos os tipos de recursos disponíveis através da Resource Health. 
 
 ## <a name="do-we-need-to-enable-resource-health-for-my-organization"></a>Precisamos de capacitar a Saúde dos Recursos para a minha organização?
-Não.  A Azure Resource Health é acessível dentro do portal Azure sem quaisquer requisitos de configuração.
+N.º  A Azure Resource Health é acessível dentro do portal Azure sem quaisquer requisitos de configuração.
 
 ## <a name="is-resource-health-available-free-of-charge"></a>A Saúde dos Recursos está disponível gratuitamente?
 Sim.  A Azure Resource Health é gratuita.
@@ -84,7 +84,7 @@ Sim.  A Azure Resource Health é gratuita.
 ## <a name="what-are-the-recommendations-that-resource-health-provides"></a>Quais são as recomendações que a Resource Health fornece?
 Com base no estado de saúde, a Resource Health fornece-lhe recomendações com o objetivo de reduzir o tempo que passou a resolver problemas. Para os recursos disponíveis, as recomendações focam-se em como resolver os problemas mais comuns que os clientes encontram. Se o recurso não estiver disponível devido a um evento não planeado do Azure, o foco será ajudá-lo durante e após o processo de recuperação. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a Saúde dos Recursos:
 -  [Visão geral da Saúde dos Recursos Azure](Resource-health-overview.md)

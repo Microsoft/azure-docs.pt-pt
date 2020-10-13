@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: gopalv
-ms.openlocfilehash: 0146c6c003e3c22b63b5fde5c8979a9d7c112b69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3af681f561bc190ae7c0354afb7fc3591fa82b5c
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261396"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940077"
 ---
 # <a name="advanced-entry-script-authoring"></a>Criação de um script de entrada avançado
 
@@ -320,7 +320,7 @@ Mais exemplos de script de entrada para casos específicos de utilização de ma
 
 * [PyTorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch)
 * [TensorFlow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow)
-* [Keras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)
+* [Keras](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/keras/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.yml)
 * [AutoML](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features)
 * [ONNX](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/)
 

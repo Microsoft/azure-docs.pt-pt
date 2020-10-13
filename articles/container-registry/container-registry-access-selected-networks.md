@@ -4,10 +4,10 @@ description: Configurar regras IP para permitir o acesso a um registo de content
 ms.topic: article
 ms.date: 08/17/2020
 ms.openlocfilehash: 4e4ee817e2534bcca09cba89daafd379ff3f03f0
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89488767"
 ---
 # <a name="configure-public-ip-network-rules"></a>Configurar regras públicas de rede IP
@@ -111,7 +111,7 @@ Se uma regra de rede pública for definida, ou o acesso público ao registo for 
 Estes erros também podem ocorrer se utilizar um proxy HTTPS que é permitido por uma regra de acesso à rede, mas o proxy não está devidamente configurado no ambiente do cliente. Verifique se tanto o seu cliente Docker como o daemon do Docker estão configurados para comportamento de procuração. Para mais informações, consulte [http/HTTPS proxy](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy) na documentação do Docker.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para restringir o acesso a um registo utilizando um ponto final privado numa rede virtual, consulte o [Link Privado Configure Azure para um registo de contentores Azure](container-registry-private-link.md).
 * Se precisar de configurar regras de acesso ao registo por detrás de uma firewall do cliente, consulte [as regras de Configuração para aceder a um registo de contentores Azure atrás de uma firewall](container-registry-firewall-access-rules.md).

@@ -9,10 +9,10 @@ ms.date: 11/21/2018
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurepowershell
 ms.openlocfilehash: f5e36122ef1362672e5cdee4f742b98354f0bc75
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89075914"
 ---
 # <a name="restore-a-web-app-from-a-backup-using-azure-powershell"></a>Restaurar uma aplicação web a partir de uma cópia de segurança usando Azure PowerShell

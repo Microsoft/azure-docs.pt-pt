@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
 ms.openlocfilehash: 0a72ea413e7298c8e6cb622cb985e6516435b451
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91255853"
 ---
 # <a name="tutorial-configure-theorgwiki-for-automatic-user-provisioning"></a>Tutorial: Configurar TheOrgWiki para fornecimento automático de utilizadores
@@ -65,7 +65,7 @@ Antes de configurar o TheOrgWiki para o fornecimento automático de utilizadores
 
     ![Screenshot da página 'Contas de Serviço' na Consola Org Wiki Admin.](media/theorgwiki-provisioning-tutorial/serviceaccount.png)
 
-4. Clique em **+Conta de Serviço.** No **tipo de conta de serviço**,selecione **Token Based**. Clique em **Save** (Guardar).
+4. Clique em **+Conta de Serviço.** No **tipo de conta de serviço**,selecione **Token Based**. Clique em **Guardar**.
 
     ![Screenshot da caixa de diálogo de nova conta de serviço com as opções de Serviço Tipo de Conta, Token Based e Save.](media/theorgwiki-provisioning-tutorial/auth.png)
 
@@ -147,7 +147,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![E-mail de Notificação](common/provisioning-notification-email.png)
 
-8. Clique em **Save** (Guardar).
+8. Clique em **Guardar**.
 
 9. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to TheOrgWiki**.
 

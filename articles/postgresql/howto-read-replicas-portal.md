@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 07/10/2020
 ms.openlocfilehash: 08d1d393b4ba52e6feeb36c0538f2664e1407d38
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708293"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Criar e gerir réplicas de leitura na Base de Dados Azure para PostgreSQL - Servidor Único a partir do portal Azure
@@ -184,6 +184,6 @@ A métrica **Replica Lag** mostra o tempo desde a última transação reproduzid
  
 3. Para a sua **agregação,** selecione **Max**. 
  
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre [as réplicas lidas na Base de Dados Azure para PostgreSQL](concepts-read-replicas.md).
 * Saiba como [criar e gerir réplicas de leitura na ALI Azure e NA API REST.](howto-read-replicas-cli.md)

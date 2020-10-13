@@ -3,18 +3,19 @@ title: Webhooks como manipuladores de eventos para eventos Azure Event Grid
 description: Descreve como pode usar webhooks como manipuladores de eventos para eventos Azure Event Grid. Os runbooks e aplicações lógicas da Azure Automation são suportados como manipuladores de eventos através de webhooks.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 3dc75b15c55c82b6164e77f0ac93a87bced94a64
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa20c75789a18b93f787134dffe165e60ff1ab6f
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "86105613"
+ms.locfileid: "91875806"
 ---
 # <a name="webhooks-automation-runbooks-logic-apps-as-event-handlers-for-azure-event-grid-events"></a>Webhooks, livros de automação, Aplicações Lógicas como manipuladores de eventos para eventos Azure Event Grid
 Um manipulador de eventos é o local onde o evento é enviado. O manipulador toma mais algumas medidas para processar o evento. Vários serviços Azure são configurados automaticamente para lidar com eventos. Também pode utilizar qualquer WebHook para lidar com eventos. O WebHook não precisa de ser hospedado no Azure para lidar com eventos. O Event Grid suporta apenas pontos finais HTTPS Webhook.
 
 > [!NOTE]
-> Os runbooks e aplicações lógicas da Azure Automation são suportados como manipuladores de eventos através de webhooks. 
+> - Os runbooks e aplicações lógicas da Azure Automation são suportados como manipuladores de eventos através de webhooks. 
+> - Mesmo que possa utilizar **o Webhook** como **tipo ponto final** para configurar uma função Azure como manipulador de eventos, utilize a **Função Azure** como tipo ponto final. Para mais informações, consulte [a função Azure como manipulador de eventos](handler-functions.md).
 
 ## <a name="webhooks"></a>Webhooks
 Consulte os seguintes artigos para obter uma visão geral e exemplos de utilização de webhooks como manipuladores de eventos. 

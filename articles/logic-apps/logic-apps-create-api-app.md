@@ -7,10 +7,10 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/26/2017
 ms.openlocfilehash: 3fe98160cc10eb3607b8309a9a263d63380dcfb5
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89073221"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Crie APIs personalizados que pode chamar a partir de Azure Logic Apps

@@ -12,10 +12,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.openlocfilehash: d193438a232cc6bc113efb31ce4276117a366add
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91276898"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Criar um tempo de integração Azure-SSIS na Azure Data Factory
@@ -79,7 +79,7 @@ Para obter uma lista das regiões de Azure em que a Data Factory e um Azure-SSIS
 
 A tabela a seguir compara certas funcionalidades de um servidor de base de dados Azure SQL e da SQL Managed Instance no que diz respeito ao Azure-SSIR IR:
 
-| Funcionalidade | Base de Dados SQL| SQL Caso gerido |
+| Funcionalidade | SQL Database| SQL Caso gerido |
 |---------|--------------|------------------|
 | **Agendamento** | O Agente de Servidor SQL não está disponível.<br/><br/>Consulte [a execução de um pacote num oleoduto da Fábrica de Dados.](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity)| O Agente de Instância Gerida está disponível. |
 | **Autenticação** | Pode criar um caso SSISDB com um utilizador de base de dados contido que represente qualquer grupo AD Azure com a identidade gerida da sua fábrica de dados como membro na **função db_owner.**<br/><br/>Consulte [a autenticação Azure AD para criar um SSISDB no servidor base de dados Azure SQL](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | Pode criar um caso SSISDB com um utilizador de base de dados contido que represente a identidade gerida da sua fábrica de dados. <br/><br/>Consulte [a autenticação Azure AD para criar um SSISDB em Azure SQL Managed Instance](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-sql-managed-instance). |
@@ -274,7 +274,7 @@ Na página **de configurações avançadas** do painel de configuração do temp
       
          1. Para **o segundo endereço IP público estático**, selecione o segundo endereço IP público estático que satisfaz os requisitos para o seu Azure-SSIS IR. Se não tiver nenhum, clique em **Criar uma nova** ligação para criar endereços IP públicos estáticos no portal Azure e, em seguida, clique no botão de atualização aqui, para que possa selecioná-los.
 
-   1. Selecione o **Tempo de Execução de Integração Auto-hospedada como um proxy para a sua caixa de verificação de runtime de integração Azure-SSIS** para escolher se deseja configurar um IR auto-hospedado como proxy para o seu Azure-SSIS IR. Para obter mais informações, consulte [Configurar um IR auto-hospedado como procuração](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis). 
+   1. Selecione o **Prazo de Execução de Integração Self-Hosted como um proxy para a sua caixa de verificação de runtime de integração Azure-SSIS** para escolher se pretende configurar um IR auto-hospedado como proxy para o seu Azure-SSIS IR. Para obter mais informações, consulte [Configurar um IR auto-hospedado como procuração](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis). 
 
       Se selecionar a caixa de verificação, complete os seguintes passos.
 

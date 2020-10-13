@@ -9,10 +9,10 @@ ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 843d0b8cfd75e8cbdf45ac535cc9486aa42442d6
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91761837"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Tutorial: Configurar uma porta de rede virtual para ExpressRoute usando o portal Azure
@@ -25,7 +25,7 @@ ms.locfileid: "91761837"
 
 Este tutorial leva-o através dos passos para adicionar uma porta de entrada de rede virtual para um VNet pré-existente. Este artigo percorre os passos para adicionar, redimensionar e remover uma porta de entrada de rede virtual (VNet) para um VNet pré-existente. Os passos para esta configuração são especificamente para VNets que foram criados usando o modelo de implementação de Gestor de Recursos que será usado numa configuração ExpressRoute. Para obter mais informações sobre gateways de rede virtuais e configurações de configuração de gateways para ExpressRoute, consulte [Sobre gateways de rede virtuais para ExpressRoute](expressroute-about-virtual-network-gateways.md). 
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > - Crie uma sub-rede de gateway.
 > - Criar gateway de rede virtual.
@@ -71,8 +71,8 @@ Pode ver um [vídeo](https://azure.microsoft.com/documentation/videos/azure-expr
     | --------| ----- |
     | Subscrição | Verifique se a subscrição correta está selecionada. |
     | Grupo de Recursos | O grupo de recursos será automaticamente escolhido assim que selecionar a rede virtual. | 
-    | Name | Diga o seu portal. Isto não é o mesmo que nomear uma sub-rede de gateway. É o nome do objeto de porta de entrada que estás a criar.|
-    | Region | Altere o campo **Região** para indicar o local onde está localizada a sua rede virtual. Se a localização não estiver a apontar para a região onde está a sua rede virtual, a rede virtual não aparecerá no dropdown 'Escolha uma rede virtual'. |
+    | Nome | Diga o seu portal. Isto não é o mesmo que nomear uma sub-rede de gateway. É o nome do objeto de porta de entrada que estás a criar.|
+    | Região | Altere o campo **Região** para indicar o local onde está localizada a sua rede virtual. Se a localização não estiver a apontar para a região onde está a sua rede virtual, a rede virtual não aparecerá no dropdown 'Escolha uma rede virtual'. |
     | Tipo de gateway | Selecione **ExpressRoute**|
     | SKU | Selecione o gateway SKU a partir do dropdown. |
     | Rede virtual | Selecione *TestVNet*. |
@@ -83,7 +83,7 @@ Pode ver um [vídeo](https://azure.microsoft.com/documentation/videos/azure-expr
 
     :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway.png" alt-text="Adicionar a sub-rede do gateway":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se já não necessitar do gateway ExpressRoute, localize o gateway no grupo de recursos de rede virtual e selecione **Delete**. Certifique-se de que o portal não tem nenhuma ligação a um circuito.
 

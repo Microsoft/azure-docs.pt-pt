@@ -9,10 +9,10 @@ ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2237b0b0d0c1f6e95e100743b377f9c04f57210f
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89279708"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Compreensão e utilização do Agente Azure Linux
@@ -101,7 +101,7 @@ A instalação utilizando um RPM ou uma embalagem DEB do repositório de pacotes
 
 Consulte a documentação no repo do [Agente Azure Linux no GitHub](https://github.com/Azure/WALinuxAgent) para opções avançadas de instalação, tais como instalar a partir de fonte ou para locais ou prefixos personalizados.
 
-## <a name="command-line-options"></a>Opções de Linha de Comando
+## <a name="command-line-options"></a>Opções Command-Line
 ### <a name="flags"></a>Sinalizadores
 * verbose: Aumentar a verbosidade do comando especificado
 * força: Saltar a confirmação interativa para alguns comandos

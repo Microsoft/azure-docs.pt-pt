@@ -10,10 +10,10 @@ ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick,
 ms.openlocfilehash: da4cef50610b219689e2271e9f70fd1adb1a235f
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540511"
 ---
 # <a name="tutorial-run-experiments-using-azure-automated-ml-and-apache-spark"></a>Tutorial: Executar experiências usando Azure Automated ML e Apache Spark
@@ -28,7 +28,7 @@ Neste tutorial aprende-se as seguintes tarefas:
 - Treine um modelo automatizado de regressão de aprendizagem automática
 - Calcular a precisão do modelo
 
-### <a name="before-you-begin"></a>Before you begin
+### <a name="before-you-begin"></a>Antes de começar
 - Crie uma Piscina de Faíscas Apache seguindo o [tutorial de piscina Create a Apache Spark.](../quickstart-create-apache-spark-pool-studio.md)
 - Complete o tutorial de configuração do [espaço de trabalho Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/tutorial-1st-experiment-sdk-setup) se não tiver um espaço de trabalho de aprendizagem automática Azure existente. 
 
@@ -341,6 +341,6 @@ Por último, também pode aceder aos resultados das iterações navegando para a
 
 ![Screenshot do espaço de trabalho da AML.](./media/apache-spark-machine-learning-mllib-notebook/apache-spark-aml-workspace.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)
 - [Apache Spark MLlib Tutorial](./apache-spark-machine-learning-mllib-notebook.md)

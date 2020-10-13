@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 954962d4f0f16cb35035527d4cb81d0e13495a86
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.openlocfilehash: 189d6a57a17172f181e7375265960fe4f25f8ed1
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91631839"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940247"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
@@ -90,7 +90,7 @@ Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer b
     + Documentação atualizada do AzureML MLflow e amostras de cadernos 
     + Novo suporte para projetos MLflow com backend AzureML
     + Suporte ao registo do modelo MLflow
-    + Apoio RBAC adicionado para operações AzureML-MLflow 
+    + Apoio adicional do RBAC para operações de AzureML-MLflow 
     
   + **azureml-pipeline-core**
     + Melhorou a documentação dos métodos PipelineOutputFileDataset.parse_*.
@@ -311,7 +311,7 @@ Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer b
     + Para Datastore.register_azure_blob_container e Datastore.register_azure_file_share (apenas opções que suportam o token SAS), atualizámos as cordas do doc para o `sas_token` campo para incluir requisitos mínimos de permissões para cenários típicos de leitura e escrita.
     + Depreciação _with_auth param em ws.get_mlflow_tracking_uri()
   + **azureml-mlflow**
-    + Adicione suporte para implantação de modelos locais de file:// com AzureML-MLflow
+    + Adicione suporte para implantar modelos locais de file:// com AzureML-MLflow
     + Depreciação _with_auth param em ws.get_mlflow_tracking_uri()
   + **azureml-opendatasets**
     + Os conjuntos de dados de rastreio Covid-19 recentemente publicados estão agora disponíveis com o SDK
@@ -485,7 +485,7 @@ Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer b
       + O valor predefinido para process_count_per_node é alterado para 1. O utilizador deve sintonizar este valor para um melhor desempenho. As melhores práticas são definir como o número de gPU ou nó CPU tem.
       + ParallelRunStep não injeta nenhum pacote, o utilizador precisa incluir pacotes **azureml-core** e **azureml-dataprep [pandas, fusíveis]** na definição ambiental. Se a imagem de estivador personalizada for utilizada com user_managed_dependencies, o utilizador terá de instalar conda na imagem.
       
-+ **Quebra de mudanças**
++ **Alterações interruptivas**
   + **azureml-pipeline-steps**
     + Depreifed o uso de azureml.dprep.Dataflow como um tipo válido de entrada para AutoMLConfig
   + **azureml-train-automl-client**
@@ -689,7 +689,7 @@ Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
   + Os clusters AmlCompute suportam agora a criação de uma identidade gerida no cluster no momento do provisionamento. Basta especificar se gostaria de usar uma identidade atribuída ao sistema ou uma identidade atribuída ao utilizador, e passar um ID de identidade para este último. Em seguida, pode configurar permissões para aceder a vários recursos, como Armazenamento ou ACR, de forma a que a identidade do computação seja usada para aceder de forma segura aos dados, em vez de uma abordagem baseada em fichas que a AmlCompute emprega hoje em dia. Consulte a nossa referência SDK para obter mais informações sobre os parâmetros.
   
 
-+ **Quebra de mudanças**
++ **Alterações interruptivas**
   + Os clusters AmlCompute apoiaram uma funcionalidade de Pré-visualização em torno da criação baseada em execução, que estamos planejando depreciar em duas semanas. Pode continuar a criar metas de computação persistentes, como sempre, utilizando a classe Amlcompute, mas a abordagem específica de especificar o identificador "amlcompute" como o alvo de computação em run config não será suportada num futuro próximo. 
 
 + **Correções e melhorias de bugs**
@@ -760,7 +760,7 @@ Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
 
 ### <a name="azure-machine-learning-sdk-for-python-v120"></a>Azure Machine Learning SDK para Python v1.2.0
 
-+ **Quebra de mudanças**
++ **Alterações interruptivas**
   + Suporte de queda para python 2.7
 
 + **Correções e melhorias de bugs**
@@ -795,7 +795,7 @@ Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
   + **Python 2.7**
     + Última versão para apoiar python 2.7
 
-+ **Quebra de mudanças**
++ **Alterações interruptivas**
   + **Semantic Versioning 2.0.0** (Controlo de Versões Semântico 2.0.0)
     + Começando pela versão 1.1 Azure ML Python SDK adota a Versão Semântica 2.0.0. [Leia mais aqui.](https://semver.org/) Todas as versões subsequentes seguirão o novo esquema de numeração e o contrato de versão semântica. 
 
@@ -958,7 +958,7 @@ Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
 
 ### <a name="azure-machine-learning-sdk-for-python-v110rc0-pre-release"></a>Azure Machine Learning SDK para Python v1.1.0rc0 (Pré-lançamento)
 
-+ **Quebra de mudanças**
++ **Alterações interruptivas**
   + **Semantic Versioning 2.0.0** (Controlo de Versões Semântico 2.0.0)
     + Começando pela versão 1.1 Azure ML Python SDK adota a Versão Semântica 2.0.0. [Leia mais aqui.](https://semver.org/) Todas as versões subsequentes seguirão o novo esquema de numeração e o contrato de versão semântica. 
   
@@ -1088,7 +1088,7 @@ Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
 
 ### <a name="azure-machine-learning-sdk-for-python-v1076"></a>Azure Machine Learning SDK para Python v1.0.76
 
-+ **Quebra de mudanças**
++ **Alterações interruptivas**
   + Problemas de upgrade Azureml-Train-AutoML
     + A atualização para>azureml-train-automl =1.0.76 de azureml-train-automl<1.0.76 pode causar instalações parciais, fazendo com que algumas importações automl falhem. Para resolver isto, pode executar o script de configuração encontrado em https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/automl_setup.cmd . Ou se estiver a usar o pip diretamente, pode:
       + "pip install --upgrade azureml-train-automl"
@@ -1694,7 +1694,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     + Mais classes para obter população dos EUA por concelho e zip.
   + **azureml-pipeline-core**
     + Adicionou propriedade de etiqueta às definições de porta de entrada e saída.
-  + **azureml-telemetria**
+  + **azureml-telemetry**
     + Corrigiu uma configuração de telemetria incorreta.
   + **azureml-train-automl**
     + Corrigiu o bug onde, na falha de configuração, o erro não estava a ser registado no campo "erros" para a execução da configuração e, por isso, não foi armazenado em "erros" de execução dos pais.
@@ -1785,7 +1785,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
 + **Novas funcionalidades**
   + Machine Learning automatizado agora suporta a formação de modelos ONNX no alvo de computação remota
   + O Azure Machine Learning oferece agora a capacidade de retomar o treino a partir de uma execução anterior, de um ponto de verificação ou de ficheiros de modelos.
-    + Saiba como [usar os estimadores para retomar o treino de uma corrida anterior](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/training/train-tensorflow-resume-training/train-tensorflow-resume-training.ipynb)
+    + Saiba como [usar os estimadores para retomar o treino de uma corrida anterior](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/train-tensorflow-resume-training/train-tensorflow-resume-training.ipynb)
 
 + **Correções e melhorias de bugs**
   + **azure-cli-ml**
@@ -1857,7 +1857,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     + A DBFS Datastore está agora suportada para entradas e saídas em DatabricksStep.
     + Documentação atualizada para o Azure Batch Step no que diz respeito a entradas/saídas.
     + Em AzureBatchStep, alterou *delete_batch_job_after_finish* valor padrão para *verdadeiro*.
-  + **azureml-telemetry**
+  + **azureml-telemetria**
     +  Mova os conjuntos de dados azureml-contrib-open para conjuntos de dados abertos azureml.
     + Permitir que as aulas de conjunto de dados abertas sejam registadas no espaço de trabalho Azure Machine Learning e aproveite perfeitamente as capacidades do Conjunto de Dados AML.
     + Melhore o desempenho noaaIsdWeather enriquece significativamente o desempenho na versão não-SPARK.
@@ -2046,7 +2046,7 @@ Foi [`PipelineEndpoint`](https://docs.microsoft.com/python/api/azureml-pipeline-
 
 + **Novas funcionalidades**
   + A Azure Machine Learning agora fornece suporte de primeira classe para o popular DNN framework Chainer. A utilização de [`Chainer`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py&preserve-view=true) utilizadores de classe pode facilmente treinar e implementar modelos Chainer.
-    + Saiba como [executar o treino distribuído com chainerMN](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/chainer/training/distributed-chainer/distributed-chainer.ipynb)
+    + Saiba como [executar o treino distribuído com chainerMN](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/chainer/distributed-chainer/distributed-chainer.ipynb)
     + Aprenda a [executar afinação de hiperparímetro com Chainer usando HyperDrive](https://github.com/Azure/MachineLearningNotebooks/blob/b881f78e4658b4e102a72b78dbd2129c24506980/how-to-use-azureml/ml-frameworks/chainer/deployment/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb)
   + A azure Machine Learning Pipelines adicionou capacidade de desencadear uma execução de Pipeline com base em modificações de datastore. O [caderno de horários do](https://aka.ms/pl-schedule) pipeline é atualizado para mostrar esta funcionalidade.
 
