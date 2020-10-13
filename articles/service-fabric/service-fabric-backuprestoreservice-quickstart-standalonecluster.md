@@ -4,10 +4,10 @@ description: Utilize a cópia de segurança periódica de um Serviço autónomo 
 ms.topic: conceptual
 ms.date: 5/24/2019
 ms.openlocfilehash: d20882ba5f7f31ef453c5d28f8bc37155cc99abd
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91538590"
 ---
 # <a name="periodic-backup-and-restore-in-a-standalone-service-fabric"></a>Backup periódico e restauro em um tecido de serviço autónomo
@@ -284,7 +284,7 @@ Para visualizar cópias de segurança no Service Fabric Explorer, navegue para u
 - Os cmdlets PowerShell do tecido de serviço estão em modo de pré-visualização.
 - Sem suporte para clusters de tecido de serviço em Linux.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Compreender a configuração da cópia de segurança periódica](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Backup restaurar referência API REST](/rest/api/servicefabric/sfclient-index-backuprestore)
 

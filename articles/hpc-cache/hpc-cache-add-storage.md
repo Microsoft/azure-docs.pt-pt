@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
 ms.openlocfilehash: ab9b7fa330964f7db8393334dd8f209efd75573d
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91611306"
 ---
 # <a name="add-storage-targets"></a>Adicionar destinos de armazenamento
@@ -185,9 +185,9 @@ Esta tabela resume as diferenças do modelo de utilização:
 
 | Modelo de utilização                   | Modo caching | Verificação de back-end | Atraso máximo de desatrada |
 |-------------------------------|--------------|-----------------------|--------------------------|
-| Leia escritos pesados e pouco frequentes | Ler         | Nunca                 | Nenhuma                     |
+| Leia escritos pesados e pouco frequentes | Ler         | Nunca                 | Nenhum                     |
 | Mais de 15% escreve       | Leitura/escrita   | Nunca                 | Uma hora                   |
-| Os clientes contornam a cache      | Ler         | 30 segundos            | Nenhuma                     |
+| Os clientes contornam a cache      | Ler         | 30 segundos            | Nenhum                     |
 
 ### <a name="create-an-nfs-storage-target"></a>Criar um alvo de armazenamento NFS
 

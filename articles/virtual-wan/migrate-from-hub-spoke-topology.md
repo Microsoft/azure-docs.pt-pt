@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: cherylmc
 ms.openlocfilehash: e602905b461e370189cefed706ddc3a47e0199fe
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91839644"
 ---
 # <a name="migrate-to-azure-virtual-wan"></a>Migrar para a WAN Virtual do Azure

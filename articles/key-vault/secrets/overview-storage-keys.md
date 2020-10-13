@@ -11,10 +11,10 @@ manager: rkarlin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 26e1852058383ef1e4cc4b3b604e1bdc79d60e14
-ms.sourcegitcommit: 06ba80dae4f4be9fdf86eb02b7bc71927d5671d3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91612188"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gerir chaves de conta de armazenamento com o Key Vault e o Azure CLI
@@ -53,7 +53,7 @@ Key Vault é uma aplicação da Microsoft pré-registada em todos os inquilinos 
 Para completar este guia, deve primeiro fazer o seguinte:
 
 - [Instale o Azure CLI](/cli/azure/install-azure-cli).
-- [Criar um cofre de chaves](quick-create-cli.md)
+- [Criar um cofre chave](quick-create-cli.md)
 - [Criar uma conta de armazenamento Azure](../../storage/common/storage-account-create.md?tabs=azure-cli). O nome da conta de armazenamento deve utilizar apenas letras e números minúsculos. O comprimento do nome deve ter entre 3 e 24 caracteres.
       
 ## <a name="manage-storage-account-keys"></a>Gerir chaves de conta de armazenamento

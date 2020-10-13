@@ -10,10 +10,10 @@ ms.custom: include file
 ms.topic: include
 ms.date: 06/25/2020
 ms.openlocfilehash: 944b96e7726f2b2becd5960a17a89c00d00c878a
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91841965"
 ---
 O alvo de computação que utiliza para hospedar o seu modelo irá afetar o custo e a disponibilidade do seu ponto final implantado. Utilize esta tabela para escolher um alvo de computação apropriado.

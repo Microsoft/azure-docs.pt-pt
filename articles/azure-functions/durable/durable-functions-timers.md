@@ -4,12 +4,12 @@ description: Saiba como implementar temporizadores duráveis na extensão funç�
 ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 0226e5141b100aa3fcf89dd1a5cade8f3cd6cf1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb91f205a9b83b0b4b410644ef6c0fcbbf60876a
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "87056228"
+ms.locfileid: "91876452"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Temporizadores em Funções Duradouras (Funções Azure)
 
@@ -22,7 +22,7 @@ Cria um temporizador durável chamando o `CreateTimer` método (.NET) ou o `crea
 Quando se cria um temporizador que expira às 16h30, o Quadro de Tarefas Durável subjacente encoste uma mensagem que só fica visível às 16h30. Ao executar o plano de consumo de funções Azure, a mensagem do temporizador recentemente visível garantirá que a aplicação de função seja ativada num VM apropriado.
 
 > [!NOTE]
-> * Os temporizadores duradouros estão atualmente limitados a 7 dias. Se forem necessários atrasos mais longos, podem ser simulados utilizando as APIs do temporizador num `while` loop.
+> * Começando pela [versão 2.3.0](https://github.com/Azure/azure-functions-durable-extension/releases/tag/v2.3.0) da Extensão Durável, os temporizadores duráveis são ilimitados. Nas versões anteriores da extensão, os temporizadores duráveis estão limitados a sete dias. Quando estiver a utilizar uma versão anterior e precisar de um atraso superior a sete dias, utilize as APIs do temporizador num `while` loop para simular este atraso.
 > * Utilize sempre `CurrentUtcDateTime` em vez de em `DateTime.UtcNow` .NET ou em vez de `currentUtcDateTime` ou em `Date.now` `Date.UTC` JavaScript ao calcular o tempo de incêndio para temporizadores duradouros. Para obter mais informações, consulte o artigo de restrições de [função do orquestrador.](durable-functions-code-constraints.md)
 
 ## <a name="usage-for-delay"></a>Utilização para atraso

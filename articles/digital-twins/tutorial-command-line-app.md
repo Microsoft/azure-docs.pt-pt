@@ -8,10 +8,10 @@ ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
 ms.openlocfilehash: b6f2e8ff6689a3817ecf9eb43c7cea4a0632fc25
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91297674"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Tutorial: Explore a Azure Digital Twins com uma aplicação de cliente de amostra
@@ -85,18 +85,18 @@ Certifique-se de que guarda o ficheiro antes de seguir em frente.
 
 Agora que definiu um modelo, os passos restantes envolvem usar a app da amostra para interagir com a sua instância Azure Digital Twins. Executar o projeto com este botão na barra de ferramentas:
 
-:::image type="content" source="media/tutorial-command-line-app/start-button-sample.png" alt-text="O botão de arranque do Estúdio Visual (projeto SampleClientApp)":::
+:::image type="content" source="media/tutorial-command-line-app/start-button-sample.png" alt-text="Editado Room.jscom o número de versão atualizado, propriedades De HumidityLevel e RoomName, e contém relacionamento":::
 
 Uma janela da consola abrir-se-á, procederá à autenticação e esperará por um comando. 
 * A autenticação é tratada através do navegador: o seu navegador padrão abrirá com uma solicitação de autenticação. Utilize este pedido para iniciar súmis com as suas credenciais Azure. Em seguida, pode fechar o separador ou janela do navegador.
 
 Aqui está uma imagem de como é a consola do projeto:
 
-:::image type="content" source="media/tutorial-command-line-app/command-line-app.png" alt-text="Mensagem de boas-vindas da aplicação da linha de comando":::
+:::image type="content" source="media/tutorial-command-line-app/command-line-app.png" alt-text="Editado Room.jscom o número de versão atualizado, propriedades De HumidityLevel e RoomName, e contém relacionamento":::
 
 > [!TIP]
 > Para obter uma lista de todos os comandos possíveis que pode utilizar com este projeto, `help` insira na consola do projeto e volte a pressionar.
-> :::image type="content" source="media/tutorial-command-line-app/command-line-app-help.png" alt-text="Saída do comando de ajuda":::
+> :::image type="content" source="media/tutorial-command-line-app/command-line-app-help.png" alt-text="Editado Room.jscom o número de versão atualizado, propriedades De HumidityLevel e RoomName, e contém relacionamento":::
 
 Mantenha a consola do projeto em funcionamento para o resto dos passos neste tutorial.
 
@@ -117,7 +117,7 @@ A saída deve indicar que os modelos foram criados com sucesso.
 
 Verifique se os modelos foram criados executando o comando `GetModels true` . Isto irá consultar a instância Azure Digital Twins para todos os modelos que foram carregados, e imprimir toda a sua informação. Procure o modelo *de quarto* editado nos resultados:
 
-:::image type="content" source="media/tutorial-command-line-app/output-get-models.png" alt-text="Resultados do GetModels, mostrando o modelo de Quarto atualizado":::
+:::image type="content" source="media/tutorial-command-line-app/output-get-models.png" alt-text="Editado Room.jscom o número de versão atualizado, propriedades De HumidityLevel e RoomName, e contém relacionamento":::
 
 #### <a name="errors"></a>Erros
 
@@ -165,7 +165,7 @@ CreateDigitalTwin dtmi:example:Floor;1 floor1
 
 A saída destes comandos deve indicar que os gémeos foram criados com sucesso. 
 
-:::image type="content" source="media/tutorial-command-line-app/output-create-digital-twin.png" alt-text="Excerto dos resultados dos comandos CreateDigitalTwin, mostrando piso0, piso1, sala0 e sala1":::
+:::image type="content" source="media/tutorial-command-line-app/output-create-digital-twin.png" alt-text="Editado Room.jscom o número de versão atualizado, propriedades De HumidityLevel e RoomName, e contém relacionamento":::
 
 Também pode verificar se os gémeos foram criados com o `Query` comando. Este comando consulta a sua instância Azure Digital Twins para todos os gémeos digitais que contém. Procure o *piso 0,* *o piso1,* o quarto *0,* e *o quarto1* gémeos nos resultados.
 
@@ -205,7 +205,7 @@ CreateRelationship floor1 contains room1 relationship1
 
 A saída destes comandos confirma que as relações foram criadas com sucesso:
 
-:::image type="content" source="media/tutorial-command-line-app/output-create-relationship.png" alt-text="Excerto dos resultados dos comandos da CreateRelationship, mostrando relação0 e relação1":::
+:::image type="content" source="media/tutorial-command-line-app/output-create-relationship.png" alt-text="Editado Room.jscom o número de versão atualizado, propriedades De HumidityLevel e RoomName, e contém relacionamento":::
 
 Também pode verificar as relações com qualquer um dos seguintes comandos, que consultam as relações na sua instância Azure Digital Twins.
 * Para ver todas as relações saindo de cada andar (vendo as relações de um lado),
@@ -225,7 +225,7 @@ Também pode verificar as relações com qualquer um dos seguintes comandos, que
 
 As gémeas e relações que criou neste formato tutorial são o seguinte gráfico conceptual:
 
-:::image type="content" source="media/tutorial-command-line-app/sample-graph.png" alt-text="Um gráfico mostrando o piso0 conectado via relação0 com o quarto0, e piso1 conectado via relação1 com o quarto1" border="false":::
+:::image type="content" source="media/tutorial-command-line-app/sample-graph.png" alt-text="Editado Room.jscom o número de versão atualizado, propriedades De HumidityLevel e RoomName, e contém relacionamento" border="false":::
 
 ### <a name="query-the-twin-graph-to-answer-environment-questions"></a>Consultar o gráfico gémeo para responder a questões ambientais
 
@@ -239,7 +239,7 @@ Uma das principais características da Azure Digital Twins é a capacidade [de c
 
     Isto permite-lhe fazer um balanço do seu ambiente num ápice, e certifique-se de que tudo está representado como gostaria que estivesse dentro da Azure Digital Twins. O resultado disto é uma saída contendo cada gémeo digital com os seus detalhes. Aqui está um excerto:
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-all.png" alt-text="Resultados parciais de consulta dupla, mostrando sala0 e piso1":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-all.png" alt-text="Editado Room.jscom o número de versão atualizado, propriedades De HumidityLevel e RoomName, e contém relacionamento":::
 
     >[!NOTE]
     >No projeto da amostra, o comando `Query` sem argumentos adicionais é o equivalente a `Query SELECT * FROM DIGITALTWINS` . Para consultar todos os gémeos no seu caso utilizando as [APIs de Consulta](how-to-use-apis-sdks.md) ou os [comandos CLI,](how-to-use-cli.md)utilize a consulta mais longa (completa).
@@ -252,7 +252,7 @@ Uma das principais características da Azure Digital Twins é a capacidade [de c
 
     Pode restringir a sua consulta a gémeos de um certo tipo, para obter informações mais específicas sobre o que está representado. O resultado deste mostra *a sala0* e *a sala1,* mas **não** mostra o *piso 0* ou *o piso 1* (uma vez que são pisos, não quartos).
     
-    :::image type="content" source="media/tutorial-command-line-app/output-query-model.png" alt-text="Resultados da consulta do modelo, mostrando apenas quarto0 e sala1":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-model.png" alt-text="Editado Room.jscom o número de versão atualizado, propriedades De HumidityLevel e RoomName, e contém relacionamento":::
 
 * **Quais são todos os quartos no *andar0?*** (consulta por relação)
 
@@ -262,7 +262,7 @@ Uma das principais características da Azure Digital Twins é a capacidade [de c
 
     Você pode consultar com base em relacionamentos no seu gráfico, para obter informações sobre como os gémeos estão conectados ou para restringir a sua consulta a uma determinada área. Só *o quarto 0* é no *andar 0,* por isso é o único quarto no resultado.
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-relationship.png" alt-text="Resultados da consulta de relacionamento, mostrando espaço0":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-relationship.png" alt-text="Editado Room.jscom o número de versão atualizado, propriedades De HumidityLevel e RoomName, e contém relacionamento":::
 
 * **Quais são os gémeos no meu ambiente com uma temperatura superior a 75?** (consulta por propriedade)
 
@@ -272,7 +272,7 @@ Uma das principais características da Azure Digital Twins é a capacidade [de c
 
     Você pode consultar o gráfico com base em propriedades para responder a uma variedade de perguntas, incluindo descobrir outliers no seu ambiente que podem precisar de atenção. Outros operadores de comparação *<* *>* (, *=* , , , ou *!=*) também são apoiados. *quarto1* aparece nos resultados aqui, porque tem uma temperatura de 80.
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-property.png" alt-text="Resultados da consulta de propriedade, mostrando apenas o quarto1":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-property.png" alt-text="Editado Room.jscom o número de versão atualizado, propriedades De HumidityLevel e RoomName, e contém relacionamento":::
 
 * **Quais são todos os quartos no *andar0* com uma temperatura superior a 75?** (consulta composta)
 
@@ -282,7 +282,7 @@ Uma das principais características da Azure Digital Twins é a capacidade [de c
 
     Também pode combinar as consultas anteriores como em SQL, utilizando operadores de combinação `AND` `OR` como, `NOT` . . Esta consulta `AND` utiliza-se para tornar a consulta anterior sobre temperaturas duplas mais específica. O resultado agora só inclui quartos com temperaturas acima dos 75 que estão no *chão0*— o que, neste caso, não é nenhum deles. O resultado está vazio.
 
-    :::image type="content" source="media/tutorial-command-line-app/output-query-compound.png" alt-text="Resultados da consulta composta, sem resultados":::
+    :::image type="content" source="media/tutorial-command-line-app/output-query-compound.png" alt-text="Editado Room.jscom o número de versão atualizado, propriedades De HumidityLevel e RoomName, e contém relacionamento":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

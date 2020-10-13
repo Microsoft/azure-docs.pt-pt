@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: d44866e2d04ab1bab5d2eca01374350a7d73a0ea
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91577344"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play"></a>Glossário de termos para IoT Plug and Play
@@ -29,7 +29,7 @@ O explorador Azure IoT é uma ferramenta gráfica que pode utilizar para interag
 - Trabalhar com [as propriedades do](#properties)dispositivo.
 - Comandos do dispositivo [de chamada](#commands).
 
-## <a name="azure-iot-hub"></a>Azure IoT Hub
+## <a name="azure-iot-hub"></a>Hub IoT do Azure
 
 O Hub IoT é um serviço gerido, alojado na cloud, que atua como um centro de mensagens para assegurar a comunicação bidirecional entre a aplicação IoT e os dispositivos que esta gere. [Os dispositivos IoT Plug e Play](#iot-plug-and-play-device) podem ligar-se a um hub IoT. Uma solução IoT utiliza um hub IoT para permitir:
 
@@ -59,7 +59,7 @@ Uma cadeia de ligação encapsula as informações necessárias para ligar a um 
 
 Todos os [modelos do dispositivo](#device-model) têm um componente predefinido. Um modelo de dispositivo simples tem apenas um componente padrão - tal modelo também é conhecido como um dispositivo sem componente. Um modelo mais complexo tem vários componentes aninhados por baixo do componente padrão.
 
-## <a name="device-certification"></a>Certificação do dispositivo
+## <a name="device-certification"></a>Certificação de dispositivos
 
 O programa de certificação ioT Plug and Play verifica que um dispositivo cumpre os requisitos de certificação IoT Plug and Play. Pode adicionar um dispositivo certificado ao catálogo de [dispositivos Azure IoT certificados.](https://aka.ms/devicecatalog)
 
@@ -81,7 +81,7 @@ Um [construtor de dispositivos](#device-builder) ou [construtor de módulos](#mo
 
 Um gémeo digital é um modelo de um [dispositivo IoT Plug and Play](#iot-plug-and-play-device). Um gémeo digital é modelado utilizando a [Linguagem de Definição de Gémeos Digitais.](#digital-twins-definition-language) Você pode usar o [dispositivo Azure IoT SDKs](#azure-iot-device-sdk) para interagir com gémeos digitais no tempo de execução. Por exemplo, pode definir um valor de propriedade num twin digital num dispositivo e o SDK comunica esta alteração à sua solução IoT na nuvem.
 
-## <a name="digital-twin-change-events"></a>Eventos digitais de mudança de gémeos
+## <a name="digital-twin-change-events"></a>Eventos de alteração de duplos digitais
 
 Quando um [dispositivo IoT Plug and Play](#iot-plug-and-play-device) está ligado a um hub [IoT,](#azure-iot-hub)o hub pode utilizar a sua capacidade de encaminhamento para enviar notificações de alterações digitais de gémeos. Por exemplo, sempre que um valor [de propriedade](#properties) muda num dispositivo, o IoT Hub pode enviar uma notificação para um ponto final, como um hub de Evento.
 
@@ -101,7 +101,7 @@ Uma interface descreve as capacidades relacionadas que são implementadas por um
 
 A linguagem de consulta IoT Hub é usada para vários fins. Por exemplo, pode utilizar o idioma para procurar dispositivos registados no seu hub IoT ou refinar o comportamento [de encaminhamento digital de dois.](#digital-twin-route)
 
-## <a name="iot-plug-and-play-bridge"></a>Ponte IoT Plug and Play
+## <a name="iot-plug-and-play-bridge"></a>Bridge do IoT Plug and Play
 
 IoT Plug and Play bridge é uma aplicação de código aberto que permite que sensores e periféricos existentes ligados aos gateways Windows ou Linux se conectem como [dispositivos IoT Plug e Play](#iot-plug-and-play-device).
 

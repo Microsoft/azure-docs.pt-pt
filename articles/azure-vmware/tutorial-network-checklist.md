@@ -3,12 +3,12 @@ title: Tutorial - Lista de verificação de planeamento de rede
 description: Saiba mais sobre os pré-requisitos de prescrição de rede e detalhes sobre conectividade de rede e portas de rede para Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 5538f9c5d6543ca312835f4ef6437e413dea231b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ee70b8a297e1b8418049ff229b3c1869819145b
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576682"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948209"
 ---
 # <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Lista de verificação de planeamento de rede para Solução VMware Azure 
 
@@ -36,6 +36,9 @@ A rede lógica de nuvem privada vem com NSX-T pré-a provisionado. Um portal tie
 A nuvem privada AVS está ligada à sua rede virtual Azure utilizando uma ligação Azure ExpressRoute. Esta alta largura de banda, ligação de baixa latência permite-lhe aceder a serviços em execução na sua subscrição Azure a partir do seu ambiente de nuvem privada. O encaminhamento é baseado em Protocolo de Gateway fronteiriço (BGP), automaticamente a provisionado e habilitado por padrão para cada implantação em nuvem privada. 
 
 As nuvens privadas AVS requerem um mínimo de um bloco de `/22` endereços de rede CIDR para sub-redes, mostrado abaixo. Esta rede complementa as suas redes no local. O bloco de endereços não deve sobrepor-se aos blocos de endereços utilizados noutras redes virtuais nas suas redes de subscrição e no local. Dentro deste bloco de endereços, as redes de gestão, provisionamento e vMotion são aprovisionadas automaticamente.
+
+>[!NOTE]
+>Os intervalos permitidos para o seu bloco de endereços são os espaços de endereço privado RFC 1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16), exceto 172.17.0.0/16.
 
 Exemplo `/22` do bloco de endereços de rede CIDR:  `10.10.0.0/22`
 

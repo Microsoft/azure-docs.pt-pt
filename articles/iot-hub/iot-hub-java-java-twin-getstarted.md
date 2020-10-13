@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: mqtt, devx-track-java
 ms.openlocfilehash: b433ab29ab5a2520f503e002e630068126ddb328
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91838692"
 ---
 # <a name="get-started-with-device-twins-java"></a>Começar com os gémeos do dispositivo (Java)

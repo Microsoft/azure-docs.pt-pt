@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 06/15/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 829a82cb94e5c2a7e7cbc9190047c368299612cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb0f46595be0aae68c9bcf15bcd4f087e8faaeba
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90052754"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965221"
 ---
 # <a name="features-and-licenses-for-azure-multi-factor-authentication"></a>Funcionalidades e licenças para autenticação multi-factor Azure
 

@@ -13,10 +13,10 @@ ms.date: 10/02/2020
 ms.author: iainfou
 ms.custom: devx-track-azurepowershell
 ms.openlocfilehash: b43e546cc4f7a07462817080b287628df2af8a95
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91704638"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Ativar os serviços de domínio do diretório ativo Azure utilizando o PowerShell
@@ -376,7 +376,7 @@ Quando o portal Azure mostrar que o domínio gerido terminou o provisionamento, 
     * Para configurar o DNS, selecione o seu domínio gerido no portal. Na janela **'Vista Geral',** é solicitado que configufique automaticamente estas definições de DNS.
 * [Ativar a sincronização de palavras-passe para Azure AD DS para](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) que os utilizadores finais possam iniciar sação no domínio gerido utilizando as suas credenciais corporativas.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Para ver o domínio gerido em ação, pode [juntar-se a um VM do Windows,][windows-join] [configurar LDAP seguro][tutorial-ldaps]e [configurar a sincronização de haxixe de palavra-passe][tutorial-phs].
 

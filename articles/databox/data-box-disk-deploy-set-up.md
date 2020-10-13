@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/04/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 570653d620c5e314db9e6a0bc56d731f8acf9296
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 77c09385c69e4a2922fa3b2249143e6e969bfc5a
+ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925656"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91759909"
 ---
 ::: zone target="docs"
 
@@ -268,7 +268,7 @@ Se encontrar algum problema ao desbloquear os discos, veja como [resolver proble
     
 8. Assim que o disco estiver desbloqueado, pode ir para o ponto de montagem e ver os conteúdos do disco. Já está pronto para copiar os dados para as pastas *BlockBlob* ou *PageBlob*. 
 
-    ![Conteúdos do Disco do Data Box](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
+    ![Conteúdo do Data Box Disk 2](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
 
 
 Se encontrar algum problema ao desbloquear os discos, veja como [resolver problemas de desbloqueio](data-box-disk-troubleshoot-unlock.md). 

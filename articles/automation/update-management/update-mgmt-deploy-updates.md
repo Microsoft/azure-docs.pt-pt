@@ -6,10 +6,10 @@ ms.subservice: update-management
 ms.date: 09/16/2020
 ms.topic: conceptual
 ms.openlocfilehash: fa5cabd5410f0cbe7382db0289d98bc69d4a01fb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91294721"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Como implementar atualizações e rever resultados

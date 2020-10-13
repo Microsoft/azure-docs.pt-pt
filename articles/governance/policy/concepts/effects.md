@@ -1,14 +1,14 @@
 ---
 title: Entenda como os efeitos funcionam
 description: As definições de Política Azure têm vários efeitos que determinam como a conformidade é gerida e reportada.
-ms.date: 09/15/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: b6622796ab0554f692a3b64e0b41d60f49c561b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 19811eca33be7dff4d9bee5b8bd89dd38f185a57
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91252009"
+ms.locfileid: "91873953"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreender os efeitos da Política Azure
 
@@ -98,7 +98,7 @@ A auditoria é usada para criar um evento de alerta no registo de atividades ao 
 
 ### <a name="audit-evaluation"></a>Avaliação de auditoria
 
-A auditoria é o último efeito verificado pela Azure Policy durante a criação ou atualização de um recurso. Para um modo gestor de recursos, a Azure Policy envia então o recurso para o Fornecedor de Recursos. A auditoria funciona da mesma forma para um pedido de recursos e um ciclo de avaliação. A Azure Policy adiciona uma `Microsoft.Authorization/policies/audit/action` operação ao registo de atividade e marca o recurso como incompatível.
+A auditoria é o último efeito verificado pela Azure Policy durante a criação ou atualização de um recurso. Para um modo gestor de recursos, a Azure Policy envia então o recurso para o Fornecedor de Recursos. A auditoria funciona da mesma forma para um pedido de recursos e um ciclo de avaliação. Para recursos novos e atualizados, a Azure Policy adiciona uma `Microsoft.Authorization/policies/audit/action` operação ao registo de atividades e marca o recurso como incompatível.
 
 ### <a name="audit-properties"></a>Propriedades de auditoria
 
@@ -145,7 +145,7 @@ AuditIfNotExists permite a auditoria de recursos _relacionados com_ o recurso qu
 
 ### <a name="auditifnotexists-evaluation"></a>Avaliação auditIfNotExists
 
-AuditIfNotExists funciona depois de um Fornecedor de Recursos ter tratado um pedido de criação ou atualização de recursos e ter devolvido um código de estado de sucesso. A auditoria ocorre se não houver recursos relacionados ou se os recursos definidos pela **ExistênciaCondição** não avaliarem verdadeiramente. A Azure Policy adiciona uma `Microsoft.Authorization/policies/audit/action` operação ao registo de atividade da mesma forma que o efeito de auditoria. Quando acionado, o recurso que satisfez a condição **de se** é o recurso que é marcado como incompatível.
+AuditIfNotExists funciona depois de um Fornecedor de Recursos ter tratado um pedido de criação ou atualização de recursos e ter devolvido um código de estado de sucesso. A auditoria ocorre se não houver recursos relacionados ou se os recursos definidos pela **ExistênciaCondição** não avaliarem verdadeiramente. Para recursos novos e atualizados, a Azure Policy adiciona uma `Microsoft.Authorization/policies/audit/action` operação ao registo de atividades e marca o recurso como incompatível. Quando acionado, o recurso que satisfez a condição **de se** é o recurso que é marcado como incompatível.
 
 ### <a name="auditifnotexists-properties"></a>Propriedades auditIfNotExists
 

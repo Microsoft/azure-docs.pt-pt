@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 08/13/2020
 ms.openlocfilehash: 926b79e672c14249ec7c2b053dba7eb3a31443a7
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91536053"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrar para uma chave de autoria de recursos Azure
@@ -77,7 +77,7 @@ A migração tem de ser feita a partir do portal LUIS. Se criar as teclas de aut
    > [!div class="mx-imgBorder"]
    > ![Primeira janela pop-up no processo de migração, onde seleciona Migrar agora](./media/migrate-authoring-key/prompt-when-migrating-2.png)
 
-3. Se alguma das suas aplicações tiver colaboradores, é-lhe pedido que envie um e-mail que os informe sobre a migração. Este é um passo opcional.
+3. Se alguma das suas aplicações tiver colaboradores, é-lhe pedido que envie um e-mail que os informe sobre a migração. Este passo é opcional.
 
    Para cada colaborador e app, a aplicação de e-mail padrão abre com um e-mail levemente formatado. Pode editar o e-mail antes de enviá-lo. O modelo de e-mail inclui o ID de aplicação exato e o nome da aplicação.
 
@@ -95,7 +95,7 @@ A migração tem de ser feita a partir do portal LUIS. Se criar as teclas de aut
    > [!Note]
    > Depois de migrar a sua conta para o Azure, as suas aplicações deixarão de estar disponíveis para colaboradores.
 
-4. Se for colaborador em qualquer aplicação, é solicitado a exportar uma cópia das aplicações selecionando esta opção durante o fluxo de migração. Este é um passo opcional.
+4. Se for colaborador em qualquer aplicação, é solicitado a exportar uma cópia das aplicações selecionando esta opção durante o fluxo de migração. Este passo é opcional.
 
    Se selecionar a opção, aparece a seguinte página. Selecione os botões de descarregamento à esquerda para exportar as aplicações que deseja. Pode importar estas aplicações de volta depois de migrar, porque não serão migradas automaticamente consigo.
 
@@ -243,7 +243,7 @@ Se vir o seguinte erro, verifique os [passos recomendados se é colaborador numa
 ![Erro que mostra que a migração falhou para os colaboradores](./media/migrate-authoring-key/migration-failed-for-collab-2.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Reveja [conceitos sobre a autoria e as teclas de tempo de execução.](luis-how-to-azure-subscription.md)
 * Reveja como [atribuir chaves](luis-how-to-azure-subscription.md) e [adicionar contribuintes](luis-how-to-collaborate.md).
