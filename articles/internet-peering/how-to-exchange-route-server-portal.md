@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 5/19/2020
 ms.author: derekol
 ms.openlocfilehash: 7e10cd91eadd338217845b1504e8e9160bccfc98
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91537196"
 ---
 # <a name="create-or-modify-an-exchange-peering-with-route-server-in-azure-portal"></a>Criar ou modificar um persco de troca com servidor de rota no portal Azure
@@ -20,7 +20,7 @@ ms.locfileid: "91537196"
 Este artigo descreve como criar uma Microsoft Exchange a espreitar com um servidor de rota utilizando o portal Azure. Este artigo também mostra como verificar o estado do recurso, atualizá-lo ou eliminá-lo e desprovisioná-lo.
 
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 * Reveja os [pré-requisitos](prerequisites.md) e o [Persimento do Persimento cambial](walkthrough-exchange-all.md) antes de iniciar a configuração.
 * Se já tem persigos de Troca com a Microsoft que não são convertidos para recursos Azure, consulte [Converter um legado Exchange olhando para um recurso Azure utilizando o portal](howto-legacy-exchange-portal.md).
 
@@ -125,7 +125,7 @@ Como Fornecedor de Troca de Internet, pode criar um pedido de permuta [através 
 ## <a name="deprovision-an-exchange-peering"></a><a name="delete"></a>Deprovisionar um perscruta de trocas
 [!INCLUDE [peering-exchange-delete-portal](./includes/delete.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar ou modificar um espreitamento direto utilizando o portal](howto-direct-portal.md)
 * [Converter um legado Espreitar diretamente para um recurso Azure utilizando o portal](howto-legacy-direct-portal.md)
