@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e62da791e8c60f884855fba16315a03fe22cecb5
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 6d03f0057e657933f4b0f38c48f2a2cdbe1ba2a4
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450745"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940332"
 ---
 # <a name="azure-security-baseline-for-azure-load-balancer"></a>Linha de base de segurança Azure para O Balançador de Carga Azure
 
@@ -98,7 +98,7 @@ O Security Center (Standard Tier) fornece acesso a máquinas virtuais just-in-ti
 Utilize a funcionalidade de Endurecimento de Rede Adaptativa do Centro de Segurança para recomendar configurações de grupos de segurança de rede que limitem as portas e os IPs de origem com base na inteligência real de tráfego e ameaças.
  
 
-- [Gerir o Padrão de Proteção Azure DDoS utilizando o portal Azure](https://docs.microsoft.com/azure/virtual-network/manage-ddos`protection)
+- [Gerir o Padrão de Proteção Azure DDoS utilizando o portal Azure](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
 
 - [Filtragem baseada em ameaças de Azure Firewall](https://docs.microsoft.com/azure/firewall/threat-intel)
 
@@ -664,7 +664,7 @@ Utilize o conector de dados do Centro de Segurança para transmitir os alertas a
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](/azure/security/benchmarks/overview)
 - Saiba mais sobre [as linhas de base de segurança da Azure](/azure/security/benchmarks/security-baselines-overview)

@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: kenwith
 ms.openlocfilehash: 666c4e52ed521c169ff80b33e2ab0e83b13e4d03
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91266705"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizar o fornecimento de produtos de fornecimento de mapeamentos de atributos para aplicações SaaS no Azure Ative Directory
@@ -55,7 +55,7 @@ Existem quatro tipos de mapeamento diferentes suportados:
 - **Direto** – o atributo alvo é povoado com o valor de um atributo do objeto ligado em Azure AD.
 - **Constante** – o atributo alvo é preenchido com uma cadeia específica especificada.
 - **Expressão** - o atributo alvo é povoado com base no resultado de uma expressão semelhante ao script.
-  Para obter mais informações, consulte [a escrita de expressões para atribuir mapeamentos em Diretório Ativo Azure](../app-provisioning/functions-for-customizing-application-data.md).
+  Para obter mais informações, consulte [a Escrita Expressões para Attribute-Mappings no Diretório Ativo Azure](../app-provisioning/functions-for-customizing-application-data.md).
 - **Nenhum** - o atributo alvo é deixado sem modificação. No entanto, se o atributo alvo estiver sempre vazio, é preenchido com o valor padrão que especifica.
 
 Juntamente com estes quatro tipos básicos, os mapeamentos de atributos personalizados suportam o conceito de uma atribuição de valor **padrão** opcional. A atribuição de valor predefinido garante que um atributo alvo é povoado com um valor se não houver um valor em Ad Azure ou no objeto alvo. A configuração mais comum é deixar este em branco.

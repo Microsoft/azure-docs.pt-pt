@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: aahi
 ms.openlocfilehash: a44655571099d936b34a4233bc12fa099e5bc338
-ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91660960"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Tutorial: Visualizar anomalias usando deteção de lotes e Power BI
@@ -172,7 +172,7 @@ Aplique cores no seu gráfico clicando na ferramenta **Formato** e nas **cores d
 
 ![Uma imagem do gráfico final](../media/tutorials/final-chart.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 >[Deteção de anomalias em streaming com Azure Databricks](anomaly-detection-streaming-databricks.md)

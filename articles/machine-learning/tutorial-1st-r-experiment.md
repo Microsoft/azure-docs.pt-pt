@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: faf2257f944127748569466d314ff0a76faae4f0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: fe9b0e9d2e2e46c7c4d04549777a5c27df6bdf18
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906737"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940111"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Tutorial: Use R para criar um modelo de aprendizagem automática (pré-visualização)
 
@@ -68,7 +68,7 @@ Use o RStudio numa instância de computação Azure ML para executar este tutori
 
 ## <a name="clone-the-sample-vignettes"></a><a name="azure"></a>Clone as vinhetas da amostra 
 
-Clone o https://github.com/azure/azureml-sdk-for-r repositório GitHub para uma cópia dos ficheiros de vinheta que irá executar neste tutorial.
+Clone o https://github.com/Azure/azureml-sdk-for-r repositório GitHub para uma cópia dos ficheiros de vinheta que irá executar neste tutorial.
 
 1. No RStudio, navegue para o separador "Terminal" e cd no diretório onde gostaria de clonar o repositório.
 

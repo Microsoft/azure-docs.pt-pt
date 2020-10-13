@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/15/2020
 ms.author: danis
 ms.openlocfilehash: 7ddbb48f3598780988feb25a11729a5086d31fde
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88869274"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>suporte cloud-init para máquinas virtuais em Azure
@@ -77,7 +77,7 @@ Existem duas fases para disponibilizar cloud-init para o endossado Linux distro 
 
 | Editor / Versão | Oferta | SKU | Versão | imagem nuvem-init pronto | suporte pacote de cloud-init em Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|Oráculo 7.7 |Oráculo-Linux |77-ci |7.7.01| imagem de pré-visualização (nota: esta é uma imagem de pré-visualização, e uma vez que todas as imagens Oracle 7.7 suportam cloud-init, esta será removida em meados de 2020, aviso será dado) | não, na pré-visualização, o pacote é: *18.5-3.0.1.el7*
+|Oráculo 7.7 |Oracle-Linux |77-ci |7.7.01| imagem de pré-visualização (nota: esta é uma imagem de pré-visualização, e uma vez que todas as imagens Oracle 7.7 suportam cloud-init, esta será removida em meados de 2020, aviso será dado) | não, na pré-visualização, o pacote é: *18.5-3.0.1.el7*
 
 ### <a name="suse-sles"></a>SUSE SLES
 Estas imagens SLES foram atualizadas para a oferta usando o cloud-init, as variantes de imagem Gen2 também foram atualizadas.

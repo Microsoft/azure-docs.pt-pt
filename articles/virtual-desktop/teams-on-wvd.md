@@ -7,10 +7,10 @@ ms.date: 07/28/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 049b962740abc98a6ac7d029c1419d40aa722165
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88922570"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Utilize equipas da Microsoft no ambiente de trabalho virtual do Windows
@@ -42,7 +42,7 @@ Esta secção irá mostrar-lhe como instalar a aplicação de desktop Teams na s
 
 Para permitir a otimização dos meios de comunicação para as equipas, desa estale a seguinte chave de registo no anfitrião:
 
-1. A partir do menu inicial, executar **RegEdit** como administrador. Navegue para **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams**.
+1. A partir do menu inicial, executar **RegEdit** como administrador. Navegue até **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams. **
 2. Criar o seguinte valor para a tecla Equipas:
 
 | Nome             | Tipo   | Dados/Valor  |
@@ -94,7 +94,7 @@ Pode implementar a aplicação de ambiente de trabalho Teams utilizando uma inst
 
         Isto instala equipas para a pasta Ficheiros de Programa (x86) num sistema operativo de 64 bits e para a pasta Ficheiros de Programa num sistema operativo de 32 bits. Neste ponto, a configuração da imagem dourada está completa. A instalação de Equipas por máquina é necessária para configurações não persistentes.
 
-        Existem duas bandeiras que podem ser definidas ao instalar equipas, **ALLUSER=1** e **ALLUSERS=1**. É importante compreender a diferença entre estes parâmetros. O parâmetro **ALLUSER=1** é utilizado apenas em ambientes VDI para especificar uma instalação por máquina. O parâmetro **ALLUSERS=1** pode ser utilizado em ambientes não-VDI e VDI. Quando define este parâmetro, o instalador de máquinas de equipas aparece no Programa e nas Funcionalidades no Painel de Controlo, bem como aplicações & funcionalidades nas Definições do Windows. Todos os utilizadores com credenciais de administração na máquina podem desinstalar equipas.
+        Existem duas bandeiras que podem ser definidas ao instalar equipas, **ALLUSER=1** e **ALLUSERS=1**. É importante compreender a diferença entre estes parâmetros. O parâmetro **ALLUSER=1** é utilizado apenas em ambientes VDI para especificar uma instalação por máquina. O parâmetro **ALLUSERS=1** pode ser utilizado em ambientes não-VDI e VDI. Quando define este parâmetro, o Machine-Wide Instalador de Equipas aparece no Programa e funcionalidades no Painel de Controlo, bem como aplicações & funcionalidades nas Definições do Windows. Todos os utilizadores com credenciais de administração na máquina podem desinstalar equipas.
 
         > [!NOTE]
         > Os utilizadores e administradores não podem desativar o lançamento automático das Equipas durante a entrada neste momento.

@@ -11,10 +11,10 @@ ms.date: 07/31/2020
 ms.topic: conceptual
 zone_pivot_groups: aml-control-methods
 ms.openlocfilehash: aac5fba68c43892216cbd16dd99b0c6a9bf70217
-ms.sourcegitcommit: 487a9f5272300d60df2622c3d13e794d54680f90
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91660994"
 ---
 # <a name="profile-your-model-to-determine-resource-utilization"></a>Perfilar o seu modelo para determinar a utilização de recursos
@@ -129,7 +129,7 @@ az ml model profile -g <resource-group-name> -w <workspace-name> --inference-con
 
 ::: zone-end
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * [Resolução de problemas de uma implantação falhada](how-to-troubleshoot-deployment.md)
 * [Implementar no Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)

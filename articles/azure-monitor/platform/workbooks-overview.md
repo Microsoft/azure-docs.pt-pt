@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: mbullwin
 ms.openlocfilehash: e8ce4feaec6571adfb15f5928a6eb7c910173353
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91825786"
 ---
 # <a name="azure-monitor-workbooks"></a>Livros de trabalho do Monitor Azure

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d2355b26fc6a946e47a3d2c135b7c23729b186c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f7ff20dbdd0dac5b56d0f746733b14dfe44803e
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554673"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940649"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moconavi"></a>Tutorial: Integração do Diretório Ativo Azure com moconavi
 
@@ -191,15 +191,15 @@ Nesta secção, cria-se um utilizador chamado Britta Simon em moconavi. Trabalhe
 
 3. Clique no botão **de definição de ligação.**
 
-    ![Testar um único sinal](./media/moconavi-tutorial/testing1.png)
+    ![A screenshot mostra moconavi com o botão de definição de ligação.](./media/moconavi-tutorial/testing1.png)
 
 4. Introduza `https://mcs-admin.moconavi.biz/gateway` a caixa de texto **'Ligar para URL'** e, em seguida, clicar no botão **'Fazer'.**
 
-    ![Testar um único sinal](./media/moconavi-tutorial/testing2.png)
+    ![A screenshot mostra o botão Connect to U R L e o botão Done.](./media/moconavi-tutorial/testing2.png)
 
 5. Na imagem seguinte, execute os seguintes passos:
 
-    ![Testar um único sinal](./media/moconavi-tutorial/testing3.png)
+    ![A screenshot mostra a página moconavi onde pode introduzir os valores descritos.](./media/moconavi-tutorial/testing3.png)
 
     a. Introduza **a tecla de autenticação de entrada**: na caixa de texto da chave de `azureAD` **autenticação de** entrada.
 
@@ -209,11 +209,11 @@ Nesta secção, cria-se um utilizador chamado Britta Simon em moconavi. Trabalhe
 
 6. Insira a sua palavra-passe AD AZure na caixa de texto **password** e, em seguida, clique no botão **De início de Sessão.**
 
-    ![Testar um único sinal](./media/moconavi-tutorial/testing4.png)
+    ![A screenshot mostra onde introduzir a sua senha Azure A D.](./media/moconavi-tutorial/testing4.png)
 
 7. A autenticação AD azul é bem sucedida quando o menu é apresentado.
 
-    ![Testar um único sinal](./media/moconavi-tutorial/testing5.png)
+    ![A screenshot mostra o ícone do telefone em moconavi.](./media/moconavi-tutorial/testing5.png)
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/29/2020
 ms.custom: seodec18
 ms.openlocfilehash: 4f236679d0662df852581a6a8408ed6bc0d4e3fe
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91535694"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights-gen1"></a>Compreender a retenção de dados em Azure Time Series Insights Gen1
@@ -98,7 +98,7 @@ Se nenhuma propriedade estiver configurada na fonte do evento `timeStampProperty
 
 Leia [Como escalar o ambiente Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md) para escalar o seu ambiente para acomodar capacidade adicional ou aumentar o comprimento de retenção.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter informações sobre configurar ou alterar definições de retenção de dados, [reveja a retenção de configuração em Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
