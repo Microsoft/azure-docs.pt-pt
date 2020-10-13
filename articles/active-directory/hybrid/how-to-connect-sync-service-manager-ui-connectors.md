@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d215c2e200308664f24daa28a0054c8f1bcfc09c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91319882"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Utilização de conectores com o Gestor de Serviços de Sincronização AZURE AD Connect
@@ -67,7 +67,7 @@ A ação espacial do conector de pesquisa é útil para encontrar objetos e reso
 
 Comece por selecionar um **âmbito.** Pode pesquisar com base em dados (RDN, DN, Âncora, Sub-Árvore) ou no estado do objeto (todas as outras opções).  
 ![Screenshot que mostra o menu suspenso "Scope".](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
-Se fizer uma pesquisa de sub-árvore, obtém todos os objetos num único U.  
+Se fizer uma pesquisa Sub-Tree, obtém todos os objetos num único U.  
 ![Screenshot que mostra um exemplo de uma pesquisa de "Sub-Árvore".](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
 A partir desta grelha pode selecionar um objeto, selecionar **propriedades**e [segui-lo](tshoot-connect-object-not-syncing.md) a partir do espaço do conector de origem, através do metaverso e até ao espaço do conector alvo.
 

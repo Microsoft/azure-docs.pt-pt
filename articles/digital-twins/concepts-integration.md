@@ -8,10 +8,10 @@ ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.openlocfilehash: 7e360c158c7887109684d13f774cbbda1813373e
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91729139"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Integre a Azure Digital Twins com outros serviços

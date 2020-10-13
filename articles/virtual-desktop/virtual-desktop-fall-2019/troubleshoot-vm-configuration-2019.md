@@ -7,10 +7,10 @@ ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 90b4c574a03d8dee50beff60304fb5c1f3b52945
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88008632"
 ---
 # <a name="windows-virtual-desktop-classic-session-host-virtual-machine-configuration"></a>Windows Virtual Desktop (clássico) sessão anfitrião configuração de máquina virtual
@@ -114,7 +114,7 @@ Siga estas instruções para confirmar a instalação dos componentes e para ver
 
 Quando o Windows Virtual Desktop Agent é instalado pela primeira vez em VMs de anfitrião de sessão (manualmente ou através do modelo Azure Resource Manager e PowerShell DSC), fornece um token de registo. A secção seguinte abrange problemas de resolução de problemas aplicáveis ao Windows Virtual Desktop Agent e ao token.
 
-### <a name="error-the-status-filed-in-get-rdssessionhost-cmdlet-shows-status-as-unavailable"></a>Erro: O estado arquivado no Cmdlet Get-RdSSessionHost mostra o estado como Indisponível
+### <a name="error-the-status-filed-in-get-rdssessionhost-cmdlet-shows-status-as-unavailable"></a>Erro: O estado arquivado no Get-RdsSessionHost cmdlet mostra o estado como Indisponível
 
 > [!div class="mx-imgBorder"]
 > ![O cmdlet Get-RdsSessionHost mostra o estado como Indisponível.](../media/23b8e5f525bb4e24494ab7f159fa6b62.png)
@@ -140,7 +140,7 @@ Quando o Windows Virtual Desktop Agent é instalado pela primeira vez em VMs de 
 2. Gere um novo token com o Rds-NewRegistrationInfo.
 3. Confirme que o parâmetro -ExpriationHours está definido para 72 (o valor máximo é 99999).
 
-### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-rdssessionhost"></a>Erro: O agente virtual do Windows não está a reportar um batimento cardíaco ao executar o Get-RdsSessionHost
+### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-rdssessionhost"></a>Erro: O agente virtual do Windows não está a reportar um batimento cardíaco ao executar Get-RdsSessionHost
 
 **Causa 1:** O serviço RDAgentBootLoader foi interrompido.
 

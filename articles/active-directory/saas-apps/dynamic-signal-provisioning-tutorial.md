@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 9ebb0927f9721c5c35ee0d83a108efd72732958b
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91851225"
 ---
 # <a name="tutorial-configure-dynamic-signal-for-automatic-user-provisioning"></a>Tutorial: Configure o Sinal Dinâmico para o provisionamento automático do utilizador

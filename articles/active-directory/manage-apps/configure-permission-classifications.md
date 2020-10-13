@@ -12,13 +12,13 @@ ms.date: 06/01/2020
 ms.author: phsignor
 ms.reviewer: arvindh, luleon, phsignor
 ms.openlocfilehash: 0add5001e2e62e26d448b06927210c14f17729f1
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91804345"
 ---
-# <a name="configure-permission-classifications"></a>Configurar classificações de permissão
+# <a name="configure-permission-classifications"></a>Configurar as classificações de permissão
 
 As classificações de permissão permitem identificar o impacto que as diferentes permissões têm de acordo com as políticas da sua organização e avaliações de risco. Por exemplo, pode utilizar classificações de permissão em políticas de consentimento para identificar o conjunto de permissões a que os utilizadores estão autorizados a consentir.
 

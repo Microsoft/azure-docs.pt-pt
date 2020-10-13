@@ -4,10 +4,10 @@ description: Este artigo mostra-lhe como especificar as imagens do Marketplace q
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: 5a353394fec3dadf0f808a25ec66f6e9028820a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85445615"
 ---
 # <a name="specify-marketplace-images-available-to-lab-creators"></a>Especifique as imagens do Marketplace disponíveis para os criadores de laboratório
@@ -54,7 +54,7 @@ Pode ativar mais imagens no momento da criação do laboratório:
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 
 - [Como dono de laboratório, crie e gere laboratórios](how-to-manage-classroom-labs.md)

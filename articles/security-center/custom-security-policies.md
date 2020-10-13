@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 04/22/2020
 ms.author: memildin
 ms.openlocfilehash: db042a6112944e1c825177506782758d0a96b390
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448393"
 ---
 # <a name="using-custom-security-policies"></a>Usando políticas de segurança personalizadas
@@ -52,7 +52,7 @@ Como discutido na [documentação da Política Azure,](https://docs.microsoft.co
     1. Insira a localização e o nome da definição.
     1. Selecione as políticas para incluir e clique **Em Adicionar**.
     1. Introduza os parâmetros desejados.
-    1. Clique em **Save** (Guardar).
+    1. Clique em **Guardar**.
     1. Na página De iniciativas personalizadas Adicionar, clique em atualização. A sua nova iniciativa será mostrada como disponível.
     1. Clique **em Adicionar** e atribua-o à sua subscrição.
 
@@ -139,7 +139,7 @@ Abaixo está um exemplo de uma política personalizada, incluindo a propriedade 
 Para outro exemplo de utilização da propriedade securityCenter, consulte [esta secção da documentação REST API](https://docs.microsoft.com/rest/api/securitycenter/assessmentsmetadata/createinsubscription#examples).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a criar políticas de segurança personalizadas. 
 

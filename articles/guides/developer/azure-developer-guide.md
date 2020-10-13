@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
 ms.openlocfilehash: 9ed6244d8f5ecf18e89994c0c62af16290fb68c5
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88120580"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para programadores do Azure
@@ -198,7 +198,7 @@ Quer esteja a atear VMs ou a publicar as suas aplicações web com integração 
 * Chef
 * TeamCity
 * Ansible
-* Azure DevOps
+* DevOps do Azure
 
 > **Começar**: Para ver as opções de DevOps para uma aplicação de Serviço de Aplicações, consulte [a Implementação Contínua para o Serviço de Aplicações Azure.](../../app-service/deploy-continuous-deployment.md)
 >
@@ -229,7 +229,7 @@ O Azure oferece um rico conjunto de experiências para criar e gerir os seus rec
 
 O Azure fornece duas formas de gerir as suas aplicações e serviços a partir da linha de comando. Pode utilizar ferramentas como Bash, Terminal, o pedido de comando ou a sua ferramenta de linha de comando de eleição. Normalmente, pode fazer as mesmas tarefas a partir da linha de comando que no portal Azure — como criar e configurar máquinas virtuais, redes virtuais, aplicações web e outros serviços.
 
--   [Interface Azure Command-Line (CLI)](../../xplat-cli-install.md): Permite ligar-se a uma subscrição do Azure e programar várias tarefas contra os recursos do Azure a partir da linha de comando.
+-   [Azure Command-Line Interface (CLI)](../../xplat-cli-install.md): Permite ligar-se a uma subscrição do Azure e programar várias tarefas contra os recursos do Azure a partir da linha de comando.
 
 -   [Azure PowerShell](../../powershell-install-configure.md): Fornece um conjunto de módulos com cmdlets que lhe permitem gerir os recursos do Azure utilizando o Windows PowerShell.
 

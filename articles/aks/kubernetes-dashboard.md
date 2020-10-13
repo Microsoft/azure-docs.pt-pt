@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 06/03/2020
 ms.author: mlearned
 ms.openlocfilehash: 8fda67bea75e973b42aa7f1a9f32be906b1d3e83
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91570820"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Aceda ao painel web Kubernetes no Serviço Azure Kubernetes (AKS)
@@ -26,7 +26,7 @@ Para obter mais informações sobre o dashboard kubernetes, consulte [o Painel d
  > * Começando com Kubernetes 1.19 em pré-visualização, a AKS deixará de suportar a instalação do addon de kube-dashboard gerido. 
  > * Os clusters existentes com o complemento ativado não serão afetados. Os utilizadores continuarão a ser capazes de instalar manualmente o painel de instrumentos de código aberto como software instalado pelo utilizador.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Os passos detalhados neste documento assumem que criou um cluster AKS e estabeleceu uma `kubectl` ligação com o cluster. Se precisar de criar um cluster AKS, consulte [Quickstart: Implemente um cluster de serviço Azure Kubernetes utilizando o Azure CLI][aks-quickstart].
 

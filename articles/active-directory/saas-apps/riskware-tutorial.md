@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: b147037a58e4af59c0c3ccd56b6f6b241d775308
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88553344"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Tutorial: Integração do Azure Ative Directory com Riskware
@@ -73,7 +73,7 @@ Para um único início de saúde a funcionar, é necessário estabelecer uma rel
 Para configurar e testar o Azure AD com um único sinal de acesso com o Riskware, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o sign-on único doware de risco](#configure-riskware-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure o signo único](#configure-riskware-single-sign-on)** do risco - para configurar as definições de Sign-On únicas no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Riskware test user](#create-riskware-test-user)** - para ter uma contraparte de Britta Simon em Riskware que está ligada à representação AD AD do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD com o Riskware, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -120,9 +120,9 @@ Para configurar o Azure AD com o Riskware, execute os seguintes passos:
     |||
 
     > [!NOTE]
-    > O valor do sinal de URL não é real. Atualize o valor com o URL de inscrição real. Contacte [a equipa de suporte do Cliente Riskware](mailto:support@pansoftware.com.au) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > O valor do sinal de URL não é real. Atualize o valor com o URL de Sign-On real. Contacte [a equipa de suporte do Cliente Riskware](mailto:support@pansoftware.com.au) para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -136,7 +136,7 @@ Para configurar o Azure AD com o Riskware, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-riskware-single-sign-on"></a>Configurar o risco único sinal-on
+### <a name="configure-riskware-single-sign-on"></a>Configurar o Sign-On único de risco
 
 1. Numa janela diferente do navegador web, inscreva-se no site da empresa Riskware como administrador.
 
@@ -212,7 +212,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Riskware**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **Riskware**.
 

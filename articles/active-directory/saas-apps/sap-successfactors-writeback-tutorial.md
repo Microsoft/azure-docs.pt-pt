@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
 ms.openlocfilehash: 5ec06960e695abfa4bf004633b1f171214a5d29a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91286655"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Tutorial: Configure atribui write-back de Azure AD a SAP SuccessFactors
@@ -324,7 +324,7 @@ Uma vez concluídas as configurações de aplicações do SuccessFactors, pode l
 
 1. No **separador Provisioning,** desa fixação do **Estado de Provisionamento** para **On**.
 
-2. Clique em **Save** (Guardar).
+2. Clique em **Guardar**.
 
 3. Esta operação iniciará a sincronização inicial, que pode demorar um número variável de horas dependendo de quantos utilizadores estão no inquilino successFactors. Pode verificar a barra de progresso para acompanhar o progresso do ciclo de sincronização. 
 

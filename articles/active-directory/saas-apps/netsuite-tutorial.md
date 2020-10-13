@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/28/2020
 ms.author: jeedes
 ms.openlocfilehash: c5be6ef39a3e980852aa3373dbc54da63aa3983e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88554520"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Tutorial: Integre o Azure AD single sign-on (SSO) com NetSuite
@@ -79,7 +79,7 @@ Para ativar o Azure AD SSO no portal Azure, faça o seguinte:
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **NetSuite,** procure a secção **Gerir** e, em seguida, selecione **Single sign-on**.
 1. No **painel de método de inscrição única,** selecione **SAML**.
-1. No **set up Single Sign-On com painel SAML,** selecione o ícone **Edit** ("lápis") ao lado **da Configuração Básica SAML**.
+1. Na **configuração single Sign-On com painel SAML,** selecione o ícone **Edit** ("lápis") ao lado **da Configuração Básica SAML**.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -107,7 +107,7 @@ Para ativar o Azure AD SSO no portal Azure, faça o seguinte:
 
 1. Além de acima, a aplicação NetSuite espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
 
-    | Name | Atributo de origem |
+    | Nome | Atributo de origem |
     | ---------------| --------------- |
     | conta  | `account id` |
 

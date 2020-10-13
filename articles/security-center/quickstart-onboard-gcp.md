@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 ms.openlocfilehash: 71f1de7b4ff265a5740181a2bb2032f33a83abe3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448986"
 ---
 #  <a name="connect-your-gcp-accounts-to-azure-security-center"></a>Ligue as suas contas GCP ao Azure Security Center

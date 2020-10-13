@@ -4,10 +4,10 @@ description: Saiba sobre parâmetros estáticos e dinâmicos e como usá-los par
 ms.date: 08/27/2020
 ms.topic: conceptual
 ms.openlocfilehash: b6cefe7ec75ec622cb341d8f12edfd9c0cfa66e6
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89651948"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criar plantas dinâmicas através de parâmetros
@@ -51,7 +51,7 @@ Um valor de parâmetro definido na definição de uma planta é chamado de **par
 
 #### <a name="setting-static-parameters-in-the-portal"></a>Definição de parâmetros estáticos no portal
 
-1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas.**
+1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Esquemas**.
 
 1. Selecione **definições** de Planta da página à esquerda.
 
@@ -65,7 +65,7 @@ Um valor de parâmetro definido na definição de uma planta é chamado de **par
 
 1. A página **editar o Artefacto** apresenta opções de valor adequadas ao artefacto selecionado. Cada parâmetro no artefacto tem um título, uma caixa de valor e uma caixa de verificação. Desaperte a caixa para não ser verificada para torná-la um **parâmetro estático**. No exemplo abaixo, _apenas a localização_ é um **parâmetro estático,** uma vez que não é verificado e _o Nome do Grupo de Recursos_ é verificado.
 
-   :::image type="content" source="../media/parameters/static-parameter.png" alt-text="Screenshot de parâmetros estáticos em um artefacto de planta." border="false":::
+   :::image type="content" source="../media/parameters/static-parameter.png" alt-text="Screenshot de uma definição de planta e os parâmetros 'X de Y povoados' realçados." border="false":::
 
 #### <a name="setting-static-parameters-from-rest-api"></a>Definição de parâmetros estáticos da API REST
 
@@ -168,7 +168,7 @@ O oposto de um parâmetro estático é um **parâmetro dinâmico.** Este parâme
 
 #### <a name="setting-dynamic-parameters-in-the-portal"></a>Definição de parâmetros dinâmicos no portal
 
-1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas.**
+1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Esquemas**.
 
 1. Selecione **definições** de Planta da página à esquerda.
 
@@ -176,7 +176,7 @@ O oposto de um parâmetro estático é um **parâmetro dinâmico.** Este parâme
 
 1. Na página **de planta 'Atribuir',** encontre a secção **de parâmetros do Artefacto.** Cada artefacto com pelo menos um **parâmetro dinâmico** exibe o artefacto e as opções de configuração. Forneça os valores necessários aos parâmetros antes de atribuir a planta. No exemplo abaixo, _o Nome_ é um **parâmetro dinâmico** que deve ser definido para completar a atribuição do projeto.
 
-   :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="Screenshot de definição de parâmetros dinâmicos durante a atribuição da planta." border="false":::
+   :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="Screenshot de uma definição de planta e os parâmetros 'X de Y povoados' realçados." border="false":::
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Definição de parâmetros dinâmicos da REST API
 
@@ -231,7 +231,7 @@ A definição **de parâmetros dinâmicos** durante a atribuição é feita intr
   }
   ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a lista de [funções de planta](../reference/blueprint-functions.md).
 - Saiba mais sobre o [ciclo de vida do esquema](./lifecycle.md).

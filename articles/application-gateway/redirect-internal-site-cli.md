@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.openlocfilehash: d0730148a3da41d0d72961ea521577fa370b183d
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89596095"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Criar um gateway de aplicações com reorientação interna usando o Azure CLI

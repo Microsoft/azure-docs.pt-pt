@@ -4,10 +4,10 @@ description: Este artigo dá-lhe os passos para guardar imagens personalizadas d
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: a5278626f8cdd4299912f3c952786422436fe916
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85476245"
 ---
 # <a name="save-custom-images-and-distribute-to-multiple-labs"></a>Guardar imagens personalizadas e distribuir para vários laboratórios
@@ -78,12 +78,12 @@ Utilizando os mesmos passos que viu anteriormente neste artigo, adicione uma tar
 
 ![Construir tarefa para distribuir imagens](./media/save-distribute-custom-images/second-build-task-powershell.png)
 
-Os parâmetros são:`-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -SubscriptionId $(SubscriptionId) -DevTestLabName $(DevTestLabName) -maxConcurrentJobs 20`
+Os parâmetros são: `-ConfigurationLocation $(System.DefaultWorkingDirectory)$(ConfigurationLocation) -SubscriptionId $(SubscriptionId) -DevTestLabName $(DevTestLabName) -maxConcurrentJobs 20`
 
 Esta tarefa retira quaisquer imagens personalizadas presentes na fábrica de imagens e empurra-as para quaisquer laboratórios definidos no Labs.jsem arquivo.
 
 ## <a name="queue-the-build"></a>Fila da construção
 Uma vez concluída a tarefa de construção de distribuição, faça fila de uma nova construção para garantir que tudo está funcionando. Após a construção concluída com sucesso, as novas imagens personalizadas aparecerão no laboratório de destino que foi introduzido no Labs.jsno ficheiro de configuração.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 No artigo seguinte da série, atualiza a fábrica de imagens com uma política de retenção e etapas de limpeza: [Desemote a política de retenção e execute scripts de limpeza](image-factory-set-retention-policy-cleanup.md).

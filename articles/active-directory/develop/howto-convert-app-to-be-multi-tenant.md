@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
 ms.openlocfilehash: 3578562839069eb4b9c99b16d938efe48821fcec
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91631312"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>How to: Iniciar sessão de qualquer utilizador do Azure Active Directory com o padrão de aplicação multi-inquilino
@@ -190,7 +190,7 @@ As aplicações multi-arrendadas também podem ter acesso a fichas para chamar A
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu a construir uma aplicação que pode assinar num utilizador de qualquer inquilino da AZure AD. Depois de ativar o Sign-On Único (SSO) entre a sua aplicação e o AD Azure, também pode atualizar a sua aplicação para aceder a APIs expostas por recursos da Microsoft como o Microsoft 365. Isto permite-lhe oferecer uma experiência personalizada na sua aplicação, como mostrar informações contextuais aos utilizadores, como a sua imagem de perfil ou a sua próxima marcação de calendário. Para saber mais sobre a realização de chamadas API para serviços AZure AD e Microsoft 365 como Exchange, SharePoint, OneDrive, OneNote e muito mais, visite [a Microsoft Graph API][MSFT-Graph-overview].
+Neste artigo, aprendeu a construir uma aplicação que pode assinar num utilizador de qualquer inquilino da AZure AD. Depois de ativar Sign-On (SSO) entre a sua aplicação e a AD Azure, também pode atualizar a sua aplicação para aceder a APIs expostas por recursos da Microsoft como o Microsoft 365. Isto permite-lhe oferecer uma experiência personalizada na sua aplicação, como mostrar informações contextuais aos utilizadores, como a sua imagem de perfil ou a sua próxima marcação de calendário. Para saber mais sobre a realização de chamadas API para serviços AZure AD e Microsoft 365 como Exchange, SharePoint, OneDrive, OneNote e muito mais, visite [a Microsoft Graph API][MSFT-Graph-overview].
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com

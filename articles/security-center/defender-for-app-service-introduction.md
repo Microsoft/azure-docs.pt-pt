@@ -8,10 +8,10 @@ ms.topic: overview
 ms.service: security-center
 manager: rkarlin
 ms.openlocfilehash: a7026757651d1b0510293101203f41a651c7b851
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91850970"
 ---
 # <a name="introduction-to-azure-defender-for-app-service"></a>Introdução ao Azure Defender para o Serviço de Aplicações

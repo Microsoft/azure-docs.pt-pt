@@ -11,10 +11,10 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 4a923fd34391137f2064cb338ea180ae3782f5e2
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88036849"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticação com o Azure Maps
@@ -65,7 +65,7 @@ Após a aplicação receber um token de acesso, o SDK e/ou o pedido envia um ped
 | Autorização  | Portador eyJ0e....HNIVN |
 
 > [!NOTE]
-> `x-ms-client-id`é o GUID baseado em conta do Azure Maps que aparece na página de autenticação do Azure Maps.
+> `x-ms-client-id` é o GUID baseado em conta do Azure Maps que aparece na página de autenticação do Azure Maps.
 
 Aqui está um exemplo de um pedido de rota Azure Maps que usa um símbolo do portador de OAuth Azure AD:
 
@@ -114,7 +114,7 @@ A definição de função personalizada pode então ser usada numa atribuição 
 
 Aqui estão alguns cenários de exemplo onde as funções personalizadas podem melhorar a segurança da aplicação.
 
-| Scenario                                                                                                                                                                                                                 | Ação de dados de funções personalizadas                                                                                                                  |
+| Cenário                                                                                                                                                                                                                 | Ação de dados de funções personalizadas                                                                                                                  |
 | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
 | Uma página web de inscrição pública ou interativa com azulejos de mapa base e nenhuma outra APIs de REST.                                                                                                                              | `Microsoft.Maps/accounts/services/render/read`                                                                                              |
 | Uma aplicação que requer apenas geocoding inverso e nenhuma outra APIs de REST.                                                                                                                                             | `Microsoft.Maps/accounts/services/search/read`                                                                                              |

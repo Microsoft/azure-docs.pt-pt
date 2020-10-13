@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
 ms.openlocfilehash: f7268f698dcc26dbe99b517c9dd4584be67c3a82
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448466"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilizar a solução Mapa de Serviços no Azure
@@ -548,7 +548,7 @@ A Microsoft recolhe automaticamente dados de utilização e desempenho através 
 
 Para obter mais informações sobre a recolha e utilização de dados, consulte a [Declaração de Privacidade dos Serviços Online da Microsoft](https://go.microsoft.com/fwlink/?LinkId=512132).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [pesquisas de registo](../log-query/log-query-overview.md) no Log Analytics para recuperar dados recolhidos pelo Mapa de Serviços.
 

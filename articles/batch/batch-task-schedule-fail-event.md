@@ -4,10 +4,10 @@ description: Referência para o evento de agenda de tarefas do Lote. Este evento
 ms.topic: reference
 ms.date: 09/20/2020
 ms.openlocfilehash: 549281d2b2c371e8f09c584e771cf44f7abc8a00
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91852191"
 ---
 # <a name="task-schedule-fail-event"></a>Evento de falha de horário de tarefas
@@ -43,9 +43,9 @@ ms.locfileid: "91852191"
 
 |Nome do elemento|Tipo|Notas|
 |------------------|----------|-----------|
-|`jobId`|String|A identificação do trabalho que contém a tarefa.|
-|`id`|String|A identificação da tarefa.|
-|`taskType`|String|O tipo de tarefa. Isto pode ser 'JobManager' indicando que é uma tarefa de gestor de emprego ou 'Utilizador' indicando que não é uma tarefa de gerente de emprego. Este evento não é emitido para tarefas de preparação de emprego, tarefas de libertação de emprego ou tarefas de início.|
+|`jobId`|Cadeia|A identificação do trabalho que contém a tarefa.|
+|`id`|Cadeia|A identificação da tarefa.|
+|`taskType`|Cadeia|O tipo de tarefa. Isto pode ser 'JobManager' indicando que é uma tarefa de gestor de emprego ou 'Utilizador' indicando que não é uma tarefa de gerente de emprego. Este evento não é emitido para tarefas de preparação de emprego, tarefas de libertação de emprego ou tarefas de início.|
 |`systemTaskVersion`|Int32|Este é o contra-ataque interno de uma tarefa. Internamente, o serviço Batch pode voltar a tentar uma tarefa para responder a problemas transitórios. Estas questões podem incluir erros de agendamento internos ou tentativas de recuperação de nós de computação em mau estado.|
 |`requiredSlots`|Int32|As ranhuras necessárias para executar a tarefa.|
 |[`nodeInfo`](#nodeInfo)|Tipo Complexo|Contém informações sobre o nó de computação em que a tarefa foi executada.|
@@ -57,8 +57,8 @@ ms.locfileid: "91852191"
 
 |Nome do elemento|Tipo|Notas|
 |------------------|----------|-----------|
-|`poolId`|String|A identificação da piscina em que a tarefa funcionou.|
-|`nodeId`|String|A identificação do nó em que a tarefa funcionou.|
+|`poolId`|Cadeia|A identificação da piscina em que a tarefa funcionou.|
+|`nodeId`|Cadeia|A identificação do nó em que a tarefa funcionou.|
 
 ###  <a name="multiinstancesettings"></a><a name="multiInstanceSettings"></a> multiInstanceSettings
 
@@ -77,6 +77,6 @@ ms.locfileid: "91852191"
 
 |Nome do elemento|Tipo|Notas|
 |------------------|----------|-----------|
-|`category`|String|A categoria do erro.|
-|`code`|String|Um identificador para o erro de agendamento de tarefas. Os códigos são invariantes e destinam-se a ser consumidos programáticamente.|
-|`message`|String|Uma mensagem descrevendo o erro de agendamento de tarefas, destinada a ser exibida numa interface de utilizador.|
+|`category`|Cadeia|A categoria do erro.|
+|`code`|Cadeia|Um identificador para o erro de agendamento de tarefas. Os códigos são invariantes e destinam-se a ser consumidos programáticamente.|
+|`message`|Cadeia|Uma mensagem descrevendo o erro de agendamento de tarefas, destinada a ser exibida numa interface de utilizador.|

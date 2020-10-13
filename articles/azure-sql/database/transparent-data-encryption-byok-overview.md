@@ -13,10 +13,10 @@ ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
 ms.openlocfilehash: 4e17af8289c68ded282a9c4a9ca2d400d31ca30d
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90602674"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Encriptação de Dados Transparente do SQL do Azure com chave gerida pelo cliente
@@ -187,11 +187,11 @@ Consideração adicional para ficheiros de registo: Os ficheiros de registo com 
 
 Mesmo nos casos em que não há geo-redundância configurada para o servidor, é altamente recomendado configurar o servidor para usar dois cofres-chave diferentes em duas regiões diferentes com o mesmo material chave. Pode ser realizado criando um protetor TDE usando o cofre principal co-localizado na mesma região que o servidor e clonando a chave em um cofre chave em uma região de Azure diferente, de modo que o servidor tenha acesso a um segundo cofre chave se o cofre principal experimentar uma falha enquanto a base de dados está em funcionamento.
 
-Utilize o cmdlet Backup-AzKeyVaultKey para recuperar a chave em formato encriptado a partir do cofre de tecla primária e, em seguida, use o cmdlet Restore-AzKeyVaultKey e especifique um cofre chave na segunda região para clonar a chave. Em alternativa, utilize o portal Azure para fazer recuar e restaurar a chave. A chave no cofre de chaves secundárias da outra região não deve ser marcada como protetor tde, e nem sequer é permitida.
+Utilize o Backup-AzKeyVaultKey cmdlet para recuperar a chave em formato encriptado a partir do cofre de tecla primária e, em seguida, use o Restore-AzKeyVaultKey cmdlet e especifique um cofre chave na segunda região para clonar a chave. Em alternativa, utilize o portal Azure para fazer recuar e restaurar a chave. A chave no cofre de chaves secundárias da outra região não deve ser marcada como protetor tde, e nem sequer é permitida.
 
 Se houver uma falha que afete o cofre principal da chave, e só então, o sistema mudará automaticamente para a outra chave ligada com a mesma impressão digital no cofre da chave secundária, se existir. Note que esse interruptor não acontecerá se o protetor TDE estiver inacessível devido a direitos de acesso revogados, ou porque a chave ou o cofre chave são eliminados, pois pode indicar que o cliente intencionalmente queria restringir o servidor de aceder à chave.
 
-![HA de servidor único](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-ha.png)
+![Single-Server HA](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-ha.png)
 
 ## <a name="geo-dr-and-customer-managed-tde"></a>TDE geo-DR e gerido pelo cliente
 

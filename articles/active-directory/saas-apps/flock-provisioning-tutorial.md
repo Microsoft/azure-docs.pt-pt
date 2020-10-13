@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
 ms.openlocfilehash: 636bb4c3340f13046706bf887119108b86b6a660
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91850908"
 ---
 # <a name="tutorial-configure-flock-for-automatic-user-provisioning"></a>Tutorial: Configure Flock para o fornecimento automático de utilizadores

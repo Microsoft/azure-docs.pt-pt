@@ -18,10 +18,10 @@ ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 9a68ec82ea5e924916cbe8b07c11a4f8f62199a7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91317961"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Quadro de Segurança: Gestão de Configuração / Mitigações 
@@ -214,7 +214,7 @@ Por favor, note que a função de validação de pedido não é suportada e não
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | [IE8 Security Part V: Proteção Integral,](https://docs.microsoft.com/archive/blogs/ie/ie8-security-part-v-comprehensive-protection) [Tipo MIME](https://en.wikipedia.org/wiki/Mime_type) |
-| **Passos** | O cabeçalho X-Content-Type-Options é um cabeçalho HTTP que permite aos desenvolvedores especificar que o seu conteúdo não deve ser meifrado por MIME. Este cabeçalho foi concebido para atenuar os ataques mime-sniffing. Para cada página que possa conter conteúdo controlável do utilizador, deve utilizar o número de opções de tipo de conteúdo http:nosniff. Para ativar o cabeçalho necessário globalmente para todas as páginas da aplicação, pode fazer uma das seguintes|
+| **Passos** | O cabeçalho X-Content-Type-Options é um cabeçalho HTTP que permite aos desenvolvedores especificar que o seu conteúdo não deve ser meifrado por MIME. Este cabeçalho foi concebido para atenuar MIME-Sniffing ataques. Para cada página que possa conter conteúdo controlável do utilizador, deve utilizar o número de opções de tipo de conteúdo http:nosniff. Para ativar o cabeçalho necessário globalmente para todas as páginas da aplicação, pode fazer uma das seguintes|
 
 ### <a name="example"></a>Exemplo
 Adicione o cabeçalho no ficheiro web.config se a aplicação for hospedada pelos Serviços de Informação da Internet (IIS) 7. 

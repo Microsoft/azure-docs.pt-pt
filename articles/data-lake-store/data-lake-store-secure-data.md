@@ -13,10 +13,10 @@ ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 2dc802166b605ad7853c0910f1bab2a51f1f7297
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91574148"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Proteger dados armazenados no Azure Data Lake Storage Gen1
@@ -147,7 +147,7 @@ Quando remove os ACLs do grupo de segurança de um sistema de ficheiros Data Lak
    
     ![Screenshot da lâmina Access com a opção de Engenharia de Dados chamada e a lâmina de detalhes de acesso com a opção Remover chamada.](./media/data-lake-store-secure-data/adl.remove.acl.png "Atribuir permissões ao grupo")
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 * [Visão geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Copiar dados de Azure Storage Blobs para Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
 * [Use Azure Data Lake Analytics com data lake storage gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

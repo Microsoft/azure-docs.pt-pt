@@ -15,10 +15,10 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 3d4e45d1bf53bab4d1f9c45367f9d051f1668e2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "76308939"
 ---
 ### <a name="authenticationresult-properties-in-msalnet"></a>AutenticaçãoRespretenha propriedades em MSAL.NET
@@ -27,10 +27,10 @@ Os métodos para adquirir fichas de retorno `AuthenticationResult` . Para métod
 
 Em MSAL.NET, `AuthenticationResult` expõe:
 
-- `AccessToken`para a API web aceder a recursos. Este parâmetro é uma corda, geralmente um JWT codificado base-64. O cliente nunca deve olhar dentro do token de acesso. O formato não é garantido para permanecer estável, e pode ser encriptado para o recurso. Escrever código que depende do acesso a conteúdos simbólicos no cliente é uma das maiores fontes de erros e quebras lógicas do cliente. Para mais informações, consulte [os tokens de acesso.](../articles/active-directory/develop/access-tokens.md)
-- `IdToken`para o utilizador. Este parâmetro é um JWT codificado. Para mais informações, consulte [fichas de identificação.](../articles/active-directory/develop/id-tokens.md)
-- `ExpiresOn`diz a data e a hora em que o token expira.
-- `TenantId`contém o inquilino no qual o utilizador foi encontrado. Para os utilizadores convidados em cenários B2B do Azure Ative Directory (Azure AD), o ID do inquilino é o inquilino convidado, não o inquilino único.
+- `AccessToken` para a API web aceder a recursos. Este parâmetro é uma corda, geralmente um JWT codificado base-64. O cliente nunca deve olhar dentro do token de acesso. O formato não é garantido para permanecer estável, e pode ser encriptado para o recurso. Escrever código que depende do acesso a conteúdos simbólicos no cliente é uma das maiores fontes de erros e quebras lógicas do cliente. Para mais informações, consulte [os tokens de acesso.](../articles/active-directory/develop/access-tokens.md)
+- `IdToken` para o utilizador. Este parâmetro é um JWT codificado. Para mais informações, consulte [fichas de identificação.](../articles/active-directory/develop/id-tokens.md)
+- `ExpiresOn` diz a data e a hora em que o token expira.
+- `TenantId` contém o inquilino no qual o utilizador foi encontrado. Para os utilizadores convidados em cenários B2B do Azure Ative Directory (Azure AD), o ID do inquilino é o inquilino convidado, não o inquilino único.
 Quando o token é entregue para um utilizador, `AuthenticationResult` também contém informações sobre este utilizador. Para fluxos confidenciais de clientes onde são solicitadas fichas sem utilizador para a aplicação, esta informação do utilizador é nula.
 - O `Scopes` para o qual o símbolo foi emitido.
 - O ID único para o utilizador.
@@ -48,7 +48,7 @@ A `AccountId` classe identifica uma conta num inquilino específico com os imóv
 |----------|-------------|
 | `TenantId` | Uma representação de cordas para um GUID, que é a identificação do inquilino onde a conta reside. |
 | `ObjectId` | Uma representação de cordas para um GUID, que é a identificação do utilizador que possui a conta no arrendatário. |
-| `Identifier` | Identificador único para a conta. `Identifier`é a concatenação `ObjectId` de e separada por uma `TenantId` vírgula. Não estão codificados na Base 64. |
+| `Identifier` | Identificador único para a conta. `Identifier` é a concatenação `ObjectId` de e separada por uma `TenantId` vírgula. Não estão codificados na Base 64. |
 
 A `IAccount` interface representa informação sobre uma única conta. O mesmo utilizador pode estar presente em diferentes inquilinos, o que significa que um utilizador pode ter várias contas. Os seus membros são apresentados na tabela seguinte.
 

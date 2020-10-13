@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: ba4124758a5e96ae580f7182b610b896594ca4ea
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89266940"
 ---
 # <a name="h264-multiple-bitrate-4x3-for-ios"></a>H264 Taxas de Bits Múltiplas 4x3 para iOS

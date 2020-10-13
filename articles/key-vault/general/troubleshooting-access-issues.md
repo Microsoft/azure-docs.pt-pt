@@ -8,10 +8,10 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.openlocfilehash: d77cc4cc65eb73aa85a1d54202627cd18d5747b3
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89595993"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Problemas na resolução de problemas da política de acesso ao cofre do Azure
@@ -45,7 +45,7 @@ Se estiver a criar uma aplicação on-prem, a fazer desenvolvimento local ou de 
 
 ### <a name="how-can-i-give-the-ad-group-access-to-the-key-vault"></a>Como posso dar ao grupo AD acesso ao cofre das chaves?
 
-Dê permissões ao grupo AD para o seu cofre de chaves utilizando o comando Azure `az keyvault set-policy` CLI, ou o cmdlet Azure PowerShell Set-AzKeyVaultAccessPolicy. Ver [Atribuir uma política de acesso - CLI](assign-access-policy-cli.md) e atribuir uma política de acesso - [PowerShell](assign-access-policy-powershell.md).
+Dê permissões ao grupo AD para o seu cofre de chaves usando o comando Azure `az keyvault set-policy` CLI, ou o cmdlet Azure PowerShell Set-AzKeyVaultAccessPolicy. Ver [Atribuir uma política de acesso - CLI](assign-access-policy-cli.md) e atribuir uma política de acesso - [PowerShell](assign-access-policy-powershell.md).
 
 A aplicação também precisa de pelo menos uma função de Gestão de Identidade e Acesso (IAM) atribuída ao cofre-chave. Caso contrário, não poderá iniciar sessão e falhará com direitos insuficientes de acesso à subscrição. Os grupos AD Azure com Identidades Geridas podem necessitar de até oito horas para refrescar tokens e tornar-se eficazes.
 
