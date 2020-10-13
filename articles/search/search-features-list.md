@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.openlocfilehash: 21f5a9f58acbaf3d0444d7da10ad489ade99cd76
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90604194"
 ---
 # <a name="features-of-azure-cognitive-search"></a>Características da Pesquisa Cognitiva Azure
@@ -70,8 +70,8 @@ A Azure Cognitive Search fornece um motor de pesquisa de texto completo, armazen
 | SDK do Azure para Python | [**os documentos de pesquisa de azure**](https://docs.microsoft.com/python/api/overview/azure/search-documents-readme) são para operações de planos de dados, incluindo todas as operações relacionadas com a indexação, consultas e enriquecimento de IA. Também pode utilizar esta biblioteca de clientes para obter informações e estatísticas do sistema. <br/><br/>[**azure-mgmt-search**](https://docs.microsoft.com/python/api/overview/azure/search/management) é para criação de serviços e limpeza através do Azure Resource Manager. Também pode utilizar esta API para gerir chaves e providenciar um serviço. |
 | Azure SDK para JavaScript/TypeScript | [**azure/search-documents destina-se**](https://docs.microsoft.com/javascript/api/@azure/search-documents/) a operações de planos de dados, incluindo todas as operações relacionadas com a indexação, consultas e enriquecimento de IA. Também pode utilizar esta biblioteca de clientes para obter informações e estatísticas do sistema. <br/><br/>[**azure/arm-search**](https://docs.microsoft.com/javascript/api/@azure/arm-search/) é para criação de serviço e limpeza através do Azure Resource Manager. Também pode utilizar esta API para gerir chaves e providenciar um serviço. |
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
-+ [Quais as novidades na Pesquisa Cognitiva](whats-new.md)
++ [Novidades do Cognitive Search](whats-new.md)
 
 + [Funcionalidades de pré-visualização na Pesquisa Cognitiva](search-api-preview.md)

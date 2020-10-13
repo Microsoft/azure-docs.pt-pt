@@ -10,10 +10,10 @@ ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: a6fc1d6b831ae794907c59ab1af3328902f3a70a
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89230114"
 ---
 # <a name="soft-delete-for-blobs"></a>Eliminação recuperável para blobs
@@ -83,7 +83,7 @@ A eliminação suave não guarda os seus dados em casos de eliminação de conte
 
 Os seguintes detalhes da tabela são comportamentos esperados quando a eliminação suave é ligada:
 
-| Operação REST API | Tipo de recurso | Description | Mudança de comportamento |
+| Operação REST API | Tipo de recurso | Descrição | Mudança de comportamento |
 |--------------------|---------------|-------------|--------------------|
 | [Eliminar](/rest/api/storagerp/StorageAccounts/Delete) | Conta | Elimina a conta de armazenamento, incluindo todos os recipientes e bolhas que contém.                           | Sem mudanças. Os recipientes e bolhas na conta eliminada não são recuperáveis. |
 | [Eliminar Contentor](/rest/api/storageservices/delete-container) | Contentor | Elimina o recipiente, incluindo todas as bolhas que contém. | Sem mudanças. As bolhas no recipiente apagado não são recuperáveis. |
@@ -163,7 +163,7 @@ Permitir a eliminação suave de dados frequentemente substituídos pode resulta
 
 ### <a name="can-i-use-the-set-blob-tier-api-to-tier-blobs-with-soft-deleted-snapshots"></a>Posso utilizar o set Blob Tier API para colocar bolhas de nível com instantâneos suaves apagados?
 
-Yes. As imagens suaves apagadas permanecerão no nível original, mas a bolha de base irá mover-se para o novo nível.
+Sim. As imagens suaves apagadas permanecerão no nível original, mas a bolha de base irá mover-se para o novo nível.
 
 ### <a name="premium-storage-accounts-have-a-per-blob-snapshot-limit-of-100-do-soft-deleted-snapshots-count-toward-this-limit"></a>As contas de armazenamento premium têm um limite de instantâneo por bolha de 100. Os instantâneos apagados suaves contam para este limite?
 

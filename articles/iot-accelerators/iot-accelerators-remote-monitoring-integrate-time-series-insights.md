@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: b0ab1e2e43210ecd7a61b7dffcb12d2c7c5c1c46
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86536611"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrar o Azure Time Series Insights com a Monitorização Remota
@@ -68,7 +68,7 @@ Em seguida, implemente o Time Series Insights como um recurso adicional na sua s
 
     ![Criar o Time Series Insights](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/new-time-series-insights-create.png)
 
-1. Clique em **Create** (Criar). Pode levar um momento para que o ambiente seja criado.
+1. Clique em **Criar**. Pode levar um momento para que o ambiente seja criado.
 
 ## <a name="create-event-source"></a>Crie a origem de eventos
 
@@ -101,7 +101,7 @@ Crie uma nova fonte de eventos para ligar ao seu hub IoT. Certifique-se de que u
 
     ![Criar Fonte de Eventos](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-source-create.png)
 
-1. Clique em **Create** (Criar).
+1. Clique em **Criar**.
 
 ## <a name="configure-the-data-access-policy"></a>Configure a política de acesso a dados
 
@@ -296,7 +296,7 @@ Configure o ambiente de `standard` implantação para os micro serviços atualiz
             key: telemetry.storage.type
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber como explorar os seus dados e diagnosticar um alerta no explorador de Insights da Série Tempo, consulte o nosso tutorial sobre [a realização de uma análise de causa raiz.](iot-accelerators-remote-monitoring-root-cause-analysis.md)
 

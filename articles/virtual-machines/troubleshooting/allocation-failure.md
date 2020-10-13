@@ -13,13 +13,13 @@ ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: daberry
 ms.openlocfilehash: 3766c31add02799c62bca7e9063e723e0a5b498e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86509363"
 ---
-# <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Resolver problemas de falhas de alocação ao criar, reiniciar ou redimensionar VMs no Azure
+# <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Resolver falhas de alocação ao criar, reiniciar ou redimensionar VMs no Azure
 
 Quando cria uma máquina virtual (VM), reinicie os VMs (deallocados) ou redimensione um VM, o Microsoft Azure atribui recursos de cálculo à sua subscrição. Estamos continuamente a investir em infraestruturas adicionais e funcionalidades para garantir que temos sempre todos os tipos de VM disponíveis para apoiar a procura do cliente. No entanto, pode ocasionalmente sofrer falhas na alocação de recursos devido ao crescimento sem precedentes da procura de serviços Azure em regiões específicas. Este problema pode ocorrer quando tenta criar ou iniciar VMs numa região enquanto os VMs apresentam o seguinte código de erro e mensagem:
 
@@ -73,7 +73,7 @@ A negociação total significa que parou (deallocated) todos os VMs num conjunto
 ### <a name="workaround"></a>Solução
 
 Se utilizar séries ou tamanhos VM mais antigos, como Dv1, DSv1, Av1, D15v2 ou DS15v2, considere mudar-se para versões mais recentes. Consulte estas recomendações para tamanhos VM específicos.
-Se não tiver a opção de usar um tamanho VM diferente, tente implementar para uma região diferente dentro do mesmo geo. Para mais informações sobre os tamanhos VM disponíveis em cada região emhttps://aka.ms/azure-regions
+Se não tiver a opção de usar um tamanho VM diferente, tente implementar para uma região diferente dentro do mesmo geo. Para mais informações sobre os tamanhos VM disponíveis em cada região em https://aka.ms/azure-regions
 
 Se estiver a utilizar zonas de disponibilidade, experimente outra zona dentro da região que possa ter capacidade disponível para o tamanho VM solicitado.
 

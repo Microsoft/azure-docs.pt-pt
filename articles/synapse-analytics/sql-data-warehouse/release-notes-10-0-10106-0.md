@@ -13,10 +13,10 @@ manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
 ms.openlocfilehash: 6f7af74cce6bbafea7924d505f768503c7b1f108
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89457996"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Notas de lançamento do Azure Synapse Analytics
@@ -86,7 +86,7 @@ Para melhorias na ferramenta, certifique-se de que tem a versão correta instala
 
 | Melhorias de ferramentas                                         | Detalhes                                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **[Visual Studio 16.6 Preview 2](https://docs.microsoft.com/visualstudio/releases/2019/release-notes-preview#whats-new-in-visual-studio-2019) - SQL Server Data Tools (SSDT)** | Esta versão inclui as seguintes melhorias e correções para sSDT: </br> </br> - Resolvido um problema em que a alteração de uma tabela referenciada por uma Vista Materializada (MV) faz com que sejam geradas declarações de Alter View que não sejam suportadas para MVs<br/><br/> - Implementou uma alteração para garantir que a operação Schema Compare não falhe quando os objetos de segurança de nível de linha estiverem presentes na base de dados ou no projeto. Atualmente, os objetos de segurança ao nível da linha não são suportados para SSDT.  <br/><br/> - O limiar de tempo do SQL Server Object Explorer foi aumentado para evitar intervalos de tempo ao listar um grande número de objetos na base de dados<br/><br/> - Otimizado a forma como o SQL Server Object Explorer recupera a lista de objetos de base de dados para reduzir a instabilidade e aumentar o desempenho ao povoar o explorador de objetos |
+| **[Visual Studio 16.6 Preview 2](https://docs.microsoft.com/visualstudio/releases/2019/release-notes-preview#whats-new-in-visual-studio-2019) - SQL Server Data Tools (SSDT)** | Esta versão inclui as seguintes melhorias e correções para sSDT: </br> </br> - Resolvido um problema em que a alteração de uma tabela referenciada por uma Vista Materializada (MV) faz com que sejam geradas declarações de Alter View que não sejam suportadas para MVs<br/><br/> - Implementou uma alteração para garantir que a operação Schema Compare não falhe quando Row-Level os objetos de segurança estão presentes na base de dados ou no projeto. Atualmente, os objetos de segurança ao nível da linha não são suportados para SSDT.  <br/><br/> - O limiar de tempo do SQL Server Object Explorer foi aumentado para evitar intervalos de tempo ao listar um grande número de objetos na base de dados<br/><br/> - Otimizado a forma como o SQL Server Object Explorer recupera a lista de objetos de base de dados para reduzir a instabilidade e aumentar o desempenho ao povoar o explorador de objetos |
 
 ## <a name="january-2020"></a>Janeiro de 2020
 
@@ -173,7 +173,7 @@ Para melhorias na ferramenta, certifique-se de que tem a versão correta instala
 
 | Melhorias da documentação | Detalhes |
 | --- | --- |
-|nenhum | |
+|nenhuma | |
 | | |
 
 ## <a name="december-2018"></a>Dezembro de 2018
@@ -205,7 +205,7 @@ Para melhorias na ferramenta, certifique-se de que tem a versão correta instala
 |**Insetos notáveis**|Falhas do CETAS para Parquet em pequenas classes de recursos em armazéns de dados de DW2000 e muito mais - Esta correção identifica corretamente uma referência nula na tabela externa Create As to Parquet code path.<br/><br/>O valor da coluna de identidade pode perder em alguma operação CTAS - O valor de uma coluna de identificação não pode ser preservado quando cTASed para outra tabela. Relatado num [blog.](https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/)<br/><br/>Falha interna em alguns casos quando uma sessão é terminada enquanto uma consulta ainda está em execução - Esta correção desencadeia uma InvalidOperationException se uma sessão for terminada quando a consulta ainda estiver em execução.<br/><br/>(Implantado em novembro de 2018) Os clientes estavam a experimentar um desempenho sub-optimista quando tentavam carregar vários pequenos ficheiros da ADLS (Gen1) usando a Polybase. - O desempenho do sistema foi engarrafado durante a validação do sinal de segurança da AAD. Os problemas de desempenho foram atenuados permitindo o caching de fichas de segurança. |
 | | |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [criar uma piscina SQL](create-data-warehouse-portal.md)
 

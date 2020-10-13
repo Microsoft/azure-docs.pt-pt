@@ -12,15 +12,15 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b5f8d08f0814ec69719c002ea9efd39bb38b7d16
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88718021"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Como funciona: Multi-Factor Authentication do Azure
 
-A autenticação multi-factor é um processo em que um utilizador é solicitado durante o processo de inscrição para uma forma adicional de identificação, como introduzir um código no seu telemóvel ou fornecer uma digitalização de impressões digitais.
+A autenticação multifator é um processo no qual é pedido a um utilizador uma forma adicional de identificação durante o início de sessão, tal como a introdução de um código no respetivo telemóvel ou a análise de impressões digitais.
 
 Se utilizar apenas uma palavra-passe para autenticar um utilizador, deixa um vetor inseguro para o ataque. Se a palavra-passe é fraca ou foi exposta em outro lugar, é realmente o utilizador que está a iniciar sessão com o nome de utilizador e a palavra-passe, ou é um intruso? Quando se precisa de uma segunda forma de autenticação, a segurança é aumentada, uma vez que este fator adicional não é algo que seja fácil para um intruso obter ou duplicar.
 

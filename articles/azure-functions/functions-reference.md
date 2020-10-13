@@ -5,10 +5,10 @@ ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
 ms.openlocfilehash: 9a3c0643f4fc965ff64106758320aeb445aaf9ae
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85921730"
 ---
 # <a name="azure-functions-developer-guide"></a>Guia do programador das Funções do Azure
@@ -46,7 +46,7 @@ A `bindings` propriedade é onde você configura tanto gatilhos como encadernaç
 | `direction` |'dentro', 'fora' |Indica se a ligação é para receber dados na função ou para enviar dados da função. |
 | `name` |string |O nome que é usado para os dados vinculados na função. Para C#, este é um nome de argumento; para o JavaScript, é a chave de uma lista de chaves/valores. |
 
-## <a name="function-app"></a>Function app
+## <a name="function-app"></a>Aplicação de funções
 Uma aplicação de função fornece um contexto de execução em Azure no qual as suas funções são executadas. Como tal, é a unidade de implantação e gestão para as suas funções. Uma aplicação de função é composta por uma ou mais funções individuais que são geridas, implementadas e dimensionadas em conjunto. Todas as funções de uma aplicação de função partilham o mesmo plano de preços, método de implementação e versão de tempo de execução. Pense numa aplicação de função como uma forma de organizar e gerir coletivamente as suas funções. Para saber mais, consulte [Como gerir uma aplicação de função.](functions-how-to-use-azure-function-app-settings.md) 
 
 > [!NOTE]
@@ -55,7 +55,7 @@ Uma aplicação de função fornece um contexto de execução em Azure no qual a
 ## <a name="folder-structure"></a>Estrutura de pasta
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-O acima é a estrutura de pasta padrão (e recomendada) para uma aplicação De função. Se desejar alterar a localização do ficheiro do código de uma função, modifique a `scriptFile` secção dofunction.js_no_ ficheiro. Recomendamos também a [utilização da implementação do pacote](deployment-zip-push.md) para implementar o seu projeto na sua aplicação de função em Azure. Também pode utilizar ferramentas existentes como [integração contínua e implantação](functions-continuous-deployment.md) e Azure DevOps.
+O acima é a estrutura de pasta padrão (e recomendada) para uma aplicação De função. Se desejar alterar a localização do ficheiro do código de uma função, modifique a `scriptFile` secção dofunction.js_ no_ ficheiro. Recomendamos também a [utilização da implementação do pacote](deployment-zip-push.md) para implementar o seu projeto na sua aplicação de função em Azure. Também pode utilizar ferramentas existentes como [integração contínua e implantação](functions-continuous-deployment.md) e Azure DevOps.
 
 > [!NOTE]
 > Se utilizar uma embalagem manualmente, certifique-se de que implanta o seu _host.jsnas_ pastas de ficheiro e função diretamente na `wwwroot` pasta. Não inclua a `wwwroot` pasta nas suas implementações. Caso contrário, acabas com `wwwroot\wwwroot` pastas.
@@ -65,7 +65,7 @@ As aplicações de função podem ser da autoria e publicadas utilizando uma var
 
 <!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --glenga -->
 
-## <a name="how-to-edit-functions-in-the-azure-portal"></a><a id="fileupdate"></a>Como editar funções no portal Azure
+## <a name="how-to-edit-functions-in-the-azure-portal"></a><a id="fileupdate"></a> Como editar funções no portal Azure
 O editor de Funções incorporado no portal Azure permite-lhe atualizar o seu código e a sua *function.jsno* ficheiro diretamente inline. Isto é recomendado apenas para pequenas alterações ou provas de conceito - a melhor prática é usar uma ferramenta de desenvolvimento local como o Código VS.
 
 ## <a name="parallel-execution"></a>Execução paralela
@@ -95,8 +95,8 @@ Ter problemas com erros vindos das ligações? Reveja a documentação [dos Cód
 ## <a name="reporting-issues"></a>Questões de Reporte
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]
 
-## <a name="next-steps"></a>Próximos passos
-Para obter mais informações, consulte os seguintes recursos:
+## <a name="next-steps"></a>Passos seguintes
+Para obter mais informações, veja os seguintes recursos:
 
 * [Funções Azure dispara e encaderna](functions-triggers-bindings.md)
 * [Criar código e testar as Funções do Azure localmente](./functions-develop-local.md)

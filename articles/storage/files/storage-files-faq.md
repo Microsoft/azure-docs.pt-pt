@@ -8,10 +8,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
 ms.openlocfilehash: 9bb228c81ee180ec337ce52e3c87a4a9684e158a
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90563697"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os Ficheiros do Azure
@@ -311,7 +311,7 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 * <a id="expressroute-not-required"></a>
 **Tenho de usar o Azure ExpressRoute para ligar aos Ficheiros Azure ou para utilizar o Azure File Sync no local?**  
 
-    Não. O ExpressRoute não é obrigado a aceder a uma partilha de ficheiros Azure. Se estiver a montar uma partilha de ficheiros Azure diretamente no local, tudo o que é necessário é ter a porta 445 (saída TCP) aberta para acesso à Internet (esta é a porta que o SMB utiliza para comunicar). Se estiver a utilizar o Azure File Sync, tudo o que é necessário é a porta 443 (saída TCP) para acesso HTTPS (sem necessidade de SMB). No entanto, *pode* utilizar o ExpressRoute com qualquer uma destas opções de acesso.
+    N.º O ExpressRoute não é obrigado a aceder a uma partilha de ficheiros Azure. Se estiver a montar uma partilha de ficheiros Azure diretamente no local, tudo o que é necessário é ter a porta 445 (saída TCP) aberta para acesso à Internet (esta é a porta que o SMB utiliza para comunicar). Se estiver a utilizar o Azure File Sync, tudo o que é necessário é a porta 443 (saída TCP) para acesso HTTPS (sem necessidade de SMB). No entanto, *pode* utilizar o ExpressRoute com qualquer uma destas opções de acesso.
 
 * <a id="mount-locally"></a>
 **Como posso montar uma parte do ficheiro Azure na minha máquina local?**  
@@ -415,7 +415,7 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 * <a id="lfs-performance-impact"></a>
 **A expansão da minha quota de ações de ficheiros afeta as minhas cargas de trabalho ou o Azure File Sync?**
     
-    Não. A expansão da quota não afetará as suas cargas de trabalho ou o Azure File Sync.
+    N.º A expansão da quota não afetará as suas cargas de trabalho ou o Azure File Sync.
 
 * <a id="open-handles-quota"></a>
 **Quantos clientes podem aceder ao mesmo ficheiro simultaneamente?**   
@@ -444,13 +444,13 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 
 * <a id="nested-shares"></a>
 **Posso criar ações aninhadas? Por outras palavras, uma parte sob uma ação?**  
-    Não. A partilha de ficheiros *é* o controlador virtual que pode montar, por isso as ações aninhadas não são suportadas.
+    N.º A partilha de ficheiros *é* o controlador virtual que pode montar, por isso as ações aninhadas não são suportadas.
 
 * <a id="ibm-mq"></a>
 **Como uso ficheiros Azure com MQ IBM?**  
     A IBM divulgou um documento que ajuda os clientes da IBM MQ a configurar ficheiros Azure com o serviço IBM. Para obter mais informações, consulte [Como configurar um gestor de fila de vários instâncias IBM MQ com o serviço Microsoft Azure Files](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 * [Resolução de problemas Ficheiros Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Resolução de problemas Ficheiros Azure em Linux](storage-troubleshoot-linux-file-connection-problems.md)
 * [Resolver problemas do Azure File Sync](storage-sync-files-troubleshoot.md)

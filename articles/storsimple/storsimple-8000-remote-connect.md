@@ -8,10 +8,10 @@ ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1da688dfb00b26ca6b561d5aa0fb548c221381c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85514569"
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Ligue-se remotamente ao seu dispositivo da série StorSimple 8000
@@ -66,9 +66,9 @@ Execute os seguintes passos na consola em série do dispositivo para permitir um
 
 #### <a name="to-enable-remote-management-through-the-device-serial-console"></a>Para permitir a gestão remota através da consola em série do dispositivo
 1. No menu da consola em série, selecione a opção 1. Para obter mais informações sobre a utilização da consola em série no dispositivo, vá [ao Connect to Windows PowerShell para StorSimple via consola em série do dispositivo](storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console).
-2. Na solicitação, escreva:`Enable-HcsRemoteManagement –AllowHttp`
+2. Na solicitação, escreva: `Enable-HcsRemoteManagement –AllowHttp`
 3. É notificado sobre as vulnerabilidades de segurança da utilização do HTTP para se ligar ao dispositivo. Quando solicitado, confirme digitando **Y**.
-4. Verifique se HTTP está ativado digitando:`Get-HcsSystem`
+4. Verifique se HTTP está ativado digitando: `Get-HcsSystem`
 5. Verifique se o campo **RemoteManagementMode** mostra **HttpsAndHttpEnabled**. A seguinte ilustração mostra estas definições em PuTTY.
    
      ![HTTPS em série e HTTP habilitado](./media/storsimple-remote-connect/HCS_SerialHttpsAndHttpEnabled.png)
@@ -236,7 +236,7 @@ Execute o seguinte procedimento no computador a partir do qual pretende efetuar 
    
     ![PowerShell remoting usando HTTPS e TLS](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [a utilização do Windows PowerShell para administrar o seu dispositivo StorSimple](storsimple-8000-windows-powershell-administration.md).
 * Saiba mais sobre [a utilização do serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).

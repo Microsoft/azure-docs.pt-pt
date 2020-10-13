@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
 ms.openlocfilehash: 0af9d6906e038a4b9285a2c302fc0c98345fdbd9
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90023759"
 ---
 # <a name="use-the-session-management-rest-api"></a>Utilizar a API REST de gestão de sessões
@@ -69,7 +69,7 @@ Este comando cria uma sessão. Devolve a identificação da nova sessão. Precis
 |-----------|:-----------|
 | /v1/accounts/*accountId*/sessions/create | POST |
 
-**Entidade de pedido:**
+**Corpo do pedido:**
 
 * maxLeaseTime (timepan): um valor de tempo limite quando a sessão será desativada automaticamente
 * modelos (matriz): URLs de contentores de ativos para pré-carregar
@@ -135,7 +135,7 @@ Este comando atualiza os parâmetros de uma sessão. Atualmente só pode estende
 |-----------|:-----------|
 | /v1/accounts/*accountID*/sessions/sessionId*sessionId* | PATCH |
 
-**Entidade de pedido:**
+**Corpo do pedido:**
 
 * maxLeaseTime (timepan): um valor de tempo limite quando a sessão será desativada automaticamente
 
@@ -288,6 +288,6 @@ Headers           : {[MS-CV, YDxR5/7+K0KstH54WG443w.0], [Date, Thu, 09 May 2019 
 RawContentLength  : 0
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Scripts do PowerShell de exemplo](../samples/powershell-example-scripts.md)

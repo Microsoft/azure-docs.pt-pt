@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 07/09/2020
 ms.author: sunasing
 ms.openlocfilehash: a2677b5343b2d65a39e7c9f6d5006db599c1ac73
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86497000"
 ---
 # <a name="weather-partner-integration"></a>Integração de parceiros de meteorologia
@@ -18,7 +18,7 @@ Este artigo fornece informações sobre o **Connector** componente estivador Azu
 
  > [!NOTE]
  > Para efeitos desta documentação, utilizaremos uma implementação de referência construída utilizando a NOAA a partir de Azure Open Datasets e está disponível em [https://github.com/azurefarmbeats/noaa_docker](https://github.com/azurefarmbeats/noaa_docker) .
- > A imagem de estiva correspondente está disponível em[https://hub.docker.com/r/azurefarmbeats/farmbeats-noaa](https://hub.docker.com/r/azurefarmbeats/farmbeats-noaa)
+ > A imagem de estiva correspondente está disponível em [https://hub.docker.com/r/azurefarmbeats/farmbeats-noaa](https://hub.docker.com/r/azurefarmbeats/farmbeats-noaa)
 
 Um parceiro meteorológico terá de fornecer uma imagem/programa de estivador (com especificações abaixo mencionadas) e hospedar a imagem do estivador num registo de contentores acessível pelos clientes. O parceiro meteorológico terá de fornecer aos seus clientes as seguintes informações:
 
@@ -36,10 +36,10 @@ Utilizando as informações acima do estivador, o cliente registará um parceiro
 
 As APIs FarmBeats contêm documentação técnica da Swagger. Para obter informações sobre todas as APIs e os respetivos pedidos ou respostas, consulte [FarmBeats Swagger](https://aka.ms/farmbeatsswagger). 
 
-Se você instalou FarmBeats, você pode acessá-lo em`https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger`
+Se você instalou FarmBeats, você pode acessá-lo em `https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger`
 
 Note que "-api" está anexado ao nome do seu site FarmBeats.
-O ponto final da API será:`https://yourfarmbeatswebsitename-api.azurewebsites.net`
+O ponto final da API será: `https://yourfarmbeatswebsitename-api.azurewebsites.net`
 
 ### <a name="datahub-lib"></a>Datahub lib
 
@@ -55,7 +55,7 @@ FarmBeats utiliza a autenticação do portador e as APIs podem ser acedidas forn
 headers = *{"Authorization": "Bearer " + access_token, …}*
 ```
 
-O token de acesso pode ser solicitado a partir de uma Função Azure que está em execução na instância FarmBeats do cliente. O URL da Função Azure será fornecido ao programa de estivadores como argumento e o token de acesso pode ser obtido fazendo um pedido GET no URL. A resposta da URL conterá o token de acesso. O Datahub lib fornece funções de ajudante para permitir aos parceiros obter o token de acesso. Mais detalhes [aqui](https://github.com/azurefarmbeats/noaa_docker/blob/master/datahub_lib/auth/partner_auth_helper.py).
+O token de acesso pode ser solicitado a partir de uma Função Azure que está em execução na instância FarmBeats do cliente. O URL da Função Azure será fornecido ao programa de estivadores como argumento e o token de acesso pode ser obtido fazendo um pedido GET no URL. A resposta da URL conterá o token de acesso. O Datahub lib fornece funções de ajudante para permitir aos parceiros obter o token de acesso. Mais detalhes [aqui.](https://github.com/azurefarmbeats/noaa_docker/blob/master/datahub_lib/auth/partner_auth_helper.py)
 
 O token de acesso é válido apenas por algumas horas e precisa de ser reenquisitado quando expirado.
 
@@ -85,7 +85,7 @@ O serviço API serializa este dict e armazena-o num [KeyVault.](https://docs.mic
 ```
 Note que os "partnerCredentials" estarão disponíveis da forma exata que foi fornecida pelo cliente durante o registo do Parceiro
 
-O FarmBeats lib fornece funções de ajudante para permitir aos parceiros ler as credenciais das propriedades da atividade. Mais detalhes [aqui](https://github.com/azurefarmbeats/noaa_docker/blob/master/datahub_lib/auth/partner_adf_helper.py).
+O FarmBeats lib fornece funções de ajudante para permitir aos parceiros ler as credenciais das propriedades da atividade. Mais detalhes [aqui.](https://github.com/azurefarmbeats/noaa_docker/blob/master/datahub_lib/auth/partner_adf_helper.py)
 
 A duração do ficheiro é apenas durante a execução do código do estivador e será apagada após o fim do estivador.
 
@@ -98,7 +98,7 @@ Aqui estão os cabeçalhos de pedido mais comuns que precisam de ser especificad
 **Cabeçalho** | **Descrição e exemplo**
 --- | ---
 Content-Type | O formato de pedido (Tipo de Conteúdo: aplicação/ <format> ). Para as APIs do FarmBeats Datahub, o formato é JSON. Tipo de conteúdo: aplicação/json
-Autorização | Especifica o token de acesso necessário para fazer uma chamada da API. Autorização: Portador <> Access-Token
+Autorização | Especifica o token de acesso necessário para fazer uma chamada da API. Autorização: <Access-Token> portador
 Aceitar | O formato de resposta. Para as APIs do FarmBeats Datahub, o formato é JSON. Aceitar: candidatura/json
 
 ## <a name="data-format"></a>Formato de dados
@@ -148,7 +148,7 @@ Este componente será invocado sempre que um utilizador do FarmBeats executa um 
   meteorologia Medidas > Profundidade  | A profundidade do sensor em centímetros. Por exemplo, a medição da humidade a 10 cm debaixo do solo.
   meteorologia Medidas > Descrição  | Fornecer uma descrição significativa da medição. |
   **JobType** | **Descrição** |
-  Name  | nome do Trabalho - por exemplo, Get_Daily_Forecast; o trabalho que o cliente vai correr para obter dados meteorológicos|
+  Nome  | nome do Trabalho - por exemplo, Get_Daily_Forecast; o trabalho que o cliente vai correr para obter dados meteorológicos|
   pipelineDetails > parâmetros > nome  | nome do parâmetro |
   pipelineDetails > parâmetros > tipo | ou de String, Int, Float, Bool, Array |
   pipelineDetails > parâmetros > isRequired | booleano; verdadeiro, se necessário parâmetro, falso se não; padrão é verdade |
@@ -159,7 +159,7 @@ Este componente será invocado sempre que um utilizador do FarmBeats executa um 
   **MeteorologiaDataLocation** | **Descrição** |
   weatherDataModelId  | ID do correspondente WeatherDataModel que foi criado durante a bootstrap|
   localização  | representa latitude, longitude e elevação |
-  Name | Nome do objeto |
+  Nome | Nome do objeto |
   Descrição | Descrição |
   farmId | **opcional** ID da quinta - fornecido pelo cliente como parte do parâmetro de trabalho |
   Propriedades  | Propriedades adicionais do fabricante.
@@ -249,7 +249,7 @@ Por exemplo, aqui está uma mensagem de telemetria:
 
 Uma vez que o trabalho de parceiro será gerido no quadro de emprego existente – os erros são registados da mesma forma que os erros para outros trabalhos pré-existentes em FarmBeats (como GetFarmData, SensorPlacement, etc.). A atividade ADF que funciona dentro dos registos do gasoduto ADF regista tanto stderr como STDOUT. Ambos os ficheiros estão disponíveis na conta de armazenamento "datahublogs-xxx" dentro do grupo de recursos FarmBeats.
 
-O Datahub lib fornece funções de ajudante para permitir o registo como parte de registos globais do Datahub. Mais detalhes [aqui](https://github.com/azurefarmbeats/noaa_docker/blob/master/datahub_lib/framework/logger.py).
+O Datahub lib fornece funções de ajudante para permitir o registo como parte de registos globais do Datahub. Mais detalhes [aqui.](https://github.com/azurefarmbeats/noaa_docker/blob/master/datahub_lib/framework/logger.py)
 
 **Opção de resolução de problemas ou suporte**
 
@@ -267,6 +267,6 @@ Para adicionar um novo tipo weatherMeasure, por exemplo "PrecipitationDepth", si
 
 Para obter mais informações sobre a API /ExtendedType, consulte [Swagger](https://aka.ms/FarmBeatsSwagger).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora tens um estivador connector que se integra com o FarmBeats. Em seguida, você pode ver como obter dados meteorológicos usando o seu estivador em FarmBeats. Consulte [os dados meteorológicos.](get-weather-data-from-weather-partner.md)

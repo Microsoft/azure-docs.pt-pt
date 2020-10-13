@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: bb38a76de41885b6f39a1c6dce7c44bcb52a4d60
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86027448"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Operacionalize modelos de aprendizagem automática construídos por faíscas
@@ -86,7 +86,7 @@ datetime.datetime.now()
 
 datatime.datetime (2016, 4, 25, 23, 56, 19, 229403)
 
-### <a name="import-libraries"></a>Bibliotecas de importação
+### <a name="import-libraries"></a>Importar bibliotecas
 Definir contexto de faísca e importar bibliotecas necessárias com o seguinte código
 
 ```python
@@ -115,7 +115,7 @@ Os núcleos PySpark que são fornecidos com cadernos Jupyter têm um contexto pr
 O kernel PySpark fornece algumas "magias" predefinidas, que são comandos especiais que se pode chamar com %%. Há dois comandos que são usados nestas amostras de código.
 
 * **%%local** Especificou que o código nas linhas subsequentes é executado localmente. O código deve ser o código Python válido.
-* **%%sql -o\<variable name>** 
+* **%%sql -o \<variable name>** 
 * Executa uma consulta de Colmeia contra o sqlContext. Se o parâmetro -o for aprovado, o resultado da consulta é persistido no contexto python %%local como um dataframe pandas.
 
 Para obter mais informações sobre os núcleos para os cadernos Jupyter e as "magias" predefinidas que eles fornecem, consulte [Kernels disponível para cadernos Jupyter com clusters HDInsight Spark Linux em HDInsight.](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md)
@@ -607,6 +607,6 @@ Se preferir uma experiência de cliente livre de código, utilize as [Apps Azure
 
 ![Estruturador de Aplicações Lógicas](./media/spark-model-consumption/spark-logica-app-client.png)
 
-## <a name="whats-next"></a>Passos seguintes?
+## <a name="whats-next"></a>O que se segue?
 **Transparecimento e varredura de hiperparímetros**: Consulte [a exploração e modelação avançadas de dados com a Spark](spark-advanced-data-exploration-modeling.md) sobre como os modelos podem ser treinados usando a validação cruzada e a varredura de hiper-parâmetros.
 

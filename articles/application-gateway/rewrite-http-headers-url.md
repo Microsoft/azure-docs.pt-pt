@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: surmb
 ms.openlocfilehash: 2ee34e1a7959aafa5db949b443fd58cca58719c6
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87281196"
 ---
 # <a name="rewrite-http-headers-and-url-with-application-gateway"></a>Reescrever cabeçalhos HTTP e URL com Gateway de aplicação
 
- O Application Gateway permite-lhe reescrever conteúdo selecionado de pedidos e respostas. Com esta funcionalidade, pode traduzir URLs, parâmetros de cadeia de consulta, bem como modificar os cabeçalhos de pedido e resposta. Também permite adicionar condições para garantir que o URL ou os cabeçalhos especificados só são reescritos quando determinadas condições são satisfeitas. Estas condições baseiam-se na informação de pedido e resposta.
+ O Application Gateway permite-lhe reescrever conteúdo selecionado de pedidos e respostas. Com esta funcionalidade, pode traduzir URLs, parâmetros de cadeia de consulta, bem como modificar os cabeçalhos de pedido e resposta. Também permite adicionar condições para garantir que o URL ou os cabeçalhos especificados só são reescritos quando determinadas condições são satisfeitas. Estas condições baseiam-se nas informações do pedido e da resposta.
 
 >[!NOTE]
 >As funcionalidades de reescrita HTTP e URL estão disponíveis apenas para o [Gateway de Aplicação v2 SKU](application-gateway-autoscaling-zone-redundant.md)
@@ -113,21 +113,21 @@ O gateway de aplicações suporta as seguintes variáveis de servidor:
 | client_port               | O porto do cliente.                                             |
 | client_tcp_rtt            | Informação sobre a ligação com a TCP do cliente. Disponível em sistemas que suportam a opção de tomada TCP_INFO. |
 | client_user               | Quando é utilizada a autenticação HTTP, o nome de utilizador fornecido para autenticação. |
-| anfitrião                      | Nesta ordem de precedência: o nome de anfitrião da linha de pedido, o nome de anfitrião do campo de cabeçalho de pedido do anfitrião ou o nome do servidor correspondente a um pedido. Exemplo: no pedido , o `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` valor do anfitrião será`contoso.com` |
+| anfitrião                      | Nesta ordem de precedência: o nome de anfitrião da linha de pedido, o nome de anfitrião do campo de cabeçalho de pedido do anfitrião ou o nome do servidor correspondente a um pedido. Exemplo: no pedido , o `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` valor do anfitrião será `contoso.com` |
 | cookie_*nome*             | O biscoito *de nome.*                                           |
 | http_method               | O método usado para fazer o pedido de URL. Por exemplo, GET ou POST. |
 | http_status               | O estado da sessão. Por exemplo, 200, 400 ou 403.           |
 | http_version              | O protocolo de pedido. Normalmente HTTP/1.0, HTTP/1.1 ou HTTP/2.0. |
-| query_string              | A lista de pares variáveis/valor que segue o "?" na URL solicitada. Exemplo: no pedido `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` , query_string valor será`id=123&title=fabrikam` |
+| query_string              | A lista de pares variáveis/valor que segue o "?" na URL solicitada. Exemplo: no pedido `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` , query_string valor será `id=123&title=fabrikam` |
 | received_bytes            | A duração do pedido (incluindo a linha de pedido, cabeçalho e corpo de pedido). |
 | request_query             | Os argumentos na linha de pedido.                           |
 | request_scheme            | O sistema de pedidos: http ou https.                           |
-| request_uri               | O pedido original completo URI (com argumentos). Exemplo: no pedido `http://contoso.com:8080/article.aspx?id=123&title=fabrikam*` , request_uri valor será`/article.aspx?id=123&title=fabrikam` |
+| request_uri               | O pedido original completo URI (com argumentos). Exemplo: no pedido `http://contoso.com:8080/article.aspx?id=123&title=fabrikam*` , request_uri valor será `/article.aspx?id=123&title=fabrikam` |
 | sent_bytes                | O número de bytes enviados a um cliente.                        |
 | server_port               | A porta do servidor que aceitou um pedido.              |
 | ssl_connection_protocol   | O protocolo de uma ligação TLS estabelecida.               |
 | ssl_enabled               | "Ligado" se a ligação funcionar no modo TLS. Caso contrário, uma corda vazia. |
-| uri_path                  | Identifica o recurso específico no anfitrião a que o cliente web quer aceder. Esta é a parte do pedido URI sem os argumentos. Exemplo: no pedido `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` , uri_path valor será`/article.aspx` |
+| uri_path                  | Identifica o recurso específico no anfitrião a que o cliente web quer aceder. Esta é a parte do pedido URI sem os argumentos. Exemplo: no pedido `http://contoso.com:8080/article.aspx?id=123&title=fabrikam` , uri_path valor será `/article.aspx` |
 
  
 
@@ -211,17 +211,17 @@ Para realizar cenários em que pretende escolher o pool de backend com base no v
 
 * A terceira regra tem uma condição que verifica a *variável query_string* para *categoria=acessórios* e tem uma ação que reescreve o caminho URL para/listagem3 e tem **reavalie o mapa do caminho** ativado*listing3*
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-2.png" alt-text="URL reescrever cenário 1-2.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-2.png" alt-text="URL reescrever cenário 1-1.":::
 
  
 
 **Passo 2 (b):** Associe este conjunto de reescrita com o caminho padrão da regra acima baseada no caminho
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-3.png" alt-text="URL reescrever cenário 1-3.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-3.png" alt-text="URL reescrever cenário 1-1.":::
 
 Agora, se o utilizador solicitar *contoso.com/listing?category=any*, então será combinado com o caminho padrão, uma vez que nenhum dos padrões de caminho no mapa do caminho (/listing1, /listing2, /listing3) irá corresponder. Uma vez que associou o conjunto de reescrita acima com este caminho, este conjunto de reescrita será avaliado. Como a cadeia de consulta não corresponderá à condição em nenhuma das 3 regras de reescrita neste conjunto de reescrita, não será efetuada qualquer ação de reescrita e, portanto, o pedido será encaminhado inalterado para o backend associado à trajetória padrão (que é *GenericList).*
 
- Se o utilizador solicitar *contoso.com/listing?category=shoes, então, novamente,* o caminho predefinido será igualado. No entanto, neste caso, a condição na primeira regra irá coincidir e, portanto, será executada a ação associada à condição que reescreverá o caminho URL*para/listagens1* e reavaliará o mapa do caminho. Quando o mapa do caminho for reavaliado, o pedido irá agora corresponder ao caminho associado ao padrão */listagens1* e o pedido será encaminhado para o backend associado a este padrão, que é ShoesListBackendPool
+ Se o utilizador solicitar *contoso.com/listing?category=shoes, então, novamente,* o caminho predefinido será igualado. No entanto, neste caso, a condição na primeira regra irá coincidir e, portanto, será executada a ação associada à condição que reescreverá o caminho URL*para/listagens1*  e reavaliará o mapa do caminho. Quando o mapa do caminho for reavaliado, o pedido irá agora corresponder ao caminho associado ao padrão */listagens1* e o pedido será encaminhado para o backend associado a este padrão, que é ShoesListBackendPool
 
 >[!NOTE]
 >Este cenário pode ser estendido a qualquer valor de cabeçalho ou cookie, caminho DE URL, cadeia de consulta ou servidor com base na condição definida e essencialmente permite-lhe encaminhar pedidos com base nessas condições.
@@ -232,13 +232,13 @@ Considere um cenário de um site de compras onde o link visível do utilizador d
 
 Nesse caso, o Application Gateway pode capturar parâmetros a partir do URL e adicionar pares de valores-chave de ligação de consulta dos do URL. Por exemplo, digamos que o utilizador quer reescrever, `https://www.contoso.com/fashion/shirts` `https://www.contoso.com/buy.aspx?category=fashion&product=shirts` para, pode ser alcançado através da seguinte configuração de reescrita de URL.
 
-**Condição** - Se a variável do servidor `uri_path` for igual ao padrão`/(.+)/(.+)`
+**Condição** - Se a variável do servidor `uri_path` for igual ao padrão `/(.+)/(.+)`
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-1.png" alt-text="URL reescrever cenário 2-1.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-1.png" alt-text="URL reescrever cenário 1-1.":::
 
-**Ação** - Definir caminho URL para `buy.aspx` e cadeia de consulta para`category={var_uri_path_1}&product={var_uri_path_2}`
+**Ação** - Definir caminho URL para `buy.aspx` e cadeia de consulta para `category={var_uri_path_1}&product={var_uri_path_2}`
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-2.png" alt-text="URL reescrever cenário 2-2.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-scenario2-2.png" alt-text="URL reescrever cenário 1-1.":::
 
 Para obter um guia passo a passo para alcançar o cenário acima descrito, consulte [o URL de reescrita com o Gateway de aplicação utilizando o portal Azure](rewrite-url-portal.md)
 
@@ -248,11 +248,11 @@ Em caso de reescrita de URL, o Gateway de Aplicação reescreve o URL antes de o
 
 Em caso de redirecionamento de URL, o Application Gateway envia uma resposta de redirecionamento ao cliente com o novo URL. Isso, por sua vez, requer que o cliente reencamende o seu pedido para o novo URL fornecido no redirecionamento. URL que o utilizador vê no navegador irá atualizar para o novo URL
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-rewrite-vs-redirect.png" alt-text="Reescrever vs Redirecionamento.":::
+:::image type="content" source="./media/rewrite-http-headers-url/url-rewrite-vs-redirect.png" alt-text="URL reescrever cenário 1-1.":::
 
 ## <a name="limitations"></a>Limitações
 
-- Se uma resposta tiver mais do que um cabeçalho com o mesmo nome, então reescrever o valor de um desses cabeçalhos resultará em deixar cair os outros cabeçalhos na resposta. Isto geralmente pode acontecer com o cabeçalho Set-Cookie, uma vez que pode ter mais do que um cabeçalho Set-Cookie numa resposta. Um desses cenários é quando está a usar um serviço de aplicações com um gateway de aplicações e configurar afinidade de sessão baseada em cookies no gateway da aplicação. Neste caso, a resposta conterá dois cabeçalhos Set-Cookie: um utilizado pelo serviço de aplicações, por exemplo: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` e outro para afinidade do gateway de aplicações, por exemplo, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/` . Reescrever um dos cabeçalhos set-Cookie neste cenário pode resultar na remoção do outro cabeçalho set-Cookie da resposta.
+- Se uma resposta tiver mais do que um cabeçalho com o mesmo nome, então reescrever o valor de um desses cabeçalhos resultará em deixar cair os outros cabeçalhos na resposta. Isto pode geralmente acontecer com Set-Cookie cabeçalho, uma vez que pode ter mais de um Set-Cookie cabeçalho numa resposta. Um desses cenários é quando está a usar um serviço de aplicações com um gateway de aplicações e configurar afinidade de sessão baseada em cookies no gateway da aplicação. Neste caso, a resposta conterá dois cabeçalhos Set-Cookie: um utilizado pelo serviço de aplicações, por exemplo: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` e outro para afinidade do gateway de aplicações, por exemplo, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/` . Reescrever um dos cabeçalhos Set-Cookie neste cenário pode resultar na remoção do outro Set-Cookie cabeçalho da resposta.
 - As reescritas não são suportadas quando o gateway de aplicações está configurado para redirecionar os pedidos ou para mostrar uma página de erro personalizada.
 - Os nomes dos cabeçalhos podem conter quaisquer caracteres alfanuméricos e símbolos específicos, tal como definidos no [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Atualmente, não apoiamos o caráter especial sublinhado (_) em nomes de Cabeçalho.
 - Os cabeçalhos de ligação e de upgrade não podem ser reescritos

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
 ms.openlocfilehash: 9989d0ebd95bfe5ee49be2ba76b73e07630b519a
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87283950"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Envie e-mail da sua conta SMTP com Azure Logic Apps
@@ -49,7 +49,7 @@ Com aplicações lógicas Azure e o conector Simple Mail Transfer Protocol (SMTP
 
 1. Quando solicitado, forneça esta informação de ligação:
 
-   | Propriedade | Obrigatório | Descrição |
+   | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
    | **Nome de conexão** | Sim | Um nome para a ligação ao seu servidor SMTP | 
    | **Endereço do servidor SMTP** | Sim | O endereço do seu servidor SMTP | 

@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 71b6f35b107a8cb213e97d9a05bdf93b93967606
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c5084ff770f27438c85b7bc57cef0145182abb4
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91256896"
+ms.locfileid: "91873154"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Resolver problemas da verificação do publicador
 Se não conseguir completar o processo ou estiver a experimentar comportamentos inesperados com [a verificação do editor,](publisher-verification-overview.md)deve começar por fazer o seguinte se estiver a receber erros ou a ver comportamentos inesperados: 
@@ -58,7 +58,7 @@ Abaixo estão algumas questões comuns que podem ocorrer durante o processo.
     Os registos da sua aplicação podem ter sido criados utilizando uma conta de utilizador diferente neste inquilino, uma conta pessoal/consumidor, ou num inquilino diferente. Certifique-se de que está inscrito com a conta correta no arrendatário onde foram criados os registos da sua aplicação.
 
 - **Estou a receber um erro relacionado com a autenticação de vários fatores. O que devo fazer?** 
-    Certifique-se de que [a autenticação multi-factor](../fundamentals/concept-fundamentals-mfa-get-started.md) está ativada e necessária para o utilizador com quem está a iniciar sessão e para este cenário. Por exemplo, o MFA pode ser:
+    Certifique-se de que [a autenticação multi-factor](../fundamentals/concept-fundamentals-mfa-get-started.md) está ativada e **necessária** para o utilizador com quem está a iniciar sessão e para este cenário. Por exemplo, o MFA pode ser:
     - Sempre necessário para o utilizador com quem está a iniciar sessão
     - [Requerido para a gestão do Azure.](../conditional-access/howto-conditional-access-policy-azure-management.md)
     - [Requerido para o tipo de administrador](../conditional-access/howto-conditional-access-policy-admin-mfa.md) com o que está a iniciar sessão.
@@ -226,7 +226,9 @@ Esta funcionalidade não é suportada para contas de consumidores da Microsoft. 
 
 ### <a name="interactionrequired"></a>InteracçãoRequired
 
-Ocorre quando a autenticação de vários fatores não foi realizada antes de tentar adicionar um editor verificado à aplicação. Consulte [as questões comuns](#common-issues) para mais informações.
+Ocorre quando a autenticação de vários fatores não foi realizada antes de tentar adicionar um editor verificado à aplicação. Consulte [as questões comuns](#common-issues) para mais informações. Nota: O MFA deve ser realizado na mesma sessão quando se tenta adicionar um editor verificado. Se o MFA estiver ativado mas não for necessário para ser realizado na sessão, o pedido falhará.   
+
+A mensagem de erro exibida será: "Devido a uma alteração de configuração feita pelo seu administrador, ou porque se mudou para um novo local, deve utilizar a autenticação de vários fatores para prosseguir."
 
 ## <a name="next-steps"></a>Passos seguintes
 

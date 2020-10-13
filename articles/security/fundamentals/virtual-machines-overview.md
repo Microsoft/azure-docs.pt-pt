@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
 ms.openlocfilehash: d2862d5ab2c42ebdd1787022dc86119bc4e0f596
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86229368"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Visão geral de segurança das máquinas virtuais Azure
@@ -99,7 +99,7 @@ O Azure Backup é uma solução escalável que ajuda a proteger os dados da sua 
 
 Saiba mais:
 
-* [O que é o Azure Backup?](/azure/backup/backup-introduction-to-azure-backup)
+* [O que é o Backup do Azure?](/azure/backup/backup-introduction-to-azure-backup)
 * [Serviço de backup Azure FAQ](/azure/backup/backup-azure-backup-faq)
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery
@@ -160,7 +160,7 @@ Saiba mais:
 
 Embora a computação confidencial não seja tecnicamente parte da segurança da máquina virtual, o tópico da segurança da máquina virtual pertence ao tema de nível mais alto de segurança "compute". A computação confidencial pertence à categoria de segurança "compute".
 
-A computação confidencial garante que quando os dados estão "claros", o que é necessário para um processamento eficiente, os dados são protegidos dentro de um Ambiente de Execução Fidedigna https://en.wikipedia.org/wiki/Trusted_execution_environment (TEE - também conhecido como enclave), um exemplo que é mostrado na figura abaixo.  
+A computação confidencial garante que quando os dados estão "claros", o que é necessário para um processamento eficiente, os dados são protegidos dentro de um Ambiente de Execução Fidedigna  https://en.wikipedia.org/wiki/Trusted_execution_environment (TEE - também conhecido como enclave), um exemplo que é mostrado na figura abaixo.  
 
 Os TEEs garantem que não há forma de visualizar dados ou operações dentro do exterior, mesmo com um depuração. Garantem mesmo que apenas o código autorizado é permitido aceder aos dados. Se o código for alterado ou adulterado, as operações são negadas e o ambiente desativado. O TEE aplica estas proteções ao longo da execução do código no seu interior.
 

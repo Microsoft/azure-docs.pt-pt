@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 09/29/2020
 ms.author: enewman
 ms.openlocfilehash: 4bbf4c9d4bc83b48b8ecc62946fa9bffa8af50bc
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91533525"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Crie um laboratório para ensinar ciência de dados com pítons e cadernos jupyter
@@ -172,7 +172,7 @@ Mais detalhes sobre os preços, consulte o [Azure Lab Services Pricing](https://
 ## <a name="conclusion"></a>Conclusão
 Neste artigo, percorremos os degraus para criar um laboratório para uma aula de Cadernos Jupyter. Você pode usar uma configuração semelhante para outras aulas de machine learning.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Os próximos passos são comuns para montar qualquer laboratório.
 

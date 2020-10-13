@@ -8,10 +8,10 @@ author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
 ms.openlocfilehash: 9f3ba6b2f13b9f2bb1d538db84723e3a9baaef12
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87271846"
 ---
 # <a name="retrieve-a-specific-offer"></a>Recupere uma oferta específica
@@ -41,8 +41,8 @@ Também pode recuperar uma versão específica da oferta, ou recuperar a oferta 
 |-------------|------------------------------------------------------------------------------------------|---------------|
 | publisherId | publisherId. Por exemplo, Contoso                                                        | Cadeia        |
 | offerId     | Guid que identifica exclusivamente a oferta.                                                 | Cadeia        |
-| versão     | Versão da oferta a ser recuperada. Por padrão, a versão mais recente da oferta é recuperada. | Integer (Número inteiro)       |
-| slotId      | A ranhura a partir da qual a oferta deve ser recuperada, pode ser uma das:      <br/>  - `Draft`(predefinido) recupera a versão da oferta atualmente em projeto.  <br/>  -  `Preview`recupera a versão oferta atualmente em pré-visualização.     <br/>  -  `Production`recupera a versão de oferta atualmente em produção.          |      enum |
+| versão     | Versão da oferta a ser recuperada. Por padrão, a versão mais recente da oferta é recuperada. | Número inteiro       |
+| slotId      | A ranhura a partir da qual a oferta deve ser recuperada, pode ser uma das:      <br/>  - `Draft` (predefinido) recupera a versão da oferta atualmente em projeto.  <br/>  -  `Preview` recupera a versão oferta atualmente em pré-visualização.     <br/>  -  `Production` recupera a versão de oferta atualmente em produção.          |      enum |
 | api-version | Última versão da API                                                                    | Date          |
 |  |  |  |
 
@@ -186,10 +186,10 @@ Também pode recuperar uma versão específica da oferta, ou recuperar a oferta 
 
 | **Código**  | **Descrição**                                                                                                                 |
 |  ------   | ------------------------------------------------------------------------------------------------------------------------------- |
-|  200      | `OK`- O pedido foi processado com sucesso e todas as ofertas sob a editora foram devolvidas ao cliente.               |
-|  400      | `Bad/Malformed request`- O corpo de resposta a erros pode conter mais informações.                                                 |
-|  403      | `Forbidden`- O cliente não tem acesso ao espaço de nome especificado.                                                        |
-|  404      | `Not found`- A entidade especificada não existe. O cliente deve verificar o publisherId, offerId e versão (se especificado).      |
+|  200      | `OK` - O pedido foi processado com sucesso e todas as ofertas sob a editora foram devolvidas ao cliente.               |
+|  400      | `Bad/Malformed request` - O corpo de resposta a erros pode conter mais informações.                                                 |
+|  403      | `Forbidden` - O cliente não tem acesso ao espaço de nome especificado.                                                        |
+|  404      | `Not found` - A entidade especificada não existe. O cliente deve verificar o publisherId, offerId e versão (se especificado).      |
 |  |  |
 
 ### <a name="offer-status"></a>Estado da oferta

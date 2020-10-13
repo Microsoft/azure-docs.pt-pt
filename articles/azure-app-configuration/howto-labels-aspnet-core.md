@@ -9,10 +9,10 @@ ms.custom: devx-track-csharp
 ms.date: 3/12/2020
 ms.author: lcozzens
 ms.openlocfilehash: 689fdbd444aa4b20f5bef225faa259788c47cf9d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88206669"
 ---
 # <a name="use-labels-to-enable-configurations-for-different-environments"></a>Utilize etiquetas para permitir configurações para diferentes ambientes

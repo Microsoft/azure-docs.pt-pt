@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: cshoe
 ms.openlocfilehash: 93a12d40e876293eb587ffba865a1d3b1f5f4983
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86506031"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Azure Functions processamento fiável de eventos
@@ -125,7 +125,7 @@ Utilizando esta abordagem, não se perdem mensagens, todas as mensagens são pro
 - [Amostras fiáveis de processamento de eventos](https://github.com/jeffhollan/functions-csharp-eventhub-ordered-processing)
 - [Disjuntor de entity durável Azure](https://github.com/jeffhollan/functions-durable-actor-circuitbreaker)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, veja os seguintes recursos:
 

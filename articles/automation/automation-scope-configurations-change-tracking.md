@@ -6,10 +6,10 @@ ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.openlocfilehash: 353f29d9b4c6599226619d40e4378e21618bcad4
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86185913"
 ---
 # <a name="limit-change-tracking-and-inventory-deployment-scope"></a>Limite de rastreio de alteração e implementação de inventário
@@ -30,7 +30,7 @@ Para limitar o âmbito de aplicação da sua implementação de 'Change Tracking
 
 3. Selecione **Configurações de âmbito (pré-visualização)** em **Fontes de Dados do Espaço de Trabalho**.
 
-4. Selecione a elipse à direita da configuração do `MicrosoftDefaultScopeConfig-ChangeTracking` âmbito e clique em **Editar**. 
+4. Selecione a elipse à direita da configuração do  `MicrosoftDefaultScopeConfig-ChangeTracking` âmbito e clique em **Editar**. 
 
 5. No painel de edição, **selecione Select Computer Groups**. O painel de grupos de computador mostra as pesquisas guardadas que são usadas para criar a configuração do âmbito. A pesquisa guardada utilizada por Change Tracking and Inventory é:
 
