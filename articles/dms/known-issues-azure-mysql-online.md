@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 9a8ae9be983ecb0e6b50ef889525ae33726c2d97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 673480d1b5171e03b701cd2102c7a640aae58ad0
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330337"
+ms.locfileid: "91893752"
 ---
 # <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Questões de migração online & limitações ao Azure DB para o MySQL com o Azure Database Migration Service
 
@@ -82,12 +82,12 @@ As colunas de objetos grandes (LOB) são colunas que podem crescer grandes em ta
 
     **Resumo :** Substitua a tecla primária por outros tipos de dados ou colunas que não sejam LOB.
 
-- **Limitação**: Se o comprimento da coluna De Objeto Grande (LOB) for maior do que 32 KB, os dados podem ser truncados no alvo. Pode verificar o comprimento da coluna LOB utilizando esta consulta:
+- **Limitação**: Se o comprimento da coluna De Objeto Grande (LOB) for maior do que o parâmetro "Tamanho limite LOB" (não deve ser superior a 64 KB), os dados podem ser truncados no alvo. Pode verificar o comprimento da coluna LOB utilizando esta consulta:
     ```
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **Solução alternativa**: Se tiver um objeto LOB superior a 32 KB, contacte a equipa de engenharia [da Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
+    **Solução alternativa**: Se tiver um objeto LOB superior a 64 KB, utilize o parâmetro "Permitir tamanho LOB ilimitado". Note que as migrações utilizando o parâmetro "Permitir tamanho LOB ilimitado" serão mais lentas do que as migrações utilizando o parâmetro "Tamanho limite LOB".
 
 ## <a name="limitations-when-migrating-online-from-aws-rds-mysql"></a>Limitações ao migrar on-line a partir do AWS RDS MySQL
 

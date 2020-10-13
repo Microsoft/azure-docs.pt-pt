@@ -16,10 +16,10 @@ ms.date: 09/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 62faec3fd9ee36cb7a2b5da7e6bae07c6c8e06af
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449378"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurações de armazenamento da máquina virtual do Azure do SAP HANA
@@ -75,7 +75,7 @@ Linux tem vários modos de agendamento de I/O diferentes. Recomendação comum a
 O Azure Write Accelerator é uma funcionalidade disponível exclusivamente para VMs da Série M-Série Azure. Como o nome afirma, o objetivo da funcionalidade é melhorar a latência de I/O de escritas contra o armazenamento premium Azure. Para o SAP HANA, o Acelerador de Escrita deve ser utilizado apenas contra o volume **/hana/log.** Portanto, o **/hana/data** e **/hana/log** são volumes separados com acelerador de escrita Azure suportando apenas o volume **/hana/log.** 
 
 > [!IMPORTANT]
-> Ao utilizar o armazenamento premium Azure, a utilização do Acelerador de [Escrita](../../how-to-enable-write-accelerator.md) Azure para o volume **/hana/log** é obrigatória. O Write Accelerator está disponível apenas para armazenamento premium e M-Series e VMs série Mv2. O Write Accelerator não está a funcionar em combinação com outras famílias Azure VM, como o Esv3 ou o Edsv4.
+> Ao utilizar o armazenamento premium Azure, a utilização do Acelerador de [Escrita](../../how-to-enable-write-accelerator.md) Azure para o volume **/hana/log** é obrigatória. O Write Accelerator está disponível apenas para armazenamento premium e M-Series e VMs Mv2-Series. O Write Accelerator não está a funcionar em combinação com outras famílias Azure VM, como o Esv3 ou o Edsv4.
 
 As recomendações de cache para discos premium Azure abaixo assumem as características de E/S para SAP HANA que lista como:
 
@@ -88,7 +88,7 @@ As recomendações de cache para discos premium Azure abaixo assumem as caracter
 **Recomendação: Em resultado destes padrões de E/S observados pela SAP HANA, o caching para os diferentes volumes que utilizam o armazenamento premium Azure deve ser definido como:**
 
 - **/hana/data** - sem caching ou leitura de caching
-- **/hana/log** - sem caching - exceção para VMs da série M- e Mv2 onde o Acelerador de Escrita Azure deve ser ativado 
+- **/hana/log** - sem caching - exceção para VMs M e Mv2-Series onde o Acelerador de Escrita Azure deve ser ativado 
 - **/hana/shared** - ler caching
 - **Disco oss** - não altere o cache padrão que é definido por Azure no tempo de criação do VM
 
@@ -309,7 +309,7 @@ No caso de combinar os dados e o volume de registo para o SAP HANA, os discos qu
 Existem tipos de VM listados que não são certificados com SAP e, como tal, não estão listados no chamado [diretório de hardware SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). O feedback dos clientes foi o de que esses tipos de VM não listados foram utilizados com sucesso para algumas tarefas não-produção.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações, consulte:
 
 - [Guia de alta disponibilidade SAP HANA para máquinas virtuais Azure](./sap-hana-availability-overview.md).

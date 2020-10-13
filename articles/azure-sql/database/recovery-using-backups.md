@@ -13,10 +13,10 @@ ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 09/26/2019
 ms.openlocfilehash: 23fdc69b59cc1415d06bd394fd9ef729b7ef4ce0
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448805"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Recuperar usando cópias de dados automatizadas - Azure SQL Database & SQL Managed Instance
@@ -82,7 +82,7 @@ Geralmente, devolve-se uma base de dados a um ponto anterior para fins de recupe
 
 Pode recuperar uma base de dados de um único ou caso a um ponto no tempo a partir da lâmina de visão geral da base de dados que pretende restaurar no portal Azure.
 
-#### <a name="sql-database"></a>Base de Dados SQL
+#### <a name="sql-database"></a>SQL Database
 
 Para recuperar uma base de dados até um ponto no tempo, utilizando o portal Azure, abra a página geral da base de dados e selecione **Restaurar** na barra de ferramentas. Escolha a fonte de backup e selecione o ponto de backup pontual a partir do qual será criada uma nova base de dados.
 
@@ -108,7 +108,7 @@ Pode restaurar uma base de dados eliminada para o tempo de eliminação, ou um p
 
 Restaura bases de dados eliminadas do portal Azure a partir do servidor ou recurso de instância gerido.
 
-#### <a name="sql-database"></a>Base de Dados SQL
+#### <a name="sql-database"></a>SQL Database
 
 Para recuperar uma base de dados eliminada para o tempo de eliminação utilizando o portal Azure, abra a página geral do servidor e selecione **bases de dados eliminadas**. Selecione uma base de dados eliminada que pretende restaurar e digite o nome para a nova base de dados que será criada com dados restaurados a partir da cópia de segurança.
 
@@ -124,7 +124,7 @@ Para recuperar uma base de dados gerida utilizando o portal Azure, abra a págin
 
 Utilize os seguintes scripts de amostra para restaurar uma base de dados eliminada para a Base de Dados SQL ou para a SQL Managed Instance utilizando o PowerShell.
 
-#### <a name="sql-database"></a>Base de Dados SQL
+#### <a name="sql-database"></a>SQL Database
 
 Para obter uma amostra do script PowerShell que mostre como restaurar uma base de dados eliminada na Base de Dados Azure SQL, consulte [Restaurar uma base de dados utilizando o PowerShell](scripts/restore-database-powershell.md).
 
@@ -150,7 +150,7 @@ Geo-restauração é a opção de recuperação padrão quando a sua base de dad
 
 A partir do portal Azure, cria uma nova base de dados de instância única ou gerida e seleciona uma cópia de segurança de geo-restauro disponível. A base de dados recentemente criada contém os dados de cópia de segurança geo-restaurados.
 
-#### <a name="sql-database"></a>Base de Dados SQL
+#### <a name="sql-database"></a>SQL Database
 
 Para restaurar uma única base de dados a partir do portal Azure na região e servidor da sua escolha, siga estes passos:
 
@@ -178,7 +178,7 @@ Complete o processo de criação de uma nova base de dados. Quando cria a base d
 
 ### <a name="geo-restore-by-using-powershell"></a>Geo-restauração utilizando o PowerShell
 
-#### <a name="sql-database"></a>Base de Dados SQL
+#### <a name="sql-database"></a>SQL Database
 
 Para obter um script PowerShell que mostre como executar o geo-restauro para uma única base de [dados, consulte Use PowerShell para restaurar uma única base de dados para um ponto anterior no tempo](scripts/restore-database-powershell.md).
 
@@ -207,7 +207,7 @@ Também pode utilizar a Azure PowerShell ou a API REST para recuperação. As ta
 > [!IMPORTANT]
 > O módulo PowerShell Azure Resource Manager ainda é suportado pela SQL Database e pela SQL Managed Instance, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para estes cmdlets, consulte [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos Azure Resource Manager são, em grande medida, idênticos.
 
-#### <a name="sql-database"></a>Base de Dados SQL
+#### <a name="sql-database"></a>SQL Database
 
 Para restaurar uma base de dados autónoma ou em conjunto, consulte [a Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase).
 
@@ -242,7 +242,7 @@ Para restaurar uma base de dados utilizando a API REST:
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-#### <a name="sql-database"></a>Base de Dados SQL
+#### <a name="sql-database"></a>SQL Database
 
 Para restaurar uma base de dados utilizando o Azure CLI, consulte [az sql db restore](/cli/azure/sql/db#az-sql-db-restore).
 
@@ -254,7 +254,7 @@ Para restaurar uma base de dados de instância gerida utilizando o Azure CLI, co
 
 As cópias de segurança automáticas protegem as suas bases de dados contra erros de utilizador e aplicação, eliminação acidental da base de dados e interrupções prolongadas. Esta capacidade incorporada está disponível para todos os níveis de serviço e tamanhos de cálculo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Descrição geral da continuidade de negócio](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 - [Backups automatizados da Base de Dados SQL](automated-backups-overview.md)

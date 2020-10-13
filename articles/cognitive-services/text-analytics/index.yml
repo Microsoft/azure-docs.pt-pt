@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/29/2019
   ms.author: aahi
-  ms.openlocfilehash: 8a0cb825321aa28ac6b217362ae2d499eb4e077e
-  ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+  ms.openlocfilehash: 06225b0ca6ca1807acc8664c96542c67cbd9dceb
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/13/2020
-  ms.locfileid: "88167628"
+  ms.lasthandoff: 10/09/2020
+  ms.locfileid: "91838981"
 landingContent:
 - title: Acerca da API de Análise de Texto
   linkLists:
@@ -142,6 +142,8 @@ landingContent:
       url: how-tos/text-analytics-how-to-install-containers.md
     - text: Configurar contentores da Análise de Texto
       url: text-analytics-resource-container-config.md
+    - text: Utilizar o contentor de Análise de Texto para estado de funcionamento
+      url: How-tos/text-analytics-for-health.md
     - text: Implementar uma instância de contentor no Azure
       url: how-tos/text-analytics-how-to-use-container-instances.md
     - text: Implementar um contentor no Azure Kubernetes Service (AKS)

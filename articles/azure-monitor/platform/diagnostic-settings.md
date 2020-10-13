@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
 ms.openlocfilehash: 48d2a657059908417bc81fd8cc2a132d2d131530
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449329"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Criar definições de diagnóstico para enviar registos e métricas da plataforma para destinos diferentes
@@ -54,7 +54,7 @@ Os registos e métricas da plataforma podem ser enviados para os destinos na tab
 
 Quaisquer destinos para a definição de diagnóstico devem ser criados antes de criar as definições de diagnóstico. O destino não tem de estar na mesma subscrição que os registos de envio de recursos, desde que o utilizador que configura a definição tenha acesso RBAC adequado a ambas as subscrições. O quadro seguinte fornece requisitos únicos para cada destino, incluindo quaisquer restrições regionais.
 
-| Destino | Requirements |
+| Destino | Requisitos |
 |:---|:---|
 | Área de trabalho do Log Analytics | O espaço de trabalho não precisa de estar na mesma região que o recurso que está a ser monitorizado.|
 | Hubs de Eventos | A política de acesso partilhado para o espaço de nome define as permissões que o mecanismo de streaming tem. O streaming para Os Centros de Eventos requer permissões de Gestão, Envio e Escuta. Para atualizar a definição de diagnóstico para incluir o streaming, tem de ter a permissão ListKey nessa regra de autorização do Event Hubs.<br><br>O espaço de nome do centro de eventos tem de estar na mesma região que o recurso que está a ser monitorizado se o recurso for regional. |
@@ -81,7 +81,7 @@ Pode configurar as definições de diagnóstico no portal Azure, quer a partir d
 
    - Para o registo de atividade, clique em **Iniciarções de Atividade** no menu **Azure Monitor** e, em seguida, **definições de Diagnóstico**. Certifique-se de que desativa qualquer configuração antiga para o registo de Atividade. Consulte [as definições existentes](./activity-log.md#legacy-collection-methods) para obter mais detalhes.
 
-        ![Screenshot do menu Azure Monitor com registo de atividade selecionado e definições de Diagnóstico destacadas na barra de menu de registo de monitorização-actividade.](media/diagnostic-settings/menu-activity-log.png)
+        ![Screenshot do menu Azure Monitor com registo de atividade selecionado e definições de Diagnóstico destacadas na barra de menu de registo de Monitor-Activity.](media/diagnostic-settings/menu-activity-log.png)
 
 2. Se não existirem definições no recurso selecionado, é-lhe pedido que crie uma definição. Clique **na definição de diagnóstico de adicionar**.
 
@@ -128,7 +128,7 @@ Pode configurar as definições de diagnóstico no portal Azure, quer a partir d
         >
         > Por exemplo, se definir a política de retenção para *workflowSruntime* para 180 dias e, em seguida, 24 horas depois fixá-lo para 365 dias, os registos armazenados durante as primeiras 24 horas serão automaticamente eliminados após 180 dias, enquanto todos os registos subsequentes desse tipo serão automaticamente eliminados após 365 dias. Mudar a política de retenção mais tarde não faz com que as primeiras 24 horas de registos permaneçam por perto durante 365 dias.
 
-6. Clique em **Save** (Guardar).
+6. Clique em **Guardar**.
 
 Após alguns momentos, a nova definição aparece na sua lista de definições para este recurso, e os registos são transmitidos para os destinos especificados à medida que novos dados do evento são gerados. Pode levar até 15 minutos entre quando um evento é emitido e quando [aparece num espaço de trabalho log analytics](data-ingestion-time.md).
 
@@ -175,6 +175,6 @@ Consulte [Definições de diagnóstico](/rest/api/monitor/diagnosticsettings) pa
 Uma vez que é necessário criar uma definição de diagnóstico para cada recurso Azure, a Política Azure pode ser usada para criar automaticamente uma definição de diagnóstico à medida que cada recurso é criado. Consulte [o Monitor Azure em escala utilizando a Política Azure](../deploy-scale.md) para obter detalhes.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Ler mais sobre Logs da plataforma Azure](platform-logs-overview.md)

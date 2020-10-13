@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
 ms.openlocfilehash: 67940db973f494cd4a12c2f16db528e0b113d656
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449203"
 ---
 # <a name="how-requests-are-matched-to-a-routing-rule"></a>Como os pedidos são combinados com uma regra de encaminhamento
@@ -125,7 +125,7 @@ Tendo em conta esta configuração, resultaria na seguinte tabela de correspond�
 ### <a name="routing-decision"></a>Decisão de encaminhamento
 Uma vez que tenhamos uma regra de encaminhamento da Porta da Frente, precisamos escolher como processar o pedido. Se para a regra de encaminhamento combinado, a Porta frontal tem uma resposta em cache disponível, então o mesmo é servido de volta ao cliente. Caso contrário, a próxima coisa que é avaliada é se você tem [CONFIGURADO URL Rewrite (caminho de encaminhamento personalizado)](front-door-url-rewrite.md) para a regra de encaminhamento combinado ou não. Se não houver um caminho de encaminhamento personalizado definido, então o pedido é reencaminhado para o backend apropriado na piscina de backend configurada como está. Caso contrário, o caminho do pedido é atualizado de acordo com o [caminho de encaminhamento personalizado](front-door-url-rewrite.md) definido e, em seguida, encaminhar para o backend.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
 - Saiba [como funciona o Front Door](front-door-routing-architecture.md).

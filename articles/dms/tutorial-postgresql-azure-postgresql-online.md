@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 04/11/2020
-ms.openlocfilehash: fa457bf930978965b7ad37ea032e6517bda2e9d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 62f4d069a6eda6dba48817589e338f010b766a34
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91291202"
+ms.locfileid: "91893718"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>Tutorial: Migrar PostgreSQL para Azure DB para PostgreSQL on-line usando DMS via Azure CLI
 
@@ -373,8 +373,6 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
     az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask --expand output --query 'properties.output[].migrationState | [0]' "READY_TO_COMPLETE"
     ```
 
-## <a name="understanding-migration-task-status"></a>Compreender o estado da tarefa de migração
-
 No ficheiro de saída, existem diversos parâmetros que indicam o progresso da migração. Por exemplo, veja o ficheiro de saída abaixo:
 
   ```output
@@ -487,6 +485,7 @@ Para garantir que todos os dados são capturados, valide as contagens de linhas 
     ```azurecli
     az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
     ```
+3. Quando o estado de migração da base de dados mostrar **concluído,** [recrie as sequências](https://wiki.postgresql.org/wiki/Fixing_Sequences) (se aplicável) e ligue as suas aplicações à nova instância-alvo da Base de Dados Azure para PostgreSQL.
 
 ## <a name="service-project-task-cleanup"></a>Limpeza de serviços, projetos, tarefas
 

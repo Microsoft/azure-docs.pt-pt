@@ -10,10 +10,10 @@ ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3a3395873d7655118e3fcc9c36cdfc3855f8f000
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91714816"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Lista de verificação de desempenho e escalabilidade para armazenamento blob
@@ -284,7 +284,7 @@ As bolhas de apêndice são semelhantes às bolhas de bloqueio, na medida em que
 
 As bolhas de página são apropriadas se a aplicação precisar de efetuar gravações aleatórias nos dados. Por exemplo, os discos de máquina virtual Azure são armazenados como bolhas de página. Para obter mais informações, consulte [as bolhas de blocos de compreensão, as bolhas de apêndice e as bolhas de página](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).  
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - [Metas de escalabilidade e desempenho para armazenamento blob](scalability-targets.md)
 - [Metas de escalabilidade e desempenho para contas de armazenamento padrão](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

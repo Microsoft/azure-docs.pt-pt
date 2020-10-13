@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Migrar uma aplicação web do Bing Maps Microsoft Azure Maps'
-description: Como migrar uma aplicação web de Bing Maps para o Microsoft Azure Maps.
+description: Tutorial sobre como migrar uma aplicação web de Bing Maps para Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 9/10/2020
@@ -9,14 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: 469565385ce4b3ee4b1589f105216213d584c8c9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 42ba92a0134ae1e8da91bbe7513668fa24c4718f
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319746"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91876520"
 ---
-# <a name="migrate-a-web-app-from-bing-maps"></a>Migrar uma aplicação web a partir de Bing Maps
+# <a name="tutorial---migrate-a-web-app-from-bing-maps"></a>Tutorial - Migrar uma aplicação web de Bing Maps
 
 As aplicações web que usam bing Maps usam frequentemente o Bing Maps V8 JavaScript SDK. O Azure Maps Web SDK é o SDK baseado em Azure adequado para migrar. O Azure Maps Web SDK permite personalizar mapas interativos com o seu próprio conteúdo e imagens para exibição nas suas aplicações web ou móveis. Este controlo utiliza o WebGL, permitindo-lhe compor grandes conjuntos de dados com elevado desempenho. Desenvolva-se com este SDK utilizando JavaScript ou TypeScript.
 
@@ -59,7 +59,7 @@ A tabela que se segue lista as principais funcionalidades da API no Bing Maps V8
 | Imagens de rua       | Planeado                                                                                |
 | Suporte GeoJSON          | ✓                                                                                      |
 | Suporte GeoXML           | ✓                                                                                      |
-| Suporte de texto bem conhecido  | ✓                                                                                      |
+| suporte de texto Well-Known  | ✓                                                                                      |
 | Estilos de mapa personalizados        | Parcial                                                                                |
 
 O Azure Maps também tem muitos módulos de código aberto adicionais [para a web SDK](open-source-projects.md#open-web-sdk-modules) que ampliam as suas capacidades.
@@ -932,7 +932,7 @@ No Azure Maps, os dados são adicionados e geridos por uma fonte de dados. As ca
 
 Quando o agrupamento estiver ativado, a fonte de dados enviará pontos de dados agrupados e não agrupados para camadas para renderização. A fonte de dados é capaz de agrupar centenas de milhares de pontos de dados. Um ponto de dados agrupado tem as seguintes propriedades:
 
-| Nome da propriedade               | Tipo    | Description                                    |
+| Nome da propriedade               | Tipo    | Descrição                                    |
 |-----------------------------|---------|------------------------------------------------|
 | `cluster`                   | boolean | Indica se a característica representa um cluster.     |
 | `cluster_id`                | string  | Um ID único para o cluster que pode ser usado com as `DataSource` `getClusterExpansionZoom` `getClusterChildren` classes, e `getClusterLeaves` funções. |
@@ -941,7 +941,7 @@ Quando o agrupamento estiver ativado, a fonte de dados enviará pontos de dados 
 
 A `DataSource` classe tem a seguinte função de ajudante para aceder a informações adicionais sobre um cluster utilizando o `cluster_id` .
 
-| Função       | Tipo de retorno        | Description     |
+| Função       | Tipo de retorno        | Descrição     |
 |----------------|--------------------|-----------------|
 | `getClusterChildren(clusterId: number)`                              | `Promise<Feature<Geometry, any> | Shape>` | Recupera as crianças do aglomerado dado no próximo nível de zoom. Estas crianças podem ser uma combinação de formas e sub-agrupamentos. Os sub-clusters serão funcionalidades com propriedades correspondentes às propriedades do cluster. |
 | `getClusterExpansionZoom(clusterId: number)`                         | `Promise<number>`                            | Calcula um nível de zoom que o cluster começará a expandir-se ou a separar-se.    |
@@ -1409,7 +1409,7 @@ No Azure Maps, as imagens georreferenciadas podem ser sobrepostas usando a `atla
 
 ### <a name="add-kml-data-to-the-map"></a>Adicione dados KML ao mapa
 
-Tanto os mapas Azure como os de Bing podem importar e renderizar dados de KML, KMZ, GeoRSS, GeoJSON e Bem Conhecido Texto (WKT) no mapa. O Azure Maps também suporta GPX, GML, ficheiros de CSV espaciais, Serviços de Mapeamento Web (WMS), Serviços de Mapeamento Web (WMTS) e Serviços de Funcionalidade Web (WFS).
+Tanto os mapas Azure como os de Bing podem importar e renderizar dados de KML, KMZ, GeoRSS, GeoJSON e Well-Known Text (WKT) no mapa. O Azure Maps também suporta GPX, GML, ficheiros de CSV espaciais, serviços Web-Mapping (WMS), Web-Mapping Serviços de Azulejos (WMTS) e Serviços de Funcionalidade Web (WFS).
 
 **Antes: Bing Maps**
 

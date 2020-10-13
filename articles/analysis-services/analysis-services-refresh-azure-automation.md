@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: chlound
 ms.openlocfilehash: 61679e1ee3843ed866ef12138a0edeff8877b1e6
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448601"
 ---
 # <a name="refresh-with-azure-automation"></a>Atualizar com a Automatização do Azure
@@ -104,7 +104,7 @@ Isto pode ser configurado da seguinte forma:
 
     ![Calendário de configuração](./media/analysis-services-refresh-azure-automation/15.png)
 
-3. Clique em **Create** (Criar).
+3. Clique em **Criar**.
 
 4. Preencha os parâmetros para o horário. Estes serão utilizados sempre que o Runbook acionar. O parâmetro **WEBHOOKDATA** deve ficar em branco quando funciona através de um horário.
 
@@ -161,7 +161,7 @@ Exemplo JSON corpo:
 
 Estes parâmetros são definidos no script powerShell do runbook.  Quando a atividade web é executada, a carga útil JSON passada é WEBHOOKDATA.
 
-Isto é deseralizado e armazenado como parâmetros PowerShell, que são depois utilizados pelo comando Invoke-ProcesASDatabase PowerShell.
+Isto é deseralizado e armazenado como parâmetros PowerShell, que são então usados pelo comando powerShell Invoke-ProcesASDatabase.
 
 ![Webhook deserializado](./media/analysis-services-refresh-azure-automation/20.png)
 
@@ -223,7 +223,7 @@ else
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Amostras](analysis-services-samples.md)  
 [API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)
