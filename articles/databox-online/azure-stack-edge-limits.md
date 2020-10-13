@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/28/2020
+ms.date: 10/12/2020
 ms.author: alkohli
-ms.openlocfilehash: 5f3c39ce7334145d3ffc1d54badb1f7b766da70f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1bb5662b48765c08ec58d1f7fa9d341de4937bc
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90904446"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91992760"
 ---
 # <a name="azure-stack-edge-pro-limits"></a>Limites do Azure Stack Edge Pro
 
@@ -27,12 +27,16 @@ Considere estes limites à medida que implementa e opera a sua solução Microso
 
 A tabela seguinte descreve os limites para o dispositivo Azure Stack Edge Pro. 
 
-| Descrição | Valor |
+A tabela seguinte descreve os limites para o dispositivo Azure Stack Edge.
+
+| Description | Valor |
 |---|---|
-|N.º de ficheiros por dispositivo |100 milhões |
-|N.º de ações por dispositivo |24 |
-|N.º de ações por contentor |1 |
+|Não. de ficheiros por dispositivo |100 milhões |
+|Não. de ações por contentor |1 |
+|Máximo não. de pontos finais de ações e pontos finais DE REST por dispositivo| 24 |
+|Máximo não. de contas de armazenamento hierárquico por dispositivo| 24|
 |Tamanho máximo do ficheiro escrito para uma partilha| 5 TB |
+|Número máximo de grupos de recursos por dispositivo| 800 |
 
 ## <a name="azure-storage-limits"></a>Limites de armazenamento Azure
 

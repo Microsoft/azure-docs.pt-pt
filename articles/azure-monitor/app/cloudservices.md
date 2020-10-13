@@ -4,12 +4,12 @@ description: Monitorizar as funções Web e de trabalho eficazmente com o Applic
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 09/05/2018
-ms.openlocfilehash: 676d3543cbcbf86feb67cad4bd2b9709c2b81437
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cae2e4e1d5b5e199e772c5263a46d82289f5d6ac
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91759378"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91992841"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Insights de Aplicação para serviços em nuvem Azure
 [O Application Insights][start] pode monitorizar [as aplicações do serviço de cloud Azure](https://azure.microsoft.com/services/cloud-services/) para disponibilidade, desempenho, falhas e utilização, combinando dados de SDKs app Insights com dados de [Diagnóstico Azure](../platform/diagnostics-extension-overview.md) dos seus serviços na nuvem. Com o feedback que recebe relativamente ao desempenho e à eficácia da sua aplicação no terreno, pode fazer escolhas informadas sobre o rumo do design em cada ciclo de vida do desenvolvimento.
@@ -67,7 +67,7 @@ Para evitar esta situação, crie recursos separados para cada configuração de
 
 Para enviar a telemetria para os recursos apropriados, pode configurar o Application Insights SDK para que ele apanhe uma chave de instrumentação diferente, dependendo da configuração de construção. 
 
-Aprenda a [definir dinamicamente a chave de instrumentação](https://docs.microsoft.com/azure/azure-monitor/app/separate-resources#dynamic-ikey) para diferentes fases. 
+Aprenda a [definir dinamicamente a chave de instrumentação](./separate-resources.md#dynamic-ikey) para diferentes fases. 
 
 ## <a name="create-an-application-insights-resource-for-each-role"></a>Criar um recurso do Application Insights para cada função
 
@@ -290,4 +290,3 @@ Compilou para .NET 4.6? .NET 4.6 não é suportado automaticamente em funções 
 [qna]: ../faq.md
 [redfield]: ./monitor-performance-live-website-now.md
 [start]: ./app-insights-overview.md
-

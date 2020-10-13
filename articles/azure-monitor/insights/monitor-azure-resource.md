@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 70ab387018fc54b4dad9ee911d4c7557e1e7805c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3a8e8b908c9d278654bfe992474811d6a9ddb86
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030349"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993718"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Monitorizar os recursos do Azure com o Azure Monitor
 Quando você tem aplicações críticas e processos de negócio contando com recursos Azure, você quer monitorizar esses recursos para sua disponibilidade, desempenho e funcionamento. Este artigo descreve os dados de monitorização gerados pelos recursos da Azure e como pode utilizar as funcionalidades do Azure Monitor para analisar e alertar sobre estes dados.
@@ -80,7 +80,7 @@ As definições de diagnóstico definem onde devem ser enviados registos de recu
 - [Os centros de eventos](../platform/resource-logs.md#send-to-azure-event-hubs) para transmitir dados para sistemas externos, tais como SIEMs de terceiros e outras soluções de análise de registo. 
 - [Conta de armazenamento Azure](../platform/resource-logs.md#send-to-azure-storage) que é útil para auditoria, análise estática ou backup.
 
-Siga o procedimento na [configuração de diagnóstico para recolher registos e métricas da plataforma em Azure](../platform/diagnostic-settings.md) para criar e gerir definições de diagnóstico através do portal Azure. Consulte [Criar a definição de diagnóstico em Azure utilizando um modelo de Gestor de Recursos](../platform/diagnostic-settings-template.md) para defini-los num modelo e permitir uma monitorização completa de um recurso quando este for criado.
+Siga o procedimento na [configuração de diagnóstico para recolher registos e métricas da plataforma em Azure](../platform/diagnostic-settings.md) para criar e gerir definições de diagnóstico através do portal Azure. Consulte [Criar a definição de diagnóstico em Azure utilizando um modelo de Gestor de Recursos](../samples/resource-manager-diagnostic-settings.md) para defini-los num modelo e permitir uma monitorização completa de um recurso quando este for criado.
 
 
 ## <a name="monitoring-in-the-azure-portal"></a>Monitorização no portal Azure
@@ -160,5 +160,4 @@ Utilize **alertas** do menu de um recurso para visualizar alertas e gerir as reg
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Consulte [serviços, esquemas e categorias de Registos de Recursos Azure](../platform/resource-logs-schema.md) para obter detalhes de registos de recursos para diferentes serviços Azure.  
-
+* Consulte [serviços, esquemas e categorias de Registos de Recursos Azure](../platform/resource-logs-schema.md) para obter detalhes de registos de recursos para diferentes serviços Azure.

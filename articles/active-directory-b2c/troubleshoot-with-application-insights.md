@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 11/04/2019
+ms.date: 10/12/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9b5bc3f87296ea1af5de28178df6d8f27c965476
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddc0dc433a5d8c09c692e6304647fb391694e8c8
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87116073"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993161"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Recolher registos B2C do Diretório Ativo Azure com Insights de Aplicação
 
@@ -89,12 +89,12 @@ Se ainda não tiver um, crie uma instância de Application Insights na sua subsc
 Há um curto atraso, normalmente menos de cinco minutos, antes de poder ver novos registos em Application Insights.
 
 1. Abra o recurso Application Insights que criou no [portal Azure](https://portal.azure.com).
-1. No menu **Overview,** selecione **Analytics**.
+1. Na página **'Vista Geral',** selecione **Registos**.
 1. Abra um novo separador em Application Insights.
 
 Aqui está uma lista de consultas que pode usar para ver os registos:
 
-| Consulta | Descrição |
+| Consulta | Description |
 |---------------------|--------------------|
 `traces` | Veja todos os registos gerados por Azure AD B2C |
 `traces | where timestamp > ago(1d)` | Veja todos os registos gerados pela Azure AD B2C para o último dia

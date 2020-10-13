@@ -1,25 +1,18 @@
 ---
 title: Configurar IBM Db2 HADR em máquinas virtuais Azure (VMs) Microsoft Docs
 description: Estabelecer uma elevada disponibilidade de IBM Db2 LUW em máquinas virtuais Azure (VMs).
-services: virtual-machines-linux
-documentationcenter: ''
 author: msjuergent
-manager: patfilot
-editor: ''
-tags: azure-resource-manager
-keywords: SAP
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 03/06/2020
 ms.author: juergent
-ms.openlocfilehash: 7d453fba37e62e8528ae7b4ea86d1604973b84a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.reviewer: cynthn
+ms.openlocfilehash: 17df60cd039601d3f8036125c5c0098a8000667c
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87052001"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993305"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-suse-linux-enterprise-server-with-pacemaker"></a>Alta disponibilidade de IBM Db2 LUW em VMs Azure no SUSE Linux Enterprise Server com Pacemaker
 
@@ -33,7 +26,7 @@ As versões IBM Db2 suportadas são 10.5 e posteriormente, como documentado na n
 
 Antes de iniciar uma instalação, consulte as seguintes notas e documentação SAP:
 
-| Nota SAP | Descrição |
+| Nota SAP | Description |
 | --- | --- |
 | [1928533] | Aplicações SAP no Azure: Produtos suportados e tipos de VM Azure |
 | [2015553] | SAP on Azure: Pré-requisitos de apoio |
@@ -107,7 +100,7 @@ Complete o processo de planeamento antes de executar a implementação. O planea
 | Nome de anfitrião virtual e IP virtual para base de dados IBM Db2| O ip virtual ou o nome do anfitrião que é usado para a ligação de servidores de aplicações SAP. **db-virt-hostname,** **db-virt-ip**. |
 | Esgrima azul | Esgrima azul ou esgrima SBD (altamente recomendado). Método para evitar situações cerebrais divididas. |
 | SBD VM | Tamanho da máquina virtual SBD, armazenamento, rede. |
-| Balanceador de Carga do Azure | Utilização de Porta-sonda Básica ou Padrão (recomendada), porta-sonda para base de dados Db2 (nossa recomendação 62500) **porta-sonda**. |
+| Azure Load Balancer | Utilização de Porta-sonda Básica ou Padrão (recomendada), porta-sonda para base de dados Db2 (nossa recomendação 62500) **porta-sonda**. |
 | Resolução de nomes| Como funciona a resolução de nomes no ambiente. O serviço DNS é altamente recomendado. O ficheiro de anfitriões locais pode ser usado. |
     
 Para obter mais informações sobre o Pacemaker Linux em Azure, consulte [Configurar o Pacemaker no SUSE Linux Enterprise Server em Azure](./high-availability-guide-suse-pacemaker.md).

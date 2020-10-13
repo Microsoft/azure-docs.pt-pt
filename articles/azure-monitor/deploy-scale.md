@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/08/2020
-ms.openlocfilehash: 4ec7cd2b0f573a9a74f82546da2367edcf721539
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2f2272363cbc26895b061fe7b6263ed2a29fbab
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441461"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993246"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Implementar monitor de Azure em escala usando a política Azure
 Enquanto algumas funcionalidades do Azure Monitor são configuradas uma ou um número limitado de vezes, outras devem ser repetidas para cada recurso que deseja monitorizar. Este artigo descreve métodos para usar a Política Azure para implementar o Azure Monitor em escala para garantir que a monitorização é configurada de forma consistente e precisa para todos os seus recursos Azure.
@@ -33,7 +33,7 @@ A Política Azure consiste nos objetos da tabela seguinte. Consulte [os objetos 
 | Atribuição | Uma definição ou iniciativa política não faz efeito até que seja atribuída a um âmbito. Por exemplo, atribuir uma política a um grupo de recursos para aplicá-la a todos os recursos criados nesse recurso, ou aplicá-la a uma subscrição para aplicá-la a todos os recursos dessa subscrição.  Para mais detalhes, consulte [a estrutura de atribuição da Política Azure.](../governance/policy/concepts/assignment-structure.md) |
 
 ## <a name="built-in-policy-definitions-for-azure-monitor"></a>Definições políticas incorporadas para o Azure Monitor
-A Política Azure inclui várias definições pré-construídas relacionadas com o Azure Monitor. Pode atribuir estas definições de política à subscrição existente ou usá-las como base para criar as suas próprias definições personalizadas. Para obter uma lista completa da política incorporada na categoria **Monitor,** consulte as [definições políticas incorporadas da Azure Policy para o Azure Monitor](samples/policy-samples.md).
+A Política Azure inclui várias definições pré-construídas relacionadas com o Azure Monitor. Pode atribuir estas definições de política à subscrição existente ou usá-las como base para criar as suas próprias definições personalizadas. Para obter uma lista completa da política incorporada na categoria **Monitor,** consulte as [definições políticas incorporadas da Azure Policy para o Azure Monitor](./samples/policy-reference.md).
 
 Para visualizar as definições de política incorporadas relacionadas com a monitorização, execute o seguinte:
 

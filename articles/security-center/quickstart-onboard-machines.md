@@ -8,18 +8,18 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.openlocfilehash: 818ef3a29724f18cad5924bf1961b74afadfdb75
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: bf31c2d4a90abeec62d785d0294a9c50f3b675ab
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939601"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993611"
 ---
 #  <a name="connect-your-non-azure-machines-to-security-center"></a>Ligue as suas máquinas não-Azure ao Centro de Segurança
 
-O Centro de Segurança pode monitorizar a postura de segurança dos seus computadores não Azure, mas, primeiro, tem de incluir esses recursos. 
+O Centro de Segurança pode monitorizar a postura de segurança dos seus computadores não-Azure, mas primeiro tem de os ligar ao Azure. 
 
-Pode adicionar computadores não-Azure de qualquer das seguintes formas:
+Pode ligar os seus computadores não-Azure de qualquer das seguintes formas:
 
 - Usando arco de Azure **(recomendado)**
 - Das páginas do Security Center no portal Azure (**Começar** e **Inventar)**
@@ -30,7 +30,7 @@ Cada um destes é descrito nesta página.
 
 ## <a name="add-non-azure-machines-with-azure-arc"></a>Adicione máquinas não-Azure com Arco Azure
 
-A utilização do Arco azul é a forma preferida de adicionar as suas máquinas não-Azure ao Centro de Segurança Azure.
+Azure Arc é a forma preferida de adicionar as suas máquinas não-Azure ao Centro de Segurança Azure.
 
 Uma máquina com Azure Arc ativada, torna-se um recurso Azure e aparece no Centro de Segurança com recomendações como os seus outros recursos Azure. 
 
@@ -50,7 +50,7 @@ Saiba mais sobre [o Arco Azure.](../azure-arc/servers/overview.md)
 
 ::: zone pivot="azure-portal"
 
-## <a name="add-non-azure-machines-from-security-centers-portal-pages"></a>Adicione máquinas não-Azure das páginas do portal do Security Center
+## <a name="add-non-azure-machines-from-the-azure-portal"></a>Adicione máquinas não-Azure do portal Azure
 
 1. A partir do menu do Security Center, abra a página **'Iniciar'.**
 1. Selecione o separador **Introdução**.

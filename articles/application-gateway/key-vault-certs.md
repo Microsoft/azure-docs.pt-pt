@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: victorh
-ms.openlocfilehash: c1f6cc21c7a45dbc5c7be7e3f3cc46b4ec4e8c39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7c4842494c144f5cd64d46f53f7a99266064680
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87282352"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91993645"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Rescisão de TLS com certificados Key Vault
 
@@ -32,7 +32,7 @@ A integração do Gateway de Aplicação com o Key Vault oferece muitos benefíc
 - Suporte para importar certificados existentes no seu cofre chave. Ou use APIs key vault para criar e gerir novos certificados com qualquer um dos parceiros confiáveis do Key Vault.
 - Suporte para renovação automática de certificados que estão armazenados no seu cofre chave.
 
-O Application Gateway suporta atualmente apenas certificados validados por software. Os certificados validados por hardware (HSM) não são suportados. Após a aplicação Gateway ser configurado para usar certificados Key Vault, as suas instâncias recuperam o certificado do Key Vault e instalam-nos localmente para a rescisão de TLS. Os casos também pesquisam Key Vault em intervalos de 24 horas para recuperar uma versão renovada do certificado, se é que existe. Se for encontrado um certificado atualizado, o certificado TLS/SSL atualmente associado ao ouvinte HTTPS é automaticamente rodado.
+O Application Gateway suporta atualmente apenas certificados validados por software. Os certificados validados por hardware (HSM) não são suportados. Após a aplicação Gateway ser configurado para usar certificados Key Vault, as suas instâncias recuperam o certificado do Key Vault e instalam-nos localmente para a rescisão de TLS. Os casos também pesquisam Key Vault em intervalos de 4 horas para recuperar uma versão renovada do certificado, se é que existe. Se for encontrado um certificado atualizado, o certificado TLS/SSL atualmente associado ao ouvinte HTTPS é automaticamente rodado.
 
 > [!NOTE]
 > O portal Azure só suporta certificados KeyVault, não segredos. O Application Gateway ainda suporta a referência de segredos do KeyVault, mas apenas através de recursos não-Portal como PowerShell, CLI, API, modelos ARM, etc. 

@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f1d4c5b55dd2a24c1fb41540fdc5d3ae26849a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ef10f51f058739b0e545d341b77af4313dd9e97
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91258681"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91992862"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Planear a implementação do Acesso Condicional
 
@@ -30,7 +30,7 @@ O Azure Ative Directy (Azure AD) Conditional Access (CA) analisa sinais como uti
 
 A Microsoft fornece políticas condicionais padrão chamadas [padrão de segurança](../fundamentals/concept-fundamentals-security-defaults.md) que garantem um nível básico de segurança. No entanto, a sua organização pode precisar de mais flexibilidade do que a oferta de incumprimentos de segurança. Pode utilizar o Acesso Condicional para personalizar falhas de segurança com mais granularidade e para configurar novas políticas que satisfaçam os seus requisitos.
 
-## <a name="learn"></a>Saiba mais
+## <a name="learn"></a>Learn
 
 Antes de começar, certifique-se de que compreende como funciona [o Acesso Condicional](overview.md) e quando deve usá-lo.
 
@@ -89,7 +89,7 @@ Considere as suas necessidades organizacionais enquanto determina a estratégia 
 
 ### <a name="engage-the-right-stakeholders"></a>Envolver as partes interessadas certas
 
-Quando os projetos tecnológicos falham, normalmente fazem-no devido a expectativas desajustadas no impacto, resultados e responsabilidades. Para evitar estas armadilhas, [certifique-se de que está a envolver as partes interessadas certas](https://aka.ms/deploymentplans) e que as funções do projeto são claras.
+Quando os projetos tecnológicos falham, normalmente fazem-no devido a expectativas desajustadas no impacto, resultados e responsabilidades. Para evitar estas armadilhas, [certifique-se de que está a envolver as partes interessadas certas](../fundamentals/active-directory-deployment-plans.md) e que as funções do projeto são claras.
 
 ### <a name="plan-communications"></a>Planear as comunicações
 
