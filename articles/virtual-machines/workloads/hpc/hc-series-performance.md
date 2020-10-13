@@ -1,23 +1,18 @@
 ---
 title: Desempenho do tamanho do tamanho da série HC VM
 description: Saiba mais sobre os resultados dos testes de desempenho para tamanhos VM da série HC em Azure.
-services: virtual-machines
-documentationcenter: ''
 author: vermagit
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
 ms.service: virtual-machines
-ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 09/10/2020
 ms.author: amverma
-ms.openlocfilehash: 0d63d9770dacf6a200e8b81e8d47d9f807a8a448
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.reviewer: cynthn
+ms.openlocfilehash: 34d47e6c10692cc212b6e178e3f9658069b96020
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90603447"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91995099"
 ---
 # <a name="hc-series-virtual-machine-sizes"></a>Tamanhos de máquina virtual da série HC
 

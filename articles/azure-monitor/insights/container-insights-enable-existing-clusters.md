@@ -4,12 +4,12 @@ description: Saiba como permitir a monitorização de um cluster Azure Kubernete
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.custom: devx-track-terraform
-ms.openlocfilehash: e3b4bd007ec2f4315ccd7d8581113e116db693ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d283ac43b466140045c8acaaf7ba7bb1e490b835
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90068432"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994511"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Permitir a monitorização do cluster do Serviço Azure Kubernetes (AKS) já implantado
 
@@ -160,7 +160,7 @@ Este método inclui dois modelos JSON. Um modelo especifica a configuração par
 >O modelo precisa de ser implantado no mesmo grupo de recursos que o cluster.
 >
 
-O espaço de trabalho Log Analytics tem de ser criado antes de permitir a monitorização utilizando o Azure PowerShell ou o CLI. Para criar o espaço de trabalho, pode criá-lo através [do Azure Resource Manager,](../platform/template-workspace-configuration.md)através do [PowerShell,](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)ou no [portal Azure](../learn/quick-create-workspace.md).
+O espaço de trabalho Log Analytics tem de ser criado antes de permitir a monitorização utilizando o Azure PowerShell ou o CLI. Para criar o espaço de trabalho, pode criá-lo através [do Azure Resource Manager,](../samples/resource-manager-workspace.md)através do [PowerShell,](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)ou no [portal Azure](../learn/quick-create-workspace.md).
 
 Se não estiver familiarizado com o conceito de implantação de recursos utilizando um modelo, consulte:
 
@@ -383,4 +383,3 @@ Após alguns minutos, o comando completa e devolve informações formatadas com 
 * Se sentir problemas ao tentar embarcar na solução, reveja o [guia de resolução de problemas](container-insights-troubleshoot.md)
 
 * Com a monitorização habilitada a recolher a saúde e a utilização de recursos do seu cluster AKS e cargas de trabalho que os executam, aprenda [a utilizar o](container-insights-analyze.md) Azure Monitor para recipientes.
-

@@ -2,18 +2,17 @@
 title: Desempenho do tamanho vm da série HB
 description: Saiba mais sobre os resultados dos testes de desempenho para tamanhos VM da série HB em Azure.
 author: vermagit
-manager: gwallace
 ms.service: virtual-machines
-ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 09/09/2020
 ms.author: amverma
-ms.openlocfilehash: 34e9ef3ab46f2ce11500aa87db9676635d3e9b4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.reviewer: cynthn
+ms.openlocfilehash: 2267dc23e2f886d87342fc22c3b12a03e8df6a86
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90016287"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994852"
 ---
 # <a name="hb-series-virtual-machine-sizes"></a>Tamanhos de máquina virtual da série HB
 

@@ -1,25 +1,18 @@
 ---
 title: Integre o Microsoft Azure com a Oracle Cloud Infrastructure Microsoft Docs
 description: Conheça as soluções que integram as aplicações da Oracle em execução no Microsoft Azure com bases de dados em Oracle Cloud Infrastructure (OCI).
-services: virtual-machines-linux
-documentationcenter: ''
 author: dbakevlar
-manager: ''
-tags: ''
-ms.assetid: ''
-ms.service: virtual-machines
+ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: kegorman
-ms.custom: ''
-ms.openlocfilehash: c9d8838747c4f7ff195a5451a3c68f5cf891c91f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.reviewer: cynthn
+ms.openlocfilehash: 2e09f92e21743d39cbd132637cc63b27e8cfe944
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978463"
+ms.locfileid: "91996138"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>Soluções de aplicações oracle que integram a Microsoft Azure e a Oracle Cloud Infrastructure
 
@@ -56,7 +49,7 @@ A conectividade entre nuvens cruzadas limita-se às seguintes regiões:
 * Azure West Europe (WestEurope) & OCI Amsterdam (Noroeste da Holanda)
 * Azure Japan East (JapãoEast) & OCI Tokyo (Japão Leste)
 
-## <a name="networking"></a>Rede
+## <a name="networking"></a>Redes
 
 Os clientes empresariais optam frequentemente por diversificar e implementar cargas de trabalho sobre várias nuvens por várias razões de negócio e operacional. Para diversificar, os clientes interligam redes de nuvem usando a internet, IPSec VPN, ou usando a solução de conectividade direta do fornecedor de nuvem através da sua rede no local. A interligação de redes em nuvem pode exigir investimentos significativos em tempo, dinheiro, design, aquisições, instalação, testes e operações. 
 

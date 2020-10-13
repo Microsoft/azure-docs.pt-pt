@@ -1,21 +1,21 @@
 ---
 title: Compreenda os gémeos módulos Azure IoT Hub Microsoft Docs
 description: Developer guide - use gémeos módulos para sincronizar dados de estado e de configuração entre o IoT Hub e os seus dispositivos
-author: ash2017
+author: nehsin
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 06/29/2020
-ms.author: asrastog
+ms.date: 09/29/2020
+ms.author: nehsin
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 81c5d410599edcbbb4e216b630709541be02c9fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e728eaf8335a102e38a3b4b07ab5e504d452294
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323014"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996467"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>Compreender e usar gémeos módulos no IoT Hub
 
@@ -179,7 +179,7 @@ A extremidade traseira da solução funciona no módulo twin utilizando as segui
 
   - Propriedades
 
-    | Nome | Valor |
+    | Name | Valor |
     | --- | --- |
     $content tipo | application/json |
     $iothub-enquestime |  Hora em que a notificação foi enviada |
@@ -241,7 +241,7 @@ Etiquetas, propriedades desejadas e propriedades reportadas são objetos JSON co
 
 * **Teclas**: Todas as teclas em objetos JSON são UTF-8 codificadas, sensíveis a maiísso e até 1 KB de comprimento. Os caracteres permitidos excluem caracteres de controlo UNICODE (segmentos C0 e C1) `.` `$` e, e SP.
 
-* **Valores**: Todos os valores em objetos JSON podem ser dos seguintes tipos JSON: boolean, número, corda, objeto. Não são permitidas matrizes.
+* **Valores**: Todos os valores em objetos JSON podem ser dos seguintes tipos JSON: boolean, número, corda, objeto. As matrizes também são suportadas.
 
     * Os números inteiros podem ter um valor mínimo de -4503599627370496 e um valor máximo de 4503599627370495.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: 12140b71f8ef720a9e48b486a43e683b5766d102
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3f3aad08266337756038dfa6ac6ff0c9afe093c
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439004"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996786"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Utilize controlos de aplicação adaptativos para reduzir as superfícies de ataque das suas máquinas
 
@@ -54,7 +54,7 @@ Ao definir listas de aplicações conhecidas e gerar alertas quando qualquer out
 |Preços:|Requer [Azure Defender para servidores](defender-for-servers-introduction.md)|
 |Máquinas suportadas:|![Sim ](./media/icons/yes-icon.png) Azure e máquinas não-Azure que executam Windows e Linux<br>![Sim ](./media/icons/yes-icon.png) [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) máquinas|
 |Funções e permissões necessárias:|**As** funções de Leitor de Segurança e **Leitor** podem ver grupos e listas de aplicações conhecidas e seguras<br>**As** funções de Administrador de Colaborador e **Segurança** podem editar grupos e listas de aplicações conhecidas e seguras|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 
@@ -149,6 +149,23 @@ Para editar as regras para um grupo de máquinas:
 
 1. Para aplicar as alterações, **selecione Guardar**.
 
+
+## <a name="review-and-edit-a-groups-settings"></a>Reveja e edite as definições de um grupo
+
+1. Para ver os detalhes e configurações do seu grupo, selecione **as definições do Grupo**
+
+    Este painel mostra o nome do grupo (que pode ser modificado), o tipo de SO, a localização e outros detalhes relevantes.
+
+    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="Abertura de controlos de aplicação adaptativa a partir do Painel Azure" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
+
+    > [!IMPORTANT]
+    > A opção **Enforce** nas definições do modo de proteção do tipo de ficheiro está acinzentado em todos os cenários. Não há opções de execução disponíveis neste momento. 
+    >
+    > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="Abertura de controlos de aplicação adaptativa a partir do Painel Azure":::
+
+1. Opcionalmente, modifique o nome do grupo ou os modos de proteção do tipo de ficheiro.
+
+1. **Selecione Aplicar** e **Guardar**.
 
 
 

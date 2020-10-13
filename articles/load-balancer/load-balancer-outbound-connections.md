@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/30/2020
 ms.author: allensu
-ms.openlocfilehash: 6b9f454c75a10644e86931dc86ebd9514e5431d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0fcd0315afcbf38af2b8175deda748522cb335ec
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91649801"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91996856"
 ---
 # <a name="outbound-connections"></a>Ligações de saída
 
@@ -37,7 +37,7 @@ O Azure Load Balancer proporciona conectividade de saída através de diferentes
 | ---------- | ------ | ------------ |
 | Equilibrador de carga pública ou autónomo | [SNAT (Tradução de endereços de rede de origem)](#snat) </br> [PAT (Mascaramento portuário)](#pat) não utilizado. | TCP (Protocolo de Controlo de Transmissão) </br> UDP (Protocolo de Datagrama do Utilizador) </br> ICMP (Protocolo de Mensagem de Controlo de Internet) </br> ESP (Encapsulamento da Carga útil de segurança) |
 
-#### <a name="description"></a>Descrição
+#### <a name="description"></a>Description
 
 O Azure utiliza o IP público atribuído à configuração IP do NIC da instância para todos os fluxos de saída. O caso tem todas as portas efémeras disponíveis. Não importa se o VM é equilibrado ou não. Este cenário tem precedência sobre os outros. 
 
@@ -49,7 +49,7 @@ Um IP público atribuído a um VM é uma relação 1:1 (em vez de 1: muitos) e i
 | ------------ | ------ | ------------ |
 | Balanceador de carga público | Utilização de frontend de balançador de carga para [SNAT](#snat) com [PAT (mascaramento de porta)](#pat).| TCP </br> UDP |
 
-#### <a name="description"></a>Descrição
+#### <a name="description"></a>Description
 
 O recurso do balançador de carga está configurado com uma regra do balançador de carga. Esta regra é usada para criar uma ligação entre o frontend IP público com o pool backend. 
 
@@ -69,7 +69,7 @@ Neste contexto, as portas efémeras utilizadas para o SNAT são chamadas portas 
 | ------------ | ------ | ------------ |
 |Nenhum </br> Balanceador de carga básico | [SNAT](#snat) com [máscara de porto (PAT)](#pat)| TCP </br> UDP | 
 
-#### <a name="description"></a>Descrição
+#### <a name="description"></a>Description
 
 Quando o VM cria um fluxo de saída, o Azure traduz o endereço IP de origem para um endereço IP de origem pública. Este endereço IP público **não é configurável** e não pode ser reservado. Este endereço não conta com o limite de recursos IP públicos da subscrição. 
 
@@ -136,7 +136,7 @@ As regras de saída permitem-lhe controlar:
 - Quais máquinas virtuais devem ser traduzidas para quais endereços IP públicos.
 - Como devem ser dadas portas [SNAT](#snat) de saída.
 - Quais os protocolos para fornecer tradução de saída.
-- Que duração utilizar para o intervalo de tempo de ligação de saída (4-120 minutos).
+- Que duração utilizar para o intervalo de tempo de ligação de saída (4-100 minutos).
 - Se enviar um Reset TCP no tempo limite de marcha lenta
 - Protocolos de transporte de TCP e UDP com uma única regra
 

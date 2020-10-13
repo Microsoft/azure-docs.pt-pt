@@ -1,25 +1,18 @@
 ---
 title: Implementar a Oracle Data Guard numa máquina virtual Azure Linux Microsoft Docs
 description: Rapidamente coloque a Oracle Data Guard a funcionar no seu ambiente Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: dbakevlar
-manager: ''
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.openlocfilehash: 4182b983b976949103d4eae7dbbf6b08bc164c53
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.reviewer: cynthn
+ms.openlocfilehash: b56fc172aa9fa4e88f03f488bdd1ac567708fe91
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979007"
+ms.locfileid: "91996697"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementar a Oracle Data Guard numa máquina virtual Azure Linux 
 

@@ -1,25 +1,18 @@
 ---
 title: Conceber e implementar uma base de dados da Oracle no Azure Microsoft Docs
 description: Desenhe e implemente uma base de dados Oracle no seu ambiente Azure.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: dbakevlar
-manager: ''
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: kegorman
-ms.openlocfilehash: c84d97a86dd1dc912964b78d488c460faa744dd2
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.reviewer: cynthn
+ms.openlocfilehash: 9ccf7ddb44a25ec123f13b5d7b6cdb5354b63778
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977345"
+ms.locfileid: "91996632"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Conceça e implemente uma base de dados oracle em Azure
 

@@ -3,12 +3,12 @@ title: Configure Híbrido Kubernetes clusters com Monitor Azure para contentores
 description: Este artigo descreve como pode configurar o Azure Monitor para contentores para monitorizar os aglomerados de Kubernetes alojados em Azure Stack ou em outro ambiente.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 26846148f3212699cecd6db3318cd2da2d9aa783
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d2522118fddcebcb2ca922ed455011e394fac45
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89398386"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91994447"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configure híbrido Kubernetes clusters com Monitor Azure para contentores
 
@@ -40,7 +40,7 @@ Antes de começar, certifique-se de que tem o seguinte:
 
 - Uma [área de trabalho do Log Analytics](../platform/design-logs-deployment.md).
 
-    O Azure Monitor para contentores suporta um espaço de trabalho Log Analytics nas regiões listadas nos Produtos Azure [por região.](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor) Para criar o seu próprio espaço de trabalho, pode ser criado através do [Azure Resource Manager,](../platform/template-workspace-configuration.md)através do [PowerShell,](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)ou no [portal Azure.](../learn/quick-create-workspace.md)
+    O Azure Monitor para contentores suporta um espaço de trabalho Log Analytics nas regiões listadas nos Produtos Azure [por região.](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor) Para criar o seu próprio espaço de trabalho, pode ser criado através do [Azure Resource Manager,](../samples/resource-manager-workspace.md)através do [PowerShell,](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)ou no [portal Azure.](../learn/quick-create-workspace.md)
 
     >[!NOTE]
     >Não é suportada a monitorização de múltiplos clusters com o mesmo nome de cluster para o mesmo espaço de trabalho Log Analytics. Os nomes dos agrupamentos devem ser únicos.

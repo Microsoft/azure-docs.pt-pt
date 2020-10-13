@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 0a04b893af41f15d0757b781716909535f43239e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8caf136c43f40458634316da4b4002386f1419da
+ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544014"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91997051"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-onit"></a>Tutorial: Azure Ative Directory integração única (SSO) com Onit
 
@@ -132,7 +132,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 2. No menu em cima, clique em **Administração.**
    
-    ![Administration](./media/onit-tutorial/IC791174.png "Administração")
+    ![Screenshot que mostra o menu no topo da página "M S S S O Test" com a ação "Administração" selecionada.](./media/onit-tutorial/IC791174.png "Administração")
 
 3. Clique **em Edit Corporation**.
    
