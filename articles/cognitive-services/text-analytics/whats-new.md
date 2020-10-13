@@ -10,20 +10,20 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: 8f0a40e30cc58a01a66ba808076fe1d42c31c326
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 17c9797935612c8697d30455e28cc91321b84772
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978888"
+ms.locfileid: "91999676"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>O que há de novo na API de Análise de Texto?
 
 A API text Analytics é atualizada numa base contínua. Para se manter atualizado com os recentes desenvolvimentos, este artigo fornece-lhe informações sobre novos lançamentos e funcionalidades.
 
-## <a name="october-2020"></a>outubro de 2020
+## <a name="october-2020"></a>Outubro de 2020
 
-* Suporte hindi para Análise de Sentimento, começando com a versão modelo `2020-04-01` . 
+* Suporte hindi para Análise de Sentimento v3.x, começando com a versão modelo `2020-04-01` . 
 
 ## <a name="september-2020"></a>Setembro de 2020
 
@@ -221,7 +221,7 @@ Apoia o inglês ( ( ( ( japonês ), chinês simplificado ( , chinês tradicional
 
 * [O que é a API de Análise de Texto?](overview.md)  
 * [Cenários de utilizador acionáveis](text-analytics-user-scenarios.md)
-* [Análise de sentimentos](how-tos/text-analytics-how-to-sentiment-analysis.md)
-* [Deteção de idioma](how-tos/text-analytics-how-to-language-detection.md)
+* [Análise de sentimento](how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Deteção linguística](how-tos/text-analytics-how-to-language-detection.md)
 * [Reconhecimento de entidades](how-tos/text-analytics-how-to-entity-linking.md)
-* [Extração de expressões-chave](how-tos/text-analytics-how-to-keyword-extraction.md)
+* [Extração de frase-chave](how-tos/text-analytics-how-to-keyword-extraction.md)

@@ -1,18 +1,18 @@
 ---
 title: Utilize propriedades numa solução Azure IoT Central
 description: Aprenda a usar propriedades só de leitura e writable numa solução Azure IoT Central.
-author: v-krghan
-ms.author: v-krghan
+author: dominicbetts
+ms.author: dobett
 ms.date: 08/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: eb949f6f0895743250ead0276692497432bfeed5
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: a750a98c27fd62288993b2203acc2032ccf39d71
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940570"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999757"
 ---
 # <a name="use-properties-in-an-azure-iot-central-solution"></a>Utilize propriedades numa solução Azure IoT Central
 
@@ -45,7 +45,7 @@ A tabela seguinte mostra as definições de configuração para uma capacidade d
 | Unidade            | Uma unidade para o valor da propriedade, como **mph,** **%** ou ** &deg; C**.                                                                                                                                                              |
 | Unidade de exibição    | Uma unidade de visualização para utilização em painéis e formulários.                                                                                                                                                                                    |
 | Comentário         | Quaisquer comentários sobre a capacidade da propriedade.                                                                                                                                                                                        |
-| Descrição     | Uma descrição da capacidade da propriedade.                                                                                                                                                                                          |
+| Description     | Uma descrição da capacidade da propriedade.                                                                                                                                                                                          |
 
 As propriedades também podem ser definidas numa interface num modelo de dispositivo, como mostrado aqui:
 
@@ -242,7 +242,7 @@ A mensagem de resposta deve incluir os `ac` campos e `av` campos. O campo `ad` �
 * `av` é o número de versão enviado para o dispositivo.
 * `ad` é uma descrição do string de opção.
 
-| Valor | Etiqueta | Descrição |
+| Valor | Etiqueta | Description |
 | ----- | ----- | ----------- |
 | `'ac': 200` | Concluído | A operação de mudança de propriedade foi concluída com sucesso. |
 | `'ac': 202` ou `'ac': 201` | Pendente | A operação de mudança de propriedade está pendente ou em curso. |

@@ -1,20 +1,19 @@
 ---
 title: Implementar a solução de Monitorização Remota localmente - IntelliJ IDE - Azure / Microsoft Docs
 description: Este guia de como fazer mostra-lhe como implantar o acelerador de solução de Monitorização Remota para a sua máquina local, utilizando o IntelliJ para testes e desenvolvimento.
-author: v-krghan
-manager: dominicbetts
+author: dominicbetts
 ms.custom: devx-track-java
-ms.author: v-krghan
+ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: f7554843db247ade1cddff78902430a5d84debe1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 78573cfe00d8e2e7ddcbf705dffdd5530f82c4e0
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87319172"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998601"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Implementar o acelerador de solução de monitorização remota localmente - IntelliJ
 

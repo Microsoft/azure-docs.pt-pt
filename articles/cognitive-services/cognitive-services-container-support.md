@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: aahi
 keywords: no local, Docker, contentor, Kubernetes
-ms.openlocfilehash: ed61760312ad8bada0241b0338c36ab3557e2caa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf0ea6339de1ba6aca93a1a71990515d296f2e3a
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91665417"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999694"
 ---
 # <a name="azure-cognitive-services-containers"></a>Contentores dos Serviços Cognitivos Azure
 
@@ -56,7 +56,7 @@ Os recursos dos Serviços Cognitivos estão disponíveis no [Microsoft Azure.](h
 
 Os recipientes Azure Cognitive Services fornecem o seguinte conjunto de recipientes Docker, cada um dos quais contém um subconjunto de funcionalidades de serviços nos Serviços Cognitivos Azure:
 
-| Serviço | Nível de Preços Suportados | Contentor | Descrição |
+| Serviço | Nível de Preços Suportados | Contentor | Description |
 |--|--|--|--|
 | [Detetor de anomalias][ad-containers] | F0, S0 | **Detetor de Anomalias** [(imagem)](https://hub.docker.com/_/azure-cognitive-services-decision-anomaly-detector)  | A API do Detetor de Anomalias permite-lhe monitorizar e detetar anomalias nos dados da série de tempo com aprendizagem automática.<br>[Pedir acesso][request-access] |
 | [Imagem Digitalizada][cv-containers] | F0, S1 | **Ler** OCR[(imagem)](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read) | O recipiente Read OCR permite extrair texto impresso e manuscrito de imagens e documentos com suporte para formatos de ficheiro JPEG, PNG, BMP, PDF e TIFF. Para mais informações, consulte a documentação da [API de leitura.](./computer-vision/concept-recognizing-text.md)<br>[Pedir acesso][request-access] |
@@ -72,7 +72,7 @@ Os recipientes Azure Cognitive Services fornecem o seguinte conjunto de recipien
 | [Análise de Texto][ta-containers-language] | F0, S | **Deteção de Idiomas** [(imagem)](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409) | Para até 120 línguas, deteta em que língua o texto de entrada está escrito e reporta um código linguístico único para cada documento submetido no pedido. O código de idioma é emparelhado com uma pontuação que indica a força da pontuação. |
 | [Análise de Texto][ta-containers-sentiment] | F0, S | **Análise de Sentimento v3** [(imagem)](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409) | Analisa texto cru para pistas sobre sentimento positivo ou negativo. Esta versão da análise de sentimento devolve rótulos de sentimento (por *exemplo, positivos* ou *negativos)* para cada documento e frase dentro dele. |
 | [Análise de Texto][ta-containers-health] | F0, S | **Análise de texto para a saúde** | Extrair e rotular informações médicas de texto clínico não estruturado. |
-| [Análise Espacial][spa-containers] | S0 | **Análise espacial** | Extrair e rotular informações médicas de texto clínico não estruturado. |
+| [Análise Espacial][spa-containers] | S0 | **Análise espacial** | Analisa o streaming de vídeo em tempo real para entender as relações espaciais entre as pessoas, o seu movimento e interações com objetos em ambientes físicos. |
 
 <!--
 |[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
@@ -81,7 +81,7 @@ Os recipientes Azure Cognitive Services fornecem o seguinte conjunto de recipien
 Além disso, alguns recipientes são suportados em Serviços Cognitivos [**All-In-One oferecendo**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) chaves de recursos. Pode criar um único recurso De Serviços Cognitivos All-In-One e utilizar a mesma chave de faturação através de serviços suportados para os seguintes serviços:
 
 * Imagem Digitalizada
-* Rostos
+* Face
 * LUIS
 * Análise de Texto
 

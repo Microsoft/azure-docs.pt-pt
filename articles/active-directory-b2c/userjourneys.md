@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/15/2020
+ms.date: 10/13/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 296f396f3c2aacdfe32ea2ee800190d0a91d353f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fda57ae152efbb04a793c6acf63465fe8d406a1a
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602171"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998659"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -29,7 +29,7 @@ Para definir as viagens de utilizador suportadas pela política, é adicionado u
 
 O elemento **UserJourneys** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | UserJourney | 1:n | Uma viagem de utilizador que define todas as construções necessárias para um fluxo completo do utilizador. |
 
@@ -41,7 +41,7 @@ O elemento **UserJourney** contém o seguinte atributo:
 
 O elemento **UserJourney** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Passos de Orquestra | 1:n | Uma sequência de orquestração que deve ser seguida para uma transação bem sucedida. Cada viagem de utilizador consiste numa lista ordenada de etapas de orquestração que são executadas em sequência. Se algum passo falhar, a transação falha. |
 
@@ -55,7 +55,7 @@ Para especificar a lista ordenada de etapas de orquestração, um elemento **Orc
 
 O elemento **OrchestrationSteps** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | OrquestraçãoStep | 1:n | Um passo de orquestração ordenado. |
 
@@ -64,13 +64,13 @@ O elemento **OrchestrationStep** contém os seguintes atributos:
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | `Order` | Sim | A ordem dos passos de orquestração. |
-| `Type` | Sim | O tipo de passo de orquestração. Valores possíveis: <ul><li>**SinistrosProviderSelection** - Indica que o passo de orquestração apresenta vários fornecedores de reclamações ao utilizador para selecionar um.</li><li>**CombinedSignInAndSignUp** - Indica que o passo de orquestração apresenta uma página de inscrição de fornecedor social combinada e de inscrição de conta local.</li><li>**ClaimsExchange** - Indica que a etapa de orquestração troca reclamações com um fornecedor de sinistros.</li><li>**GetClaims** - Especifica que o passo de orquestração deve processar os dados de reclamação enviados para Azure AD B2C da parte de relying através da sua `InputClaims` configuração.</li><li>**InvokeSubJourney** - Indica que o passo de orquestração troca reivindicações com uma sub-jornada (em pré-visualização pública).</li><li>**SendClaims** - Indica que o passo de orquestração envia as reivindicações para a parte de gestão com um símbolo emitido por um emitente de reclamações.</li></ul> |
+| `Type` | Yes | O tipo de passo de orquestração. Valores possíveis: <ul><li>**SinistrosProviderSelection** - Indica que o passo de orquestração apresenta vários fornecedores de reclamações ao utilizador para selecionar um.</li><li>**CombinedSignInAndSignUp** - Indica que o passo de orquestração apresenta uma página de inscrição de fornecedor social combinada e de inscrição de conta local.</li><li>**ClaimsExchange** - Indica que a etapa de orquestração troca reclamações com um fornecedor de sinistros.</li><li>**GetClaims** - Especifica que o passo de orquestração deve processar os dados de reclamação enviados para Azure AD B2C da parte de relying através da sua `InputClaims` configuração.</li><li>**InvokeSubJourney** - Indica que o passo de orquestração troca reivindicações com uma [sub-jornada](subjourneys.md) (em pré-visualização pública).</li><li>**SendClaims** - Indica que o passo de orquestração envia as reivindicações para a parte de gestão com um símbolo emitido por um emitente de reclamações.</li></ul> |
 | ConteúdoDefinitionReferenceId | Não | O identificador da [definição](contentdefinitions.md) de conteúdo associado a este passo de orquestração. Normalmente, o identificador de referência de definição de conteúdo é definido no perfil técnico autoafirmado. Mas, há alguns casos em que o Azure AD B2C precisa de mostrar algo sem um perfil técnico. Existem dois exemplos - se o tipo de passo de orquestração for um dos seguintes: `ClaimsProviderSelection` ou  `CombinedSignInAndSignUp` , O Azure AD B2C precisa de mostrar a seleção do fornecedor de identidade sem ter um perfil técnico. |
 | CpimIssuerTechnicalProfileReferenceId | Não | O tipo de passo de orquestração `SendClaims` é. Este imóvel define o identificador de perfil técnico do prestador de sinistros que emite o símbolo para a parte que conta.  Se ausente, não se cria um símbolo do partido. |
 
 O elemento **OrchestrationStep** pode conter os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Condições prévias | 0:n | Uma lista de pré-condições que devem ser satisfeitas para que o passo de orquestração seja executado. |
 | ReivindicaçõesProviderSeleções | 0:n | Uma lista de seleções de fornecedores de sinistros para o passo de orquestração. |
@@ -81,7 +81,7 @@ O elemento **OrchestrationStep** pode conter os seguintes elementos:
 
 O elemento **pré-condições** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Pré-condição | 1:n | Dependendo do perfil técnico que está a ser utilizado, redireciona o cliente de acordo com a seleção do fornecedor de sinistros ou faz uma chamada de servidor para trocar reclamações. |
 
@@ -97,7 +97,7 @@ O **elemento pré-condição** contém os seguintes atributos:
 
 Os **elementos de pré-condição** contêm os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Valor | 1:n | Um ClaimTypeReferenceId a ser questionado. Outro elemento de valor contém o valor a verificar.</li></ul>|
 | Ação | 1:1 | A ação que deve ser executada se o controlo de pré-condição dentro de um passo de orquestração for verdadeiro. Se o valor do valor do `Action` for `SkipThisOrchestrationStep` definido, o associado `OrchestrationStep` não deve ser executado. |
@@ -164,7 +164,7 @@ Um passo de orquestração do tipo `ClaimsProviderSelection` ou pode conter uma 
 
 O elemento **ClaimsProviderSelections** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | ReivindicaçõesProviderSele | 1:n | Fornece a lista de fornecedores de sinistros que podem ser selecionados.|
 
@@ -222,7 +222,7 @@ No seguinte passo de orquestração, o utilizador pode optar por iniciar scontab
 
 O elemento **ClaimsExchanges** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | ReclamaçõesExchange | 1:n | Dependendo do perfil técnico que está a ser utilizado, redireciona o cliente de acordo com a Seleção de Reclamações que foi selecionada, ou faz uma chamada de servidor para trocar reclamações. |
 
@@ -231,13 +231,13 @@ O elemento **ClaimsExchange** contém os seguintes atributos:
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | Id | Sim | Um identificador do passo de troca de reclamações. O identificador é utilizado para fazer referência à troca de sinistros a partir de um passo de seleção do fornecedor de sinistros na apólice. |
-| TécnicaProfileReferenceId | Sim | O identificador do perfil técnico que deve ser executado. |
+| TécnicaProfileReferenceId | Yes | O identificador do perfil técnico que deve ser executado. |
 
 ## <a name="journeylist"></a>Lista de Jornadas
 
 O elemento **JourneyList** contém o seguinte elemento:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Candidato | 1:1 | Uma referência a uma sub-viagem a ser chamada. |
 
@@ -247,4 +247,4 @@ O elemento **Candidato** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| SubJourneyReferenceId | Sim | O identificador da sub-viagem que deve ser executado. |
+| SubJourneyReferenceId | Sim | O identificador da [sub-viagem](subjourneys.md) que deve ser executado. |

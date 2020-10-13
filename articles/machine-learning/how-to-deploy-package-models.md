@@ -9,12 +9,14 @@ ms.author: gopalv
 author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
-ms.openlocfilehash: d5fb2539d79c31de5a5e0196a7a4814c02a84602
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.reviewer: larryfr
+ms.custom: deploy
+ms.openlocfilehash: edaae4f4c06f038d12267e35a2c356af430e1555
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87544599"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998828"
 ---
 # <a name="how-to-package-a-registered-model-with-docker"></a>Como embalar um modelo registado com Docker
 

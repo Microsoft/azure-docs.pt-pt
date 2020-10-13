@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/12/2020
+ms.date: 10/13/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 676b6abb28abf58287bfc9036ca907ae6a1ee192
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 20480a252d7aedfd48a59bc05166f645e02e37e9
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961294"
+ms.locfileid: "91998436"
 ---
 # <a name="json-claims-transformations"></a>JSON reivindica transformações
 
@@ -112,7 +112,7 @@ O exemplo a seguir gera uma cadeia JSON baseada nos valores de reivindicação, 
 </ClaimsTransformation>
 ```
 
-As seguintes alegações de transformação de resultados uma alegação de cadeia JSON que será o corpo do pedido enviado a uma API REST. A estrutura do objeto JSON é definida pelos IDs na notação de pontos dos InputParameters e pelos TransformationClaimTypes dos InputClaims. Números na notação de pontos implicam matrizes. Os valores provêm dos valores do InputClaims e das propriedades "Valor" dos InputParameters.
+As seguintes alegações de transformação de resultados uma alegação de cadeia JSON que será o corpo do pedido enviado a uma API REST. A estrutura do objeto JSON é definida pelos IDs na notação de pontos dos InputParameters e pelos TransformationClaimTypes dos InputClaims. Os valores provêm dos valores do InputClaims e das propriedades "Valor" dos InputParameters.
 
 - Reclamações de entrada:
   - **e-mail**, pedido de transformação tipo  **cliente Entidade.email**: john.s@contoso.com "

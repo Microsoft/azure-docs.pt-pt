@@ -10,12 +10,13 @@ ms.author: cgronlun
 author: cjgronlund
 ms.reviewer: larryfr
 ms.date: 06/11/2020
-ms.openlocfilehash: d9d509f23ca62415035bdda5231033a0c2f830ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: deploy
+ms.openlocfilehash: 5d198a27d7aeca679f1ee17f35d3f4384283f13c
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728731"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998911"
 ---
 # <a name="deploy-a-model-for-use-with-cognitive-search"></a>Implementar um modelo para utilizar com o Cognitive Search
 

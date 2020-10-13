@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python, github-actions-azure
-ms.openlocfilehash: 48482658fdabc3e826b6855c500829a16c166749
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f35a8130c834112961f4542883704c2b8dbd08f
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851123"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999257"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Entrega contínua utilizando a GitHub Action
 
@@ -32,6 +32,18 @@ Para um fluxo de trabalho de Funções Azure, o ficheiro tem três secções:
 > [!NOTE]
 > Não precisa de criar um principal de serviço se decidir utilizar o perfil de publicação para autenticação.
 
+## <a name="downloading-and-using-a-publish-profile-as-deployment-credential-recommended"></a>Descarregar e utilizar um Perfil de Publicação como credencial de implantação (recomendado)
+
+Para descarregar o perfil de publicação da sua aplicação de função:
+
+1. Selecione a página **geral** da aplicação de funções e, em seguida, selecione **Obtenha o perfil de publicação**.
+
+   :::image type="content" source="media/functions-how-to-github-actions/get-publish-profile.png" alt-text="Baixar perfil de publicação":::
+
+1. Guarde e copie o conteúdo do ficheiro de definições de publicação.
+
+## <a name="create-a-service-principal-deprecated"></a>Criar um principal de serviço (precotado)
+=======
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta Azure com uma subscrição ativa. [Criar uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
@@ -44,7 +56,8 @@ Para um fluxo de trabalho de Funções Azure, o ficheiro tem três secções:
 
 A forma recomendada de autenticar com Funções Azure para As Ações GitHub é com um perfil de publicação. Também pode autenticar com um diretor de serviço, mas o processo requer mais passos. 
 
-Guarde a sua credencial de perfil de publicação ou principal de serviço como [um segredo do GitHub](https://docs.github.com/en/actions/reference/encrypted-secrets) para autenticar com a Azure. Vais aceder ao segredo dentro do teu fluxo de trabalho. 
+## <a name="configure-the-github-secret"></a>Configure o segredo do GitHub
+======== Guarde a credencial de perfil de publicação ou o principal de serviço como [segredo do GitHub](https://docs.github.com/en/actions/reference/encrypted-secrets) para autenticar com a Azure. Vais aceder ao segredo dentro do teu fluxo de trabalho. 
 
 # <a name="publish-profile"></a>[Publicar perfil](#tab/publish-profile)
 
@@ -99,7 +112,7 @@ O GitHub pode agora autenticar a sua aplicação de função em Azure.
 
 A configuração do ambiente é feita utilizando uma ação de configuração de publicação específica da linguagem.
 
-|**Idioma**  |**Ação de configuração**  |
+|**Linguagem**  |**Ação de configuração**  |
 |---------|---------|
 |**.NET**     | `actions/setup-dotnet` |
 |**ASP.NET**     | `actions/setup-dotnet` |

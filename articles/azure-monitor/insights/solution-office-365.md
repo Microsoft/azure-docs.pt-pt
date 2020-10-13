@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: 14f7b5546d30d98adf4a14408882c972687a2d71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb20bf4164cb2153f6786dbec04f79453554fa25
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86498802"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999745"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gestão do Office 365 em Azure (Pré-visualização)
 
@@ -104,9 +104,9 @@ ms.locfileid: "86498802"
 > 
 > ###    <a name="q-what-will-happen-on-october-31-do-i-need-to-offboard-beforehand"></a>P: O que vai acontecer no dia 31 de outubro? Preciso de sair de lá antes?
 > 
-> - Não poderá receber dados da solução **Office365.** A solução deixará de estar disponível no Mercado
+> - Não poderá receber dados da solução **Office365.** A solução será removida do seu espaço de trabalho e deixará de estar disponível no Mercado.
 > - Para os clientes do Azure Sentinel, a solução de espaço de trabalho Log Analytics **Office365** será incluída na solução Azure Sentinel **SecurityInsights.**
-> - Se não desacolexar a sua solução manualmente, os seus dados serão desligados automaticamente no dia 31 de outubro.
+> - Se não desacolexar a sua solução manualmente até 31 de outubro, os seus dados serão desligados automaticamente e a tabela **OfficeActivity** será removida. Ainda assim, poderá restaurar a tabela quando ativar o conector Do Office 365 em Azure Sentinel, como explicado abaixo.
 > 
 > ### <a name="q-will-my-data-transfer-to-the-new-solution"></a>P: Os meus dados serão transferidos para a nova solução?
 > Sim. Quando remover a solução **Office 365** do seu espaço de trabalho, os seus dados ficarão temporariamente indisponíveis porque o esquema é removido. Quando ativar o novo conector **do Office 365** no Sentinel, o esquema é restaurado no espaço de trabalho e quaisquer dados já recolhidos ficarão disponíveis. 
@@ -462,7 +462,7 @@ Estes registos são criados em resposta às operações de ficheiros no SharePoi
 
 A tabela seguinte fornece consultas de registo de amostras para registos de atualização recolhidos por esta solução.
 
-| Consulta | Descrição |
+| Consulta | Description |
 | --- | --- |
 |Conte de todas as operações na subscrição do seu Office 365 |OfficeActivity &#124; resumir a contagem() por Operação |
 |Utilização de sites SharePoint|OfficeActivity &#124; onde OfficeWorkload =~ "sharepoint" &#124; resumir a contagem() por SiteUrl \| sortido por Count asc|

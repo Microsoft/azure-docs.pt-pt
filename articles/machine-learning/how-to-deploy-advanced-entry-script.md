@@ -9,12 +9,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: gopalv
-ms.openlocfilehash: 3af681f561bc190ae7c0354afb7fc3591fa82b5c
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.reviewer: larryfr
+ms.custom: deploy
+ms.openlocfilehash: 3bd4953812ec88f28ac16956a85c95afc5bb8a38
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940077"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91999218"
 ---
 # <a name="advanced-entry-script-authoring"></a>Criação de um script de entrada avançado
 

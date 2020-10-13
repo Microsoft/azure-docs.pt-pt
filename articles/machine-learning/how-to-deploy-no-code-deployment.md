@@ -9,12 +9,14 @@ ms.author: gopalv
 author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9d6e234e1f4c8ac5199b92a09eb12bf7aa41b01b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: deploy
+ms.reviewer: larryfr
+ms.openlocfilehash: 32b2afe036b443846199b5e9d74e690859fb581d
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88185490"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998853"
 ---
 # <a name="preview-no-code-model-deployment"></a>(Pré-visualização) Implementação de modelo sem código
 

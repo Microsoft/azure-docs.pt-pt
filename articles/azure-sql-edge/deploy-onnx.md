@@ -8,15 +8,15 @@ ms.technology: machine-learning
 ms.topic: conceptual
 author: dphansen
 ms.author: davidph
-ms.date: 07/14/2020
-ms.openlocfilehash: 5a1e0b12179070dc11e838004c4b27cf04b5396b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/13/2020
+ms.openlocfilehash: 510e9e2a9e90d62996ed6dcfebdd96f77b034f3d
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91298910"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92000153"
 ---
-# <a name="deploy-and-make-predictions-with-an-onnx-model"></a>Implementar e fazer previsões com um modelo ONNX
+# <a name="deploy-and-make-predictions-with-an-onnx-model-and-sql-machine-learning"></a>Implementar e fazer previsões com um modelo ONNX e aprendizagem de máquinas SQL
 
 Neste arranque rápido, aprenderá a treinar um modelo, convertê-lo para ONNX, implantá-lo para [Azure SQL Edge](onnx-overview.md) ou [Azure SQL Managed Instance (pré-visualização)](../azure-sql/managed-instance/machine-learning-services-overview.md)e, em seguida, executar previsão nativa em dados usando o modelo ONNX carregado.
 

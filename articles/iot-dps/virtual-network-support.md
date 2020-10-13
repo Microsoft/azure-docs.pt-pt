@@ -7,12 +7,12 @@ ms.service: iot-dps
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: wesmc
-ms.openlocfilehash: 43d7b3ae906909312a9e9ec4517061a788267a0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d90b18094a26830ee6909251d46837eff95a812a
+ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612783"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91998583"
 ---
 # <a name="azure-iot-hub-device-provisioning-service-dps-support-for-virtual-networks"></a>Suporte do Serviço de Provisionamento de Dispositivos Azure IoT Hub (DPS) para redes virtuais
 
@@ -36,7 +36,7 @@ Por várias razões, os clientes podem querer restringir a conectividade aos rec
 
 * Seguindo padrões de conectividade estabelecidos a nível Azure utilizando [pontos finais privados](../private-link/private-endpoint-overview.md).
 
-As abordagens comuns para restringir a conectividade incluem [regras de filtro IP DPS](./iot-dps-ip-filtering.md) e rede virtual (VNET) com [pontos finais privados](../private-link/private-endpoint-overview.md). Este objetivo deste artigo é descrever a abordagem VNET para DPS utilizando pontos finais privados. 
+As abordagens comuns para restringir a conectividade incluem [regras de filtro IP DPS](./iot-dps-ip-filtering.md) e rede virtual (VNET) com [pontos finais privados](../private-link/private-endpoint-overview.md). O objetivo deste artigo é descrever a abordagem VNET para DPS utilizando pontos finais privados. 
 
 Os dispositivos que operam em redes no local podem utilizar [rede privada virtual (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) ou um espremiamento privado [ExpressRoute](https://azure.microsoft.com/services/expressroute/) para ligar a um VNET em Azure e aceder a recursos DPS através de pontos finais privados. 
 
