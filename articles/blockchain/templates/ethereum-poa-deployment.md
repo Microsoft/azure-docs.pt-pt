@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: devx-track-js
 ms.openlocfilehash: d1d3ad94957e791b2178b6c60d4c7debdec2b391
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91283433"
 ---
 # <a name="deploy-ethereum-proof-of-authority-consortium-solution-template-on-azure"></a>Implementar o modelo de solução de consórcio de prova de autoridade do Ethereum no Azure
@@ -715,7 +715,7 @@ A monitorização é uma característica opcional. Em alguns casos raros em que 
 
 ### <a name="are-public-ip-deployments-compatible-with-private-network-deployments"></a>As implementações ip públicas são compatíveis com implementações de rede privada?
 
-Não. O despresogromento requer comunicação bidirecional, pelo que toda a rede deve ser pública ou privada.
+N.º O despresogromento requer comunicação bidirecional, pelo que toda a rede deve ser pública ou privada.
 
 ### <a name="what-is-the-expected-transaction-throughput-of-proof-of-authority"></a>Qual é o resultado da transação esperada da Prova de Autoridade?
 

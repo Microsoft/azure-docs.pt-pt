@@ -9,10 +9,10 @@ ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
 ms.openlocfilehash: d1655b42b57edaeeaaaada802a248f56e0ba1470
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91801465"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>Parceiros virtuais wan e localizações de hub virtual

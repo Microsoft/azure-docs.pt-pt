@@ -8,10 +8,10 @@ ms.author: mjbrown
 ms.date: 09/17/2020
 ms.custom: contperfq1
 ms.openlocfilehash: f8bcadf25ac8e001657f2be012f99ddb507e672d
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91445180"
 ---
 # <a name="command-line-and-powershell-reference-for-azure-cosmos-db-emulator"></a>Linha de comando e referência PowerShell para emulador DB Azure Cosmos
@@ -145,7 +145,7 @@ Para alterar o número de contentores disponíveis no Emulador Azure Cosmos, exe
 
 1. Inicie o emulador com o sinalizador de PartitionCount, ao definir um valor <= 250. Por exemplo: `C:\Program Files\Azure Cosmos DB Emulator> Microsoft.Azure.Cosmos.Emulator.exe /PartitionCount=100`.
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Exporte os certificados emuladores Azure Cosmos para uso com aplicativos Java, Python e Node.js](local-emulator-export-ssl-certificates.md)
 * [Problemas de depurar com o emulador](troubleshoot-local-emulator.md)

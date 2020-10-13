@@ -12,10 +12,10 @@ ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
 ms.openlocfilehash: 483c29d4aed4102440b09f26fe6778709836145f
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91629833"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Suporte linguístico e de voz para o serviço de fala
@@ -36,7 +36,7 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Região  | Linguagem                          | Personalizações                                    |
+| Região  | Idioma                          | Personalizações                                    |
 |---------|-----------------------------------|---------------------------------------------------|
 | `ar-AE` | Árabe (Emirados Árabes Unidos)     | Modelo de linguagem                                    |
 | `ar-BH` | Árabe (Bahrein), padrão moderno | Modelo de linguagem                                    |
@@ -136,7 +136,7 @@ As vozes neurais podem ser usadas para tornar as interações com chatbots e ass
 
 Para obter mais informações sobre a disponibilidade regional, consulte [as regiões.](regions.md#standard-and-neural-voices)
 
-|Região  | Linguagem            | Sexo | Nome de voz | Suporte de estilo |
+|Região  | Idioma            | Sexo | Nome de voz | Suporte de estilo |
 |--|--|--|--|--|
 | `ar-EG` | Árabe (Egito) | Mulheres | `ar-EG-SalmaNeural` | Geral |
 | `ar-SA` | Árabe (Arábia Saudita) | Mulheres | `ar-SA-ZariyahNeural` | Geral |
@@ -220,7 +220,7 @@ Para aprender como pode configurar e ajustar vozes neurais, consulte a [linguage
 
 Mais de 75 vozes padrão estão disponíveis em mais de 45 línguas e locais, que permitem converter texto em discurso sintetizado. Para obter mais informações sobre a disponibilidade regional, consulte [as regiões.](regions.md#standard-and-neural-voices)
 
-| Região | Linguagem | Sexo | Nome de voz |
+| Região | Idioma | Sexo | Nome de voz |
 |--|--|--|--|
 | `ar-EG` | Árabe (árabe) | Mulheres | `ar-EG-Hoda` |
 | `ar-SA` | Árabe (Arábia Saudita) | Homens | `ar-SA-Naayf` |
@@ -311,7 +311,7 @@ Mais de 75 vozes padrão estão disponíveis em mais de 45 línguas e locais, qu
 A personalização de voz está disponível `de-DE` para, `en-GB` , , , , , , e `en-IN` `en-US` `es-MX` `fr-FR` `it-IT` `pt-BR` `zh-CN` . Selecione o local certo que corresponda aos dados de treino que tem para treinar um modelo de voz personalizado. Por exemplo, se os dados de gravação que tem forem falados em inglês com sotaque britânico, selecione `en-GB` .
 
 > [!NOTE]
-> Não apoiamos a formação de modelos bilingues em Custom Voice, exceto o bi-lingual chinês-inglês. Selecione "bilingue chinês-inglês" se quiser treinar uma voz chinesa que também sabe falar inglês. A formação de voz em todos os locais começa com um conjunto de dados de mais de 2.000 expressões, exceto para o `en-US` e onde você pode começar com qualquer tamanho de `zh-CN` dados de treino.
+> Não apoiamos a formação de modelos bilingues em Voz Personalizada, exceto para o Chinese-English bi-lingual. Selecione "bilingue chinês-inglês" se quiser treinar uma voz chinesa que também sabe falar inglês. A formação de voz em todos os locais começa com um conjunto de dados de mais de 2.000 expressões, exceto para o `en-US` e onde você pode começar com qualquer tamanho de `zh-CN` dados de treino.
 
 ## <a name="speech-translation"></a>Tradução de voz
 
@@ -397,7 +397,7 @@ A API **de Tradução de Discursos** apoia diferentes línguas para a tradução
 
 Consulte a tabela seguinte para as línguas suportadas para as várias APIs de reconhecimento de altifalantes. Consulte a [visão geral](speaker-recognition-overview.md) para obter informações adicionais sobre o reconhecimento de colunas.
 
-| Região | Linguagem | Verificação dependente de texto | Verificação independente de texto | Identificação independente de texto |
+| Região | Idioma | Verificação dependente de texto | Verificação independente de texto | Identificação independente de texto |
 |----|----|----|----|----|
 | pt-PT | Inglês (E.U.A.) | sim | sim | sim |
 |zh-CN    |Chinês (mandarim, simplificado)|    n/a|    sim|    sim|

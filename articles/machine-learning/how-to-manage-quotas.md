@@ -12,10 +12,10 @@ ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4
 ms.openlocfilehash: 4e5634633aacb56e7c7744b3afdb3aec0fe2b70f
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91629595"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Gerir & aumentar quotas de recursos com a Azure Machine Learning
@@ -69,11 +69,11 @@ Recursos disponíveis:
 | Processos máximos de MPI da GPU por nó | 1-4 |
 | Trabalhadores máximos da GPU por nó | 1-4 |
 | Vida útil máxima | 21 dias<sup>1</sup> |
-| Vida útil máxima num nó de baixa prioridade | 7 dias<sup>2</sup> |
+| Vida útil máxima num nó Low-Priority | 7 dias<sup>2</sup> |
 | Servidores de parâmetros máximos por nó | 1 |
 
 <sup>1</sup> A duração máxima refere-se ao tempo que uma corrida começa e quando termina. As execuções concluídas persistem indefinidamente; os dados relativos a execuções não concluídas no prazo máximo de vida não são acessíveis.
-<sup>2</sup> Os postos de trabalho num nó de baixa prioridade podem ser antecipados sempre que houver uma restrição de capacidade. Recomendamos que implemente o checkpointing no seu trabalho.
+<sup>2</sup> Os postos de trabalho num nó Low-Priority podem ser antecipados sempre que houver uma restrição de capacidade. Recomendamos que implemente o checkpointing no seu trabalho.
 
 ### <a name="azure-machine-learning-pipelines"></a>Gasodutos de aprendizagem de máquinas Azure
 Para [os gasodutos de aprendizagem automática Azure,](concept-ml-pipelines.md)existe um limite de quota no número de etapas de um oleoduto e no número de percursos de gasodutos publicados por região por cada região numa subscrição.

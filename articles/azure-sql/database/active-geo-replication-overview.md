@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
 ms.openlocfilehash: 33ad1deff4d543564db1b52bce986b11758042c9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91445063"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Criação e utilização de geo-replicação ativa - Base de Dados Azure SQL
@@ -293,7 +293,7 @@ Como discutido anteriormente, a geo-replicação ativa também pode ser gerida p
 | [Eliminar ligação de replicação](https://docs.microsoft.com/rest/api/sql/replicationlinks/delete) | Elimina uma ligação de replicação de base de dados. Não é possível fazê-lo durante o fracasso. |
 |  | |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para os scripts de amostra, consulte:
   - [Configurar e efetuar a ativação pós-falha de uma base de dados através de georreplicação ativa](scripts/setup-geodr-and-failover-database-powershell.md)

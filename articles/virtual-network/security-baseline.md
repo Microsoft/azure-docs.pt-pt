@@ -8,10 +8,10 @@ ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: c34ace92fffee3c135cb05e07f06d885751bbce5
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91629748"
 ---
 # <a name="azure-security-baseline-for-virtual-network"></a>Linha de segurança Azure para Rede Virtual
@@ -714,13 +714,13 @@ Conceder ou negar permissões a utilizadores específicos, grupos de segurança 
 
 Utilize o controlo de acesso baseado em funções Azure (Azure RBAC) para proteger as chaves geridas pelo cliente.   
 
-Ativar a proteção soft-Delete e purgar no Cofre de Chaves para proteger as chaves contra a eliminação acidental ou maliciosa.  
+Ativar Soft-Delete e limpar a proteção no Cofre de Chaves para proteger as chaves contra a eliminação acidental ou maliciosa.  
 
 - [Como armazenar código em Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
 - [Sobre permissões e grupos em Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
-- [Como permitir a proteção soft-delete e purgar no cofre de chaves](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal) 
+- [Como permitir a proteção de Soft-Delete e purga no Cofre de Chaves](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal) 
 
 - [Eliminação de forma recuperável dos blobs do Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 

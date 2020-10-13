@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: tomfitz
 ms.openlocfilehash: 3dbb88d53a961e277e102d7eec580309951c73b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75651218"
 ---
 # <a name="work-with-resources-in-the-managed-resource-group-for-azure-managed-application"></a>Trabalhar com recursos no grupo de recursos geridos para aplicação gerida a Azure
@@ -89,7 +89,7 @@ A atribuição de apólices aparece no portal.
 
 ![Ver atribuição de políticas](./media/update-managed-resources/assignment.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma introdução às aplicações geridas, veja [Descrição geral das aplicações geridas](overview.md).
 * Para projetos de amostragem, consulte [projetos de amostra para aplicações geridas pela Azure.](sample-projects.md)

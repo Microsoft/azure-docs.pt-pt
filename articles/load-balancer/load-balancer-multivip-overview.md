@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
 ms.openlocfilehash: 2e27b168087966701fb53cc8df19d264861257d6
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448097"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Vários frontends para Azure Load Balancer
@@ -167,6 +167,6 @@ O tipo de regra IP flutuante é a base de vários padrões de configuração do 
 * Os endereços IP públicos têm um efeito na faturação. Para mais informações, consulte [os preços do endereço IP](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Aplicam-se limites de subscrição. Para mais informações, consulte [os limites de Serviço](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) para mais detalhes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Reveja as ligações de saída](load-balancer-outbound-connections.md) para entender o impacto de múltiplos frontends no comportamento de ligação de saída.

@@ -17,10 +17,10 @@ ms.author: juliako
 ms.reviewer: cenkdin
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 862385d1117e0a1b5d2220c06885e0fd0ecfa4d7
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90531632"
 ---
 # <a name="creating-filters-with-media-services-net-sdk"></a>Criação de Filtros com Serviços de Mídia .NET SDK

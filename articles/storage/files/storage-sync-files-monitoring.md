@@ -8,10 +8,10 @@ ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 1ef24522f688c5ae1176630a2f370cd7ee7c3cd7
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448029"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorizar o Azure File Sync
@@ -282,7 +282,7 @@ Esta secção fornece alguns alertas de exemplo para Azure File Sync.
 9. Preencha os **detalhes do Alerta** como o nome da regra de **alerta,** **descrição** e **severidade**.
 10. Clique em **Criar regra de alerta**. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)
 - [Considere as definições de firewall e proxy](storage-sync-files-firewall-and-proxy.md)
 - [Implementar o Azure File Sync](storage-sync-files-deployment-guide.md)

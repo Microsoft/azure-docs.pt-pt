@@ -13,10 +13,10 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 03/17/2020
 ms.openlocfilehash: 81d0731f6ea77325b3f33f91bf8d5d1386dab2fb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91283382"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Arquitetura de conectividade do Azure SQL Managed Instance
@@ -111,7 +111,7 @@ Implementar a SQL Managed Instance numa sub-rede dedicada dentro da rede virtual
 
 ### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>Regras de segurança obrigatórias de entrada com configuração de sub-rede ajudada pelo serviço
 
-| Name       |Porta                        |Protocolo|Origem           |Destino|Ação|
+| Nome       |Porta                        |Protocolo|Origem           |Destino|Ação|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |gestão  |9000, 9003, 1438, 1440, 1452|TCP     |SqlManagement    |SUB-REDE MI  |Permitir |
 |            |9000, 9003                  |TCP     |Serra Corpnet       |SUB-REDE MI  |Permitir |
@@ -121,14 +121,14 @@ Implementar a SQL Managed Instance numa sub-rede dedicada dentro da rede virtual
 
 ### <a name="mandatory-outbound-security-rules-with-service-aided-subnet-configuration"></a>Regras de segurança obrigatórias de saída com configuração de sub-rede ajudada pelo serviço
 
-| Name       |Porta          |Protocolo|Origem           |Destino|Ação|
+| Nome       |Porta          |Protocolo|Origem           |Destino|Ação|
 |------------|--------------|--------|-----------------|-----------|------|
 |gestão  |443, 12000    |TCP     |SUB-REDE MI        |AzureCloud |Permitir |
 |mi_subnet   |Qualquer           |Qualquer     |SUB-REDE MI        |SUB-REDE MI  |Permitir |
 
 ### <a name="user-defined-routes-with-service-aided-subnet-configuration"></a>Rotas definidas pelo utilizador com configuração de sub-rede ajudada pelo serviço
 
-|Name|Prefixo de endereço|Próximo salto|
+|Nome|Prefixo de endereço|Próximo salto|
 |----|--------------|-------|
 |sub-rede-para-vnetlocal|SUB-REDE MI|Rede virtual|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|
@@ -331,7 +331,7 @@ Implementar a SQL Managed Instance numa sub-rede dedicada dentro da rede virtual
 
 ### <a name="mandatory-inbound-security-rules"></a>Regras de segurança obrigatórias de entrada
 
-| Name       |Porta                        |Protocolo|Origem           |Destino|Ação|
+| Nome       |Porta                        |Protocolo|Origem           |Destino|Ação|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |gestão  |9000, 9003, 1438, 1440, 1452|TCP     |Qualquer              |SUB-REDE MI  |Permitir |
 |mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE MI        |SUB-REDE MI  |Permitir |
@@ -339,7 +339,7 @@ Implementar a SQL Managed Instance numa sub-rede dedicada dentro da rede virtual
 
 ### <a name="mandatory-outbound-security-rules"></a>Regras de segurança obrigatórias de saída
 
-| Name       |Porta          |Protocolo|Origem           |Destino|Ação|
+| Nome       |Porta          |Protocolo|Origem           |Destino|Ação|
 |------------|--------------|--------|-----------------|-----------|------|
 |gestão  |443, 12000    |TCP     |SUB-REDE MI        |AzureCloud |Permitir |
 |mi_subnet   |Qualquer           |Qualquer     |SUB-REDE MI        |SUB-REDE MI  |Permitir |
@@ -357,7 +357,7 @@ Implementar a SQL Managed Instance numa sub-rede dedicada dentro da rede virtual
 
 ### <a name="user-defined-routes"></a>Rotas definidas pelo utilizador
 
-|Name|Prefixo de endereço|Próximo salto|
+|Nome|Prefixo de endereço|Próximo salto|
 |----|--------------|-------|
 |subnet_to_vnetlocal|SUB-REDE MI|Rede virtual|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|

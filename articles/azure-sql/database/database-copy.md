@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: ''
 ms.date: 07/29/2020
 ms.openlocfilehash: 45544d246f1390271300d5ffa1fff1fdc5d9317f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91443792"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copie uma cópia transaccionalmente consistente de uma base de dados na Base de Dados Azure SQL
@@ -193,7 +193,7 @@ Os seguintes erros podem ser encontrados ao copiar uma base de dados na Base de 
 | 40570 |16 |A cópia da base de dados falhou devido a um erro interno. Por favor, largue a base de dados do alvo e tente de novo mais tarde. |
 | 40571 |16 |A cópia da base de dados falhou devido a um erro interno. Por favor, largue a base de dados do alvo e tente de novo mais tarde. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre logins, consulte [Gerir logins](logins-create-manage.md) e como gerir a segurança da Base de [Dados Azure SQL após a recuperação de desastres.](active-geo-replication-security-configure.md)
 * Para exportar uma base de dados, consulte [exporte a base de dados para um BACPAC.](database-export.md)

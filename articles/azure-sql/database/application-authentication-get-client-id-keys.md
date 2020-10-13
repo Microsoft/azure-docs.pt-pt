@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: d88fa0e096557169a956a2ba33f72448676785e1
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91444675"
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-azure-sql-database-from-code"></a>Obtenha os valores necessários para autenticar uma aplicação para aceder à Base de Dados Azure SQL a partir do código
@@ -100,7 +100,7 @@ Write-Output "_applicationSecret:" $secret
 
 * * *
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 [Criar uma base de dados na Base de Dados Azure SQL com C #](design-first-database-csharp-tutorial.md)  
 [Ligue à Base de Dados Azure SQL utilizando a autenticação do Diretório Ativo Azure](authentication-aad-overview.md)

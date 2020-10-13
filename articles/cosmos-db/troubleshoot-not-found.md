@@ -8,10 +8,10 @@ ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.openlocfilehash: f32a37d5d08e8b20e59455393c70e4e4d288eb11
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91802401"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>Diagnosticar e resolver problemas Azure Cosmos DB não encontrou exceções

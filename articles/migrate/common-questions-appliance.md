@@ -4,10 +4,10 @@ description: Obtenha respostas a perguntas comuns sobre o aparelho Azure Migrate
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.openlocfilehash: 7839c2678152837cc9217e6afe13f7cca36ab4b0
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91630496"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Aparelho Azure Migrate: Questões comuns
@@ -101,7 +101,7 @@ Estes passos descrevem como o aparelho se conecta ao VMware vCenter Server:
 
 ## <a name="can-the-azure-migrate-appliance-connect-to-multiple-vcenter-servers"></a>O aparelho Azure Migrate pode ligar-se a vários servidores vCenter?
 
-Não. Há um mapeamento de um para um entre um [aparelho Azure Migrate](migrate-appliance.md) e vCenter Server. Para descobrir VMs em várias instâncias do VCenter Server, tem de implantar vários aparelhos. 
+N.º Há um mapeamento de um para um entre um [aparelho Azure Migrate](migrate-appliance.md) e vCenter Server. Para descobrir VMs em várias instâncias do VCenter Server, tem de implantar vários aparelhos. 
 
 ## <a name="can-an-azure-migrate-project-have-multiple-appliances"></a>Um projeto Azure Migrate pode ter vários aparelhos?
 
@@ -109,7 +109,7 @@ Um projeto pode ter vários aparelhos ligados a ele. No entanto, um aparelho só
 
 ## <a name="can-the-azure-migrate-appliancereplication-appliance-connect-to-the-same-vcenter"></a>O aparelho Azure Migrate/aparelho de replicação pode ligar-se ao mesmo vCenter?
 
-Yes. Pode adicionar tanto o aparelho Azure Migrate (utilizado para avaliação e migração de VMware sem agente) como o aparelho de replicação (utilizado para a migração baseada em agentes de VMware VMs) ao mesmo servidor vCenter. Mas certifique-se de que não está a montar ambos os aparelhos no mesmo VM e que, atualmente, não está suportado.
+Sim. Pode adicionar tanto o aparelho Azure Migrate (utilizado para avaliação e migração de VMware sem agente) como o aparelho de replicação (utilizado para a migração baseada em agentes de VMware VMs) ao mesmo servidor vCenter. Mas certifique-se de que não está a montar ambos os aparelhos no mesmo VM e que, atualmente, não está suportado.
 
 ## <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>Quantos VMs ou servidores posso descobrir com um aparelho?
 
@@ -131,11 +131,11 @@ Além disso, não é possível reutilizar uma chave de projeto Azure Migrate exi
 
 ## <a name="can-i-set-up-the-appliance-on-an-azure-vm"></a>Posso montar o aparelho num Azure VM?
 
-Não. Atualmente, esta opção não é suportada. 
+N.º Atualmente, esta opção não é suportada. 
 
 ## <a name="can-i-discover-on-an-esxi-host"></a>Posso descobrir num hospedeiro ESXi?
 
-Não. Para descobrir VMware VMs, tem de ter o vCenter Server.
+N.º Para descobrir VMware VMs, tem de ter o vCenter Server.
 
 ## <a name="how-do-i-update-the-appliance"></a>Como atualizei o aparelho?
 
@@ -145,7 +145,7 @@ Apenas o aparelho e os agentes do aparelho são atualizados através destas atua
 
 ## <a name="can-i-check-agent-health"></a>Posso verificar a saúde do agente?
 
-Yes. No portal, vá à página **de saúde do Agente** para o Azure Migrate: Avaliação do Servidor ou Azure Migrate: Ferramenta de migração do servidor. Lá, pode verificar o estado de ligação entre a Azure e os agentes de descoberta e avaliação do aparelho.
+Sim. No portal, vá à página **de saúde do Agente** para o Azure Migrate: Avaliação do Servidor ou Azure Migrate: Ferramenta de migração do servidor. Lá, pode verificar o estado de ligação entre a Azure e os agentes de descoberta e avaliação do aparelho.
 
 ## <a name="next-steps"></a>Passos seguintes
 

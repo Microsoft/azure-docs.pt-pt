@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/04/2019
 ms.openlocfilehash: a4db09c81efcd342d149cb95286aa6ee9cac93a6
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89595789"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Gerir clusters HDInsight com pacote de segurança empresarial
@@ -171,7 +171,7 @@ O Pacote de Segurança Empresarial HDInsight tem as seguintes funções:
 2. A partir do menu esquerdo, selecione **Roles**.
 3. Selecione **Adicionar Utilizador** ou **Adicionar Grupo** para atribuir utilizadores e grupos a diferentes funções.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para configurar um cluster HDInsight com pacote de segurança empresarial, consulte [clusters Configure HDInsight com ESP](apache-domain-joined-configure.md).
 - Para configurar as políticas de Colmeia e executar consultas de Colmeia, consulte [as políticas de colmeia Apache configuradas para clusters HDInsight com ESP.](apache-domain-joined-run-hive.md)

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.openlocfilehash: cb652cfdae0ce785d6a076b8b1592d9f700b3383
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88549981"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>Tutorial: Integração do Diretório Ativo Azure com a Kontiki
@@ -95,7 +95,7 @@ Nesta secção, você configura Azure AD único sign-on com Kontiki no portal Az
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-1. No **set up Single Sign-On com painel SAML,** selecione **Editar** (o ícone do lápis) para abrir o painel **de configuração DE SAML básico.**
+1. Na **configuração single Sign-On com painel SAML,** selecione **Editar** (o ícone do lápis) para abrir o painel **de configuração DE SAML básico.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -106,7 +106,7 @@ Nesta secção, você configura Azure AD único sign-on com Kontiki no portal Az
     > [!NOTE]
     > Contacte a [equipa de suporte do Cliente Kontiki](https://customersupport.kontiki.com/enterprise/contactsupport.html) para obter o valor correto de usar. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-1. Na **configuração de um único sign-on com painel SAML,** na secção **certificado de assinatura SAML,** selecione **Descarregue** ao lado **do Metadados da Federação XML**. Selecione uma opção de descarregamento com base nos seus requisitos. Guarde o certificado no seu computador.
+1. Na **configuração single Sign-On com painel SAML,** na secção certificado de assinatura **SAML,** selecione **Descarregue** ao lado **do Metadadata da Federação XML**. Selecione uma opção de descarregamento com base nos seus requisitos. Guarde o certificado no seu computador.
 
     ![Opção de descarregamento de certificado de metadados XML da Federação](common/metadataxml.png)
 

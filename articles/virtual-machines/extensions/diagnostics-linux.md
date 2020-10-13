@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
 ms.openlocfilehash: a01f5d2d000ef6e177000828500ef2ab0e26c4ca
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448182"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Using Linux Diagnostic Extension to monitor metrics and logs (Utilizar a Extensão de Diagnóstico do Linux para monitorizar métricas e registos)
@@ -202,7 +202,7 @@ Este conjunto de informações de configuração contém informações sensívei
 }
 ```
 
-Name | Valor
+Nome | Valor
 ---- | -----
 storageAccountName | O nome da conta de armazenamento em que os dados são escritos pela extensão.
 armazenamentoAccountEndPoint | (opcional) O ponto final identificando a nuvem em que a conta de armazenamento existe. Se esta definição estiver ausente, o LAD desrescume da nuvem pública Azure, `https://core.windows.net` . Para utilizar uma conta de armazenamento na Alemanha Azure, no Governo Azure ou na Azure China, decidiu esse valor em conformidade.
@@ -461,7 +461,7 @@ Elemento | Valor
 ------- | -----
 espaço de nomes | (opcional) O espaço de nome OMI dentro do qual a consulta deve ser executada. Se não for especificado, o valor padrão é "raiz/scx", implementado pelos [Fornecedores de plataformas cruzadas do System Center](https://github.com/Microsoft/SCXcore).
 consulta | A consulta da OMI a ser executada.
-mesa | (opcional) A tabela de armazenamento Azure, na conta de armazenamento designada (ver [definições protegidas).](#protected-settings)
+table | (opcional) A tabela de armazenamento Azure, na conta de armazenamento designada (ver [definições protegidas).](#protected-settings)
 frequência | (opcional) O número de segundos entre a execução da consulta. O valor predefinido é de 300 (5 minutos); o valor mínimo é de 15 segundos.
 pias | (opcional) Deve ser publicada uma lista separada de vírgulas de sumidouros adicionais aos quais devem ser publicados resultados da amostra bruta. Nenhuma agregação destas amostras cruas é calculada pela extensão ou pela Azure Metrics.
 
@@ -487,7 +487,7 @@ Controla a captura de ficheiros de registo. Lad captura novas linhas de texto à
 Elemento | Valor
 ------- | -----
 file | O nome de caminho completo do ficheiro de registo a ser observado e capturado. O nome de pathname deve nomear um único ficheiro; não pode nomear um diretório ou conter wildcards. A conta de utilizador 'omsagent' deve ter lido o acesso à via do ficheiro.
-mesa | (opcional) A tabela de armazenamento Azure, na conta de armazenamento designada (conforme especificado na configuração protegida), na qual são escritas novas linhas a partir da "cauda" do ficheiro.
+table | (opcional) A tabela de armazenamento Azure, na conta de armazenamento designada (conforme especificado na configuração protegida), na qual são escritas novas linhas a partir da "cauda" do ficheiro.
 pias | (opcional) Uma lista separada por vírgulas de nomes de pias adicionais para as quais as linhas de registo enviadas.
 
 Ou "mesa" ou "pias", ou ambos, devem ser especificados.
@@ -794,7 +794,7 @@ Esta imagem de uma sessão do Microsoft Azure Storage Explorer mostra as mesas e
 
 Consulte a documentação relevante do [EventHubs](../../event-hubs/event-hubs-about.md) para aprender a consumir mensagens publicadas num ponto final do EventHubs.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Crie alertas métricos no [Azure Monitor](../../azure-monitor/platform/alerts-classic-portal.md) para as métricas que recolhe.
 * Crie [gráficos de monitorização](../../azure-monitor/platform/data-platform.md) para as suas métricas.

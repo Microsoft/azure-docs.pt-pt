@@ -9,10 +9,10 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.openlocfilehash: cbcfedc091fd111bceffe775cb337c118a87c767
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90601083"
 ---
 # <a name="point-in-time-snapshot"></a>Instantâneo para um ponto anterior no tempo

@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.openlocfilehash: b23783080e976f70ba8c5e02f67dcee36bbc9c34
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91444957"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mariadb"></a>Conectividade SSL/TLS na Base de Dados Azure para MariaDB
@@ -68,7 +68,7 @@ Como parte da comunicação SSL/TLS, as suítes cifra são validadas e apenas os
 *   TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 *   TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [as regras de firewall do servidor](concepts-firewall-rules.md)
 - Saiba como configurar o [SSL](howto-configure-ssl.md)
 - Saiba como [configurar o TLS](howto-tls-configurations.md)

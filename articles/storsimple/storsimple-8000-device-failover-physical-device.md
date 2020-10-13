@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 67d6fb1f3cc359288ed942d915e186542a62b0fc
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91803947"
 ---
 # <a name="fail-over-to-a-storsimple-8000-series-physical-device"></a>Falha num dispositivo físico da série StorSimple 8000

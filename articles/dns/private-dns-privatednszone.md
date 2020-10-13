@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 9/24/2019
 ms.author: rohink
 ms.openlocfilehash: a951bc07c4a8ed42b1c116332d13674656bbaafd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75646800"
 ---
 # <a name="what-is-a-private-azure-dns-zone"></a>O que é uma zona privada de DNS Azure
@@ -32,7 +32,7 @@ Para entender quantas zonas privadas de DNS pode criar numa subscrição e quant
 * As zonas de DNS privadas com rótulo único não são suportadas. A sua zona privada de DNS deve ter duas ou mais etiquetas. Por exemplo, contoso.com tem duas etiquetas separadas por um ponto. Uma zona privada de DNS pode ter um máximo de 34 rótulos.
 * Não é possível criar delegações de zona (registos NS) numa zona privada de DNS. Se pretender utilizar um domínio infantil, pode criar diretamente o domínio como zona privada de DNS e ligá-lo à rede virtual sem configurar uma delegação de nomes da zona-mãe.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como criar uma zona privada em Azure DNS utilizando [a Azure PowerShell](./private-dns-getstarted-powershell.md) ou [Azure CLI](./private-dns-getstarted-cli.md).
 

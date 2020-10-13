@@ -13,10 +13,10 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 4fc25edb873a2dfe84f6ca716a71cf028c74cb2f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85383942"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Aceder aos registos de auditoria do Azure AD B2C
@@ -53,7 +53,7 @@ O painel de detalhes da atividade contém as seguintes informações relevantes:
 
 |Section|Campo|Descrição|
 |-------|-----|-----------|
-| Atividade | Name | Que atividade aconteceu. Por exemplo, *emita um id_token à aplicação*, que conclui o real pedido de inscrição do utilizador. |
+| Atividade | Nome | Que atividade aconteceu. Por exemplo, *emita um id_token à aplicação*, que conclui o real pedido de inscrição do utilizador. |
 | Iniciado por (Ator) | ObjectId | O **ID** do Objeto da aplicação B2C a que o utilizador está a iniciar sessão. Este identificador não é visível no portal Azure, mas é acessível através da API do Microsoft Graph. |
 | Iniciado por (Ator) | Spn | O ID de **aplicação** da aplicação B2C a que o utilizador está a iniciar sessão. |
 | Destino(s) | ObjectId | O **ID do objeto** do utilizador que está a iniciar sessão. |
@@ -65,7 +65,7 @@ O painel de detalhes da atividade contém as seguintes informações relevantes:
 
 O portal Azure fornece acesso aos eventos de registo de auditoria no seu inquilino Azure AD B2C.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com)
+1. Inicie sessão no [portal do Azure](https://portal.azure.com)
 1. Mude para o diretório que contém o seu inquilino Azure AD B2C e, em seguida, navegue para **Azure AD B2C**.
 1. Em **Atividades** no menu esquerdo, selecione **registos de auditoria**.
 
@@ -98,7 +98,7 @@ Siga as etapas do seguinte artigo para registar um pedido com as permissões nec
 
 Depois de ter registado uma aplicação com as permissões apropriadas, consulte a secção de scripts PowerShell mais tarde neste artigo para um exemplo de como pode obter eventos de atividade com um script.
 
-### <a name="access-the-api"></a>Aceda à API
+### <a name="access-the-api"></a>Aceder à API
 
 Para descarregar os eventos de registo de auditoria Azure AD B2C através da API, filtre os registos na `B2C` categoria. Para filtrar por categoria, utilize o parâmetro de `filter` cadeia de consulta quando ligar para o ponto final da API que reporta AZure.
 
@@ -221,6 +221,6 @@ Aqui está a representação JSON do evento de atividades exemplo mostrado anter
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode automatizar outras tarefas de administração, por exemplo, [gerir contas de utilizadores Azure AD B2C com o Microsoft Graph](manage-user-accounts-graph-api.md).

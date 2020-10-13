@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 8/3/2020
 ms.author: baanders
 ms.openlocfilehash: a1098088a38b23ec1074434e5424e261e60bcd55
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91779911"
 ---
 | Nome do filtro | Descrição | Esquema de texto do filtro | Valores suportados | 
@@ -28,7 +28,7 @@ Os seguintes tipos de dados são suportados como valores devolvidos por referên
 | Tipo de dados | Exemplo |
 |-|-|-|
 |**String**| `STARTS_WITH($body.$metadate.$model, 'dtmi:example:com:floor')` <br> `CONTAINS(subject, '<twinID>')`|
-|**Inteiro**|`$body.errorCode > 200`|
+|**Número inteiro**|`$body.errorCode > 200`|
 |**Duplo**|`$body.temperature <= 5.5`|
 |**Rio Bool**|`$body.poweredOn = true`|
 |**Null**|`$body.prop != null`|

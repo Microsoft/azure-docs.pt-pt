@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
 ms.openlocfilehash: 194c2466e29c15ac35cf0bd88b90bf9f816e9035
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91284470"
 ---
 # <a name="use-powershell-to-sync-data-between-sql-database-and-sql-server"></a>Utilize o PowerShell para sincronizar dados entre a Base de Dados SQL e o Servidor SQL
