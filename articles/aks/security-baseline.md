@@ -8,10 +8,10 @@ ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: e5ca792c6dbc3c08847315b916913e8c38909a7a
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91637390"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Linha de segurança Azure para o Serviço Azure Kubernetes
@@ -1237,7 +1237,7 @@ Execute cópias de segurança automáticas regulares de certificados de cofre ch
 
 Por exemplo:
 
-Backup-AzKeyVaultCertificate backup-AzKeyVaultKey backup-AzKeyVaagedstorageAccount backup-AzKeyVaultSecret
+Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorageAccount Backup-AzKeyVaultSecret
 
 - [Como apoiar certificados de cofre de chaves](/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificate)
 
@@ -1261,7 +1261,7 @@ Periodicamente realizar a restauração de dados de Certificados de Cofre Chave,
 
 Por exemplo:
 
-Restaurar-AzKeyVaultCertificate restore-AzKeyVaultKey restore-AzKeyVaagedstorageAccount restore-azKeyVaultSecret
+Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedStorageAccount Restore-AzKeyVaultSecret
 
 - [Como restaurar certificados de cofre chave](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0)
 
@@ -1281,11 +1281,11 @@ Restaurar-AzKeyVaultCertificate restore-AzKeyVaultKey restore-AzKeyVaagedstorage
 
 **Orientação**: Utilize uma ferramenta adequada para o seu tipo de armazenamento, como o Velero, que pode fazer o backs volumes persistentes juntamente com recursos e configurações adicionais do cluster. 
 
-Ativar a eliminação de soft-delete no cofre de chaves para proteger as chaves contra a eliminação acidental ou maliciosa se o Cofre da Chave Azure estiver a ser utilizado para implementações do Serviço Azure Kubernetes (AKS).
+Ativar Soft-Delete no Cofre de Chaves para proteger as chaves contra a eliminação acidental ou maliciosa se o Azure Key Vault estiver a ser utilizado para implantações do Serviço Azure Kubernetes (AKS).
 
 - [Compreender encriptação do serviço de armazenamento Azure](../storage/common/storage-service-encryption.md)
 
-- [Como permitir o Soft-Delete no Cofre da Chave](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Como permitir Soft-Delete em Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 

@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 09/22/2020
 ms.author: b-juche
 ms.openlocfilehash: e7e3c2eb058d3549f2e1a10ffacf01fd354fbd47
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91651059"
 ---
 # <a name="troubleshoot-capacity-pool-issues"></a>Problemas de capacidade de resolução de problemas

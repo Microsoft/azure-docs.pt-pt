@@ -6,10 +6,10 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.openlocfilehash: cfbe5cf8c19bfafb38f6149391e09350785ebf9c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91303612"
 ---
 # <a name="how-personalizer-works"></a>Como funciona o Personalizador
@@ -32,7 +32,7 @@ Determina a pontuação da recompensa e envia essa pontuação para a API reward
 
 A imagem a seguir mostra o fluxo arquitetónico de chamar as chamadas Rank and Reward:
 
-![texto alternativo](./media/how-personalizer-works/personalization-how-it-works.png "Como funciona a personalização")
+![alt texto](./media/how-personalizer-works/personalization-how-it-works.png "Como funciona a personalização")
 
 1. Envia _ações com funcionalidades_ e _funcionalidades_ de contexto para a Rank API.
 

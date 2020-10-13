@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/09/2020
 ms.author: allensu
 ms.openlocfilehash: 26c4c01aaf6abe6b9c9ac6daf6836d7b660ba21e
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91649869"
 ---
 # <a name="configure-tcp-idle-timeout-for-azure-load-balancer"></a>Configurar o tempo limite de marcha lenta para O Equilibrador de Carga Azure

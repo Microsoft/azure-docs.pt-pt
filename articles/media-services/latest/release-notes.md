@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: efdfc1c12191977c0422cda6c52eb9b73c95c55f
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91651195"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de lançamento da Azure Media Services v3
@@ -94,7 +94,7 @@ Media Services GA'ed nas seguintes regiões do Governo Azure: *USGov Arizona* e 
 
 ## <a name="december-2019"></a>Dezembro de 2019
 
-Apoio CDN adicionado aos cabeçalhos *Prefetch Origin-Assist* para streaming ao vivo e vídeo a pedido; disponível para clientes que tenham contrato direto com a Akamai CDN. A funcionalidade CdN-Prefetch de assistência à origem envolve as seguintes trocas de cabeçalho HTTP entre a origem da Akamai CDN e a Azure Media Services:
+Apoio CDN adicionado aos cabeçalhos *Prefetch Origin-Assist* para streaming ao vivo e vídeo a pedido; disponível para clientes que tenham contrato direto com a Akamai CDN. Origin-Assist CDN-Prefetch funcionalidade envolve as seguintes trocas de cabeçalho HTTP entre a origem da Akamai CDN e da Azure Media Services:
 
 |Cabeçalho HTTP|Valores|Remetente|Recetor|Objetivo|
 | ---- | ---- | ---- | ---- | ----- |
@@ -366,7 +366,7 @@ Pode ver as seguintes melhorias no suporte da Grelha de Eventos:
 
 CMAF e suporte de encriptação 'cbcs' para os jogadores Apple HLS (iOS 11+) e MPEG-DASH que suportam a CMAF.
 
-### <a name="video-indexer"></a>Video Indexer
+### <a name="video-indexer"></a>Indexador de Vídeos
 
 O lançamento do Video Indexer GA foi anunciado em agosto. Para obter novas informações sobre funcionalidades atualmente suportadas, consulte [O Que é Indexer de Vídeo](../video-indexer/video-indexer-overview.md?bc=/azure/media-services/video-indexer/breadcrumb/toc.json&toc=/azure/media-services/video-indexer/toc.json). 
 
@@ -403,7 +403,7 @@ As seguintes funcionalidades estão presentes no .NET SDK:
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 [Orientação de migração para passar dos Serviços de Comunicação v2 para v3](migrate-from-v2-to-v3.md#known-issues).
 
