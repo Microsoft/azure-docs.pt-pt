@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: atulmal
 ms.openlocfilehash: 7743a3a8d6e77affd6229b648ab79b5b2f07a0af
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90564105"
 ---
 # <a name="github-actions-for-deploying-to-kubernetes-service"></a>GitHub Actions para implantação no serviço Kubernetes
@@ -24,7 +24,7 @@ Para um fluxo de trabalho direcionado para a AKS, o ficheiro tem três secções
 |Section  |Tarefas  |
 |---------|---------|
 |**Autenticação** | Iniciar sessão num registo privado de contentores (ACR) |
-|**Compilar** | Construa & empurre a imagem do recipiente  |
+|**Construir** | Construa & empurre a imagem do recipiente  |
 |**Implementar** | 1. Definir o cluster AKS alvo |
 | |2. Criar um segredo genérico/estivador-registo no cluster Kubernetes  |
 ||3. Implantar no cluster Kubernetes|

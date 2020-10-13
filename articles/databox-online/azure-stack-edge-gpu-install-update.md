@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 7a534f794f7ab5323ad46ebc555e42b2514e94e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ec89b897b4ea2e802188e3aefe9b830d7ff1cf8
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542347"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969182"
 ---
 # <a name="update-your-azure-stack-edge-pro-gpu"></a>Atualize o seu GPU Azure Stack Edge Pro 
 
@@ -34,13 +34,13 @@ Cada um destes passos é descrito nas seguintes secções.
 
 1. Na UI web local, aceda ao servidor **De Atualização de Configuração**  >  **Update server**. 
    
-    ![Configure atualizações](./media/azure-stack-edge-gpu-install-update/configure-update-server-1.png)
+    ![Configurar atualizações 1](./media/azure-stack-edge-gpu-install-update/configure-update-server-1.png)
 
 2. No **tipo de servidor de atualização Select**, a partir da lista de dropdown, escolha entre o servidor Microsoft Update (padrão) ou o Windows Server Update Services.  
    
     Se atualizar a partir dos Serviços de Atualização do Servidor do Windows, especifique o servidor URI. O servidor desse URI irá implementar as atualizações em todos os dispositivos ligados a este servidor.
 
-    ![Configure atualizações](./media/azure-stack-edge-gpu-install-update/configure-update-server-2.png)
+    ![Configurar atualizações 2](./media/azure-stack-edge-gpu-install-update/configure-update-server-2.png)
     
     O servidor WSUS é utilizado para gerir e distribuir atualizações através de uma consola de gestão. Um servidor WSUS também pode ser a fonte de atualização para outros servidores WSUS dentro da organização. O servidor WSUS que age como uma origem de atualização chama-se um servidor a montante. Numa implementação WSUS, pelo menos um servidor WSUS na sua rede deve ser capaz de se conectar ao Microsoft Update para obter informações de atualização disponíveis. Como administrador, pode determinar - com base na segurança e configuração da rede - quantos outros servidores WSUS se ligam diretamente ao Microsoft Update.
     
@@ -61,48 +61,48 @@ Recomendamos que instale atualizações através do portal Azure. O dispositivo 
 
     Pode optar por **descarregar e instalar** as atualizações ou simplesmente **descarregar** as atualizações. Pode optar por instalar estas atualizações mais tarde.
 
-    ![Versão de software após atualização](./media/azure-stack-edge-gpu-install-update/portal-update-2a.png)    
+    ![Versão de software após atualização 2](./media/azure-stack-edge-gpu-install-update/portal-update-2a.png)    
 
     Se pretender descarregar e instalar as atualizações, verifique a opção que as atualizações instalam automaticamente após o download estar concluído.
 
-    ![Versão de software após atualização](./media/azure-stack-edge-gpu-install-update/portal-update-2b.png)
+    ![Versão de software após atualização 3](./media/azure-stack-edge-gpu-install-update/portal-update-2b.png)
 
 3. O download de atualizações começa. Você vê uma notificação de que o download está em andamento.
 
-    ![Versão de software após atualização](./media/azure-stack-edge-gpu-install-update/portal-update-3.png)
+    ![Versão de software após atualização 4](./media/azure-stack-edge-gpu-install-update/portal-update-3.png)
 
     Um banner de notificação também é exibido no portal Azure. Isto indica o progresso do download. 
 
-    ![Versão de software após atualização](./media/azure-stack-edge-gpu-install-update/portal-update-4.png)
+    ![Versão de software após atualização 5](./media/azure-stack-edge-gpu-install-update/portal-update-4.png)
 
     Pode selecionar esta notificação ou selecionar **o dispositivo Update** para ver o estado detalhado da atualização.
 
-    ![Versão de software após atualização](./media/azure-stack-edge-gpu-install-update/portal-update-5.png)   
+    ![Versão de software após atualização 6](./media/azure-stack-edge-gpu-install-update/portal-update-5.png)   
 
 
 4. Após o download estar concluído, o banner de notificação atualiza para indicar a conclusão. Se optar por descarregar e instalar as atualizações, a instalação começará automaticamente.
 
-    ![Versão de software após atualização](./media/azure-stack-edge-gpu-install-update/portal-update-6.png)
+    ![Versão de software após atualização 7](./media/azure-stack-edge-gpu-install-update/portal-update-6.png)
 
     Se optar por descarregar apenas atualizações, selecione a notificação para abrir a lâmina **de atualizações** do Dispositivo. Selecione **Instalar**.
   
-    ![Versão de software após atualização](./media/azure-stack-edge-gpu-install-update/portal-update-7.png)
+    ![Versão de software após atualização 8](./media/azure-stack-edge-gpu-install-update/portal-update-7.png)
 
 5. Vê uma notificação de que a instalação está em andamento.
 
-    ![Versão de software após atualização](./media/azure-stack-edge-gpu-install-update/portal-update-8.png)
+    ![Versão de software após atualização 9](./media/azure-stack-edge-gpu-install-update/portal-update-8.png)
 
     O portal também apresenta um alerta informativo para indicar que a instalação está em andamento. O aparelho desliga-se e encontra-se em modo de manutenção.
     
-    ![Versão de software após atualização](./media/azure-stack-edge-gpu-install-update/portal-update-9.png)
+    ![Versão de software após atualização 10](./media/azure-stack-edge-gpu-install-update/portal-update-9.png)
 
 6. Uma vez que se trata de um dispositivo de nó de 1, o dispositivo reiniciará após a instalação das atualizações. O alerta crítico durante o reinício indicará que o batimento cardíaco do dispositivo está perdido.
 
-    ![Versão de software após atualização](./media/azure-stack-edge-gpu-install-update/portal-update-10.png)
+    ![Versão de software após atualização 11](./media/azure-stack-edge-gpu-install-update/portal-update-10.png)
 
     Selecione o alerta para ver o evento do dispositivo correspondente.
     
-    ![Versão de software após atualização](./media/azure-stack-edge-gpu-install-update/portal-update-11.png)
+    ![Versão de software após atualização 12](./media/azure-stack-edge-gpu-install-update/portal-update-11.png)
 
 
 7. Após o reinício, o dispositivo é novamente colocado no modo de manutenção e é apresentado um alerta informativo para indicar isso.
@@ -111,33 +111,33 @@ Recomendamos que instale atualizações através do portal Azure. O dispositivo 
 
 8. O estado do dispositivo atualiza-se para **Online** após a instalação das atualizações. 
 
-    ![Versão de software após atualização](./media/azure-stack-edge-gpu-install-update/portal-update-14.png)
+    ![Versão de software após atualização 13](./media/azure-stack-edge-gpu-install-update/portal-update-14.png)
 
     A partir da barra de comando superior, selecione **atualizações do Dispositivo**. Verifique se a atualização foi instalada com sucesso e a versão do software do dispositivo reflete isso.
 
-    ![Versão de software após atualização](./media/azure-stack-edge-gpu-install-update/portal-update-15.png)
+    ![Versão de software após atualização 14](./media/azure-stack-edge-gpu-install-update/portal-update-15.png)
 
 9. Verá novamente uma notificação de que as atualizações estão disponíveis. Estas são as atualizações de Kubernetes. Selecione o dispositivo de atualização ou **selecione a** partir da barra de comando superior.
 
-    ![Versão de software após atualização](./media/azure-stack-edge-gpu-install-update/portal-update-16.png)
+    ![Versão de software após atualização 15](./media/azure-stack-edge-gpu-install-update/portal-update-16.png)
 
 10. Descarregue as atualizações de Kubernetes. Pode ver que o tamanho do pacote é diferente quando comparado com o pacote de atualização anterior.
 
-    ![Versão de software após atualização](./media/azure-stack-edge-gpu-install-update/portal-update-17.png)
+    ![Versão de software após atualização 16](./media/azure-stack-edge-gpu-install-update/portal-update-17.png)
 
     O processo de instalação é idêntico ao das atualizações do dispositivo. Primeiro as atualizações são descarregadas.
 
-    ![Versão de software após atualização](./media/azure-stack-edge-gpu-install-update/portal-update-18.png)    
+    ![Versão de software após atualização 17](./media/azure-stack-edge-gpu-install-update/portal-update-18.png)    
     
 11. Uma vez descarregadas as atualizações, pode instalar as atualizações. 
 
-    ![Versão de software após atualização](./media/azure-stack-edge-gpu-install-update/portal-update-19.png)
+    ![Versão de software após atualização 18](./media/azure-stack-edge-gpu-install-update/portal-update-19.png)
 
     À medida que as atualizações são instaladas, o dispositivo é colocado em modo de manutenção. O dispositivo não reinicia para as atualizações de Kubernetes. 
 
     Uma vez instaladas as atualizações de Kubernetes com sucesso, a notificação do banner desaparece, uma vez que não são necessárias mais atualizações. O seu dispositivo tem agora a mais recente versão do software do dispositivo e da Kubernetes.
 
-    ![Versão de software após atualização](./media/azure-stack-edge-gpu-install-update/portal-update-20.png)
+    ![Versão de software após atualização 19](./media/azure-stack-edge-gpu-install-update/portal-update-20.png)
 
 
 ## <a name="use-the-local-web-ui"></a>Use a uI web local
@@ -165,7 +165,7 @@ Faça os seguintes passos para descarregar a atualização a partir do Catálogo
    
     A lista geminada de atualização aparece como **Azure Stack Edge Pro 2006**.
    
-    ![Catálogo de pesquisa](./media/azure-stack-edge-gpu-install-update/download-update-2b.png)
+    ![Catálogo de pesquisa 2](./media/azure-stack-edge-gpu-install-update/download-update-2b.png)
 
 4. Selecione **Transferir**. Existem dois ficheiros para descarregar com * sufixosSoftwareUpdatePackage.exe* e *Kubernetes_Package.exe* que correspondem a atualizações de software de dispositivos e atualizações de Kubernetes, respectivamente. Descarregue os ficheiros para uma pasta no sistema local. Também pode copiar a pasta para uma partilha de rede que seja acessível a partir do dispositivo.
 
@@ -182,25 +182,25 @@ Este procedimento leva cerca de 20 minutos para ser concluído. Execute os segui
 
 1. Na uI web local, **Maintenance**aceda à  >  **atualização do Software**de Manutenção . Tome nota da versão de software que está a executar. 
    
-   ![atualizar o dispositivo](./media/azure-stack-edge-gpu-install-update/local-ui-update-2.png)
+   ![dispositivo de atualização 2](./media/azure-stack-edge-gpu-install-update/local-ui-update-2.png)
 
 2. Fornecer o caminho para o ficheiro de atualização. Também pode navegar no ficheiro de instalação da atualização se for colocado numa partilha de rede. Selecione o ficheiro de atualização de software com *SoftwareUpdatePackage.exe* sufixo.
 
-   ![atualizar o dispositivo](./media/azure-stack-edge-gpu-install-update/local-ui-update-3a.png)
+   ![dispositivo de atualização 3](./media/azure-stack-edge-gpu-install-update/local-ui-update-3a.png)
 
 3. Selecione **Aplicar**. 
 
-   ![atualizar o dispositivo](./media/azure-stack-edge-gpu-install-update/local-ui-update-4.png)
+   ![dispositivo de atualização 4](./media/azure-stack-edge-gpu-install-update/local-ui-update-4.png)
 
 4. Quando solicitado para confirmação, selecione **Sim** para prosseguir. Dado que o dispositivo é um único dispositivo de nó, após a aplicação da atualização, o dispositivo reinicia e há tempo de inatividade. 
    
-   ![atualizar o dispositivo](./media/azure-stack-edge-gpu-install-update/local-ui-update-5.png)
+   ![dispositivo de atualização 5](./media/azure-stack-edge-gpu-install-update/local-ui-update-5.png)
 
 5. A atualização começa. Depois de o dispositivo ser atualizado com sucesso, reinicia-o. A UI local não é acessível nesta duração.
    
 6. Após o reinício, é levado para a página **Signo.** Para verificar se o software do dispositivo foi atualizado, **Maintenance**na UI web local, aceda à  >  **atualização do Software**de Manutenção . A versão de software apresentada neste exemplo é **2.0.1257.1591**.
 
-   ![atualizar o dispositivo](./media/azure-stack-edge-gpu-install-update/local-ui-update-6.png) 
+   ![dispositivo de atualização 6](./media/azure-stack-edge-gpu-install-update/local-ui-update-6.png) 
 
 7. Irá agora atualizar a versão de software Kubernetes. Repita os passos acima. Forneça um caminho para o ficheiro de atualização kubernetes com o sufixo *Kubernetes_Package.exe.*  
 
@@ -208,7 +208,7 @@ Este procedimento leva cerca de 20 minutos para ser concluído. Execute os segui
 
 8. Selecione **Aplicar**. 
 
-   ![atualizar o dispositivo](./media/azure-stack-edge-gpu-install-update/local-ui-update-8.png)
+   ![dispositivo de atualização 7](./media/azure-stack-edge-gpu-install-update/local-ui-update-8.png)
 
 9. Quando solicitado para confirmação, selecione **Sim** para prosseguir. 
 

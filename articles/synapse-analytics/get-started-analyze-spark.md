@@ -10,10 +10,10 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
 ms.openlocfilehash: ebcec3907e40a8ba58aab841cd788c58ec7a94fe
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90017919"
 ---
 # <a name="analyze-with-apache-spark"></a>Analise com Faísca Apache

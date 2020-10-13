@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/01/2017
 ms.openlocfilehash: fdb3c5c12af8e9022f5babc84126badda890dce5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86044486"
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Depuração orientada para dados com o diagrama de trabalhos
@@ -75,13 +75,13 @@ Se o passo de consulta anterior for um processador de entrada, utilize as métri
  
 ### <a name="are-we-falling-behind-in-reading-data"></a>Estamos a ficar para trás na leitura de dados?
 
-*   **Eventos de entrada Backlogged (Total)** diz-lhe quantas mais mensagens precisam de ser lidas para entradas de Event Hubs e Azure IoT Hub. Quando este número é maior que 0, significa que o seu trabalho não pode processar os dados tão rápido quanto está a entrar. Neste caso, poderá ser necessário aumentar o número de Unidades de Streaming e/ou certificar-se de que o seu trabalho pode ser paralelo. Pode ver mais informações sobre isto na [página de paralelização](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization)de consultas. 
+*   **Eventos de entrada Backlogged (Total)** diz-lhe quantas mais mensagens precisam de ser lidas para entradas de Event Hubs e Azure IoT Hub. Quando este número é maior que 0, significa que o seu trabalho não pode processar os dados tão rápido quanto está a entrar. Neste caso, poderá ser necessário aumentar o número de Unidades de Streaming e/ou certificar-se de que o seu trabalho pode ser paralelo. Pode ver mais informações sobre isto na  [página de paralelização](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization)de consultas. 
 
 
 ## <a name="get-help"></a>Obter ajuda
 Para assistência adicional, experimente o nosso [Microsoft Q&Uma página de perguntas para Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html). 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Introdução ao Stream Analytics](stream-analytics-introduction.md)
 * [Introdução ao Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar tarefas do Stream Analytics](stream-analytics-scale-jobs.md)

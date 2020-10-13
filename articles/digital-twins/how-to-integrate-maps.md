@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
 ms.openlocfilehash: 8f739982ac9193c80cae23d91b77091f75c3fd13
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90564367"
 ---
 # <a name="use-azure-digital-twins-to-update-an-azure-maps-indoor-map"></a>Use gémeos digitais Azure para atualizar um mapa interior do Azure Maps
@@ -152,7 +152,7 @@ Para ver a temperatura de atualização ao vivo, siga os passos abaixo:
 
 Ambas as amostras enviam temperatura numa gama compatível, por isso deve ver a cor da atualização do quarto 121 no mapa a cada 30 segundos.
 
-:::image type="content" source="media/how-to-integrate-maps/maps-temperature-update.png" alt-text="Um mapa de escritório mostrando a sala 121 cor de laranja":::
+:::image type="content" source="media/how-to-integrate-maps/maps-temperature-update.png" alt-text="Uma visão dos serviços da Azure num cenário de ponta a ponta, destacando a peça de Integração de Mapas Interiores":::
 
 ## <a name="store-your-maps-information-in-azure-digital-twins"></a>Guarde as informações dos seus mapas em Azure Digital Twins
 

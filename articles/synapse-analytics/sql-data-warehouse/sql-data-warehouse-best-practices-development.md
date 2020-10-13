@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: f8db19b209ddefebd4a297f18fb9b178fcf40f21
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89457911"
 ---
 # <a name="development-best-practices-for-synapse-sql-pool"></a>Melhores práticas de desenvolvimento para piscina Sinapse SQL
@@ -116,7 +116,7 @@ Se a sua tabela não tiver 6 mil milhões de linhas neste exemplo, reduza o núm
 
 Consulte também [índices de tabela,](sql-data-warehouse-tables-index.md) [guia de índices de colunas](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)e [índices de loja de colunas de reconstrução](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não encontrar o que procura neste artigo, tente usar a "Procura de docs" no lado esquerdo desta página para pesquisar todos os documentos da Azure Synapse.  
 
