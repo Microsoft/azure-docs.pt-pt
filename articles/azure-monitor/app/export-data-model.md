@@ -4,10 +4,10 @@ description: Descreve propriedades exportadas a partir de exportação contínua
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: 29ad999c307d1c11e7a584b61d85ed73b9448cb4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87324391"
 ---
 # <a name="application-insights-export-data-model"></a>Modelo de dados de exportação de insights de aplicação
@@ -17,9 +17,9 @@ Também aparecem em filtros de propriedade no [Metric Explorer](../platform/metr
 
 Pontos a notar:
 
-* `[0]`nestas tabelas denota um ponto no caminho onde é preciso inserir um índice; mas nem sempre é 0.
+* `[0]` nestas tabelas denota um ponto no caminho onde é preciso inserir um índice; mas nem sempre é 0.
 * As durações do tempo são em décimos de um microsegundo, então 10000000 == 1 segundo.
-* As datas e os horários são UTC, e são dadas no formato ISO`yyyy-MM-DDThh:mm:ss.sssZ`
+* As datas e os horários são UTC, e são dadas no formato ISO `yyyy-MM-DDThh:mm:ss.sssZ`
 
 ## <a name="example"></a>Exemplo
 
@@ -111,45 +111,45 @@ Todos os tipos de telemetria são acompanhados por uma secção de contexto. Nem
 | --- | --- | --- |
 | context.custom.dimensions [0] |objeto [ ] |Pares de cordas de valor chave definidos pelo parâmetro de propriedades personalizadas. Comprimento máximo da chave 100, valores máximos comprimento 1024. Mais de 100 valores únicos, o imóvel pode ser pesquisado mas não pode ser usado para segmentação. Max 200 chaves por ikey. |
 | context.custom.metrics [0] |objeto [ ] |Pares de valor-chave definidos pelo parâmetro de medição personalizada e pela TrackMetrics. O comprimento máximo da chave 100, os valores podem ser numéricos. |
-| context.data.eventTime |cadeia |UTC |
+| context.data.eventTime |string |UTC |
 | context.data.isSynthetic |boolean |O pedido parece vir de um teste de bot ou web. |
 | context.data.samplingRate |número |Percentagem de telemetria gerada pelo SDK que é enviado para o portal. Intervalo 0.0-100.0. |
 | contexto.dispositivo |objeto |Dispositivo de cliente |
-| context.device.browser |cadeia |IE, Chrome, ... |
-| context.device.browserVersion |cadeia |Cromado 48.0, ... |
-| context.device.deviceModel |cadeia | |
-| context.device.deviceName |cadeia | |
-| context.device.id |cadeia | |
-| context.device.locale |cadeia |en-GB, de-DE, ... |
-| contexto.device.network |cadeia | |
-| context.device.oemName |cadeia | |
-| contexto.device.os |cadeia | |
-| context.device.osVersion |cadeia |SO Anfitrião |
-| context.device.roleInstance |cadeia |ID do anfitrião do servidor |
-| context.device.roleName |cadeia | |
-| context.device.screenResolution |cadeia | |
-| contexto.dispositivo.tipo |cadeia |PC, Browser, ... |
+| context.device.browser |string |IE, Chrome, ... |
+| context.device.browserVersion |string |Cromado 48.0, ... |
+| context.device.deviceModel |string | |
+| context.device.deviceName |string | |
+| context.device.id |string | |
+| context.device.locale |string |en-GB, de-DE, ... |
+| contexto.device.network |string | |
+| context.device.oemName |string | |
+| contexto.device.os |string | |
+| context.device.osVersion |string |SO Anfitrião |
+| context.device.roleInstance |string |ID do anfitrião do servidor |
+| context.device.roleName |string | |
+| context.device.screenResolution |string | |
+| contexto.dispositivo.tipo |string |PC, Browser, ... |
 | contexto.localização |objeto |Derivado `clientip` de. |
-| contexto.localização.cidade |cadeia |Derivado `clientip` de, se conhecido |
-| contexto.location.clientip |cadeia |O último octógono é anonimizado para 0. |
-| contexto.localização.continente |cadeia | |
-| contexto.localização.país |cadeia | |
-| contexto.localização.província |cadeia |Estado ou província |
-| context.operation.id |cadeia |Os itens que têm o mesmo `operation id` são mostrados como Itens Relacionados no portal. Normalmente o `request id` . |
-| context.operation.name |cadeia |url ou nome de pedido |
-| context.operation.parentId |cadeia |Permite itens relacionados com aninhados. |
-| context.session.id |cadeia |`Id`de um grupo de operações da mesma fonte. Um período de 30 minutos sem uma operação assinala o fim de uma sessão. |
+| contexto.localização.cidade |string |Derivado `clientip` de, se conhecido |
+| contexto.location.clientip |string |O último octógono é anonimizado para 0. |
+| contexto.localização.continente |string | |
+| contexto.localização.país |string | |
+| contexto.localização.província |string |Estado ou província |
+| context.operation.id |string |Os itens que têm o mesmo `operation id` são mostrados como Itens Relacionados no portal. Normalmente o `request id` . |
+| context.operation.name |string |url ou nome de pedido |
+| context.operation.parentId |string |Permite itens relacionados com aninhados. |
+| context.session.id |string |`Id` de um grupo de operações da mesma fonte. Um período de 30 minutos sem uma operação assinala o fim de uma sessão. |
 | context.session.isFirst |boolean | |
-| context.user.accountAcquisitionDate |cadeia | |
-| context.user.accountD |cadeia | |
-| context.user.anonAcquisitionDate |cadeia | |
-| context.user.anonId |cadeia | |
-| context.user.authAcquisitionDate |cadeia |[Utilizador autenticado](./api-custom-events-metrics.md#authenticated-users) |
-| context.user.authId |cadeia | |
+| context.user.accountAcquisitionDate |string | |
+| context.user.accountD |string | |
+| context.user.anonAcquisitionDate |string | |
+| context.user.anonId |string | |
+| context.user.authAcquisitionDate |string |[Utilizador autenticado](./api-custom-events-metrics.md#authenticated-users) |
+| context.user.authId |string | |
 | context.user.isAuthenticated |boolean | |
-| context.user.storeRegion |cadeia | |
-| internal.data.documa vez que a uma vez |cadeia | |
-| internal.data.id |cadeia | `Unique id`que é atribuído quando um item é ingerido para Insights de Aplicação |
+| context.user.storeRegion |string | |
+| internal.data.documa vez que a uma vez |string | |
+| internal.data.id |string | `Unique id` que é atribuído quando um item é ingerido para Insights de Aplicação |
 
 ## <a name="events"></a>Eventos
 Eventos personalizados gerados pelo [TrackEvent()](./api-custom-events-metrics.md#trackevent).
@@ -157,49 +157,49 @@ Eventos personalizados gerados pelo [TrackEvent()](./api-custom-events-metrics.m
 | Caminho | Tipo | Notas |
 | --- | --- | --- |
 | evento [0] contagem |número inteiro |100/(taxa[de amostragem).](./sampling.md) Por exemplo 4 = &gt; 25%. |
-| evento [0] nome |cadeia |Nome do evento.  Comprimento máximo 250. |
-| evento [0] url |cadeia | |
-| evento [0] urlData.base |cadeia | |
-| evento [0] urlData.host |cadeia | |
+| evento [0] nome |string |Nome do evento.  Comprimento máximo 250. |
+| evento [0] url |string | |
+| evento [0] urlData.base |string | |
+| evento [0] urlData.host |string | |
 
 ## <a name="exceptions"></a>Exceções
 Reporta [exceções](./asp-net-exceptions.md) no servidor e no navegador.
 
 | Caminho | Tipo | Notas |
 | --- | --- | --- |
-| básicoExcepção [0] montagem |cadeia | |
+| básicoExcepção [0] montagem |string | |
 | contagem basicException [0] |número inteiro |100/(taxa[de amostragem).](./sampling.md) Por exemplo 4 = &gt; 25%. |
-| basicException [0] exceçãoGrupo |cadeia | |
-| basicException [0] excepçãoType |cadeia | |
-| basicException [0] failedUserCodeMethod |cadeia | |
-| basicException [0] falhou A Desmontagem de Código de Código |cadeia | |
-| basicException [0] handledAt |cadeia | |
+| basicException [0] exceçãoGrupo |string | |
+| basicException [0] excepçãoType |string | |
+| basicException [0] failedUserCodeMethod |string | |
+| basicException [0] falhou A Desmontagem de Código de Código |string | |
+| basicException [0] handledAt |string | |
 | basicException [0] hasFullStack |boolean | |
-| básicoExcepção [0]`id` |cadeia | |
-| método basicException [0] |cadeia | |
-| basicException [0] mensagem |cadeia |Mensagem de exceção. Comprimento máximo 10k. |
-| basicException [0] outerExceptionMessage |cadeia | |
-| basicException [0] outerExceptionThrownAtAssembly |cadeia | |
-| basicException [0] outerExceptionThrownAtMethod |cadeia | |
-| basicException [0] outerExceptionType |cadeia | |
-| basicExcepção [0] outerId |cadeia | |
-| básicoExcepção [0] parsedStack [0] montagem |cadeia | |
-| basicException [0] parsedStack [0] fileName |cadeia | |
+| básicoExcepção [0] `id` |string | |
+| método basicException [0] |string | |
+| basicException [0] mensagem |string |Mensagem de exceção. Comprimento máximo 10k. |
+| basicException [0] outerExceptionMessage |string | |
+| basicException [0] outerExceptionThrownAtAssembly |string | |
+| basicException [0] outerExceptionThrownAtMethod |string | |
+| basicException [0] outerExceptionType |string | |
+| basicExcepção [0] outerId |string | |
+| básicoExcepção [0] parsedStack [0] montagem |string | |
+| basicException [0] parsedStack [0] fileName |string | |
 | básicoExcepção [0] parsedStack [0] nível |número inteiro | |
 | basicException [0] parsedStack [0] linha |número inteiro | |
-| método basicException [0] parsedStack [0] |cadeia | |
-| stack basicException [0] |cadeia |Comprimento máximo 10k |
-| básicoExcepção [0] nome do tipoName |cadeia | |
+| método basicException [0] parsedStack [0] |string | |
+| stack basicException [0] |string |Comprimento máximo 10k |
+| básicoExcepção [0] nome do tipoName |string | |
 
 ## <a name="trace-messages"></a>Mensagens de rastreio
 Enviado por [TrackTrace](./api-custom-events-metrics.md#tracktrace), e pelos [adaptadores de registo.](./asp-net-trace-logs.md)
 
 | Caminho | Tipo | Notas |
 | --- | --- | --- |
-| mensagem [0] nome do madeireiro |cadeia | |
-| parâmetros de mensagem [0] |cadeia | |
-| mensagem [0] crua |cadeia |A mensagem de registo, comprimento máximo de 10k. |
-| mensagem [0] severidadeLevel |cadeia | |
+| mensagem [0] nome do madeireiro |string | |
+| parâmetros de mensagem [0] |string | |
+| mensagem [0] crua |string |A mensagem de registo, comprimento máximo de 10k. |
+| mensagem [0] severidadeLevel |string | |
 
 ## <a name="remote-dependency"></a>Dependência remota
 Enviado pela TrackDependency. Usado para reportar desempenho e uso de [chamadas para dependências](./asp-net-dependencies.md) no servidor, e AJAX chama no navegador.
@@ -207,20 +207,20 @@ Enviado pela TrackDependency. Usado para reportar desempenho e uso de [chamadas 
 | Caminho | Tipo | Notas |
 | --- | --- | --- |
 | remotoDependência [0] async |boolean | |
-| remotoDependência [0] nome baseName |cadeia | |
-| remotoDependência [0] comandoName |cadeia |Por exemplo, "casa/índice" |
+| remotoDependência [0] nome baseName |string | |
+| remotoDependência [0] comandoName |string |Por exemplo, "casa/índice" |
 | contagem remotadependência [0] |número inteiro |100/(taxa[de amostragem).](./sampling.md) Por exemplo 4 = &gt; 25%. |
-| remotoDependência [0] dependênciaTypeName |cadeia |HTTP, SQL, ... |
+| remotoDependência [0] dependênciaTypeName |string |HTTP, SQL, ... |
 | remotaDependência [0] duraçãoMetric.value |número |Tempo da chamada à conclusão da resposta por dependência |
-| independência remota [0]`id` |cadeia | |
-| nome remotoDependência [0] |cadeia |Url. Comprimento máximo 250. |
-| controlo remotoDependência [0] resultadosDesco |cadeia |da dependência http |
+| independência remota [0] `id` |string | |
+| nome remotoDependência [0] |string |Url. Comprimento máximo 250. |
+| controlo remotoDependência [0] resultadosDesco |string |da dependência http |
 | sucesso remotoDependência [0] |boolean | |
-| tipo remotoDependência [0] |cadeia |Http, Sql,... |
-| remotoDependência [0] url |cadeia |Comprimento máximo 2000 |
-| remotoDependência [0] urlData.base |cadeia |Comprimento máximo 2000 |
-| remotoDependência [0] urlData.hashTag |cadeia | |
-| remotoDependência [0] urlData.host |cadeia |Comprimento máximo 200 |
+| tipo remotoDependência [0] |string |Http, Sql,... |
+| remotoDependência [0] url |string |Comprimento máximo 2000 |
+| remotoDependência [0] urlData.base |string |Comprimento máximo 2000 |
+| remotoDependência [0] urlData.hashTag |string | |
+| remotoDependência [0] urlData.host |string |Comprimento máximo 200 |
 
 ## <a name="requests"></a>Pedidos
 Enviado por [TrackRequest.](./api-custom-events-metrics.md#trackrequest) Os módulos padrão usam isto para reportar o tempo de resposta do servidor, medido no servidor.
@@ -229,14 +229,14 @@ Enviado por [TrackRequest.](./api-custom-events-metrics.md#trackrequest) Os mód
 | --- | --- | --- |
 | pedido [0] contagem |número inteiro |100/(taxa[de amostragem).](./sampling.md) Por exemplo: 4 = &gt; 25%. |
 | pedido [0] duraçãoMétrico.valor |número |Tempo de pedido de resposta. 1e7 == 1s |
-| pedido [0]`id` |cadeia |`Operation id` |
-| pedido [0] nome |cadeia |GET/POST + base de url.  Comprimento máximo 250 |
+| pedido [0] `id` |string |`Operation id` |
+| pedido [0] nome |string |GET/POST + base de url.  Comprimento máximo 250 |
 | solicitar [0] respostaSCode |número inteiro |Resposta HTTP enviada ao cliente |
 | solicitar [0] sucesso |boolean |Padrão == (resposta Código &lt; 400) |
-| solicitar [0] url |cadeia |Sem incluir o anfitrião |
-| solicitar [0] urlData.base |cadeia | |
-| solicitar [0] urlData.hashTag |cadeia | |
-| solicitar [0] urlData.host |cadeia | |
+| solicitar [0] url |string |Sem incluir o anfitrião |
+| solicitar [0] urlData.base |string | |
+| solicitar [0] urlData.hashTag |string | |
+| solicitar [0] urlData.host |string | |
 
 ## <a name="page-view-performance"></a>Desempenho da visualização da página
 Enviado pelo navegador. Mede o tempo para processar uma página, desde o utilizador que inicia o pedido de exibição completa (excluindo as chamadas ASYNC AJAX).
@@ -246,16 +246,16 @@ Os valores de contexto mostram o cliente OS e a versão do navegador.
 | Caminho | Tipo | Notas |
 | --- | --- | --- |
 | clientePerformance [0] clienteProcesso.valor |número inteiro |Tempo desde o fim da receção do HTML até à visualização da página. |
-| nome clientePerformance [0] |cadeia | |
+| nome clientePerformance [0] |string | |
 | clientePerformance [0] networkConnection.value |número inteiro |Tempo necessário para estabelecer uma ligação de rede. |
 | clientePerformance [0] receberRequest.value |número inteiro |Tempo a partir do final do envio do pedido para receber o HTML em resposta. |
 | clientePerformance [0] enviarRequest.value |número inteiro |Tempo de ser tirado para enviar o pedido HTTP. |
 | clientePerformance [0] total.value |número inteiro |Tempo de começar a enviar o pedido para exibir a página. |
-| clientePerformance [0] url |cadeia |URL deste pedido |
-| clientePerformance [0] urlData.base |cadeia | |
-| clientePerformance [0] urlData.hashTag |cadeia | |
-| clientePerformance [0] urlData.host |cadeia | |
-| clientePerformance [0] urlData.protocol |cadeia | |
+| clientePerformance [0] url |string |URL deste pedido |
+| clientePerformance [0] urlData.base |string | |
+| clientePerformance [0] urlData.hashTag |string | |
+| clientePerformance [0] urlData.host |string | |
+| clientePerformance [0] urlData.protocol |string | |
 
 ## <a name="page-views"></a>Visualizações da Página
 Enviado por trackPageView() ou [stopTrackPage](./api-custom-events-metrics.md#page-views)
@@ -264,30 +264,30 @@ Enviado por trackPageView() ou [stopTrackPage](./api-custom-events-metrics.md#pa
 | --- | --- | --- |
 | ver [0] contar |número inteiro |100/(taxa[de amostragem).](./sampling.md) Por exemplo 4 = &gt; 25%. |
 | ver [0] duraçãoMetric.value |número inteiro |Valor opcionalmente definido no trackPageView() ou por startTrackPage() - stopTrackPage (). Não é o mesmo que os valores de desempenho do cliente. |
-| ver [0] nome |cadeia |Título da página.  Comprimento máximo 250 |
-| ver [0] url |cadeia | |
-| ver [0] urlData.base |cadeia | |
-| ver [0] urlData.hashTag |cadeia | |
-| ver [0] urlData.host |cadeia | |
+| ver [0] nome |string |Título da página.  Comprimento máximo 250 |
+| ver [0] url |string | |
+| ver [0] urlData.base |string | |
+| ver [0] urlData.hashTag |string | |
+| ver [0] urlData.host |string | |
 
 ## <a name="availability"></a>Disponibilidade
 Relatórios [disponibilidade testes web](./monitor-web-app-availability.md).
 
 | Caminho | Tipo | Notas |
 | --- | --- | --- |
-| disponibilidade [0] availabilityMetric.name |cadeia |disponibilidade |
+| disponibilidade [0] availabilityMetric.name |string |disponibilidade |
 | disponibilidade [0] disponibilidadeMetric.value |número |1.0 ou 0.0 |
 | disponibilidade [0] contagem |número inteiro |100/(taxa[de amostragem).](./sampling.md) Por exemplo 4 = &gt; 25%. |
-| disponibilidade [0] dataSizeMetric.name |cadeia | |
+| disponibilidade [0] dataSizeMetric.name |string | |
 | disponibilidade [0] dataSizeMetric.value |número inteiro | |
-| disponibilidade [0] durationMetric.name |cadeia | |
+| disponibilidade [0] durationMetric.name |string | |
 | disponibilidade [0] duraçãoMetric.value |número |Duração do teste. 1e7==1s |
-| disponibilidade [0] mensagem |cadeia |Diagnóstico de falha |
-| resultado da disponibilidade [0] |cadeia |Aprovado/Reprovado |
-| disponibilidade [0] runLocation |cadeia |Fonte geo de http req |
-| disponibilidade [0] testName |cadeia | |
-| disponibilidade [0] testRunId |cadeia | |
-| disponibilidade [0] testTimestamp |cadeia | |
+| disponibilidade [0] mensagem |string |Diagnóstico de falha |
+| resultado da disponibilidade [0] |string |Aprovado/Reprovado |
+| disponibilidade [0] runLocation |string |Fonte geo de http req |
+| disponibilidade [0] testName |string | |
+| disponibilidade [0] testRunId |string | |
+| disponibilidade [0] testTimestamp |string | |
 
 ## <a name="metrics"></a>Métricas
 Gerado por TrackMetric().
@@ -350,7 +350,7 @@ Em vez de métricas pré-agregantes, pode utilizar [a amostragem](./sampling.md)
 ### <a name="durations"></a>Durações
 Salvo indicação em contrário, as durações são representadas em décimos de um microsegundo, de modo que 100000000000 significa 1 segundo.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 * [Application Insights](./app-insights-overview.md)
 * [Exportação Contínua](export-telemetry.md)
 * [Amostras de código](export-telemetry.md#code-samples)

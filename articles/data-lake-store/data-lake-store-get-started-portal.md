@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 428ed96c3223e644b0c78712723231a5fabbdc77
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91578585"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Começa com o Azure Data Lake Storage Gen1 usando o portal Azure
@@ -56,7 +56,7 @@ Antes de começar este tutorial, tem de ter os seguintes itens:
 
         Para obter mais informações, consulte [encriptação de dados na Azure Data Lake Storage Gen1](./data-lake-store-encryption.md).
 
-4. Clique em **Create** (Criar). Se optar por fixar a conta no painel de instrumentos, é levado de volta para o painel de instrumentos e pode ver o progresso do fornecimento da sua conta de Armazenamento de Dados Lake Gen1. Uma vez que a conta de Armazenamento de Data Lake Gen1 é a for forada, a lâmina da conta aparece.
+4. Clique em **Criar**. Se optar por fixar a conta no painel de instrumentos, é levado de volta para o painel de instrumentos e pode ver o progresso do fornecimento da sua conta de Armazenamento de Dados Lake Gen1. Uma vez que a conta de Armazenamento de Data Lake Gen1 é a for forada, a lâmina da conta aparece.
 
 ## <a name="assign-permissions-to-azure-key-vault"></a><a name="assign-permissions-to-azure-key-vault"></a>Atribuir permissões ao Azure Key Vault
 

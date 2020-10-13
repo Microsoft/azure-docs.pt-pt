@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: mayg
 ms.openlocfilehash: 6a11e3d0cb41383b44b76975ecbd1c2ae2825015
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89441498"
 ---
 # <a name="reprotect-from-azure-to-on-premises"></a>Voltar a proteger do Azure para o local
 
 Após [a falha](site-recovery-failover.md) de VMware VMware no local ou servidores físicos para a Azure, o primeiro passo para não voltar ao seu site no local é reprotegir os VMs Azure que foram criados durante o failover. Este artigo descreve como fazer isto. 
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 1. Siga os passos [deste artigo](vmware-azure-prepare-failback.md) para preparar a reproteção e o failback, incluindo a criação de um servidor de processo em Azure, e um servidor-alvo principal no local, e configurar uma VPN site-to-site, ou o peering privado ExpressRoute, para falha.
 2. Certifique-se de que o servidor de configuração no local está a funcionar e ligado ao Azure. Durante o failover para Azure, o site no local pode não estar acessível, e o servidor de configuração pode estar indisponível ou desligado. Durante o failback, o VM deve existir na base de dados do servidor de configuração. Caso contrário, o fracasso não é bem sucedido.
@@ -74,7 +74,7 @@ Permitir a reproteção da seguinte forma:
     - Não ligue o VM no local depois de terminar a reprotecção.
    
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Se encontrar algum problema, reveja o [artigo de resolução de problemas](vmware-azure-troubleshoot-failback-reprotect.md).
 - Depois de os VMs Azure estarem protegidos, pode [executar uma falha](vmware-azure-failback.md). Failback desliga o Azure VM e arranca o VM no local. Espere algum tempo de inatividade para a aplicação, e escolha um tempo de insí bem-estar em conformidade.

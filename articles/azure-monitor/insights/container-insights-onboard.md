@@ -4,10 +4,10 @@ description: Este artigo descreve como ativar e configurar o Azure Monitor para 
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.openlocfilehash: 1cb393faded714593ce635669f585d5979ee69b8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87320311"
 ---
 # <a name="enable-azure-monitor-for-containers"></a>Ativar o Monitor Azure para contentores
@@ -45,7 +45,7 @@ Antes de começar, certifique-se de que cumpriu os seguintes requisitos:
    Se optar por criar o espaço de trabalho, pode criá-lo através de: 
    - [Azure Resource Manager](../platform/template-workspace-configuration.md)
    - [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)
-   - [O portal Azure](../learn/quick-create-workspace.md) 
+   - [O portal do Azure](../learn/quick-create-workspace.md) 
    
    Para obter uma lista dos pares de mapeamento suportados para o espaço de trabalho predefinido, consulte [o mapeamento da região para o Monitor Azure para recipientes](container-insights-region-mapping.md).
 

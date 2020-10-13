@@ -11,10 +11,10 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
 ms.openlocfilehash: e65e5478c81a99db7789eab4d532ddd01ffc635a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91307165"
 ---
 # <a name="create-a-shared-image-gallery-using-the-portal"></a>Criar uma Galeria de Imagens Partilhadas utilizando o portal
@@ -36,7 +36,7 @@ A funcionalidade Image Gallery partilhada tem vários tipos de recursos. Vamos u
 
 
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Para completar o exemplo neste artigo, você deve ter uma imagem gerida existente de um VM generalizado, ou uma foto de um VM especializado. Pode seguir [tutorial: Criar uma imagem personalizada de um Azure VM com Azure PowerShell](tutorial-custom-images.md) para criar uma imagem gerida, ou [criar um instantâneo](../windows/snapshot-copy-managed-disk.md) para um VM especializado. Tanto para imagens geridas como para instantâneos, o tamanho do disco de dados não pode ser superior a 1 TB.
 

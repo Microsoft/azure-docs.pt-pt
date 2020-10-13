@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
 ms.openlocfilehash: 171fc11c8de9cd53a7abd9602768a117341826ef
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91306605"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) da Rede Virtual do Azure
@@ -86,22 +86,22 @@ Sim. O Azure reserva cinco endereços IP em cada sub-rede. Estes são x.x.x.0-x.
 A sub-rede IPv4 suportada mais pequena é /29, e a maior é /8 (utilizando definições de sub-rede CIDR).  As sub-redes IPv6 devem ter exatamente /64 de tamanho.  
 
 ### <a name="can-i-bring-my-vlans-to-azure-using-vnets"></a>Posso levar os meus VLANs ao Azure usando VNets?
-Não. Os VNets são sobreposições de camada 3. Azure não suporta nenhuma semântica camada 2.
+N.º Os VNets são sobreposições de camada 3. Azure não suporta nenhuma semântica camada 2.
 
 ### <a name="can-i-specify-custom-routing-policies-on-my-vnets-and-subnets"></a>Posso especificar as políticas de encaminhamento personalizados nos meus VNets e sub-redes?
 Sim. Pode criar uma tabela de rotas e associá-la a uma sub-rede. Para obter mais informações sobre o encaminhamento em Azure, consulte [a visão geral do Encaminhamento](virtual-networks-udr-overview.md#custom-routes).
 
 ### <a name="do-vnets-support-multicast-or-broadcast"></a>Os VNets suportam multicast ou transmissão?
-Não. A multicast e a emissão não são suportadas.
+N.º A multicast e a emissão não são suportadas.
 
 ### <a name="what-protocols-can-i-use-within-vnets"></a>Que protocolos posso usar dentro de VNets?
 Pode utilizar os protocolos TCP, UDP e ICMP TCP/IP dentro das VNets. O Unicast é suportado dentro de VNets, com exceção do Protocolo de Configuração dinâmica do Anfitrião (DHCP) via Unicast (porta de origem UDP/68 / porto de destino UDP/67) e porta de origem UDP 65330 que é reservada ao anfitrião. Pacotes multicast, transmitidos, ip-in-IP encapsulados e pacotes genéricos de encapsulamento de encaminhamento (GRE) estão bloqueados dentro de VNets. 
 
 ### <a name="can-i-ping-my-default-routers-within-a-vnet"></a>Posso ver os meus routers padrão dentro de um VNet?
-Não.
+N.º
 
 ### <a name="can-i-use-tracert-to-diagnose-connectivity"></a>Posso usar o rasto para diagnosticar conectividade?
-Não.
+N.º
 
 ### <a name="can-i-add-subnets-after-the-vnet-is-created"></a>Posso adicionar sub-redes depois de o VNet ser criado?
 Sim. As sub-redes podem ser adicionadas aos VNets a qualquer momento, desde que a gama de endereços da sub-rede não faça parte de outra sub-rede e haja espaço disponível na gama de endereços da rede virtual.
@@ -119,7 +119,7 @@ Sim. Todos os serviços implantados dentro de um VNet podem ligar a saída à in
 Sim, os VNets podem ser apenas iPv4 ou pilha dupla (IPv4+IPv6).  Para mais detalhes, consulte [a visão geral do IPv6 para redes virtuais Azure](./ipv6-overview.md).
 
 ### <a name="can-a-vnet-span-regions"></a>Pode uma região de extensão VNet?
-Não. Um VNet está limitado a uma única região. Uma rede virtual, no entanto, abrange zonas de disponibilidade. Para saber mais sobre as zonas de disponibilidade, veja [Descrição geral das zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Pode ligar redes virtuais em diferentes regiões com olhando para a rede virtual. Para mais detalhes, consulte [a visão geral da rede virtual](virtual-network-peering-overview.md)
+N.º Um VNet está limitado a uma única região. Uma rede virtual, no entanto, abrange zonas de disponibilidade. Para saber mais sobre as zonas de disponibilidade, veja [Descrição geral das zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Pode ligar redes virtuais em diferentes regiões com olhando para a rede virtual. Para mais detalhes, consulte [a visão geral da rede virtual](virtual-network-peering-overview.md)
 
 ### <a name="can-i-connect-a-vnet-to-another-vnet-in-azure"></a>Posso ligar um VNet a outro VNet em Azure?
 Sim. Pode ligar um VNet a outro VNet utilizando:
@@ -149,7 +149,7 @@ Existe uma limitação aos primeiros 100 serviços em nuvem num VNet para resolu
 Sim. Pode configurar servidores DNS por VM ou serviço na nuvem para substituir as definições de rede predefinidos. No entanto, recomenda-se que utilize DNS em toda a rede o máximo possível.
 
 ### <a name="can-i-bring-my-own-dns-suffix"></a>Posso trazer o meu próprio sufixo DNS?
-Não. Não é possível especificar um sufixo DNS personalizado para os seus VNets.
+N.º Não é possível especificar um sufixo DNS personalizado para os seus VNets.
 
 ## <a name="connecting-virtual-machines"></a>Conectar máquinas virtuais
 
@@ -165,7 +165,7 @@ Sim. Todas as interfaces de rede (NIC) ligadas a um VM implantado através do mo
 * **Público:** Atribuído opcionalmente a NICs ligados a VMs implantados através do modelo de implementação do Gestor de Recursos Azure. O endereço pode ser atribuído com o método de atribuição estática ou dinâmica. Todas as instâncias de função VMs e Cloud Services implementadas através do modelo de implementação clássica existem dentro de um serviço de cloud, que é atribuído um endereço *dinâmico,* virtual PÚBLICO IP (VIP). Um endereço IP *estático* público, chamado [de endereço IP reservado,](virtual-networks-reserved-public-ip.md)pode opcionalmente ser atribuído como VIP. Pode atribuir endereços IP públicos a vms individuais ou instâncias de funções de Serviços cloud implementadas através do modelo de implementação clássico. Estes endereços são chamados [de IP público nível de instância (endereços ILPIP](virtual-networks-instance-level-public-ip.md) e podem ser atribuídos dinamicamente.
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>Posso reservar um endereço IP privado para um VM que criarei mais tarde?
-Não. Não é possível reservar um endereço IP privado. Se um endereço IP privado estiver disponível, é atribuído a um VM ou instância de função pelo servidor DHCP. O VM pode ou não ser aquele a que pretende o endereço IP privado atribuído. No entanto, pode alterar o endereço IP privado de um VM já criado, para qualquer endereço IP privado disponível.
+N.º Não é possível reservar um endereço IP privado. Se um endereço IP privado estiver disponível, é atribuído a um VM ou instância de função pelo servidor DHCP. O VM pode ou não ser aquele a que pretende o endereço IP privado atribuído. No entanto, pode alterar o endereço IP privado de um VM já criado, para qualquer endereço IP privado disponível.
 
 ### <a name="do-private-ip-addresses-change-for-vms-in-a-vnet"></a>Os endereços IP privados mudam para VMs num VNet?
 Depende. Se o VM foi implementado através do Gestor de Recursos, não, independentemente de o endereço IP ter sido atribuído com o método de atribuição estática ou dinâmica. Se o VM foi implantado através do modelo de implementação clássico, os endereços IP dinâmicos podem mudar quando um VM é iniciado depois de ter estado no estado parado (deallocated). O endereço é libertado a partir de um VM implantado através de qualquer modelo de implantação quando o VM é eliminado.
@@ -180,7 +180,7 @@ Nada. Os endereços IP (VIP público, público e privado) permanecem atribuídos
 Sim. Pode encontrar mais informações no [Como mover um VM ou instância de função para um artigo de sub-rede diferente.](virtual-networks-move-vm-role-to-subnet.md)
 
 ### <a name="can-i-configure-a-static-mac-address-for-my-vm"></a>Posso configurar um endereço MAC estático para o meu VM?
-Não. Um endereço MAC não pode ser configurado estáticamente.
+N.º Um endereço MAC não pode ser configurado estáticamente.
 
 ### <a name="will-the-mac-address-remain-the-same-for-my-vm-once-its-created"></a>O endereço MAC permanecerá o mesmo para o meu VM uma vez que seja criado?
 Sim, o endereço MAC permanece o mesmo para um VM implantado através do Gestor de Recursos e modelos de implementação clássica até que seja eliminado. Anteriormente, o endereço MAC foi lançado se o VM foi interrompido (deallocated), mas agora o endereço MAC é mantido mesmo quando o VM está no estado de negociação. O endereço MAC permanece atribuído à interface de rede até que a interface de rede seja eliminada ou o endereço IP privado atribuído à configuração IP primária da interface de rede primária é alterado. 
@@ -191,7 +191,7 @@ Sim. Todas as instâncias de funções de VMs e Cloud Services implementadas den
 ## <a name="azure-services-that-connect-to-vnets"></a>Serviços Azure que se ligam a VNets
 
 ### <a name="can-i-use-azure-app-service-web-apps-with-a-vnet"></a>Posso utilizar aplicações web do Azure App Service com um VNet?
-Sim. Pode implementar Aplicações Web dentro de um VNet utilizando um ASE (App Service Environment), ligar o backend das suas aplicações aos seus VNets com a Integração VNet e bloquear o tráfego de entrada na sua app com pontos finais de serviço. Para obter mais informações, veja os seguintes artigos:
+Sim. Pode implementar Aplicações Web dentro de um VNet utilizando um ASE (App Service Environment), ligar o backend das suas aplicações aos seus VNets com a Integração VNet e bloquear o tráfego de entrada na sua app com pontos finais de serviço. Para obter mais informações, veja os artigos seguintes:
 
 * [Funcionalidades de networking do Serviço de Aplicações](../app-service/networking-features.md)
 * [Criar aplicativos web num ambiente de serviço de aplicações](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -212,7 +212,7 @@ Sim, Para mais detalhes, consulte [a integração da rede Virtual para os servi�
 Os recursos implantados através de alguns serviços Azure PaaS (como o Azure Storage e a Azure SQL Database), podem restringir o acesso à rede ao VNet através da utilização de pontos finais de serviço de rede virtual ou link privado Azure. Para mais detalhes, consulte [os pontos finais do serviço](virtual-network-service-endpoints-overview.md)de rede virtual, [visão geral do Link Privado Azure](../private-link/private-link-overview.md)
 
 ### <a name="can-i-move-my-services-in-and-out-of-vnets"></a>Posso transferir os meus serviços para dentro e para fora dos VNets?
-Não. Não pode mover serviços dentro e fora dos VNets. Para mover um recurso para outro VNet, tem de eliminar e redistribuir o recurso.
+N.º Não pode mover serviços dentro e fora dos VNets. Para mover um recurso para outro VNet, tem de eliminar e redistribuir o recurso.
 
 ## <a name="security"></a>Segurança
 
@@ -258,7 +258,7 @@ Os seguintes recursos podem utilizar balanceadores de carga básicos, o que sign
 - SQL MI
 - Gestão de API
 - Serviço de Domínio do Diretório Ativo (ADDS)
-- Logic Apps
+- Aplicações Lógicas
 - HDInsight
 -   Azure Batch
 - Ambiente do Serviço de Aplicações
@@ -278,22 +278,22 @@ Se a sua ligação de observação VNet estiver num estado *desligado,* signific
 Sim. Pode espreitar VNets através de subscrições e regiões.
 
 ### <a name="can-i-peer-two-vnets-with-matching-or-overlapping-address-ranges"></a>Posso espreitar dois VNets com intervalos de endereços correspondentes ou sobrepostos?
-Não. Os espaços de endereço não devem sobrepor-se para ativar o VNet Peering.
+N.º Os espaços de endereço não devem sobrepor-se para ativar o VNet Peering.
 
 ### <a name="how-much-do-vnet-peering-links-cost"></a>Quanto custam os links de observação VNet?
 Não há qualquer custo para criar uma ligação de espreitamento VNet. A transferência de dados através de ligações de espreitária é cobrada. [Veja aqui.](https://azure.microsoft.com/pricing/details/virtual-network/)
 
 ### <a name="is-vnet-peering-traffic-encrypted"></a>O tráfego de observação da VNet está encriptado?
-Não. O tráfego entre os recursos em VNets espreitados é privado e isolado. Permanece completamente na Espinha Dorsal da Microsoft.
+N.º O tráfego entre os recursos em VNets espreitados é privado e isolado. Permanece completamente na Espinha Dorsal da Microsoft.
 
 ### <a name="why-is-my-peering-connection-in-a-disconnected-state"></a>Porque é que a minha ligação de espreitar está num estado *desligado?*
 As ligações de observação VNet entram em estado *de desconexão* quando um link de observação VNet é eliminado. Tem de eliminar ambas as ligações para restabelecer uma ligação de observação bem sucedida.
 
 ### <a name="if-i-peer-vneta-to-vnetb-and-i-peer-vnetb-to-vnetc-does-that-mean-vneta-and-vnetc-are-peered"></a>Se eu colega de VNetA para VNetB e eu par VNetB para VNetC, isso significa que VNetA e VNetC são espreitados?
-Não. O espreitamento transitório não é suportado. Você deve peer VNetA e VNetC para que isto ocorra.
+N.º O espreitamento transitório não é suportado. Você deve peer VNetA e VNetC para que isto ocorra.
 
 ### <a name="are-there-any-bandwidth-limitations-for-peering-connections"></a>Existem limitações de largura de banda para as ligações de espreitar?
-Não. O espreguiçadamento da VNet, local ou global, não impõe restrições à largura de banda. A largura de banda é limitada apenas pelo VM ou pelo recurso compute.
+N.º O espreguiçadamento da VNet, local ou global, não impõe restrições à largura de banda. A largura de banda é limitada apenas pelo VM ou pelo recurso compute.
 
 ### <a name="how-can-i-troubleshoot-vnet-peering-issues"></a>Como posso resolver problemas com a VNet Peering?
 Aqui está um [guia de resolução de problemas](https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) que pode tentar.

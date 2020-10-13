@@ -12,10 +12,10 @@ ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 466e590ba22efe1c2fbb457c15bc7f979f8a172e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259641"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Sobre as reclamações em Azure Ative Directory B2C políticas personalizadas
@@ -70,7 +70,7 @@ A lista de secções seguintes disponível.
 | {OIDC:ClientId} |O `client_id`  parâmetro da corda de consulta. | 00000000-0000-0000-0000-000000000000 |
 | {OIDC:DomainHint} |O `domain_hint`  parâmetro da corda de consulta. | facebook.com |
 | {OIDC:LoginHint} |  O `login_hint` parâmetro da corda de consulta. | someone@contoso.com |
-| {OIDC:MaxAge} | O `max_age` . | N/D |
+| {OIDC:MaxAge} | O campo `max_age`. | N/D |
 | {OIDC:Nonce} |O `Nonce`  parâmetro da corda de consulta. | padrãoNonce |
 | {OIDC:Password}| As [credenciais de senha do proprietário do recurso fluem](ropc-custom.md) a palavra-passe do utilizador.| senha1| 
 | {OIDC:Prompt} | O `prompt` parâmetro da corda de consulta. | início de sessão |

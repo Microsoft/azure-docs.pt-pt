@@ -13,10 +13,10 @@ ms.reviewer: vanto
 ms.date: 08/04/2020
 tags: azure-synpase
 ms.openlocfilehash: 0689cea221142ec9c9bdbb18ab82fab00a3e2fe5
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91398617"
 ---
 # <a name="dynamic-data-masking"></a>Máscara de dados dinâmica 

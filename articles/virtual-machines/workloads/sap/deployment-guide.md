@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
 ms.openlocfilehash: 4494af89ac35a391f7dc6097b14d135a911d99dd
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91359618"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implementação de máquinas virtuais Azure para SAP NetWeaver
@@ -506,7 +506,7 @@ No portal Azure, introduza os seguintes parâmetros para o modelo:
    * **Nome de utilizador admin** e **senha de administração**: Nome de utilizador e senha.
      É criado um novo utilizador para iniciar sessão na máquina virtual.
    * **Sub-rede nova ou existente**: Determina se uma nova rede virtual e sub-rede são criadas ou se é utilizada uma sub-rede existente. Se já tem uma rede virtual que está ligada à sua rede no local, selecione **Existing**.
-   * **ID da sub-rede**: Se pretender colocar o VM num VNet existente onde tenha uma sub-rede definida, o VM deve ser atribuído, nomeie o ID dessa sub-rede específica. O ID geralmente é assim: /subscrições/ &lt; id subscrição>/resourceGroups/ &lt; nome do grupo de recursos>/fornecedores/Microsoft.Network/virtualNetworks/ nome de rede virtual &lt;>/sub-redes/ &lt; nome da sub-rede>
+   * **ID da sub-rede**: Se pretender colocar o VM num VNet existente onde tenha uma sub-rede definida, o VM deve ser atribuído, nomeie o ID dessa sub-rede específica. O ID geralmente é assim: /subscrições/ &lt; id de subscrição>/resourceGroups/ &lt; nome do grupo de recursos>/fornecedores/Microsoft.Network/virtualNetworks/ nome de rede virtual>&lt; /sub-redes/ &lt; nome da sub-rede>
 
 1. **Termos e condições:**  
     Reveja e aceite os termos legais.
@@ -646,7 +646,7 @@ No portal Azure, introduza os seguintes parâmetros para o modelo:
 
      É criado um novo utilizador para iniciar sessão na máquina virtual.
    * **Sub-rede nova ou existente**: Determina se uma nova rede virtual e sub-rede é criada ou se é utilizada uma sub-rede existente. Se já tem uma rede virtual que está ligada à sua rede no local, selecione **Existing**.
-   * **ID da sub-rede**: Se pretender colocar o VM num VNet existente onde tenha uma sub-rede definida, o VM deve ser atribuído, nomeie o ID dessa sub-rede específica. O ID geralmente é assim: /subscrições/ &lt; id subscrição>/resourceGroups/ &lt; nome do grupo de recursos>/fornecedores/Microsoft.Network/virtualNetworks/ nome de rede virtual &lt;>/sub-redes/ &lt; nome da sub-rede>
+   * **ID da sub-rede**: Se pretender colocar o VM num VNet existente onde tenha uma sub-rede definida, o VM deve ser atribuído, nomeie o ID dessa sub-rede específica. O ID geralmente é assim: /subscrições/ &lt; id de subscrição>/resourceGroups/ &lt; nome do grupo de recursos>/fornecedores/Microsoft.Network/virtualNetworks/ nome de rede virtual>&lt; /sub-redes/ &lt; nome da sub-rede>
 
 1. **Termos e condições:**  
     Reveja e aceite os termos legais.
@@ -734,7 +734,7 @@ No portal Azure, introduza os seguintes parâmetros para o modelo:
    * **Disco de OS VHD URI** (apenas modelo de disco não gerido): O URI do disco privado de OS, por exemplo, https:// &lt; nome de conta>.blob.core.windows.net/vhds/osdisk.vhd.
    * **Disco de OS Gerido ID** (apenas modelo de disco gerido): O ID do disco de disco gerido OS, /subscrições/92d102f7-81a5-4df7-9877-54987ba97d9/resourceGroups/group/providers/Microsoft.Compute/disks/WIN
    * **Sub-rede nova ou existente**: Determina se uma nova rede virtual e sub-rede são criadas ou se é utilizada uma sub-rede existente. Se já tem uma rede virtual que está ligada à sua rede no local, selecione **Existing**.
-   * **ID da sub-rede**: Se pretender colocar o VM num VNet existente onde tenha uma sub-rede definida, o VM deve ser atribuído, nomeie o ID dessa sub-rede específica. O ID geralmente é assim: /subscrições/ &lt; id subscrição>/resourceGroups/ &lt; nome do grupo de recursos>/fornecedores/Microsoft.Network/virtualNetworks/ nome de rede virtual &lt;>/sub-redes/ &lt; nome da sub-rede>
+   * **ID da sub-rede**: Se pretender colocar o VM num VNet existente onde tenha uma sub-rede definida, o VM deve ser atribuído, nomeie o ID dessa sub-rede específica. O ID geralmente é assim: /subscrições/ &lt; id de subscrição>/resourceGroups/ &lt; nome do grupo de recursos>/fornecedores/Microsoft.Network/virtualNetworks/ nome de rede virtual>&lt; /sub-redes/ &lt; nome da sub-rede>
 
 1. **Termos e condições:**  
     Reveja e aceite os termos legais.
@@ -946,7 +946,7 @@ Para instalar a extensão Azure para SAP utilizando o PowerShell:
 Depois de introduzir os dados da sua conta, o script implementa as extensões necessárias e permite as funcionalidades necessárias. Esta ação poderá demorar alguns minutos.
 Para obter mais informações sobre `Set-AzVMAEMExtension` , consulte [Set-AzVMAEMExtension][msdn-set-Azvmaemextension].
 
-![Execução bem sucedida da cmdlet Azure específica da SAP Set-AzVMAEMExtension][deployment-guide-figure-900]
+![Execução bem sucedida do cmdlet Azure específico da SAP Set-AzVMAEMExtension][deployment-guide-figure-900]
 
 A `Set-AzVMAEMExtension` configuração faz todos os passos para configurar a recolha de dados do anfitrião para o SAP.
 
@@ -1057,7 +1057,7 @@ A nova extensão VM para SAP utiliza uma Identidade Gerida atribuída ao VM para
    az login
    ```
 
-1. Siga os passos na [Configuração de identidades geridas para recursos Azure num VM Azure utilizando][qs-configure-cli-windows-vm] um artigo do Azure CLI para permitir uma Identidade Gerida Atribuída ao Sistema para o VM. As identidades geridas atribuídas pelo utilizador não são suportadas pela extensão VM para SAP. No entanto, pode ativar ambos, uma identidade atribuída ao sistema e uma identidade atribuída ao utilizador.
+1. Siga os passos na [Configuração identidades geridas para recursos Azure num Azure VM utilizando][qs-configure-cli-windows-vm] o artigo Azure CLI para permitir uma identidade gerida System-Assigned para o VM. User-Assigned Identidades Geridas não são suportadas pela extensão VM para SAP. No entanto, pode ativar ambos, uma identidade atribuída ao sistema e uma identidade atribuída ao utilizador.
 
    Exemplo:
    ```azurecli
@@ -1370,11 +1370,11 @@ O diretório \\ var \\ lib \\ waagent \\ não tem uma subdireção para a Extens
 
 A extensão não está instalada. Determine se se trata de um problema de procuração (como descrito anteriormente). Pode ser necessário reiniciar a máquina e/ou refazer o `Set-AzVMAEMExtension` script de configuração.
 
-##### <a name="the-execution-of-set-azvmaemextension-and-test-azvmaemextension-show-warning-messages-stating-that-standard-managed-disks-are-not-supported"></a>A execução do Set-AzVMAEMExtension e test-AzVMAEMExtension mostra mensagens de aviso afirmando que os Discos Geridos Padrão não são suportados
+##### <a name="the-execution-of-set-azvmaemextension-and-test-azvmaemextension-show-warning-messages-stating-that-standard-managed-disks-are-not-supported"></a>A execução de Set-AzVMAEMExtension e Test-AzVMAEMExtension mostram mensagens de aviso afirmando que os Discos Geridos Padrão não são suportados
 
 ###### <a name="issue"></a>Problema
 
-Ao executar mensagens de configuração de Set-AzVMAEMExtension ou Test-AzVMAEMExtension como estas são mostradas:
+Ao executar mensagens Set-AzVMAEMExtension ou Test-AzVMAEMExtension como estas são mostradas:
 
 <pre><code>
 WARNING: [WARN] Standard Managed Disks are not supported. Extension will be installed but no disk metrics will be available.
@@ -1495,7 +1495,7 @@ Siga os passos do capítulo [Configure a Extensão Azure para SAP][deployment-gu
 
 Se os erros não desaparecerem, [contacte o suporte][deployment-guide-contact-support].
 
-#### <a name="contact-support"></a><a name="3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2"></a>Suporte de contato
+#### <a name="contact-support"></a><a name="3ba34cfc-c9bb-4648-9c3c-88e8b9130ca2"></a>Contactar o Suporte
 
 Erro inesperado ou não há solução conhecida. Colete o ficheiro AzureEnhancedMonitoring_service.log localizado na pasta C:\Packages\Plugins\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler \\ \<version\> \drop (Windows) ou /var/log/azure/Microsoft.OSTCExtensions.AzureEnhancedMonitorforLinux (Linux) e contacte o suporte DA SAP para mais assistência.
 
