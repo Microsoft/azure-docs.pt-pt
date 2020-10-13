@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: quickstart
 ms.date: 09/30/2020
 ms.author: aahi
-ms.openlocfilehash: 004685a50e2413c29528ad3aca08a0150843a8aa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 65542ca88d055af2c537907d7ae801250943ed0b
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91631392"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91930378"
 ---
 # <a name="quickstart-monitor-your-first-metric-using-the-web-portal"></a>Quickstart: Monitorize a sua primeira métrica utilizando o portal web
 
@@ -41,7 +41,7 @@ Este documento utiliza uma Base de Dados SQL como exemplo para criar o seu prime
 
 ## <a name="sign-in-to-your-workspace"></a>Inscreva-se no seu espaço de trabalho
 
-Depois de o seu recurso ser implantado, inscreva-se no [portal Metrics Advisor](https://go.microsoft.com/fwlink/?linkid=2143774). Selecione o seu espaço de trabalho para começar a monitorizar as suas métricas. 
+Após a criação do seu recurso, inscreva-se no [portal Metrics Advisor](https://go.microsoft.com/fwlink/?linkid=2143774). Selecione o seu espaço de trabalho para começar a monitorizar as suas métricas. 
  
 Atualmente pode criar um recurso Metrics Advisor em cada região disponível. Pode trocar espaços de trabalho no portal Metrics Advisor a qualquer momento.
 

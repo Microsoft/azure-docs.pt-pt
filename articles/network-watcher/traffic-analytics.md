@@ -12,12 +12,13 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: f978343bd47c4b8c86653024e651b56c782f768c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: references_regions
+ms.openlocfilehash: c0d0e1c5f096a45c08265927a288b4ff56876d94
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90967500"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951592"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -58,62 +59,106 @@ A análise do tráfego examina os registos de fluxo de NSG brutos e captura regi
 ## <a name="supported-regions-nsg"></a>Regiões apoiadas: NSG 
 
 Pode utilizar análises de tráfego para NSGs em qualquer uma das seguintes regiões apoiadas:
-
-* Canadá Central
-* E.U.A. Centro-Oeste
-* E.U.A. Leste
-* E.U.A. Leste 2
-* E.U.A. Centro-Norte
-* E.U.A. Centro-Sul
-* E.U.A. Central
-* E.U.A. Oeste
-* E.U.A. Oeste 2
-* França Central
-* Europa Ocidental
-* Europa do Norte
-* Sul do Brasil
-* Oeste do Reino Unido
-* Sul do Reino Unido
-* Leste da Austrália
-* Austrália Sudeste
-* Ásia Leste
-* Sudeste Asiático
-* Coreia do Sul Central
-* Índia Central
-* Sul da Índia
-* Leste do Japão 
-* Oeste do Japão
-* US Gov - Virginia
-* China Leste 2
+:::row:::
+   :::column span="":::
+      Austrália Central  
+      Leste da Austrália  
+      Austrália Sudeste  
+      Sul do Brasil  
+      Canadá Central  
+      Leste do Canadá  
+      Índia Central  
+      E.U.A. Central  
+      China Leste 2  
+      China Norte 2  
+   :::column-end:::
+   :::column span="":::
+      Ásia Leste  
+      E.U.A. Leste  
+      E.U.A. Leste 2  
+      Leste DOS EUA 2  
+      França Central  
+      Leste do Japão  
+      Oeste do Japão  
+      Coreia do Sul Central  
+      Sul da Coreia do Sul  
+      E.U.A. Centro-Norte  
+   :::column-end:::
+   :::column span="":::
+      Europa do Norte  
+      África do Sul Norte  
+      E.U.A. Centro-Sul  
+      Sul da Índia  
+      Sudeste Asiático  
+      Suíça Norte  
+      Suíça Oeste  
+      Sul do Reino Unido  
+      Oeste do Reino Unido  
+      USGov Arizona  
+   :::column-end:::
+   :::column span="":::
+      USGov Texas  
+      USGov Virginia  
+      USNat Leste  
+      USNat Oeste  
+      USSec Leste  
+      USSec West  
+      E.U.A. Centro-Oeste  
+      Europa Ocidental  
+      E.U.A. Oeste  
+      E.U.A. Oeste 2  
+   :::column-end:::
+:::row-end:::
 
 ## <a name="supported-regions-log-analytics-workspaces"></a>Regiões apoiadas: Log Analytics Workspaces
 
 O espaço de trabalho Log Analytics deve existir nas seguintes regiões:
-* Canadá Central
-* E.U.A. Centro-Oeste
-* E.U.A. Leste
-* E.U.A. Leste 2
-* E.U.A. Centro-Norte
-* E.U.A. Centro-Sul
-* E.U.A. Central
-* E.U.A. Oeste
-* E.U.A. Oeste 2
-* E.U.A. Central
-* França Central
-* Europa Ocidental
-* Europa do Norte
-* Sul do Brasil
-* Oeste do Reino Unido
-* Sul do Reino Unido
-* Leste da Austrália
-* Austrália Sudeste
-* Ásia Leste
-* Sudeste Asiático
-* Coreia do Sul Central
-* Índia Central
-* Leste do Japão
-* US Gov - Virginia
-* China Leste 2
+:::row:::
+   :::column span="":::
+      Austrália Central  
+      Leste da Austrália  
+      Austrália Sudeste  
+      Sul do Brasil  
+      Canadá Central  
+      Índia Central  
+      E.U.A. Central  
+      China Leste 2  
+      Ásia Leste  
+      E.U.A. Leste  
+   :::column-end:::
+   :::column span="":::
+      E.U.A. Leste 2  
+      Leste DOS EUA 2  
+      França Central  
+      Alemanha Centro-Oeste  
+      Leste do Japão  
+      Coreia do Sul Central  
+      E.U.A. Centro-Norte  
+      Europa do Norte  
+      África do Sul Norte  
+      E.U.A. Centro-Sul  
+   :::column-end:::
+   :::column span="":::
+      Sudeste Asiático  
+      Suíça Norte  
+      Suíça Oeste  
+      Centro dos Emirados Árabes Unidos  
+      Sul do Reino Unido  
+      Oeste do Reino Unido  
+      USGov Arizona  
+      USGov Virginia  
+      USNat Leste  
+      USNat Oeste  
+   :::column-end:::
+   :::column span="":::
+      USSec Leste  
+      USSec West  
+      E.U.A. Centro-Oeste  
+      Europa Ocidental  
+      E.U.A. Oeste  
+      E.U.A. Oeste 2  
+   :::column-end:::
+:::row-end:::
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

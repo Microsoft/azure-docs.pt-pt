@@ -6,14 +6,14 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: c240399f1368862a969561409371e075a010e8f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18e3f29a90ae2c6c66858e14ee91fb447a4a0045
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89435614"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91968655"
 ---
-# <a name="access-azure-storage-as-a-network-share-from-a-container-in-app-service"></a>Aceda ao Azure Storage como uma partilha de rede a partir de um contentor no Serviço de Aplicações
+# <a name="access-azure-storage-as-a-network-share-from-a-container-in-app-service"></a>Aceder ao Armazenamento do Microsoft Azure como uma partilha de rede de um contentor no Serviço de Aplicações
 
 ::: zone pivot="container-windows"
 
@@ -65,7 +65,6 @@ Este guia mostra como ligar o Azure Storage a um Serviço de Aplicações para c
 
 - O Azure Storage in App Service está **em pré-visualização** para o Serviço de Aplicações em Linux e Web App para Contentores. Não é **apoiado** para cenários de **produção.**
 - O Azure Storage in App Service suporta a montagem **de recipientes Azure Files** (Ler/ Escrever) e **recipientes Azure Blob** (Read Only)
-- O Azure Storage in App Service **não suporta** a utilização da configuração de Firewall de **Armazenamento** devido a limitações de infraestrutura.
 - O Azure Storage in App Service permite especificar **até cinco** pontos de montagem por aplicação.
 - O Azure Storage montado numa aplicação não é acessível através de pontos finais ftp/FTPs do Serviço de Aplicações. Utilize [o Explorador de Armazenamento Azure](https://azure.microsoft.com/features/storage-explorer/).
 

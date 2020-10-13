@@ -12,7 +12,7 @@ ms.openlocfilehash: 4d9a5900990ea41788ced5f25690619fbde68d33
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91854992"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Identidades geridas em Azure HDInsight

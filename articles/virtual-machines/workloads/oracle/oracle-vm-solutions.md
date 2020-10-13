@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: kegorman
-ms.openlocfilehash: 352c8c887899a2e15eed9736e8885c1b2cffec2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d82db48690f8cfa48ebf3a6fdc81cb4e467c159d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331374"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977685"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Imagens Oracle VM e sua implementação no Microsoft Azure
 
@@ -132,7 +132,7 @@ Com a Oracle Data Guard, a alta disponibilidade pode ser alcançada com uma base
 
 O tutorial [Implement Oracle GoldenGate on Azure](configure-oracle-golden-gate.md) acompanha-o através do procedimento básico de configuração em Azure.
 
-Além de ter uma solução HA e DR arquivada em Azure, deverá ter uma estratégia de backup no local para restaurar a sua base de dados. O tutorial [backup e recuperar uma Base de Dados Oráculos](oracle-backup-recovery.md) acompanha-o através do procedimento básico para estabelecer uma cópia de segurança consistente.
+Além de ter uma solução HA e DR arquivada em Azure, deverá ter uma estratégia de backup no local para restaurar a sua base de dados. O tutorial [backup e recuperar uma Base de Dados Oráculos](./oracle-overview.md) acompanha-o através do procedimento básico para estabelecer uma cópia de segurança consistente.
 
 ## <a name="support-for-jd-edwards"></a>Apoio a JD Edwards
 

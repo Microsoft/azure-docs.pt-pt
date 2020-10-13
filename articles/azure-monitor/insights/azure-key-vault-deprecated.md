@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
-ms.openlocfilehash: f6d8929c8fd59836ff297f226851890892c10acc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71eb49c84b8ab92c9ba2ad8e05e8d74054bd4ee7
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445137"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938836"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Solução Azure Key Vault Analytics no Azure Monitor
 
@@ -75,7 +75,7 @@ A tabela seguinte mostra métodos de recolha de dados e outros detalhes sobre co
 | Azure |  |  |&#8226; |  |  | na chegada |
 
 ## <a name="use-azure-key-vault"></a>Utilizar o Azure Key Vault
-Depois de [instalar a solução,](https://azuremarketplace.microsoft.com/en-usrketplace/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview)consulte os dados do Key Vault, clicando no azulejo **Key Vault Analytics** a partir da página **'Vista Geral do** Monitor Azure'. Abra esta página a partir do menu **Azure Monitor** clicando **mais** na secção **Insights.** 
+Depois de [instalar a solução,](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?source=intercept.nl&tab=Overview)consulte os dados do Key Vault, clicando no azulejo **Key Vault Analytics** a partir da página **'Vista Geral do** Monitor Azure'. Abra esta página a partir do menu **Azure Monitor** clicando **mais** na secção **Insights.** 
 
 ![Screenshot do azulejo Key Vault Analytics na página geral do Monitor Azure mostrando um gráfico do volume de operações do cofre chave ao longo do tempo.](media/azure-key-vault/log-analytics-keyvault-tile.png)
 

@@ -9,12 +9,12 @@ metadata:
   author: v-chmccl
   ms.author: wesmc
   ms.date: 03/11/2020
-  ms.openlocfilehash: db405e7405fc96779aebc9074fa19302f3b4ba1b
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: d60587516fe021085e39227d45865ed10f81990e
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "79137942"
+  ms.lasthandoff: 10/09/2020
+  ms.locfileid: "91855423"
 landingContent:
 - title: Sobre o serviço Azure SignalR
   linkLists:
@@ -38,13 +38,15 @@ landingContent:
       url: signalr-quickstart-azure-functions-java.md
     - text: Funções do Azure - Python
       url: signalr-quickstart-azure-functions-python.md
+    - text: Implementação do Azure SignalR Service - modelo ARM
+      url: signalr-quickstart-azure-signalr-service-arm-template.md
     - text: API REST
       url: signalr-quickstart-rest-api.md
 - title: Criar aplicações do Azure SignalR Service
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Integrar o Serviço do Azure SignalR no ASP.NET Core Identity
+    - text: Integrar o Serviço do Azure SignalR com o ASP.NET Core Identity
       url: signalr-concept-authenticate-oauth.md
     - text: Criar uma Aplicação sem Servidor em Tempo Real com a Autenticação
       url: signalr-tutorial-authenticate-azure-functions.md

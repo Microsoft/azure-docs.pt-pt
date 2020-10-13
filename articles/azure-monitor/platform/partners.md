@@ -5,10 +5,10 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.openlocfilehash: b56b2386422d9f7f2fa598ff804a2206bf4b4d83
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91460101"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor
@@ -151,7 +151,7 @@ A Microfocus **ArcSight** tem um conector inteligente para os centros de eventos
 
 A Microfocus **Operations Bridge** monitoriza automaticamente todos os recursos de TI híbridos – qualquer dispositivo, sistema operativo, base de dados, aplicação ou serviço, independentemente do local onde funciona e aplica AIOps a todos os tipos de dados – eventos, métricas, registos e dependências. Fornece uma combinação única de monitorização de qualidade de serviço, juntamente com análises profundas de saúde de aplicações, e inclui uma monitorização abrangente de desempenho e disponibilidade dos serviços microsoft Azure. Operations Bridge permite que os clientes forneçam um único painel de vidro, disponível em qualquer dispositivo com um browser, de forma a que tanto as partes interessadas de negócios como de TI possam compreender.
 
-Saber mais
+Saiba mais
 - [Visão geral da Suite OB](https://www.microfocus.com/products/operations-bridge-suite/overview)
 - [Transferência](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
 - [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) - SiteScope é um componente na Suite da Ponte de Operações.
@@ -301,7 +301,7 @@ A Turbonomic fornece automatização de carga de trabalho para nuvens híbridas,
 
 [Introdução turbonómica](https://turbonomic.com/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba mais sobre o Azure Monitor](../overview.md)
 - [Métricas de acesso usando a API REST](rest-api-walkthrough.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.author: cynthn
-ms.openlocfilehash: c3e914b904b0f6f1d3a4fae6c43c81cdf4eae819
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d126d1e6bb92d2079ac3c0d95f754cb9aab3c21
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87080017"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978616"
 ---
 # <a name="managing-platform-updates-with-maintenance-control"></a>Gerir atualizações da plataforma com o Controlo de Manutenção 
 
@@ -28,7 +28,7 @@ Com o controlo de manutenção, pode:
 
 ## <a name="limitations"></a>Limitações
 
-- Os VMs devem estar num [hospedeiro dedicado,](./linux/dedicated-hosts.md)ou ser criados com um [tamanho VM isolado](isolation.md).
+- Os VMs devem estar num [hospedeiro dedicado,](./dedicated-hosts.md)ou ser criados com um [tamanho VM isolado](isolation.md).
 - Após 35 dias, uma atualização será automaticamente aplicada.
 - O utilizador deve ter acesso **ao Contribuinte de Recursos.**
 

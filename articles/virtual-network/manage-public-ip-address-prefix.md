@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: allensu
 ms.openlocfilehash: 90fc35249daea51a08cb83143c6be024e78964a7
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91804015"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Criar, alterar ou eliminar um prefixo de endereço IP público
@@ -51,7 +51,7 @@ Os prefixos de endereço IP públicos têm uma taxa. Para mais detalhes, consult
    |Subscrição|Sim|Deve existir na mesma [subscrição](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) que o recurso a que pretende associar o endereço IP público.|
    |Grupo de recursos|Sim|Pode existir no mesmo grupo de [recursos,](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) ou diferente, que o recurso a que pretende associar o endereço IP público.|
    |Nome|Sim|O nome deve ser único dentro do grupo de recursos que seleciona.|
-   |Região|Sim|Deve existir na mesma [região](https://azure.microsoft.com/regions)que os endereços IP públicos que irá atribuir endereços do intervalo.|
+   |Region|Sim|Deve existir na mesma [região](https://azure.microsoft.com/regions)que os endereços IP públicos que irá atribuir endereços do intervalo.|
    |Tamanho do prefixo|Sim| O tamanho do prefixo que precisa. A /28 ou 16 endereços IP é o predefinido.
 
 **Comandos**

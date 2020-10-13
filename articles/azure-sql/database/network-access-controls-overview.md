@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: caad78bf61c9ad470464d69c7320aa1d08dcee09
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 4afb6844512bd59a5c377d826267a748837ed855
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89435376"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952000"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Azure SQL Database e Azure Synapse Analytics controlos de acesso à rede
 
@@ -42,7 +42,7 @@ Veja o vídeo abaixo para obter uma explicação de alto nível destes controlos
 
 ## <a name="allow-azure-services"></a>Permitir serviços Azure
 
-Durante a criação de um novo servidor SQL lógico [a partir do portal Azure,](single-database-create-quickstart.md)esta definição é deixada descontrolada.
+Por predefinição durante a criação de um novo servidor lógico SQL [a partir do portal Azure,](single-database-create-quickstart.md)esta definição está definida para **OFF**. Esta definição aparece quando a conectividade é permitida usando o ponto final de serviço público.
 
 Também pode alterar esta definição através do painel de firewall depois de o servidor lógico SQL ser criado da seguinte forma.
   
@@ -80,9 +80,9 @@ PS C:\> $sql.Properties.AddressPrefixes
 ```
 
 > [!TIP]
-> O Get-AzNetworkServiceTag devolve a gama global de Tag de Serviço SQL, apesar de especificar o parâmetro Localização. Certifique-se de filtrar para a região que acolhe a base de dados Hub usada pelo seu grupo de sincronização
+> Get-AzNetworkServiceTag devolve a gama global de Tag de Serviço SQL, apesar de especificar o parâmetro Localização. Certifique-se de filtrar para a região que acolhe a base de dados Hub usada pelo seu grupo de sincronização
 
-Note que a saída do script PowerShell está na notação de encaminhamento inter-domínio sem classe (CIDR). Isto precisa de ser convertido para um formato de endereço IP iniciar e terminar usando [Get-IPrangeStartEnd.ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) como este:
+Note que a saída do script PowerShell está na notação de encaminhamento de Inter-Domain (CIDR) sem classe. Isto precisa de ser convertido para um formato de endereço IP iniciar e terminar usando [Get-IPrangeStartEnd.ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) como este:
 
 ```powershell
 PS C:\> Get-IPrangeStartEnd -ip 52.229.17.93 -cidr 26
@@ -138,11 +138,11 @@ As regras de rede virtual são mais fáceis de estabelecer e gerir o acesso a pa
 > [!NOTE]
 > Ainda não é possível ter base de dados SQL numa sub-rede. Se o seu servidor fosse um nó numa sub-rede na sua rede virtual, todos os nós dentro da rede virtual poderiam comunicar com a sua Base de Dados SQL. Neste caso, os seus VMs podem comunicar com a SQL Database sem precisar de quaisquer regras de rede virtuais ou regras de IP.
 
-## <a name="private-link"></a>Private Link
+## <a name="private-link"></a>Ligação Privada
 
 O Private Link permite-lhe ligar-se a um servidor através de um **ponto final privado.** Um ponto final privado é um endereço IP privado dentro de uma [rede virtual](../../virtual-network/virtual-networks-overview.md) específica e sub-rede.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para iniciar rapidamente a criação de uma regra de firewall IP de nível de servidor, consulte [Criar uma base de dados na Base de Dados SQL](single-database-create-quickstart.md).
 

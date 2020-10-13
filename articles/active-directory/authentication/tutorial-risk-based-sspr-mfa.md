@@ -6,16 +6,16 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/13/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e008091b3d0b450384cb7a672a62c786c33bfeab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d0fcd57a71baec54fbed2dd41a936895ad9a462
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87419636"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91966581"
 ---
 # <a name="tutorial-use-risk-detections-for-user-sign-ins-to-trigger-azure-multi-factor-authentication-or-password-changes"></a>Tutorial: Utilize deteções de risco para iniciar alterações de autenticação ou palavra-passe do Azure Multi-Factor
 
@@ -26,7 +26,7 @@ Para proteger os seus utilizadores, pode configurar políticas baseadas no risco
 >
 > Se a sua equipa de TI não tiver ativado a capacidade de utilizar a Autenticação Multi-Factor Azure ou tiver problemas durante a sação, contacte o seu helpdesk para obter assistência adicional.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Compreender as políticas disponíveis para a Azure AD Identity Protection
@@ -123,7 +123,7 @@ A maioria dos eventos de inscrição do utilizador não desencadeará as políti
 
 Para testar as políticas de Proteção de Identidade Azure AD criadas nos passos anteriores, precisa de uma forma de simular comportamentos de risco ou potenciais ataques. Os passos para fazer estes testes variam em função da política de Proteção de Identidade Azure AD que pretende validar. Para obter mais informações sobre cenários e etapas, consulte [Simular deteções de riscos na Proteção de Identidade AZure AD](../identity-protection/howto-identity-protection-simulate-risk.md).
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se tiver concluído os testes e deixar de querer ter as políticas baseadas no risco ativadas, volte a cada política que pretende desativar e desative a Política de **Execução** para *desligar*.
 

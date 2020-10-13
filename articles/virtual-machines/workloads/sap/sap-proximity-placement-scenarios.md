@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/29/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5b6e15ef1b9bf488ac18e41dc09eb71e6ea3da39
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: 7b48e4223e4e5fc5100de250d85441fcb96d50a3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91569801"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977243"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Grupos de colocação de proximidade azul para a latência ideal da rede com aplicações SAP
 As aplicações SAP baseadas na arquitetura SAP NetWeaver ou SAP S/4HANA são sensíveis à latência da rede entre o nível de aplicação SAP e o nível de base de dados SAP. Esta sensibilidade é o resultado da maior parte da lógica de negócio que funciona na camada de aplicação. Como a camada de aplicação SAP gere a lógica do negócio, emite consultas para o nível da base de dados a uma frequência elevada, a uma taxa de milhares ou dezenas de milhares por segundo. Na maioria dos casos, a natureza destas consultas é simples. Podem ser executados na base de dados em 500 microsegundos ou menos.
@@ -33,7 +33,7 @@ Para lhe dar a possibilidade de otimizar a latência da rede, o Azure oferece [g
 
 - Não pode assumir que todos os tipos de VM do Azure estão disponíveis em todos os centros de dados Azure. Como resultado, a combinação de diferentes tipos de VM dentro de um grupo de colocação de proximidade pode ser restringida. Estas restrições ocorrem porque o hardware do anfitrião que é necessário para executar um determinado tipo VM pode não estar presente no datacenter para o qual o grupo de colocação foi implementado
 - Ao redimensionar partes dos VMs que estão dentro de um grupo de colocação de proximidade, não pode assumir automaticamente que em todos os casos o novo tipo VM está disponível no mesmo datacenter que os outros VMs que fazem parte do grupo de colocação de proximidade
-- À medida que o Azure desativa o hardware, pode forçar certos VMs de um grupo de colocação de proximidade em outro datacenter Azure. Para mais detalhes sobre este caso, leia o documento [Co-localizar recursos para uma maior latência](https://docs.microsoft.com/azure/virtual-machines/linux/co-location#planned-maintenance-and-proximity-placement-groups)  
+- À medida que o Azure desativa o hardware, pode forçar certos VMs de um grupo de colocação de proximidade em outro datacenter Azure. Para mais detalhes sobre este caso, leia o documento [Co-localizar recursos para uma maior latência](../../linux/co-location.md#planned-maintenance-and-proximity-placement-groups)  
 
 > [!IMPORTANT]
 > Como resultado das potenciais restrições, devem ser utilizados grupos de colocação de proximidade:

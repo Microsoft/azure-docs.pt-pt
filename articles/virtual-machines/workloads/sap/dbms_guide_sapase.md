@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 04/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ce13c3bce7cdeb0f3e6dcf1f731be22d93a65587
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e90c78e8e7cb474756c1a5ea03fd90c33e14300
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88654604"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963589"
 ---
 # <a name="sap-ase-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementação em SAP ASE do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP
 
@@ -71,7 +71,7 @@ A SAP ASE escreve dados sequencialmente em dispositivos de armazenamento de disc
 Recomenda-se configurar a expansão automática da base de dados, conforme descrito no artigo [Configurar a expansão automática do espaço de base de dados em servidor adaptativo SAP Enterprise](https://blogs.sap.com/2014/07/09/configuring-automatic-database-space-expansion-in-sap-adaptive-server-enterprise/)  e [nota de suporte SAP #1815695](https://launchpad.support.sap.com/#/notes/1815695). 
 
 ### <a name="sample-sap-ase-on-azure-virtual-machine-disk-and-file-system-configurations"></a>Amostra SAP ASE em configurações de máquina virtual Azure, disco e sistema de ficheiros 
-Os modelos abaixo mostram configurações de amostra tanto para Linux como para Windows. Antes de confirmar a configuração da máquina virtual e do disco, certifique-se de que as quotas de largura de banda de rede e armazenamento do VM individual são suficientes para satisfazer os requisitos de negócio. Tenha também em mente que diferentes tipos de VM Azure têm diferentes números máximos de discos que podem ser ligados ao VM. Por exemplo, um E4s_v3 VM tem um limite de armazenamento de 48 MB/seg de produção IO. Se o rendimento de armazenamento exigido pela atividade de backup da base de dados exigir mais de 48 MB/seg, então um tipo VM maior com mais largura de banda de armazenamento é inevitável. Ao configurar o armazenamento Azure, também deve ter em mente que especialmente com o [armazenamento Azure Premium](../../windows/premium-storage-performance.md) a produção e IOPS por GB de capacidade mudam. Veja mais sobre este tópico no artigo [Que tipos de disco estão disponíveis no Azure?](../../disks-types.md) As quotas para tipos específicos de VM Azure estão documentadas no artigo [Memória otimizado tamanhos](../../sizes-memory.md) de máquinas virtuais e artigos ligados a ele. 
+Os modelos abaixo mostram configurações de amostra tanto para Linux como para Windows. Antes de confirmar a configuração da máquina virtual e do disco, certifique-se de que as quotas de largura de banda de rede e armazenamento do VM individual são suficientes para satisfazer os requisitos de negócio. Tenha também em mente que diferentes tipos de VM Azure têm diferentes números máximos de discos que podem ser ligados ao VM. Por exemplo, um E4s_v3 VM tem um limite de armazenamento de 48 MB/seg de produção IO. Se o rendimento de armazenamento exigido pela atividade de backup da base de dados exigir mais de 48 MB/seg, então um tipo VM maior com mais largura de banda de armazenamento é inevitável. Ao configurar o armazenamento Azure, também deve ter em mente que especialmente com o [armazenamento Azure Premium](../../premium-storage-performance.md) a produção e IOPS por GB de capacidade mudam. Veja mais sobre este tópico no artigo [Que tipos de disco estão disponíveis no Azure?](../../disks-types.md) As quotas para tipos específicos de VM Azure estão documentadas no artigo [Memória otimizado tamanhos](../../sizes-memory.md) de máquinas virtuais e artigos ligados a ele. 
 
 > [!NOTE]
 >  Se um sistema DBMS estiver a ser transferido do local para o Azure, recomenda-se a realização de monitorização no VM e a avaliação do CPU, memória, IOPS e produção de armazenamento. Compare os valores máximos observados com os limites de quota VM documentados nos artigos acima mencionados

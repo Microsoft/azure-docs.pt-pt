@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/08/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2a72e22b600f7dd7737a877e2fdf5d34c4dd4b4c
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: ac7fc5af21f11699331d41a074e88ae757170664
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876112"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975999"
 ---
 # <a name="tutorial-configure-route-filters-for-microsoft-peering-azure-cli"></a>Tutorial: Configurar filtros de rota para o espreocupar a Microsoft: Azure CLI
 
@@ -33,7 +33,7 @@ A conectividade com todos os serviços Azure e Microsoft 365 causa um grande nú
 
 * Defina os filtros de rota e aplique-os no seu circuito ExpressRoute. Um filtro de rota é um novo recurso que permite selecionar a lista de serviços que planeia consumir através do espreitamento da Microsoft. Os routers ExpressRoute apenas enviam a lista de prefixos que pertencem aos serviços identificados no filtro de rota.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 > [!div class="checklist"]
 > - Obtenha valores comunitários BGP.
 > - Crie a regra do filtro de rota e do filtro.
@@ -51,7 +51,7 @@ Para anexar filtros de rota com os serviços microsoft 365, tem de ter autoriza�
 > O perspitamento da Microsoft nos circuitos ExpressRoute que foram configurados antes de 1 de agosto de 2017 terá todos os prefixos de serviço anunciados através do olho da Microsoft, mesmo que os filtros de rota não estejam definidos. O perspitamento da Microsoft dos circuitos ExpressRoute que estejam configurados em ou depois de 1 de agosto de 2017 não terá quaisquer prefixos anunciados até que um filtro de rota seja ligado ao circuito.
 > 
 
-## <a name="prerequisites"></a><a name="workflow"></a>Pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para se ligar com sucesso aos serviços através do estomamento da Microsoft, tem de completar os seguintes passos de configuração:
 
@@ -143,7 +143,7 @@ Uma vez que um filtro de rota é desligado do circuito ExpressRoute, nenhum pref
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroupName --name MicrosoftPeering --remove routeFilter
 ```
 
-## <a name="clean-up-resources"></a><a name="delete"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Só pode apagar um filtro de rota se não estiver ligado a nenhum circuito. Certifique-se de que o filtro de rota não está ligado a nenhum circuito antes de tentar eliminá-lo. Pode eliminar um filtro de rota utilizando o seguinte comando:
 
