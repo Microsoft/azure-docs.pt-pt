@@ -12,12 +12,12 @@ ms.date: 09/24/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84f488863a39307ac7b55d5238fab786084a3614
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4566e3d40a67a9cd9d61f78884df11536c0809bc
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259548"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949297"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalize a interface do utilizador no Azure Ative Directory B2C
 
@@ -178,7 +178,6 @@ Tenha estas coisas em mente quando configurar a marca da empresa em Azure AD B2C
 
 * A marca da empresa em Azure AD B2C está atualmente limitada à **imagem de fundo,** **logotipo do banner**e personalização da cor de **fundo.** As outras propriedades no painel de marca da empresa, por exemplo, as que se encontram em **configurações Avançadas,** não são *suportadas.*
 * Nas páginas de fluxo do utilizador, a cor de fundo é mostrada antes da imagem de fundo ser carregada. Recomendamos que escolha uma cor de fundo que corresponda de perto as cores da sua imagem de fundo para uma experiência de carregamento mais suave.
-* O logótipo do banner aparece nos e-mails de verificação enviados aos seus utilizadores quando iniciam um fluxo de utilizador de inscrição.
 
 ### <a name="enable-branding-in-user-flow-pages"></a>Ativar a marca nas páginas de fluxo do utilizador
 

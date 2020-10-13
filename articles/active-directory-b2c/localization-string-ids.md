@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 07/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 611d676f5f588ff32f981692456160e269642a43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1b3e12bcf744ad0d762f686a908a01239fc4323
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87428119"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949246"
 ---
 # <a name="localization-string-ids"></a>IDs de cadeia de localização
 
@@ -25,7 +25,7 @@ O elemento **Localização** permite-lhe suportar vários locais ou idiomas na p
 
 ## <a name="sign-up-or-sign-in-page-elements"></a>Elementos de página de inscrição ou inscrição
 
-Os iDs seguintes são utilizados para uma definição de conteúdo com um ID de `api.signuporsignin` .
+Os iDs seguintes são usados para uma definição de conteúdo com um ID `api.signuporsignin` de, e [perfil técnico autoafirmado](self-asserted-technical-profile.md).
 
 | ID | Valor predefinido |
 | -- | ------------- |
@@ -43,7 +43,7 @@ Os iDs seguintes são utilizados para uma definição de conteúdo com um ID de 
 | **forgotpassword_link** | Forgot your password? |
 | **createaccount_intro** | Não tem conta? |
 | **createaccount_link** | Inscreva-se já |
-| **divider_title** | OU |
+| **divider_title** | OR |
 | **cancel_message** | O utilizador esqueceu-se da sua senha |
 | **button_signin** | Iniciar sessão |
 | **social_intro** | Inscreva-se na sua conta social |
@@ -93,7 +93,7 @@ O exemplo a seguir coloca o fornecedor de identidade do Facebook em árabe:
 
 ## <a name="sign-up-and-self-asserted-pages-user-interface-elements"></a>Elementos de interface de utilizador de páginas de inscrição e autoafirmação
 
-Seguem-se os IDs para uma definição de conteúdo com um ID ou qualquer definição de `api.localaccountsignup` conteúdo que comece `api.selfasserted` por, tais como . `api.selfasserted.profileupdate` `api.localaccountpasswordreset` .
+Seguem-se os IDs para uma definição de conteúdo com identificação ou qualquer definição de `api.localaccountsignup` conteúdo que comece `api.selfasserted` por, por `api.selfasserted.profileupdate` `api.localaccountpasswordreset` exemplo, e pelo perfil técnico [autoafirmado.](self-asserted-technical-profile.md)
 
 | ID | Valor predefinido |
 | -- | ------------- |
@@ -104,11 +104,11 @@ Seguem-se os IDs para uma definição de conteúdo com um ID ou qualquer defini�
 | **ver_but_send** | Enviar código de verificação |
 | **alert_yes** | Sim |
 | **error_fieldIncorrect** | Um ou mais campos são preenchidos incorretamente. Por favor, verifiquem as suas entradas e tentem novamente. |
-| **ano** | Anual |
+| **ano** | Ano |
 | **verifying_blurb** | Por favor, aguarde enquanto processamos a sua informação. |
 | **button_cancel** | Cancelar |
 | **ver_fail_no_retry** | Fizeste muitas tentativas incorretas. Tente novamente mais tarde. |
-| **mês** | Mensal |
+| **mês** | Mês |
 | **ver_success_msg** | Endereço de e-mail verificado. Agora pode continuar. |
 | **months** | Janeiro, fevereiro, março, abril, maio, junho, julho, agosto, setembro, outubro, novembro, dezembro |
 | **ver_fail_server** | Estamos com dificuldades em verificar o seu endereço de e-mail. Por favor, insira um endereço de e-mail válido e tente novamente. |
@@ -155,7 +155,7 @@ O exemplo a seguir mostra a utilização de alguns dos elementos de interface do
 
 ## <a name="phone-factor-authentication-page-user-interface-elements"></a>Elementos de interface de utilizador de página de autenticação de fator de telefone
 
-Seguem-se os IDs para uma definição de conteúdo com um ID de `api.phonefactor` .
+Seguem-se os IDs para uma definição de conteúdo com identificação `api.phonefactor` de , e perfil técnico do fator [telefónico](phone-factor-technical-profile.md).
 
 | ID | Valor predefinido |
 | -- | ------------- |
@@ -197,11 +197,11 @@ Seguem-se os IDs para uma definição de conteúdo com um ID de `api.phonefactor
 
 O exemplo a seguir mostra a utilização de alguns dos elementos da interface do utilizador na página de inscrição do MFA:
 
-![Elementos UX de verificação de página de inscrição](./media/localization-string-ids/localization-mfa1.png)
+![Elementos UX de autenticação de fator telefónico](./media/localization-string-ids/localization-mfa1.png)
 
 O exemplo a seguir mostra a utilização de alguns dos elementos de interface de utilizador na página de validação do MFA:
 
-![Elementos UX de verificação de página de inscrição](./media/localization-string-ids/localization-mfa2.png)
+![Elementos UX de validação de fator de telefone](./media/localization-string-ids/localization-mfa2.png)
 
 ## <a name="verification-display-control-user-interface-elements"></a>Elementos de interface do utilizador do controlo do ecrã de verificação
 

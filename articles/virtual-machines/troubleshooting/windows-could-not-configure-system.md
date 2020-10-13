@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/09/2020
 ms.author: v-miegge
-ms.openlocfilehash: 9c170607d6300c4921285e85ac78db5a8a18ad9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bde091b4a4559c3574ee122d74574d1f9477f3fd
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90078813"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977053"
 ---
 # <a name="troubleshoot-windows-could-not-finish-configuring-the-system"></a>Resolução de problemas em que o Windows não consegue concluir a configuração do sistema
 
@@ -28,7 +28,7 @@ Este artigo fornece medidas para resolver problemas em que o processo Sysprep im
 
 ## <a name="symptom"></a>Sintoma
 
-Quando utilizar [diagnósticos boot](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para visualizar a imagem do VM, verá que a imagem exibe um erro de instalação do Windows enquanto a configuração do Windows está a iniciar os serviços. O erro mostrará a mensagem:
+Quando utilizar [diagnósticos boot](./boot-diagnostics.md) para visualizar a imagem do VM, verá que a imagem exibe um erro de instalação do Windows enquanto a configuração do Windows está a iniciar os serviços. O erro mostrará a mensagem:
 
 `Windows could not finish configuring the system. To attempt to resume configuration, restart the computer. Setup is starting services`
 
@@ -36,8 +36,8 @@ Quando utilizar [diagnósticos boot](https://docs.microsoft.com/azure/virtual-ma
 
 ## <a name="cause"></a>Causa
 
-Este erro é causado quando o sistema operativo (OS) não consegue completar o [processo Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-process-overview). Este erro ocorrerá quando se tenta uma bota inicial de um VM generalizado. Se encontrar este problema, recrie a imagem generalizada, uma vez que a imagem está num estado intransmissível e não pode ser recuperada.
+Este erro é causado quando o sistema operativo (OS) não consegue completar o [processo Sysprep](/windows-hardware/manufacture/desktop/sysprep-process-overview). Este erro ocorrerá quando se tenta uma bota inicial de um VM generalizado. Se encontrar este problema, recrie a imagem generalizada, uma vez que a imagem está num estado intransmissível e não pode ser recuperada.
 
 ## <a name="solution"></a>Solução
 
-Para corrigir este problema, siga a orientação do [Azure sobre a preparação/captura de uma imagem](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed) e prepare uma nova imagem generalizada.
+Para corrigir este problema, siga a orientação do [Azure sobre a preparação/captura de uma imagem](../windows/upload-generalized-managed.md) e prepare uma nova imagem generalizada.

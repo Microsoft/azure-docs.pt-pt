@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: d67b0c89fbec8da9a3057164aa59d458a85c41d7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0e80f866aa7affb07b13847b44658e33c7044da6
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91280594"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976900"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>Quickstart: Construa e implemente aplicativos para Azure Spring Cloud
 
@@ -276,7 +276,7 @@ Precisamos de uma forma de aceder à aplicação através de um navegador web. A
 1. Gere as configurações executando o seguinte comando na pasta raiz da PiggyMetrics contendo o POM principal. Se já se inscreveu com o Azure CLI, o comando irá automaticamente recolher as credenciais. Caso contrário, irá inscrevê-lo com instruções rápidas. Para mais informações, consulte a nossa [página wiki.](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication)
 
     ```
-    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.1.0:config
+    mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:1.3.0:config
     ```
     
     Ser-lhe-á pedido que selecione:

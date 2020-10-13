@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: bf2894cc30873e3cbf7f379e22078dbb863ac179
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 11034a585db6ef3a3e1e445bbed8a1e51f83948d
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970440"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949791"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Ligue as aplicações Azure Functions para processamento de dados
 
@@ -232,18 +232,18 @@ Note também o **ID** do objeto mostrado na página _Identidade,_ uma vez que se
 
 ### <a name="assign-access-roles-using-azure-portal"></a>Atribuir funções de acesso usando o portal Azure
 
-Selecione o botão _de atribuições de funções Azure,_ que abrirá a página *de atribuições de funções Azure.* Em seguida, _selecione + Adicionar atribuição de função (Pré-visualização)_.
+Selecione o botão _de atribuições de funções Azure,_ que se abre para a página de atribuições de funções Azure. Em seguida, selecione _+Adicionar atribuição de função (Pré-visualização)_.
 
 :::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Estúdio Visual: novo diálogo de projeto":::
 
-Na página _de atribuição de funções adicionar (Pré-visualização)_ que se abre, selecione:
+Na janela _de atribuição de função Adicionar (Pré-visualização)_ que se abre, selecione:
 
 * _Âmbito_: grupo de recursos
 * _Subscrição_: selecione a sua subscrição Azure
 * _Grupo de recursos_: selecione o seu grupo de recursos a partir do dropdown
 * _Função_: selecione _Azure Digital Twins Owner (Preview)_ from the dropdown
 
-Em seguida, guarde os seus dados premindo o botão _Guardar._
+Guarde os seus dados selecionando o botão _Guardar._
 
 :::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Estúdio Visual: novo diálogo de projeto":::
 

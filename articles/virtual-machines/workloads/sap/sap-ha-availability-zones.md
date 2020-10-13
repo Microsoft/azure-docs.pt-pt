@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8265d328a23e871dc25692f22138a7bb648a8323
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9fc34a85f8a858adea2161e1734ead589180ea4
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653601"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978242"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configurações de carga de trabalho de SAP com Zonas de Disponibilidade do Azure
 [Azure Availability Zones](../../../availability-zones/az-overview.md) é uma das funcionalidades de alta disponibilidade que o Azure fornece. A utilização de Zonas de Disponibilidade melhora a disponibilidade global de cargas de trabalho SAP no Azure. Esta funcionalidade já está disponível em algumas [regiões do Azure.](https://azure.microsoft.com/global-infrastructure/regions/) No futuro, estará disponível em mais regiões.
@@ -30,7 +30,7 @@ Este gráfico mostra a arquitetura básica da alta disponibilidade do SAP:
 
 ![Configuração padrão de alta disponibilidade](./media/sap-ha-availability-zones/standard-ha-config.png)
 
-A camada de aplicação SAP é implantada através de um [conjunto de disponibilidades](../../windows/manage-availability.md)Azure . Para uma elevada disponibilidade de Serviços Centrais SAP, pode implantar dois VMs num conjunto de disponibilidade separado. Utilize o Cluster de Failover do Servidor do Windows ou o Pacemaker (Linux) como uma estrutura de alta disponibilidade com falha automática em caso de problema de infraestrutura ou software. Para saber mais sobre estas implementações, consulte:
+A camada de aplicação SAP é implantada através de um [conjunto de disponibilidades](../../manage-availability.md)Azure . Para uma elevada disponibilidade de Serviços Centrais SAP, pode implantar dois VMs num conjunto de disponibilidade separado. Utilize o Cluster de Failover do Servidor do Windows ou o Pacemaker (Linux) como uma estrutura de alta disponibilidade com falha automática em caso de problema de infraestrutura ou software. Para saber mais sobre estas implementações, consulte:
 
 - [Cluster uma instância SAP ASCS/SCS num cluster de failover do Windows utilizando um disco partilhado de cluster](./sap-high-availability-guide-wsfc-shared-disk.md)
 - [Cluster uma instância SAP ASCS/SCS num cluster de falha do Windows utilizando a partilha de ficheiros](./sap-high-availability-guide-wsfc-file-share.md)

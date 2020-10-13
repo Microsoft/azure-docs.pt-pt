@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/28/2020
 ms.author: banders
-ms.openlocfilehash: 919ff7474dd64cfe3005975beb4cab6f77c177ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7af95b9fe2f6d31faa239985f8e8165fd968372
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87825264"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978599"
 ---
 # <a name="save-costs-with-azure-dedicated-host-reservations"></a>Poupe custos com reservas de anfitriões dedicados Azure
 
-Quando se comprometer com uma instância reservada de Anfitriões Dedicados Azure, pode economizar dinheiro. O desconto de reserva é aplicado automaticamente ao número de anfitriões dedicados em execução que correspondem ao âmbito e atributos da reserva. Você não precisa atribuir uma reserva a um anfitrião dedicado para obter os descontos. Uma compra de instância reservada cobre apenas a parte computacional do seu uso e inclui custos de licenciamento de software. Consulte a [visão geral dos anfitriões dedicados a Azure para máquinas virtuais.](./windows/dedicated-hosts.md)
+Quando se comprometer com uma instância reservada de Anfitriões Dedicados Azure, pode economizar dinheiro. O desconto de reserva é aplicado automaticamente ao número de anfitriões dedicados em execução que correspondem ao âmbito e atributos da reserva. Você não precisa atribuir uma reserva a um anfitrião dedicado para obter os descontos. Uma compra de instância reservada cobre apenas a parte computacional do seu uso e inclui custos de licenciamento de software. Consulte a [visão geral dos anfitriões dedicados a Azure para máquinas virtuais.](./dedicated-hosts.md)
 
 ## <a name="determine-the-right-dedicated-host-sku-before-you-buy"></a>Determine o anfitrião dedicado direito SKU antes de comprar
 
@@ -72,7 +72,7 @@ Se tiver um acordo EA, pode utilizar a **opção Adicionar mais**   rapidament
 |---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Subscrição        | A assinatura usada para pagar a reserva. Os custos de reserva são cobrados de acordo com o método de pagamento indicado na subscrição. O tipo de subscrição deve ser um acordo de empresa (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou Microsoft Customer Agreement ou uma subscrição individual com taxas pay-as-you-go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Os custos são deduzidos do saldo de fidelização monetária, se disponível, ou cobrados como utilização excedida. Para uma subscrição com taxas pay-as-you-go, os encargos são cobrados no cartão de crédito ou no método de pagamento da fatura na subscrição. |
 | Âmbito               | O âmbito da reserva pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Region              | A região de Azure que está coberta pela reserva.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Região              | A região de Azure que está coberta pela reserva.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Tamanho do hospedeiro dedicado | O tamanho das instâncias dedicadas do hospedeiro.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | Termo                | Um ano ou três anos.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | Quantidade            | O número de casos a serem comprados dentro da reserva. A quantidade é o número de casos de anfitriões dedicados que podem obter o desconto de faturação.                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
@@ -129,7 +129,7 @@ Para saber mais sobre as Reservas do Azure, veja os seguintes artigos:
 
 - [O que são as reservas do Azure?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
 
-- [Utilizar o Azure Dedicated Host](./windows/dedicated-hosts.md)
+- [Utilizar o Azure Dedicated Host](./dedicated-hosts.md)
 
 - [Preços do Dedicated Hosts](https://azure.microsoft.com/pricing/details/virtual-machines/dedicated-host/)
 
