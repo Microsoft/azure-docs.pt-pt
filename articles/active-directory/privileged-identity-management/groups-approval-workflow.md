@@ -16,10 +16,10 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0a3b6dad33ce678478a201dc8b7b612f4b8507c0
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91536992"
 ---
 # <a name="approve-activation-requests-for-privileged-access-group-members-and-owners-preview"></a>Aprovar pedidos de ativação para membros e proprietários privilegiados do grupo de acesso (pré-visualização)
@@ -73,7 +73,7 @@ Aqui estão algumas informações sobre notificações de fluxo de trabalho:
 >[!Note]
 >Um administrador que acredite que um utilizador aprovado não deve estar ativo pode remover a atribuição do grupo ativo na Gestão de Identidade Privilegiada. Embora os administradores de recursos não sejam notificados de pedidos pendentes a menos que sejam um aprovador, podem visualizar e cancelar pedidos pendentes para todos os utilizadores, visualizando pedidos pendentes na Gestão de Identidade Privilegiada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Alargar ou renovar atribuições de grupos em Gestão de Identidade Privilegiada](pim-resource-roles-renew-extend.md)
 - [Notificações de email em Gestão de Identidade Privilegiada](pim-email-notifications.md)

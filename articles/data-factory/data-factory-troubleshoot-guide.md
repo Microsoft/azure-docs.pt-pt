@@ -9,10 +9,10 @@ ms.date: 09/01/2020
 ms.author: abnarain
 ms.reviewer: craigg
 ms.openlocfilehash: 783e48139cf057bb17278d98e3683cb2b4cbad89
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89279555"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Resolver Problemas do Azure Data Factory
@@ -1059,7 +1059,7 @@ Para mais informações, consulte [Começar com o Violinista.](https://docs.tele
 ### <a name="activity-stuck-issue"></a>Problema de atividade preso
 Quando observa que a atividade está a correr muito mais tempo do que o normal, sem progressos, pode estar presa. Pode tentar cancelá-lo e tentar novamente para ver se ajuda. Se for uma atividade de cópia, pode aprender sobre a monitorização de desempenho e resolução de problemas do desempenho da atividade da cópia de resolução de [problemas;](copy-activity-performance-troubleshooting.md) se for um fluxo de dados, aprenda com [o mapeamento de dados flui desempenho](concepts-data-flow-performance.md) e guia de afinação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais ajuda para resolver problemas, experimente estes recursos:
 

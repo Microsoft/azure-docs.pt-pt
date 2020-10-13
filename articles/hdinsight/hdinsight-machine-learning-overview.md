@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
 ms.openlocfilehash: a3c050b414e322f08fd45a569a22cea2db591b99
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91302694"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Aprendizagem automática em HDInsight
@@ -49,7 +49,7 @@ Crie funcionalidades para dados num cluster hdInsight Hadoop utilizando [consult
 
 Para ajudar a progredir no seu próprio trabalho em deep learning, a Microsoft desenvolveu o kit de [ferramentas cognitivas](https://www.microsoft.com/en-us/cognitive-toolkit/)de código aberto gratuito e fácil de usar. Este conjunto de ferramentas está a ser utilizado por uma grande variedade de produtos da Microsoft, por empresas de todo o mundo com a necessidade de implementar aprendizagem profunda em escala, e por estudantes interessados nos mais recentes algoritmos e técnicas.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 ### <a name="scenarios"></a>Cenários
 

@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
 ms.openlocfilehash: ad1ad622b354215e9837b1154a13bac148d54164
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91537349"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Limitação de pedidos avançada com a Gestão de API do Azure
@@ -93,5 +93,5 @@ Isto permite que a aplicação do cliente do desenvolvedor escolha como eles que
 ## <a name="summary"></a>Resumo
 A Azure API Management fornece taxa e cotação para proteger e acrescentar valor ao seu serviço API. As novas políticas de estrangulamento com regras de scoping personalizadas permitem-lhe um controlo mais fino sobre essas políticas para permitir que os seus clientes construam aplicações ainda melhores. Os exemplos deste artigo demonstram a utilização destas novas políticas através da taxa de produção limitando as chaves com endereços IP do cliente, identidade de utilizador e valores gerados pelo cliente. No entanto, existem muitas outras partes da mensagem que poderiam ser usadas como o agente do utilizador, fragmentos de caminhos URL, tamanho da mensagem.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Por favor, dê-nos o seu feedback como uma questão do GitHub para este tópico. Seria ótimo ouvir sobre outros potenciais valores-chave que têm sido uma escolha lógica nos seus cenários.

@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: ab89e0da3d4512cef9741ec97e9d772c852beb4b
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 1e7a58ba5e858b44f137834b2e1ab5472b9d0965
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91804100"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970083"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual key Vault para Windows
 
@@ -31,6 +31,11 @@ A extensão VM do Cofre-Chave suporta versões abaixo do Windows:
 
 - #12 PKCS
 - PEM
+
+## <a name="prerequisities"></a>Pré-requisitos
+  - Caso do Cofre com certificado. Ver [Criar um cofre de chaves](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal)
+  - VM/VMSS deve ter atribuído [identidade gerida](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+  - A Política de Acesso ao Cofre-Chave deve ser definida com segredos `get` e `list` permissão para vM/VMSS identidade gerida para recuperar a parte de um certificado secreto. Ver [como autenticar para o cofre](/azure/key-vault/general/authentication) de chaves e atribuir uma política de acesso ao cofre de [chaves](/azure/key-vault/general/assign-access-policy-cli).
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
@@ -82,18 +87,18 @@ O JSON seguinte mostra o esquema para a extensão VM do Cofre de Chaves. A exten
 
 | Nome | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2019-07-01 | date |
-| publicador | Microsoft.Azure.KeyVault | string |
-| tipo | KeyVaultForWindows | string |
+| apiVersion | 2019-07-01 | data |
+| publicador | Microsoft.Azure.KeyVault | cadeia |
+| tipo | KeyVaultForWindows | cadeia |
 | typeHandlerVersion | 1.0 | int |
-| sondagensIntervalInS | 3600 | string |
-| certificadoStoreName | MY | string |
+| sondagensIntervalInS | 3600 | cadeia |
+| certificadoStoreName | MY | cadeia |
 | linkOnRenewal | false | boolean |
-| certificaStoreLocalização  | LocalMachine ou CurrentUser (sensível a casos) | string |
+| certificaStoreLocalização  | LocalMachine ou CurrentUser (sensível a casos) | cadeia |
 | requerinitialSync | true | boolean |
 | certificados observados  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | matriz de cordas
-| msiEndpoint | http://169.254.169.254/metadata/identity | string |
-| msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
+| msiEndpoint | http://169.254.169.254/metadata/identity | cadeia |
+| msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | cadeia |
 
 
 ## <a name="template-deployment"></a>Implementação de modelos
@@ -206,8 +211,7 @@ O CLI Azure pode ser utilizado para implantar a extensão VM do Cofre de Chaves 
 Por favor, esteja ciente das seguintes restrições/requisitos:
 - Restrições do Cofre chave:
   - Deve existir no momento da implantação 
-  - A Política de Acesso ao Cofre de Chaves deve ser definida para identidade VM/VMSS utilizando uma identidade gerida. Ver [como autenticar para o cofre](/azure/key-vault/general/authentication) de chaves e atribuir uma política de acesso ao cofre de [chaves](/azure/key-vault/general/assign-access-policy-cli).
-
+  - A Política de Acesso ao Cofre de Chaves deve ser definida para identidade VM/VMSS utilizando uma identidade gerida. Ver [como autenticar para o cofre](../../key-vault/general/authentication.md) de chaves e atribuir uma política de acesso ao cofre de [chaves](../../key-vault/general/assign-access-policy-cli.md).
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio
 

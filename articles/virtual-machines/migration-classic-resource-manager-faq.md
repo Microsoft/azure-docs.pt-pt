@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 0f9a8a1c4631fc667d0dd31ae62f7d57aefccc90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ccbf7e8aaab5463abf8fa9e129ba9f0ea8599c4e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855845"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91969845"
 ---
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>Perguntas mais frequentes sobre a migração da implementação clássica para a implementação Azure Resource Manager
 
@@ -26,7 +26,7 @@ A palavra "clássico" em IaaS VM (clássico) refere-se a VMs geridos pelo Azure 
 
 ## <a name="what-is-azure-resource-manager"></a>O que é o Azure Resource Manager?
 
-[O Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) é o mais recente avião de controlo da Azure responsável pela criação, gestão, eliminação de VMs e realização de outras operações de avião de controlo. 
+[O Azure Resource Manager](../azure-resource-manager/management/overview.md) é o mais recente avião de controlo da Azure responsável pela criação, gestão, eliminação de VMs e realização de outras operações de avião de controlo. 
 
 ## <a name="what-is-the-time-required-for-migration"></a>Qual é o tempo necessário para a migração?
 
@@ -42,7 +42,7 @@ Os clientes que tinham ativado ou parado mas que atribuíram VMs IaaS (Classic) 
 
 ## <a name="why-am-i-getting-an-error-stating-newclassicvmcreationnotallowedforsubscription"></a>Porque estou a receber um erro a dizer "NewClassicVMCreationNotAllowedForSubscription"?
 
-Como parte do processo de aposentação, a IaaS VM (clássico) já não está disponível para novos clientes. Identificámo-lo como novos clientes e, por isso, a sua operação não foi autorizada. Recomendamos vivamente a utilização de [Máquinas Virtuais Azure utilizando o ARM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell). Se não puder utilizar VMs Azure utilizando ARM, contacte o suporte para adicionar a sua subscrição à lista de autorizações.
+Como parte do processo de aposentação, a IaaS VM (clássico) já não está disponível para novos clientes. Identificámo-lo como novos clientes e, por isso, a sua operação não foi autorizada. Recomendamos vivamente a utilização de [Máquinas Virtuais Azure utilizando o ARM](./windows/quick-create-powershell.md). Se não puder utilizar VMs Azure utilizando ARM, contacte o suporte para adicionar a sua subscrição à lista de autorizações.
 
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>Este plano de migração afeta algum dos meus serviços ou aplicações existentes que são executados em máquinas virtuais do Azure? 
 
@@ -70,7 +70,7 @@ Não pode abortar a migração se a operação de consolidação falhar. Todas a
 
 ## <a name="do-i-have-to-buy-another-express-route-circuit-if-i-have-to-use-iaas-under-resource-manager"></a>Se tiver de utilizar IaaS no Resource Manager, tenho de comprar outro circuito do ExpressRoute? 
 
-N.º Recentemente, ativámos a [passagem dos circuitos do ExpressRoute do modelo de implementação clássica para o modelo do Resource Manager](../expressroute/expressroute-move.md). Se já tiver um circuito ExpressRoute, não precisa de comprar um novo.
+Não. Recentemente, ativámos a [passagem dos circuitos do ExpressRoute do modelo de implementação clássica para o modelo do Resource Manager](../expressroute/expressroute-move.md). Se já tiver um circuito ExpressRoute, não precisa de comprar um novo.
 
 ## <a name="what-if-i-had-configured-role-based-access-control-policies-for-my-classic-iaas-resources"></a>O que acontece se tiver configurado políticas de Controlo de Aceso Baseado em Funções nos meus recursos de IaaS clássicos? 
 
@@ -97,7 +97,7 @@ Além disso, se pretender fazer o backup do VM migrado, aceda à lâmina de gest
 
 ## <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-migration"></a>Posso verificar se a minha subscrição ou os meus recursos podem ser migrados? 
 
-Sim. Na opção de migração suportada por plataforma, o primeiro passo na preparação da migração é verificar se os recursos podem ser migrados. Caso a operação de verificação falhe, recebe mensagens com todos os motivos pelos quais a migração não pode ser concluída.
+Yes. Na opção de migração suportada por plataforma, o primeiro passo na preparação da migração é verificar se os recursos podem ser migrados. Caso a operação de verificação falhe, recebe mensagens com todos os motivos pelos quais a migração não pode ser concluída.
 
 ## <a name="what-happens-if-i-run-into-a-quota-error-while-preparing-the-iaas-resources-for-migration"></a>O que acontece se me deparar com um erro de quota ao preparar os recursos de IaaS para a migração? 
 
@@ -105,7 +105,7 @@ Recomendamos que aborte a migração e apresente um pedido de suporte para aumen
 
 ## <a name="how-do-i-report-an-issue"></a>Como posso comunicar problemas? 
 
-Publique os seus problemas e perguntas sobre migração para o nosso [Microsoft Q&Uma página de perguntas para VM,](https://docs.microsoft.com/answers/topics/azure-virtual-machines.html)com a palavra-chave ClassicIaaSMigration. Recomendamos que publique todas as suas perguntas neste fórum. Se tiver um contrato de suporte, também pode apresentar um pedido de suporte
+Publique os seus problemas e perguntas sobre migração para o nosso [Microsoft Q&Uma página de perguntas para VM,](/answers/topics/azure-virtual-machines.html)com a palavra-chave ClassicIaaSMigration. Recomendamos que publique todas as suas perguntas neste fórum. Se tiver um contrato de suporte, também pode apresentar um pedido de suporte
 
 ## <a name="what-if-i-dont-like-the-names-of-the-resources-that-the-platform-chose-during-migration"></a>E se não gostar dos nomes dos recursos que a plataforma escolheu durante a migração? 
 
