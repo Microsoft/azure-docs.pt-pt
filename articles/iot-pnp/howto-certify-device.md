@@ -9,15 +9,15 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 6aa4273933190ccfe495bcaf243ee15a5ce823fb
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91577650"
 ---
-# <a name="how-to-certify-iot-plug-and-play-devices"></a>Como certificar os dispositivos IoT Plug e Play
+# <a name="how-to-certify-iot-plug-and-play-devices"></a>Como certificar dispositivos IoT Plug and Play
 
-O programa de certificação ioT Plug and Play inclui ferramentas para verificar se um dispositivo cumpre os requisitos de certificação IoT Plug and Play. As ferramentas também ajudam as organizações a impulsionar a consciencialização sobre a disponibilidade dos seus dispositivos IoT Plug e Play. Estes dispositivos certificados são adaptados para soluções IoT e ajudam a reduzir o tempo ao mercado.
+O programa de certificação de dispositivos IoT Plug and Play inclui ferramentas para verificar se um dispositivo cumpre os requisitos de certificação de IoT Plug and Play. As ferramentas também ajudam as organizações a impulsionar a consciencialização sobre a disponibilidade dos seus dispositivos IoT Plug e Play. Estes dispositivos certificados são adaptados para soluções IoT e ajudam a reduzir o tempo ao mercado.
 
 Este artigo mostra-lhe como:
 
@@ -25,7 +25,7 @@ Este artigo mostra-lhe como:
 - Executar os testes IoT Plug and Play para validar a aplicação do seu dispositivo durante a fase de desenvolvimento  
 - Utilize o portal Azure Certified Device para validar a aplicação do dispositivo
 
-## <a name="prepare-your-device"></a>Prepare o seu dispositivo
+## <a name="prepare-your-device"></a>Preparar o dispositivo
 
 O código de aplicação que funciona no seu IoT Plug and Play deve:
 
@@ -45,7 +45,7 @@ Para satisfazer os requisitos de certificação, o seu dispositivo deve:
 - Envie o ID do modelo durante o [registo DPS](concepts-developer-guide-device-csharp.md#dps-payload) na carga útil de provisionamento DPS.
 - Anuncie o ID do modelo durante a [ligação MQTT](concepts-developer-guide-device-csharp.md#model-id-announcement).
 
-## <a name="test-with-the-azure-iot-extension-cli"></a>Teste com a extensão Azure IoT CLI
+## <a name="test-with-the-azure-iot-extension-cli"></a>Testar com a CLI da Extensão do Azure IoT
 
 A [extensão Azure IoT CLI](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/product?view=azure-cli-latest&preserve-view=true) permite validar que a implementação do dispositivo corresponde ao modelo antes de submeter o dispositivo para certificação através do portal Azure Certified Device.
 
@@ -162,7 +162,7 @@ Saída de teste de exemplo
             },
 ```
 
-## <a name="test-using-the-azure-certified-device-portal"></a>Teste utilizando o portal do dispositivo certificado Azure
+## <a name="test-using-the-azure-certified-device-portal"></a>Testar com o portal do Microsoft Azure Certified for IoT
 
 Os passos seguintes mostram-lhe como utilizar o [portal Azure Certified Device](https://aka.ms/acdp) para embarcar, registar detalhes do produto, enviar um guia de arranque e executar os testes de certificação.
 
@@ -199,7 +199,7 @@ Há três passos a serem concluídos:
 
 1. Conecte-se e descubra interfaces. O dispositivo deve ligar-se ao serviço de certificação Azure IoT através de DPS. Escolha o método de autenticação (certificado X.509, chaves simétricas ou módulo de plataforma fidedigna) para utilizar e atualizar a aplicação do dispositivo com as informações DPS.
 1. Rever interfaces. Reveja a interface e certifique-se de que cada um tem entradas de carga útil que fazem sentido para testes.
-1. O teste. O sistema testa cada modelo de dispositivo para verificar se a telemetria, propriedades e comandos descritos no modelo seguem as convenções IoT Plug and Play. Quando o teste estiver concluído, selecione a ligação **de registos** de visualização para ver a telemetria do dispositivo e os dados brutos enviados para as propriedades gémeas do dispositivo IoT Hub.
+1. Test (Testar). O sistema testa cada modelo de dispositivo para verificar se a telemetria, propriedades e comandos descritos no modelo seguem as convenções IoT Plug and Play. Quando o teste estiver concluído, selecione a ligação **de registos** de visualização para ver a telemetria do dispositivo e os dados brutos enviados para as propriedades gémeas do dispositivo IoT Hub.
 
 ### <a name="submit-and-publish"></a>Submeter e publicar
 

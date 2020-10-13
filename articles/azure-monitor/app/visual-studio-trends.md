@@ -2,17 +2,14 @@
 title: Analisar Tendências no Visual Studio | Microsoft Docs
 description: Analise, visualize e explore tendências na sua telemetria do Application Insights no Visual Studio.
 ms.topic: conceptual
-author: NumberByColors
-ms.author: daviste
 ms.date: 03/17/2017
-ms.reviewer: mbullwin
 ms.custom: vs-azure
-ms.openlocfilehash: 07848d0b1a2677595eba0da53402993103289d4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b78dceed3c2a25d6afedf5fca348726d7aafd3d
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318169"
+ms.locfileid: "91932248"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Analisar Tendências no Visual Studio
 A ferramenta Application Insights Trends visualiza como eventos de telemetria importantes da sua aplicação Web alteram ao longo do tempo, ajudando-o a identificar rapidamente problemas e anomalias. Ao ligá-lo a informações mais detalhadas de diagnóstico, o Trends pode ajudá-lo a melhorar o desempenho da aplicação, identificar as causas de exceções e descobrir conhecimentos aprofundados dos seus eventos personalizados.
@@ -96,9 +93,6 @@ A ferramenta Trends pode realçar bolhas de eventos que são anómalos em compar
 > 
 
 ## <a name="next-steps"></a><a name="next"></a>Passos seguintes
-|  |  |
-| --- | --- |
-| **[Trabalhar com o Application Insights no Visual Studio](./visual-studio.md)**<br/>Procure telemetria, veja dados no CodeLens e configure o Application Insights. Tudo isto no Visual Studio. |![Clique com o botão direito do rato no projeto e escolha Application Insights, Pesquisa](./media/visual-studio-trends/34.png) |
-| **[Adicionar mais dados](./asp-net-more.md)**<br/>Monitorize a utilização, a disponibilidade, as dependências e as exceções. Integre rastreios a partir de arquiteturas de registo. Grave a telemetria personalizada. |![Visual Studio](./media/visual-studio-trends/64.png) |
-| **[Trabalhar com o portal do Application Insights](./overview-dashboard.md)**<br/>Dashboards, ferramentas de diagnóstico e análise poderosas, alertas, mapa de dependência em direto da aplicação e exportação de telemetria. |![Visual Studio](./media/visual-studio-trends/62.png) |
+* **[Trabalhando com a Application Insights no Estúdio Visual.](./visual-studio.md)** Procure telemetria, veja dados no CodeLens e configure o Application Insights. Tudo isto no Visual Studio. 
+* **[Trabalhar com o portal Application Insights](./overview-dashboard.md)**. Dashboards, ferramentas de diagnóstico e análise poderosas, alertas, mapa de dependência em direto da aplicação e exportação de telemetria. 
 

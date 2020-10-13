@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/04/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 681929928e6e6b28c7950c8aeeadc8b181491f46
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91804134"
 ---
 # <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>Criar um dashboard em tempo real usando Azure Cosmos DB e Power BI
@@ -63,11 +63,11 @@ Crie um oleoduto de ingestão para carregar [os dados meteorológicos](https://c
    Dependendo da coluna e do tipo de dados presentes no conjunto de dados de origem, pode alterar os campos RangeStart e RangeEnd em conformidade
 
    
-   |Propriedade  |Tipo de dados  |Filtro  |
+   |Propriedade  |Tipo de dados  |Filtrar  |
    |---------|---------|---------|
    |_ts     |   Numérico      |  [_ts] > Duração.TotalSeconds (RangeStart - #datetime(1970, 1, 1, 0, 0, 0)) e [_ts] < Duração.TotalSeconds(RangeEnd - #datetime(1970, 1, 1, 0, 0,0))       |
-   |Data (por exemplo:- 2019-08-19)     |   String      | [Document.date]> DateTime.ToText (RangeStart,"yyyy-MM-dd") e [document.date] < DateTime.ToText(RangeEnd,"yyyy-MM-dd")        |
-   |Data (por exemplo:- 2019-08-11 12:00:00)   |  String       |  [Document.date]> DateTime.ToText(RangeStart," yyyy-mm-dd HH:mm:ss") and [Document.date] < DateTime.ToText(RangeEnd,"yyyy-mm-dd HH:mm:ss")       |
+   |Data (por exemplo:- 2019-08-19)     |   Cadeia      | [Document.date]> DateTime.ToText (RangeStart,"yyyy-MM-dd") e [document.date] < DateTime.ToText(RangeEnd,"yyyy-MM-dd")        |
+   |Data (por exemplo:- 2019-08-11 12:00:00)   |  Cadeia       |  [Document.date]> DateTime.ToText(RangeStart," yyyy-mm-dd HH:mm:ss") and [Document.date] < DateTime.ToText(RangeEnd,"yyyy-mm-dd HH:mm:ss")       |
 
 
 1. **Defina a política de atualização** - Defina a política de atualização navegando para o **separador de atualização Incremental** no menu **de contexto** da tabela. Desacora a política de atualização para atualizar **todos os dias** e armazenar os dados do último mês.

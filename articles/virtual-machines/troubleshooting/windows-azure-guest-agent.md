@@ -11,18 +11,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/15/2020
 ms.author: genli
-ms.openlocfilehash: 597ea6e7ff7dbcfcb8a99d4e4de3c1b82915ee07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 738c2a240ad6c88186357e69b02d33b40d366d7f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90561266"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977070"
 ---
 # <a name="troubleshooting-windows-azure-guest-agent"></a>Problemas de resolução de janelas Azure Guest Agent
 
-O Windows Azure Guest Agent é um agente de máquinas virtuais (VM). Permite que o VM comunique com o Controlador de Tecidos (o servidor físico subjacente no qual o VM está hospedado) no endereço IP 168.63.129.16. Este é um endereço IP público virtual que facilita a comunicação. Para mais informações, consulte [o endereço IP 168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16).
+O Windows Azure Guest Agent é um agente de máquinas virtuais (VM). Permite que o VM comunique com o Controlador de Tecidos (o servidor físico subjacente no qual o VM está hospedado) no endereço IP 168.63.129.16. Este é um endereço IP público virtual que facilita a comunicação. Para mais informações, consulte [o endereço IP 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
- O VM que é migrado para Azure a partir de instalações ou que é criado usando uma imagem personalizada não tem Windows Azure Guest Agent instalado. Nestes cenários, tem de instalar manualmente o agente VM. Para obter mais informações sobre como instalar o Agente VM, consulte [a visão geral do Agente de Máquinas Virtuais Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows).
+ O VM que é migrado para Azure a partir de instalações ou que é criado usando uma imagem personalizada não tem Windows Azure Guest Agent instalado. Nestes cenários, tem de instalar manualmente o agente VM. Para obter mais informações sobre como instalar o Agente VM, consulte [a visão geral do Agente de Máquinas Virtuais Azure](../extensions/agent-windows.md).
 
 Depois de o Windows Azure Guest Agent ter sido instalado com sucesso, pode ver os seguintes serviços listados em services.msc no VM:
  
@@ -74,7 +74,7 @@ Aceda à página de propriedades VM no portal Azure e verifique o estado do **Ag
 
     No Painel de Controlo, aceda a **Programas e Funcionalidades** para determinar se o serviço de Agente Convidado Do Windows Azure está instalado.
 
-Se não encontrar pacotes, serviços e processos em funcionamento e nem sequer ver o Windows Azure Guest Agent instalado em Programas e Funcionalidades, tente [instalar o serviço de Agente Convidado do Windows Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows). Se o Agente Convidado não instalar corretamente, pode [instalar o agente VM offline](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline).
+Se não encontrar pacotes, serviços e processos em funcionamento e nem sequer ver o Windows Azure Guest Agent instalado em Programas e Funcionalidades, tente [instalar o serviço de Agente Convidado do Windows Azure](../extensions/agent-windows.md). Se o Agente Convidado não instalar corretamente, pode [instalar o agente VM offline](./install-vm-agent-offline.md).
 
 Se conseguir ver os serviços e eles estiverem a funcionar, reinicie o serviço que veja se o problema está resolvido. Se os serviços estiverem parados, inicie-os e espere alguns minutos. Em seguida, verifique se o **estado do Agente** está a reportar como **Ready**. Se descobrir que estes serviços estão em colapso, alguns processos de terceiros podem estar a causar a quebra destes serviços. Para uma maior resolução de problemas destes problemas, contacte [o Microsoft Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
@@ -111,7 +111,7 @@ O Windows Azure Guest Agent tem uma funcionalidade de atualização automática.
     ```
     Em seguida, verifique se os Serviços de Agente Convidado começam corretamente.
  
-    Em casos raros em que o Agente Convidado não se instala corretamente, pode [instalar o agente VM offline](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline).
+    Em casos raros em que o Agente Convidado não se instala corretamente, pode [instalar o agente VM offline](./install-vm-agent-offline.md).
     
 
 ### <a name="step-3-check-whether-the-vm-can-connect-to-the-fabric-controller"></a>Passo 3 Verifique se o VM pode ligar-se ao controlador de tecido
@@ -189,7 +189,7 @@ O VM não pode chegar ao servidor anfitrião do wireserver.
 1. Se não conseguir chegar ao URL a partir do passo 1, verifique a interface de rede para determinar se está definida como ativada por DHCP e tem DNS. Para verificar o estado do DHCP, da interface de rede, execute o seguinte comando:  `netsh interface ip show config` .
 1. Se o DHCP estiver desativado, execute o seguinte certificando-se de que altera o valor em amarelo para o nome da sua interface: `netsh interface ip set address name="Name of the interface" source=dhcp` .
 1. Verifique se existem problemas que possam ser causados por uma firewall, um representante ou outra fonte que possa estar a bloquear o acesso ao endereço IP 168.63.129.16.
-1. Verifique se o Windows Firewall ou uma firewall de terceiros está a bloquear o acesso às portas 80, 443 e 32526. Para obter mais informações sobre o motivo pelo qual este endereço não deve ser bloqueado, consulte [o endereço IP 168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16).
+1. Verifique se o Windows Firewall ou uma firewall de terceiros está a bloquear o acesso às portas 80, 443 e 32526. Para obter mais informações sobre o motivo pelo qual este endereço não deve ser bloqueado, consulte [o endereço IP 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 ### <a name="guest-agent-is-stuck-stopping"></a>Agente convidado está preso "Parar"  
 

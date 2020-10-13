@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
-ms.openlocfilehash: 678bad67b454ec0930d2cf30df45ba7b2c822e35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43e2f1c304a2ede10445fa656dbdd16a4b60ca3c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371461"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978956"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Troubleshoot SSH connections to an Azure Linux VM that fails, errors out, or is refused (Resolver problemas de ligação de SSH a uma VM do Linux do Azure que falha, dá erro ou é recusada)
 Este artigo ajuda-o a encontrar e corrigir os problemas que ocorrem devido a erros da Secure Shell (SSH), falhas de ligação SSH ou SSH é recusado quando tenta ligar-se a uma máquina virtual Linux (VM). Pode utilizar o portal Azure, Azure CLI ou extensão de acesso VM para o Linux para resolver problemas e resolver problemas de ligação.
@@ -46,7 +46,7 @@ Continuar a ler Para etapas e explicações mais detalhadas de resolução de pr
 Pode redefinir credenciais ou configuração SSH utilizando um dos seguintes métodos:
 
 * [Portal Azure](#use-the-azure-portal) - ótimo se precisar de redefinir rapidamente a configuração SSH ou a tecla SSH e não tiver as ferramentas Azure instaladas.
-* [Consola em série Azure VM](https://aka.ms/serialconsolelinux) - a consola em série VM funcionará independentemente da configuração SSH, e fornecer-lhe-á uma consola interativa para o seu VM. Na verdade, as situações de "não pode SSH" são especificamente o que a consola em série foi desenhada para ajudar a resolver. Mais detalhes abaixo.
+* [Consola em série Azure VM](./serial-console-linux.md) - a consola em série VM funcionará independentemente da configuração SSH, e fornecer-lhe-á uma consola interativa para o seu VM. Na verdade, as situações de "não pode SSH" são especificamente o que a consola em série foi desenhada para ajudar a resolver. Mais detalhes abaixo.
 * [Azure CLI](#use-the-azure-cli) - se já estiver na linha de comando, reinicie rapidamente a configuração ou credenciais SSH. Se estiver a trabalhar com um VM clássico, pode utilizar o CLI clássico do [Azure.](#use-the-azure-classic-cli)
 * [Extensão Azure VMAccessForLinux](#use-the-vmaccess-extension) - crie e reutile ficheiros de definição json para redefinir a configuração SSH ou as credenciais do utilizador.
 

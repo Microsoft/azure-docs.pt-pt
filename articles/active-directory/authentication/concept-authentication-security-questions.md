@@ -6,16 +6,16 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bf90909cdd3bd3013dc43d50a9589945f5215c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42ba860c3174ad8725dd15ac3045d270524b110e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90532736"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965476"
 ---
 # <a name="authentication-methods-in-azure-active-directory---security-questions"></a>Métodos de autenticação no Diretório Ativo Azure - questões de segurança
 

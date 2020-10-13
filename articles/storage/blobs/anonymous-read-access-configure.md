@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 10/09/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 3a585bc2bf3872a21bde9be036628922ee5743fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7248dff25af4693f7f264c8cbf42236612dddda0
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "90087359"
+ms.locfileid: "91931075"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Configurar o público anónimo ler acesso a contentores e bolhas
 
@@ -56,7 +56,7 @@ Para permitir ou proibir o acesso público a uma conta de armazenamento, configu
 > [!NOTE]
 > A propriedade **AllowBlobPublicAccess** não é definida por padrão e não devolve um valor até que o descreva explicitamente. A conta de armazenamento permite o acesso público quando o valor da propriedade é **nulo** ou quando é **verdade.**
 >
-> A propriedade **AllowBlobPublicAccess** está atualmente disponível apenas para contas de armazenamento na nuvem pública Azure.
+> A propriedade **AllowBlobPublicAccess** está disponível para todas as contas de armazenamento na nuvem pública de Azure e nas nuvens do Governo Azure.
 
 # <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 

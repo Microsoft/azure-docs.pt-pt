@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
 ms.openlocfilehash: e08150f5998b71523a986eac1f8a9be993125f5a
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91619157"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Recuperação de desastres para uma aplicação SaaS multi-arrendatário usando a geo-replicação da base de dados
@@ -128,7 +128,7 @@ Nesta tarefa, inicia-se um processo que implementa uma instância de aplicaçõe
 > [!Note]
 > Este tutorial adiciona proteção de geo-replicação à aplicação de amostra de Bilhetes Wingtip. Num cenário de produção para uma aplicação que utilize a geo-replicação, cada inquilino seria aloque-se com uma base de dados geo-replicada desde o início. Consulte [a conceção de serviços altamente disponíveis utilizando a Base de Dados Azure SQL](designing-cloud-solutions-for-disaster-recovery.md#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)
 
-1. No *PowerShell ISE,* abra o seguinte script ...\Módulos de aprendizagem\Continuidade de Negócios e Desastre Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1s e Definir os seguintes valores:
+1. No *PowerShell ISE,* abra o seguinte script ...\Módulos de aprendizagem\Continuidade de Negócios e Desastre Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 s e Definir os seguintes valores:
     * **$DemoScenario = 2**, Criar ambiente de recuperação de imagem espelhada e replicar catálogos e bases de dados de inquilinos
 
 2. Prima **F5** para executar o script. É aberta uma nova sessão PowerShell para criar as réplicas.
@@ -142,7 +142,7 @@ Neste momento, a aplicação está a funcionar normalmente na região original e
 
 2. Explore os recursos no grupo de recursos de recuperação.  
 
-3. Clique na base de dados Do Salão de Concertos Contoso no servidor _ &lt; de &gt; recuperação do utilizador-utilizadores de 1-dpt._  Clique na Geo-Replicação no lado esquerdo. 
+3. Clique na base de dados Do Salão de Concertos Contoso no servidor _ &lt; de &gt; recuperação do utilizador-utilizadores de 1-dpt._  Clique em Geo-Replication no lado esquerdo. 
 
     ![Ligação geo-replicação do Concerto Contoso](./media/saas-dbpertenant-dr-geo-replication/contoso-geo-replication.png) 
 
@@ -181,7 +181,7 @@ O script de recuperação executa as seguintes tarefas:
 
 Agora imagine que há uma paragem na região em que a aplicação é implementada e executar o roteiro de recuperação:
 
-1. No *PowerShell ISE,* abra o seguinte script ...\Módulos de aprendizagem\Continuidade de Negócios e Desastre Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1s e Definir os seguintes valores:
+1. No *PowerShell ISE,* abra o seguinte script ...\Módulos de aprendizagem\Continuidade de Negócios e Desastre Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 s e Definir os seguintes valores:
     * **$DemoScenario = 3**, Recuperar a app numa região de recuperação falhando em réplicas
 
 2. Prima **F5** para executar o script.  
@@ -212,7 +212,7 @@ Enquanto o ponto final da aplicação é desativado no Gestor de Tráfego, a apl
 ### <a name="provision-a-new-tenant-in-the-recovery-region"></a>Provisiona um novo inquilino na região de recuperação
 Mesmo antes de todas as bases de dados de inquilinos existentes terem falhado, você pode providenciar novos inquilinos na região de recuperação.  
 
-1. No *PowerShell ISE,* abra o seguinte script ...\Módulos de aprendizagem\Continuidade de Negócios e Desastre Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1s e Definir o seguinte imóvel:
+1. No *PowerShell ISE,* abra o seguinte script ...\Módulos de aprendizagem\Continuidade de Negócios e Desastre Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 s e Definir o seguinte imóvel:
     * **$DemoScenario = 4**, Provision a novo inquilino na região de recuperação
 
 2. Pressione **f5** para executar o guião e providenciar o novo inquilino. 
@@ -245,7 +245,7 @@ Quando o processo de recuperação estiver concluído, a aplicação e todos os 
     
 4. Abra o servidor SQL _de recuperação de inquilinos2-dpt- &lt; utilizador. &gt; _  Note que contém a base de dados _hawthornhall_ e a piscina elástica, _Pool1_.  A base de _dados hawthornhall_ é configurada como uma base de dados elástica na piscina elástica _Pool1._
 
-5. Volte para o grupo de recursos e clique na base de dados Do Contoso Concert Hall no servidor _de recuperação do &lt; &gt; utilizador-utilizadores._ Clique na Geo-Replicação no lado esquerdo.
+5. Volte para o grupo de recursos e clique na base de dados Do Contoso Concert Hall no servidor _de recuperação do &lt; &gt; utilizador-utilizadores._ Clique em Geo-Replication no lado esquerdo.
     
     ![Base de dados Contoso após falha](./media/saas-dbpertenant-dr-geo-replication/contoso-geo-replication-after-failover.png)
 

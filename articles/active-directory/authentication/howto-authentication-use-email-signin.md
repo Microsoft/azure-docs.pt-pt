@@ -6,16 +6,16 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 10/01/2020
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calui
-ms.openlocfilehash: 9b9617b4109318257895587cc0d8e75054a7f729
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.openlocfilehash: c822aaebb2451d709f6afcdeba959f39c4d491cb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91650311"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91964541"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Iniciar sessão no Azure Ative Directory usando o e-mail como iD de login alternativo (pré-visualização)
 
@@ -65,7 +65,7 @@ No estado de pré-visualização atual, aplicam-se as seguintes limitações qua
 
 A autenticação dos Serviços tradicionais de Domínio do Diretório Ativo (AD DS) ou dos Serviços da Federação de Diretórios Ativos (AD FS) ocorre diretamente na sua rede e é gerida pela sua infraestrutura de DS AD. Com a autenticação híbrida, os utilizadores podem, em vez disso, iniciar súmis diretamente no Azure AD.
 
-Para suportar esta abordagem de autenticação híbrida, sincroniza o ambiente AD DS no local para a Azure AD utilizando [o Azure AD Connect][azure-ad-connect] e configura-o para utilizar o Password Hash Sync (PHS) ou a Autenticação Pass-Through (PTA).
+Para suportar esta abordagem de autenticação híbrida, sincroniza o ambiente AD DS no local para a Azure AD utilizando [o Azure AD Connect][azure-ad-connect] e configura-o para utilizar o Password Hash Sync (PHS) ou Pass-Through Autenticação (PTA).
 
 Em ambas as opções de configuração, o utilizador submete o seu nome de utilizador e palavra-passe ao Azure AD, que valida as credenciais e emite um bilhete. Quando os utilizadores insinam-se no Azure AD, elimina a necessidade de a sua organização hospedar e gerir uma infraestrutura AD FS.
 

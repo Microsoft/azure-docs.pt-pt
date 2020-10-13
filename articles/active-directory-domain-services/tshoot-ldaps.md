@@ -2,7 +2,7 @@
 title: Resolução de problemas segura LDAP em Azure AD Domain Services / Microsoft Docs
 description: Saiba como resolver problemas com lDAP (LDAPS) para um domínio gerido pelos Serviços de Domínio do Diretório Ativo Azure
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 445c60da-e115-447b-841d-96739975bdf6
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
-ms.author: iainfou
-ms.openlocfilehash: c339893c12af74b5ecadb182b9aecb8000df65b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: dc4a8e6783c699cd81ecab342f5611e564577fad
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86222960"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91967329"
 ---
 # <a name="troubleshoot-secure-ldap-connectivity-issues-to-an-azure-active-directory-domain-services-managed-domain"></a>Resolução de problemas garante problemas de conectividade LDAP a um domínio gerido por Serviços de Domínio do Diretório Ativo Azure
 

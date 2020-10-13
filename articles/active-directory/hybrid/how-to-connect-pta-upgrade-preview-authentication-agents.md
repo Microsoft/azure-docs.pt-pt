@@ -18,10 +18,10 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1d0507f7751305af5e626cbd7dd6e0dfd1a63a74
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89279487"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Autenticação passativa do Azure Ative Directory: Atualizar agentes de autenticação de pré-visualização
@@ -88,5 +88,5 @@ Siga estes passos para atualizar agentes de autenticação em outros servidores 
 >[!NOTE]
 >Se verificar a lâmina de autenticação pass-through no centro de administração do [Diretório Ativo Azure](https://aad.portal.azure.com) após completar os passos anteriores, verá duas entradas do Agente de Autenticação por servidor - uma entrada que mostra o Agente de Autenticação como **Ativo** e a outra como **Inativa**. Isto é _esperado._ A entrada **Inativa** é automaticamente deixada após alguns dias.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [**Resolução de problemas**](tshoot-connect-pass-through-authentication.md) - Aprenda a resolver problemas comuns com a funcionalidade.

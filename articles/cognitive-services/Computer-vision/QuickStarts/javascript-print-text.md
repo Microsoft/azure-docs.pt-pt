@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: 6caa81d62706c284e10a6faf86cc5e9a2447ae80
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 19207fd1b05d507980df299dc6ac2e9a39736318
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91262608"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91977121"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-javascript"></a>Quickstart: Extrair texto impresso (OCR) utilizando a API de Visão de Computador e JavaScript
 
@@ -61,7 +61,7 @@ Para criar e executar o exemplo, siga os seguintes passos:
         var subscriptionKey = document.getElementById("subscriptionKey").value;
         var endpoint = document.getElementById("endpointUrl").value;
         
-        var uriBase = endpoint + "vision/v3.0/ocr";
+        var uriBase = endpoint + "vision/v3.1/ocr";
 
         // Request parameters.
         var params = {

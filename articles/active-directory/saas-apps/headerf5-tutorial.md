@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.openlocfilehash: d85e6bbaf85ebb84d3664d90e3d645f61b2cb60a
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91817366"
 ---
 # <a name="tutorial-configure-single-sign-on-sso-between-azure-active-directory-and-f5"></a>Tutorial: Configurar um único sign-on (SSO) entre o Azure Ative Directory e o F5
@@ -245,7 +245,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     ![A screenshot mostra a página Pool Properties.](./media/headerf5-tutorial/configure06.png)
 
-1. No ecrã de definições de sinais únicos, selecione **Ative O Sign-On único**. Em tipo único de sinal selecionado, escolha **o cabeçalho HTTP baseado em**. Substitua **session.saml.last.Identity** por **session.saml.last.attr.name.Name** under Username Source (esta variável que definiu usando mapeamento de reclamações no AD Azure). Sob os cabeçalhos SSO.
+1. No ecrã de definições de Sign-On único, selecione **Ative O Sign-On único**. Em Tipo único Sign-On selecionado escolha **http baseado em cabeçalho**. Substitua **session.saml.last.Identity** por **session.saml.last.attr.name.Name** under Username Source (esta variável que definiu usando mapeamento de reclamações no AD Azure). Sob os cabeçalhos SSO.
 
     * **HeaderName : MyAuthorization**
 
@@ -258,7 +258,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
     >[!NOTE]
     >O nome da conta é a conta da delegação F5 criada (Ver Documentação F5).
 
-    ![A screenshot mostra a página 'Definições de inscrição única'.](./media/headerf5-tutorial/configure07.png) 
+    ![A screenshot mostra a página 'Definições Sign-On Únicas'.](./media/headerf5-tutorial/configure07.png) 
 
 1. Para efeitos desta orientação, saltaremos as verificações de pontos finais.  Consulte a documentação F5 para mais detalhes. **Selecione Guardar & Seguinte**.
 

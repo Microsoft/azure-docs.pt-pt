@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
 ms.openlocfilehash: a37808548ec58977b7d6af16c75b94b7b5efe446
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91271601"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Criar cofre dos Serviços de Recuperação Azure usando REST API
@@ -38,10 +38,10 @@ Para obter mais informações sobre como criar o pedido, consulte [Componentes d
 
 As seguintes definições comuns são utilizadas para construir um organismo de pedido:
 
-|Name  |Necessário  |Tipo  |Description  |
+|Nome  |Necessário  |Tipo  |Descrição  |
 |---------|---------|---------|---------|
 |eTag     |         |   Cadeia      |  ETag opcional       |
-|localização     |  true       |Cadeia         |   Localização de recursos      |
+|localização     |  true       |Cadeia         |   Localização do recurso      |
 |propriedades     |         | [VaultProperties](/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Propriedades do cofre       |
 |sku     |         |  [Sku](/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Identifica o identificador de sistema único para cada recurso Azure     |
 |etiquetas     |         | Objeto        |     Etiquetas de recursos    |
@@ -66,7 +66,7 @@ O seguinte exemplo do corpo é usado para criar um cofre em "West US". Especifiq
 
 Existem duas respostas bem sucedidas para a operação para criar ou atualizar um cofre dos Serviços de Recuperação:
 
-|Nome  |Tipo  |Description  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
 |200 OK     |   [Cofre](/rest/api/recoveryservices/vaults/createorupdate#vault)      | OK        |
 |201 Criado     | [Cofre](/rest/api/recoveryservices/vaults/createorupdate#vault)        |   Criado      |

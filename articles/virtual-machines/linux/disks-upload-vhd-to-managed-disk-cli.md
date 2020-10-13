@@ -8,12 +8,12 @@ ms.date: 06/15/2020
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: c7eb50caa4e7f0505809da64dd0309c6e0b8709f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 473e87904742395eca6b7eeba0875cd93789104d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88691348"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978990"
 ---
 # <a name="upload-a-vhd-to-azure-or-copy-a-managed-disk-to-another-region---azure-cli"></a>Faça o upload de um VHD para Azure ou copie um disco gerido para outra região - Azure CLI
 
@@ -79,7 +79,7 @@ Agora que tem um SAS para o seu disco gerido vazio, pode usá-lo para definir o 
 
 Utilize o AzCopy v10 para enviar o seu ficheiro VHD local para um disco gerido especificando o SAS URI gerado.
 
-Este upload tem a mesma produção que o [HDD padrão](disks-types.md#standard-hdd)equivalente . Por exemplo, se tiver um tamanho que equivale a S4, terá uma produção de até 60 MiB/s. Mas, se tiver um tamanho que equivale a S70, terá uma produção de até 500 MiB/s.
+Este upload tem a mesma produção que o [HDD padrão](../disks-types.md#standard-hdd)equivalente . Por exemplo, se tiver um tamanho que equivale a S4, terá uma produção de até 60 MiB/s. Mas, se tiver um tamanho que equivale a S70, terá uma produção de até 500 MiB/s.
 
 ```bash
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob
@@ -108,17 +108,17 @@ Substitua o `<sourceResourceGroupHere>` , , , e `<sourceDiskNameHere>` `<targetD
 > Se estiver a criar um disco DE, adicione -- hiper-v geração <yourGeneration> a `az disk create` .
 
 ```azurecli
-sourceDiskName = <sourceDiskNameHere>
-sourceRG = <sourceResourceGroupHere>
-targetDiskName = <targetDiskNameHere>
-targetRG = <targetResourceGroupHere>
-targetLocale = <yourTargetLocationHere>
+sourceDiskName=<sourceDiskNameHere>
+sourceRG=<sourceResourceGroupHere>
+targetDiskName=<targetDiskNameHere>
+targetRG=<targetResourceGroupHere>
+targetLocation=<yourTargetLocationHere>
 
-sourceDiskSizeBytes= $(az disk show -g $sourceRG -n $sourceDiskName --query '[diskSizeBytes]' -o tsv)
+sourceDiskSizeBytes=$(az disk show -g $sourceRG -n $sourceDiskName --query '[diskSizeBytes]' -o tsv)
 
-az disk create -g $targetRG -n $targetDiskName -l $targetLocale --for-upload --upload-size-bytes $(($sourceDiskSizeBytes+512)) --sku standard_lrs
+az disk create -g $targetRG -n $targetDiskName -l $targetLocation --for-upload --upload-size-bytes $(($sourceDiskSizeBytes+512)) --sku standard_lrs
 
-targetSASURI = $(az disk grant-access -n $targetDiskName -g $targetRG  --access-level Write --duration-in-seconds 86400 -o tsv)
+targetSASURI=$(az disk grant-access -n $targetDiskName -g $targetRG  --access-level Write --duration-in-seconds 86400 -o tsv)
 
 sourceSASURI=$(az disk grant-access -n $sourceDiskName -g $sourceRG --duration-in-seconds 86400 --query [accessSas] -o tsv)
 
@@ -131,4 +131,4 @@ az disk revoke-access -n $targetDiskName -g $targetRG
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que fez o upload de um VHD com sucesso para um disco gerido, pode anexar o disco como [disco de dados a um VM existente](add-disk.md) ou [anexar o disco VM a um disco VM como disco de OS,](upload-vhd.md#create-the-vm)para criar um novo VM. 
+Agora que fez o upload de um VHD com sucesso para um disco gerido, pode anexar o disco como [disco de dados a um VM existente](add-disk.md) ou [anexar o disco VM a um disco VM como disco de OS,](upload-vhd.md#create-the-vm)para criar um novo VM.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 10/02/2020
-ms.openlocfilehash: 17d887f0834733fdc833bbbad66c957b057a588a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a49a51886f921c9d37a33229b6db78479d7198bc
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91857814"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938326"
 ---
 # <a name="cognitive-services-docs-whats-new-for-september-1-2020---september-30-2020"></a>Serviços Cognitivos: Novidades para 1 de setembro de 2020 - 30 de setembro de 2020
 
@@ -42,51 +42,51 @@ Bem-vindos às novidades dos serviços cognitivos de 1 de setembro de 2020 a 31 
 
 ### <a name="new-articles"></a>Artigos novos
 
-- [Instale e execute o recipiente de análise espacial (pré-visualização)](/azure/cognitive-services/computer-vision/spatial-analysis-container.md)
+- [Instale e execute o recipiente de análise espacial (pré-visualização)](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-container?tabs=azure-stack-edge)
 
 ### <a name="updated-articles"></a>Artigos atualizados
 
-- [Etiquetas de imagem de recipientes de serviços cognitivos Azure](/azure/cognitive-services/containers/container-image-tags.md)
+- [Etiquetas de imagem de recipientes de serviços cognitivos Azure](https://docs.microsoft.com/azure/cognitive-services/containers/container-image-tags)
 
 ## <a name="form-recognizer"></a>Reconhecedor de Formato
 
 ### <a name="updated-articles"></a>Artigos atualizados
 
-- [Suporte linguístico para o Reconhecimento de Formulários](/azure/cognitive-services/form-recognizer/language-support.md)
-- [Construa um conjunto de dados de formação para um modelo personalizado](/azure/cognitive-services/form-recognizer/build-training-data-set.md)
-- [Conceitos de recibo](/azure/cognitive-services/form-recognizer/concept-receipts.md)
-- [Encriptação do Reconhecimento de Formulários de Dados em repouso](/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest.md)
-- [Novidades no Reconhecedor de Formato?](/azure/cognitive-services/form-recognizer/whats-new.md)
-- [Conceitos de cartões de visita](/azure/cognitive-services/form-recognizer/concept-business-cards.md)
-- [O que é o Reconhecedor de Formato?](/azure/cognitive-services/form-recognizer/overview.md)
-- [Quickstart: Use a biblioteca do cliente Do Reconhecimento de Formulários](/azure/cognitive-services/form-recognizer/quickstarts/client-library.md)
+- [Suporte linguístico para o Reconhecimento de Formulários](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/language-support)
+- [Construa um conjunto de dados de formação para um modelo personalizado](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/build-training-data-set)
+- [Conceitos de recibo](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/concept-receipts)
+- [Encriptação do Reconhecimento de Formulários de Dados em repouso](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest)
+- [Novidades no Reconhecedor de Formato?](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/whats-new)
+- [Conceitos de cartões de visita](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/concept-business-cards)
+- [O que é o Reconhecedor de Formato?](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/overview)
+- [Quickstart: Use a biblioteca do cliente Do Reconhecimento de Formulários](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/client-library)
 
 ## <a name="immersive-reader"></a>Leitura Avançada
 
 ### <a name="updated-articles"></a>Artigos atualizados
 
-- [Suporte linguístico para leitor imersivo](/azure/cognitive-services/immersive-reader/language-support.md)
-- [Referência SDK do leitor imersivo JavaScript (v1.1)](/azure/cognitive-services/immersive-reader/reference.md)
-- [Quickstart: Começa com o Leitor Imersivo](/azure/cognitive-services/immersive-reader/quickstarts/client-libraries.md)
-- [Tutorial: Inicie o Leitor Imersivo usando o projeto de amostra python](/azure/cognitive-services/immersive-reader/tutorial-python.md)
-- [Crie um recurso imersivo do Leitor e configuure a autenticação do Azure Ative Directory](/azure/cognitive-services/immersive-reader/how-to-create-immersive-reader.md)
+- [Suporte linguístico para leitor imersivo](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/language-support)
+- [Referência SDK do leitor imersivo JavaScript (v1.1)](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference)
+- [Quickstart: Começa com o Leitor Imersivo](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/quickstarts/client-libraries)
+- [Tutorial: Inicie o Leitor Imersivo usando o projeto de amostra python](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/tutorial-python)
+- [Crie um recurso imersivo do Leitor e configuure a autenticação do Azure Ative Directory](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/how-to-create-immersive-reader)
 
 ## <a name="metrics-advisor"></a>Assistente de Métricas
 
 ### <a name="new-articles"></a>Artigos novos
 
-- [Como: Configurar métricas e configuração de deteção de afinação](/azure/cognitive-services/metrics-advisor/how-tos/configure-metrics.md)
-- [Adicione feeds de dados de diferentes fontes de dados ao Metrics Advisor](/azure/cognitive-services/metrics-advisor/data-feeds-from-different-sources.md)
-- [Quickstart: Use as APIs REST para personalizar a sua solução](/azure/cognitive-services/metrics-advisor/quickstarts/rest-api.md)
-- [Como fazer: Configurar alertas e receber notificações usando um gancho](/azure/cognitive-services/metrics-advisor/how-tos/alerts.md)
+- [Como: Configurar métricas e configuração de deteção de afinação](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/how-tos/configure-metrics)
+- [Adicione feeds de dados de diferentes fontes de dados ao Metrics Advisor](/azure/cognitive-services/metrics-advisor/data-feeds-from-different-sources)
+- [Quickstart: Use as APIs REST para personalizar a sua solução](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/quickstarts/rest-api)
+- [Como fazer: Configurar alertas e receber notificações usando um gancho](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/how-tos/alerts)
 
 ## <a name="text-analytics"></a>Análise de Texto
 
 ### <a name="updated-articles"></a>Artigos atualizados
 
-- [Como utilizar o reconhecimento de entidade nomeada em análise de texto](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
-- [Versão de modelo na API de Análise de Texto](/azure/cognitive-services/text-analytics/concepts/model-versioning.md)
-- [Quickstart: Use a biblioteca de clientes Text Analytics](/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk.md)
+- [Como utilizar o reconhecimento de entidade nomeada em análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking)
+- [Versão de modelo na API de Análise de Texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/concepts/model-versioning)
+- [Quickstart: Use a biblioteca de clientes Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/text-analytics-sdk)
 
 ## <a name="community-contributors"></a>Contribuintes comunitários
 

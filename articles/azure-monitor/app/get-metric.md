@@ -4,15 +4,13 @@ description: Saiba como utilizar eficazmente a chamada GetMetric() para capturar
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 04/28/2020
-ms.openlocfilehash: 7aacb951d449583c875c71f260957a9d3bc8c663
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 345d0d31528f7bdc40be4400e783ad5be45df72f
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "86517149"
+ms.locfileid: "91930565"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>Coleção métrica personalizada em .NET e .NET Core
 
