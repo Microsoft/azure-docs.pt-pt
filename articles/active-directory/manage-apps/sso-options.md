@@ -12,10 +12,10 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.openlocfilehash: 5c02733167db5071b1f2a9c5e04dc05a069fda3c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90604211"
 ---
 # <a name="single-sign-on-options-in-azure-ad"></a>Opções únicas de inscrição em Azure AD
@@ -41,7 +41,7 @@ Este fluxograma ajuda-o a decidir qual o método de inscrição único melhor pa
 
 A tabela a seguir resume os métodos de inscrição única e liga-se a mais detalhes.
 
-| Método de inscrição único | Tipos de aplicações | Quando utilizar |
+| Método de inscrição único | Tipos de aplicação | Quando utilizar |
 | :------ | :------- | :----- |
 | [OpenID Connect e OAuth](#openid-connect-and-oauth) | nuvem e no local | Utilize o OpenID Connect e o OAuth ao desenvolver uma nova aplicação. Este protocolo simplifica a configuração da aplicação, tem SDKs fáceis de usar e permite que a sua aplicação utilize o Ms Graph.
 | [SAML](#saml-sso) | nuvem e no local | Escolha SAML sempre que possível para aplicações existentes que não utilizem OpenID Connect ou OAuth. A SAML trabalha para aplicações que autenticam usando um dos protocolos SAML.|
@@ -74,7 +74,7 @@ O sign-on único baseado em SAML é suportado para aplicações que usam qualque
 
 Para configurar um pedido SaaS para um único sign-on baseado em SAML, consulte um [único sinal baseado em SAML baseado em Configure](configure-saml-single-sign-on.md). Além disso, muitas aplicações de Software como serviço (SaaS) têm um [tutorial específico para aplicações](../saas-apps/tutorial-list.md) que o movem através da configuração para um único sign-on baseado em SAML.
 
-Para configurar um pedido para a WS-Federação, siga as mesmas orientações para configurar o pedido de inscrição única baseada em SAML. Na etapa para configurar a aplicação para utilizar o Azure AD, terá de substituir o URL de login Azure AD para o ponto final da WS-Federation `https://login.microsoftonline.com/<tenant-ID>/wsfed` .
+Para configurar um pedido para a WS-Federação, siga as mesmas orientações para configurar o pedido de inscrição única baseada em SAML. Na etapa para configurar a aplicação para utilizar o Azure AD, terá de substituir o URL de login Azure AD para o ponto final WS-Federation `https://login.microsoftonline.com/<tenant-ID>/wsfed` .
 
 Para configurar um pedido no local para um único sign-on baseado em SAML, consulte [o auto-sign-on da SAML para aplicações no local com o Application Proxy](application-proxy-configure-single-sign-on-on-premises-apps.md).
 

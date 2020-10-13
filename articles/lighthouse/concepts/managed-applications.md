@@ -4,10 +4,10 @@ description: Entenda como as aplicações geridas pelo Farol de Azure e Azure po
 ms.date: 08/12/2020
 ms.topic: conceptual
 ms.openlocfilehash: 7fd8801fc714a0f0c245d27462e368602dc41eb5
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89483852"
 ---
 # <a name="azure-lighthouse-and-azure-managed-applications"></a>Azure Lighthouse e aplicações geridas do Azure
@@ -47,7 +47,7 @@ Por exemplo, um cliente pode querer serviços geridos prestados por um prestador
 
 Os clientes também podem estar interessados em aplicações geridas de vários prestadores de serviços, quer também utilizem ou não serviços geridos através do Farol Azure de qualquer um desses prestadores de serviços. Além disso, os parceiros do programa Cloud Solution Provider (CSP) podem revender certas aplicações geridas publicadas por outros ISVs a clientes que suportam através do Farol Azure. Com um vasto leque de opções, os prestadores de serviços podem escolher o equilíbrio certo para atender às necessidades dos seus clientes, limitando o acesso aos recursos quando apropriado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça as [aplicações geridas pela Azure.](../../azure-resource-manager/managed-applications/overview.md)
 - Saiba como embarcar [numa subscrição do Azure Lighthouse.](../how-to/onboard-customer.md)

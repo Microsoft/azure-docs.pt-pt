@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: d0e13f8e66e6035c22c9c2323b9653c5c4a81671
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a08ddae1d10cc8b26f3aa7ee85e731c2cea15f93
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514670"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962892"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Utilize o serviço StorSimple Device Manager para modificar a configuração do seu dispositivo StorSimple
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Overview (Descrição geral)
 
 A secção **de definições do dispositivo do** portal Azure na lâmina **Definições** contém todos os parâmetros do dispositivo que pode reconfigurar num dispositivo StorSimple que é gerido por um serviço StorSimple Device Manager. Este tutorial explica como pode utilizar a lâmina **De Definições** para executar as seguintes tarefas ao nível do dispositivo:
 
@@ -61,7 +61,7 @@ Uma descrição do dispositivo geralmente ajuda a identificar o proprietário e 
 
 O seu dispositivo deve sincronizar o tempo para autenticar com o seu fornecedor de serviços de armazenamento em nuvem. Utilize a lâmina **de definição geral** do seu dispositivo para modificar as definições de tempo do dispositivo.
 
-![Descrição do dispositivo em configurações gerais](./media/storsimple-8000-modify-device-config/modify-general-settings2.png)
+![Descrição do dispositivo nas definições gerais 2](./media/storsimple-8000-modify-device-config/modify-general-settings2.png)
 
  Selecione o seu fuso horário a partir da lista de drop-down. Pode especificar até dois servidores do Protocolo de Tempo de Rede (NTP):
 

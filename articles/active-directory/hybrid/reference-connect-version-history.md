@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fccbb84647ae9e47afc7bb36eeca97bb41a0d1d8
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90604075"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de versões
@@ -140,9 +140,9 @@ Esta construção de hotfix corrige um problema na construção 1.5.20.0 se tive
 
 - Suporte adicional para a função mS-DS-ConsistencyGuid para objetos de grupo. Isto permite-lhe mover grupos entre florestas ou reconectar grupos em AD para Azure AD onde o objetoid do grupo AD mudou, por exemplo, quando um servidor AD é reconstruído após uma calamidade. Para obter mais informações, consulte [grupos móveis entre florestas.](how-to-connect-migrate-groups.md)
 - O atributo mS-DS-ConsistencyGuid é automaticamente definido em todos os grupos sincronizados e não tem de fazer nada para ativar esta funcionalidade. 
-- Remova o Get-ADSyncRunProfile porque já não está a ser utilizado. 
+- Retire o Get-ADSyncRunProfile porque já não está a ser utilizado. 
 - Alterou o aviso que vê ao tentar utilizar uma conta Enterprise Admin ou Domain Admin para a conta de conector AD DS para fornecer mais contexto. 
-- Adicionou um novo cmdlet para remover objetos do espaço do conector, a antiga ferramenta CSDelete.exe é removida e é substituída pelo novo cmdlet Remove-ADSyncCSObject. O cmdlet Remove-ADSyncCSObject toma um CsObject como entrada. Este objeto pode ser recuperado utilizando o cmdlet Get-ADSyncCSObject.
+- Adicionou um novo cmdlet para remover objetos do espaço do conector, a antiga ferramenta CSDelete.exe é removida e é substituída pelo novo cmdlet Remove-ADSyncCSObject. O Remove-ADSyncCSObject cmdlet toma um CsObject como entrada. Este objeto pode ser recuperado utilizando o Get-ADSyncCSObject cmdlet.
 
 >[!NOTE]
 >A antiga ferramenta CSDelete.exe foi removida e substituída pelo novo cmdlet Remove-ADSyncCSObject 

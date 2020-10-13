@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 32d0c44abed2d4ace4c8896922ed7f6ed8b596ff
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: aed3116976d57df81da399495fd9da3722ba770a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326104"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91960682"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Restauro pontual para bolhas de bloco
 
@@ -50,7 +50,7 @@ A operação **Restore Blob Ranges** devolve um ID de restauro que identifica ex
 A restauração pontual requer que as seguintes funcionalidades de Armazenamento Azure sejam ativadas antes de poder permitir a restauração pontual:
 
 - [Eliminação recuperável](soft-delete-overview.md)
-- [Feed de alterações](storage-blob-change-feed.md)
+- [Alterar alimentação](storage-blob-change-feed.md)
 - [Versão blob](versioning-overview.md)
 
 ### <a name="retention-period-for-point-in-time-restore"></a>Período de retenção para restauro pontual

@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2020
-ms.openlocfilehash: 6bcb1ea6c16fd387dfb7f15f909d1908c20a44d7
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 4189aadb6e37fc70bcaeecca2110d6fcc3959dd3
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91710911"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939873"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Visão geral da continuidade do negócio com base de dados Azure para PostgreSQL - Servidor Único
 
@@ -29,10 +29,9 @@ A tabela a seguir compara RTO e RPO num cenário típico:
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Restauro para um Ponto Anterior no Tempo a partir de cópia de segurança | Qualquer ponto de restauração dentro do período de retenção | Qualquer ponto de restauração dentro do período de retenção | Qualquer ponto de restauração dentro do período de retenção |
 | Geo-restauro a partir de backups geo-replicados | Não suportado | RTO - Varia <br/>RPO < 1 h | RTO - Varia <br/>RPO < 1 h |
-| Réplicas de leitura | RTO - Minutos <br/>RPO < 5 min | RTO - Minutos <br/>RPO < 5 min| RTO - Minutos <br/>RPO < 5 min|
+| Réplicas de leitura | RTO - Minutos <br/>RPO < 5 min* | RTO - Minutos <br/>RPO < 5 min*| RTO - Minutos <br/>RPO < 5 min*|
 
-> [!IMPORTANT]
-> As RTO e RPO esperadas aqui mencionadas são apenas para fins de referência. Não são oferecidos SLAs para estas métricas.
+\* A RPO pode ser mais elevada em alguns casos, dependendo de vários fatores, incluindo a carga de trabalho da base de dados primária e a latência entre regiões. 
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Recuperar um servidor após um erro de utilizador ou aplicação
 
@@ -64,7 +63,7 @@ Você pode usar réplicas de leitura de região cruzada para melhorar o seu plan
 Por padrão, a Base de Dados Azure para PostgreSQL não move ou armazena os dados dos clientes para fora da região em que está implantado. No entanto, os clientes podem optar opcionalmente por permitir [cópias de segurança geo-redundantes](concepts-backup.md#backup-redundancy-options) ou criar [réplicas de leitura cruzada](concepts-read-replicas.md#cross-region-replication) para armazenar dados noutra região.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre as [cópias de segurança automatizadas na Base de Dados Azure para PostgreSQL](concepts-backup.md). 
 - Saiba como restaurar utilizando [o portal Azure](howto-restore-server-portal.md) ou [o Azure CLI](howto-restore-server-cli.md).
 - Saiba mais sobre [réplicas de leitura na Base de Dados Azure para PostgreSQL](concepts-read-replicas.md).

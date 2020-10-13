@@ -4,19 +4,22 @@ description: Conecte-se privadamente a uma Aplicação Web usando o Azure Privat
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 10/07/2020
+ms.date: 10/09/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 855cbe3d2926a04af773aa32ea0ab63bde89491c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c4b6377d28339b0b4953cd908f4964b64dab4fe
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91857270"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91873103"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Utilização de pontos finais privados para app Web Azure
+
+> [!IMPORTANT]
+> O Private Endpoint está disponível para Windows e Linux Web App, contentorizada ou não, hospedada nestes Planos de Serviço de Aplicações : **Isolado,** **PremiumV2,** **PremiumV3,** **Funções Premium** (por vezes designada como plano Elastic Premium). 
 
 Pode utilizar o Private Endpoint para a sua Azure Web App para permitir que os clientes localizados na sua rede privada acedam de forma segura à aplicação sobre o Private Link. O Private Endpoint utiliza um endereço IP a partir do seu espaço de endereço Azure VNet. O tráfego de rede entre um cliente na sua rede privada e a Web App atravessa o VNet e uma Ligação Privada na rede de espinha dorsal da Microsoft, eliminando a exposição da Internet pública.
 
@@ -91,7 +94,7 @@ Por exemplo, a resolução de nomes será:
 |mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|
 |mywebapp.privatelink.azurewebsites.net|A|10.10.10.8|<-- Gere esta entrada no seu sistema DNS para apontar para o seu endereço IP private endpoint|
 
-Após esta configuração DNS, pode chegar à sua Web App em privado com o nome padrão mywebappname.azurewebsites.net.
+Após esta configuração DNS, pode chegar à sua Web App em privado com o nome padrão mywebappname.azurewebsites.net. Tem de usar este nome, porque o certificado por defeito é emitido para *.azurewebsites.net.
 
 
 Se precisar de usar um nome DNS personalizado, tem de adicionar o nome personalizado na sua Web App. O nome personalizado deve ser validado como qualquer nome personalizado, utilizando a resolução pública de DNS. Para mais informações, consulte [a validação personalizada do DNS.][dnsvalidation]
@@ -115,9 +118,9 @@ Quando utilizar a Função Azure em Plano Premium Elástico com Ponto Final Priv
 
 Pode ligar até 100 Pontos Finais Privados a uma determinada Aplicação Web.
 
-A funcionalidade de depuração remota não está disponível quando o Private Endpoint está ativado para a Web App. A recomendação é colocar o código numa ranhura e desativá-lo remotamente lá.
+As ranhuras não podem ser utilizadas no Ponto Final Privado.
 
-O Private Endpoint está disponível para a App PremiumV2, PremiumV3, Windows e Linux, contentorizada ou não, e o plano Azure Functions Premium (por vezes referido como o plano Elastic Premium). 
+A funcionalidade de depuração remota não está disponível quando o Private Endpoint está ativado para a Web App. A recomendação é colocar o código numa ranhura e desativá-lo remotamente lá.
 
 Estamos a melhorar regularmente o recurso Private Link e o Private Endpoint, consulte [este artigo][pllimitations] para obter informações atualizadas sobre limitações.
 

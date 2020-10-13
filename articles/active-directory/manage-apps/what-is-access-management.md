@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: kenwith
 ms.openlocfilehash: d9dd03ec349daf2312b7d803e16e3c5fb41ecf0c
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90604109"
 ---
 # <a name="managing-access-to-apps"></a>Gerir o acesso a apps
 
-A gestão contínua de acessos, a avaliação de utilização e os relatórios continuam a ser um desafio depois de uma aplicação ser integrada no sistema de identidade da sua organização. Em muitos casos, os administradores de TI ou helpdesk têm de assumir um papel ativo contínuo na gestão do acesso às suas apps. Às vezes, a atribuição é realizada por uma equipa de TI geral ou divisional. Muitas vezes, a decisão de atribuição destina-se a ser delegada no decisor do negócio, exigindo a sua aprovação antes de a TI fazer a atribuição.  Outras organizações investem na integração com um sistema de gestão de identidade e acesso automatizado existente, como o Controle de Acesso Baseado em Papéis (RBAC) ou o Controlo de Acesso Baseado em Atributos (ABAC). Tanto a integração como o desenvolvimento de regras tendem a ser especializados e dispendiosos. O acompanhamento ou a comunicação de qualquer uma das abordagens de gestão é o seu próprio investimento separado, dispendioso e complexo.
+A gestão contínua de acessos, a avaliação de utilização e os relatórios continuam a ser um desafio depois de uma aplicação ser integrada no sistema de identidade da sua organização. Em muitos casos, os administradores de TI ou helpdesk têm de assumir um papel ativo contínuo na gestão do acesso às suas apps. Às vezes, a atribuição é realizada por uma equipa de TI geral ou divisional. Muitas vezes, a decisão de atribuição destina-se a ser delegada no decisor do negócio, exigindo a sua aprovação antes de a TI fazer a atribuição.  Outras organizações investem na integração com um sistema de gestão de identidade e acesso automatizado existente, como Role-Based Access Control (RBAC) ou Attribute-Based Access Control (ABAC). Tanto a integração como o desenvolvimento de regras tendem a ser especializados e dispendiosos. O acompanhamento ou a comunicação de qualquer uma das abordagens de gestão é o seu próprio investimento separado, dispendioso e complexo.
 
 ## <a name="how-does-azure-active-directory-help"></a>Como é que o Azure Ative Directory ajuda?
 

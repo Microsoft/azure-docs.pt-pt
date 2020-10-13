@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 7/31/2020
 ms.author: baanders
 ms.openlocfilehash: 7e43ab6d419d6a08973864838c66aef0941d74f5
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90606482"
 ---
 Primeiro, faça este comando para ver uma lista de todas as extensões que já instalou.

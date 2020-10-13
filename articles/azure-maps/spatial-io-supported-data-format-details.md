@@ -9,15 +9,15 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 7227813f607ca18ee50f503a30b290414f333e21
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91310174"
 ---
 # <a name="supported-data-format-details"></a>Detalhes do formato de dados suportado
 
-Este artigo fornece detalhes sobre o suporte de leitura e escrita para todas as tags XML e tipos de geometria de texto bem conhecido. Também detalha como os dados espaciais delimitados são analisados no módulo IO espacial.
+Este artigo fornece detalhes sobre o suporte de leitura e escrita para todos os tipos de geometria de texto Well-Known XML. Também detalha como os dados espaciais delimitados são analisados no módulo IO espacial.
 
 ## <a name="supported-xml-namespaces"></a>Espaços de nomes XML suportados
 
@@ -304,7 +304,7 @@ Ao escrever;
 - Os MultiPoints serão divididos em pontos de passagem individuais.
 - Polígonos e MultiPolígonos serão escritos como faixas. 
   
-## <a name="supported-well-known-text-geometry-types"></a>Tipos de geometria de texto bem conhecidos suportados
+## <a name="supported-well-known-text-geometry-types"></a>Tipos de geometria de texto Well-Known suportados
 
 | Tipo de geometria | Leitura | Escrita |
 |--------------|:----:|:-----:|
@@ -343,7 +343,7 @@ Ao escrever;
 
 ## <a name="delimited-spatial-data-support"></a>Suporte de dados espaciais delimitado
 
-Dados espaciais delimitados, tais como ficheiros de valor separados por vírgula (CSV), têm frequentemente colunas que contêm dados espaciais. Por exemplo, pode haver colunas que contenham informações de latitude e longitude. No formato Text Bem Conhecido, pode haver uma coluna que contém dados de geometria espacial.
+Dados espaciais delimitados, tais como ficheiros de valor separados por vírgula (CSV), têm frequentemente colunas que contêm dados espaciais. Por exemplo, pode haver colunas que contenham informações de latitude e longitude. No formato Well-Known Texto, pode haver uma coluna que contenha dados de geometria espacial.
 
 ### <a name="spatial-data-column-detection"></a>Deteção de colunas de dados espaciais
 
@@ -385,7 +385,7 @@ Ao ler um ficheiro delimitado que contenha dados espaciais, o cabeçalho será a
 
 #### <a name="geography"></a>Geografia
 
-A primeira linha de dados será digitalizada para cadeias que estejam em formato Text bem conhecido. 
+A primeira linha de dados será digitalizada para cadeias que estejam em Well-Known formato De texto. 
 
 ### <a name="delimited-data-column-types"></a>Tipos de colunas de dados delimitadas
 
@@ -410,7 +410,7 @@ Ao digitalizar a linha do cabeçalho, qualquer tipo de informação que esteja n
 #### <a name="dates"></a>Datas
 
 - edm.datetime
-- data
+- date
 - datetime
 
 #### <a name="geography"></a>Geografia

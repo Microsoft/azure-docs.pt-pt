@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 037598212773ca75abbdd086fe0577e0660f2218
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91398583"
 ---
 # <a name="use-workflows-to-integrate-your-azure-iot-central-application-with-other-cloud-services"></a>Utilize fluxos de trabalho para integrar a sua aplicação Azure IoT Central com outros serviços na nuvem
@@ -75,7 +75,7 @@ Para adicionar o conector **Azure IoT Central V3- pré-visualização** como uma
 1. Na lista de ações, selecione a ação IoT Central que pretende utilizar.
 1. No passo de ação, complete a configuração para a ação que escolheu. Em seguida, selecione **Guardar**.
 
-:::image type="content" source="./media/howto-configure-rules-advanced/actions.png" alt-text="Encontre o conector Azure IoT Central V3 e escolha uma ação":::
+:::image type="content" source="./media/howto-configure-rules-advanced/actions.png" alt-text="Encontre o Azure IoT Central - pré-visualizar o conector e escolha o gatilho":::
 
 ## <a name="list-of-actions"></a>Lista de ações
 

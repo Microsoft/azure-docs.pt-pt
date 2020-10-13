@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
 ms.openlocfilehash: 03c783b5a475f0a49fe94d33aa866654e9c9f5f1
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91397832"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurar as políticas do Apache Hive no HDInsight com o Pacote de Segurança Enterprise
@@ -56,7 +56,7 @@ Nesta secção, cria-se duas políticas ranger para aceder ao hivesmpletable. Co
     |---|---|
     |Nome da Política|read-hivesampletable-all|
     |Base de Dados da Colmeia|predefinição|
-    |mesa|hivesmpletable|
+    |table|hivesmpletable|
     |Coluna da Colmeia|*|
     |Selecionar Utilizador|hiveuser1|
     |Permissões|selecionar|
@@ -74,7 +74,7 @@ Nesta secção, cria-se duas políticas ranger para aceder ao hivesmpletable. Co
     |---|---|
     |Nome da Política|read-hivesampletable-devicemake|
     |Base de Dados da Colmeia|predefinição|
-    |mesa|hivesmpletable|
+    |table|hivesmpletable|
     |Coluna de colmeia|cliente, fabricante de dispositivos|
     |Selecionar Utilizador|hiveuser2|
     |Permissões|selecionar|
@@ -88,7 +88,7 @@ As instruções podem ser encontradas em [Criar origem de dados do ODBC do Hive]
  | Nome da Origem de Dados | Atribua um nome para a sua origem de dados |
  | Anfitrião | Introduza CLUSTERNAME.azurehdinsight.net. Por exemplo, myHDICluster.azurehdinsight.net |
  | Porta | Utilize **443**. (Esta porta foi alterada de 563 para 443.) |
- | Base de Dados | Use **Predefinição**. |
+ | Base de Dados | Utilizar **predefinido**. |
  | Tipo de Servidor do Hive | Selecione **Servidor do Hive 2** |
  | Mecanismo | Selecione **Serviço do Azure HDInsight** |
  | Caminho HTTP | Deixe em branco. |

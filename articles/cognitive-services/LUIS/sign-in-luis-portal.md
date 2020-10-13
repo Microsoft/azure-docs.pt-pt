@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.author: a-sakand
 author: skandil
 ms.openlocfilehash: 22f5ab332c52a3b567b37089def6e4a494a15d29
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91309477"
 ---
 # <a name="sign-in-to-luis-portal"></a>Iniciar sessão no portal LUIS
@@ -36,7 +36,7 @@ Uma conta, que não está associada a uma subscrição do Azure, tem o ícone Az
 
 Uma conta associada a uma subscrição do Azure permite-lhe selecionar a sua subscrição e recurso para utilizar.
 
-:::image type="content" source="media/sign-in/resource-selection.png" alt-text="Imagem parcial do portal LUIS com caixas de seleção de recursos.":::
+:::image type="content" source="media/sign-in/resource-selection.png" alt-text="Imagem parcial da barra de navegação LUIS com ícone Azure.":::
 
 ## <a name="sign-in-with-account-associated-with-an-azure-subscription"></a>Inscreva-se com conta associada a uma subscrição do Azure
 
@@ -50,11 +50,11 @@ Uma conta associada a uma subscrição do Azure permite-lhe selecionar a sua sub
 
     [Saiba mais sobre as teclas de autoria e arranque.](luis-how-to-azure-subscription.md#luis-resources) Ambos os recursos dão-lhe 1 milhão de transações de autoria gratuitas e 1000 transações de ponto final de previsão gratuita.
 
-    :::image type="content" source="media/sign-in/signup-landing-page.png" alt-text="Tiro parcial no ecrã para escolher um tipo de recurso de autoria de compreensão linguística.":::
+    :::image type="content" source="media/sign-in/signup-landing-page.png" alt-text="Imagem parcial da barra de navegação LUIS com ícone Azure.":::
 
 1. Utilize um recurso de autoria existente
 
-    :::image type="content" source="media/sign-in/signup-choose-resource.png" alt-text="Escolha o recurso de autoria":::
+    :::image type="content" source="media/sign-in/signup-choose-resource.png" alt-text="Imagem parcial da barra de navegação LUIS com ícone Azure.":::
 
     Se já tem recursos de autoria LUIS na sua subscrição e associa um à sua conta LUIS durante a sing-in, escolha a opção **Utilização do Recurso de Autoria existente** e forneça as seguintes informações:
 
@@ -67,7 +67,7 @@ Uma conta associada a uma subscrição do Azure permite-lhe selecionar a sua sub
 
 1. Criar um novo recurso de autoria
 
-    :::image type="content" source="media/sign-in/signup-create-resource.png" alt-text="Criar recurso de autoria":::
+    :::image type="content" source="media/sign-in/signup-create-resource.png" alt-text="Imagem parcial da barra de navegação LUIS com ícone Azure.":::
 
     Ao **criar um novo recurso de autoria,** forneça as seguintes informações:
 
@@ -78,7 +78,7 @@ Uma conta associada a uma subscrição do Azure permite-lhe selecionar a sua sub
 
 1. Depois de escolher o seu caminho, pode demorar alguns segundos até que apareça um sinal que diga "A sua conta foi migrada com sucesso. Termine selecionando **Continue**.
 
-    :::image type="content" source="media/sign-in/signup-confirm-2.png" alt-text="Confirmar recurso de autoria":::
+    :::image type="content" source="media/sign-in/signup-confirm-2.png" alt-text="Imagem parcial da barra de navegação LUIS com ícone Azure.":::
 
     > [!Note]
     > Se tiver uma subscrição e pelo menos um recurso de autoria na região igual ao que está a inscrever-se no portal, poderá iniciar sessão automática na LUIS migrada e associada a um recurso sem a necessidade de escolher qual o caminho a seguir.
@@ -90,7 +90,7 @@ Uma conta associada a uma subscrição do Azure permite-lhe selecionar a sua sub
 
 1. Termine selecionando **Continue**. Iniciará automaticamente o sôm- se-á com uma chave de teste/arranque. Isto significa que eventualmente será obrigado a [migrar](luis-migration-authoring.md#migration-steps) a sua conta e a ligar as suas aplicações a um recurso de autoria. Para passar pelo processo de migração, terá de se inscrever para um [Azure Free Trial](https://azure.microsoft.com/free/).
 
-    :::image type="content" source="media/sign-in/signup-no-subscription.png" alt-text="Sem cenário de subscrição":::
+    :::image type="content" source="media/sign-in/signup-no-subscription.png" alt-text="Imagem parcial da barra de navegação LUIS com ícone Azure.":::
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

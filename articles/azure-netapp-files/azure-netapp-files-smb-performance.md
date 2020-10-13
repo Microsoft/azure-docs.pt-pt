@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: b-juche
 ms.openlocfilehash: 6a7bf07359344e26280021a6a55eecc5b96b7a86
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653694"
 ---
 # <a name="faqs-about-smb-performance-for-azure-netapp-files"></a>PERGUNTAS Frequentes sobre desempenho SMB para ficheiros Azure NetApp
@@ -58,7 +58,7 @@ A funcionalidade SMB Multichannel permite a um cliente SMB3 estabelecer um conju
 
 ## <a name="should-i-configure-multiple-nics-on-my-client-for-smb"></a>Devo configurar vários NICs no meu cliente para a SMB?
 
-Não. O cliente SMB corresponderá à contagem de NIC devolvida pelo servidor SMB.  Cada volume de armazenamento é acessível a partir de um ponto final de armazenamento.  Isso significa que apenas um NIC será usado para qualquer relação SMB.  
+N.º O cliente SMB corresponderá à contagem de NIC devolvida pelo servidor SMB.  Cada volume de armazenamento é acessível a partir de um ponto final de armazenamento.  Isso significa que apenas um NIC será usado para qualquer relação SMB.  
 
 Como mostra a saída `Get-SmbClientNetworkInterace` abaixo, a máquina virtual tem 2 interfaces de rede --15 e 12.  Como mostrado sob o seguinte comando `Get-SmbMultichannelConnection` , apesar de existirem dois NICS com capacidade RSS, apenas a interface 12 é utilizada em conexão com a partilha SMB; a interface 15 não está em uso.
 
