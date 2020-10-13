@@ -9,10 +9,10 @@ ms.topic: reference
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: 9b0b2b08e01c99fc918c4bc5649197c9caa4978a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75775501"
 ---
 # <a name="internet-peering---faqs"></a>Observação de internet - PERGUNTAS Frequentes
@@ -27,10 +27,10 @@ O Peering Service é um serviço que pretende fornecer conectividade IP pública
 
 A ligação de perscrute configurada utilizando o Azure PowerShell é gerida como um recurso Azure. As ligações de persiagens configuradas no passado são armazenadas no nosso sistema como um esprevamento legado que pode optar por converter para gerir como um recurso Azure.
 
-**Quando o New-AzPeeringDirectConnectionObject é chamado, quais os endereços IP que endereços IP são dados aos dispositivos Microsoft e Peer?**
+**Quando New-AzPeeringDirectConnectionObject é chamado, quais os endereços IP que endereços IP são dados aos dispositivos Microsoft e Peer?**
 
-Ao ligar para o cmdlet New-AzPeeringDirectConnectionObject, é introduzido um endereço /31 (a.b.c.d/31) ou um endereço /30 (a.b.c.d/30). O primeiro endereço IP (a.b.c.d+0) é dado ao dispositivo peer e o segundo endereço IP (a.b.c.d+1) é dado ao dispositivo Microsoft.
+Ao ligar para New-AzPeeringDirectConnectionObject cmdlet, é introduzido um endereço /31 (a.b.c.d/31) ou um endereço /30 (a.b.c.d/30). O primeiro endereço IP (a.b.c.d+0) é dado ao dispositivo peer e o segundo endereço IP (a.b.c.d+1) é dado ao dispositivo Microsoft.
 
-**O que é MaxPrefixesAdvertisedIPv4 e MaxPrefixesAdvertisedIPv6 em Cmdlet New-AzPeeringDirectConnectionObject?**
+**O que é MaxPrefixesAdvertisedIPv4 e MaxPrefixesDvertisedIPv6 em New-AzPeeringDirectConnectionObject cmdlet?**
 
 Os parâmetros MaxPrefixesAdvertisedIPv4 e MaxPrefixesAdvertisedIPv6 representam o número máximo de prefixos IPv4 e IPv6 que um peer quer que a Microsoft aceite. Estes parâmetros podem ser modificados a qualquer momento.

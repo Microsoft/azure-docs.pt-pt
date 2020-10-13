@@ -7,10 +7,10 @@ ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
 ms.openlocfilehash: ce329e7cd8db73e217162fa0bc1bb433d57e9971
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88935641"
 ---
 # <a name="custom-provider-c-restful-endpoint-reference"></a>Referência de ponto final restful do fornecedor personalizado C# RESTful

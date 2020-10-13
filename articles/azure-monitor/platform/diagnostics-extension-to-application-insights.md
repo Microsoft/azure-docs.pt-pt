@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/19/2016
 ms.openlocfilehash: 5af0eb20f9766369caa7351719b63b213c394e5d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87305810"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Enviar dados de diagnóstico de Cloud Service, Virtual Machine ou Service Fabric para Application Insights
@@ -212,7 +212,7 @@ Na configuração anterior, as seguintes linhas têm os seguintes significados:
 - **O nível de registo de um canal não pode exceder o nível de registo para o que está a ser recolhido pelos diagnósticos Azure.** Por exemplo, não é possível recolher erros de Registo de Aplicações no elemento Logs e tentar enviar registos Verbose para a pia 'Insight de aplicação'. O atributo *DesferrLogLevelFilter programado* deve sempre recolher registos iguais ou mais do que os registos que está a tentar enviar para uma pia.
 - **Não é possível enviar dados blob recolhidos pela extensão de diagnóstico da Azure para a Application Insights.** Por exemplo, qualquer coisa especificada no nó *de Diretórios.* Para crash dumps o depósito de colisão real é enviado para o armazenamento de bolhas e apenas uma notificação de que o depósito de colisão foi gerado é enviado para a Application Insights.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 * Saiba como ver as informações de [diagnóstico do Azure](../app/cloudservices.md) em Application Insights.
 * Utilize [o PowerShell](../../cloud-services/cloud-services-diagnostics-powershell.md) para ativar a extensão de diagnóstico Azure para a sua aplicação.
 * Utilize o [Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) para ativar a extensão de diagnóstico Azure para a sua aplicação

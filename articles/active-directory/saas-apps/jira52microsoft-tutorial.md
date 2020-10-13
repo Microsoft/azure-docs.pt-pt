@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/22/2019
 ms.author: jeedes
 ms.openlocfilehash: 331d9df6059c8af54857d05d2d6373e48e127eac
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91850851"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>Tutorial: Integração do Azure Ative Directory com a JIRA SAML SSO pela Microsoft (V5.2)

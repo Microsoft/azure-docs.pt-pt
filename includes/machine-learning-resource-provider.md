@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 01/09/2020
 ms.author: larryfr
 ms.openlocfilehash: 8fd774f8a3a73ceaffa7902b35e1b1dff12ef5af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75893976"
 ---
 Ao criar um espaço de trabalho Azure Machine Learning ou um recurso utilizado pelo espaço de trabalho, poderá receber um erro semelhante às seguintes mensagens:

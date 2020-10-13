@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
 ms.openlocfilehash: 93c686fb2688a7a8ae71d8156e6e5c7915d6c604
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86205769"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Atualizar e escalar uma instância de gestão da API Azure  
@@ -33,7 +33,7 @@ O preço de cada unidade e as funcionalidades disponíveis (por exemplo, implant
 
 Para seguir os passos deste artigo, deve:
 
-+ Tenha uma subscrição ativa do Azure.
++ Ter uma subscrição ativa do Azure.
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

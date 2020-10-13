@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
 ms.openlocfilehash: 819ef7e61045c0ed4205eeaf0094fec706b0b9da
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86498615"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Azure Monitor nomeação e alterações de terminologia
@@ -49,14 +49,14 @@ O Suíte de Gestão de Operações (OMS) foi uma agregação dos seguintes servi
 - Automatização do Azure
 - Azure Backup
 - Log Analytics
-- Recuperação de sites
+- Site Recovery
 
 [Foram introduzidos novos preços para estes serviços](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/), e a agregação OMS já não está disponível para novos clientes. Nenhum dos serviços que faziam parte da OMS mudou, exceto a consolidação no Azure Monitor acima descrito. 
 
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia uma [visão geral do Azure Monitor](overview.md) que descreve os seus diferentes componentes e funcionalidades.
 - Conheça a [transição do portal OMS.](./platform/oms-portal-transition.md)

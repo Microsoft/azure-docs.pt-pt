@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.openlocfilehash: 38963a8e1bfdbde50439ed871aa33e9aaa830d35
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86185658"
 ---
 # <a name="track-updated-files-with-a-watcher-task"></a>Rastreia ficheiros atualizados com uma tarefa de observador
@@ -64,7 +64,7 @@ Também pode importar este livro de bordo para a sua conta de automação a part
 Uma [variável de automatização](./shared-resources/variables.md) é usada para armazenar os sinais temporais que o livro de execução anterior lê e armazena de cada ficheiro.
 
 1. Selecione **variáveis** em **Recursos Partilhados** e clique **+ Adicione uma variável.**
-1. Introduza o relógio-NewFileTimestamp para o nome.
+1. Insira Watch-NewFileTimestamp para ver o nome.
 1. Selecione DateTime para o tipo.
 1. Clique em **Criar** para criar a variável Automação.
 

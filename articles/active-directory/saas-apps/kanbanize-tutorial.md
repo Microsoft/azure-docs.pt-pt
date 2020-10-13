@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 10/09/2019
 ms.author: jeedes
 ms.openlocfilehash: af68100d0064187931ede43916d1ab3258baea38
-ms.sourcegitcommit: efaf52fb860b744b458295a4009c017e5317be50
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91850715"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-kanbanize"></a>Tutorial: Azure Ative Directory integração única (SSO) com Kanbanize
