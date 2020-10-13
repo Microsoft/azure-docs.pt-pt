@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
 ms.openlocfilehash: ed68e02be500ebd863eb7d6d54ddffe63873fe61
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91774566"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-comeet-recruiting-software"></a>Tutorial: Integração do Azure Ative Directory com o Comeet Recruiting Software
@@ -73,7 +73,7 @@ Para um único sinal de acesso ao trabalho, é necessário estabelecer uma rela�
 Para configurar e testar o Azure AD com um único sign-on com o Comeet Recruiting Software, você precisa completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o software de recrutamento de comete single sign-on](#configure-comeet-recruiting-software-single-sign-on)** - para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure o software de recrutamento de comeet single sign-on](#configure-comeet-recruiting-software-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Comeet Recruiting Software test user](#create-comeet-recruiting-software-test-user)** - para ter uma contraparte de Britta Simon em Comeet Recruiting Software que está ligada à representação AD AD do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD um único sinal de acesso com o Comeet Recruiting Sof
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -114,7 +114,7 @@ Para configurar o Azure AD um único sinal de acesso com o Comeet Recruiting Sof
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL:  `https://app.comeet.co`
 
-5. A aplicação Comeet Recruiting Software espera as afirmações do SAML num formato específico. Configure os seguintes pedidos para este pedido. Pode gerir os valores destes atributos a partir da secção **Atributos** do Utilizador na página de integração de aplicações. Na **configuração de 'Sessão's Single's com página SAML,** clique em **Editar** o botão Editar para abrir o diálogo **de atributos do utilizador.**
+5. A aplicação Comeet Recruiting Software espera as afirmações do SAML num formato específico. Configure os seguintes pedidos para este pedido. Pode gerir os valores destes atributos a partir da secção **Atributos** do Utilizador na página de integração de aplicações. Na **configuração single Sign-On com** a página SAML, clique no botão **Editar** para abrir o diálogo **de Atributos do Utilizador.**
 
     ![Screenshot que mostra a secção "Atributos do Utilizador" com o botão "Editar" selecionado.](common/edit-attribute.png)
 
@@ -143,7 +143,7 @@ Para configurar o Azure AD um único sinal de acesso com o Comeet Recruiting Sof
 
     exemplo, Clique em **Guardar**.
 
-4. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+4. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -157,7 +157,7 @@ Para configurar o Azure AD um único sinal de acesso com o Comeet Recruiting Sof
 
     c. Logout URL
 
-### <a name="configure-comeet-recruiting-software-single-sign-on"></a>Configurar o software de recrutamento de comete único sign-on
+### <a name="configure-comeet-recruiting-software-single-sign-on"></a>Configurar software de recrutamento de comete single Sign-On
 
 Para configurar um único sign-on on **Comeet Recruiting Software,** você precisa enviar o **metdata XML da Federação** descarregado e URLs copiados apropriados do portal Azure para a equipe de suporte de [software de recrutamento comeet](https://support.comeet.co/knowledgebase/adfs-single-sign-on/). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 

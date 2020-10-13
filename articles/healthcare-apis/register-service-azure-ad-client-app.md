@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 19d6b0ebfa2570b04c3a9dda3fe69428aa0eed75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f7bf122b292ca144eac406957f19a13c7ba6662
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629328"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975829"
 ---
 # <a name="register-a-service-client-application-in-azure-active-directory"></a>Registar um pedido de cliente de serviço no Azure Ative Directory
 
@@ -73,7 +73,7 @@ O cliente de serviço precisa de um segredo (palavra-passe) para obter um token.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu a registar uma aplicação de cliente de serviço no Azure Ative Directory. Em seguida, você pode aprender sobre configurações adicionais para a AZure API para FHIR.
+Neste artigo, aprendeu a registar uma aplicação de cliente de serviço no Azure Ative Directory. Em seguida, teste o acesso ao seu servidor FHIR usando o Carteiro.
  
 >[!div class="nextstepaction"]
->[Definições adicionais](azure-api-for-fhir-additional-settings.md)
+>[Acesso Azure API para FHIR com Carteiro](access-fhir-postman-tutorial.md)

@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
 ms.openlocfilehash: c0d4c72bd60f35088773ec6dc5df80709c5ae98c
-ms.sourcegitcommit: 67e8e1caa8427c1d78f6426c70bf8339a8b4e01d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91666828"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network"></a>O que é iPv6 para Azure Virtual Network?
@@ -50,7 +50,7 @@ O IPv6 para Azure VNet inclui as seguintes capacidades:
     > As sub-redes do IPv6 devem ter exatamente /64 de tamanho.  Isto garante compatibilidade futura caso decida permitir o encaminhamento da sub-rede para uma rede no local, uma vez que alguns routers só podem aceitar rotas /64 IPv6.  
 - Proteja os seus recursos com as regras IPv6 para grupos de segurança de rede.
     - E as proteções de Negação de Serviço Distribuída (DDoS) da plataforma Azure são estendidas à IP pública virada para a Internet
-- Personalize o encaminhamento do tráfego IPv6 na sua rede virtual com rotas definidas pelo utilizador, especialmente quando alavancar os Aparelhos Virtuais da Rede para aumentar a sua aplicação.
+- Personalize o encaminhamento do tráfego IPv6 na sua rede virtual com User-Defined Rotas, especialmente quando alavancar os Aparelhos Virtuais da Rede para aumentar a sua aplicação.
 - As máquinas virtuais Linux e Windows podem utilizar o IPv6 para O Azure VNET
 - [Suporte padrão IPv6 do Balanceador de Carga público](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) para criar aplicações resilientes e escaláveis, que incluem:
     - Sonda de saúde opcional IPv6 para determinar quais as instâncias de backend pool são saúde e, assim, pode receber novos fluxos.
@@ -87,7 +87,7 @@ O atual IPv6 para a versão virtual da Azure tem as seguintes limitações:
 
 Os recursos IPv6 Azure e largura de banda são cobrados às mesmas taxas que o IPv4. Não há taxas adicionais ou diferentes para o IPv6. Pode encontrar detalhes sobre preços para [endereços IP públicos,](https://azure.microsoft.com/pricing/details/ip-addresses/) [largura de banda de rede](https://azure.microsoft.com/pricing/details/bandwidth/)ou [Balancer de Carga.](https://azure.microsoft.com/pricing/details/load-balancer/)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [implementar uma aplicação de pilha dupla IPv6 utilizando a Azure PowerShell](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md).
 - Saiba como [implementar uma aplicação de pilha dupla IPv6 utilizando o Azure CLI](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md).

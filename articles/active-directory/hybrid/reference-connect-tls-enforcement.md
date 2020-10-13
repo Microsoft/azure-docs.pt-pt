@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2c610eb8fe6caf308117fa7adfc6e2f2a35c6352
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91325900"
 ---
 # <a name="tls-12-enforcement-for-azure-ad-connect"></a>Aplicação TLS 1.2 para Azure AD Connect
@@ -34,19 +34,19 @@ Para forçar o servidor Azure AD Connect a utilizar apenas o TLS 1.2, o registo 
 
 
 ### <a name="enable-tls-12"></a>Ativar o TLS 1.2
-- [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft \\ . NETFramework\v4.0.30319]
+- \\[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft. NETFramework\v4.0.30319]
   - "SystemDefaultTlsVersions"=dword:0000001
   - "SchUseStrongCrypto"=dword:0000001
-- [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft \\ . NETFramework\v4.0.30319]
+- \\[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft. NETFramework\v4.0.30319]
   - "SystemDefaultTlsVersions"=dword:0000001
   - "SchUseStrongCrypto"=dword:0000001
-- [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server]
+- [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Servidor]
   - "Ativado"=dword:0000001
-- [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server]
+- [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Servidor]
   - "DisabledByDefault"=dword:00000000 
-- [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Cliente]
+- [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Cliente]
   - "Ativado"=dword:0000001
-- [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Cliente]
+- [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Cliente]
   - "DisabledByDefault"=dword:00000000
 
 ### <a name="powershell-script-to-enable-tls-12"></a>Script PowerShell para ativar TLS 1.2
@@ -80,19 +80,19 @@ Pode utilizar o seguinte script PowerShell para ativar o TLS 1.2 no seu servidor
 ```
 
 ### <a name="disable-tls-12"></a>Desativar TLS 1.2
-- [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft \\ . NETFramework\v4.0.30319]
+- \\[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft. NETFramework\v4.0.30319]
   - "SystemDefaultTlsVersions"=dword:0000000
   - "SchUseStrongCrypto"=dword:000000
-- [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft \\ . NETFramework\v4.0.30319]
+- \\[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft. NETFramework\v4.0.30319]
   - "SystemDefaultTlsVersions"=dword:0000000
   - "SchUseStrongCrypto"=dword:00000000
-- [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server]
+- [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Servidor]
   - "Ativado"=dword:0000000
-- [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server]
+- [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Servidor]
   - "DisabledByDefault"=dword:0000001
-- [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Cliente]
+- [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Cliente]
   - "Ativado"=dword:0000000
-- [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Cliente]
+- [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Cliente]
   - "DisabledByDefault"=dword:0000001 
 
 ### <a name="powershell-script-to-disable-tls-12"></a>Script PowerShell para desativar TLS 1.2

@@ -9,10 +9,10 @@ ms.date: 10/05/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
 ms.openlocfilehash: 66d62cde9ea17e73f561dfbce94eb3d3e7175b6d
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91827843"
 ---
 # <a name="use-spot-vms-in-azure"></a>Use VMs spot em Azure
@@ -58,7 +58,7 @@ Os VM spot podem ser implantados em qualquer região, exceto microsoft Azure Chi
 Os [seguintes tipos de oferta](https://azure.microsoft.com/support/legal/offer-details/) são atualmente suportados:
 
 -   Contrato Enterprise
--   Pay-as-you-go
+-   Pay as you go
 -   Patrocinado
 - Para Provedor de Serviços cloud (CSP), contacte o seu parceiro
 

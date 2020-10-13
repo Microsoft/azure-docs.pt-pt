@@ -6,10 +6,10 @@ services: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.openlocfilehash: 5f249a7e6e7fac13301f0d2717336651b171b422
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91776311"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Melhores práticas para segurança de clusters e upgrades no Serviço Azure Kubernetes (AKS)
@@ -30,7 +30,7 @@ Também pode utilizar [a integração dos Serviços Azure Kubernetes com][securi
 
 ## <a name="secure-access-to-the-api-server-and-cluster-nodes"></a>Acesso seguro ao servidor API e nosmes de cluster
 
-**Orientação para as melhores práticas** - Garantir o acesso ao API-Server de Kubernetes é uma das coisas mais importantes que pode fazer para proteger o seu cluster. Integre o controlo de acesso baseado em funções da Kubernetes (RBAC) com o Azure Ative Directory para controlar o acesso ao servidor API. Estes controlos permitem-lhe proteger a AKS da mesma forma que assegura o acesso às suas subscrições Azure.
+**Orientação para as melhores práticas** - Garantir o acesso aos Kubernetes API-Server é uma das coisas mais importantes que pode fazer para garantir o seu cluster. Integre o controlo de acesso baseado em funções da Kubernetes (RBAC) com o Azure Ative Directory para controlar o acesso ao servidor API. Estes controlos permitem-lhe proteger a AKS da mesma forma que assegura o acesso às suas subscrições Azure.
 
 O servidor API de Kubernetes fornece um único ponto de ligação para pedidos para executar ações dentro de um cluster. Para garantir e auditar o acesso ao servidor API, limite o acesso e forneça as permissões de acesso menos privilegiadas necessárias. Esta abordagem não é exclusiva de Kubernetes, mas é especialmente importante quando o cluster AKS é logicamente isolado para uso multi-inquilino.
 

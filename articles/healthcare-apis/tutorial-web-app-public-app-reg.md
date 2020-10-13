@@ -9,19 +9,20 @@ ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
 ms.date: 01/03/2020
-ms.openlocfilehash: 483ca63abbabaabd3b25446c9267a1b0540f60dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4f6124227f5dd5c7735d300f71d5ae7d0c06b3a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852978"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975778"
 ---
 # <a name="client-application-registration"></a>Registo de inscrição de cliente
 No tutorial anterior, implementou e montou a sua API Azure para fHIR. Agora que tem a sua AZure API para a configuração do FHIR, vamos registar uma aplicação de cliente público. Pode ler através do registo completo [de uma aplicação de cliente público](register-public-azure-ad-client-app.md) como orientar para mais detalhes ou resolução de problemas, mas nós chamamos os principais passos para este tutorial abaixo.
 
 1. Navegue para o Diretório Ativo Azure
 1. Selecione **registo de**  -->  **aplicações novo registo**
-1. Nomeie a sua aplicação e crie o URI de redirecionamento para https://www.getpostman.com/oauth2/callback
+1. Nomeie a sua candidatura e se
+1. Selecione **cliente público/nativo (mobile & desktop)** e desacione o URI de redirecionamento para https://www.getpostman.com/oauth2/callback .
 
    :::image type="content" source="media/tutorial-web-app/register-public-app.png" alt-text="Screenshot do Painel de Aplicação Registro e um nome de aplicação de exemplo e URL de redirecionamento.":::
 

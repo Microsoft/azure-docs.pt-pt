@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: jeedes
 ms.openlocfilehash: b2027cbe3fd04f500e03a2b3bdcb7463643d15a2
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91774594"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-digicert"></a>Tutorial: Integração do Diretório Ativo Azure com DigiCert
@@ -73,7 +73,7 @@ Para um único sinal de sação a funcionar, é necessário estabelecer uma rela
 Para configurar e testar o Azure AD com o DigiCert, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o Sign-On Único DigiCert](#configure-digicert-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure o Sign-On Único DigiCert](#configure-digicert-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create DigiCert test user](#create-digicert-test-user)** - para ter uma contraparte de Britta Simon em DigiCert que está ligada à representação AD AD Azure do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD single sign-on com DigiCert, execute os seguintes pas
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -103,7 +103,7 @@ Para configurar o Azure AD single sign-on com DigiCert, execute os seguintes pas
 
     Na caixa de texto **identifier,** digite um URL:  `https://www.digicert.com/sso`
 
-5. A aplicação DigiCert espera as afirmações DOL num formato específico. Configure os seguintes pedidos para este pedido. Pode gerir os valores destes atributos a partir da secção **Atributos** do Utilizador na página de integração de aplicações. Na **configuração de 'Sessão's Single's com página SAML,** clique em **Editar** o botão Editar para abrir o diálogo **de atributos do utilizador.**
+5. A aplicação DigiCert espera as afirmações DOL num formato específico. Configure os seguintes pedidos para este pedido. Pode gerir os valores destes atributos a partir da secção **Atributos** do Utilizador na página de integração de aplicações. Na **configuração single Sign-On com** a página SAML, clique no botão **Editar** para abrir o diálogo **de Atributos do Utilizador.**
 
     ![Screenshot que mostra a secção "Atributos do Utilizador" com o botão "Editar" selecionado.](common/edit-attribute.png)
 
@@ -136,7 +136,7 @@ Para configurar o Azure AD single sign-on com DigiCert, execute os seguintes pas
 
     exemplo, Clique em **Guardar**.
 
-7. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+7. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -150,7 +150,7 @@ Para configurar o Azure AD single sign-on com DigiCert, execute os seguintes pas
 
     c. Logout URL
 
-### <a name="configure-digicert-single-sign-on"></a>Configurar digiCert single sign-on
+### <a name="configure-digicert-single-sign-on"></a>Configure DigiCert Single Sign-On
 
 Para configurar um único sign-on no lado **DigiCert,** você precisa enviar o **metdata XML da Federação** descarregado e URLs copiados apropriados do portal Azure para a equipa de [suporte DigiCert](mailto:support@digicert.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 

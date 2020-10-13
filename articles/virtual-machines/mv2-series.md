@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: 5bf6a17c1a4aa1c7f212045af0d1b750ddb2a906
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4de2ec68d3cd10dfc4e95c6c2232837a7fca626
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653558"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975761"
 ---
 # <a name="mv2-series"></a>Série Mv2
 
@@ -35,7 +35,7 @@ Recurso da série Mv2 da VM Intel® Hyper-Threading Tecnologia
 | Standard_M416ms_v2<sup>1</sup> | 416 | 11400 | 8192 | 64 | 250000 / 1600 (14080) | 80000 / 2000 | 8 | 32000 |
 | Standard_M416s_v2<sup>1</sup> | 416 | 5700 | 8192 | 64 | 250000 / 1600 (14080) | 80000 / 2000 | 8 | 32000 |
 
-<sup>1</sup> Mv2 série VMs são apenas geração 2 e suportam um subconjunto de imagens suportadas pela geração 2. Veja abaixo a lista completa de imagens suportadas para a série Mv2. Se estiver a utilizar o Linux, consulte [Suporte para a geração 2 VMs em Azure](./linux/generation-2.md) para obter instruções sobre como encontrar e selecionar uma imagem. Se estiver a utilizar o Windows, consulte [o Suporte para a geração 2 VMs no Azure](./windows/generation-2.md) para obter instruções sobre como encontrar e selecionar uma imagem. 
+<sup>1</sup> Mv2 série VMs são apenas geração 2 e suportam um subconjunto de imagens suportadas pela geração 2. Veja abaixo a lista completa de imagens suportadas para a série Mv2. Se estiver a utilizar o Linux, consulte [Suporte para a geração 2 VMs em Azure](./generation-2.md) para obter instruções sobre como encontrar e selecionar uma imagem. Se estiver a utilizar o Windows, consulte [o Suporte para a geração 2 VMs no Azure](./generation-2.md) para obter instruções sobre como encontrar e selecionar uma imagem. 
 
 - Windows Server 2019 ou mais tarde
 - SUSE Linux Enterprise Server 12 SP4 e mais tarde ou SUSE Linux Enterprise Server 15 SP1 e mais tarde

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 680cd4ef4f73c63850a2137b344fd0af6b27c673
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91577463"
 ---
 # <a name="install-and-use-the-azure-iot-extension-for-the-azure-cli"></a>Instale e utilize a extensão Azure IoT para o Azure CLI
@@ -160,7 +160,7 @@ Por exemplo, tornar público o modelo com `dtmi:com:example:ClimateSensor;1` ID:
 az iot pnp model publish --dtmi "dtmi:com:example:ClimateSensor;1"
 ```
 
-Para publicar um modelo, devem ser cumpridos os seguintes requisitos:
+Para publicar um modelo, os seguintes requisitos têm de ser cumpridos:
 
 - A empresa ou inquilino da organização deve ser um Parceiro Microsoft. 
 - O utilizador ou o principal de serviço devem ser membros da função **de Editor** do repositório.

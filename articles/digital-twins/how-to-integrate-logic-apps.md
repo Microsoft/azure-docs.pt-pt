@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: baf89ec75f844ae1a1f7797d26d2fb04a0d5df34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1288f117a6b6c9fb05fd29578be35c676453177
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849848"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91975166"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integre com As Aplicações Lógicas usando um conector personalizado
 
@@ -108,7 +108,7 @@ Na página de *Conector Personalizado de Aplicações Lógicas* de Edição que 
 * **Conectores personalizados**
     - Ponto final da API: REST (padrão de licença)
     - Modo de importação: Ficheiro OpenAPI (padrão de licença)
-    - Arquivo: Este será o ficheiro Swagger personalizado que descarregou anteriormente. Hit *Import*, localizar o ficheiro na sua máquina* (Azure_Digital_Twins_Custom_Swaggers\LogicApps\preview\2020-05-31-preview\digitaltwins.jsligado*) e acertar Em *Aberto*.
+    - Arquivo: Este será o ficheiro Swagger personalizado que descarregou anteriormente. Hit *Import*, localizar o ficheiro na sua máquina *(Azure_Digital_Twins_Custom_Swaggers\LogicApps \...\digitaltwins.jsligado*), e acertar *Open*.
 * **Informação geral**
     - Ícone: Faça upload de um ícone que você gosta
     - Cor de fundo do ícone: Introduza o código hexadecimal no formato '#xxxxxx' para a sua cor.
@@ -201,7 +201,7 @@ Pode ser-lhe pedido que faça sedús com as suas credenciais Azure para se ligar
 Na nova caixa *DigitalTwinsAdd,* preencha os campos da seguinte forma:
 * _id_: Preencha o *ID Twin* do gémeo digital no seu caso que gostaria que a App Lógica atualizasse.
 * _twin_: Este campo é onde você vai entrar no corpo que o pedido de API escolhido requer. Para *o DigitalTwinsUpdate,* este corpo está na forma do código JSON Patch. Para saber mais sobre a estruturação de um JSON Patch para atualizar o seu gémeo, consulte a [Atualização de uma](how-to-manage-twin.md#update-a-digital-twin) secção digital twin de *How-to: Manage digital twins*.
-* _versão api_: Na pré-visualização pública atual, este valor é *2020-05-31-pré-visualização*
+* _versão api_: A versão API mais recente. Na pré-visualização pública atual, este valor é *2020-05-31-pré-visualização*
 
 Hit *Save* in the Logic Apps Designer.
 

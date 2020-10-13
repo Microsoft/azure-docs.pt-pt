@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/30/2020
 ms.author: allensu
 ms.openlocfilehash: 6b9f454c75a10644e86931dc86ebd9514e5431d3
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91649801"
 ---
 # <a name="outbound-connections"></a>Ligações de saída
@@ -67,7 +67,7 @@ Neste contexto, as portas efémeras utilizadas para o SNAT são chamadas portas 
 
 | Associações | Método | Protocolos IP |
 | ------------ | ------ | ------------ |
-|Nenhuma </br> Balanceador de carga básico | [SNAT](#snat) com [máscara de porto (PAT)](#pat)| TCP </br> UDP | 
+|Nenhum </br> Balanceador de carga básico | [SNAT](#snat) com [máscara de porto (PAT)](#pat)| TCP </br> UDP | 
 
 #### <a name="description"></a>Descrição
 

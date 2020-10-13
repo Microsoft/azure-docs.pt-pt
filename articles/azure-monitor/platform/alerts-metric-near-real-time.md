@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 9/30/2020
 ms.subservice: alerts
 ms.openlocfilehash: 96f0cda9bdf6a17adb4d8d50b63ef5588e52f700
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91578109"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Recursos apoiados para alertas métricos no Azure Monitor
@@ -47,7 +47,7 @@ Aqui está a lista completa de fontes métricas do monitor Azure apoiadas pelos 
 |Microsoft.ClassicStorage/storageAccounts/tableServices | Sim | Não | |
 |Microsoft.CognitiveServices/contas | Sim | Não | [Serviços Cognitivos](./metrics-supported.md#microsoftcognitiveservicesaccounts) |
 |Microsoft.Compute/virtualMachines | Sim | Sim<sup>1</sup> | [Máquinas Virtuais](./metrics-supported.md#microsoftcomputevirtualmachines) |
-|Microsoft.Compute/virtualMachineScaleSets | Sim | Não |[Conjuntos de escala de máquina virtual](./metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
+|Microsoft.Compute/virtualMachineScaleSets | Sim | Não |[Conjuntos de dimensionamento de máquinas virtuais](./metrics-supported.md#microsoftcomputevirtualmachinescalesets) |
 |Microsoft.ContainerInstance/containerGroups | Sim| Não | [Grupos de contentores](./metrics-supported.md#microsoftcontainerinstancecontainergroups) |
 |Microsoft.ContainerRegistry/registries | Não | Não | [Registos de Contentores](./metrics-supported.md#microsoftcontainerregistryregistries) |
 |Microsoft.ContainerService/managedClusters | Sim | Não | [Clusters Geridos](./metrics-supported.md#microsoftcontainerservicemanagedclusters) |
@@ -76,7 +76,7 @@ Aqui está a lista completa de fontes métricas do monitor Azure apoiadas pelos 
 |Microsoft.Kusto/Clusters | Sim |Não |[Clusters de Exploradores de Dados](./metrics-supported.md#microsoftkustoclusters)|
 |Microsoft.Logic/integrationServiceEnvironments | Sim | Não |[Ambientes de Serviço de Integração](./metrics-supported.md#microsoftlogicintegrationserviceenvironments) |
 |Microsoft.Logic/workflows | Não | Não |[Logic Apps](./metrics-supported.md#microsoftlogicworkflows) |
-|Microsoft.MachineLearningServices/workspaces | Sim | Não | [Machine Learning](./metrics-supported.md#microsoftmachinelearningservicesworkspaces) |
+|Microsoft.MachineLearningServices/workspaces | Sim | Não | [Aprendizagem automática](./metrics-supported.md#microsoftmachinelearningservicesworkspaces) |
 |Microsoft.Maps/contas | Sim | Não | [Contas de Mapas](./metrics-supported.md#microsoftmapsaccounts) |
 |Microsoft.Media/mediaservices | Não | Não | [Serviços de Multimédia](./metrics-supported.md#microsoftmediamediaservices) |
 |Microsoft.Media/mediaservices/streamingEndpoints | Sim | Não | [Pontos finais de streaming de serviços de mídia](./metrics-supported.md#microsoftmediamediaservicesstreamingendpoints) |
@@ -102,7 +102,7 @@ Aqui está a lista completa de fontes métricas do monitor Azure apoiadas pelos 
 |Microsoft.Sql/managedInstances | Não | Sim | [Instâncias Geridas SQL](./metrics-supported.md#microsoftsqlmanagedinstances) |
 |Microsoft.Sql/servidores/bases de dados | Não | Sim | [Bases de Dados SQL](./metrics-supported.md#microsoftsqlserversdatabases) |
 |Microsoft.Sql/servidores/elásticos | Não | Sim | [Piscinas Elásticas SQL](./metrics-supported.md#microsoftsqlserverselasticpools) |
-|Microsoft.Storage/storageAcontas |Sim | Não | [Contas de Armazenamento](./metrics-supported.md#microsoftstoragestorageaccounts)|
+|Microsoft.Storage/storageAcontas |Sim | Não | [Contas de armazenamento](./metrics-supported.md#microsoftstoragestorageaccounts)|
 |Microsoft.Storage/storageAcontas/serviços | Sim| Não | [Serviços Blob](./metrics-supported.md#microsoftstoragestorageaccountsblobservices), [Serviços de Arquivo,](./metrics-supported.md#microsoftstoragestorageaccountsfileservices) [Serviços de Fila](./metrics-supported.md#microsoftstoragestorageaccountsqueueservices) e [Serviços de Mesa](./metrics-supported.md#microsoftstoragestorageaccountstableservices)|
 |Microsoft.StorageCache/caches | Sim | Não | |
 |Microsoft.StorageSync/storageSyncServices | Sim | Não | [Serviços de Sincronização de Armazenamento](./metrics-supported.md#microsoftstoragesyncstoragesyncservices) |

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 3977aee84b1281e7918987c63185069892b5909e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 163a0c9a7e728ee9cd08c4a154ea499c059cf2f6
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554282"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91944470"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>Tutorial: Integração do Azure Ative Directory com LIGAção SAML de Ambiente Virtual ON24
 
@@ -147,7 +147,7 @@ Para configurar o Azure AD com ligação SAML de ambiente virtual ON24, execute 
 
 5.  Se desejar configurar a aplicação no modo iniciado pela **SP,** execute o seguinte passo:
 
-    ![ON24 Ambiente Virtual SAML Connection Domain e URLs informações únicas de acesso](common/both-signonurl.png)
+    ![Screenshot que mostra a secção "Definir U R Ls adicionais" com a caixa de texto "Sign on U R L" realçada.](common/both-signonurl.png)
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão: `https://vshow.on24.com/vshow/<INSTANCENAME>`
 
