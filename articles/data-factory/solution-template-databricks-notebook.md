@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/27/2020
 ms.openlocfilehash: f9dc11bd046bdc3a8913b4b05f1b68b84c9736c4
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89438454"
 ---
 # <a name="transformation-with-azure-databricks"></a>Transformação com o Azure Databricks
@@ -183,6 +183,6 @@ No novo oleoduto, a maioria das definições são configuradas automaticamente c
     > Para se correlacionar com o gasoduto Data Factory, este exemplo anexa o ID de funcionação do gasoduto da fábrica de dados para a pasta de saída. Isto ajuda a acompanhar os ficheiros gerados por cada execução.
     > ![ID de execução de gasoduto anexado](media/solution-template-Databricks-notebook/verify-data-files.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Introdução ao Azure Data Factory](introduction.md)

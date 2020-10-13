@@ -4,10 +4,10 @@ description: Documentação relacionada com a preparação do ambiente e a cria�
 ms.topic: conceptual
 ms.date: 9/11/2018
 ms.openlocfilehash: 9e5ad37d803b2042fd57b0a325570e69d7b73038
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91842959"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Planeie e prepare a sua implantação de cluster autónomo de tecido de serviço

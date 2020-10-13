@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: 804f26f27e9f2807b796daa03b045ab1b5948815
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89421939"
 ---
 # <a name="use-the-azure-powershell-module-to-enable-end-to-end-encryption-using-encryption-at-host"></a>Utilize o módulo Azure PowerShell para ativar a encriptação de ponta a ponta utilizando encriptação no anfitrião
@@ -312,7 +312,7 @@ foreach($vmSize in $vmSizes)
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que criou e configura estes recursos, pode usá-los para proteger os seus discos geridos. O link que se segue contém scripts de exemplo, cada um com um cenário respetivo, que pode utilizar para proteger os seus discos geridos.
 

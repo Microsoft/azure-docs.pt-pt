@@ -8,10 +8,10 @@ ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 515cfd5267917f88131571adcb1bea0db274157c
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89437943"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Linha de segurança Azure para Azure Data Factory
@@ -30,7 +30,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 **Orientação**: Ao criar um Tempo de Execução de Integração Azure-SSIS (IR), tem a opção de se juntar a ele com uma rede virtual. Isto permitirá à Azure Data Factory criar certos recursos de rede, como um grupo de segurança de rede (NSG) e um equilibrador de carga. Também tem a capacidade de fornecer o seu próprio endereço IP público estático ou ter a Azure Data Factory a criar um para si. No NSG que é automaticamente criado pela Azure Data Factory, a porta 3389 está aberta a todo o tráfego por padrão. Bloqueie isto para garantir que apenas os seus administradores tenham acesso.
 
-Os IRs auto-hospedados podem ser implantados numa máquina no local ou numa máquina virtual Azure dentro de uma rede virtual. Certifique-se de que a sua sub-rede de rede virtual tem um NSG configurado para permitir apenas o acesso administrativo. O Azure-SSIS IR não permitiu a saída da porta 3389 por defeito na regra de firewall do Windows em cada nó DE IR para proteção. Pode proteger os seus recursos configurados em rede virtuais associando um NSG à sub-rede e estabelecendo regras rígidas.
+Self-Hosted IRs podem ser implantados numa máquina virtual no local ou numa máquina virtual Azure dentro de uma rede virtual. Certifique-se de que a sua sub-rede de rede virtual tem um NSG configurado para permitir apenas o acesso administrativo. O Azure-SSIS IR não permitiu a saída da porta 3389 por defeito na regra de firewall do Windows em cada nó DE IR para proteção. Pode proteger os seus recursos configurados em rede virtuais associando um NSG à sub-rede e estabelecendo regras rígidas.
 
 Quando o Private Link estiver disponível, utilize pontos finais privados para garantir que quaisquer recursos estão ligados ao seu oleoduto Azure Data Factory, como o Azure SQL Server. Com o Private Link, o tráfego entre a sua rede virtual e o serviço atravessa a rede de espinha dorsal da Microsoft, eliminando a exposição da Internet pública.
 
@@ -1172,7 +1172,7 @@ Para qualquer uma das suas lojas de dados, consulte a linha de segurança desse 
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Garantir a proteção das cópias de segurança e das chaves geridas pelo cliente
 
-**Orientação**: Se estiver a executar o seu Tempo de Execução de Integração numa Máquina Virtual Azure (VM) e tiver apoiado esse VM com Azure Backup, o seu VM está encriptado em repouso com encriptação do serviço de armazenamento (SSE). O Azure Backup também pode fazer backup de VMs Azure que são encriptados usando Azure Disk Encryption. A encriptação do disco Azure integra-se com chaves de encriptação BitLocker (BEKs), que são salvaguardadas num cofre-chave como segredos. A encriptação do disco Azure também se integra com chaves de encriptação chave Azure Key Vault (KEKs). Ativar a eliminação suave no cofre de chaves para proteger as chaves contra a eliminação acidental ou maliciosa.
+**Orientação**: Se estiver a executar o seu Tempo de Execução de Integração numa Máquina Virtual Azure (VM) e tiver apoiado esse VM com Azure Backup, o seu VM está encriptado em repouso com encriptação do serviço de armazenamento (SSE). O Azure Backup também pode fazer backup de VMs Azure que são encriptados usando Azure Disk Encryption. A encriptação do disco Azure integra-se com chaves de encriptação BitLocker (BEKs), que são salvaguardadas num cofre-chave como segredos. A encriptação do disco Azure também se integra com chaves de encriptação chave Azure Key Vault (KEKs). Ativar Soft-Delete no Cofre de Chaves para proteger as chaves contra a eliminação acidental ou maliciosa.
 
 * [Excluir suave para VMs](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#soft-delete)
 
@@ -1270,7 +1270,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](https://docs.microsoft.com/azure/security/benchmarks/overview)
 - Saiba mais sobre [as linhas de base de segurança da Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

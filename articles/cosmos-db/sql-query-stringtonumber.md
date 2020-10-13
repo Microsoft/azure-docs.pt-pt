@@ -8,10 +8,10 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: 5ca8d0c4a6d244823dda6f0f79a3cf5c743a12a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "78296427"
 ---
 # <a name="stringtonumber-azure-cosmos-db"></a>StringToNumber (Azure Cosmos DB)
@@ -87,7 +87,7 @@ SELECT
 
 Esta função do sistema não utilizará o índice.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Funções de corda Azure Cosmos DB](sql-query-string-functions.md)
 - [Funciona O sistema Azure Cosmos DB](sql-query-system-functions.md)

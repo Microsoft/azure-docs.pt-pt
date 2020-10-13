@@ -15,10 +15,10 @@ ms.topic: troubleshooting
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: f49af1488a0c044639a72fc2ea52ba0a47727a24
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89433675"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Resolver problemas de compressão de ficheiros CDN

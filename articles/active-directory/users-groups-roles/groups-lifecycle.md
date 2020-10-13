@@ -16,10 +16,10 @@ ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: eb51f402cd7032358e6a9d2f9fad9aa64316b809
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90054556"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Configure a política de expiração para os grupos Microsoft 365
@@ -134,7 +134,7 @@ Aqui estão exemplos de como pode utilizar cmdlets PowerShell para configurar as
    Connect-AzureAD
    ```
 
-1. Configure as definições de expiração Utilize o cmdlet New-AzureADMSGroupLifecyclePolicy para definir a vida útil de todos os grupos Microsoft 365 na organização AD Azure para 365 dias. As notificações de renovação para os grupos Microsoft 365 sem proprietários serão enviadas para emailaddress@contoso.com '
+1. Configure as definições de expiração Utilize o New-AzureADMSGroupLifecyclePolicy cmdlet para definir a vida útil de todos os grupos Microsoft 365 na organização AD Azure para 365 dias. As notificações de renovação para os grupos Microsoft 365 sem proprietários serão enviadas para emailaddress@contoso.com '
   
    ``` PowerShell
    New-AzureADMSGroupLifecyclePolicy -GroupLifetimeInDays 365 -ManagedGroupTypes All -AlternateNotificationEmails emailaddress@contoso.com
@@ -183,7 +183,7 @@ Os cmdlets seguintes podem ser usados para configurar a política com mais detal
 - Reset-AzureADMSLifeCycleGroup
 - Get-AzureADMSLifecyclePolicyGroup
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Estes artigos fornecem informações adicionais sobre os grupos AZURE AD.
 

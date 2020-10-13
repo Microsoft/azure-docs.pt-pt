@@ -15,10 +15,10 @@ ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7fe5072042553d676c798a32e0ca6fc28e92332d
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90054471"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Impor uma política de nomeação em grupos Microsoft 365 no Azure Ative Directory
@@ -259,7 +259,7 @@ Cmdlets powershell do diretório ativo Azure | Os cmdlets powershell do Diretór
 Centro de Administração de Intercâmbio | O centro de administração de intercâmbio está em conformidade com a política de nomeação. Os utilizadores recebem mensagens de erro apropriadas com prefixos e sufixos sugeridos e para palavras bloqueadas personalizadas se não seguirem a convenção de nomeação no nome de grupo e pseudónimos de grupo.
 Microsoft 365 admin center (Centro de administração do Microsoft 365) | O Centro de Administração Microsoft 365 está em conformidade com a política de nomeação. Quando um utilizador cria ou edita nomes de grupo, a política de nomeação é aplicada automaticamente e os utilizadores recebem erros adequados quando introduzem palavras bloqueadas personalizadas. O centro de administração microsoft 365 ainda não mostra uma pré-visualização da política de nomeação e não devolve erros de palavras bloqueados personalizados quando o utilizador introduz o nome de grupo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Estes artigos fornecem informações adicionais sobre os grupos AZURE AD.
 

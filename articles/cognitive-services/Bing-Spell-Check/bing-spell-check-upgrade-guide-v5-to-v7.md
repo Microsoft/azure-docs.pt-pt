@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
 ms.openlocfilehash: 642aa23bc74f1f3f44deb6e489e6f7aafe7ff237
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91254130"
 ---
 # <a name="spell-check-api-upgrade-guide"></a>Guia de atualização de API spell Check
@@ -38,7 +38,7 @@ Este guia de atualização identifica as alterações entre a versão 5 e a vers
 
 - Substituiu os códigos de erro v5 pelos seguintes `code` valores e `subCode` valores possíveis.  
   
-|Código|SubCódes|Description
+|Código|SubCódes|Descrição
 |-|-|-
 |ServerError|InesperadoError<br/>Recurso<br/>Não ÉDopliizado|Bing devolve ServerError sempre que ocorrer qualquer uma das condições de subcodições. A resposta inclui estes erros se o código de estado HTTP for 500.
 |InáduloRequest|ParâmetroSMissing<br/>ParâmetroInvalvalue<br/>HttpNotAllowed<br/>Bloqueado|Bing devolve InvalidRequest sempre que qualquer parte do pedido não seja válida. Por exemplo, falta um parâmetro necessário ou um valor de parâmetro não é válido.<br/><br/>Se o erro for ParameterMissing ou ParameterInvalidValue, o código de estado HTTP é 400.<br/><br/>Se o erro for httpNotAllowed, o código de estado HTTP 410.

@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 720288aff462b0590bb9da509096a9305b9b6cc7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "67184294"
 ---
 #### <a name="to-install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>Para instalar atualizações do modo manutenção via Windows PowerShell para StorSimple
@@ -18,7 +18,7 @@ ms.locfileid: "67184294"
    
      `Get-HcsUpdateAvailability` 
 4. Será notificado se as atualizações estiverem disponíveis e se as atualizações forem disruptivas ou não disruptivas. Para aplicar atualizações disruptivas, é necessário colocar o dispositivo no modo manutenção. Ver [Passo 2: Introduza o modo manutenção](../articles/storsimple/storsimple-update-device.md#step2) para obter instruções.
-5. Quando o seu dispositivo estiver em modo manutenção, na indicação de comando, escreva:`Start-HcsUpdate`
+5. Quando o seu dispositivo estiver em modo manutenção, na indicação de comando, escreva: `Start-HcsUpdate`
 6. Ser-lhe-á pedido que confirme. Depois de confirmar as atualizações, estas serão instaladas no controlador a que está atualmente a aceder. Após a instalação das atualizações, o controlador reiniciará. 
 7. Monitorize o estado das atualizações. Escreva:
    

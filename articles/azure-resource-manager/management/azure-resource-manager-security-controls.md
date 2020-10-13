@@ -4,10 +4,10 @@ description: Uma lista de controlos de segurança incorporados para avaliar o se
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.openlocfilehash: bb8742c38fae88dc1fd1fd1ec175b248f30df3a0
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86054462"
 ---
 # <a name="security-controls-for-azure-resource-manager"></a>Controlos de segurança para o Gestor de Recursos Azure

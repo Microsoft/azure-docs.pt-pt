@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: yushwang
 ms.openlocfilehash: a69ce0592b79be0868dd7c15ac054910eee75fc7
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89393603"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>Como configurar o BGP num gateway Azure VPN utilizando o CLI
@@ -45,7 +45,7 @@ Esta secção é necessária antes de efetuar qualquer um dos passos nas outras 
 
 ![Porta de entrada BGP](./media/vpn-gateway-bgp-resource-manager-ps/bgp-gateway.png)
 
-### <a name="before-you-begin"></a>Before you begin
+### <a name="before-you-begin"></a>Antes de começar
 
 Instale a versão mais recente dos comandos CLI (2.0 ou mais tarde). Para obter informações sobre como instalar os comandos da CLI, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli) e [Introdução à CLI do Azure](/cli/azure/get-started-with-azure-cli).
 
@@ -91,7 +91,7 @@ az network public-ip create -n GWPubIP -g TestBGPRG1 --allocation-method Dynamic
 
 #### <a name="2-create-the-vpn-gateway-with-the-as-number"></a>2. Criar o portal VPN com o número AS
 
-Crie o gateway de rede virtual para TestVNet1. A BGP requer uma porta VPN baseada na rota. Também precisa do parâmetro adicional `-Asn` para definir o número do sistema autónomo (ASN) para o TestVNet1. A criação de um portal pode demorar um pouco (45 minutos ou mais) a ser concluída. 
+Crie o gateway de rede virtual para TestVNet1. BGP requer uma Route-Based gateway VPN. Também precisa do parâmetro adicional `-Asn` para definir o número do sistema autónomo (ASN) para o TestVNet1. A criação de um portal pode demorar um pouco (45 minutos ou mais) a ser concluída. 
 
 Se executar este comando utilizando o `--no-wait` parâmetro, não vê qualquer feedback ou saída. O `--no-wait` parâmetro permite que o portal seja criado em segundo plano. Não significa que o portal VPN seja criado imediatamente.
 
@@ -301,6 +301,6 @@ az network vpn-connection create -n VNet2ToVNet1 -g TestBGPRG2 --vnet-gateway1 /
 
 Depois de completar estes passos, a ligação será estabelecida em poucos minutos. A sessão de observação BGP terminará após a conclusão da ligação VNet-vNet.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de concluída a sua ligação, pode adicionar máquinas virtuais às suas redes virtuais. Para passos, consulte [Criar uma máquina virtual.](../virtual-machines/windows/quick-create-portal.md)

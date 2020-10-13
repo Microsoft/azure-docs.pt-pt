@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.openlocfilehash: 88255e60593403951db5b984bb9c69b1060a93c2
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91540579"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Use Insights de Séries temporais para visualizar a telemetria enviada do acelerador de solução de simulação do dispositivo
@@ -77,7 +77,7 @@ Os seguintes passos utilizam o Azure CLI na Azure Cloud Shell para criar o grupo
     > [!NOTE]
     > Adicionar o ambiente Time Series Insights ao mesmo grupo de recursos que o acelerador de solução significa que é eliminado quando elimina o acelerador de solução.
 
-1. Clique em **Create** (Criar). Pode levar alguns minutos para que o ambiente seja criado.
+1. Clique em **Criar**. Pode levar alguns minutos para que o ambiente seja criado.
 
 ## <a name="create-event-source"></a>Crie a origem de eventos
 
@@ -110,7 +110,7 @@ Crie uma nova fonte de eventos para ligar ao seu hub IoT. Utilize o grupo de con
 
     ![Criar Fonte de Eventos](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-event-source-create.png)
 
-1. Clique em **Create** (Criar).
+1. Clique em **Criar**.
 
 > [!NOTE]
 > Pode [conceder aos utilizadores acesso adicional](../../articles/time-series-insights/time-series-insights-data-access.md#grant-data-access) ao explorador time series Insights.

@@ -10,10 +10,10 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 4ab613c251bc43a025e0381046805ec998a04227
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "77019558"
 ---
 # <a name="quickstart---consume-vmware-vms-on-azure"></a>Quickstart - Consumir VMware VMs em Azure
@@ -42,7 +42,7 @@ Crie uma máquina virtual na sua Nuvem Privada a partir do uI do vCenter. Para c
     | ------------ | ------------- |
     | Subscrição | Subscrição Azure associada à sua Nuvem Privada.  |
     | Grupo de Recursos | Grupo de recursos ao qual o VM será atribuído. Pode selecionar um grupo existente ou criar um novo. |
-    | Name | Nome para identificar o VM.  |
+    | Nome | Nome para identificar o VM.  |
     | Localização | Região de Azure em que este VM está hospedado.  |
     | Cloud Privada | CloudSimple Private Cloud onde pretende criar a máquina virtual. |
     | Piscina de Recursos | Conjunto de recursos mapeado para o VM. Selecione entre os pools de recursos disponíveis. |
@@ -63,7 +63,7 @@ Crie uma máquina virtual na sua Nuvem Privada a partir do uI do vCenter. Para c
 
     | Controlo | Descrição |
     | ------------ | ------------- |
-    | Name | Insira um nome para identificar a interface.  |
+    | Nome | Insira um nome para identificar a interface.  |
     | Rede | Selecione a partir da lista de grupos de portas distribuídos configurados na sua Nuvem Privada vSphere.  |
     | Adaptador | Selecione um adaptador vSphere da lista de tipos disponíveis configurados para o VM. Para obter mais informações, consulte o artigo base de conhecimento VMware <a href="https://kb.vmware.com/s/article/1001805" target="_blank">Escolher um adaptador de rede para a sua máquina virtual.</a> |
     | Energia ligado no Boot | Escolha se ativa o hardware NIC quando o VM for iniciado. O padrão é **Ativar**. |
@@ -72,7 +72,7 @@ Crie uma máquina virtual na sua Nuvem Privada a partir do uI do vCenter. Para c
 
     | Item | Descrição |
     | ------------ | ------------- |
-    | Name | Insira um nome para identificar o disco.  |
+    | Nome | Insira um nome para identificar o disco.  |
     | Tamanho | Selecione um dos tamanhos disponíveis.  |
     | Controlador SCSI | Selecione um controlador SCSI para o disco.  |
     | Modo | Determina como o disco participa em instantâneos. Escolha uma destas opções: <br> - Persistente independente: Todos os dados escritos no disco são escritos permanentemente.<br> - Independente não persistente: As alterações escritas no disco são descartadas quando desliga ou repõe a máquina virtual.  O modo independente não persistente permite-lhe reiniciar sempre o VM no mesmo estado. Para mais informações, consulte a <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html" target="_blank">documentação VMware</a>.
@@ -81,7 +81,7 @@ Crie uma máquina virtual na sua Nuvem Privada a partir do uI do vCenter. Para c
 
     ![Create CloudSimple virtual machine - revisão](media/create-cloudsimple-virtual-machine-review.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Ver lista de máquinas virtuais CloudSimple](azure-create-vm.md#view-list-of-cloudsimple-virtual-machines)
 * [Gerir a máquina virtual CloudSimple a partir de Azure](azure-manage-vm.md)

@@ -7,15 +7,15 @@ ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
 ms.openlocfilehash: ebadaf51a7dfbb286dac0bbdb0c3c8437ae2356f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89022229"
 ---
 # <a name="tutorial-interfaces-and-custom-models"></a>Tutorial: Interfaces e modelos personalizados
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >

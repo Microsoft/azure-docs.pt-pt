@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
 ms.openlocfilehash: 88ca997e2d22283babf582b10d9b0eeb7de122c0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90905186"
 ---
 # <a name="score-image-model"></a>Classificar o Modelo de Imagem
@@ -32,7 +32,7 @@ Utilize este módulo para gerar previsões utilizando um modelo de imagem treina
 
 3. Envie o oleoduto.
 
-## <a name="results"></a>Resultados
+## <a name="results"></a>Results
 
 Depois de ter gerado um conjunto de pontuações utilizando [o Score Image Model,](score-image-model.md)para gerar um conjunto de métricas utilizadas para avaliar a precisão (desempenho) do modelo, pode ligar este módulo e o conjunto de dados pontuado ao [Modelo de Avaliação,](evaluate-model.md) 
 

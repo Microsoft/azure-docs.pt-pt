@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/12/2020
 ms.author: aahi
 ms.openlocfilehash: 185a6a26350f7803d109e26d8985510380b8cc16
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90056596"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Suporte linguístico API v3 de API de análise de texto 
@@ -25,10 +25,10 @@ ms.locfileid: "90056596"
 
 #### <a name="sentiment-analysis"></a>[Análise de Sentimentos](#tab/sentiment-analysis)
 
-| Linguagem              | Código do idioma | v2 apoio | v3 suporte | Versão do modelo V3 inicial: |              Notas |
+| Idioma              | Código do idioma | v2 apoio | v3 suporte | Versão do modelo V3 inicial: |              Notas |
 |:----------------------|:-------------:|:----------:|:----------:|:--------------------------:|-------------------:|
-| Chinês-Simplificado    |   `zh-hans`   |     ✓      |     ✓      |         2019-10-01         | `zh` também aceitou |
-| Chinês-Tradicional   |   `zh-hant`   |            |     ✓      |         2019-10-01         |                    |
+| Chinese-Simplified    |   `zh-hans`   |     ✓      |     ✓      |         2019-10-01         | `zh` também aceitou |
+| Chinese-Traditional   |   `zh-hant`   |            |     ✓      |         2019-10-01         |                    |
 | Dinamarquês               |     `da`      |     ✓      |            |                            |                    |
 | Neerlandês                 |     `nl`      |     ✓      |            |                            |                    |
 | Inglês               |     `en`      |     ✓      |     ✓      |         2019-10-01         |                    |
@@ -49,7 +49,7 @@ ms.locfileid: "90056596"
 
 ### <a name="opinion-mining-v31-preview-only"></a>Mineração de opinião (apenas v3.1-pré-visualização)
 
-| Linguagem              | Código do idioma | Começando com a versão do modelo V3: |              Notas |
+| Idioma              | Código do idioma | Começando com a versão do modelo V3: |              Notas |
 |:----------------------|:-------------:|:------------------------------------:|-------------------:|
 | Inglês               |     `en`      |              2020-04-01              |                    |
 
@@ -60,12 +60,12 @@ ms.locfileid: "90056596"
 > * O NER v3 suporta atualmente apenas línguas inglesa e espanhola. Se ligar para o NER v3 com um idioma diferente, a API devolverá os resultados v2.1, desde que o idioma seja suportado na versão 2.1.
 > * v2.1 apenas devolve o conjunto completo de entidades disponíveis para as línguas inglesa, chinesa-simplificada, francesa, alemã e espanhola.  As entidades "Pessoa", "Localização" e "Organização" são devolvidas para as outras línguas apoiadas.
 
-| Linguagem               | Código do idioma | v2.1 apoio | v3 suporte | Começando com a versão do modelo V3: |       Notas        |
+| Idioma               | Código do idioma | v2.1 apoio | v3 suporte | Começando com a versão do modelo V3: |       Notas        |
 |:-----------------------|:-------------:|:----------:|:----------:|:-------------------------------:|:------------------:|
 | Árabe                |     `ar`      |     ✓      |            |                                 |                    |
 | Checo                 |     `cs`      |     ✓      |            |                                 |                    |
-| Chinês-Simplificado     |   `zh-hans`   |     ✓      |            |                                 | `zh` também aceitou |
-| Chinês-Tradicional   |   `zh-hant`   |     ✓      |            |                                 |                    |
+| Chinese-Simplified     |   `zh-hans`   |     ✓      |            |                                 | `zh` também aceitou |
+| Chinese-Traditional   |   `zh-hant`   |     ✓      |            |                                 |                    |
 | Dinamarquês                |     `da`      |     ✓      |            |                                 |                    |
 | Neerlandês                 |     `nl`      |     ✓      |            |                                 |                    |
 | Inglês                |     `en`      |     ✓      |     ✓      |           2019-10-01            |                    |
@@ -86,12 +86,12 @@ ms.locfileid: "90056596"
 | Sueco               |     `sv`      |     ✓      |            |                                 |                    |
 | Turco               |     `tr`      |     ✓      |            |                                 |                    |
 
-#### <a name="key-phrase-extraction"></a>[Extração de expressões-chave](#tab/key-phrase-extraction)
+#### <a name="key-phrase-extraction"></a>[Extração de frase-chave](#tab/key-phrase-extraction)
 
 > [!NOTE]
 > As versões de modelo de Extração de Frase-Chave antes de 2020-07-01 têm um limite de caracteres de 64. Este limite não está presente nas versões posteriores do modelo.
 
-| Linguagem              | Código do idioma | v2 apoio | v3 suporte | Disponível a partir da versão do modelo V3: |       Notas        |
+| Idioma              | Código do idioma | v2 apoio | v3 suporte | Disponível a partir da versão do modelo V3: |       Notas        |
 |:----------------------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:------------------:|
 | Neerlandês                 |     `nl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
 | Inglês               |     `en`      |     ✓      |     ✓      |                2019-10-01                 |                    |
@@ -111,7 +111,7 @@ ms.locfileid: "90056596"
 
 #### <a name="entity-linking"></a>[Ligação de entidades](#tab/entity-linking)
 
-| Linguagem | Código do idioma | v2 apoio | v3 suporte | Disponível a partir da versão do modelo V3: | Notas |
+| Idioma | Código do idioma | v2 apoio | v3 suporte | Disponível a partir da versão do modelo V3: | Notas |
 |:---------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:-----:|
 | Inglês  |     `en`      |     ✓      |     ✓      |                2019-10-01                 |       |
 | Espanhol  |     `es`      |     ✓      |     ✓      |                2019-10-01                 |       |
@@ -126,6 +126,6 @@ Se tiver conteúdo expresso num idioma menos utilizado, pode tentar a Deteção 
 
 ---
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 * [O que é a API de Análise de Texto?](overview.md)   

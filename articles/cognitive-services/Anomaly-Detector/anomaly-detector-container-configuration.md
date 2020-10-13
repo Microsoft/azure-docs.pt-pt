@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: aahi
 ms.openlocfilehash: c0bf08ae0b2d26b2f4992181d2e300e9dbeed818
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90903540"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Configurar contentores do Detetor de Anomalias
@@ -27,14 +27,14 @@ Este recipiente tem as seguintes definições de configuração:
 
 |Necessário|Definição|Objetivo|
 |--|--|--|
-|Yes|[ApiKey](#apikey-configuration-setting)|Usado para rastrear informação de faturação.|
-|No|[ApplicationInsights](#applicationinsights-setting)|Permite-lhe adicionar suporte de telemetria [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) ao seu recipiente.|
-|Yes|[Faturação](#billing-configuration-setting)|Especifica o ponto final URI do recurso de serviço no Azure.|
-|Yes|[Eula](#eula-setting)| Indica que aceitou a licença para o contentor.|
-|No|[Fluente](#fluentd-settings)|Escreva log e, opcionalmente, dados métricos para um servidor Fluentd.|
-|No|[Http Proxy](#http-proxy-credentials-settings)|Configure um representante HTTP para fazer pedidos de saída.|
-|No|[Registo](#logging-settings)|Fornece ASP.NET suporte de registo de registo do núcleo para o seu recipiente. |
-|No|[Montes](#mount-settings)|Leia e escreva dados do computador anfitrião para o recipiente e do recipiente de volta ao computador anfitrião.|
+|Sim|[ApiKey](#apikey-configuration-setting)|Usado para rastrear informação de faturação.|
+|Não|[ApplicationInsights](#applicationinsights-setting)|Permite-lhe adicionar suporte de telemetria [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) ao seu recipiente.|
+|Sim|[Faturação](#billing-configuration-setting)|Especifica o ponto final URI do recurso de serviço no Azure.|
+|Sim|[Eula](#eula-setting)| Indica que aceitou a licença para o contentor.|
+|Não|[Fluente](#fluentd-settings)|Escreva log e, opcionalmente, dados métricos para um servidor Fluentd.|
+|Não|[Http Proxy](#http-proxy-credentials-settings)|Configure um representante HTTP para fazer pedidos de saída.|
+|Não|[Registo](#logging-settings)|Fornece ASP.NET suporte de registo de registo do núcleo para o seu recipiente. |
+|Não|[Montes](#mount-settings)|Leia e escreva dados do computador anfitrião para o recipiente e do recipiente de volta ao computador anfitrião.|
 
 > [!IMPORTANT]
 > As [`ApiKey`](#apikey-configuration-setting) [`Billing`](#billing-configuration-setting) definições , e [`Eula`](#eula-setting) configurações são utilizadas em conjunto, e deve fornecer valores válidos para os três; caso contrário, o seu recipiente não arranca. Para obter mais informações sobre a utilização destas configurações para instantaneaizar um recipiente, consulte [Billing](anomaly-detector-container-howto.md#billing).
@@ -59,7 +59,7 @@ Esta definição pode ser encontrada no seguinte local:
 
 * Portal Azure: **Visão** geral do Detetor de Anomalias, etiquetada `Endpoint`
 
-|Necessário| Name | Tipo de dados | Descrição |
+|Necessário| Nome | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
 |Sim| `Billing` | String | URI de faturação. Para obter mais informações sobre a obtenção do URI de faturação, consulte [a recolha dos parâmetros necessários](anomaly-detector-container-howto.md#gathering-required-parameters). Para obter mais informações e uma lista completa de pontos finais regionais, consulte [os nomes de subdomínio personalizados para serviços cognitivos.](../cognitive-services-custom-subdomains.md) |
 
@@ -88,7 +88,7 @@ Os recipientes do Detetor de Anomalias não utilizam suportes de entrada ou saí
 
 A sintaxe exata da localização do suporte do hospedeiro varia consoante o sistema operativo do hospedeiro. Além disso, a localização do suporte do [computador anfitrião](anomaly-detector-container-howto.md#the-host-computer)pode não estar acessível devido a um conflito entre permissões utilizadas pela conta de serviço Docker e as permissões de localização do anfitrião. 
 
-|Opcional| Name | Tipo de dados | Descrição |
+|Opcional| Nome | Tipo de dados | Descrição |
 |-------|------|-----------|-------------|
 |Não permitido| `Input` | Cadeia | Os recipientes do Detetor de Anomalias não usam isto.|
 |Opcional| `Output` | Cadeia | O alvo do suporte de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isto inclui registos de contentores. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|

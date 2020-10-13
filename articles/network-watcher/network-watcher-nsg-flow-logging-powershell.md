@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 40f970478b0dd12f6e53c632713051496d412338
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84736752"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>Configurar registos de fluxo do grupo de segurança da rede com powerShell
@@ -81,7 +81,7 @@ Set-AzNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id 
 
 ## <a name="download-a-flow-log"></a>Faça o download de um registo flow
 
-A localização de armazenamento de um registo de fluxo é definida na criação. Uma ferramenta conveniente para aceder a estes registos de fluxo guardados numa conta de armazenamento é o Microsoft Azure Storage Explorer, que pode ser descarregado aqui:https://storageexplorer.com/
+A localização de armazenamento de um registo de fluxo é definida na criação. Uma ferramenta conveniente para aceder a estes registos de fluxo guardados numa conta de armazenamento é o Microsoft Azure Storage Explorer, que pode ser descarregado aqui:  https://storageexplorer.com/
 
 Se uma conta de armazenamento for especificada, os ficheiros de registo de fluxo são guardados numa conta de armazenamento no seguinte local:
 

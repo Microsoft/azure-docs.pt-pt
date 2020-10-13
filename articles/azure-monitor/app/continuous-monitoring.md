@@ -4,10 +4,10 @@ description: Fornece instruções para configurar rapidamente a monitorização 
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.openlocfilehash: fd7cd6a107ed45adb60167a57661b60be5dc8212
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86517132"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Adicione monitorização contínua ao seu oleoduto de libertação
@@ -37,7 +37,7 @@ Com monitorização contínua, os oleodutos de libertação podem incorporar dad
     | Parâmetro        | Valor |
    | ------------- |:-----|
    | **Nome da fase**      | Forneça um nome artístico, ou deixe-o na **fase 1**. |
-   | **Subscrição do Azure** | Desça e selecione a subscrição Azure ligada que pretende utilizar.|
+   | **Assinatura Azure** | Desça e selecione a subscrição Azure ligada que pretende utilizar.|
    | **Tipo de aplicação** | Desça e selecione o seu tipo de aplicação. |
    | **Nome do Serviço de Aplicações** | Insira o nome do seu Serviço de Aplicações Azure. |
    | **Nome do Grupo de Recursos para Insights de Aplicações**    | Desça e selecione o grupo de recursos que pretende utilizar. |
@@ -99,6 +99,6 @@ Pode ver o comportamento do portão de implantação e outros passos de desbloqu
    
    ![Ver registos de lançamento](media/continuous-monitoring/006.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre os Gasodutos Azure, consulte a documentação da [Azure Pipelines](/azure/devops/pipelines).

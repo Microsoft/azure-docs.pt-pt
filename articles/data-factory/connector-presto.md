@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
 ms.openlocfilehash: 15f4133b03c1fe77548425500445937e86ed5a8e
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87372506"
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-preview"></a>Copiar dados de Presto usando Azure Data Factory (Pré-visualização)
@@ -98,7 +98,7 @@ Para copiar dados da Presto, defina a propriedade tipo do conjunto de dados para
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo do conjunto de dados deve ser definida para: **PrestoObject** | Sim |
 | esquema | O nome do esquema. |Não (se for especificada "consulta" na fonte de atividade)  |
-| tabela | O nome da mesa. |Não (se for especificada "consulta" na fonte de atividade)  |
+| table | O nome da mesa. |Não (se for especificada "consulta" na fonte de atividade)  |
 | tableName | Nome da mesa com esquema. Esta propriedade é suportada para retrocompatibilidade. Uso `schema` e para nova carga de `table` trabalho. | Não (se for especificada "consulta" na fonte de atividade) |
 
 **Exemplo**

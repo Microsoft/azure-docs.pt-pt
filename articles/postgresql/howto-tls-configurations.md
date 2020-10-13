@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.openlocfilehash: 26470709b37c2623c581499ec55572da402e96cb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90906461"
 ---
 # <a name="configuring-tls-settings-in-azure-database-for-postgresql-single---server-using-azure-portal"></a>Configurar definições de TLS na Base de Dados Azure para PostgreSQL Single - servidor utilizando o portal Azure
@@ -41,7 +41,7 @@ Siga estes passos para definir a versão TLS mínima postgreSQL:
 
 1. Uma notificação confirmará que a definição de segurança da ligação foi ativada com sucesso.
 
-    :::image type="content" source="./media/howto-tls-configurations/setting-tls-value-success.png" alt-text="Base de Dados Azure para Pós-SQL - Sucesso de configuração de STS de servidor único":::
+    :::image type="content" source="./media/howto-tls-configurations/setting-tls-value-success.png" alt-text="Base de dados Azure para configuração de TLS single pósgresql - servidor":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

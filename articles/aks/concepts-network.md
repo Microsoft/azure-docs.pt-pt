@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 06/11/2020
 ms.custom: fasttrack-edit
 ms.openlocfilehash: edb195fae2e05a1f746c10482576f7e0b1bff7c9
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88243909"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceitos de rede para aplicações no Serviço Azure Kubernetes (AKS)
@@ -19,7 +19,7 @@ Este artigo introduz os conceitos fundamentais que fornecem networking às suas 
 
 - [Serviços](#services)
 - [Redes virtuais do Azure](#azure-virtual-networks)
-- [Controladores ingress](#ingress-controllers)
+- [Controladores de entrada](#ingress-controllers)
 - [Políticas de rede](#network-policies)
 
 ## <a name="kubernetes-basics"></a>Noções básicas do Kubernetes
@@ -121,7 +121,7 @@ Embora capacidades como pontos finais de serviço ou UDRs sejam suportadas tanto
 * Se criar manualmente os recursos de rede virtual para um cluster AKS, é apoiado ao configurar as suas próprias UDRs ou pontos finais de serviço.
 * Se a plataforma Azure criar automaticamente os recursos de rede virtual para o seu cluster AKS, não é suportada para alterar manualmente esses recursos geridos pela AKS para configurar os seus próprios UDRs ou pontos finais de serviço.
 
-## <a name="ingress-controllers"></a>Controladores ingress
+## <a name="ingress-controllers"></a>Controladores de entrada
 
 Quando cria um Serviço do tipo LoadBalancer, é criado um recurso de balançador de carga Azure subjacente. O balançador de carga está configurado para distribuir o tráfego para as cápsulas do seu Serviço numa determinada porta. O LoadBalancer só funciona na camada 4 - o Serviço desconhece as aplicações reais, e não pode fazer nenhuma consideração adicional de encaminhamento.
 

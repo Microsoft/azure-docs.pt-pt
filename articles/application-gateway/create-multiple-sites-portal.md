@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 08/21/2020
 ms.author: victorh
 ms.openlocfilehash: 6fb613578e520f50701c9a09169f2d78c0c08c4f
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88724001"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Tutorial: Criar e configurar uma porta de aplicação para hospedar vários web sites usando o portal Azure
@@ -50,7 +50,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
    - **Grupo de recursos**: Selecione **myResourceGroupAG** para o grupo de recursos. Se não existir, selecione **Criar novo** para criá-lo.
    - **Nome do gateway de aplicação**: Introduza *o myAppGateway* para o nome do gateway de aplicação.
 
-     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png" alt-text="Criar Gateway de Aplicações":::
+     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png" alt-text="Gateway de aplicação multi-site":::
 
 2.  Para que o Azure comunique entre os recursos que cria, precisa de uma rede virtual. Pode criar uma nova rede virtual ou utilizar uma existente. Neste exemplo, irá criar uma nova rede virtual ao mesmo tempo que cria o gateway de aplicações. As instâncias do Gateway de Aplicação são criadas em sub-redes separadas. Cria duas sub-redes neste exemplo: uma para o gateway de aplicações e outra para os servidores backend.
 
@@ -66,7 +66,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
     Selecione **OK** para fechar a janela **de rede virtual Create** e guardar as definições de rede virtual.
 
-     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png" alt-text="Criar VNet":::
+     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png" alt-text="Gateway de aplicação multi-site":::
     
 3. No **separador Básicos,** aceite os valores predefinidos para as outras definições e, em seguida, selecione **Seguinte: Frontends**.
 
@@ -78,7 +78,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
 2. Escolha **Criar novo** para o endereço IP **público** e insira o *myAGPublicIPAddress* para o nome do endereço IP público e, em seguida, selecione **OK**. 
 
-     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png" alt-text="Criar outro VNet":::
+     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png" alt-text="Gateway de aplicação multi-site":::
 
 3. Selecione **Seguinte: Backends**.
 
@@ -96,7 +96,7 @@ O pool backend é usado para encaminhar pedidos para os servidores backend que s
 3. Na janela **de reserva do pool,** selecione **Adicione** para guardar a configuração da piscina de backend e volte ao separador **Backends.**
 4. Agora adicione outra piscina de backend chamada *fabrikamPool*.
 
-    :::image type="content" source="./media/create-multiple-sites-portal/backend-pools.png" alt-text="Criar backends":::
+    :::image type="content" source="./media/create-multiple-sites-portal/backend-pools.png" alt-text="Gateway de aplicação multi-site":::
 
 4. No **separador Backends,** selecione **Seguinte: Configuração**.
 
@@ -119,7 +119,7 @@ No separador **Configuração,** irá ligar as piscinas fronte e backend criadas
 
    Aceite os valores predefinidos para as outras definições no **separador Listener** e, em seguida, selecione o separador **alvos de Backend** para configurar o resto da regra de encaminhamento.
 
-   :::image type="content" source="./media/create-multiple-sites-portal/routing-rule.png" alt-text="Criar regra de encaminhamento":::
+   :::image type="content" source="./media/create-multiple-sites-portal/routing-rule.png" alt-text="Gateway de aplicação multi-site":::
 
 4. No separador **alvos de Backend,** selecione **contosoPool** para o **alvo Backend**.
 
@@ -128,7 +128,7 @@ No separador **Configuração,** irá ligar as piscinas fronte e backend criadas
 6. Na janela **de regra de encaminhamento,** selecione **Adicione** para guardar a regra de encaminhamento e volte ao **separador Configuração.**
 7. **Selecione Adicione uma regra** e adicione uma regra semelhante, ouvinte, alvo de backend e definição HTTP para Fabrikam.
 
-     :::image type="content" source="./media/create-multiple-sites-portal/fabrikam-rule.png" alt-text="Regra de Fabrikam":::
+     :::image type="content" source="./media/create-multiple-sites-portal/fabrikam-rule.png" alt-text="Gateway de aplicação multi-site":::
 
 7. Selecione **Seguinte: Tags** e depois **Seguinte: Rever + criar**.
 
@@ -228,7 +228,7 @@ Após a criação do gateway de aplicações com o seu endereço IP público, po
 
     ![Testar o site fabrikam no gateway de aplicação](./media/create-multiple-sites-portal/application-gateway-iistest2.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar dos recursos que criou com o gateway de aplicação, remova o grupo de recursos. Quando remove o grupo de recursos, também remove o gateway de aplicação e todos os seus recursos relacionados.
 

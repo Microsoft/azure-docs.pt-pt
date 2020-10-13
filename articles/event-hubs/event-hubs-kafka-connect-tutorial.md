@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre como usar Kafka Connect com
 ms.topic: how-to
 ms.date: 06/23/2020
 ms.openlocfilehash: b063bb36ec17c22c0f093f1b33f11597eed5ea68
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90061670"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Integrar o Apache Kafka Connect nos Hubs de Eventos do Azure (Pré-visualização)
@@ -150,7 +150,7 @@ Esta secção mostra-lhe como criar rapidamente os conectores FileStreamSource e
 ### <a name="cleanup"></a>Limpeza
 O Kafka Connect cria tópicos dos Hubs de Eventos para armazenar configurações, deslocamentos e estados que persistem mesmo depois de o cluster do Connect ter sido removido. A menos que essa persistência seja pretendida, recomenda-se que os tópicos sejam eliminados. Também pode ser útil eliminar o hub de eventos `connect-quickstart` que foi criado no decorrer desta orientação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre os Centros de Eventos para Kafka, consulte os seguintes artigos:  
 

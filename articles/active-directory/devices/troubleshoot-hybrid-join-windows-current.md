@@ -13,10 +13,10 @@ ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
 ms.openlocfilehash: ec59c07d66150bf7b184c149a9b1ed9015c17645
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89433658"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Resolver problemas de dispositivos associados ao Azure Active Directory híbrido
@@ -246,7 +246,7 @@ Aplicável apenas para contas de domínio federado.
 Razões para falhar:
 
 - Não é possível obter um token de acesso silenciosamente para recurso DRS.
-   - Os dispositivos Windows 10 adquirem um símbolo auth do serviço da federação utilizando a Autenticação Integrada do Windows para um ponto final ativo do WS-Trust. Detalhes: [Configuração do Serviço da Federação](hybrid-azuread-join-manual.md#set-up-issuance-of-claims)
+   - Os dispositivos Windows 10 adquirem um símbolo auth do serviço da federação utilizando a Autenticação Integrada do Windows para um ponto final WS-Trust ativo. Detalhes: [Configuração do Serviço da Federação](hybrid-azuread-join-manual.md#set-up-issuance-of-claims)
 
 **Códigos de erro comuns:**
 
@@ -261,13 +261,13 @@ Utilize registos do Visualizador de Eventos para localizar o código de erro, o 
 
 - **ERROR_ADAL_PROTOCOL_NOT_SUPPORTED** (0xcaa90017/-894894057)
    - Razão: O protocolo de autenticação não é WS-Trust.
-   - Resolução: O fornecedor de identidade no local deve apoiar a WS-Trust
+   - Resolução: O fornecedor de identidade no local deve apoiar WS-Trust
 - **ERROR_ADAL_FAILED_TO_PARSE_XML** (0xcaa9002c/-894894036)
    - Razão: O serviço da federação no local não devolveu uma resposta XML.
    - Resolução: Certifique-se de que o ponto final MEX está a devolver um XML válido. Certifique-se de que o proxy não está a interferir e a devolver respostas não xml.
 - **ERROR_ADAL_COULDNOT_DISCOVER_USERNAME_PASSWORD_ENDPOINT** (0xcaa90023/-894894045)
    - Razão: Não foi possível descobrir o ponto final para a autenticação do nome de utilizador/palavra-passe.
-   - Resolução: Verifique as definições do fornecedor de identidade no local. Certifique-se de que os pontos finais WS-Trust estão ativados e certifique-se de que a resposta MEX contém estes pontos finais corretos.
+   - Resolução: Verifique as definições do fornecedor de identidade no local. Certifique-se de que os WS-Trust pontos finais estão ativados e certifique-se de que a resposta MEX contém estes pontos finais corretos.
 
 ##### <a name="network-errors"></a>Erros de rede
 
@@ -290,7 +290,7 @@ Utilize registos do Visualizador de Eventos para localizar o código de erro, o 
    - Razão: O sinal DE SAML do fornecedor de identidade no local não foi aceite pela Azure AD.
    - Resolução: Verifique as definições do servidor da federação. Procure o código de erro do servidor nos registos de autenticação.
 - **ERROR_ADAL_WSTRUST_REQUEST_SECURITYTOKEN_FAILED** (0xcaa90014/-894894060)
-   - Reason: Server WS-Trust response reported fault exception and it failed to get assertion
+   - Reason: Servidor WS-Trust resposta reportada exceção de falha e não conseguiu obter afirmação
    - Resolução: Verifique as definições do servidor da federação. Procure o código de erro do servidor nos registos de autenticação.
 - **ERROR_ADAL_WSTRUST_TOKEN_REQUEST_FAIL** (0xcaa90006/-894894074)
    - Razão: Recebeu um erro ao tentar obter o token de acesso a partir do ponto final do token.
@@ -413,7 +413,7 @@ Se os valores forem **NÃO,** pode ser devido:
 ## <a name="known-issues"></a>Problemas conhecidos
 - Em Definições -> Contas -> Access Work ou Escola, os dispositivos híbridos Azure AD podem apresentar duas contas diferentes, uma para AZure AD e outra para AD no local, quando ligadas a hotspots móveis ou redes Wi-Fi externas. Este é apenas um problema de UI e não tem qualquer impacto na funcionalidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Continue [a resolução de problemas utilizando o comando dsregcmd](troubleshoot-device-dsregcmd.md)
 

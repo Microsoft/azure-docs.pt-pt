@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: duau
 ms.openlocfilehash: fc6e8bcda17f9d788a430ed763bd9f8702eaf250
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89392923"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Adicionar, desativar, ativar ou eliminar pontos finais
@@ -74,7 +74,7 @@ Também pode desativar pontos finais individuais que fazem parte de um perfil do
 5. Na lâmina **endpoint,** clique em **Eliminar**
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Gerir perfis de Gestor de Tráfego](traffic-manager-manage-profiles.md)
 * [Configurar métodos de encaminhamento](traffic-manager-configure-routing-method.md)

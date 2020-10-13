@@ -11,10 +11,10 @@ ms.date: 10/14/2019
 ms.author: haroldw
 ms.custom: devx-track-ansible
 ms.openlocfilehash: 8e34f73f1c403e3a7d21c6c30844f8b9073b3113
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87373577"
 ---
 # <a name="post-deployment-tasks"></a>Tarefas pós-implantação
@@ -142,7 +142,7 @@ Insira as seguintes linhas imediatamente após as linhas anteriores:
         token: https://login.microsoftonline.com/<tenant Id>/oauth2/token
 ```
 
-Certifique-se de que o texto está corretamente alinhado nos Protestantes de Identidade. Encontre o ID do inquilino utilizando o seguinte comando CLI:```az account show```
+Certifique-se de que o texto está corretamente alinhado nos Protestantes de Identidade. Encontre o ID do inquilino utilizando o seguinte comando CLI: ```az account show```
 
 Reinicie os serviços principais OpenShift em todos os nós principais:
 

@@ -11,10 +11,10 @@ ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
 ms.openlocfilehash: d43bea855d9ac3dc34b8e72adcd9577e5933e52c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90905674"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer"></a>Retrain modelos com Azure Machine Learning designer

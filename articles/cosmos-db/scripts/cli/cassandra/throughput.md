@@ -8,10 +8,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 10/07/2020
 ms.openlocfilehash: 09ea092afcfee6223330b1ad887d73ea2f78db59
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91843044"
 ---
 # <a name="throughput-rus-operations-with-azure-cli-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>Operações de produção (RU/s) com a Azure CLI para um espaço-chave ou tabela para Azure Cosmos DB - Cassandra API

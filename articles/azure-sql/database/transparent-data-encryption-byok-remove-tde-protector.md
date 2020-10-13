@@ -13,10 +13,10 @@ ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/24/2020
 ms.openlocfilehash: 77f2312438f3f9db7aa4e0dc7cc0f672644a87c6
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91617422"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Remova um protetor de encriptação de dados transparente (TDE) usando o PowerShell

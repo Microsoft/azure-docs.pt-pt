@@ -4,10 +4,10 @@ description: Este artigo explica como migrar clientes de Apache Kafka para Azure
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: d9f3775a85df5a881c2c38566628e4e1d4d8c40e
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90061449"
 ---
 # <a name="migrate-to-azure-event-hubs-for-apache-kafka-ecosystems"></a>Migrar para os Hubs de Eventos do Azure para Ecossistemas do Apache Kafka
@@ -55,7 +55,7 @@ Execute a sua aplicação Kafka que envia eventos para o centro de eventos. Em s
 [![Verifique se o centro de eventos recebeu as mensagens](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png)](./media/getstarted-dotnet-standard-send-v2/verify-messages-portal.png#lightbox)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre Os Centros de Eventos e Centros de Eventos para Kafka, consulte os seguintes artigos:  
 
 - [Guia de resolução de problemas de Apache Kafka para centros de eventos](apache-kafka-troubleshooting-guide.md)

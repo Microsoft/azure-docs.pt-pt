@@ -9,10 +9,10 @@ ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 00661043d1ec9769adbf4119a2c9c1925dcd29fa
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88186360"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemas operativos e controladores suportados

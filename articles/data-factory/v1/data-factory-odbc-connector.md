@@ -13,10 +13,10 @@ ms.date: 11/19/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: e1735c2d2ed107f7ec65d68a6826267ee83a93f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84707383"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Mover dados das lojas de dados da ODBC usando a Azure Data Factory
@@ -64,7 +64,7 @@ As seguintes secções fornecem detalhes sobre as propriedades JSON que são usa
 ## <a name="linked-service-properties"></a>Propriedades de serviço ligadas
 A tabela seguinte fornece descrição para elementos JSON específicos do serviço ligado ao ODBC.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tipo |A propriedade tipo deve ser definida para: **OnPremisesOdbc** |Sim |
 | conexãoStragem |A parte credencial de não acesso da cadeia de ligação e uma credencial encriptada opcional. Consulte os exemplos nas seguintes secções. <br/><br/>Pode especificar a cadeia de ligação com padrão como `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` , ou utilizar o sistema DSN (Data Source Name) que configura na máquina de gateway com `"DSN=<name of the DSN>;"` (ainda precisa especificar a parte credencial no serviço ligado em conformidade). |Sim |
@@ -136,7 +136,7 @@ Para obter uma lista completa de secções & propriedades disponíveis para defi
 
 A secção **typeProperties** é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja de dados. A secção de tipos depropriedades para conjunto de dados do tipo **RelationalTable** (que inclui conjunto de dados ODBC) tem as seguintes propriedades
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | tableName |Nome da tabela na loja de dados ODBC. |Sim |
 

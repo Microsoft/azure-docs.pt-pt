@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
 ms.openlocfilehash: a3c1699dd4b7b828c7dc652f14f431878f785061
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88207139"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Fazer o back up Lojas de Configuração de Aplicativos automaticamente
