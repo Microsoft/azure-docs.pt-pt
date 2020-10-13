@@ -8,12 +8,12 @@ keywords: hadoop alta disponibilidade
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: 49f1f475ba4169ea6943dec161577a15e76657f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: beb3c54a0ab7f6f063232a1ad49744d99746c589
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91857780"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893650"
 ---
 # <a name="azure-hdinsight-business-continuity"></a>Continuidade do negócio Azure HDInsight
 
@@ -84,7 +84,7 @@ Nem sempre é preciso um evento catastrófico para impactar a funcionalidade do 
 
 ### <a name="hdinsight-metastore"></a>Metásta de HDInsight
 
-A HDInsight utiliza [a Base de Dados Azure SQL](https://azure.microsoft.com/support/legal/sla/sql-database/v1_4/) como uma meta-loja, que fornece um SLA de 99,99%. Três réplicas de dados persistem dentro de um centro de dados com replicação assíncronea. Se houver uma perda de réplica, uma réplica alternativa é servida sem problemas. [A geo-replicação ativa](../azure-sql/database/active-geo-replication-overview.md) é suportada fora da caixa com um máximo de quatro centros de dados. Quando há um failover, manual ou data center, a primeira réplica na hierarquia tornar-se-á automaticamente capaz de ler-escrever. Para mais informações, consulte [a continuidade do negócio da Base de Dados Azure SQL.](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md)
+A HDInsight utiliza [a Base de Dados Azure SQL](https://azure.microsoft.com/support/legal/sla/sql-database/v1_4/) como uma meta-loja, que fornece um SLA de 99,99%. Três réplicas de dados persistem dentro de um centro de dados com replicação sincronizada. Se houver uma perda de réplica, uma réplica alternativa é servida sem problemas. [A geo-replicação ativa](../azure-sql/database/active-geo-replication-overview.md) é suportada fora da caixa com um máximo de quatro centros de dados. Quando há um failover, manual ou data center, a primeira réplica na hierarquia tornar-se-á automaticamente capaz de ler-escrever. Para mais informações, consulte [a continuidade do negócio da Base de Dados Azure SQL.](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md)
 
 ### <a name="hdinsight-storage"></a>Armazenamento HDInsight
 
@@ -112,7 +112,7 @@ Melhorar a continuidade das empresas utilizando a recuperação de desastres de 
 |----|------------------------|-----------------------|
 |Armazenamento de Dados|Duplicação de dados/tabelas primárias numa região secundária|Replicar apenas dados curados|
 |Data Egress|As transferências de dados da região transversal de saída têm um preço. Rever as diretrizes de preços da largura de banda|Replicar apenas dados curados para reduzir a pegada de saída da região|
-|Cálculo do Cluster|Cluster/s hdinsight adicional na região secundária|Utilize scripts automatizados para implementar o cálculo secundário após falha primária.<\br><\br>Use Autoscaling para manter o tamanho do cluster secundário a um mínimo de.<\br><\br>Use SKUs VM mais baratos.<\br><\br> Criar secundários em regiões onde os SKUs VM podem ser descontados.|
+|Cálculo do Cluster|Cluster/s hdinsight adicional na região secundária|Utilize scripts automatizados para implementar o cálculo secundário após a falha primária. Utilize autoscaling para manter o tamanho do cluster secundário no mínimo. Use SKUs VM mais baratos. Criar secundários em regiões onde os SKUs VM podem ser descontados.|
 |Autenticação |Cenários multiuser na região secundária incorrerão em configurações adicionais de Azure AD DS|Evite configurações multiusais na região secundária.|
 
 ### <a name="complexity-optimizations"></a>Otimizações de complexidade

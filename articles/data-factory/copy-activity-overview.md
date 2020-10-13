@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 09/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 3a1e5ed7d9ca14c03483cb6afe6b6318c6a90764
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e1a08af1be3d9b5cfb011516d00a8c0548994bf
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440597"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91946179"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia na Azure Data Factory
 
@@ -258,7 +258,7 @@ Esta funcionalidade é suportada ao copiar dados de qualquer fonte para as segui
 
 Por predefinição, a atividade Copy para de copiar dados e retorna uma falha quando as linhas de dados de origem são incompatíveis com as linhas de dados do lavatório. Para que a cópia tenha sucesso, pode configurar a atividade Copy para saltar e registar as linhas incompatíveis e copiar apenas os dados compatíveis. Consulte [a tolerância à falha da atividade da cópia](copy-activity-fault-tolerance.md) para obter detalhes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Consulte os seguintes quickstarts, tutoriais e amostras:
 
 - [Copiar dados de um local para outro local na mesma conta de armazenamento Azure Blob](quickstart-create-data-factory-dot-net.md)

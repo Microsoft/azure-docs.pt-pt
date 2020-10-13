@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
 ms.openlocfilehash: e89676505bc211d01a4327f8816a048218e579fe
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91829263"
 ---
 Pode anexar uma série de discos de dados a uma máquina virtual Azure. Com base nos objetivos de escalabilidade e desempenho dos discos de dados de um VM, pode determinar o número e o tipo de disco de que necessita para satisfazer os seus requisitos de desempenho e capacidade.

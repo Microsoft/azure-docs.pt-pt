@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.openlocfilehash: 052fd0ea7619d566e78806580ee7b39e49cc85d2
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448616"
 ---
 # <a name="azure-monitor-insights-for-virtual-wan-preview"></a>Azure Monitor Insights for Virtual WAN (Pré-visualização)
@@ -24,7 +24,7 @@ As métricas de nível de recursos virtuais wan são recolhidas e apresentadas a
 > A opção de menu **Insights** no portal Virtual WAN está atualmente a ser lançada. Enquanto este menu está a ser lançado, pode aceder ao Livro de Topologia e Métricas Virtual WAN utilizando o Azure Monitor for Networks. Para obter mais informações, consulte [o Azure Monitor for Networks](../azure-monitor/insights/network-insights-overview.md). 
 >
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Para completar os passos deste artigo, você precisa ter um WAN virtual com um ou mais hubs. Para criar um WAN virtual e um hub, siga os passos nestes artigos:
 
@@ -85,7 +85,7 @@ Pode selecionar **Ver métricas detalhadas** para aceder à página **Métricas 
 
 :::image type="content" source="./media/azure-monitor-insights/detailed-metrics.png" alt-text="Screenshot que mostra a visualização insights (pré-visualização)." lightbox="./media/azure-monitor-insights/detailed-metrics.png":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais, consulte [métricas no Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).
 * Para obter uma descrição completa de todas as métricas virtuais wan, consulte [registos e métricas de WAN virtuais.](logs-metrics.md)

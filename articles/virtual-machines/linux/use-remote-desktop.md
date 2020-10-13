@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
 ms.date: 09/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 7d9d7ff9c9a54b74e3160b9de3df1f08a81e6531
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 05241715663ac2cbb90e16f345398f863541e6ed
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291086"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972208"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Instale e configura o Ambiente de Trabalho Remoto para ligar a um Linux VM em Azure
 As máquinas virtuais Linux (VMs) em Azure são geralmente geridas a partir da linha de comando utilizando uma ligação secure shell (SSH). Quando novo no Linux, ou para cenários rápidos de resolução de problemas, a utilização de ambientes de trabalho remotos pode ser mais fácil. Este artigo detalha como instalar e configurar um ambiente de ambiente de trabalho[(xfce)](https://www.xfce.org)e um ambiente de trabalho remoto[(xrdp)](http://xrdp.org)para o seu Linux VM utilizando o modelo de implementação do Gestor de Recursos.
@@ -84,7 +84,7 @@ sudo passwd azureuser
 
 
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Criar uma regra do Grupo de Segurança de Rede para tráfego remoto de ambiente de trabalho
-Para permitir que o tráfego de ambiente de trabalho remoto chegue ao seu Linux VM, é necessário criar uma regra do grupo de segurança de rede que permita que o TCP na porta 3389 chegue ao seu VM. Para obter mais informações sobre as regras do grupo de segurança de rede, veja [o que é um grupo de segurança de rede?](../../virtual-network/security-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Também pode [utilizar o portal Azure para criar uma regra do grupo de segurança de rede](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Para permitir que o tráfego de ambiente de trabalho remoto chegue ao seu Linux VM, é necessário criar uma regra do grupo de segurança de rede que permita que o TCP na porta 3389 chegue ao seu VM. Para obter mais informações sobre as regras do grupo de segurança de rede, veja [o que é um grupo de segurança de rede?](../../virtual-network/network-security-groups-overview.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) Também pode [utilizar o portal Azure para criar uma regra do grupo de segurança de rede](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 O exemplo a seguir cria uma regra de grupo de segurança de rede com [porta aberta az vm](/cli/azure/vm#az-vm-open-port) na porta *3389*. Do CLI Azure, não da sessão SSH para o seu VM, abra a seguinte regra do grupo de segurança da rede:
 
