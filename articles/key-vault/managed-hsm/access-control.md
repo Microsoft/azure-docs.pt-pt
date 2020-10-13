@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
 ms.openlocfilehash: a21d0db383e8c563f0b187061a95ac818dd2a4f0
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90996864"
 ---
-# <a name="managed-hsm-access-control"></a>Controlo de acesso gerido do HSM
+# <a name="managed-hsm-access-control"></a>Controlo de acesso do HSM Gerido
 
 > [!NOTE]
 > O fornecedor de recursos Key Vault suporta dois tipos de recursos: **cofres** e **HSMs geridos.** O controlo de acesso descrito neste artigo aplica-se apenas aos **HSMs geridos**. Para saber mais sobre o controlo de acesso para o HSM gerido, consulte [Fornecer acesso a chaves, certificados e segredos key Vault com um controlo de acesso baseado em funções Azure](../general/rbac-guide.md).

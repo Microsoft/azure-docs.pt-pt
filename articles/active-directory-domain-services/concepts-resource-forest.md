@@ -2,20 +2,20 @@
 title: Conceitos de floresta de recursos para serviços de domínio Azure AD / Microsoft Docs
 description: Saiba o que é uma floresta de recursos nos Serviços de Domínio do Diretório Ativo Azure e como beneficiam a sua organização em ambiente híbrido com opções limitadas de autenticação de utilizadores ou preocupações de segurança.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: 88069c6ac90fce7e33cac6ed3c30accb18ded8bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: 1f8c09e7e260d22aa6864327d6a890ef3beaa039
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396404"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962518"
 ---
 # <a name="resource-forest-concepts-and-features-for-azure-active-directory-domain-services"></a>Conceitos e funcionalidades da floresta de recursos para serviços de domínio do diretório ativo Azure
 

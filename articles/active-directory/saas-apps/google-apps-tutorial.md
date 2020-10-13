@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
 ms.openlocfilehash: 7e6b4524523d0659126bcd6cbe1294d700e79ed9
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90707820"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-google-cloud-g-suite-connector"></a>Tutorial: Azure Ative Directy integração única (SSO) com o Conector Google Cloud (G Suite)
@@ -160,7 +160,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     ```
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL e o identificador de inscrição real. O Conector Google Cloud (Suíte G) não fornece o valor de ID/Identificador de Entidade na configuração de sinal único, pelo que quando desmarque a opção **de emitente específico** de domínio, o valor do identificador será `google.com` . Se verificar a opção **de emitente específico** de domínio, será `google.com/a/<yourdomainname.com>` . Para verificar/desmarcar a opção **de emitente específico** de domínio, tem de ir à secção **Configure Google Cloud (G Suite) Connector SSO,** que é explicada mais tarde no tutorial. Para mais informações contacte a equipa de [suporte do Cliente do Conector Google Cloud (G Suite).](https://www.google.com/contact/)
+    > Estes valores não são reais. Atualize estes valores com o URL e o identificador de Sign-On reais. O Conector Google Cloud (Suíte G) não fornece o valor de ID/Identificador de Entidade na configuração de sinal único, pelo que quando desmarque a opção **de emitente específico** de domínio, o valor do identificador será `google.com` . Se verificar a opção **de emitente específico** de domínio, será `google.com/a/<yourdomainname.com>` . Para verificar/desmarcar a opção **de emitente específico** de domínio, tem de ir à secção **Configure Google Cloud (G Suite) Connector SSO,** que é explicada mais tarde no tutorial. Para mais informações contacte a equipa de [suporte do Cliente do Conector Google Cloud (G Suite).](https://www.google.com/contact/)
 
 1. A sua aplicação de conector Google Cloud (G Suite) espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de ficha SAML. A imagem que se segue mostra um exemplo para isto. O valor predefinido do **Identificador de Utilizador Exclusivo** é **user.userprincipalname,** mas o Conector Google Cloud (G Suite) espera que este seja mapeado com o endereço de e-mail do utilizador. Para isso pode utilizar o atributo **user.mail** da lista ou utilizar o valor de atributo apropriado com base na configuração da sua organização.
 

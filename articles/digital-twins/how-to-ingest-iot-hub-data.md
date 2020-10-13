@@ -8,10 +8,10 @@ ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 9fa3c27f9cc35b31fc78b2a09bea725934093e63
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90983329"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Ingesteia IoT Hub em Azure Digital Twins
@@ -209,14 +209,14 @@ Após uma publicação bem sucedida, verá a saída na janela de comando do Est�
 ```
 Também pode verificar o seu estado do processo de publicação no [portal Azure](https://portal.azure.com/). Procure o seu _grupo de recursos_ e navegue para o registo de _atividade_ e procure obter o perfil de publicação _de aplicações web_ na lista e verifique se o estado é Bem sucedido.
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/azure-function-publish-activity-log.png" alt-text="Screenshot do portal Azure que mostra o estado do processo de publicação.":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/azure-function-publish-activity-log.png" alt-text="Um diagrama mostrando um gráfico de fluxo. Na tabela, um dispositivo IoT Hub envia telemetria de temperatura através do IoT Hub para uma Função Azure, que atualiza uma propriedade de temperatura num gémeo em Azure Digital Twins.":::
 
 ## <a name="connect-your-function-to-iot-hub"></a>Ligue a sua função ao IoT Hub
 
 Crie um destino de eventos para os dados do hub.
 No [portal Azure,](https://portal.azure.com/)navegue para o seu IoT Hub que criou na secção [*Pré-Requisitos.*](https://docs.microsoft.com/azure/digital-twins/how-to-ingest-iot-hub-data#prerequisites) Em **Eventos,** crie uma subscrição para a sua função Azure.
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Screenshot do portal Azure que mostra adicionar uma subscrição de evento.":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Um diagrama mostrando um gráfico de fluxo. Na tabela, um dispositivo IoT Hub envia telemetria de temperatura através do IoT Hub para uma Função Azure, que atualiza uma propriedade de temperatura num gémeo em Azure Digital Twins.":::
 
 Na página **'Criar Subscrição de** Eventos', preencha os campos da seguinte forma:
   1. Under **Name**, nomeie a subscrição o que quiser.
@@ -225,10 +225,10 @@ Na página **'Criar Subscrição de** Eventos', preencha os campos da seguinte f
   4. No **tipo de ponto final**, selecione _Azure._
   5. Em **Endpoint**, _Escolha Selecionar uma_ ligação de ponto final para criar um ponto final.
     
-:::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Screenshot do portal Azure para criar os detalhes da subscrição do evento":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Um diagrama mostrando um gráfico de fluxo. Na tabela, um dispositivo IoT Hub envia telemetria de temperatura através do IoT Hub para uma Função Azure, que atualiza uma propriedade de temperatura num gémeo em Azure Digital Twins.":::
 
 Na página _Select Azure Function_ que se abre, verifique os detalhes abaixo.
- 1. **Subscrição**: A sua subscrição Azure
+ 1. **Subscrição**: a subscrição do Azure
  2. **Grupo de recursos**: O seu grupo de recursos
  3. **App de função**: O nome da aplicação da sua função
  4. **Slot**: _Produção_
@@ -236,7 +236,7 @@ Na página _Select Azure Function_ que se abre, verifique os detalhes abaixo.
 
 Guarde os seus dados selecionando o botão _Confirmar Seleção._            
       
-:::image type="content" source="media/how-to-ingest-iot-hub-data/select-azure-function.png" alt-text="Screenshot do portal Azure para selecionar a função Azure":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/select-azure-function.png" alt-text="Um diagrama mostrando um gráfico de fluxo. Na tabela, um dispositivo IoT Hub envia telemetria de temperatura através do IoT Hub para uma Função Azure, que atualiza uma propriedade de temperatura num gémeo em Azure Digital Twins.":::
 
 Selecione _Criar_ o botão para criar a subscrição do evento.
 

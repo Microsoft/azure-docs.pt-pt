@@ -1,7 +1,7 @@
 ---
 title: Gerir DNS para Serviços de Domínio AD Azure / Microsoft Docs
 description: Aprenda a instalar as Ferramentas do Servidor DNS para gerir o DNS e criar reencaminhadores condicional para um domínio gerido por Serviços de Domínio do Diretório Ativo Azure.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
@@ -9,13 +9,13 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: iainfou
-ms.openlocfilehash: af321f4e9ef9e340026852a759bb70b9f03c77f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: joflore
+ms.openlocfilehash: b347f8043216d4347099d68ff1c62156410582a3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88722947"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963181"
 ---
 # <a name="administer-dns-and-create-conditional-forwarders-in-an-azure-active-directory-domain-services-managed-domain"></a>Administrar DNS e criar reencaminhadores condicionalistas num domínio gerido por Serviços de Domínio do Diretório Ativo Azure
 

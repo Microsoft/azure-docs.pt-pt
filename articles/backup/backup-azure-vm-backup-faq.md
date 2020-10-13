@@ -5,10 +5,10 @@ ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.openlocfilehash: 8813794d44803a32bc6e156d3ca76360d84604c5
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91370832"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas frequentes-Back up Azure VMs
@@ -29,7 +29,7 @@ Apesar de o tempo total das cópias de segurança incrementais ser inferior a 24
 
 ### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>O custo de reserva está incluído no custo do VM?
 
-Não. Os custos de backup são separados dos custos de um VM. Saiba mais sobre [os preços de backup da Azure.](https://azure.microsoft.com/pricing/details/backup/)
+N.º Os custos de backup são separados dos custos de um VM. Saiba mais sobre [os preços de backup da Azure.](https://azure.microsoft.com/pricing/details/backup/)
 
 ### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>Que permissões são necessárias para permitir a cópia de segurança para um VM?
 
@@ -49,7 +49,7 @@ Se o cofre dos Serviços de Recuperação e o VM tiverem diferentes grupos de re
 
 ### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>Um trabalho de reserva a pedido usa o mesmo horário de retenção que os backups programados?
 
-Não. Especifique o intervalo de retenção para um trabalho de backup a pedido. Por padrão, é retido por 30 dias quando disparado do portal.
+N.º Especifique o intervalo de retenção para um trabalho de backup a pedido. Por padrão, é retido por 30 dias quando disparado do portal.
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>Ativei recentemente o Azure Disk Encryption em algumas VMs. As minhas cópias de segurança vão continuar a funcionar?
 

@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 07c1405482f107e370327ffbc049c77f483c29bd
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89662581"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect Sync: Faça uma alteração na configuração padrão
@@ -181,7 +181,7 @@ As regras de sincronização fora da caixa começam com um valor de precedência
 
 Pode instruir o motor de sincronização de que pretende que as regras adicionais são inseridas antes das regras fora de caixa. Para obter este comportamento, siga estes passos:
 
-1. Marque a primeira regra de sincronização fora da caixa (**In from AD-User Join)** no editor de regras de sincronização e selecione **Export**. Copie o valor do identificador SR.  
+1. Marque a primeira regra de sincronização fora da caixa (**In from AD-User Join**) no editor de regras de sincronização e selecione **Export**. Copie o valor do identificador SR.  
 ![PowerShell antes da mudança](./media/how-to-connect-sync-change-the-configuration/powershell1.png)  
 2. Crie a nova regra de sincronização. Pode usar o editor de regras de sincronização para criá-lo. Exporte a regra para um script PowerShell.
 3. Na propriedade **Precedence Antes,** insira o valor do Identificador a partir da regra fora da caixa. Definir a **Precedência** para **0**. Certifique-se de que o atributo Identifier é único e que não está a reutilizar um GUID de outra regra. Certifique-se também de que a propriedade **ImuttableTag** não está definida. Esta propriedade deve ser definida apenas para uma regra fora da caixa.
@@ -264,7 +264,7 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
 
     | Atributo | Valor | Detalhes |
     | --- | --- | --- |
-    | Name | *Fornecer um nome* | Por exemplo, *In from AD – UserType* |
+    | Nome | *Fornecer um nome* | Por exemplo, *In from AD – UserType* |
     | Descrição | *Fornecer uma descrição* |  |
     | Sistema Conectado | *Escolha o conector AD no local* |  |
     | Tipo de objeto de sistema conectado | **Utilizador** |  |
@@ -306,7 +306,7 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
 
     | Atributo | Valor | Detalhes |
     | ----- | ------ | --- |
-    | Name | *Fornecer um nome* | Por exemplo, *out to AAD – UserType* |
+    | Nome | *Fornecer um nome* | Por exemplo, *out to AAD – UserType* |
     | Descrição | *Fornecer uma descrição* ||
     | Sistema Conectado | *Selecione o conector AAD* ||
     | Tipo de objeto de sistema conectado | **Utilizador** ||
@@ -392,7 +392,7 @@ Re-activar o programador de sincronização incorporado:
 2. Re-activar a sincronização programada executando o cmdlet `Set-ADSyncScheduler -SyncCycleEnabled $true` .
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Leia mais sobre o modelo de configuração na [Compreensão declarativa.](concept-azure-ad-connect-sync-declarative-provisioning.md)
 * Leia mais sobre a linguagem de expressão em [Compreensão Declarativas Expressões.](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
 

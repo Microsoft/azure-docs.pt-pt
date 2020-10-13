@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
 ms.openlocfilehash: 09485d3279e4ca4fff5b6492bab432d8034d7e42
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91449419"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solução de gestão de Conector de Insights de Aplicação (Deprecada)
@@ -60,7 +60,7 @@ Ao contrário da maioria das outras soluções de Log Analytics, os dados não s
 1. Ativar a solução Azure Web Apps Analytics a partir do [mercado Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview) ou utilizando o processo descrito nas [soluções Add Log Analytics da Galeria de Soluções](../insights/solutions.md).
 2. Navegue pelo [portal Azure](https://portal.azure.com). Selecione **Todos os serviços** para abrir Insights de Aplicação. Em seguida, procure por Insights de Aplicação. 
 3. Em **Subscrições**, selecione uma subscrição que tenha recursos de Insights de Aplicação e, em seguida, em **Nome**, selecione uma ou mais aplicações.
-4. Clique em **Save** (Guardar).
+4. Clique em **Guardar**.
 
 Em aproximadamente 30 minutos, os dados ficam disponíveis e o azulejo application Insights é atualizado com dados, como a seguinte imagem:
 
@@ -316,7 +316,7 @@ Também pode obter uma lista de aplicações que utilizem uma consulta de regist
 ApplicationInsights | summarize by ApplicationName
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Utilize [a Pesquisa de Registo](../log-query/log-query-overview.md) para ver informações detalhadas para as suas aplicações Application Insights.
 

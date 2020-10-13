@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 01/27/2020
 ms.openlocfilehash: 5206565b85d1551e5e551f1dfe75d28c93bc53f0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90898215"
 ---
 # <a name="summarize-data"></a>Resumir Dados
@@ -42,7 +42,7 @@ O módulo calcula as pontuações importantes para cada coluna e devolve uma lin
 
 1. Envie o oleoduto.
 
-## <a name="results"></a>Resultados
+## <a name="results"></a>Results
 
 O relatório do módulo pode incluir as seguintes estatísticas. 
 
@@ -60,7 +60,7 @@ O relatório do módulo pode incluir as seguintes estatísticas.
 |**Mediana**|Valor mediano da coluna|
 |**3º Quartil**|Valor no terceiro quartil|
 |**Modo**|Modo de valores de coluna|
-|**Alcance**|Inteiro representando o número de valores entre os valores máximo e mínimo|
+|**Intervalo**|Inteiro representando o número de valores entre os valores máximo e mínimo|
 |**Variação da amostra**|Variação para coluna; ver Nota|
 |**Desvio padrão da amostra**|Desvio padrão para colunas; ver Nota|
 |**Distorção da amostra**|Skewness para a coluna; ver Nota|

@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7f6c75337c27e14fb77161cf641cde0a582901e7
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90014638"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Diretório Ativo Azure Conecta FAQ
@@ -32,7 +32,7 @@ A Microsoft recomenda endurecer o seu servidor Azure AD Connect para diminuir a 
 
 * Implementar Azure AD Connect num servidor de união de domínios e restringir o acesso administrativo a administradores de domínios ou a outros grupos de segurança rigorosamente controlados
 
-Para saber mais, consulte: 
+Para saber mais, veja: 
 
 * [Assegurar grupos de administradores](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
 
@@ -52,7 +52,7 @@ A instalação Azure AD Connect só é suportada quando utilizar o assistente de
 A partir das construções de fevereiro de 2016, este cenário é apoiado.
 
 **P: O agente de saúde Azure Ative Directory Domain Services (Azure AD DS) funciona no núcleo do servidor?**  
-Yes. Depois de instalar o agente, pode concluir o processo de registo utilizando o seguinte cmdlet PowerShell: 
+Sim. Depois de instalar o agente, pode concluir o processo de registo utilizando o seguinte cmdlet PowerShell: 
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
 
@@ -117,7 +117,7 @@ Segue-se um documento informativo que apresenta algumas das melhores práticas q
 - Mantenha a consistência da versão entre os Servidores AD AD do Azure tanto quanto possível 
 
 **P: Posso permitir que o Azure AD Connect crie a conta Azure AD Connector na máquina do Grupo de Trabalho?**
-Não.  Para permitir que o Azure AD Connect crie automaticamente a conta Azure AD Connector, a máquina deve ser ligada ao domínio.  
+N.º  Para permitir que o Azure AD Connect crie automaticamente a conta Azure AD Connector, a máquina deve ser ligada ao domínio.  
 
 ## <a name="network"></a>Rede
 **P: Tenho uma firewall, dispositivo de rede, ou outra coisa que limita o tempo que as ligações podem permanecer abertas na minha rede. Qual deve ser o limite de tempo do lado do cliente quando eu usar O AZure AD Connect?**  
@@ -147,10 +147,10 @@ Utilize as orientações descritas no artigo [renovar certificados.](how-to-conn
 
 ## <a name="environment"></a>Ambiente
 **P: É suportado para renomear o servidor depois de Azure AD Connect ter sido instalado?**  
-Não. A alteração do nome do servidor torna o motor de sincronização incapaz de se ligar à instância da base de dados SQL e o serviço não pode ser iniciado.
+N.º A alteração do nome do servidor torna o motor de sincronização incapaz de se ligar à instância da base de dados SQL e o serviço não pode ser iniciado.
 
 **P: As regras de sincronização cryptográficas de próxima geração (NGC) são suportadas numa máquina ativada por FIPS?**  
-Não.  Não são suportadas.
+N.º  Não são suportadas.
 
 **Q. Se desativei um dispositivo sincronizado (por exemplo: HAADJ) no portal Azure, por que é reativado?**<br>
 Os dispositivos sincronizados podem ser da autoria ou dominados nas instalações. Se um dispositivo sincronizado estiver ativado no local, poderá ser reativado no portal Azure, mesmo que tenha sido previamente desativado por um administrador. Para desativar um dispositivo sincronizado, utilize o Ative Directory no local para desativar a conta do computador.
@@ -178,7 +178,7 @@ Não, definir manualmente o atributo ImmutableId num grupo AD Azure existente ou
 Com exceção dos cmdlets que estão documentados neste site, outros cmdlets PowerShell encontrados no Azure AD Connect não são suportados para uso do cliente.
 
 **P: Posso utilizar a opção "Exportação/importação de servidores" encontrada no Gestor de Serviços de Sincronização para mover a configuração entre servidores?**  
-Não. Esta opção não recupera todas as definições de configuração e não deve ser utilizada. Em vez disso, utilize o assistente para criar a configuração base no segundo servidor e use o editor de regras de sincronização para gerar scripts PowerShell para mover qualquer regra personalizada entre servidores. Para mais informações, consulte [a migração swing.](how-to-upgrade-previous-version.md#swing-migration)
+N.º Esta opção não recupera todas as definições de configuração e não deve ser utilizada. Em vez disso, utilize o assistente para criar a configuração base no segundo servidor e use o editor de regras de sincronização para gerar scripts PowerShell para mover qualquer regra personalizada entre servidores. Para mais informações, consulte [a migração swing.](how-to-upgrade-previous-version.md#swing-migration)
 
 **P: As palavras-passe podem ser em cache para a página de início de Sação Azure, e este cache pode ser evitado porque contém um elemento de entrada de palavra-passe com o atributo *autocomplete = atributo "falso"?***  
 Atualmente, a modificação dos atributos HTML do campo **Palavra-Passe,** incluindo a etiqueta autocompleta, não é suportada. Estamos neste momento a trabalhar numa funcionalidade que permite o JavaScript personalizado, que permite adicionar qualquer atributo ao campo **Palavra-Passe.**
@@ -187,7 +187,7 @@ Atualmente, a modificação dos atributos HTML do campo **Palavra-Passe,** inclu
 Atualmente, a modificação dos atributos HTML do campo de entrada **password,** incluindo a etiqueta autocompleta, não é suportada. Estamos neste momento a trabalhar numa funcionalidade que permite o JavaScript personalizado, que permite adicionar qualquer atributo ao campo **Palavra-Passe.**
 
 **P: Existe uma maneira de prevenir sessões simultâneas?**  
-Não.
+N.º
 
 ## <a name="auto-upgrade"></a>Atualização automática
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 6036ff86c430422556ed4f7e1bc80fe122ed0a30
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9eee16c1ba207eb35633d7ec1a7167300d40d662
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552570"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91941046"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-n2f---expense-reports"></a>Tutorial: Integração do Diretório Ativo Azure com N2F - Relatórios de despesas
 
@@ -99,11 +99,11 @@ Para configurar o Azure AD um único sinal de inscrição com N2F - Relatórios 
 
 4. Na secção **Configuração Básica saml,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** o utilizador não tem de realizar quaisquer passos, uma vez que a aplicação já está pré-integrada com o Azure.
 
-    ![N2F - Relatórios de despesas Informações de domínio e URLs únicas informações de súmis](common/preintegrated.png)
+    ![A screenshot mostra a página de sign-on baseada em SAML com configuração SAML básica.](common/preintegrated.png)
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    ![N2F - Relatórios de despesas Informações de domínio e URLs únicas informações de súmis](common/metadata-upload-additional-signon.png)
+    ![A screenshot mostra a página Integrações onde pode adicionar Azure A D Single Sign-On.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL:  `https://www.n2f.com/app/`
 
@@ -127,23 +127,23 @@ Para configurar o Azure AD um único sinal de inscrição com N2F - Relatórios 
 
 2. Clique em **Definições** e, em seguida, selecione **Definições de Avanço** a partir do dropdown.
 
-    ![N2F - Configuração de relatórios de despesas](./media/n2f-expensereports-tutorial/configure1.png)
+    ![A screenshot mostra Definições Avançadas selecionadas.](./media/n2f-expensereports-tutorial/configure1.png)
 
 3. Selecione **separador definições de conta.**
 
-    ![N2F - Configuração de relatórios de despesas](./media/n2f-expensereports-tutorial/configure2.png)
+    ![A screenshot mostra as definições de conta selecionadas.](./media/n2f-expensereports-tutorial/configure2.png)
 
 4. Selecione **Autenticação** e, em seguida, **selecione + Adicione um separador de método de autenticação.**
 
-    ![N2F - Configuração de relatórios de despesas](./media/n2f-expensereports-tutorial/configure3.png)
+    ![A screenshot mostra a autenticação de definição de conta onde pode adicionar um método de autenticação.](./media/n2f-expensereports-tutorial/configure3.png)
 
 5. Selecione **SAML Microsoft Office 365** como método de autenticação.
 
-    ![N2F - Configuração de relatórios de despesas](./media/n2f-expensereports-tutorial/configure4.png)
+    ![O screenshot mostra o método de autenticação com o SAML Microsoft Office 365 selecionado.](./media/n2f-expensereports-tutorial/configure4.png)
 
 6. Na secção **método de autenticação,** execute os seguintes passos:
 
-    ![N2F - Configuração de relatórios de despesas](./media/n2f-expensereports-tutorial/configure5.png)
+    ![A screenshot mostra o método de autenticação onde pode introduzir os valores descritos.](./media/n2f-expensereports-tutorial/configure5.png)
 
     a. Na caixa de texto **ID** da Entidade, cole o valor do **identificador Azure AD,** que copiou a partir do portal Azure.
 
@@ -212,19 +212,19 @@ Para permitir que os utilizadores da Azure AD iniciem sessão no N2F - Relatóri
 
 2. Clique em **Definições** e, em seguida, selecione **Definições de Avanço** a partir do dropdown.
 
-    ![N2F - Despesa Adicionar utilizador](./media/n2f-expensereports-tutorial/configure1.png)
+    ![A screenshot mostra Definições Avançadas selecionadas.](./media/n2f-expensereports-tutorial/configure1.png)
 
 3. Selecione o separador **Utilizadores** do painel de navegação esquerdo.
 
-    ![N2F - Configuração de relatórios de despesas](./media/n2f-expensereports-tutorial/user1.png)
+    ![A screenshot mostra os utilizadores selecionados.](./media/n2f-expensereports-tutorial/user1.png)
 
 4. Selecione + Novo separador **de utilizador.**
 
-    ![N2F - Configuração de relatórios de despesas](./media/n2f-expensereports-tutorial/user2.png)
+    ![A screenshot mostra a nova opção de utilizador.](./media/n2f-expensereports-tutorial/user2.png)
 
 5. Na secção **Utilizador,** execute os seguintes passos:
 
-    ![N2F - Configuração de relatórios de despesas](./media/n2f-expensereports-tutorial/user3.png)
+    ![A imagem mostra a secção onde pode introduzir os valores descritos.](./media/n2f-expensereports-tutorial/user3.png)
 
     a. Na caixa de texto **do endereço de e-mail,** insira o endereço de e-mail do utilizador como ** \@ brittasimon contoso.com**.
 

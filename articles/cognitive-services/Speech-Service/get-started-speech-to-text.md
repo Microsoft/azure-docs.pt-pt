@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 09/15/2020
 ms.author: trbye
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
-zone_pivot_groups: speech-full-stack-go-objectivec-swift
+zone_pivot_groups: programming-languages-set-nineteen
 keywords: discurso ao texto, discurso ao software de texto
-ms.openlocfilehash: c2bb6d46036170fed16c3a44b6d4d760c09f7c41
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 7dcf87f47f48f321c12caedfd3ed47b1f8a5f0a1
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761634"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940813"
 ---
 # <a name="get-started-with-speech-to-text"></a>Introdução à conversão de voz em texto
 
@@ -48,6 +48,10 @@ ms.locfileid: "91761634"
 
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Python Basics include](./includes/how-to/speech-to-text-basics/speech-to-text-basics-python.md)]
+::: zone-end
+
+::: zone pivot="programming-language-curl"
+[!INCLUDE [REST include](includes/how-to/speech-to-text-basics/speech-to-text-basics-curl.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-spx"

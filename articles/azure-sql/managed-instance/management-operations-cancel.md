@@ -13,10 +13,10 @@ ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
 ms.openlocfilehash: 4ec999cc35e7d18287679c74c6d45a5aa2ecb9e7
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90997243"
 ---
 # <a name="canceling-azure-sql-managed-instance-management-operations"></a>Cancelamento de operações de gestão de instância gerida da Azure SQL
@@ -38,14 +38,14 @@ O quadro que se segue resume as operações de gestão, quer possa ou não cance
 
 Categoria  |Operação  |Cancelável  |Duração estimada do cancelamento  |
 |---------|---------|---------|---------|
-|Implementação |Criação de exemplos |Yes |90% das operações terminam em 5 minutos. |
-|Atualizar |Armazenamento de instâncias para cima/para baixo (Final geral) |No |  |
-|Atualizar |Armazenamento de instâncias escalando para cima/para baixo (Business Critical) |Yes |90% das operações terminam em 5 minutos. |
-|Atualizar |Cálculo de instância (vCores) escalando para cima e para baixo (Final geral) |Yes |90% das operações terminam em 5 minutos. |
-|Atualizar |Cálculo de exemplo (vCores) escalando para cima e para baixo (Business Critical) |Yes |90% das operações terminam em 5 minutos. |
-|Atualizar |Alteração do nível de serviço de instância (Final geral para Business Critical e vice-versa) |Yes |90% das operações terminam em 5 minutos. |
-|Eliminar |Eliminação da instância |No |  |
-|Eliminar |Eliminação de clusters virtuais (como operação iniciada pelo utilizador) |No |  |
+|Implementação |Criação de exemplos |Sim |90% das operações terminam em 5 minutos. |
+|Atualizar |Armazenamento de instâncias para cima/para baixo (Final geral) |Não |  |
+|Atualizar |Armazenamento de instâncias escalando para cima/para baixo (Business Critical) |Sim |90% das operações terminam em 5 minutos. |
+|Atualizar |Cálculo de instância (vCores) escalando para cima e para baixo (Final geral) |Sim |90% das operações terminam em 5 minutos. |
+|Atualizar |Cálculo de exemplo (vCores) escalando para cima e para baixo (Business Critical) |Sim |90% das operações terminam em 5 minutos. |
+|Atualizar |Alteração do nível de serviço de instância (Final geral para Business Critical e vice-versa) |Sim |90% das operações terminam em 5 minutos. |
+|Eliminar |Eliminação da instância |Não |  |
+|Eliminar |Eliminação de clusters virtuais (como operação iniciada pelo utilizador) |Não |  |
 
 ## <a name="cancel-management-operation"></a>Cancelar operação de gestão
 
@@ -61,7 +61,7 @@ Para cancelar as operações de gestão utilizando o portal Azure, siga estes pa
 
 1. Selecione **Cancelar a operação** na parte inferior da página. 
 
-   :::image type="content" source="media/management-operations-cancel/cancel-operation.png" alt-text="Selecione cancelar para cancelar a operação.":::
+   :::image type="content" source="media/management-operations-cancel/cancel-operation.png" alt-text="Selecione a caixa de funcionamento em curso para abrir a página de funcionamento em curso.":::
 
 1. Confirme que deseja cancelar a operação. 
 

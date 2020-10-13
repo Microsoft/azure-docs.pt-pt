@@ -2,19 +2,19 @@
 title: Amostra de herói de chat de grupo
 titleSuffix: An Azure Communication Services sample overview
 description: Visão geral da amostra de herói de chat usando os Serviços de Comunicação Azure para permitir que os desenvolvedores aprendam mais sobre o funcionamento interno da amostra e aprendam a modificá-la.
-author: ddematheu
+author: ddematheu2
 manager: nimag
 services: azure-communication-services
 ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 0a01036eb4856d9fd306a50958285bd469791f24
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 51b985cd67e1b540e2f24f2f37b19f9bff4223db
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91823871"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962994"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Começa com a amostra de herói de chat de grupo
 
@@ -32,7 +32,7 @@ Neste quickstart da amostra, vamos aprender como a amostra funciona antes de pas
 > [!IMPORTANT]
 > [Faça o download da amostra do GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Chat%20Hero%20Sample/Web/Chat)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Overview (Descrição geral)
 
 A amostra tem uma aplicação do lado do cliente e uma aplicação do lado do servidor. A **aplicação do lado do cliente** é uma aplicação web React/Redux que utiliza a estrutura fluente da Microsoft. Esta aplicação envia pedidos para uma **aplicação do ASP.NET** Core que ajuda a aplicação do lado do cliente a ligar-se ao Azure. 
 
@@ -78,7 +78,6 @@ Pode testar a amostra localmente abrindo várias sessões de navegador com o URL
 2. `git clone https://github.com/Azure/Communication.git`
 3. Pegue o `Connection String` do portal Azure. Para obter mais informações sobre as cadeias de ligação, consulte [Criar um Azure Communication Resources](../quickstarts/create-communication-resource.md)
 4. Assim que tiver `Connection String` a , Adicione o fio de ligação ao **Chat/appsettings.jsno** ficheiro encontrado por baixo da pasta Chat. Insira a sua cadeia de ligação na variável: `ResourceConnectionString` .
-5. Atualize a ENVIRONMENT_URL `./Chat/ClientApp/src/constants.tsx` com a localização do seu recurso. (por exemplo https://<RESOURCE_NAME>.communication.azure.com)
 
 ### <a name="local-run"></a>Execução local
 
@@ -97,7 +96,7 @@ Pode testar a amostra localmente abrindo várias sessões de navegador com o URL
 2. Crie um novo perfil de publicação e selecione a sua subscrição Azure.
 3. Antes de publicar, adicione a sua cadeia de ligação com `Edit App Service Settings` , e preencha `ResourceConnectionString` como chave e forneça a sua cadeia de ligação (copiada a partir de appsettings.js) como o valor.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados. Saiba mais sobre [a limpeza de recursos.](../quickstarts/create-communication-resource.md#clean-up-resources)
 
@@ -106,7 +105,7 @@ Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode
 >[!div class="nextstepaction"] 
 >[Faça o download da amostra do GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Chat%20Hero%20Sample/Web/Chat)
 
-Para obter mais informações, veja os artigos seguintes:
+Para obter mais informações, veja os seguintes artigos:
 
 - Saiba mais [sobre conceitos de chat](../concepts/chat/concepts.md)
 - Familiarize-se com a nossa [biblioteca de clientes de chat](../concepts/chat/sdk-features.md)

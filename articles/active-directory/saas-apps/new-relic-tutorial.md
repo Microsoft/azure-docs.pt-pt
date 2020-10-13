@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/16/2020
 ms.author: jeedes
-ms.openlocfilehash: 19a471b9339828250baa190b1de57c86eb22b30c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8d24d0b71ce537b81ee729109b398042c3b60c5
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88554469"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91940962"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-new-relic-by-account"></a>Tutorial: Azure Ative Directory integração única (SSO) com Nova Relíquia por Conta
 
@@ -134,7 +134,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 2. No menu em cima, clique em **Definições de Conta**.
    
-    ![Definições de conta](./media/new-relic-tutorial/ic797036.png "Definições de conta")
+    ![A screenshot mostra a página Welcome com as definições de Conta selecionadas.](./media/new-relic-tutorial/ic797036.png "Definições de conta")
 
 3. Clique no separador **Segurança e autenticação** e, em seguida, clique **no sinal único no** separador.
    
@@ -158,11 +158,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 2. No menu em cima, clique em **Definições de Conta**.
    
-    ![Definições de conta](./media/new-relic-tutorial/ic797040.png "Definições de conta")
+    ![A screenshot mostra as definições de conta selecionadas na página Welcome.](./media/new-relic-tutorial/ic797040.png "Definições de conta")
 
 3. No painel **conta** no lado esquerdo, clique em **Resumo**e, em seguida, clique em **Adicionar utilizador**.
    
-    ![Definições de conta](./media/new-relic-tutorial/ic797041.png "Definições de conta")
+    ![A screenshot mostra o painel resumo onde pode selecionar Adicionar utilizador.](./media/new-relic-tutorial/ic797041.png "Definições de conta")
 
 4. No diálogo dos **utilizadores Ativos,** execute os seguintes passos:
    

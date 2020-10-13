@@ -13,10 +13,10 @@ ms.author: celested
 ms.reviewer: asteen, jlu, hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bed6bc43dfc15abf2bdf9f38a5de2240d348d6fb
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89320261"
 ---
 # <a name="configure-the-stay-signed-in-prompt-for-azure-ad-accounts"></a>Configure o 'Stay signed in?' solicitação para contas AD AZure
@@ -40,20 +40,15 @@ O diagrama seguinte mostra o fluxo de entrada do utilizador para um inquilino ge
    * Se escolher **Não,** a opção **Stay in?**
    * Se escolher **Sim,** a opção **Stay in?**
 
-    :::image type="content" source="./media/keep-me-signed-in/kmsi-company-branding-advanced-settings-kmsi-1.png" alt-text="Screenshot mostra a opção Show para permanecer assinado na definição":::
+    :::image type="content" source="./media/keep-me-signed-in/kmsi-company-branding-advanced-settings-kmsi-1.png" alt-text="Diagrama mostrando o fluxo de entrada do utilizador para um inquilino gerido vs. federado":::
 
 ## <a name="troubleshoot-sign-in-issues"></a>Problemas de resolução de problemas
 
 Se um utilizador não agir no **registo de permanência assinado?**
 
-:::image type="content" source="./media/keep-me-signed-in/kmsi-stay-signed-in-prompt.png" alt-text="Mostra a estadia assinada? rápido":::
+:::image type="content" source="./media/keep-me-signed-in/kmsi-stay-signed-in-prompt.png" alt-text="Diagrama mostrando o fluxo de entrada do utilizador para um inquilino gerido vs. federado" quando o utilizador estava a iniciar a sessão.
 
-Os detalhes sobre o erro de inscrição são os seguintes e realçados no exemplo.
-
-* **Iniciar em código de erro:** 50140
-* **Razão de avaria**: Este erro ocorreu devido à interrupção "Mantenha-me assinado" quando o utilizador estava a iniciar a sessão.
-
-:::image type="content" source="./media/keep-me-signed-in/kmsi-sign-ins-log-entry.png" alt-text="Exemplo de entrada de registo de login com o manter-me assinado em interrupção":::
+:::image type="content" source="./media/keep-me-signed-in/kmsi-sign-ins-log-entry.png" alt-text="Diagrama mostrando o fluxo de entrada do utilizador para um inquilino gerido vs. federado":::
 
 Pode impedir que os utilizadores vejam a interrupção definindo **a opção 'Mostrar' para permanecerem assinados na** definição de **Nº** nas definições avançadas de marca. Isto desativa a solicitação KMSI para todos os utilizadores do seu diretório AD Azure.
 
@@ -68,7 +63,7 @@ Para garantir que o pedido KMSI só é mostrado quando pode beneficiar o utiliza
 * O s-in ocorre durante o fluxo de consentimento do utilizador ou administração
 * O controlo persistente da sessão do navegador está configurado numa política de acesso condicional
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre outras definições que afetam o tempo limite da sessão de sessão de sessão:
 

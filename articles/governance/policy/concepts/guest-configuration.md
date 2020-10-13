@@ -3,12 +3,12 @@ title: Aprenda a auditar o conteúdo das máquinas virtuais
 description: Saiba como a Azure Policy utiliza o agente de Configuração de Convidados para auditar as definições dentro de máquinas virtuais.
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: 951960793ebda50fdb87d266c4dc8561f2fcd70f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d396403f23df1e0c48ea66e0c2a23866f790d3c5
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88756695"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974724"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Compreender a Configuração de Convidado do Azure Policy
 
@@ -116,9 +116,7 @@ As políticas de configuração do hóspede utilizam o efeito **AuditIfNotExists
 As políticas **auditIfNotExists** não devolverão os resultados de conformidade até que todos os requisitos sejam cumpridos na máquina. As necessidades são descritas na secção [Os requisitos de implantação das máquinas virtuais Azure](#deploy-requirements-for-azure-virtual-machines)
 
 > [!IMPORTANT]
-> Num lançamento prévio da Configuração de Convidados, foi necessária uma iniciativa para combinar definições **de DeployIfNoteExists** e **AuditIfNotExists.** As definições **de DeployIfNotExists** já não são necessárias. As definições e os intiaitivos estão `[Deprecated]` rotulados, mas as atribuições existentes continuarão a funcionar.
->
-> É necessário um passo manual. Se já atribuiu as iniciativas políticas na `Guest Configuration` categoria, elimine a atribuição de políticas e atribua a nova definição. As políticas de configuração do hóspede têm um padrão de nome da seguinte forma: `Audit <Windows/Linux> machines that <non-compliant condition>`
+> Num lançamento prévio da Configuração de Convidados, foi necessária uma iniciativa para combinar definições **de DeployIfNoteExists** e **AuditIfNotExists.** As definições **de DeployIfNotExists** já não são necessárias. As definições e os intiaitivos estão `[Deprecated]` rotulados, mas as atribuições existentes continuarão a funcionar. Para obter informações consulte o post do blog: [Alteração importante lançada para as políticas de auditoria de Configuração de Hóspedes](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
 
 A Azure Policy utiliza a conformidade do fornecedor de recursos de configuração do **hóspedeSse** a propriedade para reportar a conformidade no nó **compliance.** Para obter mais informações, consulte [obter dados de conformidade.](../how-to/get-compliance-data.md)
 

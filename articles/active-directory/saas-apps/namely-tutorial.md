@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 00ddd61209af6e0d16b7f7579a6e8729cde0cdf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be48e4bb4f8364e9fafff69e2dc9eb6aa8db223c
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552480"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91941007"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-namely"></a>Tutorial: Integração do Diretório Ativo Azure com nomeadamente
 
@@ -128,19 +128,19 @@ Para configurar a Azure AD um único sinal de inscrição com a namely, execute 
 
 2. Na barra de ferramentas em cima, clique em **Empresa**.
    
-    ![Configurar Sign-On Individuais](./media/namely-tutorial/tutorial_namely_06.png) 
+    ![A screenshot mostra o valor da Empresa selecionado.](./media/namely-tutorial/tutorial_namely_06.png) 
 
 3. Clique no separador **Definições**.
    
-    ![Configurar Sign-On Individuais](./media/namely-tutorial/tutorial_namely_07.png) 
+    ![A screenshot mostra o separador Definições da Empresa selecionado.](./media/namely-tutorial/tutorial_namely_07.png) 
 
 4. Clique **em SAML**.
    
-    ![Configurar Sign-On Individuais](./media/namely-tutorial/tutorial_namely_08.png) 
+    ![A screenshot mostra SAML selecionado.](./media/namely-tutorial/tutorial_namely_08.png) 
 
 5. Na página **definições DE SAML,** execute os seguintes passos:
    
-    ![Configurar Sign-On Individuais](./media/namely-tutorial/tutorial_namely_09.png)
+    ![A screenshot mostra configurações SAML onde pode introduzir os valores descritos.](./media/namely-tutorial/tutorial_namely_09.png)
  
     a. Clique **em Ativar o SAML**. 
 
@@ -211,15 +211,15 @@ O objetivo desta secção é criar um utilizador chamado Britta Simon em Nome.
 
 2. Na barra de ferramentas em cima, clique em **People**.
    
-    ![Configurar Sign-On Individuais](./media/namely-tutorial/tutorial_namely_10.png) 
+    ![A screenshot mostra o valor do Povo selecionado.](./media/namely-tutorial/tutorial_namely_10.png) 
 
 3. Clique no **separador Diretório.**
    
-    ![Configurar Sign-On Individuais](./media/namely-tutorial/tutorial_namely_11.png) 
+    ![A screenshot mostra o separador People Directory selecionado.](./media/namely-tutorial/tutorial_namely_11.png) 
 
 4. Clique **em Adicionar Nova Pessoa.**
 
-    ![Configurar Sign-On Individuais](./media/namely-tutorial/tutorial_namely_12.png)
+    ![A screenshot mostra a opção Add New Person.](./media/namely-tutorial/tutorial_namely_12.png)
 
 5. No diálogo **Add New Person,** execute os seguintes passos:
 
