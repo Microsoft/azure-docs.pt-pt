@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/21/2020
 ms.author: jeedes
 ms.openlocfilehash: 995cd8470d4fbbf3dc340139a86275593a3d5d28
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88815228"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tigerconnect-secure-messenger"></a>Tutorial: Integração do Diretório Ativo Azure com TigerConnect Secure Messenger
@@ -93,7 +93,7 @@ Para configurar o Azure AD single sign-on com TigerConnect Secure Messenger, tom
     > [!NOTE]
     > O valor **do Identificador (ID da Entidade)** não é real. Atualize este valor com o identificador real. Para obter o valor, contacte a equipa de [suporte tigerConnect Secure Messenger](mailto:prosupport@tigertext.com). Também pode consultar os padrões indicados no painel **de configuração SAML básico** no portal Azure.
 
-1. Na **configuração de um único sign-on com painel SAML,** na secção **certificado de assinatura SAML,** selecione **Descarregue** para descarregar o **Metdata XML** da Federação das opções dadas e guarde-o no seu computador.
+1. Na **configuração single Sign-On com painel SAML,** na secção Certificado de Assinatura **SAML,** selecione **Descarregamento** para descarregar o **Metdata XML** da Federação das opções dadas e guarde-o no seu computador.
 
     ![A opção de descarregamento de metadados XML da Federação](common/metadataxml.png)
 

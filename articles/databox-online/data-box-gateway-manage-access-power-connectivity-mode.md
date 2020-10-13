@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 27b6d8ca61ed10b5c7362e089fe94d8d64164878
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91743867"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Gerir o modo de acesso, energia e conectividade para o seu Gateway Azure Data Box
