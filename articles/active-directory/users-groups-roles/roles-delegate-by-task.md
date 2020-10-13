@@ -15,10 +15,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 692b20bf301bbd7bf03ea1af5527e08d947b50da
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88798368"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Funções de administrador por tarefa de administração no Azure Ative Directory
@@ -52,7 +52,7 @@ Criar, ler, atualizar e eliminar fluxos de utilizadores de edição de perfis | 
 Criar, ler, atualizar e eliminar fluxos de utilizador de entrada | Administrador de fluxo de id externo | 
 Criar, ler, atualizar e eliminar o fluxo de utilizador de inscrição |Administrador de fluxo de id externo | 
 Criar, ler, atualizar e eliminar atributos do utilizador | Administrador de atributo de fluxo de id do utilizador externo | 
-Criar, ler, atualizar e eliminar utilizadores | Administrador do Utilizador
+Criar, ler, atualizar e eliminar utilizadores | Administrador de Utilizadores
 Leia todas as configurações | Leitor global | 
 Leia os registos de auditoria b2C | Leitor global[(ver documentação)](../../active-directory-b2c/faq.md) | 
 
@@ -164,7 +164,7 @@ Atribuir licença | Administrador de utilizadores |
 Criar grupos | Administrador de grupos | Administrador de utilizadores
 Criar, atualizar ou eliminar a revisão de acesso de um grupo ou de uma aplicação | Administrador de utilizadores | 
 Gerir a expiração do grupo | Administrador de utilizadores | 
-Gerir definições do grupo | Administrador de Grupos | Administrador do Utilizador | 
+Gerir definições do grupo | Administrador de Grupos | Administrador de Utilizadores | 
 Leia todas as configurações (exceto a adesão escondida) | Leitores de diretório | Papel de utilizador predefinido[(ver documentação)](../fundamentals/users-default-permissions.md)
 Ler membros escondidos | Membro do grupo | Proprietário do grupo, administrador de password, administrador de troca, administrador sharePoint, administrador de equipas, administrador do utilizador
 Ler membros de grupos com adesão oculta | Administrador helpdesk | Administrador de utilizadores, administrador de equipas
@@ -256,9 +256,9 @@ Configurar métodos de autenticação | Administrador Global |
 Configurar a personalização | Administrador Global |
 Notificação de configure | Administrador Global |
 Configurar a integração no local | Administrador Global |
-Configure propriedades de reset de palavra-passe | Administrador do Utilizador | Administrador Global
+Configure propriedades de reset de palavra-passe | Administrador de Utilizadores | Administrador Global
 Configure registo | Administrador Global |
-Leia todas as configurações | Administrador de Segurança | Administrador do Utilizador |
+Leia todas as configurações | Administrador de Segurança | Administrador de Utilizadores |
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
 

@@ -10,13 +10,13 @@ ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
 ms.openlocfilehash: badf10da8af0ed3829deb2498b51b5d5c8ce6a93
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91604412"
 ---
-# <a name="steps-to-add-a-role-assignment"></a>Passos para adicionar uma atribuição de papel
+# <a name="steps-to-add-a-role-assignment"></a>Passos para adicionar uma atribuição de função
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Este artigo descreve os passos de alto nível para adicionar uma atribuição de papel utilizando o [portal Azure](role-assignments-portal.md) [, Azure PowerShell,](role-assignments-powershell.md) [Azure CLI,](role-assignments-cli.md)ou a [API REST](role-assignments-rest.md).
 
@@ -86,9 +86,9 @@ Assim que souberes o diretor de segurança, o papel e o alcance, podes atribuir 
 Confira os seguintes artigos para obter etapas detalhadas sobre como adicionar atribuições de funções.
 
 - [Adicionar ou remover atribuições de funções do Azure com o portal do Azure](role-assignments-portal.md)
-- [Adicione ou remova atribuições de funções Azure usando Azure PowerShell](role-assignments-powershell.md)
-- [Adicione ou remova atribuições de funções Azure usando Azure CLI](role-assignments-cli.md)
-- [Adicione ou remova atribuições de funções Azure usando a API REST](role-assignments-rest.md)
+- [Utilizar o Azure PowerShell para adicionar ou remover atribuições de funções do Azure](role-assignments-powershell.md)
+- [Utilizar a CLI do Azure para adicionar ou remover atribuições de funções do Azure](role-assignments-cli.md)
+- [Utilizar a API REST para adicionar ou remover atribuições de funções do Azure](role-assignments-rest.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

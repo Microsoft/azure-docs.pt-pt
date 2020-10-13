@@ -7,10 +7,10 @@ author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
 ms.openlocfilehash: 45a10ddce165626bfbadb0ba0b3d68b81709c3bb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87326142"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Solução de monitorização de desempenho de rede FAQ
@@ -149,7 +149,7 @@ NetworkMonitoring
 O NPM apenas identifica o nome IP e anfitrião do lúpulo de rede subjacente (comutadores, routers, servidores, etc.) entre os IPs de origem e destino. Também identifica a latência entre estes lúpulos identificados. Não monitoriza individualmente estes lúpulos subjacentes.
 
 ### <a name="can-npm-be-used-to-monitor-network-connectivity-between-azure-and-aws"></a>O NPM pode ser utilizado para monitorizar a conectividade da rede entre o Azure e o AWS?
-Yes. Consulte as [redes monitor Azure, AWS e no local utilizando NPM](/archive/blogs/msoms/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor) para obter mais detalhes.
+Sim. Consulte as [redes monitor Azure, AWS e no local utilizando NPM](/archive/blogs/msoms/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor) para obter mais detalhes.
 
 ### <a name="is-the-expressroute-bandwidth-usage-incoming-or-outgoing"></a>O uso da largura de banda ExpressRoute está a chegar ou a sair?
 O uso da largura de banda é o total de largura de banda de entrada e saída. É expressa em Bits/seg.
@@ -233,7 +233,7 @@ Isto pode acontecer se a firewall do anfitrião ou a firewall intermédia (firew
 * Para verificar se uma firewall de rede intermédia ou Azure NSG não bloqueia a comunicação na porta necessária, utilize o utilitário PsPing de terceiros utilizando as instruções abaixo:
   * utilitário psping está disponível para download [aqui](/sysinternals/downloads/psping) 
   * Corra seguindo o comando do nó de origem.
-    * psping -n 15 \<destination node IPAddress\> :portNumber Por defeito NPM usa porta 8084. Caso tenha alterado explicitamente esta introdução utilizando o EnableRules.ps1 script, insira o número de porta personalizado que está a utilizar). Este é um ping da máquina Azure para o local
+    * psping -n 15 \<destination node IPAddress\> :p ortNumber Por defeito NPM usa porta 8084. Caso tenha alterado explicitamente esta introdução utilizando o EnableRules.ps1 script, insira o número de porta personalizado que está a utilizar). Este é um ping da máquina Azure para o local
 * Verifique se os pings são bem sucedidos. Caso contrário, indica que uma firewall de rede intermédia ou a Azure NSG está a bloquear o tráfego nesta porta.
 * Agora, executar o comando do nó de destino para o nó de origem IP.
 

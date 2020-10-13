@@ -4,10 +4,10 @@ description: Aprenda a resolver problemas criando, atribuindo e removendo planta
 ms.date: 06/29/2020
 ms.topic: troubleshooting
 ms.openlocfilehash: e8362e2a22317d73e0fd392bd497cd9f2c5ffe4f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89651329"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Erros de resolução de problemas usando plantas Azure
@@ -18,7 +18,7 @@ Pode encontrar erros ao criar, atribuir ou remover plantas. Este artigo descreve
 
 Muitos erros serão o resultado da atribuição de uma planta a um âmbito. Quando uma atribuição falha, a planta fornece detalhes sobre a implementação falhada. Esta informação indica o problema para que possa ser corrigida e a próxima implantação seja bem sucedida.
 
-1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas.**
+1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Esquemas**.
 
 1. Selecione **as plantas atribuídas** a partir da página à esquerda e use a caixa de pesquisa para filtrar as atribuições de planta para encontrar a atribuição falhada. Também pode classificar a tabela de atribuições pela coluna **Provisioning State** para ver todas as atribuições falhadas agrupadas.
 
@@ -77,7 +77,7 @@ Uma atribuição de plantas pode ficar presa num estado não terminal quando eli
 
 As atribuições de plantas num estado não terminal são automaticamente **marcadas Falha após** um intervalo de _6 horas._ Uma vez que o tempo limite tenha ajustado o estado da atribuição da planta, a eliminação pode ser novamente experimentada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

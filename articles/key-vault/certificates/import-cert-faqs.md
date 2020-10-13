@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: sebansal
 ms.openlocfilehash: 3b87d68fb9b5fa5f5f8dec43c39ea8b7dbf08b93
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89651859"
 ---
 # <a name="importing-azure-key-vault-certificates-faq"></a>Certificação de Azure Key Vault FAQ
@@ -75,12 +75,12 @@ Pode solicitar à sua AC que forneça o certificado no formato requerido. Existe
 Sim, pode importar certificados de qualquer AC, mas o seu cofre-chave não poderá renová-los automaticamente. Pode definir lembretes para ser notificado sobre a expiração do certificado.
 
 ### <a name="if-i-import-a-certificate-from-a-partner-ca-will-the-autorenewal-feature-still-work"></a>Se eu importar um certificado de um parceiro CA, a função de autorenewal ainda funcionará?
-Yes. Depois de ter carregado o certificado, não se esqueça de especificar a autorotação na política de emissão do certificado. As suas definições permanecerão em vigor até que a versão do próximo ciclo ou certificado seja lançada.
+Sim. Depois de ter carregado o certificado, não se esqueça de especificar a autorotação na política de emissão do certificado. As suas definições permanecerão em vigor até que a versão do próximo ciclo ou certificado seja lançada.
 
 ### <a name="why-cant-i-see-the-app-service-certificate-that-i-imported-to-key-vault"></a>Por que não posso ver o certificado do Serviço de Aplicações que importei para o Key Vault? 
 Se importou o certificado com sucesso, deverá poder confirmá-lo indo ao painel **Secrets.**
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Certificados Azure Key Vault](/azure/key-vault/certificates/about-certificates)

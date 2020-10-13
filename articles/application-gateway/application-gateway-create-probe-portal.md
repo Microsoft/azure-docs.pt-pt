@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: victorh
 ms.openlocfilehash: 5dc8bf670e14d8a44b10b8093d786091791ae793
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86186804"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Crie uma sonda personalizada para o Application Gateway utilizando o portal
@@ -24,7 +24,7 @@ ms.locfileid: "86186804"
 
 Neste artigo, você adiciona uma sonda de saúde personalizada a uma porta de entrada de aplicação existente através do portal Azure. Utilizando as sondas de saúde, o Azure Application Gateway monitoriza a saúde dos recursos na piscina traseira.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Se ainda não tiver um gateway de aplicações, visite [Criar um Gateway de Aplicação](application-gateway-create-gateway-portal.md) para criar uma porta de aplicação para trabalhar.
 
@@ -46,7 +46,7 @@ As sondas são configuradas num processo de duas etapas através do portal. O pr
 
    |**Definição** | **Valor** | **Detalhes**|
    |---|---|---|
-   |**Name**|customProbe|Este valor é um nome amigável dado à sonda que é acessível no portal.|
+   |**Nome**|customProbe|Este valor é um nome amigável dado à sonda que é acessível no portal.|
    |**Protocolo**|HTTP OU HTTPS | O protocolo que a sonda usa. |
    |**Anfitrião**|i.e contoso.com|Este valor é o nome do anfitrião virtual (diferente do nome do anfitrião VM) que está a ser gerido no servidor de aplicações. A sonda é enviada para \<protocol\> \<host name\> :\<port\>/\<urlPath\>|
    |**Escolha o nome do anfitrião a partir das definições HTTP backend**|Sim ou Não|Define o cabeçalho do *anfitrião* na sonda para o nome do anfitrião a partir das definições HTTP às quais esta sonda está associada. Especialmente necessário no caso de apoios multi-inquilinos, como o serviço de aplicações Azure. [Saiba mais](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
@@ -97,7 +97,7 @@ As sondas são configuradas num processo de duas etapas através do portal. O pr
 
    |**Definição** | **Valor** | **Detalhes**|
    |---|---|---|
-   |**Name**|customProbe|Este valor é um nome amigável dado à sonda que é acessível no portal.|
+   |**Nome**|customProbe|Este valor é um nome amigável dado à sonda que é acessível no portal.|
    |**Protocolo**|HTTP OU HTTPS | O protocolo que a sonda usa. |
    |**Anfitrião**|i.e contoso.com|Este valor é o nome do anfitrião virtual (diferente do nome do anfitrião VM) que está a ser gerido no servidor de aplicações. A sonda é enviada para (protocolo)://(nome de anfitrião):(port from httpsetting)/urlPath.  Isto é aplicável quando vários sites são configurados no Gateway de aplicação. Se o Gateway de Aplicação estiver configurado para um único local, insira '127.0.0.1'.|
    |**Escolha o nome do anfitrião a partir das definições HTTP backend**|Sim ou Não|Define o cabeçalho do *anfitrião* na sonda para o nome de anfitrião do recurso back-end na piscina de back-end associada à definição HTTP à qual esta sonda está associada. Especialmente necessário no caso de apoios multi-inquilinos, como o serviço de aplicações Azure. [Saiba mais](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|

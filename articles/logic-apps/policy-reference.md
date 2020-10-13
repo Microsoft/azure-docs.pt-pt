@@ -6,10 +6,10 @@ ms.topic: reference
 ms.suite: integration
 ms.custom: subject-policy-reference
 ms.openlocfilehash: 7e645e1f22424e36d4cedf5fe429af078d9a6b54
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91822469"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-logic-apps"></a>Definições incorporadas da Política Azure para apps Azure Logic

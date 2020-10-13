@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 06/25/2020
 ms.author: osamaz
 ms.openlocfilehash: 4f513da4e7883cd273098039c9c4a4645d849f0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85516341"
 ---
 # <a name="azure-for-network-engineers"></a>Azure para engenheiros de rede
@@ -79,7 +79,7 @@ A combinação de rotas que cria, as rotas padrão do Azure e quaisquer rotas pr
 ### <a name="network-security-groups"></a>Grupos de Segurança de Rede
 As regras de segurança eficazes aplicadas a uma interface de rede são uma agregação das regras existentes no NSG associada a uma interface de rede, e a sub-rede em que a interface de rede está. Pode ver todas as regras de segurança eficazes dos NSGs que são aplicados nas interfaces de rede dos seus VM navegando para o NIC via Portal, PowerShell ou CLI.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Conheça a [rede virtual.][VNet]
 

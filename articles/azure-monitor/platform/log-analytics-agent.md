@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
 ms.openlocfilehash: 9f0a7b6f68c5a3adeb320fd18bec2f195a833dbf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91310004"
 ---
 # <a name="log-analytics-agent-overview"></a>Visão geral do agente do Log Analytics
@@ -39,7 +39,7 @@ Não há qualquer custo para o agente Log Analytics, mas pode incorrer em encarg
 ## <a name="data-collected"></a>Dados recolhidos
 A tabela que se segue lista os tipos de dados que pode configurar um espaço de trabalho Log Analytics para recolher de todos os agentes conectados. Ver [O que é monitorizado pelo Azure Monitor?](../monitor-reference.md)
 
-| Origem de dados | Description |
+| Origem de dados | Descrição |
 | --- | --- |
 | [Registos do Evento Windows](data-sources-windows-events.md) | Informação enviada para o sistema de registo de eventos do Windows. |
 | [Syslog](data-sources-syslog.md)                     | Informação enviada para o sistema de registo de eventos Linux. |
@@ -111,10 +111,10 @@ A tabela que se segue lista as informações de configuração de procuração e
 
 |Recursos do Agente|Portas |Direção |Inspeção de HTTPS direto|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |Porto 443 |Saída|Yes |  
-|*.oms.opinsights.azure.com |Porto 443 |Saída|Yes |  
-|*.blob.core.windows.net |Porto 443 |Saída|Yes |
-|*.azure-automation.net |Porto 443 |Saída|Yes |
+|*.ods.opinsights.azure.com |Porto 443 |Saída|Sim |  
+|*.oms.opinsights.azure.com |Porto 443 |Saída|Sim |  
+|*.blob.core.windows.net |Porto 443 |Saída|Sim |
+|*.azure-automation.net |Porto 443 |Saída|Sim |
 
 Para obter informações sobre firewall necessárias para o Governo de Azure, consulte [a gestão do Governo Azure](../../azure-government/compare-azure-government-global-azure.md#azure-monitor). 
 

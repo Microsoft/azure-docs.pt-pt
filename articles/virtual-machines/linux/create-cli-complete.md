@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/14/2017
 ms.author: cynthn
 ms.openlocfilehash: 4348d3d71259b5bdf63b1c52af53bff59c650086
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87829021"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Crie uma máquina virtual Linux completa com o Azure CLI
@@ -103,7 +103,7 @@ az network public-ip create \
     --dns-name mypublicdns
 ```
 
-Saída:
+Resultado:
 
 ```json
 {
@@ -173,7 +173,7 @@ Examine o grupo de segurança da rede e as regras com [a rede az nsg show:](/cli
 az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGroup
 ```
 
-Saída:
+Resultado:
 
 ```json
 {
@@ -336,7 +336,7 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-Saída:
+Resultado:
 
 ```json
 {
@@ -506,7 +506,7 @@ SSH para o seu VM com a entrada DNS que forneceu quando criou o endereço IP pú
 ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
 ```
 
-Saída:
+Resultado:
 
 ```bash
 The authenticity of host 'mypublicdns.eastus.cloudapp.azure.com (13.90.94.252)' can't be established.

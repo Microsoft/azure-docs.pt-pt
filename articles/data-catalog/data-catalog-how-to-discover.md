@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
 ms.openlocfilehash: 4eb689b17df8236a00b5914912d1927804944f25
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87081207"
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Como descobrir fontes de dados no Azure Data Catalog
@@ -37,7 +37,7 @@ Embora a pesquisa por texto gratuita por defeito seja simples e intuitiva, tamb�
 | --- | --- | --- |
 | Pesquisa básica |Pesquisa básica que utiliza um ou mais termos de pesquisa. Os resultados são quaisquer ativos que correspondam a qualquer propriedade com um ou mais dos termos especificados. |`sales data` |
 | Escoagem de propriedade |Devolva apenas fontes de dados em que o termo de pesquisa é combinado com a propriedade especificada. |`name:finance` |
-| Operadores Booleanos |Alargar ou reduzir uma pesquisa utilizando operações booleanas. |`finance NOT corporate` |
+| Operadores booleanos |Alargar ou reduzir uma pesquisa utilizando operações booleanas. |`finance NOT corporate` |
 | Agrupamento com parênteses |Use parênteses para agrupar partes da consulta para alcançar um isolamento lógico, especialmente em conjunto com os operadores booleanos. |`name:finance AND (tags:Q1 OR tags:Q2)` |
 | Operadores de comparação |Utilize comparações que não a igualdade para propriedades que tenham tipos de dados numéricos e data. |`modifiedTime > "11/05/2014"` |
 

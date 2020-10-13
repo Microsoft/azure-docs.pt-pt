@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
 ms.openlocfilehash: d14e31aa4fbeb2d29137c554f14333e1617c484a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91265906"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>How to: Utilizar o portal para criar uma aplicação e um principal de serviço do Azure AD que possam aceder aos recursos
@@ -55,7 +55,7 @@ Para verificar as permissões de subscrição:
 
 1. Procure e selecione **Subscrições**ou selecione **Subscrições** na página **inicial.**
 
-   ![Pesquisar](./media/howto-create-service-principal-portal/select-subscription.png)
+   ![Pesquisa](./media/howto-create-service-principal-portal/select-subscription.png)
 
 1. Selecione a subscrição em que pretende criar o principal serviço em.
 

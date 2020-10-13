@@ -1,16 +1,16 @@
 ---
 title: Chave gerida pelo cliente do Azure Monitor
-description: Informações e passos para configurar a Chave Gerida pelo Cliente (CMK) para encriptar dados nos seus espaços de trabalho Log Analytics utilizando uma chave Azure Key Vault.
+description: Informações e passos para configurar Customer-Managed Chave (CMK) para encriptar dados nos seus espaços de trabalho Log Analytics utilizando uma chave Azure Key Vault.
 ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 09/09/2020
 ms.openlocfilehash: 5d44758ebf94c7487935ef47a17ad810dc5cf9f8
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89657308"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave gerida pelo cliente do Azure Monitor 
@@ -40,7 +40,7 @@ Após a configuração cmk, quaisquer dados ingeridos em espaços de trabalho as
 
 ![Visão geral da CMK](media/customer-managed-keys/cmk-overview.png)
 
-1. Key Vault
+1. Cofre de Chaves
 2. Log Analytics *Cluster* recurso tendo gerido identidade com permissões para Key Vault -- A identidade é propagada para o armazenamento de cluster de Log Analytics dedicado
 3. Cluster dedicado log analytics
 4. Espaços de trabalho associados ao recurso *Cluster* para encriptação CMK
@@ -240,7 +240,7 @@ A identidade é atribuída ao recurso *Cluster* no momento da criação.
 
 Enquanto o provisionamento do cluster Log Analytics demora algum tempo a ser concluído, pode verificar o estado de provisionamento de duas maneiras:
 
-1. Copie o valor URL Azure-AsyncOperation da resposta e siga a verificação do [estado das operações assíncronas](#asynchronous-operations-and-status-check).
+1. Copie o valor de URL Azure-AsyncOperation da resposta e siga a verificação do [estado das operações assíncronos](#asynchronous-operations-and-status-check).
 2. Envie um pedido GET sobre o recurso *Cluster* e analise o valor *do Estado de provisionamento.* É *ProvisioningAccount* enquanto a provisiona e *conseguiu* quando concluída.
 
 ```rst
@@ -337,7 +337,7 @@ Content-type: application/json
 
 200 OK e cabeçalho.
 A propagação do identificador chave leva alguns minutos para ser concluída. Pode verificar o estado de atualização de duas formas:
-1. Copie o valor URL Azure-AsyncOperation da resposta e siga a verificação do [estado das operações assíncronas](#asynchronous-operations-and-status-check).
+1. Copie o valor de URL Azure-AsyncOperation da resposta e siga a verificação do [estado das operações assíncronos](#asynchronous-operations-and-status-check).
 2. Envie um pedido GET sobre o recurso *Cluster* e veja as propriedades *KeyVaultProperties.* Os seus dados de identificação chave recentemente atualizados devem regressar na resposta.
 
 Uma resposta ao pedido GET sobre o recurso *Cluster* deve ser assim quando a atualização do identificador chave estiver completa:
@@ -406,7 +406,7 @@ Content-type: application/json
 
 Os dados ingeridos são armazenados encriptados com a sua chave gerida após a operação de associação, que pode demorar até 90 minutos a ser concluída. Pode verificar o estado da associação do espaço de trabalho de duas formas:
 
-1. Copie o valor URL Azure-AsyncOperation da resposta e siga a verificação do [estado das operações assíncronas](#asynchronous-operations-and-status-check).
+1. Copie o valor de URL Azure-AsyncOperation da resposta e siga a verificação do [estado das operações assíncronos](#asynchronous-operations-and-status-check).
 2. Enviar um [Espaço de Trabalho – Obter](/rest/api/loganalytics/workspaces/get) pedido e observar a resposta, espaço de trabalho associado terá um clusterResourceId em "funcionalidades".
 
 ```rest
@@ -664,7 +664,7 @@ Saiba mais sobre [o Lockbox do Cliente para o Microsoft Azure](https://docs.micr
 
   Dados ingeridos após a operação de desassociação ser armazenado no armazenamento do Log Analytics, isto pode demorar 90 minutos a ser concluído. Pode verificar o estado de des-associação do espaço de trabalho de duas maneiras:
 
-  1. Copie o valor URL Azure-AsyncOperation da resposta e siga a verificação do [estado das operações assíncronas](#asynchronous-operations-and-status-check).
+  1. Copie o valor de URL Azure-AsyncOperation da resposta e siga a verificação do [estado das operações assíncronos](#asynchronous-operations-and-status-check).
   2. Enviar um [Espaço de Trabalho – Solicite](/rest/api/loganalytics/workspaces/get) e observe a resposta, o espaço de trabalho dissociado não terá o *clusterResourceId* sob *funcionalidades*.
 
 - **Verifique o estado da associação do espaço de trabalho**
@@ -744,7 +744,7 @@ Saiba mais sobre [o Lockbox do Cliente para o Microsoft Azure](https://docs.micr
 - Se atualizar a sua versão chave no Key Vault e não atualizar os novos detalhes do identificador chave no recurso *Cluster,* o cluster Log Analytics continuará a utilizar a sua chave anterior e os seus dados tornar-se-ão inacessíveis. Atualize novos detalhes do identificador chave no recurso *Cluster* para retomar a ingestão de dados e a capacidade de consulta de dados.
 
 - Algumas operações são longas e podem demorar algum tempo a ser concluídas -- estas são a criação *de Cluster,* a atualização da chave *cluster* e a eliminação *do Cluster.* Pode verificar o estado da operação de duas formas:
-  1. ao utilizar o REST, copie o valor URL Azure-AsyncOperation da resposta e siga a verificação do [estado das operações assíncronas](#asynchronous-operations-and-status-check).
+  1. ao utilizar o REST, copie o valor de URL Azure-AsyncOperation da resposta e siga a verificação do estado das [operações assíncronos](#asynchronous-operations-and-status-check).
   2. Envie pedido GET para *Cluster* ou espaço de trabalho e observe a resposta. Por exemplo, o espaço de trabalho dissociado não terá o *clusterResourceId* sob *funcionalidades*.
 
 - Para suporte e ajuda relacionado com a chave gerida pelo cliente, utilize os seus contactos na Microsoft.

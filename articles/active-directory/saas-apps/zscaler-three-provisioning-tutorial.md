@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: d217f21b0a2dbdad56f2147c8800bbb50b0fa45e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91265532"
 ---
 # <a name="tutorial-configure-zscaler-three-for-automatic-user-provisioning"></a>Tutorial: Configure Zscaler Três para fornecimento automático de utilizadores
@@ -101,7 +101,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![Configure janela SAML](./media/zscaler-three-provisioning-tutorial/secret-token-2.png)
 
-    Selecione **Ativar o Provisionamento baseado em SCIM** e copie o **URL base** e **o Token do Portador**e, em seguida, guarde as definições. No portal Azure, cole o **URL base** na caixa **URL** do inquilino e no **Token do Portador** na caixa De **Token Secreto.**
+    Selecione **Ative SCIM-Based Provisioning** e copie o **URL base** e **o Token do Portador**, e, em seguida, guarde as definições. No portal Azure, cole o **URL base** na caixa **URL** do inquilino e no **Token do Portador** na caixa De **Token Secreto.**
 
 7. Depois de introduzir os valores nas caixas DE URL e **Secret Token** do **Arrendatário,** selecione **Test Connection** para se certificar de que a Azure AD pode ligar-se ao Zscaler Three. Se a ligação falhar, certifique-se de que a sua conta Zscaler 3 tem permissões de administração e tente novamente.
 

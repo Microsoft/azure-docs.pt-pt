@@ -7,10 +7,10 @@ ms.date: 10/09/2019
 ms.author: dastrebe
 zone_pivot_groups: client-operating-system
 ms.openlocfilehash: 2f47ded22209a9d53510c7d0a2f8270096161354
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86244140"
 ---
 # <a name="install-and-use-consul-in-azure-kubernetes-service-aks"></a>Instale e utilize o Cônsul no Serviço Azure Kubernetes (AKS)
@@ -31,7 +31,7 @@ Neste artigo, vai aprender a:
 > * Validar a instalação do Cônsul
 > * Cônsul desinstalação da AKS
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Os passos detalhados neste artigo assumem que criou um cluster AKS (Kubernetes `1.13` e acima, com o RBAC habilitado) e estabeleceu uma `kubectl` ligação com o cluster. Se precisar de ajuda com algum destes itens, consulte o arranque rápido da [AKS][aks-quickstart]. Certifique-se de que o seu cluster tem pelo menos 3 nós na piscina de nólinho Linux.
 
@@ -67,10 +67,10 @@ Utilize o Helm e o gráfico descarregado `consul-helm` para instalar os componen
 > **Opções de instalação**
 > 
 > Utilizamos as seguintes opções como parte da nossa instalação:
-> - `connectInject.enabled=true`- permitir que os proxies sejam injetados em cápsulas
-> - `client.enabled=true`- permitir que os clientes do Cônsul corram em todos os nóns
-> - `client.grpc=true`- permitir que o ouvinte gRPC se ligue
-> - `syncCatalog.enabled=true`- sincronizar os serviços kubernetes e cônsul
+> - `connectInject.enabled=true` - permitir que os proxies sejam injetados em cápsulas
+> - `client.enabled=true` - permitir que os clientes do Cônsul corram em todos os nóns
+> - `client.grpc=true` - permitir que o ouvinte gRPC se ligue
+> - `syncCatalog.enabled=true` - sincronizar os serviços kubernetes e cônsul
 >
 > **Seletores de nó**
 >

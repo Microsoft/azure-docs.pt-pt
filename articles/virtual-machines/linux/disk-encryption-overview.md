@@ -9,13 +9,13 @@ ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
 ms.openlocfilehash: 405ebbbfa4a662dd9ee3c8d10dde8f28e5ce9c66
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87830449"
 ---
-# <a name="azure-disk-encryption-for-linux-vms"></a>Encriptação do disco Azure para VMs Linux 
+# <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption para VMs do Linux 
 
 A Azure Disk Encryption ajuda a proteger e a salvaguardar os seus dados para cumprir as obrigações de conformidade e segurança da sua organização. Utiliza a funcionalidade [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para fornecer encriptação de volume para o SISTEMA e discos de dados de máquinas virtuais Azure (VMs), e está integrado com [o Azure Key Vault](../../key-vault/index.yml) para ajudá-lo a controlar e gerir as chaves e segredos de encriptação do disco. 
 
@@ -144,7 +144,7 @@ A tabela a seguir define alguns dos termos comuns utilizados na documentação d
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Quickstart - Criar e encriptar um Linux VM com Azure CLI](disk-encryption-cli-quickstart.md)
+- [Quickstart - Criar e encriptar um Linux VM com Azure CLI ](disk-encryption-cli-quickstart.md)
 - [Quickstart - Criar e encriptar um Linux VM com Azure Powershell](disk-encryption-powershell-quickstart.md)
 - [Cenários do Azure Disk Encryption em VMs com Linux](disk-encryption-linux.md)
 - [Encriptação de disco Azure pré-requisitos do script CLI](https://github.com/ejarvi/ade-cli-getting-started)

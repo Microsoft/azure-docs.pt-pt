@@ -4,10 +4,10 @@ description: Crie cópias de segurança consistentes com aplicações das suas m
 ms.topic: conceptual
 ms.date: 01/12/2018
 ms.openlocfilehash: 22053004026a2dd8976027359f11d50a5663b334
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88999245"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Cópia de segurança consistente com aplicações de VMs Linux do Azure
@@ -78,8 +78,8 @@ Certifique-se de que adiciona registos adequados enquanto escreve o seu pré-scr
 | Pós-ScriptNotFound |O pós-script não foi encontrado no local especificado no **VMSnapshotScriptPluginConfig.jsno** ficheiro config. |Certifique-se de que o pós-script está presente no caminho especificado no ficheiro config para garantir uma cópia de segurança consistente com a aplicação.|
 | IncorretaPluginhostFile |O ficheiro **Pluginhost,** que vem com a extensão VmSnapshotLinux, está corrompido, pelo que o pré-script e o pós-script não podem ser executados e a cópia de segurança não será consistente com a aplicação.| Desinstale a extensão **VmSnapshotLinux** e será automaticamente reinstalada com a próxima cópia de segurança para corrigir o problema. |
 | IncorrectJSONConfigFile | O **VMSnapshotScriptPluginConfig.jsno** ficheiro está incorreto, por isso o pré-script e o pós-script não podem ser executados e a cópia de segurança não será consistente com a aplicação. | Descarregue a cópia do [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) e configuure-a novamente. |
-| InsuficientePermissionforPre-Script | Para a execução de scripts, o utilizador "raiz" deve ser o proprietário do ficheiro e o ficheiro deve ter permissões de "700" (ou seja, apenas "proprietário" deve ter permissões de "ler", "escrever" e "executar"). | Certifique-se de que o utilizador "raiz" é o "proprietário" do ficheiro de script e que apenas "proprietário" tem permissões de "ler", "escrever" e "executar". |
-| InsuficientePermissionforPost-Script | Para a execução de scripts, o utilizador raiz deve ser o proprietário do ficheiro e o ficheiro deve ter permissões de "700" (ou seja, apenas "proprietário" deve ter "ler", "escrever" e "executar" permissões). | Certifique-se de que o utilizador "raiz" é o "proprietário" do ficheiro de script e que apenas "proprietário" tem permissões de "ler", "escrever" e "executar". |
+| InsufficientPermissionforPre-Script | Para a execução de scripts, o utilizador "raiz" deve ser o proprietário do ficheiro e o ficheiro deve ter permissões de "700" (ou seja, apenas "proprietário" deve ter permissões de "ler", "escrever" e "executar"). | Certifique-se de que o utilizador "raiz" é o "proprietário" do ficheiro de script e que apenas "proprietário" tem permissões de "ler", "escrever" e "executar". |
+| InsufficientPermissionforPost-Script | Para a execução de scripts, o utilizador raiz deve ser o proprietário do ficheiro e o ficheiro deve ter permissões de "700" (ou seja, apenas "proprietário" deve ter "ler", "escrever" e "executar" permissões). | Certifique-se de que o utilizador "raiz" é o "proprietário" do ficheiro de script e que apenas "proprietário" tem permissões de "ler", "escrever" e "executar". |
 | Pré-ScriptTimeout | A execução do pré-script de backup consistente da aplicação. | Verifique o script e aumente o tempo limite no **VMSnapshotScriptPluginConfig.jsno** ficheiro localizado em **/etc/azure**. |
 | Pós-ScriptTimeout | A execução do backup consistente de aplicação pós-script cronometrado. | Verifique o script e aumente o tempo limite no **VMSnapshotScriptPluginConfig.jsno** ficheiro localizado em **/etc/azure**. |
 

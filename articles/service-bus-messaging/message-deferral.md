@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 7c9ec55de24c97df3530d80deef55ed87be84077
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86511284"
 ---
 # <a name="message-deferral"></a>Diferimento de mensagens
@@ -35,7 +35,7 @@ Para recuperar uma mensagem diferida, o seu proprietário é responsável por le
 Se uma mensagem não puder ser processada porque um determinado recurso para o manuseamento dessa mensagem está temporariamente indisponível, mas o processamento de mensagens não deve ser sumariamente suspenso, uma forma de colocar essa mensagem no lado durante alguns minutos é lembrar o **SequenceNumber** numa [mensagem programada](message-sequencing.md) a ser publicada em poucos minutos e recuperar a mensagem diferida quando a mensagem programada chegar. Se um manipulador de mensagens depender de uma base de dados para todas as operações e essa base de dados estiver temporariamente indisponível, não deve utilizar o adiamento, mas sim suspender a receção de mensagens completamente até que a base de dados esteja novamente disponível.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as mensagens do Service Bus, consulte os seguintes tópicos:
 

@@ -8,13 +8,13 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
 ms.openlocfilehash: c8d2304017a8fccd83c9c64559b8c5edf48481b7
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91604449"
 ---
-# <a name="key-vault-authentication-fundamentals"></a>Fundamentos de autenticação do cofre chave
+# <a name="key-vault-authentication-fundamentals"></a>Princípios Fundamentais da Autenticação do Key Vault
 
 O Azure Key Vault permite armazenar e gerir credenciais de aplicação de forma segura, tais como segredos, chaves e certificados num repositório de nuvem central e seguro. O Key Vault elimina a necessidade de armazenar credenciais nas suas aplicações. As suas aplicações podem autenticar-se no Key Vault na hora de executar para obter credenciais.
 
