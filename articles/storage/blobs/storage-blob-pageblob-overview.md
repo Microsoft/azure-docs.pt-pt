@@ -11,21 +11,21 @@ ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 542c9374b70cd765ed27dd4dd158ad81035269f0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89018846"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Visão geral das bolhas da página de Azure
 
 O Azure Storage oferece três tipos de armazenamento de bolhas: Blobs de Bloco, Blobs de Apêndi e bolhas de página. As bolhas de bloco são compostas por blocos e são ideais para armazenar texto ou ficheiros binários, e para o upload de ficheiros grandes de forma eficiente. As bolhas de apêndice também são compostas por blocos, mas são otimizadas para operações de apêndice, tornando-as ideais para cenários de registo. As bolhas de página são compostas por 512 páginas de byte até 8 TB no tamanho total e são concebidas para operações frequentes de leitura/escrita aleatórias. As bolhas de página são a fundação dos Discos Azure IaaS. Este artigo centra-se em explicar as funcionalidades e benefícios das bolhas de página.
 
-As bolhas de página são uma coleção de páginas de 512 bytes, que fornecem a capacidade de ler/escrever gamas arbitrárias de bytes. Assim, as bolhas de página são ideais para armazenar estruturas de dados baseadas em índices e escassas, como o SO e discos de dados para Máquinas Virtuais e Bases de Dados. Por exemplo, o Azure SQL DB utiliza bolhas de página como o armazenamento persistente subjacente para as suas bases de dados. Além disso, as bolhas de página também são frequentemente usadas para ficheiros com atualizações baseadas em alcance.  
+As bolhas de página são uma coleção de páginas de 512 bytes, que fornecem a capacidade de ler/escrever gamas arbitrárias de bytes. Assim, as bolhas de página são ideais para armazenar estruturas de dados baseadas em índices e escassas, como o SO e discos de dados para Máquinas Virtuais e Bases de Dados. Por exemplo, o Azure SQL DB utiliza bolhas de página como o armazenamento persistente subjacente para as suas bases de dados. Além disso, as bolhas de página também são frequentemente usadas para ficheiros com Range-Based atualizações.  
 
 As principais características das bolhas de página Azure são a sua interface REST, a durabilidade do armazenamento subjacente e as capacidades de migração perfeitas para Azure. Estas funcionalidades são discutidas mais detalhadamente na secção seguinte. Além disso, as bolhas de página Azure são atualmente suportadas em dois tipos de armazenamento: Armazenamento Premium e Armazenamento Standard. Premium Storage é projetado especificamente para cargas de trabalho que requerem um desempenho consistente de alto desempenho e baixa latência tornando blobs de página premium ideais para cenários de armazenamento de alto desempenho. As contas de armazenamento padrão são mais rentáveis para executar cargas de trabalho insensíveis à latência.
 
-## <a name="sample-use-cases"></a>Casos de utilização de amostras
+## <a name="sample-use-cases"></a>Exemplos de casos de utilização
 
 Vamos discutir alguns casos de uso para bolhas de página começando com discos Azure IaaS. As bolhas de página Azure são a espinha dorsal da plataforma de discos virtuais para Azure IaaS. Tanto o Azure OS como os discos de dados são implementados como discos virtuais onde os dados são duramente persistidos na plataforma de Armazenamento Azure e depois entregues às máquinas virtuais para o máximo desempenho. Os Discos Azure são persistidos no [formato Hiper-VHD](https://technet.microsoft.com/library/dd979539.aspx) e [armazenados](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) como uma bolha de página no Azure Storage. Além de utilizar discos virtuais para VMs Azure IaaS, as bolhas de página também permitem cenários paaS e DBaaS, como o serviço Azure SQL DB, que atualmente utiliza bolhas de página para armazenar dados SQL, permitindo operações de leitura aleatória rápida para a base de dados. Outro exemplo seria se você tivesse um serviço PaaS para acesso partilhado de mídia para aplicações colaborativas de edição de vídeo, as bolhas de página permitem o acesso rápido a locais aleatórios nos meios de comunicação. Também permite a edição e fusão rápidas e eficientes dos mesmos meios por vários utilizadores. 
 

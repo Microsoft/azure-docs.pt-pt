@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
 ms.openlocfilehash: 7701fe91d0e3f78f9596687bf945ba4b11c2d199
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91331697"
 ---
 # <a name="manage-an-azure-database-for-mysql---flexible-server-preview-using-the-azure-cli"></a>Gerir uma Base de Dados Azure para MySQL - Servidor Flexível (Pré-visualização) utilizando o Azure CLI
@@ -62,7 +62,7 @@ storage-size | 6144 | A capacidade de armazenamento do servidor (a unidade é me
 ## <a name="manage-mysql-databases-on-a-server"></a>Gerencie as bases de dados do MySQL num servidor.
 Pode utilizar qualquer um destes comandos para criar, eliminar, listar e visualizar propriedades de base de dados de uma base de dados no seu servidor
 
-| Cmdlet | Utilização| Description |
+| Cmdlet | Utilização| Descrição |
 | --- | ---| --- |
 |[az mysql flexible-servidor db criar](/cli/azure/mysql/flexible-server/db#az_mysql_flexible_server_db_create)|```az mysql flexible-server db create -g myresourcegroup -s mydemoserver -n mydatabasename``` |Cria uma base de dados|
 |[az mysql flexível-servidor db delete](/cli/azure/mysql/flexible-server/db#az_mysql_flexible_server_db_delete)|```az mysql flexible-server db delete -g myresourcegroup -s mydemoserver -n mydatabasename```|Elimine a sua base de dados do seu servidor. Este comando não apaga o seu servidor. |

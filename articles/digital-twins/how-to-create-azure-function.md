@@ -8,10 +8,10 @@ ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: a0f5a921ad9eba82f27b3a8945643737b6d76030
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89614082"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Ligue as aplicações Azure Functions para processamento de dados
@@ -38,15 +38,15 @@ No Visual Studio 2019, selecione _File > New > Project_ e procure o modelo de _F
 
 Especifique um nome para a aplicação de função e _selecione Criar._
 
-:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Visual Studio: configurar novo projeto":::
+:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Estúdio Visual: novo diálogo de projeto":::
 
 Selecione o tipo de aplicação de função *Despoletamento de Grelha* de Evento e selecione _Criar_.
 
-:::image type="content" source="media/how-to-create-azure-function/eventgridtrigger-function.png" alt-text="Visual Studio: Diálogo do gatilho do projeto de função Azure":::
+:::image type="content" source="media/how-to-create-azure-function/eventgridtrigger-function.png" alt-text="Estúdio Visual: novo diálogo de projeto":::
 
 Uma vez criada a aplicação de função, o seu estúdio visual terá uma amostra de código auto-povoada em **function.cs** ficheiro na sua pasta de projeto. Esta função curta de Azure é usada para registar eventos.
 
-:::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Estúdio Visual: Janela do projeto com código de amostra":::
+:::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Estúdio Visual: novo diálogo de projeto":::
 
 ## <a name="write-an-azure-function-with-an-event-grid-trigger"></a>Escreva uma função Azure com um gatilho de Grade de Eventos
 
@@ -160,19 +160,19 @@ Para publicar a aplicação de função para a Azure, selecione à direita o pro
 > [!IMPORTANT] 
 > A publicação de uma função Azure incorrerá em encargos adicionais na sua subscrição, independente da Azure Digital Twins.
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function.png" alt-text="Visual Studio: publicar função Azure ":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function.png" alt-text="Estúdio Visual: novo diálogo de projeto":::
 
 Selecione **Azure** como o alvo de publicação e selecione **Next**.
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-1.png" alt-text="Visual Studio: publicar diálogo de função Azure, selecione Azure ":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-1.png" alt-text="Estúdio Visual: novo diálogo de projeto":::
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-2.png" alt-text="Visual Studio: publique o diálogo de funções, selecione Azure Function App (Windows) ou (Linux) com base na sua máquina":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-2.png" alt-text="Estúdio Visual: novo diálogo de projeto":::
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-3.png" alt-text="Visual Studio: publicar diálogo de função, Criar uma nova Função Azure":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-3.png" alt-text="Estúdio Visual: novo diálogo de projeto":::
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-4.png" alt-text="Estúdio Visual: publicar diálogo de função, preencher os campos e selecionar criar":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-4.png" alt-text="Estúdio Visual: novo diálogo de projeto":::
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-5.png" alt-text="Visual Studio: publicar diálogo de função, selecionar a sua aplicação de função da lista e terminar":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-5.png" alt-text="Estúdio Visual: novo diálogo de projeto":::
 
 Na página seguinte, insira o nome desejado para a nova aplicação de função, um grupo de recursos e outros detalhes.
 Para que a sua aplicação Functions possa aceder ao Azure Digital Twins, precisa de ter uma identidade gerida pelo sistema e ter permissões para aceder à sua instância Azure Digital Twins.
@@ -214,27 +214,27 @@ Um sistema atribuído à identidade gerida permite que os recursos do Azure aute
 
 No [portal Azure](https://portal.azure.com/), procure _uma aplicação_ de função na barra de pesquisa com o nome da aplicação de função que criou anteriormente. Selecione a *App de Função* da lista. 
 
-:::image type="content" source="media/how-to-create-azure-function/portal-search-for-functionapp.png" alt-text="Portal Azure: App de função de pesquisa":::
+:::image type="content" source="media/how-to-create-azure-function/portal-search-for-functionapp.png" alt-text="Estúdio Visual: novo diálogo de projeto":::
 
 Na janela da aplicação de funções, selecione _Identidade_ na barra de navegação à esquerda para permitir a identidade gerida.
 No _separador System atribuído,_ altere o _Estado_ para On e guarde-o. _save_ Você verá um pop-up para _Ativar o sistema atribuído identidade gerida_.
 Selecione o botão _Sim._ 
 
-:::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Portal Azure: permitir a identidade gerida pelo sistema":::
+:::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Estúdio Visual: novo diálogo de projeto":::
 
 Pode verificar nas notificações que a sua função está registada com sucesso no Azure Ative Directory.
 
-:::image type="content" source="media/how-to-create-azure-function/notifications-enable-managed-identity.png" alt-text="Portal Azure: notificações":::
+:::image type="content" source="media/how-to-create-azure-function/notifications-enable-managed-identity.png" alt-text="Estúdio Visual: novo diálogo de projeto":::
 
 Note também o **ID** do objeto mostrado na página _Identidade,_ uma vez que será usado na secção seguinte.
 
-:::image type="content" source="media/how-to-create-azure-function/object-id.png" alt-text="Copie o ID do objeto para utilizar no futuro":::
+:::image type="content" source="media/how-to-create-azure-function/object-id.png" alt-text="Estúdio Visual: novo diálogo de projeto":::
 
 ### <a name="assign-access-roles-using-azure-portal"></a>Atribuir funções de acesso usando o portal Azure
 
 Selecione o botão _de atribuições de funções Azure,_ que se abre para a página de atribuições de funções Azure. Em seguida, selecione _+Adicionar atribuição de função (Pré-visualização)_.
 
-:::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Portal Azure: adicionar atribuição de funções":::
+:::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Estúdio Visual: novo diálogo de projeto":::
 
 Na janela _de atribuição de função adicionar (Pré-visualização)_ que se abre, selecione
 
@@ -245,7 +245,7 @@ Na janela _de atribuição de função adicionar (Pré-visualização)_ que se a
 
 Guarde os seus dados selecionando o botão _Guardar._
 
-:::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Portal Azure: adicionar atribuição de função (Pré-visualização) ":::
+:::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Estúdio Visual: novo diálogo de projeto":::
 
 ### <a name="configure-application-settings-using-azure-portal"></a>Configurar configurações de aplicações usando o portal Azure
 
@@ -255,7 +255,7 @@ Terá de ADT_INSTANCE_URL para criar uma definição de aplicação.
 
 Você pode obter ADT_INSTANCE_URL, anexando **_https://_** ao nome de anfitrião do seu caso. No portal Azure, pode encontrar o nome de anfitrião de exemplo dos seus gémeos digitais procurando o seu exemplo na barra de pesquisa. Em seguida, _selecione visão geral_ na barra de navegação esquerda para ver o _nome anfitrião_. Copie este valor para criar uma definição de aplicação.
 
-:::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Portal Azure: Visão geral-> Nome de anfitrião copy para usar no campo _Value_":::
+:::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Estúdio Visual: novo diálogo de projeto":::
 
 Pode agora criar uma definição de aplicação seguindo os passos abaixo:
 
@@ -263,9 +263,9 @@ Pode agora criar uma definição de aplicação seguindo os passos abaixo:
 * Selecione _Configuração_ na barra de navegação à esquerda para criar uma nova definição de aplicação
 * No separador definições de _aplicação,_ selecione _+ Nova definição de aplicação_
 
-:::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Portal Azure: Pesquisa rumo à função Azure existente":::
+:::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Estúdio Visual: novo diálogo de projeto":::
 
-:::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Portal Azure: Configurações de aplicações de configuração":::
+:::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Estúdio Visual: novo diálogo de projeto":::
 
 Na janela que se abre, utilize o valor copiado de cima para criar uma definição de aplicação. \
 _Nome:_  ADT_SERVICE_URL \
@@ -273,21 +273,21 @@ _Valor_ : https://{your-azure-digital-twins-hostname}
 
 Selecione _OK_ para criar uma definição de aplicação.
 
-:::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Portal Azure: Adicionar definições de aplicação.":::
+:::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Estúdio Visual: novo diálogo de projeto":::
 
 Pode ver as definições da sua aplicação com o nome da aplicação no campo _Nome._ Em seguida, guarde as definições da sua aplicação selecionando o botão _Guardar._
 
-:::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Portal Azure: Ver a aplicação criada e reiniciar a aplicação":::
+:::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Estúdio Visual: novo diálogo de projeto":::
 
 Quaisquer alterações às definições da aplicação precisam de um reinício da aplicação. _Selecione Continue_ a reiniciar a sua aplicação.
 
-:::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Portal Azure: Guardar definições de aplicações":::
+:::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Estúdio Visual: novo diálogo de projeto":::
 
 Pode ver que as definições de aplicação são atualizadas selecionando o ícone _de Notificações._ Se a definição da sua aplicação não for criada, pode voltar a tentar adicionar uma definição de aplicação seguindo o processo acima.
 
-:::image type="content" source="media/how-to-create-azure-function/notifications-update-web-app-settings.png" alt-text="Portal Azure: Notificações para atualizar as definições de aplicações":::
+:::image type="content" source="media/how-to-create-azure-function/notifications-update-web-app-settings.png" alt-text="Estúdio Visual: novo diálogo de projeto":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, seguiu os passos para configurar uma função Azure para uso com a Azure Digital Twins. Em seguida, pode subscrever a sua função Azure para Event Grid, para ouvir num ponto final. Este ponto final pode ser:
 * Um ponto final da Grade de Eventos anexado às Gémeas Digitais Azure para processar mensagens provenientes da própria Azure Digital Twins (tais como mensagens de mudança de propriedade, mensagens de telemetria geradas por [gémeos digitais](concepts-twins-graph.md) no gráfico gémeo ou mensagens de ciclo de vida)

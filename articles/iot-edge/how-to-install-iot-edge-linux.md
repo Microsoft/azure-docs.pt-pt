@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: kgremban
 ms.openlocfilehash: 21fde76dc5791030a7afa280e00642119cbe464c
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89660034"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Instalar o runtime do Azure IoT Edge em sistemas Linux baseados em Debian
@@ -166,7 +166,7 @@ sudo systemctl restart iotedge
 
 ### <a name="option-2-automatic-provisioning"></a>Opção 2: Provisionamento automático
 
-Os dispositivos IoT Edge podem ser automaticamente a provisionados utilizando o Serviço de Provisionamento de [Dispositivos Azure IoT Hub (DPS)](../iot-dps/index.yml). Atualmente, o IoT Edge suporta três mecanismos de atestado ao utilizar o fornecimento automático, mas os seus requisitos de hardware podem ter impacto nas suas escolhas. Por exemplo, os dispositivos Raspberry Pi não vêm com um chip de Módulo de Plataforma Fidedigna (TPM) por padrão. Para obter mais informações, veja os seguintes artigos:
+Os dispositivos IoT Edge podem ser automaticamente a provisionados utilizando o Serviço de Provisionamento de [Dispositivos Azure IoT Hub (DPS)](../iot-dps/index.yml). Atualmente, o IoT Edge suporta três mecanismos de atestado ao utilizar o fornecimento automático, mas os seus requisitos de hardware podem ter impacto nas suas escolhas. Por exemplo, os dispositivos Raspberry Pi não vêm com um chip de Módulo de Plataforma Fidedigna (TPM) por padrão. Para obter mais informações, veja os artigos seguintes:
 
 * [Criar e providenciar um dispositivo IoT Edge com um TPM virtual num Linux VM](how-to-auto-provision-simulated-device-linux.md)
 * [Criar e providenciar um dispositivo IoT Edge utilizando certificados X.509](how-to-auto-provision-x509-certs.md)
@@ -347,7 +347,7 @@ sudo apt-get remove --purge moby-cli
 sudo apt-get remove --purge moby-engine
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que tem um dispositivo IoT Edge alojotado com o tempo de funcionaamento instalado, pode [implantar módulos IoT Edge](how-to-deploy-modules-portal.md).
 

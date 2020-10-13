@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: lagayhar
 ms.openlocfilehash: a815f4dcf7c76d4c11b4f2e227802b15f9c92a54
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89664764"
 ---
 # <a name="tree-visualizations"></a>Visualizações de árvores
@@ -92,7 +92,7 @@ O agrupamento permite-lhe construir vistas hierárquicas semelhantes às acima c
 
 [![Screenshot mostrando a criação de uma visualização de árvores em livros](./media/workbooks-tree-visualizations/tree-group-create.png)](./media/workbooks-tree-visualizations/tree-group-create.png#lightbox)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como criar um [gráfico em livros de trabalho.](workbooks-graph-visualizations.md)
 * Saiba como criar um azulejo em livros de [trabalho.](workbooks-tile-visualizations.md)

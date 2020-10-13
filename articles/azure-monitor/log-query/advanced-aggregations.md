@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
 ms.openlocfilehash: dba058dce09e958a2ae769d927a5569fb3e42113
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87324561"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Agregações avançadas em consultas de log do Azure Monitor
@@ -38,7 +38,7 @@ Event
 | computador2 | [326,105,302,301,300,102] |
 | ... | ... |
 
-`makelist`gera uma lista na ordem que os dados foram passados para ele. Para separar eventos do mais antigo ao mais novo, utilize `asc` na declaração de encomenda em vez de `desc` . 
+`makelist` gera uma lista na ordem que os dados foram passados para ele. Para separar eventos do mais antigo ao mais novo, utilize `asc` na declaração de encomenda em vez de `desc` . 
 
 Também é útil criar uma lista de valores apenas distintos. Isto é chamado de _Conjunto_ e pode ser gerado `makeset` com:
 
@@ -163,7 +163,7 @@ Heartbeat
 
 
 
-## <a name="narrowing-results-to-a-set-of-elements-let-makeset-toscalar-in"></a>A redução dos resultados para um conjunto de elementos: `let` `makeset` , `toscalar` ,`in`
+## <a name="narrowing-results-to-a-set-of-elements-let-makeset-toscalar-in"></a>A redução dos resultados para um conjunto de elementos: `let` `makeset` , `toscalar` , `in`
 Um cenário comum é selecionar os nomes de algumas entidades específicas com base num conjunto de critérios e, em seguida, filtrar um conjunto de dados diferente para esse conjunto de entidades. Por exemplo, pode encontrar computadores que são conhecidos por terem atualizações em falta e identificar iPs a que estes computadores chamaram:
 
 

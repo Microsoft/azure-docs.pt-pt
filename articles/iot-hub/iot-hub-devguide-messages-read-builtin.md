@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - 'Role: Cloud Development'
 ms.openlocfilehash: 941953c75c516a9eceff526a0ced0ec0910f1f1e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87327706"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Ler mensagens de dispositivo para cloud a partir do ponto final incorporado
@@ -56,14 +56,14 @@ No portal, o campo de ponto final compatível com o Event Hub contém uma cadeia
 | Nome | Valor |
 | ---- | ----- |
 | Ponto final | sb://abcd1234namespace.servicebus.windows.net/ |
-| Nome de anfitrião | abcd1234namespace.servicebus.windows.net |
+| Hostname (Nome do anfitrião) | abcd1234namespace.servicebus.windows.net |
 | Espaço de Nomes | abcd1234namespace |
 
 Em seguida, pode escolher qualquer política de acesso partilhado a partir do drop-down, como mostrado na imagem acima. Só mostra políticas que têm as permissões **ServiceConnect** para ligar ao Centro de Eventos especificado.
 
 Os SDKs que pode utilizar para ligar ao ponto final compatível com o Event Hub que o IoT Hub expõe incluem:
 
-| Linguagem | SDK | Exemplo |
+| Idioma | SDK | Exemplo |
 | -------- | --- | ------ |
 | .NET | https://www.nuget.org/packages/Azure.Messaging.EventHubs | [Início rápido](quickstart-send-telemetry-dotnet.md) |
 | Java | https://mvnrepository.com/artifact/com.azure/azure-messaging-eventhubs | [Início rápido](quickstart-send-telemetry-java.md) |

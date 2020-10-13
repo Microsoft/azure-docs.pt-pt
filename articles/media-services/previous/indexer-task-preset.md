@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: f8daa25239b935a9e0092c6bf2e388c7cc3c6789
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89264764"
 ---
 # <a name="task-preset-for-azure-media-indexer"></a>Predefinição de tarefa para Azure Media Indexer
@@ -32,9 +32,9 @@ Este tópico descreve a predefinição de tarefa que precisa de passar para o se
 
 A tabela seguinte explica elementos e atributos da configuração XML.
 
-|Name|Requerer|Descrição|
+|Nome|Requerer|Descrição|
 |---|---|---|
-|Entrada|true|Ficheiros de ativos que pretende indexar.<br/>O Azure Media Indexer suporta os seguintes formatos de ficheiros de mídia: MP4, MOV, WMV, MP3, M4A, WMA, AAC, WAV. <br/><br/>Pode especificar o (s) nome do ficheiro (s) no **nome** ou atributo da **lista** do elemento de **entrada** (como mostrado abaixo). Se não especificar qual o ficheiro de ativos a indexar, o ficheiro principal é escolhido. Se não for definido nenhum ficheiro de ativo primário, o primeiro ficheiro do ativo de entrada é indexado.<br/><br/>Para especificar explicitamente o nome do ficheiro do ativo, faça:<br/>```<input name="TestFile.wmv" />```<br/><br/>Também pode indexar vários ficheiros de ativos de uma só vez (até 10 ficheiros). Para efetuar este procedimento:<br/>- Crie um ficheiro de texto (ficheiro manifesto) e dê-lhe uma extensão .lst.<br/>- Adicione uma lista de todos os nomes de ficheiros do ativo no seu ativo de entrada a este ficheiro manifesto.<br/>- Adicione (carregar) o ficheiro manifesto ao ativo.<br/>- Especificar o nome do ficheiro manifesto no atributo da lista de entradas.<br/>```<input list="input.lst">```<br/><br/>**Nota:** Se adicionar mais de 10 ficheiros ao ficheiro manifesto, o trabalho de indexação falhará com o código de erro de 2006.|
+|Input|true|Ficheiros de ativos que pretende indexar.<br/>O Azure Media Indexer suporta os seguintes formatos de ficheiros de mídia: MP4, MOV, WMV, MP3, M4A, WMA, AAC, WAV. <br/><br/>Pode especificar o (s) nome do ficheiro (s) no **nome** ou atributo da **lista** do elemento de **entrada** (como mostrado abaixo). Se não especificar qual o ficheiro de ativos a indexar, o ficheiro principal é escolhido. Se não for definido nenhum ficheiro de ativo primário, o primeiro ficheiro do ativo de entrada é indexado.<br/><br/>Para especificar explicitamente o nome do ficheiro do ativo, faça:<br/>```<input name="TestFile.wmv" />```<br/><br/>Também pode indexar vários ficheiros de ativos de uma só vez (até 10 ficheiros). Para efetuar este procedimento:<br/>- Crie um ficheiro de texto (ficheiro manifesto) e dê-lhe uma extensão .lst.<br/>- Adicione uma lista de todos os nomes de ficheiros do ativo no seu ativo de entrada a este ficheiro manifesto.<br/>- Adicione (carregar) o ficheiro manifesto ao ativo.<br/>- Especificar o nome do ficheiro manifesto no atributo da lista de entradas.<br/>```<input list="input.lst">```<br/><br/>**Nota:** Se adicionar mais de 10 ficheiros ao ficheiro manifesto, o trabalho de indexação falhará com o código de erro de 2006.|
 |do IdP|false|Metadados para os ficheiros de ativos especificados.<br/>```<metadata key="..." value="..." />```<br/><br/>Pode fornecer valores para chaves predefinidas. <br/><br/>Atualmente, as seguintes teclas são suportadas:<br/><br/>**título** e **descrição** - usado para atualizar o modelo de linguagem para melhorar a precisão do reconhecimento da fala.<br/>```<metadata key="title" value="[Title of the media file]" /><metadata key="description" value="[Description of the media file]" />```<br/><br/>**username** e **password** - usado para autenticação ao descarregar ficheiros de internet através de http ou https.<br/>```<metadata key="username" value="[UserName]" /><metadata key="password" value="[Password]" />```<br/>O nome de utilizador e os valores da palavra-passe aplicam-se a todos os URLs de mídia no manifesto de entrada.|
 |funcionalidades<br/><br/>Adicionado na versão 1.2. Atualmente, a única característica suportada é o reconhecimento de voz ("ASR").|false|A função de Reconhecimento de Voz tem as seguintes teclas de definições:<br/><br/>Idioma:<br/>- A linguagem natural a reconhecer no ficheiro multimédia.<br/>- Inglês, Espanhol<br/><br/>CaptionFormats:<br/>- uma lista separada de pontos e vírgulas dos formatos de legenda de saída pretendidos (se houver)<br/>- ttml;webvtt<br/><br/><br/>Gerar Palavras-chave:<br/>- Uma bandeira booleana especificando se é ou não necessário um ficheiro XML de palavra-chave.<br/>- Verdade; Falso, falso.|
 

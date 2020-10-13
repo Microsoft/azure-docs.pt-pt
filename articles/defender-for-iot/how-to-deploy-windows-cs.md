@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
 ms.openlocfilehash: 04b33c7e63efbd6ffabf978708e1b8ed81f1fc42
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940033"
 ---
 # <a name="deploy-an-defender-for-iot-c-based-security-agent-for-windows"></a>Implementar um Defensor para ioT C#agente de segurança para windows
@@ -31,7 +31,7 @@ Neste guia, ficará a saber como:
 > * Instalar
 > * Verificar a implementação
 > * Desinstalar o agente
-> * Resolver Problemas
+> * Resolução de problemas
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -79,7 +79,7 @@ Este script faz as seguintes ações:
 
 Para obter ajuda adicional, utilize o comando Get-Help em PowerShell.
 
-Exemplo de ajuda:    ```Get-Help .\InstallSecurityAgent.ps1```
+Get-Help exemplo:    ```Get-Help .\InstallSecurityAgent.ps1```
 
 ### <a name="verify-deployment-status"></a>Verificar o estado de implantação
 

@@ -10,10 +10,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.openlocfilehash: b6a3e67ffd909262da2f890874f049dfac59a4ce
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90562014"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines e atividades no Azure Data Factory
@@ -69,7 +69,7 @@ Para obter mais informações, veja o artigo [Data Transformation Activities](tr
 ## <a name="control-flow-activities"></a>Atividades de fluxo de controlo
 São suportadas as atividades de fluxo de controlo abaixo:
 
-Atividade de controlo | Description
+Atividade de controlo | Descrição
 ---------------- | -----------
 [Variável do apêndice](control-flow-append-variable-activity.md) | Adicione um valor a uma variável de matriz existente.
 [Executar Pipeline](control-flow-execute-pipeline-activity.md) | A atividade Executar Pipeline permite que um pipeline do Data Factory invoque outro pipeline.
@@ -106,14 +106,14 @@ Eis como os pipelines são definidos no formato JSON:
 }
 ```
 
-Etiqueta | Description | Tipo | Necessário
+Etiqueta | Descrição | Tipo | Necessário
 --- | ----------- | ---- | --------
-name | Nome do pipeline. Especifique um nome que represente a ação que o pipeline realiza. <br/><ul><li>Número máximo de carateres: 140</li><li>Deve começar com uma letra, número ou um sublinhado ( \_ )</li><li>Não são permitidos personagens seguintes: ".", "+", """/", "<", ">","*", "%", "&",""" \" </li></ul> | String | Yes
-descrição | Especifique o texto que descreve para o que é utilizado o pipeline. | String | No
-atividades | A secção **atividades** pode ter uma ou mais atividades definidas na mesma. Veja a secção [JSON da Atividade](#activity-json) para obter detalhes sobre o elemento JSON das atividades. | Matriz | Yes
-parâmetros | A secção **parâmetros** pode ter um ou mais parâmetros definidos no pipeline, tornando-o flexível para reutilização. | Lista | No
-concurrency | O número máximo de execuções simultâneas que o gasoduto pode ter. Por padrão, não há máximo. Se o limite de concordância for atingido, os gasodutos adicionais são preenchidos até que os anteriores estejam completos | Número | No 
-anotações | Uma lista de tags associadas ao oleoduto | Matriz | No
+name | Nome do pipeline. Especifique um nome que represente a ação que o pipeline realiza. <br/><ul><li>Número máximo de carateres: 140</li><li>Deve começar com uma letra, número ou um sublinhado ( \_ )</li><li>Não são permitidos personagens seguintes: ".", "+", """/", "<", ">","*", "%", "&",""" \" </li></ul> | Cadeia | Sim
+descrição | Especifique o texto que descreve para o que é utilizado o pipeline. | Cadeia | Não
+atividades | A secção **atividades** pode ter uma ou mais atividades definidas na mesma. Veja a secção [JSON da Atividade](#activity-json) para obter detalhes sobre o elemento JSON das atividades. | Matriz | Sim
+parâmetros | A secção **parâmetros** pode ter um ou mais parâmetros definidos no pipeline, tornando-o flexível para reutilização. | Lista | Não
+concurrency | O número máximo de execuções simultâneas que o gasoduto pode ter. Por padrão, não há máximo. Se o limite de concordância for atingido, os gasodutos adicionais são preenchidos até que os anteriores estejam completos | Número | Não 
+anotações | Uma lista de tags associadas ao oleoduto | Matriz | Não
 
 ## <a name="activity-json"></a>JSON da Atividade
 A secção **atividades** pode ter uma ou mais atividades definidas na mesma. Existem dois tipos principais de atividades: atividades de Execução e de Controlo.
@@ -143,13 +143,13 @@ A tabela seguinte descreve as propriedades na definição JSON da atividade:
 
 Etiqueta | Descrição | Obrigatório
 --- | ----------- | ---------
-name | Nome da atividade. Especifique um nome que represente a ação que a atividade realiza. <br/><ul><li>Número máximo de carateres: 55</li><li>Deve começar com um número de letra, ou um sublinhado \_ ()</li><li>Não são permitidos personagens seguintes: ".", "+", """/", "<", ">","*", "%", "&",""" \" | Yes</li></ul>
-descrição | Texto que descreve para o que é utilizada a atividade | Yes
-tipo | Tipo de atividade. Consulte as atividades de [movimento de dados,](#data-movement-activities) [atividades de transformação de dados](#data-transformation-activities)e [atividades de controlo](#control-flow-activities) para diferentes tipos de atividades. | Yes
+name | Nome da atividade. Especifique um nome que represente a ação que a atividade realiza. <br/><ul><li>Número máximo de carateres: 55</li><li>Deve começar com um número de letra, ou um sublinhado \_ ()</li><li>Não são permitidos personagens seguintes: ".", "+", """/", "<", ">","*", "%", "&",""" \" | Sim</li></ul>
+descrição | Texto que descreve para o que é utilizada a atividade | Sim
+tipo | Tipo de atividade. Consulte as atividades de [movimento de dados,](#data-movement-activities) [atividades de transformação de dados](#data-transformation-activities)e [atividades de controlo](#control-flow-activities) para diferentes tipos de atividades. | Sim
 linkedServiceName | Nome do serviço ligado utilizado pela atividade.<br/><br/>Uma atividade pode exigir que especifique o serviço ligado que liga ao ambiente de computação necessário. | Sim, para Atividade do HDInsight, Atividade de Classificação do Machine Learning, Atividade de Procedimento Armazenado. <br/><br/>Não para todas as outras.
-typeProperties | As propriedades na secção typeProperties dependem de cada tipo de atividade. Para ver as propriedades do tipo de uma atividade, clique nas ligações para a atividade na secção anterior. | No
-política | Políticas que afetam o comportamento de runtime da atividade. Esta propriedade inclui um tempo limite e um comportamento relempor. Se não for especificado, são utilizados valores predefinidos. Para obter mais informações, veja a secção [Política das atividades](#activity-policy). | No
-dependsOn | Esta propriedade é utilizada para definir as dependências de atividade e de que forma as atividades subsequentes dependem de atividades anteriores. Para obter mais informações, veja [Dependência das atividades](#activity-dependency) | No
+typeProperties | As propriedades na secção typeProperties dependem de cada tipo de atividade. Para ver as propriedades do tipo de uma atividade, clique nas ligações para a atividade na secção anterior. | Não
+política | Políticas que afetam o comportamento de runtime da atividade. Esta propriedade inclui um tempo limite e um comportamento relempor. Se não for especificado, são utilizados valores predefinidos. Para obter mais informações, veja a secção [Política das atividades](#activity-policy). | Não
+dependsOn | Esta propriedade é utilizada para definir as dependências de atividade e de que forma as atividades subsequentes dependem de atividades anteriores. Para obter mais informações, veja [Dependência das atividades](#activity-dependency) | Não
 
 ### <a name="activity-policy"></a>Política das atividades
 As políticas afetam o comportamento de runtime de uma atividade, proporcionando opções de configuração. As políticas das Atividades só estão disponíveis para as atividades de execução.
@@ -182,12 +182,12 @@ As políticas afetam o comportamento de runtime de uma atividade, proporcionando
 }
 ```
 
-Nome JSON | Description | Valores Permitidos | Necessário
+Nome JSON | Descrição | Valores Permitidos | Necessário
 --------- | ----------- | -------------- | --------
-tempo limite | Especifica o tempo limite para a execução da atividade. | Timespan | Não. O tempo limite predefinido é de 7 dias.
-retry | Número máximo de repetições | Número inteiro | Não. A predefinição é 0
-retryIntervalInSeconds | O atraso entre as tentativas de repetição em segundos | Número inteiro | Não. O padrão é de 30 segundos
-secureOutput | Quando definido como verdadeiro, a saída da atividade é considerada segura e não é registada para monitorização. | Booleano | Não. A predefinição é falso.
+tempo limite | Especifica o tempo limite para a execução da atividade. | Timespan | N.º O tempo limite predefinido é de 7 dias.
+retry | Número máximo de repetições | Número inteiro | N.º A predefinição é 0
+retryIntervalInSeconds | O atraso entre as tentativas de repetição em segundos | Número inteiro | N.º O padrão é de 30 segundos
+secureOutput | Quando definido como verdadeiro, a saída da atividade é considerada segura e não é registada para monitorização. | Booleano | N.º A predefinição é falso.
 
 ### <a name="control-activity"></a>Atividade de controlo
 As atividades de controlo têm a estrutura de nível superior seguinte:
@@ -208,11 +208,11 @@ As atividades de controlo têm a estrutura de nível superior seguinte:
 
 Etiqueta | Descrição | Obrigatório
 --- | ----------- | --------
-name | Nome da atividade. Especifique um nome que represente a ação que a atividade realiza.<br/><ul><li>Número máximo de carateres: 55</li><li>Deve começar com um número de letra, ou um sublinhado \_ ()</li><li>Não são permitidos personagens seguintes: ".", "+", """/", "<", ">","*", "%", "&",""" \" | Yes</li><ul>
-descrição | Texto que descreve para o que é utilizada a atividade | Yes
-tipo | Tipo de atividade. Veja os diferentes tipos de atividades nas secções sobre as [atividades de movimento de dados](#data-movement-activities), as [atividades de transformação de dados](#data-transformation-activities) e as [atividades de controlo](#control-flow-activities). | Yes
-typeProperties | As propriedades na secção typeProperties dependem de cada tipo de atividade. Para ver as propriedades do tipo de uma atividade, clique nas ligações para a atividade na secção anterior. | No
-dependsOn | Esta propriedade é utilizada para definir a Dependência da Atividade e de que forma as atividades subsequentes dependem de atividades anteriores. Para mais informações, consulte [a dependência da atividade.](#activity-dependency) | No
+name | Nome da atividade. Especifique um nome que represente a ação que a atividade realiza.<br/><ul><li>Número máximo de carateres: 55</li><li>Deve começar com um número de letra, ou um sublinhado \_ ()</li><li>Não são permitidos personagens seguintes: ".", "+", """/", "<", ">","*", "%", "&",""" \" | Sim</li><ul>
+descrição | Texto que descreve para o que é utilizada a atividade | Sim
+tipo | Tipo de atividade. Veja os diferentes tipos de atividades nas secções sobre as [atividades de movimento de dados](#data-movement-activities), as [atividades de transformação de dados](#data-transformation-activities) e as [atividades de controlo](#control-flow-activities). | Sim
+typeProperties | As propriedades na secção typeProperties dependem de cada tipo de atividade. Para ver as propriedades do tipo de uma atividade, clique nas ligações para a atividade na secção anterior. | Não
+dependsOn | Esta propriedade é utilizada para definir a Dependência da Atividade e de que forma as atividades subsequentes dependem de atividades anteriores. Para mais informações, consulte [a dependência da atividade.](#activity-dependency) | Não
 
 ### <a name="activity-dependency"></a>Dependência das atividades
 A Dependência da Atividade define como as atividades subsequentes dependem de atividades anteriores, determinando a condição de continuar a executar a próxima tarefa. Uma atividade pode depender de uma ou várias atividades anteriores com condições de dependência diferentes.

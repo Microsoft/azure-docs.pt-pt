@@ -15,10 +15,10 @@ ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
 ms.openlocfilehash: 5abb509f1753c65554bd74ababe9acca4103c15a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86509091"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Use ferramentas remotas para resolver problemas de VM do Azure
@@ -180,7 +180,7 @@ Executar o seguinte comando com base na localização do computador do cliente:
     Enter-PSSession -ComputerName  "<<CLOUDSERVICENAME.cloudapp.net>>" -port "<<PUBLIC PORT NUMBER>>" -Credential (Get-Credential) -useSSL -SessionOption $Skip
     ```
 
-  * Para um VM Gestor de Recursos Azure, adicione primeiro um nome DNS ao endereço IP público. Para obter etapas detalhadas, consulte [Criar um nome de domínio totalmente qualificado no portal Azure para um Windows VM](../windows/portal-create-fqdn.md). Depois, execute o comando seguinte:
+  * Para um VM Gestor de Recursos Azure, adicione primeiro um nome DNS ao endereço IP público. Para obter etapas detalhadas, consulte [Criar um nome de domínio totalmente qualificado no portal Azure para um Windows VM](../windows/portal-create-fqdn.md). Em seguida, execute o seguinte comando:
 
     ```powershell
     $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck
@@ -197,7 +197,7 @@ Executar o seguinte comando com base na localização do computador do cliente:
 >[!NOTE] 
 >A definição da bandeira SkipCaCheck ignora a obrigação de importar um certificado para o VM quando iniciar a sessão.
 
-Também pode utilizar o cmdlet Invoke-Command para executar um script no VM remotamente.
+Também pode utilizar o Invoke-Command cmdlet para executar um script no VM remotamente.
 
 ```powershell
 Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
@@ -249,9 +249,9 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 
 5. Faça as alterações necessárias aos serviços.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Para obter mais informações sobre o cmdlet Enter-PSSession, consulte [Enter-PSSession](/powershell/module/microsoft.powershell.core/enter-pssession?view=powershell-5.1).
+- Para obter mais informações sobre o Enter-PSSession cmdlet, consulte [Enter-PSSession](/powershell/module/microsoft.powershell.core/enter-pssession?view=powershell-5.1).
 - Para obter mais informações sobre a extensão de script personalizada para windows utilizando o modelo de implementação clássico, consulte [a extensão de script personalizada para windows](../extensions/custom-script-windows.md).
 - O PsExec faz parte da [Suite PSTools.](https://download.sysinternals.com/files/PSTools.zip)
 - Para mais informações sobre a Suite PSTools, consulte [psTools](/sysinternals/downloads/pstools).

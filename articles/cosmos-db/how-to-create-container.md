@@ -8,10 +8,10 @@ ms.date: 07/29/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
 ms.openlocfilehash: 2362326bccd90af997aa9237ec5f14e39ae62c85
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89020002"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Criar um recipiente Azure Cosmos
@@ -53,7 +53,7 @@ Este artigo explica as diferentes formas de criar um recipiente Azure Cosmos (co
    * Introduza uma produção a ser a provisionada (por exemplo, 1000 RUs).
    * Selecione **OK**.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-mongodb.png" alt-text="Screenshot de Azure Cosmos DB API para MongoDB, adicionar caixa de diálogo de recipiente":::
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-mongodb.png" alt-text="Screenshot do painel do Data Explorer, com novo recipiente em destaque":::
 
 ### <a name="cassandra-api"></a><a id="portal-cassandra"></a>API de Cassandra
 
@@ -69,7 +69,7 @@ Este artigo explica as diferentes formas de criar um recipiente Azure Cosmos (co
    * Introduza uma produção a ser a provisionada (por exemplo, 1000 RUs).
    * Selecione **OK**.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-cassandra.png" alt-text="Screenshot de Cassandra API, Adicionar caixa de diálogo de mesa":::
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-cassandra.png" alt-text="Screenshot do painel do Data Explorer, com novo recipiente em destaque":::
 
 > [!NOTE]
 > Para a API para Cassandra, a chave primária é utilizada como a chave de partição.
@@ -89,7 +89,7 @@ Este artigo explica as diferentes formas de criar um recipiente Azure Cosmos (co
    * Introduza uma produção a ser a provisionada (por exemplo, 1000 RUs).
    * Selecione **OK**.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-gremlin.png" alt-text="Screenshot de Gremlin API, Adicionar caixa de diálogo de gráfico":::
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-gremlin.png" alt-text="Screenshot do painel do Data Explorer, com novo recipiente em destaque":::
 
 ### <a name="table-api"></a><a id="portal-table"></a>API de Tabela
 
@@ -103,7 +103,7 @@ Este artigo explica as diferentes formas de criar um recipiente Azure Cosmos (co
    * Introduza uma produção a ser a provisionada (por exemplo, 1000 RUs).
    * Selecione **OK**.
 
-    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-table.png" alt-text="Screenshot da tabela API, adicionar caixa de diálogo de mesa":::
+    :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-table.png" alt-text="Screenshot do painel do Data Explorer, com novo recipiente em destaque":::
 
 > [!Note]
 > Para a API de Tabela, a chave de partição é especificada sempre que adicionar uma nova linha.

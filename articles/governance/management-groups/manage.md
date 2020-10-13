@@ -4,10 +4,10 @@ description: Saiba como ver, manter, atualizar e eliminar a hierarquia do seu gr
 ms.date: 08/10/2020
 ms.topic: conceptual
 ms.openlocfilehash: 82eeb2520815ddac69d27ddccd58c842c3e33deb
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91531042"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerir os seus recursos com grupos de gestão
@@ -127,7 +127,7 @@ Você pode ver qualquer grupo de gestão em que tenha um papel de Azure direto o
 
 ### <a name="view-in-powershell"></a>Vista em PowerShell
 
-Utilize o comando Get-AzManagementGroup para recuperar todos os grupos. Consulte os módulos [Az.Resources](/powershell/module/az.resources/Get-AzManagementGroup) para obter a lista completa dos comandos get PowerShell do grupo de gestão.  
+Usas o comando Get-AzManagementGroup para recuperar todos os grupos. Consulte os módulos [Az.Resources](/powershell/module/az.resources/Get-AzManagementGroup) para obter a lista completa dos comandos get PowerShell do grupo de gestão.  
 
 ```azurepowershell-interactive
 Get-AzManagementGroup
@@ -304,7 +304,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
 
 ### <a name="move-management-groups-in-powershell"></a>Grupos de gestão de movimentos em PowerShell
 
-Utilize o comando Update-AzManagementGroup no PowerShell para mover um grupo de gestão sob um grupo diferente.
+Use o comando Update-AzManagementGroup em PowerShell para mover um grupo de gestão sob um grupo diferente.
 
 ```azurepowershell-interactive
 $parentGroup = Get-AzManagementGroup -GroupName ContosoIT
@@ -345,7 +345,7 @@ O mesmo percurso de âmbito é utilizado quando se recupera uma definição de p
 GET https://management.azure.com/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming?api-version=2019-09-01
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre os grupos de gestão, veja:
 

@@ -4,10 +4,10 @@ description: Este artigo descreve como pode configurar o Azure Monitor para cont
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.openlocfilehash: 26846148f3212699cecd6db3318cd2da2d9aa783
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89398386"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configure híbrido Kubernetes clusters com Monitor Azure para contentores
@@ -372,6 +372,6 @@ Para executar com a Azure PowerShell, utilize os seguintes comandos na pasta que
 .\TroubleshootError_nonAzureK8s.ps1 - azureLogAnalyticsWorkspaceResourceId </subscriptions/<subscriptionId>/resourceGroups/<resourcegroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName> -kubeConfig <kubeConfigFile> -clusterContextInKubeconfig <clusterContext>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Com a monitorização habilitada a recolher a saúde e a utilização de recursos do seu cluster híbrido Kubernetes e cargas de trabalho em execução sobre eles, aprenda [a usar](container-insights-analyze.md) o Azure Monitor para recipientes.
