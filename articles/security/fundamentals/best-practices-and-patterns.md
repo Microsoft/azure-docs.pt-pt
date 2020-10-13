@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 5/03/2019
 ms.author: terrylan
 ms.openlocfilehash: 0bf9b4d3aa1926343ad25000a05762a31d49617d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73889845"
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Melhores práticas e padrões de segurança azul
@@ -30,7 +30,7 @@ As melhores práticas destinam-se a ser um recurso para profissionais de TI. Ist
 
 * [Melhores práticas da segurança de limites do Azure](/azure/security/fundamentals/network-best-practices#adopt-a-zero-trust-approach)
 * [Melhores práticas de segurança de bases de dados do Azure](database-best-practices.md)
-* [Melhores práticas de segurança e encriptação de dados do Azure](data-encryption-best-practices.md)
+* [Melhores práticas de segurança e encriptação de dados no Azure](data-encryption-best-practices.md)
 * [Melhores práticas de segurança de controlo de acesso e gestão de identidades do Azure](identity-management-best-practices.md)
 * [Melhores práticas de segurança de rede do Azure](network-best-practices.md)
 * [Melhores práticas de segurança operacional do Azure](operational-best-practices.md)

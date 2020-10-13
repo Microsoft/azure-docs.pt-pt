@@ -12,10 +12,10 @@ ms.date: 09/16/2020
 ms.author: gasinh
 ms.subservice: B2C
 ms.openlocfilehash: 8406074933489e53e9235a8a6a05b68f1dd42a85
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91259141"
 ---
 # <a name="tutorial-for-configuring-saviynt-with-azure-active-directory-b2c"></a>Tutorial para configurar Saviynt com Azure Ative Directory B2C
@@ -54,7 +54,7 @@ O seguinte diagrama de arquitetura mostra a implementação.
 
 ![Imagem mostrando diagrama de arquitetura saviynt](./media/partner-saviynt/saviynt-architecture-diagram.png)
 
-|Passo | Description |
+|Passo | Descrição |
 |:-----| :-----------|
 | 1. | Um administrador delegado inicia uma operação de utilizador Azure AD B2C através da Saviynt.
 | 2. | A Saviynt verifica com o seu motor de autorização se o administrador delegado pode fazer a operação específica.

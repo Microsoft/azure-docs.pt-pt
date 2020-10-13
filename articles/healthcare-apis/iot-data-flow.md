@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: punagpal
 ms.openlocfilehash: 43b7bcba97617d6931fd5c191e62e833a25bf89d
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87513383"
 ---
-# <a name="azure-iot-connector-for-fhir-preview-data-flow"></a>Conector Azure IoT para fluxo de dados FHIR (pré-visualização)
+# <a name="azure-iot-connector-for-fhir-preview-data-flow"></a>Fluxo de dados do Conector IoT do Azure para o FHIR (pré-visualização)
 
 Este artigo fornece uma visão geral do fluxo de dados no Conector Azure IoT para FHIR*. Você vai aprender sobre diferentes fases de processamento de dados dentro do Conector Azure IoT para FHIR que transformam dados do dispositivo em recursos de [observação](https://www.hl7.org/fhir/observation.html) baseados em FHIR.
 
@@ -36,7 +36,7 @@ Normalizar é a fase seguinte onde os dados do dispositivo são recuperados a pa
 
 O processo de normalização não só simplifica o processamento de dados em fases posteriores, como também fornece a capacidade de projetar uma mensagem de entrada em várias mensagens normalizadas. Por exemplo, um dispositivo pode enviar múltiplos sinais vitais para a temperatura corporal, a pulsação, a pressão arterial e a taxa de respiração numa única mensagem. Esta mensagem de entrada criaria quatro recursos FHIR separados. Cada recurso representaria um sinal vital diferente, com a mensagem de entrada projetada em quatro mensagens normalizadas diferentes.
 
-## <a name="group"></a>Grupo
+## <a name="group"></a>Group
 O grupo é a fase seguinte em que as mensagens normalizadas disponíveis na fase anterior são agrupadas utilizando três parâmetros diferentes: identidade do dispositivo, tipo de medição e período de tempo.
 
 O agrupamento de modelos de identidade e medição do dispositivo permitem a utilização do tipo de medição [SampledData.](https://www.hl7.org/fhir/datatypes.html#SampledData) Este tipo fornece uma forma concisa de representar uma série de medições baseadas no tempo a partir de um dispositivo em FHIR. E o período de tempo controla a latência em que os recursos de observação gerados pelo Conector Azure IoT para FHIR são escritos à Azure API para fHIR.

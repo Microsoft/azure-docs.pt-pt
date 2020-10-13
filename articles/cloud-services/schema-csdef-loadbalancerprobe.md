@@ -10,10 +10,10 @@ caps.latest.revision: 14
 author: georgewallace
 ms.author: tagore
 ms.openlocfilehash: 6d0e84b6724d9df4162d4be3e06a9952087a53a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "79537351"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Azure Cloud Services Definition LoadBalancerProbe Schema
@@ -47,19 +47,19 @@ O `LoadBalancerProbes` elemento do ficheiro de definição de serviço inclui os
 - [Elemento LoadBalancerProbes](#LoadBalancerProbes)
 - [Elemento LoadBalancerProbe](#LoadBalancerProbe)
 
-##  <a name="loadbalancerprobes-element"></a><a name="LoadBalancerProbes"></a>Elemento LoadBalancerProbes
+##  <a name="loadbalancerprobes-element"></a><a name="LoadBalancerProbes"></a> Elemento LoadBalancerProbes
 O `LoadBalancerProbes` elemento descreve a coleção de sondas de balançadores de carga. Este elemento é o elemento-mãe do [Elemento LoadBalancerProbe](#LoadBalancerProbe). 
 
-##  <a name="loadbalancerprobe-element"></a><a name="LoadBalancerProbe"></a>Elemento LoadBalancerProbe
+##  <a name="loadbalancerprobe-element"></a><a name="LoadBalancerProbe"></a> Elemento LoadBalancerProbe
 O `LoadBalancerProbe` elemento define a sonda de saúde para um modelo. Pode definir várias sondas de balanço de carga. 
 
 A tabela a seguir descreve os atributos do `LoadBalancerProbe` elemento:
 
-|Atributo|Tipo|Description|
+|Atributo|Tipo|Descrição|
 | ------------------- | -------- | -----------------|
-| `name`              | `string` | Necessário. O nome da sonda do balançador de carga. O nome deve ser único.|
-| `protocol`          | `string` | Necessário. Especifica o protocolo do ponto final. Os valores possíveis são `http` ou `tcp`. Se `tcp` for especificado, é necessário um ACK recebido para que a sonda tenha sucesso. Se `http` for especificado, é necessária uma resposta de 200 OK do URI especificado para que a sonda seja bem sucedida.|
-| `path`              | `string` | O URI utilizado para solicitar o estado de saúde do VM. `path`é necessário se `protocol` estiver definido para `http` . Caso contrário, não é permitido.<br /><br /> Não há valor padrão.|
+| `name`              | `string` | Obrigatório. O nome da sonda do balançador de carga. O nome tem de ser exclusivo.|
+| `protocol`          | `string` | Obrigatório. Especifica o protocolo do ponto final. Os valores possíveis são `http` ou `tcp`. Se `tcp` for especificado, é necessário um ACK recebido para que a sonda tenha sucesso. Se `http` for especificado, é necessária uma resposta de 200 OK do URI especificado para que a sonda seja bem sucedida.|
+| `path`              | `string` | O URI utilizado para solicitar o estado de saúde do VM. `path` é necessário se `protocol` estiver definido para `http` . Caso contrário, não é permitido.<br /><br /> Não há valor padrão.|
 | `port`              | `integer` | Opcional. O porto para comunicar a sonda. Isto é opcional para qualquer ponto final, já que a mesma porta será então utilizada para a sonda. Você pode configurar um porto diferente para a sua sondagem, também. Os valores possíveis variam de 1 a 65535, inclusive.<br /><br /> O valor predefinido é definido pelo ponto final.|
 | `intervalInSeconds` | `integer` | Opcional. O intervalo, em segundos, para a frequência com que sondar o ponto final para o estado de saúde. Normalmente, o intervalo é ligeiramente inferior a metade do período de tempo atribuído (em segundos) que permite duas sondas completas antes de tirar o exemplo da rotação.<br /><br /> O valor predefinido é 15, o valor mínimo é 5.|
 | `timeoutInSeconds`  | `integer` | Opcional. O período de tempo limite, em segundos, aplicado à sonda onde nenhuma resposta resultará em impedir que o tráfego adicional seja entregue no ponto final. Este valor permite que os pontos finais sejam retirados da rotação mais rápido ou mais lento do que os tempos típicos utilizados em Azure (que são os padrão).<br /><br /> O valor predefinido é 31, o valor mínimo é 11.|

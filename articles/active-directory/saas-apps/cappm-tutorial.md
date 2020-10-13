@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/05/2020
 ms.author: jeedes
 ms.openlocfilehash: 969fb8c688fe26e1aa830cab2bbc35c5712b060e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88530754"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarity"></a>Tutorial: Integração do Diretório Ativo Azure com Clareza
@@ -76,7 +76,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
-4. Na **configuração de um único sign-on com** a página SAML, execute os seguintes passos:
+4. Na **configuração single Sign-On com página SAML,** execute os seguintes passos:
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://ca.ondemand.saml.20.post.<companyname>`
 
@@ -123,7 +123,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
 1. No diálogo **'Adicionar Atribuição',** clique no botão **Atribuir**
 
-## <a name="configure-clarity-single-sign-on"></a>Configure Clareza Único Sinal-On
+## <a name="configure-clarity-single-sign-on"></a>Configure Clarity Single Sign-On
 
 Para configurar um único sign-on on on **Clarity,** você precisa enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para a equipa de [suporte Clarity](mailto:catechnicalsupport@ca.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 

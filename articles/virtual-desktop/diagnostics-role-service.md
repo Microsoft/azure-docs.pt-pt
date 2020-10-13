@@ -7,10 +7,10 @@ ms.date: 09/21/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 70676bd1a07acdfcbba071a906b390ed66d70074
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91279863"
 ---
 # <a name="identify-and-diagnose-windows-virtual-desktop-issues"></a>Identificar e diagnosticar problemas de ambiente de trabalho virtual do Windows

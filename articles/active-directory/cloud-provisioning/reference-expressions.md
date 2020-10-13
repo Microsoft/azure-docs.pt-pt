@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c14f406e5671e1eefb43f0208044f9945e446267
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89226578"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Expressãos de escrita para mapeamentos de atributos no Azure Ative Directory
@@ -73,7 +73,7 @@ A sintaxe para expressões para mapeamentos de atributos faz lembrar as funçõe
 |[Divisão](#split)|Divide uma corda numa matriz multi-valorizada, utilizando o carácter delimiter especificado.|
 |[StringFromSID](#stringfromsid)|A função StringFromSid converte uma matriz de byte contendo um identificador de segurança a uma corda.| 
 |[StripSpaces](#stripspaces) |Remove todos os caracteres do espaço (" ") da cadeia de origem.| 
-|[Comutador](#switch)|Quando o valor **de origem** corresponde a uma **chave,** devolve **valor** a essa **chave**. | 
+|[Mudar](#switch)|Quando o valor **de origem** corresponde a uma **chave,** devolve **valor** a essa **chave**. | 
 |[ToLower](#tolower)|Pega num valor de cadeia *de origem* e converte-o em minúsculas usando as regras de cultura especificadas.| 
 |[Toupper](#toupper)|Pega num valor de cadeia *de origem* e converte-o em maiúsão utilizando as regras de cultura especificadas.|
 |[Guarnição](#trim)|A função Trim remove espaços brancos de condução e de fuga de uma corda.|
@@ -87,10 +87,10 @@ A sintaxe para expressões para mapeamentos de atributos faz lembrar as funçõe
 
 **Parâmetros:**<br> 
 
-   | Name | Obrigatório/ Repetição | Tipo | Notas |
+   | Nome | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
-   | **fonte** |Necessário |String |Normalmente o nome do atributo do objeto de origem. |
-   | **sufixo** |Necessário |String |A corda que quer anexar ao fim do valor de origem. |
+   | **fonte** |Necessário |Cadeia |Normalmente o nome do atributo do objeto de origem. |
+   | **sufixo** |Necessário |Cadeia |A corda que quer anexar ao fim do valor de origem. |
 
 ---
 ### <a name="bitand"></a>BitAnd
@@ -179,7 +179,7 @@ O formato de saída desta função é utilizado pelo Azure Ative Directory como 
 Devoluções 48656C6C6F20776F726C6421
 
 ---
-### <a name="count"></a>de palavras
+### <a name="count"></a>Contagem
 **Description:**  
 A função Contagem devolve o número de elementos num atributo multi-valor
 
@@ -250,11 +250,11 @@ Se a conta de atributosName não estiver presente, atire um erro no objeto.
 
 **Parâmetros:**<br> 
 
-   | Name | Obrigatório/ Repetição | Tipo | Notas |
+   | Nome | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
-   | **fonte** |Necessário |String |Normalmente o nome do atributo do objeto de origem. |
-   | **inputFormat** |Necessário |String |Formato esperado do valor da origem. Para formatos suportados, consulte [/dotnet/standard/base-tipos/custom-date-and-time-format-strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
-   | **outputFormat** |Necessário |String |Formato da data de saída. |
+   | **fonte** |Necessário |Cadeia |Normalmente o nome do atributo do objeto de origem. |
+   | **inputFormat** |Necessário |Cadeia |Formato esperado do valor da origem. Para formatos suportados, consulte [/dotnet/standard/base-tipos/custom-date-and-time-format-strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+   | **outputFormat** |Necessário |Cadeia |Formato da data de saída. |
 
 ---
 ### <a name="guid"></a>GUID
@@ -392,10 +392,10 @@ Se um dos valores de origem for um atributo de vários valores, então todos os 
 
 **Parâmetros:**<br> 
 
-   | Name | Obrigatório/ Repetição | Tipo | Notas |
+   | Nome | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
-   | **separador** |Necessário |String |A corda usada para separar os valores de origem quando são concatenadas numa única corda. Pode ser "" se não for necessário um separador. |
-   | **fonte1 ... fonteN** |Obrigatório, número variável de vezes |String |Valores de cordas a serem unidos. |
+   | **separador** |Necessário |Cadeia |A corda usada para separar os valores de origem quando são concatenadas numa única corda. Pode ser "" se não for necessário um separador. |
+   | **fonte1 ... fonteN** |Obrigatório, número variável de vezes |Cadeia |Valores de cordas a serem unidos. |
 
 ---
 ### <a name="left"></a>Esquerda
@@ -429,11 +429,11 @@ Devoluções `Joh` .
 
 **Parâmetros:**<br> 
 
-   | Name | Obrigatório/ Repetição | Tipo | Notas |
+   | Nome | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
-   | **fonte** |Necessário |String |Normalmente o nome do atributo. |
-   | **começar** |Necessário |número inteiro |Índice na cadeia **de origem** onde o sublpeso deve começar. O primeiro personagem da cadeia terá índice de 1, o segundo personagem terá índice 2, e assim por diante. |
-   | **comprimento** |Necessário |número inteiro |Comprimento do sub-esforço. Se o comprimento terminar fora da cadeia **de origem,** a função retornará o sublamamento do índice inicial até ao fim da cadeia de **start** **origem.** |
+   | **fonte** |Necessário |Cadeia |Normalmente o nome do atributo. |
+   | **iniciar** |Necessário |número inteiro |Índice na cadeia **de origem** onde o sublpeso deve começar. O primeiro personagem da cadeia terá índice de 1, o segundo personagem terá índice 2, e assim por diante. |
+   | **length** |Necessário |número inteiro |Comprimento do sub-esforço. Se o comprimento terminar fora da cadeia **de origem,** a função retornará o sublamamento do índice inicial até ao fim da cadeia de **start** **origem.** |
 
 ---
 ### <a name="normalizediacritics"></a>NormalizarDiacráticos
@@ -443,9 +443,9 @@ Devoluções `Joh` .
 
 **Parâmetros:**<br> 
 
-   | Name | Obrigatório/ Repetição | Tipo | Notas |
+   | Nome | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
-   | **fonte** |Necessário |String | Normalmente um primeiro nome ou atributo de apelido. |
+   | **fonte** |Necessário |Cadeia | Normalmente um primeiro nome ou atributo de apelido. |
 
 ---
 ### <a name="not"></a>Não
@@ -455,7 +455,7 @@ Devoluções `Joh` .
 
 **Parâmetros:**<br> 
 
-   | Name | Obrigatório/ Repetição | Tipo | Notas |
+   | Nome | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
    | **fonte** |Necessário |Corda Booleana |Os valores de **origem** esperados são "Verdadeiro" ou "Falso". |
 
@@ -497,15 +497,15 @@ Substitui valores dentro de uma corda. Funciona de forma diferente dependendo do
 
 **Parâmetros:**<br> 
 
-   | Name | Obrigatório/ Repetição | Tipo | Notas |
+   | Nome | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
-   | **fonte** |Necessário |String |Normalmente o nome do atributo do objeto **de origem.** |
-   | **oldValue** |Opcional |String |Valor a ser substituído na **fonte** ou **no modelo.** |
-   | **regexPattern** |Opcional |String |Padrão Regex para que o valor seja substituído na **fonte**. Ou, quando é utilizado **o Nome Deproperty substituto,** padrão para extrair valor do **substitutoPropertyName**. |
-   | **regexGroupName** |Opcional |String |Nome do grupo dentro **da regexPattern**. Só quando for utilizado  **o Nome Deperperty** Substituto, extrairemos valor deste grupo como **substitutoValue** da **substituiçãoPropertyName**. |
-   | **substituiçãoValue** |Opcional |String |Novo valor para substituir o antigo por. |
-   | **substituiçãoAttributeName** |Opcional |String |Nome do atributo a utilizar para valor de substituição |
-   | **modelo** |Opcional |String |Quando o valor **do modelo** for fornecido, procuraremos o **velhoValue** dentro do modelo e substituí-lo-emos pelo valor **de origem.** |
+   | **fonte** |Necessário |Cadeia |Normalmente o nome do atributo do objeto **de origem.** |
+   | **oldValue** |Opcional |Cadeia |Valor a ser substituído na **fonte** ou **no modelo.** |
+   | **regexPattern** |Opcional |Cadeia |Padrão Regex para que o valor seja substituído na **fonte**. Ou, quando é utilizado **o Nome Deproperty substituto,** padrão para extrair valor do **substitutoPropertyName**. |
+   | **regexGroupName** |Opcional |Cadeia |Nome do grupo dentro **da regexPattern**. Só quando for utilizado  **o Nome Deperperty** Substituto, extrairemos valor deste grupo como **substitutoValue** da **substituiçãoPropertyName**. |
+   | **substituiçãoValue** |Opcional |Cadeia |Novo valor para substituir o antigo por. |
+   | **substituiçãoAttributeName** |Opcional |Cadeia |Nome do atributo a utilizar para valor de substituição |
+   | **modelo** |Opcional |Cadeia |Quando o valor **do modelo** for fornecido, procuraremos o **velhoValue** dentro do modelo e substituí-lo-emos pelo valor **de origem.** |
 
 ---
 ### <a name="selectuniquevalue"></a>SelecioneUniqueValue
@@ -522,9 +522,9 @@ Substitui valores dentro de uma corda. Funciona de forma diferente dependendo do
 
 **Parâmetros:**<br> 
 
-   | Name | Obrigatório/ Repetição | Tipo | Notas |
+   | Nome | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
-   | **únicoValueRule1 ... únicoValueRuleN** |Pelo menos 2 são necessários, sem limite superior |String | Lista de regras únicas de geração de valor para avaliar. |
+   | **únicoValueRule1 ... únicoValueRuleN** |Pelo menos 2 são necessários, sem limite superior |Cadeia | Lista de regras únicas de geração de valor para avaliar. |
 
 
 ---
@@ -535,9 +535,9 @@ Substitui valores dentro de uma corda. Funciona de forma diferente dependendo do
 
 **Parâmetros:**<br> 
 
-  | Name | Obrigatório/ Repetição | Tipo | Notas |
+  | Nome | Obrigatório/ Repetição | Tipo | Notas |
   |--- | --- | --- | --- |
-  | **[appRoleAssignments]** |Necessário |String |**[appRoleAssignments]** objeto. |
+  | **[appRoleAssignments]** |Necessário |Cadeia |**[appRoleAssignments]** objeto. |
 
 ---
 ### <a name="split"></a>Dividir
@@ -547,10 +547,10 @@ Substitui valores dentro de uma corda. Funciona de forma diferente dependendo do
 
 **Parâmetros:**<br> 
 
-   | Name | Obrigatório/ Repetição | Tipo | Notas |
+   | Nome | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
-   | **fonte** |Necessário |String |valor **de origem** para atualizar. |
-   | **delimitador** |Necessário |String |Especifica o carácter que será usado para dividir a corda (exemplo: "") |
+   | **fonte** |Necessário |Cadeia |valor **de origem** para atualizar. |
+   | **delimitador** |Necessário |Cadeia |Especifica o carácter que será usado para dividir a corda (exemplo: "") |
 
 ---
 ### <a name="stringfromsid"></a>StringFromSid
@@ -568,9 +568,9 @@ A função StringFromSid converte uma matriz de byte contendo um identificador d
 
 **Parâmetros:**<br> 
 
-   | Name | Obrigatório/ Repetição | Tipo | Notas |
+   | Nome | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
-   | **fonte** |Necessário |String |valor **de origem** para atualizar. |
+   | **fonte** |Necessário |Cadeia |valor **de origem** para atualizar. |
 
 ---
 ### <a name="switch"></a>Comutador
@@ -580,12 +580,12 @@ A função StringFromSid converte uma matriz de byte contendo um identificador d
 
 **Parâmetros:**<br> 
 
-   | Name | Obrigatório/ Repetição | Tipo | Notas |
+   | Nome | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
-   | **fonte** |Necessário |String |**Valor de origem** para verificar. |
-   | **padrãoValue** |Opcional |String |Valor predefinido a ser utilizado quando a fonte não corresponde a nenhuma tecla. Pode ser corda vazia (""). |
-   | **chave** |Necessário |String |**Chave** para comparar o valor **da fonte** com. |
-   | **valor** |Necessário |String |Valor de substituição da **fonte** correspondente à chave. |
+   | **fonte** |Necessário |Cadeia |**Valor de origem** para verificar. |
+   | **padrãoValue** |Opcional |Cadeia |Valor predefinido a ser utilizado quando a fonte não corresponde a nenhuma tecla. Pode ser corda vazia (""). |
+   | **chave** |Necessário |Cadeia |**Chave** para comparar o valor **da fonte** com. |
+   | **value** |Necessário |Cadeia |Valor de substituição da **fonte** correspondente à chave. |
 
 ---
 ### <a name="tolower"></a>ToLower
@@ -595,10 +595,10 @@ A função StringFromSid converte uma matriz de byte contendo um identificador d
 
 **Parâmetros:**<br> 
 
-   | Name | Obrigatório/ Repetição | Tipo | Notas |
+   | Nome | Obrigatório/ Repetição | Tipo | Notas |
    | --- | --- | --- | --- |
-   | **fonte** |Necessário |String |Normalmente o nome do atributo a partir do objeto de origem |
-   | **cultura** |Opcional |String |O formato para o nome da cultura baseado no RFC 4646 é *languagecode2-country/regioncode2,* onde o *languagecode2* é o código linguístico de duas letras e *o código de duas letras* e o código de duas letras e o código de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Nos casos em que não esteja disponível um código linguístico de duas letras, é utilizado um código de três letras derivado da ISO 639-2.|
+   | **fonte** |Necessário |Cadeia |Normalmente o nome do atributo a partir do objeto de origem |
+   | **cultura** |Opcional |Cadeia |O formato para o nome da cultura baseado no RFC 4646 é *languagecode2-country/regioncode2,* onde o *languagecode2* é o código linguístico de duas letras e *o código de duas letras* e o código de duas letras e o código de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Nos casos em que não esteja disponível um código linguístico de duas letras, é utilizado um código de três letras derivado da ISO 639-2.|
 
 ---
 
@@ -609,10 +609,10 @@ A função StringFromSid converte uma matriz de byte contendo um identificador d
 
 **Parâmetros:**<br> 
 
-  | Name | Obrigatório/ Repetição | Tipo | Notas |
+  | Nome | Obrigatório/ Repetição | Tipo | Notas |
   | --- | --- | --- | --- |
-  | **fonte** |Necessário |String |Normalmente o nome do atributo do objeto de origem. |
-  | **cultura** |Opcional |String |O formato para o nome da cultura baseado no RFC 4646 é *languagecode2-country/regioncode2,* onde o *languagecode2* é o código linguístico de duas letras e *o código de duas letras* e o código de duas letras e o código de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Nos casos em que não esteja disponível um código linguístico de duas letras, é utilizado um código de três letras derivado da ISO 639-2.|
+  | **fonte** |Necessário |Cadeia |Normalmente o nome do atributo do objeto de origem. |
+  | **cultura** |Opcional |Cadeia |O formato para o nome da cultura baseado no RFC 4646 é *languagecode2-country/regioncode2,* onde o *languagecode2* é o código linguístico de duas letras e *o código de duas letras* e o código de duas letras e o código de duas letras. Exemplos incluem ja-JP para japonês (Japão) e en-US para inglês (Estados Unidos). Nos casos em que não esteja disponível um código linguístico de duas letras, é utilizado um código de três letras derivado da ISO 639-2.|
 
 ---
 

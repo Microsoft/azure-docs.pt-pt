@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 8936c2150c32a22877f9b56736ecc4b8f3424b32
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88533168"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Tutorial: Integração do Azure Ative Directory com a Uberflip
@@ -94,7 +94,7 @@ Para configurar o Azure AD single sign-on com a Uberflip, tome os seguintes pass
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-1. No **set up Single Sign-On com painel SAML,** selecione **Editar** (o ícone do lápis) para abrir o painel **de configuração DE SAML básico.**
+1. Na **configuração single Sign-On com painel SAML,** selecione **Editar** (o ícone do lápis) para abrir o painel **de configuração DE SAML básico.**
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -115,7 +115,7 @@ Para configurar o Azure AD single sign-on com a Uberflip, tome os seguintes pass
 
      ![Uberflip domínio e URLs informações únicas de sinal-on](common/both-signonurl.png)
 
-1. Na **configuração de um único sign-on com painel SAML,** na secção **certificado de assinatura SAML,** selecione **Descarregue** para descarregar o **Metdata XML** da Federação das opções dadas e guarde-o no seu computador.
+1. Na **configuração single Sign-On com painel SAML,** na secção Certificado de Assinatura **SAML,** selecione **Descarregamento** para descarregar o **Metdata XML** da Federação das opções dadas e guarde-o no seu computador.
 
    ![A opção de descarregamento de metadados XML da Federação](common/metadataxml.png)
 

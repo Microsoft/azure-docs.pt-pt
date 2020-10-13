@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.openlocfilehash: 1d924e96cfc287060107f541e44980295eb24745
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87494490"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-export-orders"></a>Rastreio e registo de eventos para a sua Caixa de Dados Azure e Caixa de Dados Azure Encomendas de exportação pesadas
@@ -190,7 +190,7 @@ Após os dados serem apagados dos discos Data Box de acordo com as diretrizes da
 
 ### <a name="chain-of-custody-audit-logs"></a>Registos de auditoria da cadeia de custódia
 
-Os registos de auditoria da cadeia de custódia contêm informações sobre alimentação e acesso a ações na Caixa de Dados ou Caixa de Dados Pesada quando está fora do datacenter Azure. Estes registos estão localizados em:`storage-account/azuredatabox-chainofcustodylogs`
+Os registos de auditoria da cadeia de custódia contêm informações sobre alimentação e acesso a ações na Caixa de Dados ou Caixa de Dados Pesada quando está fora do datacenter Azure. Estes registos estão localizados em: `storage-account/azuredatabox-chainofcustodylogs`
 
 Aqui está uma amostra do registo de auditoria de uma Caixa de Dados:
 

@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.openlocfilehash: f3a8f5ef8119d9895f67e07ea1b68c660be59f9b
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91541871"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Teste de lote com 1000 expressões no portal LUIS
@@ -130,6 +130,6 @@ A secção falsa positiva indica que uma expressão corresponde a uma intenção
 
 Se houver erros no teste do lote, pode adicionar mais expressões a uma intenção, e/ou rotular mais expressões com a entidade para ajudar a LUIS a fazer a discriminação entre intenções. Se adicionou expressões, e as rotulou, e ainda obtém erros de previsão nos testes de lote, considere adicionar uma funcionalidade de lista de [frases](luis-concept-feature.md) com vocabulário específico de domínio para ajudar o LUIS a aprender mais rapidamente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [testar um lote](luis-how-to-batch-test.md)

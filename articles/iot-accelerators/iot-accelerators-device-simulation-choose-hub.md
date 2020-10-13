@@ -9,10 +9,10 @@ services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1f89e23d7bb279e7cce5c104060cc7898517f8b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "73889187"
 ---
 # <a name="use-an-existing-iot-hub-with-the-device-simulation-solution-accelerator"></a>Utilizar um hub IoT existente com o acelerador de soluções de Simulação de Dispositivo
@@ -37,6 +37,6 @@ Utilize a cadeia de ligação que copiou quando configurar a simulação:
 
 ![Simulação de configuração](./media/iot-accelerators-device-simulation-choose-hub/configuresimulation.png)
 
-### <a name="next-steps"></a>Próximos passos
+### <a name="next-steps"></a>Passos seguintes
 
 Neste guia de como guiar, aprendeu a usar um hub IoT existente numa simulação. Em seguida, pode querer aprender a [criar um modelo avançado](iot-accelerators-device-simulation-advanced-device.md) de dispositivo para uma simulação.

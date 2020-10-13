@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
 ms.openlocfilehash: 4d2f6766fa32beb9cebaa8f77c04f6865e15e14d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88543399"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-fiori"></a>Tutorial: Azure Ative Directory integração única (SSO) com SAP Fiori
@@ -158,7 +158,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     > 
     > Pode definir o `ServicePrincipal` objeto iD antes de executar o script, ou pode passá-lo aqui.
 
-1. A aplicação SAP Fiori espera que as afirmações da SAML estejam num formato específico. Configure os seguintes pedidos para este pedido. Para gerir estes valores de atributo, no **set up Single Sign-On com painel SAML,** selecione **Editar**.
+1. A aplicação SAP Fiori espera que as afirmações da SAML estejam num formato específico. Configure os seguintes pedidos para este pedido. Para gerir estes valores de atributo, na configuração single Sign-On com painel **SAML,** selecione **Editar**.
 
     ![O Painel de Atributos do Utilizador](common/edit-attribute.png)
 
@@ -238,9 +238,9 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     ![Verifique o valor do algoritmo Digest em SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-identityprovider.png)
 
-1. Em **pontos finais únicos de sign-on**, selecione **HTTP POST**e, em seguida, selecione **Next**.
+1. Em **Pontos finais de Sign-On,** selecione **HTTP POST**e, em seguida, selecione **Next**.
 
-    ![Opções de pontos finais únicos em SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-httpredirect.png)
+    ![Opções de pontos finais de Sign-On única em SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-httpredirect.png)
 
 1. Em **pontos finais únicos do logoto**, selecione **HTTP Redirect**, e, em seguida, selecione **Next**.
 

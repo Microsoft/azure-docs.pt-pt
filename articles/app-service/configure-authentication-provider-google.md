@@ -8,10 +8,10 @@ ms.custom:
 - seodec18
 - fasttrack-edit
 ms.openlocfilehash: e8a9fbe6072f3628d755ad3ad5aa5a623fc3ab23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80519934"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-google-login"></a>Configure o seu Serviço de Aplicações ou app Azure Functions para usar o login do Google
@@ -24,7 +24,7 @@ Para completar o procedimento neste tópico, tem de ter uma conta google que ten
 
 ## <a name="register-your-application-with-google"></a><a name="register"> </a>Registe a sua aplicação com o Google
 
-1. Siga a documentação do Google no [Google Sign-In para aplicações do lado do servidor](https://developers.google.com/identity/sign-in/web/server-side-flow) para criar um ID do cliente e segredo de cliente. Não há necessidade de fazer alterações de código. Basta utilizar as seguintes informações:
+1. Siga a documentação do Google no [Google Sign-In para aplicações do lado do servidor](https://developers.google.com/identity/sign-in/web/server-side-flow) para criar um ID de cliente e segredo de cliente. Não há necessidade de fazer alterações de código. Basta utilizar as seguintes informações:
     - Para **Origens JavaScript Autorizadas,** utilize `https://<app-name>.azurewebsites.net` com o nome da sua aplicação em *\<app-name>* .
     - Para **Redirecionar autorizado URI,** utilize `https://<app-name>.azurewebsites.net/.auth/login/google/callback` .
 1. Copie o ID da aplicação e os valores secretos da App.

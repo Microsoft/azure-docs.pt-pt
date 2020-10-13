@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
 ms.openlocfilehash: c7f03027abf7f3c5e330e5cd95075cce1152a7d9
-ms.sourcegitcommit: 666303748238dfdf9da30d49d89b915af73b0468
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85130420"
 ---
 # <a name="deploy-a-custom-model"></a>Implementar um modelo personalizado

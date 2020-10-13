@@ -4,10 +4,10 @@ description: Utilize o Azure Advisor para garantir e melhorar a fiabilidade nas 
 ms.topic: article
 ms.date: 09/27/2020
 ms.openlocfilehash: 1e256d99f8d78ddff318f963dcb21e9b4537f110
-ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91405195"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Melhore a fiabilidade da sua aplicação utilizando o Azure Advisor
@@ -112,8 +112,8 @@ Máquinas virtuais que não têm replicação ativada para outra região não s�
 ## <a name="upgrade-to-the-latest-version-of-the-azure-connected-machine-agent"></a>Atualizar para a versão mais recente do agente do Azure Connected Machine
 O [agente Azure Connected Machine](https://docs.microsoft.com/azure/azure-arc/servers/manage-agent) é atualizado regularmente com correções de erros, melhorias de estabilidade e novas funcionalidades. Identificámos recursos que não estão a trabalhar na versão mais recente do agente de máquinas e esta recomendação do Advisor sugere que atualize o seu agente para a versão mais recente para a melhor experiência do Azure Arc.
 
-## <a name="do-not-override-hostname-to-ensure-website-integrity"></a>Não sobreponha o nome de anfitrião para garantir a integridade do site
-O Advisor recomenda que tente evitar a sobredição do nome de anfitrião ao configurar o Gateway de Aplicação. Ter um domínio diferente na parte frontal do Gateway de Aplicação do que aquele que é usado para aceder ao backend pode potencialmente levar a cookies ou urls de redirecionamento a serem quebrados. Note-se que este pode não ser o caso em todas as situações e que certas categorias de backends (como a REST API) em geral são menos sensíveis a isso. Certifique-se de que o backend é capaz de lidar com isto ou atualizar a configuração do Gateway de Aplicação para que o nome de anfitrião não seja substituído em direção ao backend. Quando utilizado com o Serviço de Aplicações, anexe um nome de domínio personalizado à Web App e evite a utilização do nome de *anfitrião .azurewebsites.net para o backend.* [Saiba mais sobre o domínio personalizado.](https://aka.ms/appgw-advisor-usecustomdomain)
+## <a name="do-not-override-hostname-to-ensure-website-integrity"></a>Não substituir o nome do anfitrião para garantir a integridade do site
+O Advisor recomenda que tente evitar a sobredição do nome de anfitrião ao configurar o Gateway de Aplicação. Ter um domínio diferente no front-end do Gateway de Aplicação do que o utilizado para aceder ao back-end pode potencialmente levar a cookies ou URLs de redirecionamento quebrados. No entanto, poderá não acontecer em todas as situações e determinadas categorias de back-ends (como APIS REST) em geral são menos sensíveis a tal. Confirme se o back-end é capaz de lidar com esta situação ou atualize a configuração do Gateway de Aplicação para que o nome do anfitrião não precise de ser substituído no back-end. Quando utilizado com o Serviço de Aplicações, anexe um nome de domínio personalizado à Web App e evite a utilização do nome de *anfitrião .azurewebsites.net para o backend.* [Saiba mais sobre o domínio personalizado.](https://aka.ms/appgw-advisor-usecustomdomain)
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Como aceder a recomendações de elevada disponibilidade no Advisor
 

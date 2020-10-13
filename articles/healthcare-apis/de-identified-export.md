@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 9/28/2020
 ms.author: matjazl
 ms.openlocfilehash: bdbab0e032764d07119402686051d391376cb913
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91844000"
 ---
 # <a name="exporting-de-identified-data-preview"></a>Exportação de dados não identificados (pré-visualização)

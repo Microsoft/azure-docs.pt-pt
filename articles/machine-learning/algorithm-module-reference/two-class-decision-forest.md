@@ -1,7 +1,7 @@
 ---
-title: 'Floresta de Decisão de duas classes: Referência do módulo'
+title: 'Floresta de Decisão Two-Class: Referência do módulo'
 titleSuffix: Azure Machine Learning
-description: Aprenda a usar o módulo de floresta de decisão de duas classes em Azure Machine Learning para criar um modelo de aprendizagem automática baseado no algoritmo das florestas de decisão.
+description: Aprenda a usar o módulo Two-Class Decision Forest em Azure Machine Learning para criar um modelo de aprendizagem automática baseado no algoritmo das florestas de decisão.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/03/2020
 ms.openlocfilehash: 9870b5366ac629fe1b10cfde15a58b85c7c6fbc3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90907715"
 ---
-# <a name="two-class-decision-forest-module"></a>Módulo florestal de decisão de duas classes
+# <a name="two-class-decision-forest-module"></a>Módulo florestal de decisão Two-Class
 
 Este artigo descreve um módulo no designer de Aprendizagem automática Azure.
 
@@ -99,7 +99,7 @@ Para mais informações, consulte [As Florestas de Decisão.](https://go.microso
     > 
     > Se selecionar a opção De Alcance de **Parâmetros** e introduzir um único valor para qualquer parâmetro, esse valor único especificado é utilizado ao longo da varredura, mesmo que outros parâmetros se alterem numa gama de valores.  
     
-## <a name="results"></a>Resultados
+## <a name="results"></a>Results
 
 Após o treino estar completo:
 
