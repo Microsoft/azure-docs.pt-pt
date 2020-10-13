@@ -9,10 +9,10 @@ ms.date: 02/17/2020
 ms.author: bwren
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: e6ccba27fb599cb26da86e94d3500f4f806ecb76
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91328875"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Instalar e configurar a extensão de diagnóstico do Windows Azure (WAD)
@@ -142,7 +142,7 @@ Set-AzVMDiagnosticsExtension -ResourceGroupName "myvmresourcegroup" `
   -DiagnosticsConfigurationPath "DiagnosticsConfiguration.json"
 ```
 
-As definições privadas são definidas no [elemento PrivateConfig,](diagnostics-extension-schema-windows.md#privateconfig-element)enquanto as configurações públicas são definidas no [elemento Público](diagnostics-extension-schema-windows.md#publicconfig-element) do esquema de configuração. Também pode optar por especificar os detalhes da conta de armazenamento como parâmetros do cmdlet Set-AzVMDiagnosticsExtension em vez de incluí-los nas definições privadas.
+As definições privadas são definidas no [elemento PrivateConfig,](diagnostics-extension-schema-windows.md#privateconfig-element)enquanto as configurações públicas são definidas no [elemento Público](diagnostics-extension-schema-windows.md#publicconfig-element) do esquema de configuração. Também pode optar por especificar os detalhes da conta de armazenamento como parâmetros do Set-AzVMDiagnosticsExtension cmdlet em vez de incluí-los nas definições privadas.
 
 Segue-se um exemplo mínimo de um ficheiro de configuração que permite a recolha de registos de infraestruturas de diagnóstico, um balcão de desempenho único e um único registo de eventos. Consulte [a configuração exemplo](diagnostics-extension-schema-windows.md#publicconfig-element) para obter detalhes completos das configurações privadas e públicas. 
 
@@ -192,7 +192,7 @@ Consulte também [o PowerShell para ativar o Azure Diagnostics numa máquina vir
 A tabela que se segue lista os diferentes tipos de dados recolhidos a partir da extensão de diagnóstico e se são armazenados como uma mesa ou uma bolha. Os dados armazenados em tabelas também podem ser armazenados em bolhas dependendo da [definição de StorageType](diagnostics-extension-schema-windows.md#publicconfig-element) na sua configuração pública.
 
 
-| Dados | Tipo de armazenamento | Description |
+| Dados | Tipo de armazenamento | Descrição |
 |:---|:---|:---|
 | WADDiagnosticInfrastructureLogsTable | Tabela | Alterações no monitor de diagnóstico e na configuração. |
 | WADDirectoriesTable | Tabela | Diretórios que o monitor de diagnóstico está a monitorizar.  Isto inclui registos IIS, registos de pedidos falhados do IIS e diretórios personalizados.  A localização do ficheiro de registo de bolhas é especificada no campo de Contentores e o nome da bolha está no campo RelativePath.  O campo AbsolutePath indica a localização e o nome do ficheiro tal como existia na máquina virtual Azure. |

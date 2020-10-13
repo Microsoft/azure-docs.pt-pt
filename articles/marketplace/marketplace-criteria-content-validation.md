@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 09/04/2020
 ms.openlocfilehash: 51f226443e6f21b6c333cacf6c88f0d00208f5f2
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89484277"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Diretrizes de listagem do Azure Marketplace
@@ -20,7 +20,7 @@ Este artigo explica os requisitos e orientações para a listagem de novas ofert
 
 ## <a name="listing-requirements-for-all-offers"></a>Requisitos de listagem para todas as ofertas
 
-| Não. | Elemento de listagem | Requisito de base | Requisito ideal |
+| N.º | Elemento de listagem | Requisito de base | Requisito ideal |
 |:--- |:--- |:--- |:--- |
 | 1 | Destino principal | Tem um destino de chumbo configurado.| O Catálogo One Commercial Partner (OCP) tem a informação de CRM de destino principal que também está listada no separador de solução de parceiro. |
 | 2 | Título de oferta | Descreve brevemente a oferta de solução. Corresponde à promoção online da solução no site do parceiro. | Contém palavras de pesquisa de chaves. |
@@ -38,14 +38,14 @@ Este artigo explica os requisitos e orientações para a listagem de novas ofert
 
 ## <a name="trial-offer-requirements"></a>Requisitos de oferta de ensaio
 
-| Não. | Elemento de listagem | Requisito de base | Requisito ideal | 
+| N.º | Elemento de listagem | Requisito de base | Requisito ideal | 
 |:--- |:--- |:--- |:--- |
 |  | Estado da lista (opção de listagem) | O link deve conduzir a uma experiência de *Teste* orientada pelo cliente. | Outras opções de listagem (por exemplo, *Buy Now)* também estão disponíveis. | 
 |||
 
 ## <a name="saas-application-requirements"></a>Requisitos de aplicação saaS
 
-| Não. | Elemento de listagem | Requisito de base | Requisito ideal | 
+| N.º | Elemento de listagem | Requisito de base | Requisito ideal | 
 |:--- |:--- |:--- |:--- |
 | 1 | Título de oferta |<ul><li>Deve consistir apenas em letras minúsculas, caracteres alfanuméricos, traços ou sublinhados. O título não pode ser modificado depois de publicado.</li><li>Descreve a oferta de solução.</li><li>Corresponde à promoção online da solução no site do parceiro. | Contém palavras de pesquisa de chaves. |
 | 2 | Informação técnica: Configuração |<ul><li>Para software como aplicações de serviço (SaaS), escolha se deseja apenas listar a sua app ou para permitir que os clientes comprem a sua app através do Azure.</li><li>Selecione o texto que pretende no botão de aquisição da sua oferta: *Free,* *Free Trial*ou *Contacte-me.*</li><li>Na janela pop-up, selecione apenas um produto aplicável se a sua aplicação utilizar a tecnologia: Cortana Intelligence, Power BI Solution Templates ou Power Apps. |  |
@@ -62,7 +62,7 @@ Este artigo explica os requisitos e orientações para a listagem de novas ofert
 
 ## <a name="container-offer-requirements"></a>Requisitos de oferta de contentores
 
-| Não. | Elemento de listagem | Requisito de base | Requisito ideal |
+| N.º | Elemento de listagem | Requisito de base | Requisito ideal |
 |:--- |:--- |:--- |:--- |
 |1 |Definições da oferta | <ul><li>ID oferta: Max. 50 caracteres.</li><li>ID do editor: Selecione-o da lista de drop-down.</li><li>Nome: Max. 50 caracteres. | Espelha o estilo do título já disponível na descrição. Evite usar títulos longos. |
 | 2 | Planos | O parceiro seleciona novos planos.| O título espelha o estilo do título já disponível na descrição. Evite usar títulos longos.  |
@@ -72,7 +72,7 @@ Este artigo explica os requisitos e orientações para a listagem de novas ofert
 
 ## <a name="consulting-offer-requirements"></a>Requisitos de oferta de consultoria
 
-| Não. | Elemento de listagem | Requisito de base | Requisito ideal |
+| N.º | Elemento de listagem | Requisito de base | Requisito ideal |
 |:--- |:--- |:--- |:--- |
 | 1 | Título de oferta  |  Deve enumerar claramente o tipo de serviço e a duração no formato *Nome: Tipo de Duração* (por exemplo, "Compromisso de Oferta: 1 Semana De Prova de Conceito").  | <ul><li>Não repete o nome do editor.</li><li>O título espelha o estilo do título já disponível na descrição. Evite usar títulos longos. | 
 | 2 | Descrição da oferta  |<ul><li>Garantir uma utilização adequada dos [nomes](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/en-us.aspx)dos produtos da Microsoft .</li><li>Ofertas marcadas como *Preço: Estima-se que* tenha uma nota na parte superior ou inferior para explicar a variabilidade (viagem ao cliente, número de servidores a ser migrados, e assim por diante).</li><li>Cada tipo de oferta tem requisitos de descrição, da seguinte forma: <ul><li>Os briefings precisam de pelo menos quatro ou cinco balas, com informações sobre tópicos a serem abordados.</li><li>Todos os workshops precisam de uma agenda.</li><li>Todas as agendas devem ser discriminadas de dia ou de semana, dependendo da duração do workshop.</li><li>A avaliação, o POC, os workshops não-formadores e as ofertas de implementação precisam de resultados.</li><li>Os workshops de formação não precisam de entregas, mas precisam de uma agenda mais detalhada com temas que serão abordados.</li></ul></ul> | <ul><li>Qualquer oferta tem agenda e entregas.</li><li>A oferta inclui um parágrafo com contexto sobre a empresa que presta o serviço na secção superior.</li><li>A oferta inclui um parágrafo sobre o valor do próprio serviço como uma secção superior. |
@@ -88,7 +88,7 @@ Este artigo explica os requisitos e orientações para a listagem de novas ofert
 | 12 | Saiba mais  | <ul><li>As ligações na parte inferior (sob a descrição, não as ligações Azure Marketplace à esquerda) levam a mais informações sobre a solução e estão disponíveis ao público e estão a ser exibidas corretamente.</li><li>Os links devem ter um "nome amigável" e não são apresentados como o nome do ficheiro de quaisquer downloads. | |
 ||||
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Conheça os vários tipos de oferta no Azure Marketplace:
   * [Aplicações SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide)

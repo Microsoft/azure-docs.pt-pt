@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: contperfq1
 ms.openlocfilehash: 056060f8b94747651c78c757150d5e5a5982c7af
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88757783"
 ---
 # <a name="memory-usage-optimization-for-apache-spark"></a>Otimização do uso da memória para Apache Spark

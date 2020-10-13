@@ -14,10 +14,10 @@ ms.reviewer: vanto
 ms.date: 09/28/2020
 tags: azure-synapse
 ms.openlocfilehash: 2a3e1e7279e915c0c5992190ef0c8d1d83880dbb
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91596119"
 ---
 # <a name="using-multi-factor-azure-active-directory-authentication"></a>Utilização de autenticação de diretório ativo Azure multi-factor
@@ -95,7 +95,7 @@ Após a criação do utilizador da base de dados, o utilizador `steve@gmail.com`
 - Certifique-se de que outros podem ligar através da firewall: [Configurar uma regra de firewall ao nível do servidor utilizando o portal Azure](firewall-configure.md)  
 - [Configurar e gerir a autenticação do Azure Ative Directory com base de dados SQL ou Azure Synapse](authentication-aad-configure.md)
 - [Criar utilizadores convidados do Azure AD e definir como administrador do Azure AD](authentication-aad-guest-users.md) 
-- [Quadro de aplicações de nível de dados do servidor do Microsoft SQL (17.0.0 GA)](https://www.microsoft.com/download/details.aspx?id=55088)  
+- [Quadro de Data-Tier de aplicação do Microsoft SQL Server (17.0.0 GA)](https://www.microsoft.com/download/details.aspx?id=55088)  
 - [SQLPackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage)  
 - [Importar um ficheiro BACPAC para uma nova base de dados](database-import.md)  
 - [Exportar uma base de dados para um ficheiro BACPAC](database-export.md)  

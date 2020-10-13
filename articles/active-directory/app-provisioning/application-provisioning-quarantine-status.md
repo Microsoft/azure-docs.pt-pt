@@ -12,10 +12,10 @@ ms.date: 09/24/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.openlocfilehash: 6a716aef65cc81c5558a214c1ee5f93180810977
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91266688"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Provisionamento de pedidos em estado de quarentena
@@ -49,7 +49,7 @@ Há três formas de verificar se um pedido está em quarentena:
 
 ## <a name="why-is-my-application-in-quarantine"></a>Porque é que o meu pedido está em quarentena?
 
-|Description|Ação Recomendada|
+|Descrição|Ação Recomendada|
 |---|---|
 |**Problema de conformidade SCIM:** Foi devolvida uma resposta HTTP/404 Não Encontrada em vez da resposta HTTP/200 OK esperada. Neste caso, o serviço de fornecimento de Ad Azure fez um pedido ao pedido-alvo e recebeu uma resposta inesperada.|Consulte a secção de credenciais de administração para ver se o pedido requer especificar o URL do inquilino e certifique-se de que o URL está correto. Se não vir um problema, contacte o desenvolvedor da aplicação para garantir que o seu serviço está em conformidade com o SCIM. https://tools.ietf.org/html/rfc7644#section-3.4.2 |
 |**Credenciais inválidas:** Ao tentar autorizar o acesso ao pedido de destino, recebemos uma resposta da aplicação-alvo que indica que as credenciais fornecidas são inválidas.|Navegue para a secção de credenciais de administração da configuração de provisionamento UI e autorize o acesso novamente com credenciais válidas. Se a aplicação estiver na galeria, reveja o tutorial de configuração da aplicação para quaisquer etapas adicionais necessárias.|

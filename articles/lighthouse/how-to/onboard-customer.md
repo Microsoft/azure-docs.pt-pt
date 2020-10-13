@@ -3,12 +3,12 @@ title: Incluir um cliente no Azure Lighthouse
 description: Saiba como embarcar um cliente no Farol Azure, permitindo que os seus recursos sejam acedidos e geridos através do seu próprio inquilino utilizando a gestão de recursos delegada da Azure.
 ms.date: 09/24/2020
 ms.topic: how-to
-ms.openlocfilehash: 2e404c471990575460ccda3a26e7cdcb3ec1cf1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6902fb787b14c4443e28852b9aaf2533da9b49d3
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396676"
+ms.locfileid: "91873218"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Incluir um cliente no Azure Lighthouse
 
@@ -19,7 +19,7 @@ Este artigo explica como você, como prestador de serviços, pode embarcar um cl
 
 Pode repetir o processo de embarque para vários clientes. Quando um utilizador com as permissões adequadas assina no seu inquilino gerente, esse utilizador pode ser autorizado através de âmbitos de arrendamento de clientes para realizar operações de gestão, sem ter de se inscrever em cada cliente inquilino.
 
-Para acompanhar o seu impacto através dos compromissos com os clientes e receber reconhecimento, associe o seu ID da Microsoft Partner Network (MPN) a pelo menos uma conta de utilizador que tenha acesso a cada uma das suas subscrições a bordo. Você precisará realizar esta associação no seu inquilino prestador de serviços. Recomendamos a criação de uma conta principal de serviço no seu inquilino que esteja associada ao seu ID MPN, incluindo o principal de serviço sempre que estiver a bordo de um cliente. Para obter mais informações, consulte [Link o seu parceiro ID para permitir que o parceiro ganhou crédito em recursos delegados.
+Para acompanhar o seu impacto através dos compromissos com os clientes e receber reconhecimento, associe o seu ID da Microsoft Partner Network (MPN) a pelo menos uma conta de utilizador que tenha acesso a cada uma das suas subscrições a bordo. Você precisará realizar esta associação no seu inquilino prestador de serviços. Recomendamos a criação de uma conta principal de serviço no seu inquilino que esteja associada ao seu ID MPN, incluindo o principal de serviço sempre que estiver a bordo de um cliente. Para obter mais informações, consulte [Link o seu parceiro ID para permitir que o parceiro ganhou crédito em recursos delegados.](partner-earned-credit.md)
 
 > [!NOTE]
 > Os clientes também podem ser acedidos ao Farol de Azure quando adquirem uma oferta de Serviço Gerido (público ou privado) que [publica no Azure Marketplace.](publish-managed-services-offers.md) Também pode utilizar o processo de embarque descrito aqui ao lado das ofertas publicadas no Azure Marketplace.

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0f1bde255355e7a4f47df6a3969837410692cef5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91266064"
 ---
 # <a name="continuous-access-evaluation"></a>Avaliação contínua de acesso
@@ -156,7 +156,7 @@ Se este cenário existir no seu ambiente para evitar loops infinitos, o Azure AD
 
 | Canal de atualização de escritório | DisableADALatopWAMOverride | DisableAADWAM |
 | --- | --- | --- |
-| Canal Empresarial Semes Anual | Se estiver programado para ativar ou 1, o CAE não deve ser suportado. | Se estiver programado para ativar ou 1, o CAE não deve ser suportado. |
+| Canal Semi-Annual Enterprise | Se estiver programado para ativar ou 1, o CAE não deve ser suportado. | Se estiver programado para ativar ou 1, o CAE não deve ser suportado. |
 | Canal atual <br> ou <br> Canal Mensal da Empresa | CAE é suportado independentemente da configuração | CAE é suportado independentemente da configuração |
 
 Para obter uma explicação dos canais de atualização do office, consulte [a visão geral dos canais de atualização para as aplicações da Microsoft 365](https://docs.microsoft.com/deployoffice/overview-update-channels). Recomenda-se que as organizações não desativem o Gestor de Conta Web (WAM).

@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.openlocfilehash: 5a09105dac89f3dc241140f16f3d4be72cc97493
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89483631"
 ---
 # <a name="azure-ad-and-transactable-saas-offers-in-the-commercial-marketplace"></a>Azure AD e ofertas transacionáveis da SaaS no mercado comercial
@@ -23,7 +23,7 @@ Além disso, [o Azure AD single sign-on](https://docs.microsoft.com/azure/active
 
 Seguindo as orientações deste artigo, ajudará a certificar a sua oferta saaS no mercado comercial. Para mais detalhes sobre a certificação, leia as políticas detalhadas de [certificação do mercado comercial,](https://aka.ms/commercial-marketplace-certification-policies#100-general)incluindo as [específicas do SaaS.](https://aka.ms/commercial-marketplace-certification-policies#1000-software-as-a-service-saas)
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Quando [criar a sua oferta SaaS](./partner-center-portal/create-new-saas-offer.md) no Partner Center, escolha entre um conjunto de opções específicas de listagem que serão exibidas na listagem de ofertas. A sua escolha determina como a sua oferta é transacionada no mercado comercial. As ofertas vendidas através da Microsoft são chamadas de ofertas transacionáveis. Cobramos ao cliente em seu nome por todas as ofertas transacionáveis. Se optar por vender através da Microsoft e nos fizer realizar transações em seu nome (a opção **Sim),** então escolheu criar uma oferta transacionável e este artigo é para si. Recomendamos que o leia na íntegra.
 
@@ -45,7 +45,7 @@ As seguintes secções fornecem detalhes sobre os requisitos para cada passo de 
 
 Este valor mostra os quatro passos de processo para a gestão da compra.
 
-:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-1-4.png" alt-text="Ilustra os quatro passos de processo para a gestão da compra.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-1-4.png" alt-text="Ilustra a gestão de compras, gestão de subscrição e etapas opcionais de gestão do utilizador.":::
 
 Esta tabela fornece detalhes para as etapas do processo de gestão de compras.
 
@@ -61,7 +61,7 @@ Esta tabela fornece detalhes para as etapas do processo de gestão de compras.
 
 Este número mostra os dois passos de processo para a gestão da subscrição.
 
-:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-5-6.png" alt-text="Ilustra os dois passos de processo para a gestão de subscrições.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-5-6.png" alt-text="Ilustra a gestão de compras, gestão de subscrição e etapas opcionais de gestão do utilizador.":::
 
 Esta tabela descreve os detalhes sobre os passos do processo de gestão de subscrição.
 
@@ -75,7 +75,7 @@ Esta tabela descreve os detalhes sobre os passos do processo de gestão de subsc
 
 Este número mostra os três passos de processo para a gestão do utilizador.
 
-:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-7-9.png" alt-text="Ilustra os três passos de processo opcionais para a gestão do utilizador.":::
+:::image type="content" source="./media/azure-ad-saas/azure-ad-saas-flow-7-9.png" alt-text="Ilustra a gestão de compras, gestão de subscrição e etapas opcionais de gestão do utilizador.":::
 
 Os passos de processo 7 a 9 são passos opcionais do processo de gestão do utilizador. Proporcionam benefícios adicionais para os editores que suportam a Azure AD um único sign-on (SSO). Esta tabela descreve os detalhes sobre os passos do processo de gestão do utilizador.
 
@@ -86,7 +86,7 @@ Os passos de processo 7 a 9 são passos opcionais do processo de gestão do util
 | 9. Após a permissão e provisão da aplicação, os utilizadores da empresa do comprador podem utilizar o Azure AD SSO para iniciar sessão na aplicação SaaS da editora. | [Utilize o Azure AD SSO](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) para permitir que os utilizadores entrem uma vez com uma conta para a aplicação SaaS da editora. | Recomendado |
 ||||
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Construa a página de aterragem para a sua oferta de SaaS transacionável no mercado comercial](azure-ad-transactable-saas-landing-page.md)
 - [Construa a página de aterragem para a sua oferta saas gratuita ou experimental no mercado comercial](azure-ad-free-or-trial-landing-page.md)

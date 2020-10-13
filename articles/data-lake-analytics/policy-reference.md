@@ -8,10 +8,10 @@ ms.author: hrasheed
 ms.service: data-lake-analytics
 ms.custom: subject-policy-reference
 ms.openlocfilehash: e603878484128d9d59f633b7117c755bc4965fe4
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91825030"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-data-lake-analytics"></a>Azure Policy definições incorporadas para Azure Data Lake Analytics

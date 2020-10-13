@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 6c46dfb3f36c3ef7f67ce2f3b52c2ffe4c805a61
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91534799"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Filtros em Pesquisa Cognitiva Azure 
@@ -169,7 +169,7 @@ Os campos numéricos não estão `searchable` no contexto da pesquisa completa p
 
 Os documentos que contêm campos numéricos (preço, tamanho, SKU, ID) fornecem esses valores nos resultados de pesquisa se o campo estiver marcado `retrievable` . A questão aqui é que a pesquisa completa por texto em si não é aplicável aos tipos de campo numérico.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Primeiro, tente pesquisar o **explorador** no portal para submeter consultas com **$filter** parâmetros. O [índice de amostra imobiliária](search-get-started-portal.md) fornece resultados interessantes para as seguintes consultas filtradas quando as colam na barra de pesquisa:
 
@@ -196,7 +196,7 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 
 Para trabalhar com mais exemplos, consulte [a sintaxe de expressão do filtro OData > Exemplos](./search-query-odata-filter.md#examples).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 + [Como funciona a pesquisa em texto completo no Azure Cognitive Search](search-lucene-query-architecture.md)
 + [Search Documents REST API](/rest/api/searchservice/search-documents) (Pesquisar Documentos com a API REST)

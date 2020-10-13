@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: jushiman
 ms.openlocfilehash: fe63f9d5a9d215a31a56d7214170d86f46a4e4a2
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653660"
 ---
 # <a name="m-series"></a>Série M
 
 A série M oferece uma alta contagem de VCPU (até 128 vCPUs) e uma grande quantidade de memória (até 3,8 TiB). Também é ideal para bases de dados extremamente grandes ou outras aplicações que beneficiam de altas contagens de vCPU e grandes quantidades de memória. Os tamanhos da série M são suportados tanto no Intel &reg; Xeon &reg; CPU E7-8890 v3 @ 2.50GHz como no Intel &reg; Xeon &reg; Platinum 8280M (Cascade Lake).
 
-Recurso da série M VM, &reg; Intel Hyper-Threading Technology.
+Recurso da série M VM, Intel &reg; Hyper-Threading Technology.
 
 [ACU](acu.md): 160-180<br>
 [Armazenamento Premium](premium-storage-performance.md): Suportado<br>

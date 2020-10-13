@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 89d6379f3fa41036836288ed5c75fbdaad0031da
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88783828"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Registos de arquivo e reportagens sobre a gestão de direitos da AD Azure no Azure Monitor
@@ -35,7 +35,7 @@ Os registos de auditoria da Azure AD requer que tenha o Azure Monitor numa subsc
 
 **Papel pré-requisito**: Administração Global
 
-1. Inscreva-se no portal Azure como um utilizador que é um Administrador Global. Certifique-se de que tem acesso ao grupo de recursos que contém o espaço de trabalho do Monitor Azure.
+1. Inscreva-se no portal Azure como um utilizador que é um Administrador Global. Certifique-se de que tem acesso ao grupo de recursos que contém o espaço de trabalho do Azure Monitor.
  
 1. Selecione **O Diretório Ativo Azure** e, em seguida, clique em **Definições de Diagnóstico** em Monitorização no menu de navegação à esquerda. Verifique se já há uma definição para enviar os registos de auditoria para o espaço de trabalho.
 

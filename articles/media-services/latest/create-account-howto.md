@@ -15,10 +15,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 93f5e4d659b94bd79345a5e687de14ab6a5e8ba6
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89267977"
 ---
 # <a name="create-a-media-services-account"></a>Criar uma conta dos Media Services
@@ -91,7 +91,7 @@ Para todas as outras tarefas de gestão (por exemplo, [Transformações e Empreg
 
 [!INCLUDE [Create a Media Services account with CLI](./includes/task-create-media-services-account-cli.md)]
 
-### <a name="see-also"></a>Ver também
+### <a name="see-also"></a>Consulte também
 
 * [CLI do Azure](/cli/azure/ams?view=azure-cli-latest)
 * [Anexar um armazenamento secundário a uma conta de Serviços de Mídia](/cli/azure/ams/account/storage?view=azure-cli-latest#az-ams-account-storage-add)

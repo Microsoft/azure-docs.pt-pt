@@ -10,10 +10,10 @@ ms.author: rolyon
 ms.date: 09/22/2020
 ms.custom: generated
 ms.openlocfilehash: f5d5b4f801dd406518a6ba516bf2e38e01cb96ac
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91275273"
 ---
 # <a name="azure-built-in-roles"></a>Funções incorporadas do Azure
@@ -27,7 +27,7 @@ A tabela seguinte fornece uma breve descrição e a identificação única de ca
 ## <a name="all"></a>Todos
 
 > [!div class="mx-tableFixed"]
-> | Papel incorporado | Description | ID |
+> | Papel incorporado | Descrição | ID |
 > | --- | --- | --- |
 > | **Geral** |  |  |
 > | [Contribuinte](#contributor) | Concede acesso total para gerir todos os recursos, mas não lhe permite atribuir funções no Azure RBAC. | b24988ac-6180-42a0-ab88-20f7382dd24c |

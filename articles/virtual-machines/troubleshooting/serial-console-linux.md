@@ -1,6 +1,6 @@
 ---
 title: Consola em série Azure para Linux Microsoft Docs
-description: Consola em série bidis para máquinas virtuais Azure e conjuntos de balança de máquinas virtuais usando um exemplo Linux.
+description: Bi-Directional consola em série para máquinas virtuais Azure e conjuntos de balança de máquinas virtuais usando um exemplo Linux.
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
 ms.openlocfilehash: 9a31a22a5b037162198f594d9bcf35c91a0a4654
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91306876"
 ---
 # <a name="azure-serial-console-for-linux"></a>Consola de Série do Azure para Linux

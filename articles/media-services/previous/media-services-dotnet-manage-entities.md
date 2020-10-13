@@ -16,10 +16,10 @@ ms.date: 04/01/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: b615e6526eb4187d354c4e276147743156b10bc1
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89266022"
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>Gestão de Ativos e Entidades Relacionadas com Serviços de Mídia .NET SDK

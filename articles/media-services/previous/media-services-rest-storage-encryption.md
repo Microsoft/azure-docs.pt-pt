@@ -16,10 +16,10 @@ ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 8a3a51644f61d4a1e118798986f9c6fb6c52d0e5
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89264169"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Encriptar o seu conteúdo com encriptação de armazenamento
@@ -51,7 +51,7 @@ Ao aceder a entidades nos Serviços de Media, deve definir campos e valores espe
 |---|---|---|---|
 |Encriptação de armazenamento de serviços de mídia|Encriptação AES-256, chave gerida pelos Media Services|Suportado<sup>(1)</sup>|Não suportado<sup>(2)</sup>|
 |[Encriptação do serviço de armazenamento para dados em repouso](../../storage/common/storage-service-encryption.md)|Encriptação do lado do servidor oferecida pelo Azure Storage, chave gerida pelo Azure ou pelo cliente|Suportado|Suportado|
-|[Encriptação do lado do cliente do armazenamento](../../storage/common/storage-client-side-encryption.md)|Encriptação do lado do cliente oferecida pelo armazenamento Azure, chave gerida pelo cliente em Key Vault|Não suportado|Não suportado|
+|[Encriptação Client-Side de armazenamento](../../storage/common/storage-client-side-encryption.md)|Encriptação do lado do cliente oferecida pelo armazenamento Azure, chave gerida pelo cliente em Key Vault|Não suportado|Não suportado|
 
 <sup>1 Enquanto</sup> os Serviços de Mídia suportam o manuseamento de conteúdos na clara/sem qualquer forma de encriptação, não é recomendável fazê-lo.
 

@@ -9,10 +9,10 @@ ms.author: b-trconn
 keywords: aro, openshift, az aro, chapéu vermelho, cli
 ms.custom: mvc
 ms.openlocfilehash: 0cd6797bcdfadca807e25f8b3decf34bd553fc56
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89470056"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-cluster-application-restore"></a>Crie um Azure Red Hat OpenShift 4 Cluster Application restaurar
@@ -25,7 +25,7 @@ Neste artigo, você vai preparar o seu ambiente para criar uma aplicação de cl
 
 Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão Azure CLI 2.6.0 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 ### <a name="create-an-azure-red-hat-openshift-4-application-backup"></a>Crie um Azure Red Hat OpenShift 4 backup de aplicações
 
@@ -57,7 +57,7 @@ oc get restore -n velero <name of restore created previously> -o yaml
 ```
 Quando a fase `Completed` diz, a sua aplicação Azure Red Hat 4 deve ser restaurada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, foi restaurada uma aplicação de cluster Azure Red Hat OpenShift 4. Aprendeu a:
 

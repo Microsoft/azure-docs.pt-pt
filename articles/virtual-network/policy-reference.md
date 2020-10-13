@@ -8,10 +8,10 @@ ms.author: kumud
 ms.service: virtual-network
 ms.custom: subject-policy-reference
 ms.openlocfilehash: 5a700967d33b2f15f25f16274d2f986bfd5d7c84
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91824501"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-virtual-network"></a>Definições incorporadas da Política Azure para a Rede Virtual Azure

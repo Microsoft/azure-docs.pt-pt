@@ -16,10 +16,10 @@ ms.date: 08/11/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 357eb0a60e6246996de9ab75337ecc213d845ae7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91273335"
 ---
 # <a name="fortigate-deployment-guide"></a>Guia de implantação fortiGate
@@ -175,7 +175,7 @@ As seguintes secções acompanham-no como configurar o LM FortiGate.
 
     ![Screenshot da Firmware Management.](backup-configure-upgrade.png)
 
-7. **Selecione Continuar**.
+7. Selecione **Continuar**.
 8. Quando lhe for solicitado que guarde a configuração do FortiGate (como ficheiro .conf), **selecione Save**.
 9. Aguarde que o firmware faça o upload e seja aplicado. Aguarde que o LM FortiGate reinicie.
 10. Após o reinício do LM Do FortiGate, inscreva-se novamente com as credenciais do administrador.
