@@ -17,10 +17,10 @@ ms.date: 08/10/2020
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e7653f850edc910fc78b14a628b87dcb22aeb903
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89279419"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Histórico do Lançamento de Versões
@@ -93,7 +93,7 @@ Azure AD Connect Health for Sync está integrado com a instalação Azure AD Con
 
 * Azure AD Connect Health agent for AD FS (versão 3.1.24.0)  
    1. Protocolo de Segurança da Camada de Transporte (TLS) versão 1.2 conformidade e execução
-   2. Suporte de Test-ADFSRequestToken para sistema operativo localizado
+   2. Apoio a Test-ADFSRequestToken para sistema operativo localizado
    3. Problema de bloqueio de agente de diagnóstico resolvido EventHandler
    4. Correções de erros de registo de agentes de saúde
 
@@ -259,5 +259,5 @@ Azure AD Connect Health for Sync está integrado com a instalação Azure AD Con
 * Tendências no pedido falhado nos servidores AD FS agrupados por Aplicações, Tipos de Erro, etc.
 * Implementação de agente mais simples usando credenciais de administração global da Azure AD.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre [a sua infraestrutura de identidade no local e serviços de sincronização na nuvem.](./whatis-azure-ad-connect.md)

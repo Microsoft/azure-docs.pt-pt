@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: fecb78b240f5c983580d4bdb34535a879ffe3e2e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91289281"
 ---
 # <a name="maximize-rowgroup-quality-for-columnstore-index-performance"></a>Maximizar a qualidade do grupo de linha para o desempenho do índice de loja de colunas

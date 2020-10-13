@@ -9,10 +9,10 @@ ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: 659e7fcdbd2284110282d14fc89bd4d8d5ac2472
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91267028"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>O que é Azure Web Application Firewall no Gateway de aplicações Azure?

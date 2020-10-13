@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.openlocfilehash: b760ad03318b3c31b39b6470251847150dc5a70a
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88869427"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Saída Azure Stream Analytics para Azure SQL Database
@@ -39,7 +39,7 @@ Aqui estão algumas configurações dentro de cada serviço que podem ajudar a m
 
 - **Evite violações chave únicas** – Se receber [várias mensagens de aviso de violação chave](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) no Diário de Atividades Azure Stream Analytics, certifique-se de que o seu trabalho não é afetado por violações de restrições únicas que são suscetíveis de ocorrer durante casos de recuperação. Isto pode ser evitado definindo a opção [IGNORE \_ DUP \_ KEY](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) nos seus índices.
 
-## <a name="azure-data-factory-and-in-memory-tables"></a>Fábrica de Dados Azure e Tabelas de Memória
+## <a name="azure-data-factory-and-in-memory-tables"></a>Azure Data Factory e In-Memory Tabelas
 
 - **Tabela na memória como tabela temporária** – As [tabelas in-memory](/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) permitem cargas de dados de alta velocidade, mas os dados precisam de se encaixar na memória. Os indicadores de referência mostram que o carregamento a granel de uma tabela em memória para uma tabela baseada em disco é cerca de 10 vezes mais rápido do que a inserção direta a granel usando um único escritor na tabela baseada em disco com uma coluna de identidade e um índice agrupado. Para alavancar este desempenho de inserção a granel, crie uma [cópia utilizando a Azure Data Factory](../data-factory/connector-azure-sql-database.md) que copia dados da tabela de memórias para a tabela baseada em disco.
 
@@ -48,10 +48,10 @@ Os dados de inserção a granel são muito mais rápidos do que carregar dados c
 
 Se a taxa de eventos de entrada for baixa, pode facilmente criar tamanhos de lote inferiores a 100 linhas, o que torna a entrada a granel ineficiente e utiliza demasiado espaço em disco. Para contornar esta limitação, pode fazer uma destas ações:
 * Crie um [gatilho](/sql/t-sql/statements/create-trigger-transact-sql) em vez de utilizar uma inserção simples para cada linha.
-* Utilize uma tabela temporária in-memory, conforme descrito na secção anterior.
+* Utilize uma tabela temporária In-Memory, conforme descrito na secção anterior.
 
 Outro tal cenário ocorre ao escrever num índice de loja de colunas não agrupado (NCCI), onde inserções a granel mais pequenas podem criar demasiados segmentos, que podem colidir com o índice. Neste caso, a recomendação é utilizar um índice de colunas agrupadas.
 
 ## <a name="summary"></a>Resumo
 
-Em resumo, com a função de saída partitioned no Azure Stream Analytics para a saída SQL, a paralelização alinhada do seu trabalho com uma mesa dividida em SQL Azure deve dar-lhe melhorias significativas de produção. Alavancar a Azure Data Factory para orquestrar o movimento de dados a partir de uma tabela in-memory em tabelas baseadas em disco pode dar ordem de ganhos de produção de magnitude. Se possível, melhorar a densidade da mensagem também pode ser um fator importante para melhorar a produção global.
+Em resumo, com a função de saída partitioned no Azure Stream Analytics para a saída SQL, a paralelização alinhada do seu trabalho com uma mesa dividida em SQL Azure deve dar-lhe melhorias significativas de produção. Alavancar a Azure Data Factory para orquestrar o movimento de dados a partir de uma tabela de In-Memory em tabelas baseadas em disco pode dar ordem de ganhos de produção de magnitude. Se possível, melhorar a densidade da mensagem também pode ser um fator importante para melhorar a produção global.

@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
 ms.openlocfilehash: 16ee2f01e1b7771e71afe49c4b69b1fb39e43f37
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88869444"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
@@ -169,6 +169,6 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 |--cadeia do tipo de saída|Formato da saída do comando. As escolhas incluem: texto, json. O valor predefinido é "texto".|
 |--cadeia de sufixos de confiança da Microsoft-Sufixes   |Especifica sufixos de domínio adicionais onde podem ser enviados tokens de login do Azure Ative Directory.  O padrão é '*.core.windows.net;*. core.chinacloudapi.cn; *.core.cloudapi.de;* core.usgovcloudapi.net.' Qualquer listado aqui é adicionado ao padrão. Para a segurança, só deve colocar os domínios microsoft Azure aqui. Separe várias entradas com pontos e vírgulas.|
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
-- [azcopia](storage-ref-azcopy.md)
+- [azcopy](storage-ref-azcopy.md)

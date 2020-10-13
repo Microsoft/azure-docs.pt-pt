@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 8b1a9e6d539d37fb26d8fb0e3a541415dd574e9a
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89278892"
 ---
 # <a name="azure-resource-providers-and-types"></a>Tipos e fornecedores de recursos do Azure
@@ -290,7 +290,7 @@ West US
 ...
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber sobre a criação de modelos de Gestor de Recursos, consulte os modelos do [Gestor de Recursos Azure.](../templates/template-syntax.md) 
 * Para ver os esquemas de modelo do fornecedor de recursos, consulte [a referência do modelo](/azure/templates/).

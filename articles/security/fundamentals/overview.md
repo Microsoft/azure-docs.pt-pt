@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
 ms.openlocfilehash: d00b897f41ab00f0e3c23292eeb5f431bf5c070c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87835940"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à segurança do Azure
@@ -142,7 +142,7 @@ No Application Diagnostics é possível ver eventos agrupados nas seguintes form
 A secção fornece informações adicionais sobre as principais funcionalidades da segurança de armazenamento Azure e informações sumárias sobre estas capacidades.
 
 ### <a name="role-based-access-control-rbac"></a>Controlo de Acesso Baseado em Funções (RBAC)
-Pode proteger a sua conta de armazenamento com o Controlo de Acesso Baseado em Fun (RBAC). Restringir o acesso com base na [necessidade de conhecer](https://en.wikipedia.org/wiki/Need_to_know) e menos [privilégios](https://en.wikipedia.org/wiki/Principle_of_least_privilege) princípios de segurança é imperativo para as organizações que querem impor políticas de segurança para o acesso aos dados. Estes direitos de acesso são concedidos atribuindo o papel adequado de Azure a grupos e aplicações num determinado âmbito. Pode utilizar [funções incorporadas do Azure,](../../role-based-access-control/built-in-roles.md)como o Storage Account Contributor, para atribuir privilégios aos utilizadores. O acesso às teclas de armazenamento de uma conta de armazenamento utilizando o modelo [Azure Resource Manager](../../storage/blobs/security-recommendations.md) pode ser controlado através do Controlo de Acesso Baseado em Fun (RBAC).
+Pode proteger a sua conta de armazenamento com Role-Based Controlo de Acesso (RBAC). Restringir o acesso com base na [necessidade de conhecer](https://en.wikipedia.org/wiki/Need_to_know) e menos [privilégios](https://en.wikipedia.org/wiki/Principle_of_least_privilege) princípios de segurança é imperativo para as organizações que querem impor políticas de segurança para o acesso aos dados. Estes direitos de acesso são concedidos atribuindo o papel adequado de Azure a grupos e aplicações num determinado âmbito. Pode utilizar [funções incorporadas do Azure,](../../role-based-access-control/built-in-roles.md)como o Storage Account Contributor, para atribuir privilégios aos utilizadores. O acesso às chaves de armazenamento de uma conta de armazenamento utilizando o modelo [Azure Resource Manager](../../storage/blobs/security-recommendations.md) pode ser controlado através do Role-Based Access Control (RBAC).
 
 ### <a name="shared-access-signature"></a>Assinatura de acesso compartilhado
 As [assinaturas de acesso partilhado (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) disponibilizam acesso delegado a recursos na sua conta de armazenamento. O SAS significa que pode conceder a um cliente permissões limitadas a objetos na sua conta de armazenamento por um período especificado e com um conjunto especificado de permissões. Pode conceder estas permissões limitadas sem ter de partilhar as chaves de acesso à sua conta.
@@ -155,7 +155,7 @@ A encriptação em trânsito é um mecanismo de proteção dos dados quando são
 
 -   Encriptação do lado do cliente, para encriptar os dados antes de serem transferidos para o armazenamento e para desencriptar os dados após a sua transferência para fora do armazenamento.
 
-### <a name="encryption-at-rest"></a>Encriptação de dados inativos
+### <a name="encryption-at-rest"></a>Encriptação inativa
 Para muitas organizações, a encriptação de dados em repouso é um passo obrigatório para a privacidade dos dados, conformidade e soberania de dados. Existem três funcionalidades de segurança de armazenamento Azure que fornecem encriptação de dados que estão "em repouso":
 
 -   [A Encriptação do Serviço de Armazenamento](../../storage/common/storage-service-encryption.md) permite-lhe solicitar que o serviço de armazenamento criptografe automaticamente os dados ao escrevê-lo para o Azure Storage.
@@ -174,12 +174,12 @@ Para muitas organizações, a encriptação de dados em repouso é um passo obri
 
 -   Pedidos de dados de análise.
 
-### <a name="enabling-browser-based-clients-using-cors"></a>Ativar clientes baseados no navegador usando o CORS
+### <a name="enabling-browser-based-clients-using-cors"></a>Habilitando Browser-Based clientes usando CORS
 [Cross-Origin Resource Sharing (CORS)](https://docs.microsoft.com/rest/api/storageservices/fileservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) é um mecanismo que permite que os domínios dêem permissão uns aos outros para acederem aos recursos uns dos outros. O Agente utilizador envia cabeçalhos extra para garantir que o código JavaScript carregado de um determinado domínio é autorizado a aceder a recursos localizados noutro domínio. Este último domínio responde então com cabeçalhos extras permitindo ou negando o acesso original do domínio aos seus recursos.
 
 Os serviços de armazenamento Azure suportam agora o CORS de modo a que, uma vez definidas as regras CORS para o serviço, seja avaliado um pedido devidamente autenticado contra o serviço de um domínio diferente para determinar se é permitido de acordo com as regras especificadas.
 
-## <a name="networking"></a>Rede
+## <a name="networking"></a>Redes
 A secção fornece informações adicionais sobre as principais funcionalidades da segurança da rede Azure e informações sumárias sobre estas capacidades.
 
 ### <a name="network-layer-controls"></a>Controlos da camada de rede
@@ -189,7 +189,7 @@ O controlo do acesso à rede é o ato de limitar a conectividade de e para dispo
 Um [Grupo de Segurança de Rede (NSG)](../../virtual-network/virtual-network-vnet-plan-design-arm.md) é uma firewall de filtragem de pacotes básicos e imponente e permite-lhe controlar o acesso com base num [5-tuple](https://www.techopedia.com/definition/28190/5-tuple). Os NSGs não fornecem inspeção da camada de aplicação ou controlos de acesso autenticados. Podem ser utilizados para controlar o tráfego que se desloca entre sub-redes dentro de uma Rede Virtual Azure e o tráfego entre uma Rede Virtual Azure e a Internet.
 
 #### <a name="route-control-and-forced-tunneling"></a>Controlo de rotas e túneis forçados
-A capacidade de controlar o comportamento de encaminhamento nas suas Redes Virtuais Azure é uma capacidade crítica de segurança da rede e controlo de acesso. Por exemplo, se quiser certificar-se de que todo o tráfego de e para a sua Rede Virtual Azure passa por esse aparelho de segurança virtual, precisa de ser capaz de controlar e personalizar o comportamento de encaminhamento. Pode fazê-lo configurando rotas definidas pelo utilizador em Azure.
+A capacidade de controlar o comportamento de encaminhamento nas suas Redes Virtuais Azure é uma capacidade crítica de segurança da rede e controlo de acesso. Por exemplo, se quiser certificar-se de que todo o tráfego de e para a sua Rede Virtual Azure passa por esse aparelho de segurança virtual, precisa de ser capaz de controlar e personalizar o comportamento de encaminhamento. Pode fazê-lo configurando User-Defined Rotas em Azure.
 
 [As Rotas Definidas pelo utilizador permitem-lhe](../../virtual-network/virtual-networks-udr-overview.md) personalizar caminhos de entrada e saída para o tráfego que se desloca dentro e fora de máquinas virtuais individuais ou sub-redes para garantir a rota mais segura possível. [O túnel forçado](https://www.petri.com/azure-forced-tunneling) é um mecanismo que pode utilizar para garantir que os seus serviços não estão autorizados a iniciar uma ligação a dispositivos na Internet.
 
@@ -198,7 +198,7 @@ Isto é diferente de ser capaz de aceitar ligações recebidas e, em seguida, re
 Os túneis forçados são geralmente usados para forçar o tráfego de saída para a Internet a passar por proxies de segurança no local e firewalls.
 
 #### <a name="virtual-network-security-appliances"></a>Aparelhos de segurança de rede virtual
-Enquanto grupos de segurança de rede, rotas definidas pelo utilizador e túneis forçados fornecem-lhe um nível de segurança na rede e camadas de transporte do [modelo OSI,](https://en.wikipedia.org/wiki/OSI_model)pode haver momentos em que pretende permitir a segurança em níveis mais altos da stack. Pode aceder a estas funcionalidades de segurança de rede melhoradas utilizando uma solução de sistema de segurança de rede de parceiros Azure. Pode encontrar as soluções de segurança de rede de parceiros Azure mais atuais, visitando o [Azure Marketplace](https://azure.microsoft.com/marketplace/) e procurando "segurança" e "segurança na rede".
+Enquanto grupos de segurança de rede, User-Defined Rotas e túneis forçados fornecem-lhe um nível de segurança na rede e camadas de transporte do [modelo OSI,](https://en.wikipedia.org/wiki/OSI_model)pode haver momentos em que pretende permitir a segurança em níveis mais altos da stack. Pode aceder a estas funcionalidades de segurança de rede melhoradas utilizando uma solução de sistema de segurança de rede de parceiros Azure. Pode encontrar as soluções de segurança de rede de parceiros Azure mais atuais, visitando o [Azure Marketplace](https://azure.microsoft.com/marketplace/) e procurando "segurança" e "segurança na rede".
 
 ### <a name="azure-virtual-network"></a>Rede Virtual do Azure
 Uma rede virtual do Azure (VNet) é uma representação da sua própria rede na nuvem. É um isolamento lógico do tecido da rede Azure dedicado à sua subscrição. Pode controlar totalmente os blocos de endereços IP, as definições de DNS, as políticas de segurança e as tabelas de rotas dentro desta rede. Pode segmentar o seu VNet em sub-redes e colocar máquinas virtuais Azure IaaS (VMs) e/ou [cloud (instâncias de função PaaS)](../../cloud-services/cloud-services-choose-me.md) em Redes Virtuais Azure.
@@ -239,10 +239,10 @@ Fornece ativação pós-falha, pedidos HTTP de encaminhamento de desempenho entr
 
 A aplicação fornece muitas funcionalidades do Controlador de Entrega de Aplicações (ADC), incluindo equilíbrio de carga HTTP, afinidade da sessão baseada em [cookies, descarregamento de TLS,](../../application-gateway/tutorial-restrict-web-traffic-powershell.md)sondas de saúde personalizadas, suporte para vários sites, e muitos outros.
 
-### <a name="web-application-firewall"></a>Firewall de Aplicações Web
+### <a name="web-application-firewall"></a>Firewall de Aplicação Web
 Web Application Firewall é uma característica do [Azure Application Gateway](../../application-gateway/overview.md) que fornece proteção para aplicações web que usam o gateway de aplicação para funções padrão de Controlo de Entrega de Aplicações (ADC). A Firewall de aplicações Web fá-lo ao protegê-las contra a maioria das 10 principais vulnerabilidades Web da OWASP.
 
-![Firewall de Aplicações Web](./media/overview/azure-security-fig1.png)
+![Firewall de Aplicação Web](./media/overview/azure-security-fig1.png)
 
 -   Proteção contra injeção de SQL
 
@@ -345,7 +345,7 @@ A Microsoft utiliza múltiplas práticas e tecnologias de segurança em todos os
 
 | Características gratuitas / comuns     | Características Básicas    |Características premium P1 |Características premium P2 | Azure Ative Directory Join – funcionalidades apenas relacionadas com o Windows 10|
 | :------------- | :------------- |:------------- |:------------- |:------------- |
-|   [Objetos de diretório](../../active-directory/active-directory-whatis.md), [Gestão do Utilizador/Grupo (adicionar/atualizar/excluir)/ Fornecimento baseado no utilizador, registo do dispositivo,](../../active-directory/active-directory-whatis.md) [Registo único (SSO)](../../active-directory/active-directory-whatis.md), Alteração da [palavra-passe de autosserviço para utilizadores na nuvem,](../../active-directory/active-directory-whatis.md) [Connect (motor de sincronização que estende os diretórios no local ao Diretório Ativo Azure)](../../active-directory/active-directory-whatis.md), [Relatórios de Segurança / Utilização](../../active-directory/active-directory-whatis.md)       |   [Gestão /provisionamento de acessos baseados em grupo,](../../active-directory/active-directory-whatis.md) [Autosserviço Password Reset para utilizadores em nuvem,](../../active-directory/active-directory-whatis.md) [Branding da Empresa (Página de Logon/Personalização do Painel de Acesso)](../../active-directory/active-directory-whatis.md), [Procuração de Aplicações](../../active-directory/active-directory-whatis.md), [SLA 99,9%](../../active-directory/active-directory-whatis.md) |  [Adições de gestão/aplicação de self-service/self-service/Grupos dinâmicos](../../active-directory/active-directory-whatis.md), [Redefinição/Alteração/Desbloqueio com write-back no local,](../../active-directory/active-directory-whatis.md) [Autenticação multi-factor (Cloud and On-in(MFA Server))](../../active-directory/active-directory-whatis.md), [MIM CAL + SERVIDOR MIM,](../../active-directory/active-directory-whatis.md)Cloud App [Discovery](../../active-directory/active-directory-whatis.md), [Connect Health](../../active-directory/active-directory-whatis.md), [Rollover automático de passwords para contas de grupo](../../active-directory/active-directory-whatis.md)|    [Proteção de Identidade](../../active-directory/identity-protection/overview.md), [Gestão de Identidade Privilegiada](../../active-directory/privileged-identity-management/pim-configure.md)|   [Junte um dispositivo ao Azure AD, Desktop SSO, Microsoft Passport for Azure AD, Administrator BitLocker recovery](../../active-directory/active-directory-whatis.md), [MDM auto-matricula, self-service BitLocker recovery, Administradores locais adicionais para dispositivos Windows 10 via Azure AD Join](../../active-directory/active-directory-whatis.md)|
+|   [Objetos de diretório](../../active-directory/active-directory-whatis.md), [Gestão do Utilizador/Grupo (adicionar/atualizar/excluir)/ Fornecimento baseado no utilizador, registo do dispositivo,](../../active-directory/active-directory-whatis.md)   [Sign-On único (SSO)](../../active-directory/active-directory-whatis.md), Alteração da  [palavra-passe de autosserviço para utilizadores na nuvem,](../../active-directory/active-directory-whatis.md)  [Connect (motor de sincronização que estende os diretórios no local ao Diretório Ativo Azure)](../../active-directory/active-directory-whatis.md),  [Relatórios de Segurança / Utilização](../../active-directory/active-directory-whatis.md)       |   [Gestão /provisionamento de acessos baseados em grupo,](../../active-directory/active-directory-whatis.md)  [Autosserviço Password Reset para utilizadores em nuvem,](../../active-directory/active-directory-whatis.md)   [Branding da Empresa (Página de Logon/Personalização do Painel de Acesso)](../../active-directory/active-directory-whatis.md), [Procuração de Aplicações](../../active-directory/active-directory-whatis.md), [SLA 99,9%](../../active-directory/active-directory-whatis.md) |  [Adições de gestão/aplicação de self-service/self-service/Grupos dinâmicos](../../active-directory/active-directory-whatis.md), [Redefinição/Alteração/Desbloqueio com write-back no local,](../../active-directory/active-directory-whatis.md) [Autenticação multi-factor (Cloud and On-in(MFA Server))](../../active-directory/active-directory-whatis.md),  [MIM CAL + SERVIDOR MIM,](../../active-directory/active-directory-whatis.md)Cloud App  [Discovery](../../active-directory/active-directory-whatis.md),   [Connect Health](../../active-directory/active-directory-whatis.md),    [Rollover automático de passwords para contas de grupo](../../active-directory/active-directory-whatis.md)|    [Proteção de Identidade](../../active-directory/identity-protection/overview.md),  [Gestão de Identidade Privilegiada](../../active-directory/privileged-identity-management/pim-configure.md)|   [Junte um dispositivo a Azure AD, Desktop SSO, Microsoft Passport for Azure AD, Administrator BitLocker recovery](../../active-directory/active-directory-whatis.md), [MDM auto-matricula, Self-Service recuperação bitLocker, administradores locais adicionais para dispositivos Windows 10 via Azure AD Join](../../active-directory/active-directory-whatis.md)|
 
 
 - [Cloud App Discovery](../../active-directory/cloudappdiscovery-get-started.md) é uma funcionalidade premium do Azure Ative Directory que lhe permite identificar aplicações em nuvem que são usadas pelos colaboradores da sua organização.

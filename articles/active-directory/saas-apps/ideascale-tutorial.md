@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.openlocfilehash: 32dd392965e8bf33c835b435b5a2a01460740d2b
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91823683"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>Tutorial: Integração do Azure Ative Directory com IdeaScale
@@ -73,7 +73,7 @@ Para um único s-on para o trabalho, é necessário estabelecer uma relação de
 Para configurar e testar o Azure AD com o IdeaScale, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o Sign-On Único ideaScale](#configure-ideascale-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configurar o Sinal Único de Escala de Idea -](#configure-ideascale-single-sign-on)** para configurar as definições de Sign-On únicas no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Crie o utilizador de teste IdeaScale](#create-ideascale-test-user)** - para ter uma contraparte de Britta Simon em IdeaScale que está ligada à representação AD AD do utilizador.
@@ -93,7 +93,7 @@ Para configurar o Azure AD com ideaScale, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -113,7 +113,7 @@ Para configurar o Azure AD com ideaScale, execute os seguintes passos:
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de suporte do Cliente IdeaScale](https://support.ideascale.com/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -127,7 +127,7 @@ Para configurar o Azure AD com ideaScale, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-ideascale-single-sign-on"></a>Configurar o sign-on único ideascale
+### <a name="configure-ideascale-single-sign-on"></a>Configurar Sign-On única de escala de idea
 
 1. Numa janela diferente do navegador web, inicie sessão no site da empresa IdeaScale como administrador.
 

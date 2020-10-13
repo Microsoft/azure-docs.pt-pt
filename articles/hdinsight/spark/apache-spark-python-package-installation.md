@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
 ms.openlocfilehash: a6ad1c068a41b4b865c148ebb7cdb509821609d4
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91823417"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Gerir com segurança o ambiente do Python no Azure HDInsight com a Ação de Script

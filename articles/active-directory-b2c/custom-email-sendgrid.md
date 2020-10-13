@@ -12,10 +12,10 @@ ms.date: 08/18/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: e2040f52efae1955cf5a7b530358f2cec07b5fbf
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91396523"
 ---
 # <a name="custom-email-verification-with-sendgrid"></a>Verificação personalizada de e-mail com SendGrid

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2020
 ms.author: radeltch
 ms.openlocfilehash: 9978137edb7874a8b93e0c9a5f1f9979ce449277
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88893175"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-red-hat-enterprise-linux"></a>Implementar um sistema de escala SAP HANA com nó de espera em VMs Azure utilizando ficheiros Azure NetApp no Red Hat Enterprise Linux 
@@ -80,9 +80,9 @@ Antes de começar, consulte as seguintes notas e documentos SAP:
 * [Implementação de Máquinas Virtuais Azure para SAP em Linux][deployment-guide]
 * [Azure Virtual Machines DBMS implantação para SAP em Linux][dbms-guide]
 * Documentação geral do RHEL
-  * [Visão geral do suplemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
-  * [Administração de complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
-  * [Referência de complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+  * [Visão geral Add-On de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
+  * [Alta Disponibilidade Add-On Administração](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
+  * [Referência de Add-On de Alta Disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
   * [Guia de rede linux da empresa de chapéu vermelho](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide)
 * Documentação RHEL específica do Azure:
   * [Instale SAP HANA no Red Hat Enterprise Linux para utilização no Microsoft Azure](https://access.redhat.com/public-cloud/microsoft-azure)

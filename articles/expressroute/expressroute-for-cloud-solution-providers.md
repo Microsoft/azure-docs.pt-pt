@@ -9,10 +9,10 @@ ms.date: 10/10/2016
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 17b8fc3824fb1c7e6cfcfc3d4333dc226b51724d
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653643"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute para Fornecedores de Soluções em Nuvem (CSP)
@@ -112,7 +112,7 @@ A tabela de rotas predefinidas inclui as rotas seguintes:
 ![Diagrama que mostra as opções de encaminhamento padrão.](./media/expressroute-for-cloud-solution-providers/default-routing.png)  
 
 ### <a name="user-defined-routing-udr"></a>Encaminhamento definido pelo utilizador (UDR)
-As rotas definidas pelo utilizador permitem o controlo de tráfego de saída da sub-rede atribuída a outras sub-redes na rede virtual ou ao longo de um dos outros gateways predefinidos (ExpressRoute; Internet ou VPN). A tabela de encaminhamento do sistema predefinido pode ser substituída por uma tabela de encaminhamento definida pelo utilizador que substitui a tabela de encaminhamento predefinido com rotas personalizadas. Com o encaminhamento definido pelo utilizador, os clientes podem criar rotas específicas para aparelhos, tais como firewalls ou aplicações de deteção de intrusões ou bloquear o acesso a sub-redes específicas da sub-rede que aloja a rota definida pelo utilizador. Para uma visão geral das rotas definidas pelo utilizador, procure [aqui.](../virtual-network/virtual-networks-udr-overview.md) 
+As rotas definidas pelo utilizador permitem o controlo de tráfego de saída da sub-rede atribuída a outras sub-redes na rede virtual ou ao longo de um dos outros gateways predefinidos (ExpressRoute; Internet ou VPN). A tabela de encaminhamento do sistema predefinido pode ser substituída por uma tabela de encaminhamento definida pelo utilizador que substitui a tabela de encaminhamento predefinido com rotas personalizadas. Com o encaminhamento definido pelo utilizador, os clientes podem criar rotas específicas para aparelhos, tais como firewalls ou aplicações de deteção de intrusões ou bloquear o acesso a sub-redes específicas da sub-rede que aloja a rota definida pelo utilizador. Para uma visão geral das rotas User-Defined, procure [aqui.](../virtual-network/virtual-networks-udr-overview.md) 
 
 ## <a name="security"></a>Segurança
 Consoante o modelo em utilização, Connect-To ou Connect-Through, o seu cliente define as políticas de segurança na respetiva vNet ou fornece os requisitos da política de segurança para CSP a definir para as respetivas vNets. Os seguintes critérios de segurança podem ser definidos:

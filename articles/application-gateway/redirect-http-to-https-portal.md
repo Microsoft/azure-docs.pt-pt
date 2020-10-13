@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.openlocfilehash: 07689f7d16cd1df451fdab28f188e5c4a324486e
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89594820"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Criar um gateway de aplicações com HTTP para https redirecionamento usando o portal Azure
@@ -222,6 +222,6 @@ Pode obter o endereço IP público da aplicação na página 'Vista Geral' do ga
 
    ![Testar o URL base no gateway de aplicação](./media/redirect-http-to-https-powershell/application-gateway-iistest.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [criar uma porta de aplicação com reorientação interna.](redirect-internal-site-powershell.md)

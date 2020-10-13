@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: kenwith
 ms.openlocfilehash: 9b48bc62fc0548c0c4f431e71598fdfa6850de13
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91598339"
 ---
 # <a name="understand-password-based-single-sign-on"></a>Compreender o sign-on único baseado em palavra-passe
@@ -37,7 +37,7 @@ O SSO baseado em palavras-passe é uma ótima maneira de começar a integrar as 
 
 -   Permitir que um administrador especifique um nome de utilizador e uma palavra-passe para ser usado por indivíduos ou grupos quando iniciar a sua sção na aplicação com a funcionalidade 'Credenciais de Atualização' 
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 A utilização do Azure AD como seu Fornecedor de Identidade (IdP) e configurar um único sign-on (SSO) pode ser simples ou complexo dependendo da aplicação que está a ser utilizada. Algumas aplicações podem ser configuradas com apenas algumas ações. Outros requerem uma configuração aprofundada. Para aumentar rapidamente o conhecimento, caminhe pela [série quickstart](view-applications-portal.md) sobre gestão de aplicações. Se a aplicação que está a adicionar é simples, então provavelmente não precisa ler este artigo. Se a aplicação que está a adicionar necessitar de configuração personalizada e precisar de utilizar SSO baseado em palavra-passe, então este artigo é para si.
 

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
 ms.openlocfilehash: 3f26f761b3d683be71f7f6d900d91dd432ceefc8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91292970"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar ficheiros da cópia de segurança da máquina virtual Azure

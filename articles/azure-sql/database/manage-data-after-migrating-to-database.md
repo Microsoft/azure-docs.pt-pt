@@ -13,10 +13,10 @@ ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
 ms.openlocfilehash: 016bb1e4a0844be2a137108d673159bd041cd351
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89439780"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Novo DBA na nuvem – Gestão da Base de Dados Azure SQL após migração
@@ -139,7 +139,7 @@ Por predefinição, a sua base de dados está configurada para "Permitir que os 
 
 Os pontos finais de serviço (SE) permitem-lhe expor os seus recursos Azure críticos apenas à sua própria rede virtual privada em Azure. Ao fazê-lo, elimina essencialmente o acesso do público aos seus recursos. O tráfego entre a sua rede virtual para a Azure permanece na rede de espinha dorsal Azure. Sem a SE, recebes um encaminhamento de pacotes de túneis forçados. A sua rede virtual força o tráfego de internet para a sua organização e o tráfego do Serviço Azure para percorrer a mesma rota. Com o Service Endpoints, pode otimizá-lo uma vez que os pacotes fluem diretamente da sua rede virtual para o serviço na rede de espinha dorsal Azure.
 
-![Pontos finais de serviço VNet](./media/manage-data-after-migrating-to-database/vnet-service-endpoints.png)
+![Pontos finais de serviço da VNet](./media/manage-data-after-migrating-to-database/vnet-service-endpoints.png)
 
 #### <a name="reserved-ips"></a>IPs Reservados
 
@@ -172,7 +172,7 @@ Para proteger os seus dados sensíveis em voo e em repouso, a SQL Database forne
 |**Características**|**Always Encrypted**|**Encriptação de Dados Transparente**|
 |---|---|---|
 |**Extensão de encriptação**|De ponta a ponta|Dados de repouso|
-|**O servidor pode aceder a dados sensíveis**|No|Sim, já que a encriptação é para os dados em repouso|
+|**O servidor pode aceder a dados sensíveis**|Não|Sim, já que a encriptação é para os dados em repouso|
 |**Operações T-SQL permitidas**|Comparação da igualdade|Toda a área de superfície T-SQL está disponível|
 |**Alterações de aplicação necessárias para usar a funcionalidade**|Mínimo|Muito mínimo|
 |**Granularidade de encriptação**|Nível de coluna|Ao nível da base de dados|
@@ -335,6 +335,6 @@ Tem várias formas de o conseguir:
 - **[Data Sync](sql-data-sync-data-sql-server-sql-database.md)** – Esta funcionalidade ajuda-o a sincronizar os dados bi-direccionalmente entre várias bases de dados do SQL Server e a BASE de Dados SQL. Para sincronizar com as bases de dados do SQL Server, é necessário instalar e configurar o agente de sincronização num computador local ou numa máquina virtual e abrir a porta TCP de saída 1433.
 - **[Replicação de transações](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – Com a replicação de transações pode sincronizar os seus dados de uma base de dados do SQL Server para a Base de Dados Azure SQL, sendo a instância do SQL Server o editor e a Base de Dados Azure SQL o assinante. Por enquanto, apenas esta configuração é suportada. Para obter mais informações sobre como migrar os seus dados de uma base de dados do SQL Server para Azure SQL com o mínimo de tempo de inatividade, consulte: [Use a replicação de transações](migrate-to-database-from-sql-server.md#method-2-use-transactional-replication)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [a Base de Dados SQL.](sql-database-paas-overview.md)

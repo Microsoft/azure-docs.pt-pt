@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: seodec18
 ms.openlocfilehash: 5810bea7920dbfe91a836814124cbe4c7f6f3bee
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91653796"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights Explorer
@@ -219,7 +219,7 @@ O painel de editores de termos da Azure Time Series Insights Gen2 tem os seguint
 | `<`, `>`, `<=`, `>=` | Duplo, DateTime, TimeSpan | |
 | `=`, `!=`, `<>` | String, Bool, Double, DateTime, TimeSpan, NU |
 | `IN` | String, Bool, Double, DateTime, TimeSpan, NU | Todos os óperas devem ser do mesmo tipo ou ser constantes NU. |
-| `HAS` | String | Apenas as cordas constantes literais são permitidas no lado direito. Corda vazia e NU NÃO são permitidos. |
+| `HAS` | Cadeia | Apenas as cordas constantes literais são permitidas no lado direito. Corda vazia e NU NÃO são permitidos. |
 
 Para saber mais sobre operações de consulta suportadas e tipos de dados, leia [a Expressão da Série de Tempo (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
 

@@ -10,10 +10,10 @@ ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.openlocfilehash: 35eef6951f844ab60caec70033e41e23a7920d3a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91288312"
 ---
 # <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Ficheiros De consulta Parquet utilizando SQL on-demand (pré-visualização) em Azure Synapse Analytics
@@ -182,7 +182,7 @@ Os ficheiros parquet contêm descrições de tipo para cada coluna. A tabela a s
 | INT32 |INT(8, falso) |tinyint |
 | INT32 |INT(16, falso) |int |
 | INT32 |INT(32, falso) |bigint |
-| INT32 |DATA |data |
+| INT32 |DATE |date |
 | INT32 |DECIMAL |decimal |
 | INT32 |TEMPO (MILLIS)|hora |
 | INT64 |INT(64, verdade) |bigint |

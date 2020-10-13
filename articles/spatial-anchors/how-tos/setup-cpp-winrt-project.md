@@ -9,10 +9,10 @@ ms.date: 02/24/2019
 ms.topic: how-to
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 710f023a64f66e486bb2db9c08807af3431d0016
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87812317"
 ---
 # <a name="configuring-azure-spatial-anchors-in-a-cwinrt-hololens-project"></a>Configurar âncoras espaciais Azure num projeto C++/WinRT HoloLens

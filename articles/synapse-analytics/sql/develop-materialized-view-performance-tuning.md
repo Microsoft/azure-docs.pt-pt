@@ -11,10 +11,10 @@ ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.openlocfilehash: 1f04f8b447f07f62561f56722df3b9502ad58d41
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91289043"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Otimização do desempenho com vistas materializadas
@@ -37,7 +37,7 @@ A maioria dos requisitos de visão padrão ainda se aplicam a uma visão materia
 |Ver conteúdos                    | Gerada cada vez que a vista é usada.   | Pré-processado e armazenado no armazém de dados Azure durante a criação de visualização. Atualizado à medida que os dados são adicionados às tabelas subjacentes.
 |Atualização de dados                    | Sempre atualizado                               | Sempre atualizado
 |Velocidade para recuperar dados de visualização de consultas complexas     | Lento                                         | Rápido  
-|Armazenamento extra                   | No                                           | Yes
+|Armazenamento extra                   | Não                                           | Sim
 |Syntax                          | CRIAR VISTA                                  | CRIAR VISTA MATERIALIZADA COMO SELEÇÃO
 
 ## <a name="benefits-of-materialized-views"></a>Benefícios de vistas materializadas

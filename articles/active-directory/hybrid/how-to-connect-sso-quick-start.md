@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Seamless Single Sign-On - quickstart / Microsoft Docs'
-description: Este artigo descreve como começar com Azure Ative Directory Seamless Single Sign-On
+title: 'Azure AD Connect: Single Sign-On sem emenda - quickstart / Microsoft Docs'
+description: Este artigo descreve como começar com o Azure Ative Directory Seamless Single Sign-On
 services: active-directory
 keywords: o que é Azure AD Connect, instalar Ative Directory, componentes necessários para Azure AD, SSO, Single Sign-on
 documentationcenter: ''
@@ -17,17 +17,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fde2052078e0131e720411f91aa8ae7484338252
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91295028"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Ative Directory Sem Emenda Single Sign-On: Quickstart
 
-## <a name="deploy-seamless-single-sign-on"></a>Implementar um único sinal sem emenda
+## <a name="deploy-seamless-single-sign-on"></a>Implementar Sign-On única sem emenda
 
-O Azure Ative Directory (Azure AD) Seamless Single Sign-On (Seamless SSO) assina automaticamente nos utilizadores quando estão nos seus desktops corporativos que estão ligados à sua rede corporativa. O Seamless SSO proporciona aos seus utilizadores um fácil acesso às suas aplicações baseadas na nuvem sem precisar de componentes adicionais no local.
+Azure Ative Directory (Azure AD) Seamless Single Sign-On (Seamless SSO) assina automaticamente nos utilizadores quando estão nos seus desktops corporativos que estão ligados à sua rede corporativa. O Seamless SSO proporciona aos seus utilizadores um fácil acesso às suas aplicações baseadas na nuvem sem precisar de componentes adicionais no local.
 
 Para implementar o SSO sem emenda, siga estes passos.
 
@@ -236,7 +236,7 @@ Para obter instruções sobre como rolar as teclas, consulte [O Diretório Azure
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Mergulho profundo técnico](how-to-connect-sso-how-it-works.md): Compreenda como funciona a função 'Sign-On' sem emenda.
+- [Mergulho profundo técnico](how-to-connect-sso-how-it-works.md): Compreenda como funciona a funcionalidade de Sign-On Sem Emenda.
 - [Perguntas frequentes](how-to-connect-sso-faq.md): Obtenha respostas a perguntas frequentes sobre o Sign-On Único Sem Emenda.
-- [Resolução de problemas](tshoot-connect-sso.md): Aprenda a resolver problemas comuns com a função 'Sign-On' sem emenda.
+- [Resolução de problemas](tshoot-connect-sso.md): Aprenda a resolver problemas comuns com a funcionalidade Single Sign-On Sem emenda.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Utilize o Azure Ative Directory Forum para apresentar novos pedidos de funcionalidades.

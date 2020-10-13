@@ -14,10 +14,10 @@ ms.author: jingwang
 ms.custom: devx-track-csharp
 robots: noindex
 ms.openlocfilehash: fe3401354d4853b875cdd001d5074ebdf0d3377b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89019543"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Copiar dados de e para data lake storage Gen1 usando data factory
@@ -75,7 +75,7 @@ Um serviço ligado liga uma loja de dados a uma fábrica de dados. Cria um servi
 | **tipo** | A propriedade tipo deve ser definida para **AzureDataLakeStore**. | Sim |
 | **dataLakeStoreUri** | Informação sobre a conta da Azure Data Lake Store. Esta informação requer um dos seguintes formatos: `https://[accountname].azuredatalakestore.net/webhdfs/v1` ou `adl://[accountname].azuredatalakestore.net/` . | Sim |
 | **subscriçãoId** | ID de assinatura Azure a que pertence a conta Data Lake Store. | Necessário para a pia |
-| **resourceGroupName** | Nome do grupo de recursos Azure a que pertence a conta Data Lake Store. | Necessário para a pia |
+| **nome do Grupo de Recursos** | Nome do grupo de recursos Azure a que pertence a conta Data Lake Store. | Necessário para a pia |
 
 ### <a name="service-principal-authentication-recommended"></a>Autenticação principal do serviço (recomendado)
 Para utilizar a autenticação principal do serviço, registe uma entidade de aplicação no Azure Ative Directory (Azure AD) e conceda-lhe o acesso à Data Lake Store. Para etapas detalhadas, consulte [a autenticação do Serviço ao Serviço.](../../data-lake-store/data-lake-store-authenticate-using-active-directory.md) Tome nota dos seguintes valores, que utiliza para definir o serviço ligado:
@@ -281,13 +281,13 @@ As propriedades disponíveis na secção **de tipoProperties** de uma atividade 
 
 **A AzureDataLakeStoreSource** suporta a seguinte propriedade na secção **typeProperties:**
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
 | **recursivo** |Indica se os dados são lidos novamente a partir das sub-dobradeiras ou apenas a partir da pasta especificada. |Verdadeiro (valor predefinido), Falso |Não |
 
 **A AzureDataLakeStoreSink** suporta as seguintes propriedades na secção **typeProperties:**
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
 | **copyOportundo** |Especifica o comportamento da cópia. |<b>Preservar A Outra:</b>Preserva a hierarquia dos ficheiros na pasta alvo. O percurso relativo do ficheiro de origem para a pasta de origem é idêntico ao caminho relativo do ficheiro alvo para a pasta alvo.<br/><br/><b>FlattenHierarchy</b>: Todos os ficheiros da pasta de origem são criados no primeiro nível da pasta alvo. Os ficheiros-alvo são criados com nomes autogerados.<br/><br/><b>MergeFiles</b>: Funde todos os ficheiros da pasta de origem para um ficheiro. Se o nome do ficheiro ou do blob for especificado, o nome do ficheiro fundido é o nome especificado. Caso contrário, o nome do ficheiro é autogerado. |Não |
 

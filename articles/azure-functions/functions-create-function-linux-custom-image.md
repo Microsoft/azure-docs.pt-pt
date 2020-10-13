@@ -6,10 +6,10 @@ ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell
 zone_pivot_groups: programming-languages-set-functions
 ms.openlocfilehash: 7940e0f90e29e5c69ccde79dfbec889dbe31fe63
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91758987"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Criar uma função no Linux com um contentor personalizado
@@ -20,7 +20,7 @@ A implementação do seu código de função num recipiente Linux personalizado 
 
 Também pode utilizar um recipiente de Serviço de Aplicações Azure padrão, conforme descrito no [Criar a sua primeira função hospedada no Linux](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python). As imagens base suportadas para funções Azure encontram-se nas imagens base do [Azure Functions repo](https://hub.docker.com/_/microsoft-azure-functions-base).
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Crie uma aplicação de função e dockerfile utilizando as Ferramentas Principais de Funções Azure.
@@ -507,7 +507,7 @@ Num browser, utilize o mesmo URL de antes para invocar a sua função. O navegad
 
 [!INCLUDE [functions-add-output-binding-view-queue-cli](../../includes/functions-add-output-binding-view-queue-cli.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se quiser continuar a trabalhar com a Azure Function utilizando os recursos que criou neste tutorial, pode deixar todos esses recursos no lugar. Como criou um Plano Premium para Funções Azure, incorrerá num ou dois USD por dia em custos contínuos.
 

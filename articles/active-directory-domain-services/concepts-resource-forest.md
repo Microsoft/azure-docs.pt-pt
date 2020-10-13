@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
 ms.openlocfilehash: 88069c6ac90fce7e33cac6ed3c30accb18ded8bf
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91396404"
 ---
 # <a name="resource-forest-concepts-and-features-for-azure-active-directory-domain-services"></a>Conceitos e funcionalidades da floresta de recursos para serviços de domínio do diretório ativo Azure

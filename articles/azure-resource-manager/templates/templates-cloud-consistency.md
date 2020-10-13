@@ -7,10 +7,10 @@ ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
 ms.openlocfilehash: 72f9e332a4faa98a8a86ef7b6edbefe20357e33f
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91356890"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Desenvolver modelos ARM para consistência na nuvem
@@ -55,7 +55,7 @@ As capacidades do Azure Resource Manager serão sempre introduzidas no Azure glo
 
 1. Assim que tiver um clone local do repositório, ligue-se ao Gestor de Recursos Azure do destino com o PowerShell.
 
-1. Importar o módulo psm1 e executar o cmdlet Test-AzureRmTemplateFunctions:
+1. Importe o módulo psm1 e execute o Test-AzureRmTemplateFunctions cmdlet:
 
    ```powershell
    # Import the module

@@ -7,10 +7,10 @@ ms.date: 08/21/2020
 ms.author: jpalma
 author: palma21
 ms.openlocfilehash: 4dfaa329dd0472b52de2d3306e6a3b61f660e666
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89443063"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Utilize GPUs para cargas de trabalho computacionalmente intensivas no Serviço Azure Kubernetes (AKS)
@@ -22,7 +22,7 @@ As unidades de processamento gráfico (GPUs) são frequentemente utilizadas para
 
 Atualmente, a utilização de piscinas de nó ativadas pela GPU só está disponível para piscinas de nól de linux.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo pressupõe que você tem um cluster AKS existente com nós que suportam GPUs. O seu cluster AKS deve executar Kubernetes 1.10 ou mais tarde. Se precisar de um cluster AKS que satisfaça estes requisitos, consulte a primeira secção deste artigo para [criar um cluster AKS](#create-an-aks-cluster).
 
@@ -394,7 +394,7 @@ Para remover os objetos Kubernetes associados criados neste artigo, utilize o co
 kubectl delete jobs samples-tf-mnist-demo
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para gerir os empregos da Apache Spark, consulte [os trabalhos da Run Apache Spark na AKS.][aks-spark]
 
