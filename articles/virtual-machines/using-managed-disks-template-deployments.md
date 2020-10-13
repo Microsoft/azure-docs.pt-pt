@@ -10,12 +10,12 @@ ms.workload: storage
 ms.date: 06/01/2017
 ms.author: jaboes
 ms.subservice: disks
-ms.openlocfilehash: 298c6e4f33fff99fff01b6b911ec77c78f1fbd26
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c66a8b8483673a9d8fbdc9922b9cc377781bab3
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91666556"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976673"
 ---
 # <a name="using-disks-in-azure-resource-manager-templates"></a>Utilização de discos em modelos de gestor de recursos Azure
 
@@ -266,5 +266,4 @@ Para obter informações completas sobre as especificações da API REST, reveja
 * Visite o documento de visão geral dos [discos geridos azure](managed-disks-overview.md) para saber mais sobre discos geridos.
 * Reveja a documentação de referência do modelo para recursos de máquinas virtuais visitando o documento [de referência do modelo Microsoft.Compute/virtualMachines.](/azure/templates/microsoft.compute/virtualmachines)
 * Reveja a documentação de referência do modelo para os recursos do disco visitando o documento [de referência do modelo Microsoft.Compute/disks.](/azure/templates/microsoft.compute/disks)
-* Para obter informações sobre como utilizar discos geridos em conjuntos de escala de máquina virtual Azure, visite os discos de dados utilizar com documento [de conjuntos de escala.](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks)
-
+* Para obter informações sobre como utilizar discos geridos em conjuntos de escala de máquina virtual Azure, visite os discos de dados utilizar com documento [de conjuntos de escala.](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md)

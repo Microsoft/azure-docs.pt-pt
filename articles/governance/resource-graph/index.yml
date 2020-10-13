@@ -11,10 +11,10 @@ metadata:
   ms.author: dacoulte
   ms.date: 06/29/2020
   ms.openlocfilehash: 20b7548b4b6924e797593fc753ad44be1d03f37d
-  ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/28/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "89050963"
 landingContent:
 - title: Acerca do Azure Resource Graph

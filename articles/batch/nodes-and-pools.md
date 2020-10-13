@@ -4,10 +4,10 @@ description: Saiba mais sobre os nós e piscinas computacional e como são usado
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.openlocfilehash: 16a5309711b9c8633da9ba473c1b55bc2e54c334
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87385760"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nódoas e piscinas em Azure Batch
@@ -195,6 +195,6 @@ Quando um certificado é associado a um conjunto, o serviço Batch instala o cer
 
 Se adicionar um certificado a uma piscina existente, deve reiniciar os seus nós de cálculo para que o certificado seja aplicado aos nós.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça [os empregos e tarefas.](jobs-and-tasks.md)

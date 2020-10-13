@@ -4,10 +4,10 @@ description: Neste tutorial, utiliza as opções de bloqueio de recursos Azure B
 ms.date: 08/27/2020
 ms.topic: tutorial
 ms.openlocfilehash: 3ed75a1dee925f2a55ac46705a171bec5fc1d30e
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89048575"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Tutorial: Proteja novos recursos com bloqueios de recursos da Azure Blueprints
@@ -31,7 +31,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Primeiro, criar a definição de planta.
 
-1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas.**
+1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Esquemas**.
 
 1. Na página **'Iniciar'** à esquerda, selecione **Criar** na **criação de uma planta**.
 
@@ -109,11 +109,11 @@ Depois da **definição de projeto Desemundo a** notificação do portal ter sid
 
 A sua definição de planta foi agora criada no seu ambiente. É criado no modo **Draft** e deve ser publicado antes de poder ser atribuído e implementado.
 
-1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas.**
+1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Esquemas**.
 
-1. Selecione a página **de definições de Planta** à esquerda. Utilize os filtros para encontrar a definição de planta **de contagem de armazenamento bloqueado** e, em seguida, selecione-os.
+1. Selecione a página **Definições de esquema** à esquerda. Utilize os filtros para encontrar a definição de planta **de contagem de armazenamento bloqueado** e, em seguida, selecione-os.
 
-1. **Selecione Publicar** a planta no topo da página. No novo painel à direita, insira **o 1.0** como **a Versão**. Esta propriedade é útil se você fizer uma mudança mais tarde. Introduza **notas de Alteração**, como a primeira versão publicada para bloquear recursos **implantados**. Em seguida, **selecione Publicar** na parte inferior da página.
+1. Selecione **Publicar esquema**, na parte superior da página. No novo painel à direita, insira **o 1.0** como **a Versão**. Esta propriedade é útil se você fizer uma mudança mais tarde. Introduza **notas de Alteração**, como a primeira versão publicada para bloquear recursos **implantados**. Em seguida, selecione **Publicar**, na parte inferior da página.
 
 Este passo permite atribuir a planta a uma subscrição. Depois da definição do projeto ser publicada, ainda pode fazer alterações. Se fizer alterações, tem de publicar a definição com um novo valor de versão para rastrear as diferenças entre versões da mesma definição de projeto.
 
@@ -123,13 +123,13 @@ Depois de aparecer **a definição de projeto de publicação que sucedeu** à n
 
 Após a publicação da definição de planta, pode atribuí-la a uma subscrição dentro do grupo de gestão onde a guardou. Neste passo, você fornece parâmetros para tornar cada implementação da definição de planta única.
 
-1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas.**
+1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Esquemas**.
 
-1. Selecione a página **de definições de Planta** à esquerda. Utilize os filtros para encontrar a definição de planta **de contagem de armazenamento bloqueado** e, em seguida, selecione-os.
+1. Selecione a página **Definições de esquema** à esquerda. Utilize os filtros para encontrar a definição de planta **de contagem de armazenamento bloqueado** e, em seguida, selecione-os.
 
-1. Selecione Atribuir a **planta** no topo da página de definição de planta.
+1. Selecione **Atribuir esquema**, na parte superior da página de definição do esquema.
 
-1. Fornecer os valores dos parâmetros para a atribuição do projeto:
+1. Indique os valores dos parâmetros para a atribuição do esquema:
 
    - **Noções básicas**
 
@@ -147,13 +147,13 @@ Após a publicação da definição de planta, pode atribuí-la a uma subscriç�
 
      Utilize a opção **predefinida: Sistema atribuído**. Para mais informações, consulte [identidades geridas.](../../../active-directory/managed-identities-azure-resources/overview.md)
 
-   - **Parâmetros de artefactos**
+   - **Parâmetros dos artefactos**
 
      Os parâmetros definidos nesta secção aplicam-se ao artefacto sob o qual são definidos. Estes parâmetros são [parâmetros dinâmicos](../concepts/parameters.md#dynamic-parameters) porque são definidos durante a atribuição da planta. Para cada artefacto, desa um valor de parâmetro para o que vê na coluna **Valor.**
 
      |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Valor|Descrição|
      |-|-|-|-|-|
-     |Grupo de recursos RGtoLock|Grupo de recursos|Name|TestebPLocks|Define o nome do novo grupo de recursos para aplicar fechaduras de planta a.|
+     |Grupo de recursos RGtoLock|Grupo de recursos|Nome|TestebPLocks|Define o nome do novo grupo de recursos para aplicar fechaduras de planta a.|
      |Grupo de recursos RGtoLock|Grupo de recursos|Localização|E.U.A. Oeste 2|Define a localização do novo grupo de recursos para aplicar fechaduras de planta para.|
      |StorageAccount|Modelo do Resource Manager|armazenamentoAccountType (Contagem de armazenamento)|Standard_GRS|O armazém SKU. O valor _predefinido_é Standard_LRS .|
 
@@ -167,7 +167,7 @@ Depois de aparecer **a definição do projeto de atribuição de** notificação
 
 A atribuição cria o grupo de recursos _TestingBPLocks_ e a conta de armazenamento implementada pelo artefacto do modelo ARM. O novo grupo de recursos e o estado de bloqueio selecionado são apresentados na página de detalhes da atribuição.
 
-1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas.**
+1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Esquemas**.
 
 1. Selecione a página **de plantas atribuídas** à esquerda. Utilize os filtros para encontrar a **atribuição de armazenamento bloqueado-contagem-TestingBPLocks** design e, em seguida, selecione-o.
 
@@ -199,7 +199,7 @@ Estes passos mostram que os nossos recursos implantados estão agora protegidos 
 
 O último passo é remover a atribuição da definição de planta. Remover a missão não remove os artefactos associados.
 
-1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Plantas.**
+1. Selecione **Todos os serviços** no painel esquerdo. Procure e selecione **Esquemas**.
 
 1. Selecione a página **de plantas atribuídas** à esquerda. Utilize os filtros para encontrar a **atribuição de armazenamento bloqueado-contagem-TestingBPLocks** design e, em seguida, selecione-o.
 

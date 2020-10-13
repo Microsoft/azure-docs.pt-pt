@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/14/2019
 ms.author: erhopf
 ms.openlocfilehash: 0bc1a7b5e443de0c1a95fa209d2e5a280cf28ef2
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87385845"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>Obtenha os dispositivos de fala de serviços cognitivos SDK
@@ -35,7 +35,7 @@ O Speech Devices SDK é uma biblioteca pré-sintonizada projetada para trabalhar
 
 Descarregue os [Dispositivos de Fala SDK](https://aka.ms/sdsdk-download).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Começar com os Dispositivos de Fala SDK](https://aka.ms/sdsdk-quickstart)
