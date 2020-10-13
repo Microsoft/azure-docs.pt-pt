@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: a7ae1a0f77d0d19fc48695ddc5cc3d3a14d65ab9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "82195133"
 ---
 # <a name="azure-data-lake-storage-gen2-overview-in-hdinsight"></a>Visão geral do Azure Data Lake Storage Gen2 em HDInsight
@@ -57,11 +57,11 @@ A Azure Data Lake Storage Gen2 usa um novo esquema URI para aceder a ficheiros e
 
 O esquema URI fornece acesso encriptado SSL.
 
-`<FILE_SYSTEM_NAME>`identifica o caminho do sistema de ficheiros Data Lake Storage Gen2.
+`<FILE_SYSTEM_NAME>` identifica o caminho do sistema de ficheiros Data Lake Storage Gen2.
 
-`<ACCOUNT_NAME>`identifica o nome da conta Azure Storage. É necessário um nome de domínio completamente qualificado (FQDN).
+`<ACCOUNT_NAME>` identifica o nome da conta Azure Storage. É necessário um nome de domínio completamente qualificado (FQDN).
 
-`<PATH>`é o nome do caminho do ficheiro ou do diretório HDFS.
+`<PATH>` é o nome do caminho do ficheiro ou do diretório HDFS.
 
 Se os valores `<FILE_SYSTEM_NAME>` forem e `<ACCOUNT_NAME>` não especificados, o sistema de ficheiros predefinido é utilizado. Para os ficheiros no sistema de ficheiros predefinidos, utilize um caminho relativo ou um caminho absoluto. Por exemplo, o `hadoop-mapreduce-examples.jar` ficheiro que vem com clusters HDInsight pode ser referido utilizando um dos seguintes caminhos:
 

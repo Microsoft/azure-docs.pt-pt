@@ -10,10 +10,10 @@ ms.date: 01/30/2020
 ms.author: jlian
 ms.custom: amqp
 ms.openlocfilehash: 373acc30ed652a7f540e840dfad5eeeda65ca179
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81759564"
 ---
 # <a name="504101-gatewaytimeout"></a>504101 GatewayTimeout
@@ -36,10 +36,10 @@ Ao utilizar uma versão anterior do Azure IoT C# SDK (<1.19.0), a ligação AMQP
 
 ## <a name="solution"></a>Solução
 
-### <a name="solution-1"></a>Solução 1
+### <a name="solution-1"></a>Solução 1
 
 Emita uma repetição.
 
-### <a name="solution-2"></a>Solução 2
+### <a name="solution-2"></a>Solução 2
 
 Upgrade para a versão mais recente do Azure IOT C# SDK.

@@ -6,10 +6,10 @@ ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
 ms.openlocfilehash: 2a10558e76a6e9af7c7571dc4ba3d063ce3e2286
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84021165"
 ---
 # <a name="create-client-side-performance-traces"></a>Criar rastreios de desempenho do lado do cliente
@@ -81,7 +81,7 @@ Para registar vestígios num HoloLens, insira o seu dispositivo e introduza o se
 
 1. À esquerda, navegue para *Performance > Performance Tracing*.
 1. Selecione **perfis personalizados**
-1. Clique**:::no-loc text="Browse...":::**
+1. Clique **:::no-loc text="Browse...":::**
 1. Selecione o ficheiro *AzureRemoteRenderingNetworkProfiling.wprp*. Pode encontrar este ficheiro no ARR SDK em *Ferramentas/ETLProfiles*.
 1. Clique **no rastreio de início**
 1. Os HoloLens estão agora a registar um rasto. Certifique-se de desencadear os problemas de desempenho que pretende investigar. Em seguida, clique em **Stop Trace**.
@@ -127,6 +127,6 @@ Para analisar corretamente um traço, terá de descobrir o seu próprio fluxo de
 
 A imagem acima mostra vistas de vários eventos específicos do ARR mais uma visão da utilização geral do CPU.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Consultas de desempenho do lado do servidor](../overview/features/performance-queries.md)

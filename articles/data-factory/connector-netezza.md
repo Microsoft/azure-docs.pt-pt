@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/28/2020
 ms.author: jingwang
 ms.openlocfilehash: 7f98fee687fca6a2b6e746b24ca582671e28391f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84216393"
 ---
 # <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Copiar dados da Netezza utilizando a Azure Data Factory
@@ -54,7 +54,7 @@ As secções seguintes fornecem detalhes sobre propriedades que pode usar para d
 
 As seguintes propriedades são suportadas para o serviço netezza ligado:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade **tipo** deve ser definida para **Netezza**. | Sim |
 | conexãoStragem | Uma cadeia de ligação ODBC para ligar ao Netezza. <br/>Também pode colocar a palavra-passe no Cofre da Chave Azure e retirar a `pwd` configuração da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no artigo do Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Sim |
@@ -62,7 +62,7 @@ As seguintes propriedades são suportadas para o serviço netezza ligado:
 
 Uma cadeia de ligação típica é `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>` . A tabela a seguir descreve mais propriedades que pode definir:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | SegurançaLevel | O nível de segurança que o condutor utiliza para a ligação à loja de dados. O controlador suporta ligações SSL com autenticação unidirecionais utilizando a versão SSL 3. <br>Exemplo: `SecurityLevel=preferredSecured`. Os valores suportados são:<br/>- **Apenas não protegido** **(apenas Não**Seguro): O condutor não utiliza SSL.<br/>- **Preferencialmente não protegido (preferencialmente Não Seguro) (predefinição) :** Se o servidor fornecer uma escolha, o controlador não utiliza SSL. <br/>- **Garantia preferida (preferencialmente Assegurada)**: Se o servidor fornecer uma escolha, o controlador utiliza SSL. <br/>- **Apenas protegido (apenas Em segurança)**: O controlador não se liga a menos que esteja disponível uma ligação SSL. | Não |
 | CaCertFile | O caminho completo para o certificado SSL que é usado pelo servidor. Exemplo: `CaCertFile=<cert path>;`| Sim, se o SSL estiver ativado |
@@ -119,7 +119,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados da Netezza, defina a propriedade **tipo** do conjunto de dados para **o NetezzaTable**. As seguintes propriedades são suportadas:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo do conjunto de dados deve ser definida para: **NetezzaTable** | Sim |
 | esquema | O nome do esquema. |Não (se for especificada "consulta" na fonte de atividade)  |
@@ -155,7 +155,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados do Netezza, desagrafe o tipo **de origem** em Copy Activity para **NetezzaSource**. As seguintes propriedades são suportadas na secção **origem** da Atividade de Cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade **tipo** da fonte de Atividade de Cópia deve ser definida para **NetezzaSource**. | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Exemplo: `"SELECT * FROM MyTable"` | Não (se for especificado "tableName" no conjunto de dados) |
@@ -207,7 +207,7 @@ Quando ativa a cópia dividida, a Data Factory executa consultas paralelas contr
 
 Sugere-se que ative uma cópia paralela com a partilha de dados, especialmente quando carrega uma grande quantidade de dados a partir da sua base de dados Netezza. São sugeridas configurações para diferentes cenários. Ao copiar dados para a loja de dados baseada em ficheiros, é recomcomcomerado para escrever para uma pasta como vários ficheiros (especificar apenas o nome da pasta), caso em que o desempenho é melhor do que escrever para um único ficheiro.
 
-| Scenario                                                     | Definições sugeridas                                           |
+| Cenário                                                     | Definições sugeridas                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Carga completa da mesa grande.                                   | **Opção de partição**: Fatia de Dados. <br><br/>Durante a execução, a Data Factory partilha automaticamente os dados com base [nas fatias de dados incorporadas da Netezza](https://www.ibm.com/support/knowledgecenter/en/SSULQD_7.2.1/com.ibm.nz.adm.doc/c_sysadm_data_slices_parts_disks.html)e copia dados por partições. |
 | Carregue uma grande quantidade de dados utilizando uma consulta personalizada.                 | **Opção de partição**: Fatia de Dados.<br>**Consulta:** `SELECT * FROM <TABLENAME> WHERE mod(datasliceid, ?AdfPartitionCount) = ?AdfDataSliceCondition AND <your_additional_where_clause>` .<br>Durante a execução, a Data Factory substitui `?AdfPartitionCount` (por um número de cópia paralelo definido na atividade da cópia) e `?AdfDataSliceCondition` pela lógica de partição da fatia de dados, e envia para o Netezza. |
@@ -243,6 +243,6 @@ Sugere-se que ative uma cópia paralela com a partilha de dados, especialmente q
 Para obter detalhes sobre as propriedades, consulte [a atividade de Lookup](control-flow-lookup-activity.md).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter uma lista de lojas de dados que a Copy Activity suporta como fontes e sumidouros na Azure Data Factory, consulte [lojas e formatos de dados suportados.](copy-activity-overview.md#supported-data-stores-and-formats)

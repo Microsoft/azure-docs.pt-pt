@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.workload: big-data
 ms.date: 07/03/2018
 ms.openlocfilehash: 7176e2f64faa8e5b43574084a9cbd947dbd576d3
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87125641"
 ---
 # <a name="debug-azure-data-lake-analytics-code-locally"></a>Código Debug Azure Data Lake Analytics localmente

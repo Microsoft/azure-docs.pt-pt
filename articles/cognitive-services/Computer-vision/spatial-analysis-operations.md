@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
 ms.openlocfilehash: 80f0d29de6b3013ad02ed1a5d34bebdf81a8766b
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91628218"
 ---
 # <a name="spatial-analysis-operations"></a>Operações de análise espacial
 
-A análise espacial permite a análise do streaming de vídeo em tempo real a partir de dispositivos de câmara. Para cada dispositivo de câmara que configurar, as operações de análise espacial gerarão um fluxo de saída de mensagens JSON enviadas para o seu exemplo de Azure IoT Hub. 
+A análise espacial permite a análise do vídeo de transmissão em fluxo em tempo real de dispositivos com câmara. Para cada dispositivo com câmara configurado, as operações para a análise espacial gerarão um fluxo de saída de mensagens JSON enviadas para a instância do Hub IoT do Azure. 
 
 O recipiente de análise espacial implementa as seguintes operações:
 
@@ -328,7 +328,7 @@ Prove json para uma saída de evento por esta operação.
 | Nome do campo SourceInfo | Tipo| Description|
 |---------|---------|---------|
 | `id` | cadeia (de carateres)| ID da câmera|
-| `timestamp` | data| Data utc quando a carga de JSON foi emitida|
+| `timestamp` | date| Data utc quando a carga de JSON foi emitida|
 | `width` | int | Largura do quadro de vídeo|
 | `height` | int | Altura do quadro de vídeo|
 | `frameId` | int | Identificador de quadro|
@@ -341,7 +341,7 @@ Prove json para uma saída de evento por esta operação.
 | Nome do campo SourceInfo | Tipo| Description|
 |---------|---------|---------|
 | `id` | cadeia (de carateres)| ID da câmera|
-| `timestamp` | data| Data utc quando a carga de JSON foi emitida|
+| `timestamp` | date| Data utc quando a carga de JSON foi emitida|
 | `width` | int | Largura do quadro de vídeo|
 | `height` | int | Altura do quadro de vídeo|
 | `frameId` | int | Identificador de quadro|
@@ -421,7 +421,7 @@ Amostra JSON para deteção de saída por esta operação.
 | Nome do campo SourceInfo | Tipo| Description|
 |---------|---------|---------|
 | `id` | cadeia (de carateres)| ID da câmera|
-| `timestamp` | data| Data utc quando a carga de JSON foi emitida|
+| `timestamp` | date| Data utc quando a carga de JSON foi emitida|
 | `width` | int | Largura do quadro de vídeo|
 | `height` | int | Altura do quadro de vídeo|
 | `frameId` | int | Identificador de quadro|
@@ -623,7 +623,7 @@ Amostra JSON para deteção de saída por esta operação.
 | Nome do campo SourceInfo | Tipo| Description|
 |---------|---------|---------|
 | `id` | cadeia (de carateres)| ID da câmera|
-| `timestamp` | data| Data utc quando a carga de JSON foi emitida|
+| `timestamp` | date| Data utc quando a carga de JSON foi emitida|
 | `width` | int | Largura do quadro de vídeo|
 | `height` | int | Altura do quadro de vídeo|
 | `frameId` | int | Identificador de quadro|

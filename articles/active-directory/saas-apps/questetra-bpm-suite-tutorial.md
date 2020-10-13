@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 11a6df348ae623ccf75e61bc1abbb5e28c832237
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88548976"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>Tutorial: Integração do Azure Ative Directory com a Suite Questetra BPM
@@ -93,7 +93,7 @@ Para configurar o Azure AD single sign-on com questetra BPM Suite, execute os se
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -106,9 +106,9 @@ Para configurar o Azure AD single sign-on com questetra BPM Suite, execute os se
     b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `https://<subdomain>.questetra.net/`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL e o identificador de inscrição real. Pode obter estes valores a partir da secção **de Informação SP** no seu site da empresa **Questetra BPM Suite,** que é explicado mais tarde no tutorial ou contacte a [equipa de suporte do Cliente Questetra BPM Suite](https://www.questetra.com/contact/). Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > Estes valores não são reais. Atualize estes valores com o URL e o identificador de Sign-On reais. Pode obter estes valores a partir da secção **de Informação SP** no seu site da empresa **Questetra BPM Suite,** que é explicado mais tarde no tutorial ou contacte a [equipa de suporte do Cliente Questetra BPM Suite](https://www.questetra.com/contact/). Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -142,7 +142,7 @@ Para configurar o Azure AD single sign-on com questetra BPM Suite, execute os se
 
 5. No seu site da empresa **Questetra BPM Suite,** execute os seguintes passos: 
    
-    ![Configurar um único sign-on][15]
+    ![Configurar Sign-On Individuais][15]
    
     a. Selecione **Ative o único sinal de inscrição**.
    
@@ -188,7 +188,7 @@ Nesta secção, você permite que Britta Simon utilize o Azure single sign-on, c
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Questetra BPM Suite**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Questetra BPM Suite**.
 

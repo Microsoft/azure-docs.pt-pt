@@ -9,10 +9,10 @@ ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azul, sensor, sdk, corpo, rastreamento, articulação
 ms.openlocfilehash: 1b62022242144d5db51455a32ac04b67c3e5dd7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85277559"
 ---
 # <a name="get-body-tracking-results"></a>Obter resultados de deteção de movimentos
@@ -50,7 +50,7 @@ if (K4A_RESULT_SUCCEEDED != k4abt_tracker_create(&sensor_calibration, tracker_co
 A captura de imagens utilizando o DK Azure Kinect é coberta na página [de imagens de recuperação.](retrieve-images.md)
 
 >[!NOTE]
-> `K4A_DEPTH_MODE_NFOV_UNBINNED`ou `K4A_DEPTH_MODE_WFOV_2X2BINNED` os modos são recomendados para o melhor desempenho e precisão. Não utilize os `K4A_DEPTH_MODE_OFF` modos ou `K4A_DEPTH_MODE_PASSIVE_IR` modos.
+> `K4A_DEPTH_MODE_NFOV_UNBINNED` ou `K4A_DEPTH_MODE_WFOV_2X2BINNED` os modos são recomendados para o melhor desempenho e precisão. Não utilize os `K4A_DEPTH_MODE_OFF` modos ou `K4A_DEPTH_MODE_PASSIVE_IR` modos.
 
 Os modos DK Azure Kinect suportados são descritos na especificação de [hardware](hardware-specification.md) DK Azure Kinect e [k4a_depth_mode_t](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___enumerations_ga3507ee60c1ffe1909096e2080dd2a05d.html#ga3507ee60c1ffe1909096e2080dd2a05d) enumerações.
 
@@ -128,7 +128,7 @@ if (pop_frame_result != K4A_WAIT_RESULT_SUCCEEDED)
 k4abt_frame_release(body_frame); // Remember to release the body frame once you finish using it
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 >[Aceder aos dados na moldura do corpo](access-data-body-frame.md)

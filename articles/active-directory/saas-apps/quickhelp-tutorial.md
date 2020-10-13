@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 10803a16a2ceb84e084070d899b50360446710fc
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88548938"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>Tutorial: Integração do Azure Ative Directory com QuickHelp
@@ -95,7 +95,7 @@ Para configurar o Azure AD com quickHelp, execute os seguintes passos:
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -108,9 +108,9 @@ Para configurar o Azure AD com quickHelp, execute os seguintes passos:
     b. Na caixa de texto **identifier (Entity ID),** digite um URL: `https://auth.quickhelp.com`
 
     > [!NOTE]
-    > O valor url de inscrição não é real. Atualize o valor com o URL de inscrição real. Contacte o administrador quickHelp da sua organização ou o seu Gestor de Sucesso do Cliente BrainStorm para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > O valor url de inscrição não é real. Atualize o valor com o URL de Sign-On real. Contacte o administrador quickHelp da sua organização ou o seu Gestor de Sucesso do Cliente BrainStorm para obter o valor. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -124,23 +124,23 @@ Para configurar o Azure AD com quickHelp, execute os seguintes passos:
 
     c. Logout URL
 
-### <a name="configure-quickhelp-single-sign-on"></a>Configurar quickhelp single sign-on
+### <a name="configure-quickhelp-single-sign-on"></a>Configurar quickhelp single Sign-On
 
 1. Inscreva-se no site da empresa QuickHelp como administrador.
 
 2. No menu em cima, clique em **Administração.**
    
-    ![Configurar um único sign-on][21]
+    ![Configurar Sign-On Individuais][21]
 
 3. No menu **QuickHelp Admin,** clique em **Definições**.
    
-    ![Configurar um único sign-on][22]
+    ![Configurar Sign-On Individuais][22]
 
 4. Clique em **Definições de Autenticação**.
 
 5. Na página **Definições de Autenticação,** execute os seguintes passos
    
-    ![Configurar um único sign-on][23]
+    ![Configurar Sign-On Individuais][23]
    
     a. Como **Tipo SSO,** selecione **WSFederation**.
    
@@ -184,7 +184,7 @@ Nesta secção, você permite que Britta Simon use Azure single sign-on, concede
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **QuickHelp**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **QuickHelp**.
 

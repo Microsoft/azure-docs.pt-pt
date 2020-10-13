@@ -13,10 +13,10 @@ ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
 ms.openlocfilehash: fedbcf00512e2eb671656ca1c585df83560a8c02
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91627623"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ) sobre o Azure SQL Managed Instance
@@ -192,7 +192,7 @@ Não, não são apoiados. Pode utilizar [DMVs](../database/monitoring-with-dmvs.
 
 **Posso criar alertas métricos no SQL Managed Instance?**
 
-Yes. Para obter instruções, consulte [Criar alertas para a sql Managed Instance](alerts-create.md).
+Sim. Para obter instruções, consulte [Criar alertas para a sql Managed Instance](alerts-create.md).
 
 **Posso criar alertas métricos numa base de dados em casos geridos?**
 
@@ -254,22 +254,22 @@ Isto é para garantir um fluxo ininterrupto do tráfego de gestão, a fim de cum
 
 **Posso obter os intervalos ip de origem que são usados para o tráfego de gestão de entrada?**
 
-Yes. Pode analisar o tráfego que passa pelo seu grupo de segurança de redes [configurando os registos de fluxo do Observador de Rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#analyze-traffic-to-or-from-a-network-security-group).
+Sim. Pode analisar o tráfego que passa pelo seu grupo de segurança de redes [configurando os registos de fluxo do Observador de Rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#analyze-traffic-to-or-from-a-network-security-group).
 
 **Posso definir o NSG para controlar o acesso ao ponto final de dados (porta 1433)?**
 
-Yes. Depois de ser a provisionada uma Instância Gerida, pode definir o NSG que controla o acesso à porta 1433. É aconselhável reduzir ao máximo o seu intervalo de IP.
+Sim. Depois de ser a provisionada uma Instância Gerida, pode definir o NSG que controla o acesso à porta 1433. É aconselhável reduzir ao máximo o seu intervalo de IP.
 
 **Posso definir a firewall NVA ou no local para filtrar o tráfego de gestão de saída com base em FQDNs?**
 
-Não. Isto não é apoiado por várias razões:
+N.º Isto não é apoiado por várias razões:
 -   O tráfego de encaminhamento que represente a resposta ao pedido de gestão de entrada seria assimétrico e não podia funcionar.
 -   O tráfego de encaminhamento que vai para o armazenamento seria afetado por restrições de produção e latência para que desta forma não sejamos capazes de fornecer qualidade e disponibilidade de serviço esperada.
 -   Com base na experiência, estas configurações são propensas a erros e não são reutilizáveis.
 
 **Posso definir o NVA ou firewall para o tráfego de não gestão de saída?**
 
-Yes. A forma mais simples de o conseguir é adicionar a regra 0/0 a uma UDR associada à sub-rede de instância gerida para encaminhar o tráfego através da NVA.
+Sim. A forma mais simples de o conseguir é adicionar a regra 0/0 a uma UDR associada à sub-rede de instância gerida para encaminhar o tráfego através da NVA.
  
 **Quantos endereços IP preciso para uma Instância Gerida?**
 
@@ -281,7 +281,7 @@ Caso não existam [endereços IP suficientes](connectivity-architecture-overview
 
 **Preciso de uma sub-rede vazia para criar uma Instância Gerida?**
 
-Não. Pode utilizar uma sub-rede vazia ou uma sub-rede que já contenha Instâncias Geridas. 
+N.º Pode utilizar uma sub-rede vazia ou uma sub-rede que já contenha Instâncias Geridas. 
 
 **Posso alterar o intervalo de endereços da sub-rede?**
 
@@ -289,7 +289,7 @@ Não se houver casos geridos dentro. Esta é uma limitação de infraestrutura d
 
 **Posso mudar o meu caso para outra sub-rede?**
 
-Não. Esta é uma limitação de design de instância gerida atual. No entanto, pode prever uma nova instância noutra sub-rede e fazer retrocevesimento manual e restaurar dados entre o antigo e o novo caso ou realizar [restauro pontual](point-in-time-restore.md?tabs=azure-powershell)transversal .
+N.º Esta é uma limitação de design de instância gerida atual. No entanto, pode prever uma nova instância noutra sub-rede e fazer retrocevesimento manual e restaurar dados entre o antigo e o novo caso ou realizar [restauro pontual](point-in-time-restore.md?tabs=azure-powershell)transversal .
 
 **Preciso de uma rede virtual vazia para criar uma Instância Gerida?**
 
@@ -297,7 +297,7 @@ Isto não é necessário. Pode [criar uma rede virtual para Azure SQL Managed In
 
 **Posso colocar uma Instância Gerida com outros serviços numa sub-rede?**
 
-Não. Atualmente não apoiamos a colocação de Casos Geridos numa sub-rede que já contenha outros tipos de recursos.
+N.º Atualmente não apoiamos a colocação de Casos Geridos numa sub-rede que já contenha outros tipos de recursos.
 
 ## <a name="connectivity"></a>Conectividade 
 
@@ -316,7 +316,7 @@ Por esta razão, desencorajamos vivamente a imutabilidade do endereço IP, uma v
 
 **A Managed Instance tem um ponto final público?**
 
-Yes. A Managed Instance tem um ponto final público que é por padrão usado apenas para Gestão de Serviços, mas um cliente pode habilitar o acesso aos dados também. Para obter mais detalhes, consulte [a Utilização sql Managed Instance com pontos finais públicos](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-securely). Para configurar o ponto final público, vá ao [ponto final público configure em SQL Managed Instance](public-endpoint-configure.md).
+Sim. A Managed Instance tem um ponto final público que é por padrão usado apenas para Gestão de Serviços, mas um cliente pode habilitar o acesso aos dados também. Para obter mais detalhes, consulte [a Utilização sql Managed Instance com pontos finais públicos](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-securely). Para configurar o ponto final público, vá ao [ponto final público configure em SQL Managed Instance](public-endpoint-configure.md).
 
 **Como é que a Managed Instance controla o acesso ao ponto final público?**
 
@@ -326,7 +326,7 @@ Os serviços de gestão e implantação conectam-se a uma instância gerida util
 
 **Posso utilizar o ponto final público para aceder aos dados nas bases de dados de Instância Gerida?**
 
-Yes. O cliente terá de permitir o acesso de dados de ponto final público a partir do [portal Azure](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal)  /  [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) /ARM e configurar o NSG para bloquear o acesso à porta de dados (porta número 3342). Para obter mais informações, consulte o [ponto final público Configure em Azure SQL Managed Instance](public-endpoint-configure.md) e Use [Azure SQL Managed Instance de forma segura com o ponto final público](public-endpoint-overview.md). 
+Sim. O cliente terá de permitir o acesso de dados de ponto final público a partir do [portal Azure](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal)  /  [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) /ARM e configurar o NSG para bloquear o acesso à porta de dados (porta número 3342). Para obter mais informações, consulte o [ponto final público Configure em Azure SQL Managed Instance](public-endpoint-configure.md) e Use [Azure SQL Managed Instance de forma segura com o ponto final público](public-endpoint-overview.md). 
 
 **Posso especificar uma porta personalizada para o ponto final de dados SQL?**
 
@@ -359,7 +359,7 @@ Para mitigar quaisquer riscos de exfiltração de dados, recomenda-se aos client
 
 **Posso configurar um DNS personalizado para sql Managed Instance?**
 
-Yes. Ver [como configurar um DNS personalizado para Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
+Sim. Ver [como configurar um DNS personalizado para Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
 
 **Posso refrescar o DNS?**
 
