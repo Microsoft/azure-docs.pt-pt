@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: kenchen
 ms.openlocfilehash: 2cdce64b0ff03521a5848e2b4fd6e01431b5cc16
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89514905"
 ---
 # <a name="service-mode-in-azure-signalr-service"></a>Modo de serviço no Serviço Azure SignalR
@@ -21,7 +21,7 @@ O modo de serviço é um conceito importante no Serviço Azure SignalR. Quando c
 
 Também pode alterá-lo mais tarde no menu de definições:
 
-:::image type="content" source="media/concept-service-mode/update.png" alt-text="Modo de serviço de atualização":::
+:::image type="content" source="media/concept-service-mode/update.png" alt-text="Escolha o modo de serviço quando criar":::
 
 O Serviço Azure SignalR suporta atualmente três modos de serviço: **padrão,** **sem servidor** e **clássico**. O seu recurso SignalR comportar-se-á de forma diferente em diferentes modos. Neste artigo, você vai aprender as suas diferenças e como escolher o modo de serviço certo com base no seu cenário.
 
@@ -29,7 +29,7 @@ O Serviço Azure SignalR suporta atualmente três modos de serviço: **padrão,*
 
 O modo predefinido é o valor predefinido para o modo de serviço quando cria um novo recurso SignalR. Neste modo, a sua aplicação funciona como uma aplicação signalR ASP.NET típica ASP.NET (ou ASP.NET), onde tem um servidor web que acolhe um hub (chamado hub server a seguir) e os clientes podem ter comunicação em tempo real duplex com o servidor do hub. A única diferença é que, em vez de ligar diretamente o cliente e o servidor, o cliente e o servidor conectam-se ao serviço SignalR e utilizam o serviço como procuração. Abaixo está um diagrama que ilustra a estrutura típica da aplicação no modo predefinido:
 
-:::image type="content" source="media/concept-service-mode/default.png" alt-text="Estrutura de aplicação no modo predefinido":::
+:::image type="content" source="media/concept-service-mode/default.png" alt-text="Escolha o modo de serviço quando criar":::
 
 Portanto, se tem uma aplicação SignalR e quer integrar-se com o serviço SignalR, o modo predefinido deve ser a escolha certa para a maioria dos casos.
 
@@ -59,7 +59,7 @@ Para obter mais informações sobre como configurar a montante, consulte este [d
 
 Abaixo está um diagrama que ilustra como funciona o modo sem servidor:
 
-:::image type="content" source="media/concept-service-mode/serverless.png" alt-text="Estrutura de aplicação no modo sem servidor":::
+:::image type="content" source="media/concept-service-mode/serverless.png" alt-text="Escolha o modo de serviço quando criar":::
 
 > [!NOTE]
 > Tenha em atenção no modo predefinido que também pode utilizar a ligação REST API/management SDK/função para enviar mensagens diretamente ao cliente se não quiser passar pelo servidor do hub. Mas no modo predefinido as ligações do cliente ainda são manuseadas por servidores hub e a montante não funcionará nesse modo.
@@ -85,7 +85,7 @@ Agora deve entender as diferenças entre os modos de serviço e saber escolher e
 
 * Se realmente tem um cenário misto, por exemplo, tem dois hubs diferentes no mesmo recurso SignalR, um usado como um hub signalr tradicional e o outro usado com Funções Azure e não tem servidor hub, você realmente deve considerar separá-los em dois recursos SignalR, um em modo padrão e outro em modo sem servidor.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre como usar o modo padrão e sem servidor, leia os seguintes artigos:
 

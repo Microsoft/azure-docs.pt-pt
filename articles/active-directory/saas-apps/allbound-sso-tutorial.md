@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.openlocfilehash: c9ca3b98d01e44c0c899e165e5f892ab5d9a5954
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715927"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-allbound-sso"></a>Tutorial: Integração do Azure Ative Directory com a Allbound SSO
@@ -74,7 +74,7 @@ Para um único sinal de acesso ao trabalho, é necessário estabelecer uma rela�
 Para configurar e testar o Azure AD com o Allbound SSO, é necessário completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure o sign-on único SSO -](#configure-allbound-sso-single-sign-on)** para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure o sign-on único do SSO](#configure-allbound-sso-single-sign-on)** - para configurar as definições de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
 5. **[Create Allbound SSO test user](#create-allbound-sso-test-user)** - para ter uma contraparte de Britta Simon em Allbound SSO que está ligada à representação AD AD do utilizador.
@@ -94,7 +94,7 @@ Para configurar o Azure AD single sign-on com Allbound SSO, execute os seguintes
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. No **Set-up Single Sign-On com** a página SAML, clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
+3. Na **configuração Single Sign-On com** a página SAML, clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -115,7 +115,7 @@ Para configurar o Azure AD single sign-on com Allbound SSO, execute os seguintes
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte [a equipa de suporte do Cliente SSO](mailto:engineering@allbound.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-6. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação das opções dadas de acordo com o seu requisito e guarde-o no seu computador.
+6. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML** da Federação a partir das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -129,7 +129,7 @@ Para configurar o Azure AD single sign-on com Allbound SSO, execute os seguintes
 
     c. Logout URL
 
-### <a name="configure-allbound-sso-single-sign-on"></a>Configurar o SSO single sign-on
+### <a name="configure-allbound-sso-single-sign-on"></a>Configurar Sign-On única sso
 
 Para configurar um único sinal no lado **SSO allbound,** você precisa enviar o **Metdata XML da Federação** descarregado e URLs copiados apropriados do portal Azure para a equipe de [suporte Allbound SSO](mailto:engineering@allbound.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 

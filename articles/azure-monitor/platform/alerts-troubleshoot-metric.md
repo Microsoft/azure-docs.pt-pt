@@ -7,10 +7,10 @@ ms.topic: troubleshooting
 ms.date: 10/05/2020
 ms.subservice: alerts
 ms.openlocfilehash: 579729eca8269d75569166a5bda32a979544b164
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715327"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Problemas de resolução de problemas nos alertas métricos do Monitor Azure 
@@ -264,6 +264,6 @@ Recomendamos a escolha de uma *granularidade agregada (Período)* maior do que a
 -   Regra de alerta métrico que monitoriza múltiplos recursos – Quando um novo recurso é adicionado ao âmbito
 -   Regra de alerta métrico que monitoriza uma métrica que não é emitida continuamente (métrica escassa) – Quando a métrica é emitida após um período superior a 24 horas em que não foi emitida
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter informações gerais sobre alertas e notificações, consulte [problemas de resolução de problemas nos alertas do Monitor Azure](alerts-troubleshoot.md).

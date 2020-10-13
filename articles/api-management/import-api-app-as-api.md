@@ -13,10 +13,10 @@ ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: apimpm
 ms.openlocfilehash: 007598046ae64b390d44e61438b69bd26024b1c4
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91626892"
 ---
 # <a name="import-an-api-app-as-an-api"></a>Importar uma Aplicação API como uma API

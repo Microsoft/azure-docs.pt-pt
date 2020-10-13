@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: xshi
 ms.openlocfilehash: c56bb7030b2ebc12e3afc24e2d8cb29ce2dda0bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "74079485"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Utilize o Cloud Explorer para o Estúdio Visual para enviar e receber mensagens entre o seu dispositivo e o IoT Hub
@@ -34,7 +34,7 @@ Neste artigo, faz as seguintes tarefas:
 
 - Utilize o Cloud Explorer para o Estúdio Visual para enviar mensagens nuvem-a-dispositivo.
 
-## <a name="what-you-need"></a>Do que precisa
+## <a name="what-you-need"></a>O que precisa
 
 Precisa dos seguintes pré-requisitos:
 
@@ -96,7 +96,7 @@ Para enviar uma mensagem do seu Hub IoT para o seu dispositivo, siga estes passo
 
     ![Enviar resultado da mensagem C2D](media/iot-hub-visual-studio-cloud-device-messaging/send-c2d-message-result-vs2019.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aprendeu a monitorizar mensagens de dispositivo para nuvem e a enviar mensagens nuvem-a-dispositivo entre o seu dispositivo IoT e o Azure IoT Hub.
 

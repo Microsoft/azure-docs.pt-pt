@@ -170,9 +170,11 @@
             - name: Ativar/desativar chat ao vivo
               href: howto-show-hide-chat.md
     - name: Resolução de problemas
-      items: null
-      '-name': Device connections
-      href: troubleshoot-connection.md
+      items:
+        - name: Ligações do dispositivo
+          href: troubleshoot-connection.md
+    - name: FAQ
+      href: howto-faq.md
 - name: Referência
   items:
     - name: CLI do Azure

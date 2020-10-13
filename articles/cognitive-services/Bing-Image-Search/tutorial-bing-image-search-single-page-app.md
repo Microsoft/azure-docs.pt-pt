@@ -12,10 +12,10 @@ ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
 ms.openlocfilehash: fe4c40e2c5e2b8992598125c376dc0da516e9736
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91316703"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Tutorial: Criar uma aplicação de página única com a API de Pesquisa de Imagens do Bing
@@ -317,7 +317,7 @@ function renderImageResults(items) {
 
 A API de Pesquisa de Imagens do Bing pode devolver quatro tipos de sugestões de pesquisa para ajudar a orientar as experiências de pesquisa dos utilizadores, cada um no seu próprio objeto de nível superior:
 
-| Sugestão         | Description                                                                                                                                                                                                         |
+| Sugestão         | Descrição                                                                                                                                                                                                         |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `pivotSuggestions` | Consultas que substituem uma palavra “pivô” na pesquisa original por outra diferente. Por exemplo, se procurar "flores vermelhas", uma palavra pivô poderá ser "vermelhas" e uma sugestão pivô "flores amarelas". |
 | `queryExpansions`  | Consultas que reduzem a consulta original mediante a adição de mais termos. Por exemplo, se procurar "Microsoft Surface", uma expansão da consulta poderá ser "Microsoft Surface Pro".                                   |
@@ -411,6 +411,6 @@ Deixe a janela de comando aberta enquanto utiliza a aplicação de tutorial. Se 
 > [!div class="nextstepaction"]
 > [Extrair os detalhes da Imagem com a API de Pesquisa de Imagens do Bing](tutorial-image-post.md)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * [Bing Image Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) (Referência da API de Pesquisa de Imagens do Bing)

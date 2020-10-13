@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: b6e5a22a073a2a61db4a630388fee886e2f4ed26
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87543338"
 ---
 # <a name="azure-operational-security"></a>Segurança Operacional Azure
@@ -228,7 +228,7 @@ O Network Watcher tem atualmente as seguintes capacidades:
 -   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview">Registos de Auditoria</a>**- As operações realizadas como parte da configuração das redes são registadas. Estes registos podem ser vistos no portal Azure ou recuperados utilizando ferramentas da Microsoft, como o Power BI ou ferramentas de terceiros. Os registos de auditoria estão disponíveis através do portal, PowerShell, CLI e Rest API. Para obter mais informações sobre registos de auditoria, consulte as operações de Auditoria com o Gestor de Recursos. Os registos de auditoria estão disponíveis para operações realizadas em todos os recursos da rede.
 
 
--   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview">Verifica-se o fluxo IP</a>** - Verifica se um pacote é permitido ou negado com base em parâmetros de pacote de informação de fluxo 5-tuple (Destination IP, Source IP, Destination Port, Source Port e Protocol). Se o pacote for negado por um Grupo de Segurança de Rede, a regra e o Grupo de Segurança da Rede que negou o pacote são devolvidos.
+-   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview">Verifica-se o fluxo IP </a>** - Verifica se um pacote é permitido ou negado com base em parâmetros de pacote de informação de fluxo 5-tuple (Destination IP, Source IP, Destination Port, Source Port e Protocol). Se o pacote for negado por um Grupo de Segurança de Rede, a regra e o Grupo de Segurança da Rede que negou o pacote são devolvidos.
 
 -   **<a href="https://docs.microsoft.com/azure/network-watcher/network-watcher-next-hop-overview">Próximo salto</a>** - Determina o próximo salto para pacotes que estão a ser encaminhados no Tecido da Rede Azure, permitindo diagnosticar quaisquer rotas mal configuradas definidas pelo utilizador.
 

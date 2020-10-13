@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 09/29/2020
 ms.author: alkohli
 ms.openlocfilehash: f0f9dfa6e3d6ae02f66ac71f62586953cb21517e
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91568357"
 ---
 # <a name="troubleshooting-certificate-errors"></a>Erros de certificado de resolução de problemas
@@ -26,7 +26,7 @@ O quadro que se segue apresenta erros comuns de certificado e informações deta
 > [!NOTE]
 > Ocorrências de &#8220;{0} , ... ... {1} {n}&#8221; indicam parâmetros posicionais. Os parâmetros posicionais terão valores dependendo dos certificados que estiver a utilizar.
 
-| Código de Erro | Description |
+| Código de Erro | Descrição |
 |---|---|
 | CertificateManagement_UntrustedCertificate | O certificado com nome do sujeito {0} tem a cadeia de certificados quebrada. Faça o upload do certificado da cadeia de assinaturas antes de carregar este certificado.|
 | CertificateManagement_DeviceNotRegistered| O seu dispositivo não está ativado. Só pode carregar um certificado de suporte após a ativação.|

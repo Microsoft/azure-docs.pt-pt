@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
 ms.openlocfilehash: be308a91b5b583f96406f10675344ab263150a81
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91716066"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Visão geral das opções de autenticação baseadas na identidade do Azure Files para acesso AMB
@@ -144,7 +144,7 @@ A Azure Files suporta a preservação de diretórios ou ACLs de nível de fichei
 ## <a name="pricing"></a>Preços
 Não existe qualquer taxa adicional de serviço para permitir a autenticação baseada na identidade sobre a SMB na sua conta de armazenamento. Para obter mais informações sobre preços, consulte [os preços dos Ficheiros Azure](https://azure.microsoft.com/pricing/details/storage/files/) e [os preços dos Serviços de Domínio AZure AD](https://azure.microsoft.com/pricing/details/active-directory-ds/).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre os Ficheiros Azure e a autenticação baseada na identidade sobre a SMB, consulte estes recursos:
 
 - [Planear uma implementação de Ficheiros do Azure](storage-files-planning.md)

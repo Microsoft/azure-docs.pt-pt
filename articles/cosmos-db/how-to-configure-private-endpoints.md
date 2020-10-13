@@ -8,10 +8,10 @@ ms.date: 09/18/2020
 ms.author: thweiss
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: dd1a59c2e6b0656233174c53b08ab013ce73d0f1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91334434"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configure Azure Private Link para uma conta Azure Cosmos
@@ -98,7 +98,7 @@ Depois de ser previsto o ponto final privado, pode consultar os endereços IP. P
 1. Procure o ponto final privado que criou anteriormente. Neste caso, é **cdbPrivateEndpoint3**.
 1. Selecione o **separador 'Vista Geral'** para ver as definições de DNS e endereços IP.
 
-:::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Endereços IP privados no portal Azure":::
+:::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Seleções para criar um ponto final privado no portal Azure":::
 
 Vários endereços IP são criados por ponto final privado:
 
@@ -411,7 +411,7 @@ Para essas contas, deve criar um ponto final privado para cada tipo de API. O ti
 
 Depois de o modelo ser implementado com sucesso, pode ver uma saída semelhante à que a imagem seguinte mostra. O `provisioningState` valor é se os `Succeeded` pontos finais privados forem configurado corretamente.
 
-:::image type="content" source="./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png" alt-text="Saída de implementação para o modelo de Gestor de Recursos":::
+:::image type="content" source="./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png" alt-text="Seleções para criar um ponto final privado no portal Azure":::
 
 Após a implementação do modelo, os endereços IP privados são reservados dentro da sub-rede. A regra de firewall da conta Azure Cosmos está configurada para aceitar ligações apenas a partir do ponto final privado.
 

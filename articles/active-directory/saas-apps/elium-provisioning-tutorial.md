@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 08/19/2019
 ms.author: Zhchia
 ms.openlocfilehash: d9bb21ab4b5610c8318fe4ee869f1140faf55367
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88544235"
 ---
 # <a name="tutorial-configure-elium-for-automatic-user-provisioning"></a>Tutorial: Configure Elium para o fornecimento automático de utilizadores
@@ -49,7 +49,7 @@ Ao atribuir um utilizador a Elium, deve selecionar uma função válida e espec�
 
 ## <a name="set-up-elium-for-provisioning"></a>Configurar Elium para provisionamento
 
-Antes de configurar Elium para o fornecimento automático de utilizadores com Azure AD, deve ativar o fornecimento do Sistema de Gestão de Identidade de Domínio Cruzado (SCIM) em Elium. Siga estes passos.
+Antes de configurar Elium para o fornecimento automático de utilizadores com Azure AD, deve ativar o fornecimento do Sistema de Gestão de Identidade de Domínio Cruzado (SCIM) em Elium. Siga estes passos:
 
 1. Inscreva-se no Elium e vá às **Definições do Meu Perfil**  >  **Settings**.
 
@@ -65,7 +65,7 @@ Antes de configurar Elium para o fornecimento automático de utilizadores com Az
 
 ## <a name="add-elium-from-the-gallery"></a>Adicione Elium da galeria
 
-Para configurar o Elium para o fornecimento automático de utilizadores com Azure AD, também deve adicionar Elium da galeria de aplicações AD AZure à sua lista de aplicações geridas de software-as-a-service (SaaS). Siga estes passos.
+Para configurar o Elium para o fornecimento automático de utilizadores com Azure AD, também deve adicionar Elium da galeria de aplicações AD AZure à sua lista de aplicações geridas de software-as-a-service (SaaS). Siga estes passos:
 
 1. No [portal Azure,](https://portal.azure.com)no painel de navegação à esquerda, selecione **Azure Ative Directory**.
 
@@ -100,11 +100,11 @@ Para configurar o fornecimento automático de utilizadores para Elium em Azure A
 
     ![Lista de aplicações na lâmina de aplicações da Enterprise](common/all-applications.png)
 
-1. Selecione o **separador Provisioning.**
+1. Selecione o separador **Aprovisionamento**.
 
     ![Aba de provisionamento na lâmina de aplicações da Enterprise](common/provisioning.png)
 
-1. Desa ajuste o **modo de provisionamento** para **automático**.
+1. Defina o **Modo de Aprovisionamento** como **Automático**.
 
     ![Definição automática para modo de provisionamento](common/provisioning-automatic.png)
 
@@ -114,7 +114,7 @@ Para configurar o fornecimento automático de utilizadores para Elium em Azure A
 
 1. No campo **'Email' de Notificação,** insira o endereço de e-mail de uma pessoa ou grupo que receberá as notificações de erro de provisionamento. Em seguida, selecione a **notificação enviar uma notificação por e-mail quando ocorrer uma falha** na caixa de verificação.
 
-    ![E-mail de notificação](common/provisioning-notification-email.png)
+    ![E-mail de Notificação](common/provisioning-notification-email.png)
 
 1. Clique em **Guardar**.
 
@@ -151,4 +151,4 @@ Utilize a secção **Estado Atual** para monitorizar o progresso e seguir links 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
+* [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../app-provisioning/check-status-user-account-provisioning.md)

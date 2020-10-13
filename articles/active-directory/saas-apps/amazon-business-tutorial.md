@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
 ms.openlocfilehash: 659cca6979a8d8be7d12c49fe01a9d0a5d7ac58e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91713761"
 ---
 # <a name="tutorial-integrate-amazon-business-with-azure-active-directory"></a>Tutorial: Integrar o Negócio Amazon com o Azure Ative Directory
@@ -60,7 +60,7 @@ Configure e teste Azure AD SSO com a Amazon Business usando um utilizador de tes
 Para configurar e testar a Azure AD SSO com a Amazon Business, complete os seguintes passos de construção:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure a Amazon Business SSO](#configure-amazon-business-sso)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure a Amazon Business SSO](#configure-amazon-business-sso)** - para configurar as configurações de Sign-On única no lado da aplicação.
 3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
 4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
 5. **[Create Amazon Business test user](#create-amazon-business-test-user)** - ter uma contrapartida de B.Simon na Amazon Business que está ligada à representação AZure AD do utilizador.
@@ -72,7 +72,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações da **Amazon Business,** encontre a secção **Gerir** e selecione **Single sign-on**.
 1. Na página **de método de inscrição única,** selecione **SAML**.
-1. Na **configuração de 'Sessão Única' com** a página SAML, clique no ícone edit/pen para **a configuração básica do SAML** para editar as definições.
+1. Na **configuração single Sign-On com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
@@ -80,7 +80,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     1. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando um dos seguintes padrões:
     
-       | URL | Region |
+       | URL | Região |
        |-|-|
        | `https://www.amazon.com`| América do Norte |
        | `https://www.amazon.co.jp`| Ásia Leste |
@@ -88,7 +88,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     1. Na caixa de texto **URL de resposta,** digite um URL utilizando um dos seguintes padrões:
     
-       | URL | Region |
+       | URL | Região |
        |-|-|
        | `https://www.amazon.com/bb/feature/sso/action/3p_redirect?idpid={idpid}`| América do Norte |
        | `https://www.amazon.co.jp/bb/feature/sso/action/3p_redirect?idpid={idpid}`| Ásia Leste |
@@ -123,7 +123,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     e. Clique em **Guardar**.
 
-1. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre **o Metadata XML** e selecione **Descarregue** para descarregar o certificado e guarde-o no seu computador.
+1. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre **metadata XML** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
@@ -139,7 +139,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     ![Perfil de Utilizador](media/amazon-business-tutorial/user-profile.png)
 
-1. No assistente de integração do **sistema,** selecione **Single Sign-On (SSO)**.
+1. No assistente de integração do **Sistema,** selecione **Single Sign-On (SSO)**.
 
     ![Início de Sessão Único (SSO)](media/amazon-business-tutorial/sso-settings.png)
 

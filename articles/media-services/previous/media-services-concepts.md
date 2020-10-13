@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 2a251ef426d41413cf81f46ca05b11640f01e87a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91333788"
 ---
 # <a name="azure-media-services-concepts"></a>Conceitos de Azure Media Services
@@ -115,7 +115,7 @@ No Azure Media Services, um Canal representa um oleoduto para o processamento de
 * Um codificadora ao vivo no local envia para o Canal um RTMP ou Streaming Liso (MP4 fragmentado) no local. Pode utilizar os seguintes codificadores ao vivo que produzem streaming suave multi-bitrate: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco e Elemental. Os seguintes codificadores ao vivo produção RTMP: Adobe Flash Live Encoder, [Telestream Wirecast,](media-services-configure-wirecast-live-encoder.md)Teradek, Haivision codificadores. Os fluxos ingeridos passam por canais sem mais transcoding e codificação. Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
 * Um único fluxo bitrate (num dos seguintes formatos: RTMP, ou Smooth Streaming (MP4 fragmentado)) é enviado para o Canal que está habilitado a realizar codificação ao vivo com serviços de mídia. O Canal, em seguida, realiza live encoding da transmissão em fluxo de velocidade de transmissão única de entrada para uma transmissão em fluxo de vídeo com várias velocidades (adaptável). Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
 
-### <a name="channel"></a>Canal
+### <a name="channel"></a>Channel
 Nos Serviços de Comunicação Social, [os Channel](/rest/api/media/operations/channel)s são responsáveis pelo processamento de conteúdos de streaming ao vivo. Um Canal fornece um ponto final de entrada (ingest URL) que fornece a um transcodificador vivo. O canal recebe streams de entrada ao vivo a partir do transcodificador ao vivo e disponibiliza-o para streaming através de um ou mais StreamingEndpoints. Os canais também fornecem um ponto final de pré-visualização (URL de pré-visualização) que utiliza para visualizar e validar o seu fluxo antes de ser processado e entregue.
 
 Pode obter o URL de ingestão e o URL de pré-visualização quando criar o canal. Para obter estes URLs, o canal não tem que estar no estado iniciado. Quando estiver pronto para começar a empurrar dados de um transcodificador vivo para o canal, o canal tem de ser iniciado. Assim que o transcodificador vivo começar a ingerir dados, pode visualizar o seu fluxo.
@@ -155,7 +155,7 @@ A política de autorização de chave de conteúdo pode ter uma ou mais restriç
 
 Ao configurar a política restrita simbólica, deve especificar a chave de verificação primária, o emitente e os parâmetros do público. A chave de verificação primária contém a chave com a qual o símbolo foi assinado, o emitente é o serviço de ficha segura que emite o token. O público (às vezes chamado de âmbito) descreve a intenção do símbolo ou o recurso a que o símbolo autoriza o acesso. O serviço de entrega chave dos Serviços de Comunicação social valida que estes valores no símbolo correspondem aos valores do modelo.
 
-Para obter mais informações, veja os seguintes artigos:
+Para obter mais informações, veja os artigos seguintes:
 - [Proteger a visão geral do conteúdo](media-services-content-protection-overview.md)
 - [Proteger com AES-128](media-services-protect-with-aes128.md)
 - [Proteger com PlayReady/Widevine](media-services-protect-with-playready-widevine.md)

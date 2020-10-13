@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
 ms.openlocfilehash: b70db03e03ce914ea1d81d94cd2803a36eccfc88
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "81418223"
 ---
 # <a name="copy-data-from-impala-by-using-azure-data-factory"></a>Copiar dados do Impala utilizando a Azure Data Factory
@@ -49,20 +49,20 @@ As secções seguintes fornecem detalhes sobre propriedades que são usadas para
 
 As seguintes propriedades são suportadas para o serviço ligado a Impala.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para **Impala.** | Yes |
-| anfitrião | O endereço IP ou nome de anfitrião do servidor Impala (ou seja, 192.168.222.160).  | Yes |
-| porta | A porta TCP que o servidor Impala utiliza para ouvir as ligações do cliente. O valor predefinido é 21050.  | No |
-| authenticationType | O tipo de autenticação a utilizar. <br/>Os valores permitidos são **Anónimos, SASLUsername**e **UsernameAndPassword**. **Anonymous** | Yes |
-| o nome de utilizador | O nome de utilizador usado para aceder ao servidor Impala. O valor predefinido é anónimo quando utiliza SASLUsername.  | No |
-| palavra-passe | A palavra-passe que corresponde ao nome de utilizador quando utiliza o nome de utilizadorAndPassword. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | No |
-| ativarSl | Especifica se as ligações ao servidor são encriptadas utilizando O S.TLS. O valor predefinido é **falso**.  | No |
-| trustedCertPath | O percurso completo do ficheiro .pem que contém certificados de CA fidedignos utilizados para verificar o servidor quando se liga através de TLS. Esta propriedade só pode ser definida quando utilizar o TLS no Tempo de Execução de Integração Auto-hospedado. O valor predefinido é o ficheiro cacerts.pem instalado com o tempo de execução da integração.  | No |
-| useSystemTrustStore | Especifica se deve utilizar um certificado de CA da loja de fidedignidade do sistema ou de um ficheiro PEM especificado. O valor predefinido é **falso**.  | No |
-| permitirHostNameCNMismatch | Especifica se deve exigir um nome de certificado TLS/SSL emitido pela CA para corresponder ao nome de anfitrião do servidor quando ligar o TLS. O valor predefinido é **falso**.  | No |
-| permitirSelfSignedServerCert | Especifica se permite certificados auto-assinados a partir do servidor. O valor predefinido é **falso**.  | No |
-| connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |No |
+| tipo | A propriedade tipo deve ser definida para **Impala.** | Sim |
+| anfitrião | O endereço IP ou nome de anfitrião do servidor Impala (ou seja, 192.168.222.160).  | Sim |
+| porta | A porta TCP que o servidor Impala utiliza para ouvir as ligações do cliente. O valor predefinido é 21050.  | Não |
+| authenticationType | O tipo de autenticação a utilizar. <br/>Os valores permitidos são **Anónimos, SASLUsername**e **UsernameAndPassword**. **Anonymous** | Sim |
+| nome de utilizador | O nome de utilizador usado para aceder ao servidor Impala. O valor predefinido é anónimo quando utiliza SASLUsername.  | Não |
+| palavra-passe | A palavra-passe que corresponde ao nome de utilizador quando utiliza o nome de utilizadorAndPassword. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Não |
+| ativarSl | Especifica se as ligações ao servidor são encriptadas utilizando O S.TLS. O valor predefinido é **falso**.  | Não |
+| trustedCertPath | O percurso completo do ficheiro .pem que contém certificados de CA fidedignos utilizados para verificar o servidor quando se liga através de TLS. Esta propriedade só pode ser definida quando utilizar o TLS no Tempo de Execução de Integração Auto-hospedado. O valor predefinido é o ficheiro cacerts.pem instalado com o tempo de execução da integração.  | Não |
+| useSystemTrustStore | Especifica se deve utilizar um certificado de CA da loja de fidedignidade do sistema ou de um ficheiro PEM especificado. O valor predefinido é **falso**.  | Não |
+| permitirHostNameCNMismatch | Especifica se deve exigir um nome de certificado TLS/SSL emitido pela CA para corresponder ao nome de anfitrião do servidor quando ligar o TLS. O valor predefinido é **falso**.  | Não |
+| permitirSelfSignedServerCert | Especifica se permite certificados auto-assinados a partir do servidor. O valor predefinido é **falso**.  | Não |
+| connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |Não |
 
 **Exemplo:**
 
@@ -95,9 +95,9 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados do Impala, defina a propriedade tipo do conjunto de dados para **ImpalaObject**. As seguintes propriedades são suportadas:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **ImpalaObject** | Yes |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **ImpalaObject** | Sim |
 | esquema | O nome do esquema. |Não (se for especificada "consulta" na fonte de atividade)  |
 | table | O nome da mesa. |Não (se for especificada "consulta" na fonte de atividade)  |
 | tableName | Nome da mesa com esquema. Esta propriedade é suportada para retrocompatibilidade. Uso `schema` e para nova carga de `table` trabalho. | Não (se for especificada "consulta" na fonte de atividade) |
@@ -127,9 +127,9 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 Para copiar dados do Impala, desagrafe o tipo de origem na atividade de cópia para **ImpalaSource**. As seguintes propriedades são suportadas na secção **de origem** da atividade de cópia.
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida como **ImpalaSource**. | Yes |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida como **ImpalaSource**. | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Um exemplo é `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

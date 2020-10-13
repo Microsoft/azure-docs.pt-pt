@@ -8,10 +8,10 @@ author: keferna
 ms.author: keferna
 ms.date: 05/01/2020
 ms.openlocfilehash: e6ad75178bdc8ce7db18555508e2b819f08352f0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86121916"
 ---
 # <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Use o armazenamento Azure Blob para gerir os leads de marketplace comercial
@@ -84,7 +84,7 @@ Quando estiver pronto para configurar as informações de gestão de chumbo para
 
 4. Forneça o nome do **recipiente** e **o fio de ligação à conta** de armazenamento que obteve ao seguir estas instruções.
 
-    * Exemplo do nome do recipiente:`marketplaceleadcontainer`
+    * Exemplo do nome do recipiente: `marketplaceleadcontainer`
     * Exemplo de cadeia de ligação de conta de armazenamento: `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net` ![ Detalhe de conexão](./media/commercial-marketplace-lead-management-instructions-azure-blob/connection-details.png) 
 
 5. Selecione **Guardar**.

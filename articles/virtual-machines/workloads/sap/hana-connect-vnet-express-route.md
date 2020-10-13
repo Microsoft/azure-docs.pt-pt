@@ -14,10 +14,10 @@ ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8c7e8d4875a8bf3f53ac536ae95ac7499a74d45c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87082159"
 ---
 # <a name="connect-a-virtual-network-to-hana-large-instances"></a>Ligue uma rede virtual a grandes instâncias HANA

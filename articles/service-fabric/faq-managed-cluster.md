@@ -7,10 +7,10 @@ author: peterpogorski
 ms.date: 09/28/2020
 ms.custom: references_regions
 ms.openlocfilehash: 77d7b3fba62fb9f059df97c4f7fae99db783f3f0
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91729003"
 ---
 # <a name="service-fabric-managed-clusters-frequently-asked-questions"></a>Clusters geridos de tecido de serviço frequentemente fazem perguntas

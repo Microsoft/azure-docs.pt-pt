@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/07/2020
 ms.openlocfilehash: cbd1303417f008da476356a274dde30d7d02d36f
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89505510"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>Arquitetura do Apache Hadoop no HDInsight
@@ -68,7 +68,7 @@ Para desembrulhá-lo da sua Conta de Armazenamento, consulte:
 
 A `fs.trash.interval` propriedade do **hdfs**  >  **Advanced core-site** deve permanecer no valor padrão porque você não deve armazenar `0` quaisquer dados no sistema de ficheiros local. Este valor não afeta as contas de armazenamento remoto (WASB, ADLS GEN1, ABFS)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Utilizar o MapReduce no Apache Hadoop no HDInsight](hadoop/hdinsight-use-mapreduce.md)
 * [Introdução ao Azure HDInsight](hadoop/apache-hadoop-introduction.md)

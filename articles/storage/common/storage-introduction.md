@@ -9,10 +9,10 @@ ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 1f335640eb37f51857fa295298d0a3ca91f2a370
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91714983"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Introdução aos principais serviços de armazenamento Azure
@@ -176,6 +176,6 @@ Pode aceder a recursos numa conta de armazenamento por qualquer idioma que possa
 - [Ferramentas de cliente de armazenamento Azure](../storage-explorers.md)
 - [Ferramentas de Programação do Azure](https://azure.microsoft.com/tools/)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Para se levantar e funcionar com os principais serviços de Armazenamento Azure, consulte [Criar uma conta de armazenamento](storage-account-create.md).

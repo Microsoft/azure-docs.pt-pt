@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre problemas de autenticação
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: cd5f48dfb146a027f0b95b4ddea3dc054a315c6e
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91566232"
 ---
 # <a name="troubleshoot-authentication-and-authorization-issues---azure-event-hubs"></a>Problemas de autenticação e autorização - Azure Event Hubs
@@ -30,7 +30,7 @@ Para funções incorporadas no Registo de Schema, consulte [as funções de Regi
 - **Grupo de recursos**: A atribuição de funções aplica-se a todos os recursos do Event Hubs no âmbito do grupo de recursos.
 - **Subscrição**: A atribuição de funções aplica-se a todos os recursos do Event Hubs em todos os grupos de recursos da subscrição.
 
-Para obter mais informações, veja os seguintes artigos:
+Para obter mais informações, veja os artigos seguintes:
 
 - [Autenticar uma aplicação com o Azure Ative Directory para aceder aos recursos do Event Hubs](authenticate-application.md)
 - [Autorizar o acesso aos recursos do Event Hubs utilizando o Azure Ative Directory](authorize-access-azure-active-directory.md)
@@ -43,7 +43,7 @@ Se estiver a utilizar [SAS,](authenticate-shared-access-signature.md)siga estes 
 - Verifique se a chave expirou. Recomendamos que renove o SAS bem antes de expirar. Se houver um desvio de relógio entre os nós de serviço do Cliente e do Event Hubs, o sinal de autenticação pode expirar antes que o cliente perceba. O relógio das contas de implementação corrente desviou até 5 minutos, ou seja, o cliente renova o token 5 minutos antes de expirar. Portanto, se o relógio distorcer é maior do que 5 minutos, o cliente pode observar falhas de autenticação intermitentes.
 - Se **a hora de início do SAS** estiver definida para **agora,** pode ver falhas intermitentes durante os primeiros minutos devido a distorção do relógio (diferenças no tempo atual em diferentes máquinas). Desa esta hora de início seja de pelo menos 15 minutos no passado ou não o coloque em tudo. O mesmo se aplica, em geral, também ao prazo de validade. 
 
-Para obter mais informações, veja os seguintes artigos: 
+Para obter mais informações, veja os artigos seguintes: 
 
 - [Autenticar utilizando assinaturas de acesso partilhado (SAS)](authenticate-shared-access-signature.md). 
 - [Autorizar o acesso aos recursos do Event Hubs utilizando assinaturas de acesso partilhado](authorize-access-shared-access-signature.md)

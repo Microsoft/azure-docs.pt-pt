@@ -10,10 +10,10 @@ ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
 ms.openlocfilehash: 14358f60b700e80c17b1dd8259f1d0566a854c43
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91543412"
 ---
 # <a name="tutorial-machine-learning-model-scoring-wizard-for-synapse-sql-pools"></a>Tutorial: Assistente de pontuação do modelo de machine learning para piscinas Sinapse SQL
@@ -146,7 +146,7 @@ Antes de executar todas as células no caderno, verifique se a instância de com
 
    ![Previsões de execução](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-00g.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Quickstart: Criar um novo serviço de aprendizagem automática Azure em Synapse](quickstart-integrate-azure-machine-learning.md)
 - [Capacidades de aprendizagem automática em Azure Synapse Analytics (pré-visualização de espaços de trabalho)](what-is-machine-learning.md)

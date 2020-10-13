@@ -8,10 +8,10 @@ ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
 ms.openlocfilehash: 0b1fdec12b99edc952d24b0b3cc21bad24ec7554
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91569730"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Autenticação baseada em certificados para uma identidade AD Azure para aceder a chaves a partir de uma conta DB da Azure Cosmos
@@ -28,7 +28,7 @@ A autenticação baseada em certificados permite que a aplicação cliente seja 
 
 Neste passo, registará uma aplicação web de amostra na sua conta Azure AD. Esta aplicação é posteriormente utilizada para ler as chaves da sua conta DB Azure Cosmos. Utilize as seguintes etapas para registar uma aplicação: 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Abra o painel de **diretório ativo** Azure, vá ao painel **de inscrições da App** e selecione Novo **registo.** 
 
@@ -72,7 +72,7 @@ Neste passo, instalará o módulo Azure AD PowerShell. Este módulo é necessár
 
 ## <a name="sign-into-your-azure-ad"></a>Inscreva-se no seu AD Azure
 
-Inscreva-se no seu AD Azure onde registou o pedido. Utilize o comando Connect-AzureAD para iniciar sôm na sua conta, insira as credenciais da sua conta Azure na janela pop-up. 
+Inscreva-se no seu AD Azure onde registou o pedido. Utilize o comando Connect-AzureAD para iniciar scontabilidade na sua conta, insira as credenciais da sua conta Azure na janela pop-up. 
 
 ```powershell
 Connect-AzureAD 
@@ -103,7 +103,7 @@ O comando acima resulta na saída semelhante à imagem abaixo:
 
 ## <a name="configure-your-azure-cosmos-account-to-use-the-new-identity"></a>Configure a sua conta Azure Cosmos para usar a nova identidade
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Navegue na sua conta Azure Cosmos, abra a lâmina **de controlo de acesso (IAM).**
 
@@ -119,7 +119,7 @@ Pode associar a credencial baseada em certificados com a aplicação do cliente 
 
 No registo da app Azure para a aplicação do cliente:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Abra o painel de **diretório ativo** Azure, vá ao painel **de registos** da App e abra a aplicação de amostra que criou no passo anterior. 
 

@@ -12,10 +12,10 @@ ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 66815dac145c8c30b770e831a002f6a0ee093675
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91714572"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-or-queue-data-with-azure-cli"></a>Escolha como autorizar o acesso a dados de blob ou fila com o Azure CLI
@@ -106,7 +106,7 @@ Pode especificar parâmetros de autorização em variáveis ambientais para evit
 |    AZURE_STORAGE_SAS_TOKEN            |    Um token de assinatura de acesso partilhado (SAS). Esta variável deve ser utilizada em conjunto com o nome da conta de armazenamento.                                                                                                                                                                                                                                                            |
 |    AZURE_STORAGE_AUTH_MODE            |    O modo de autorização com o qual executar o comando. Os valores permitidos são `login` (recomendados) ou `key` . . Se `login` especificar, o Azure CLI utiliza as suas credenciais Azure AD para autorizar a operação de dados. Se especificar o `key` modo legado, o CLI Azure tenta consultar a chave de acesso à conta e autorizar o comando com a chave.    |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - [Use o CLI Azure para atribuir uma função Azure para acesso a dados de bolhas e filas](storage-auth-aad-rbac-cli.md)
 - [Autorizar o acesso a dados de blob e fila com identidades geridas para recursos Azure](storage-auth-aad-msi.md)

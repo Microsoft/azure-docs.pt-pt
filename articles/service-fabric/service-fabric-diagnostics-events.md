@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
 ms.openlocfilehash: 638b650e485ad3e83bd6021639a7e55b540d9cdc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75451718"
 ---
 # <a name="service-fabric-events"></a>Eventos do Service Fabric 
@@ -39,6 +39,6 @@ Existem algumas maneiras diferentes através das quais os eventos de Service Fab
 * Os eventos são registados através de canais padrão, tais como registos de Eventos ETW/Windows e podem ser visualizados por qualquer ferramenta de monitorização que suporte estes, tais como registos do Azure Monitor. Por padrão, os clusters criados no portal têm diagnósticos ligados e têm o agente de diagnóstico Do Windows Azure a enviar os eventos para o armazenamento da mesa Azure, mas ainda assim precisa de integrá-lo com o seu recurso de análise de log. Leia mais sobre a configuração do [agente Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) para modificar a configuração de diagnóstico do seu cluster para recolher mais registos ou contadores de desempenho e a integração de registos do [Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)
 * As APIs de Repouso do serviço EventStore que lhe permitem consultar o cluster diretamente, ou através da Biblioteca do Cliente do Tecido de Serviço. Consulte [as APIs da Loja de Eventos de Consulta para eventos de cluster](service-fabric-diagnostics-eventstore-query.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Mais informações sobre a monitorização do seu cluster - [Monitorização do cluster e da plataforma.](service-fabric-diagnostics-event-generation-infra.md)
 * Saiba mais sobre o serviço EventStore - [EventStore service overview](service-fabric-diagnostics-eventstore.md)

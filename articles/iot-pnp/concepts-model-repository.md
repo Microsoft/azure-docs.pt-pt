@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 5d07257d1e23ee792aa996e31a2c28c17bc23d34
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715077"
 ---
 # <a name="azure-iot-model-repository"></a>Repositório de modelos do Azure IoT
@@ -231,6 +231,6 @@ Poderá encontrar os seguintes tópicos úteis ao trabalhar com a Azure AD:
 
 - Para aprender a obter um token JWT da AD AZure para usar ao ligar para ASPis de REST, consulte [Adquirir um símbolo da AD AZure para autorizar pedidos de uma aplicação do cliente.](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 O próximo passo sugerido é rever a [arquitetura IoT Plug and Play](concepts-architecture.md).

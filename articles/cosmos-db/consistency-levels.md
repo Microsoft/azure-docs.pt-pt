@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.openlocfilehash: 27c1a896d25a0db00ff5f263d949f6657a658e3d
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91567207"
 ---
 # <a name="what-are-consistency-levels-in-azure-cosmos-db"></a>O que são níveis de consistência no Azure Cosmos DB?

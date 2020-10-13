@@ -9,10 +9,10 @@ ms.date: 08/16/2016
 ms.author: deli
 ms.custom: include file
 ms.openlocfilehash: eb13d889cb72911e2268b7538a74336befe3320b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "75392425"
 ---
 A tabela seguinte descreve cada uma das principais quotas, limites, incumprimentos e aceleradores em Azure Scheduler.
@@ -29,7 +29,7 @@ A tabela seguinte descreve cada uma das principais quotas, limites, incumpriment
 | **Solicite o tamanho do URL** | O tamanho máximo para um URL de pedido é de 2.048 chars. |
 | **Contagem de cabeçalhos** | A contagem máxima de cabeçalho é de 50 cabeçalhos. | 
 | **Tamanho agregado do cabeçalho** | O tamanho máximo agregado do cabeçalho é de 4.096 chars. |
-| **Tempo Limite** | O tempo limite de pedido é estático, isto é, não configurável. e são 60 segundos para as ações HTTP. Para operações de execução mais longas, siga os protocolos HTTP assíncronos. Por exemplo, devolva um 202 imediatamente, mas continue a trabalhar em segundo plano. | 
+| **Intervalo de tempo** | O tempo limite de pedido é estático, isto é, não configurável. e são 60 segundos para as ações HTTP. Para operações de execução mais longas, siga os protocolos HTTP assíncronos. Por exemplo, devolva um 202 imediatamente, mas continue a trabalhar em segundo plano. | 
 | **Histórico de tarefas** | O corpo de resposta máxima armazenado na história do trabalho é de 2.048 bytes. |
 | **Retenção na história do trabalho** | O histórico de empregos mantém-se até dois meses ou até às últimas mil execuções. | 
 | **Retenção de emprego concluída e defeituosa** | Os trabalhos concluídos e defeituosos são mantidos por 60 dias. |

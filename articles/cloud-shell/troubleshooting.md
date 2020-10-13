@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
 ms.openlocfilehash: eea64520dd5440467c911b6de42d8c8c31fc1bde
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87543457"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Resolução de problemas & limitações da concha da nuvem de Azure
@@ -46,7 +46,7 @@ As resoluções conhecidas para resolver problemas em Azure Cloud Shell incluem:
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Diálogo de armazenamento - Erro: 403 RequestDisallowedByPolicy
 
-- **Detalhes**: Ao criar uma conta de armazenamento através da Cloud Shell, não é bem sucedida devido a uma atribuição da Política Azure colocada pelo seu administrador. A mensagem de erro incluirá:`The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
+- **Detalhes**: Ao criar uma conta de armazenamento através da Cloud Shell, não é bem sucedida devido a uma atribuição da Política Azure colocada pelo seu administrador. A mensagem de erro incluirá: `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
 - **Resolução**: Contacte o seu administrador Azure para remover ou atualizar a atribuição da Política Azure negando a criação de armazenamento.
 
 ### <a name="storage-dialog---error-400-disallowedoperation"></a>Diálogo de armazenamento - Erro: 400 Operações Não Permitidas
@@ -80,10 +80,10 @@ As resoluções conhecidas para resolver problemas em Azure Cloud Shell incluem:
 > [!NOTE]
 > Os VMs Azure devem ter um endereço IP virado para o público.
 
-- **Detalhes**: Devido às definições padrão de Firewall do Windows para WinRM, o utilizador pode ver o seguinte erro:`Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
+- **Detalhes**: Devido às definições padrão de Firewall do Windows para WinRM, o utilizador pode ver o seguinte erro: `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
 - **Resolução**: Corra `Enable-AzVMPSRemoting` para permitir que todos os aspetos da powerShell se remoam na máquina alvo.
 
-### <a name="dir-does-not-update-the-result-in-azure-drive"></a>`dir`não atualizar o resultado em unidade Azure
+### <a name="dir-does-not-update-the-result-in-azure-drive"></a>`dir` não atualizar o resultado em unidade Azure
 
 - **Detalhes**: Por padrão, para otimizar para a experiência do utilizador, os resultados `dir` são em cache na unidade Azure.
 - **Resolução**: Depois de criar, atualizar ou remover um recurso Azure, corra `dir -force` para atualizar os resultados na unidade Azure.
@@ -196,4 +196,4 @@ PowerShell:
 AZure Cloud Shell no Governo de Azure só é acessível através do portal Azure.
 
 >[!Note]
-> A ligação às nuvens do DoD do GCC-High ou do Governo para o Exchange Online não é suportada.
+> Atualmente, não é suportada a ligação a GCC-High ou Nuvens do DoD do Governo para o Exchange Online.

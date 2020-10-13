@@ -5,10 +5,10 @@ ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: e89cf36e59ab26ec220d1125162a841fc10f0e47
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91567269"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure"></a>Visão geral da autoescala no Microsoft Azure
@@ -106,7 +106,7 @@ Pode configurar a autoescala através
 | Serviço de Aplicações do Azure |[Dimensione uma aplicação no serviço Azure App](../../app-service/manage-scale-up.md)|
 | Serviço de Gestão da API|[Crie automaticamente uma instância de dimensionamento da Gestão de API do Azure](../../api-management/api-management-howto-autoscale.md)
 | Aglomerados de exploradores de dados Azure|[Gerir clusters Azure Data Explorer escalando para acomodar a procura em mudança](/azure/data-explorer/manage-cluster-horizontal-scaling)|
-| Logic Apps |[Adicionar capacidade de ambiente de serviço de integração (ISE)](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity)|
+| Aplicações Lógicas |[Adicionar capacidade de ambiente de serviço de integração (ISE)](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity)|
 | Spring Cloud |[Configurar o dimensionamento automático para aplicações de microsserviços](../../spring-cloud/spring-cloud-tutorial-setup-autoscale.md)|
 | Service Bus |[Atualizar automaticamente as unidades de mensagens de um espaço de nomes do Azure Service Bus](../../service-bus-messaging/automate-update-messaging-units.md)|
 

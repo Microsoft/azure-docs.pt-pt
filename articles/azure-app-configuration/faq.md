@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: lcozzens
 ms.openlocfilehash: ef4633953f7ac03737608124309d94e436913794
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91715448"
 ---
 # <a name="azure-app-configuration-faq"></a>Azure App Configuration FAQ
@@ -130,6 +130,6 @@ Subscreva os [nossos anúncios GitHub repo](https://github.com/Azure/AppConfigur
 
 Pode contactar-nos diretamente no [GitHub.](https://github.com/Azure/AppConfiguration/issues)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * [Sobre a Configuração da Aplicação Azure](./overview.md)

@@ -12,10 +12,10 @@ ms.date: 12/14/2017
 ms.author: swmachan
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 68b0de40940fa75dd4eb4e1572405f31ce1c22b8
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88934383"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Como utilizar os relatórios do Collaborative Translation Framework (CTF)
@@ -96,7 +96,7 @@ O conjunto de resultados contém a matriz do **UserTranslationCount**. Cada User
 
 | Campo | Descrição |
 |:---|:---|
-| de palavras| O número de resultados que é recuperado|
+| Contagem| O número de resultados que é recuperado|
 | De | A língua de origem|
 | Classificação| A classificação que é aplicada pelo apresentador na chamada de método AddTranslation()|
 | Para| A linguagem-alvo|

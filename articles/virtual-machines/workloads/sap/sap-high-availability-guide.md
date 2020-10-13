@@ -17,10 +17,10 @@ ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3a330fc18f39ffd7007e2a41a28016df69a2b739
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91314662"
 ---
 # <a name="high-availability-azure-virtual-machines-for-sap-netweaver"></a>Máquinas virtuais Azure de alta disponibilidade para SAP NetWeaver
@@ -522,7 +522,7 @@ Para configurar o modelo MULTI-SID ASCS/SCS, no [modelo MULTI-SID ASCS/SCS][sap-
   -  **Disponibilidade do sistema**. Selecione **HA**.
   -  **Nome de utilizador admin e senha de administração**. Crie um novo utilizador que possa ser utilizado para iniciar sessão na máquina.
   -  **Sub-rede nova ou existente.** Desa parte para determinar se deve ser criada uma nova rede virtual e uma sub-rede, ou se deve ser utilizada uma sub-rede existente. Se já tem uma rede virtual que está ligada à sua rede no local, selecione **a existência**.
-  -  **Id da sub-rede.** Se pretender colocar o VM num VNet existente onde tenha uma sub-rede definida, o VM deve ser atribuído, nomeie o ID dessa sub-rede específica. O ID geralmente é assim: /subscrições/<*id de subscrição*>/resourceGroups/<*nome do grupo de recursos*>/fornecedores/Microsoft.Network/virtualNetworks/<nome de rede *virtual*>/sub-redes/<nome *da sub-rede*>
+  -  **Id da sub-rede.** Se pretender colocar o VM num VNet existente onde tenha uma sub-rede definida, o VM deve ser atribuído, nomeie o ID dessa sub-rede específica. O ID geralmente é assim: /subscrições/<*id de subscrição*>/resourceGroups/<*nome do grupo de recursos*>/fornecedores/microsoft.Network/virtualNetworks/<nome de rede *virtual*>/sub-redes/<nome *da sub-rede*>
 
 O modelo implementa uma instância Azure Load Balancer, que suporta vários sistemas SAP.
 
@@ -740,7 +740,7 @@ Se pretender utilizar números diferentes para as instâncias SAP ASCS ou SCS, t
 1. No portal Azure, selecione ** < *SID*>-lb-ascs load Balancer Regras**  >  **de equilíbrio**de carga .
 2. Para todas as regras de equilíbrio de carga que pertencem à instância SAP ASCS ou SCS, altere estes valores:
 
-   * Name
+   * Nome
    * Porta
    * Porta traseira
 

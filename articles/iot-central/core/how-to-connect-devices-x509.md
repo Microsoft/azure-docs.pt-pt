@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.openlocfilehash: 22d86b96b7d9493ecc2f734be3f677a270a2739a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91714292"
 ---
 # <a name="how-to-connect-devices-with-x509-certificates-using-nodejs-device-sdk-for-iot-central-application"></a>Como ligar dispositivos com certificados X.509 utilizando Node.js dispositivo SDK para aplicação central IoT
@@ -210,6 +210,6 @@ O dispositivo está agora a provisionado com certificado X.509.
 
 Pode repetir os passos acima para _o certificado de certificação_ do meu desempenho também.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a ligar dispositivos usando certificados X.509, o próximo passo sugerido é aprender a monitorizar a conectividade do [dispositivo usando o Azure CLI](howto-monitor-devices-azure-cli.md)
