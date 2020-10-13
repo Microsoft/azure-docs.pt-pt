@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: duau
 ms.openlocfilehash: dbb28726d1c2eaf887ced818284d4b1e0298f8db
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91767805"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit"></a>Quickstart: Criar e modificar um circuito ExpressRoute

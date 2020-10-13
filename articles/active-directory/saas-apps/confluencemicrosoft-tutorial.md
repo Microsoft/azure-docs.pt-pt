@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
 ms.openlocfilehash: 12f6e66140b3654f1283cad45c97325e2bfb1a28
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91775690"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com Confluence SAML SSO pela Microsoft
@@ -117,7 +117,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<domain:port>/plugins/servlet/saml/auth`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. A porta é opcional no caso de ser uma URL chamada. Estes valores são recebidos durante a configuração do plugin confluence, que é explicado mais tarde no tutorial.
+    > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL Sign-On. A porta é opcional no caso de ser uma URL chamada. Estes valores são recebidos durante a configuração do plugin confluence, que é explicado mais tarde no tutorial.
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** clique no botão de cópia para copiar o Url de **metadados da Federação de Aplicações** e guarde-o no seu computador.
 

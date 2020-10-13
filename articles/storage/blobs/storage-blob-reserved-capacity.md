@@ -1,19 +1,20 @@
 ---
-title: Otimizar os custos para o armazenamento blob com capacidade reservada - Azure Storage
+title: Otimizar os custos do Armazenamento de blobs com a capacidade reservada
+titleSuffix: Azure Storage
 description: Saiba mais sobre a compra da Azure Storage reservada capacidade para economizar custos em blob de bloco e recursos Azure Data Lake Storage Gen2.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 10/08/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: c06bbc412a51fc919b862aeb3f62ec58feec89cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf96906b0dab9a94febe83468f813c7cae0675b0
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "84259206"
+ms.locfileid: "91874820"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Otimizar os custos do Armazenamento de blobs com a capacidade reservada
 
@@ -29,7 +30,7 @@ As secções seguintes descrevem os termos de uma reserva de armazenamento Azure
 
 ### <a name="reservation-capacity"></a>Capacidade de reserva
 
-Você pode comprar a capacidade reservada a Azure Storage em unidades de 100 TB e 1 PB por mês para um período de um ano ou três anos.
+Você pode comprar a capacidade reservada a Azure Storage em unidades de 100 TiB e 1 PiB por mês para um período de um ano ou três anos.
 
 ### <a name="reservation-scope"></a>Âmbito de reserva
 
@@ -62,7 +63,7 @@ Para adquirir a capacidade reservada:
 
 Ao adquirir uma reserva de Armazenamento Azure, deve escolher a região, o nível de acesso e a opção de redundância para a reserva. A sua reserva é válida apenas para os dados armazenados naquela região, nível de acesso e redundância. Por exemplo, suponha que você compra uma reserva de dados em EUA West para o nível quente usando armazenamento redundante de zona (ZRS). Não é possível utilizar a mesma reserva para dados no Us East, dados no nível de arquivo ou dados em armazenamento geo-redundante (GRS). No entanto, pode adquirir outra reserva para as suas necessidades adicionais.  
 
-As reservas estão disponíveis hoje para blocos de 100 TB ou 1 PB, com descontos mais elevados para 1 blocos PB. Ao adquirir uma reserva no portal Azure, a Microsoft poderá fornecer-lhe recomendações baseadas no seu uso anterior para ajudar a determinar que reserva deve comprar.
+As reservas estão disponíveis hoje para 100 blocos TiB ou 1 PiB, com descontos mais elevados para 1 blocos PiB. Ao adquirir uma reserva no portal Azure, a Microsoft poderá fornecer-lhe recomendações baseadas no seu uso anterior para ajudar a determinar que reserva deve comprar.
 
 ## <a name="purchase-azure-storage-reserved-capacity"></a>Comprar Capacidade reservada para armazenamento Azure
 
@@ -86,7 +87,7 @@ Siga estes passos para adquirir a capacidade reservada:
    | **Camada de acesso** | O nível de acesso onde está em vigor a reserva. As opções incluem *Hot,* *Cool*ou *Archive*. Para obter mais informações sobre os níveis de acesso, consulte [o armazenamento Azure Blob: níveis de acesso quentes, frescos e de arquivo.](storage-blob-storage-tiers.md) |
    | **Redundância** | A opção de despedimento para a reserva. As opções incluem *LRS*, *ZRS,* *GRS,* *GZRS,* *RA-GRS*e *RA-GZRS*. Para obter mais informações sobre as opções de despedimento, consulte [a redundância do Azure Storage](../common/storage-redundancy.md). |
    | **Frequência de faturação** | Indica com que frequência a conta é faturada para a reserva. As opções incluem *Mensal ou* *Inicial.* |
-   | **Tamanho** | A região onde a reserva está em vigor. |
+   | **Tamanho** | A quantidade de capacidade de reserva. |
    |**Termo**  | Um ano ou três anos.   |
 
 1. Depois de selecionar os parâmetros para a sua reserva, o portal Azure apresenta o custo. O portal também mostra a percentagem de descontos sobre a faturação paga.

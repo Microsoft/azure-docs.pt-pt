@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a249d5f3c47e8e8789f91f355c791cc50341ab01
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91827904"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Perguntas frequentes proteção de identidade no Diretório Ativo Azure
@@ -52,7 +52,7 @@ Aceda à visualização e filtro de deteção de risco por "Tipo de Deteção". 
 
 ### <a name="why-cant-i-set-my-own-risk-levels-for-each-risk-detection"></a>Por que não posso definir os meus próprios níveis de risco para cada deteção de risco?
 
-Os níveis de risco na Proteção de Identidade baseiam-se na precisão da deteção e alimentados pela nossa aprendizagem automática supervisionada. Para personalizar a experiência que os utilizadores são apresentados, o administrador pode incluir/excluir certos utilizadores/grupos das Políticas de Risco de Utilizador e De Risco de Acesso.
+Os níveis de risco na Proteção de Identidade baseiam-se na precisão da deteção e alimentados pela nossa aprendizagem automática supervisionada. Para personalizar a experiência que os utilizadores são apresentados, o administrador pode incluir/excluir certos utilizadores/grupos das Políticas de Risco do Utilizador e Sign-In De Risco.
 
 ### <a name="why-does-the-location-of-a-sign-in-not-match-where-the-user-truly-signed-in-from"></a>Por que a localização de um sinal não corresponde de onde o utilizador realmente se inscreveu?
 

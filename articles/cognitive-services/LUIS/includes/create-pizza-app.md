@@ -5,10 +5,10 @@ ms.date: 05/05/2020
 ms.topic: include
 ms.custom: include file
 ms.openlocfilehash: 739a8d240f1e3c9928209dbd17e6468bc0921077
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91544857"
 ---
 1. Inscreva-se no portal LUIS com o URL de [https://www.luis.ai](https://www.luis.ai) .

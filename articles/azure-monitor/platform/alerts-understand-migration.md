@@ -6,12 +6,12 @@ ms.date: 07/10/2019
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 52a74593fcfbdc2c1e464077e4ae460f6a5a9c39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6509425f11b09a2fa5229f9dd68a508241391925
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "87852400"
+ms.locfileid: "91875925"
 ---
 # <a name="understand-migration-options-to-newer-alerts"></a>Compreender opções de migração para alertas mais recentes
 
@@ -254,10 +254,12 @@ Como parte da migração, serão criados novos alertas métricos e novos grupos 
 
 ### <a name="policy-with-deny-effect-preventing-us-from-migrating-your-rules"></a>Política com efeito "Negar" impedindo-nos de migrar as suas regras
 
-Como parte da migração, serão criados novos alertas métricos e novos grupos de ação, e então as regras clássicas de alerta serão eliminadas. No entanto, uma política pode impedir-nos de criar recursos. Dependendo da política, algumas ou todas as regras não podiam ser migradas. As políticas que bloqueiam o processo estão listadas na [ferramenta de migração.](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel) Resolva este problema por qualquer um dos dois:
+Como parte da migração, serão criados novos alertas métricos e novos grupos de ação, e então as regras clássicas de alerta serão eliminadas. No entanto, uma atribuição [da Política Azure](../../governance/policy/index.yml) pode impedir-nos de criar recursos. Dependendo da atribuição da apólice, algumas ou todas as regras não podiam ser migradas. As atribuições políticas que bloqueiam o processo estão listadas na [ferramenta de migração.](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel) Resolva este problema por qualquer um dos dois:
 
-- Excluindo as subscrições ou grupos de recursos durante a duração do processo de migração da atribuição de políticas. [Saiba mais sobre a gestão do âmbito de exclusão de políticas.](../../governance/policy/tutorials/create-and-manage.md#exempt-a-non-compliant-or-denied-resource-using-exclusion)
-- Remover ou alterar o efeito para "auditoria" ou "apêndice" (o que, por exemplo, pode resolver problemas relacionados com as etiquetas em falta). [Saiba mais sobre a gestão do efeito políticas.](../../governance/policy/concepts/definition-structure.md#policy-rule)
+- Excluindo as subscrições, grupos de recursos ou recursos individuais durante a duração do processo de migração da atribuição de políticas. [Saiba mais sobre a gestão de âmbitos de exclusão de políticas.](../../governance/policy/tutorials/create-and-manage.md#remove-a-non-compliant-or-denied-resource-from-the-scope-with-an-exclusion)
+- Desative o "Modo de Execução" para **desativar** a atribuição de apólices. [Saiba mais sobre a propriedade de aplicação de direitos de propriedade de aplicação de políticasMode](../../governance/policy/concepts/assignment-structure.md#enforcement-mode).
+- Desconfiem de uma isenção de Política Azure (pré-visualização) sobre as subscrições, grupos de recursos ou recursos individuais para a atribuição de políticas. [Saiba mais sobre a estrutura de isenção da Política Azure.](../../governance/policy/concepts/exemption-structure.md)
+- Remover ou alterar o efeito para 'deficientes', 'auditoria', 'append', ou 'modificar' (o que, por exemplo, pode resolver problemas relacionados com as etiquetas em falta). [Saiba mais sobre a gestão dos efeitos políticos.](../../governance/policy/concepts/definition-structure.md#policy-rule)
 
 ## <a name="next-steps"></a>Passos seguintes
 

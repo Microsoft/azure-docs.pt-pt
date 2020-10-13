@@ -13,10 +13,10 @@ ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
 ms.openlocfilehash: 29187ef99ce6628359819739ab5e4b34213eeb8a
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91441623"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar Definições do Multi-Factor Authentication do Azure
@@ -332,7 +332,7 @@ Para permitir ou desativar os métodos de verificação, complete as seguintes e
 1. Selecione **Multi-Factor Authentication**.
 1. Em Autenticação Multi-Factor, selecione **as definições de serviço**.
 1. Na página **Definições de Serviço,** nas **opções de verificação,** selecione/desescolte os métodos a fornecer aos seus utilizadores.
-1. Clique em **Save** (Guardar).
+1. Clique em **Guardar**.
 
 ## <a name="remember-multi-factor-authentication"></a>Lembre-se da autenticação multi-factor
 
@@ -374,6 +374,6 @@ Para permitir e configurar a opção de os utilizadores se lembrarem do seu esta
 
 Depois de ativar a funcionalidade de autenticação multi-factor de ressaltação, os utilizadores podem marcar um dispositivo como confiável quando iniciarem sação selecionando a opção para **Não voltar a perguntar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre os métodos disponíveis para utilização na Autenticação Multi-Factor Azure, consulte que métodos de [autenticação e verificação estão disponíveis no Diretório Ativo Azure?](concept-authentication-methods.md)

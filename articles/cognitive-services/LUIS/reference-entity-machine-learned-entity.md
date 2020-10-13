@@ -9,10 +9,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/30/2020
 ms.openlocfilehash: f16f3ec445af777c3bde1cb2ab0735df4b6614f8
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91542245"
 ---
 # <a name="machine-learning-entity"></a>Entidade de aprendizagem automática
@@ -344,7 +344,7 @@ Este é o JSON se `verbose=true` for definido na cadeia de consulta:
 Esta entidade não está disponível no tempo de execução da previsão V2.
 * * *
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a entidade de aprendizagem automática, incluindo um [tutorial,](tutorial-machine-learned-entity.md) [conceitos](luis-concept-entity-types.md#design-entities-for-decomposition)e [como guiar.](luis-how-to-add-entities.md#create-a-machine-learned-entity)
 

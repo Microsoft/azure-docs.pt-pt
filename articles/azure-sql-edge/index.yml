@@ -11,10 +11,10 @@ metadata:
   ms.author: sstein
   ms.date: 05/19/2020
   ms.openlocfilehash: 3a043b3e29352abd44d1b880f366d9fa8ccea4d2
-  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/22/2020
+  ms.lasthandoff: 10/09/2020
   ms.locfileid: "90894473"
 landingContent:
 - title: SQL no Edge

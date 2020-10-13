@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/09/2020
 ms.openlocfilehash: 57108bed97b59513309213d55a0654f4405d509c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90893316"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Preparar modelos com machine learning automatizado na cloud
@@ -86,7 +86,7 @@ Agora pode usar o `compute_target` objeto como alvo de computação remota.
 
 As restrições de nome do cluster incluem:
 + Deve ter menos de 64 caracteres.
-+ Não é possível incluir nenhum dos seguintes caracteres: `\` ~ ! # $ % ^ & * ( ) = + [ [ ] { } \\ \\ " " " " \' \\ "  < > / ?. `
++ Não é possível incluir nenhum dos seguintes caracteres: `\` ~ ! @ $ % % ^ & * ( ) = + [ [ ] { } \\ \\ " " " " "  < > \' \\ / ?. `
 
 ## <a name="access-data-using-tabulardataset-function"></a>Aceder a dados utilizando a função TabularDataset
 

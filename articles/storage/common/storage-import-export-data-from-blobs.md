@@ -9,10 +9,10 @@ ms.date: 09/17/2020
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: d9f7778d1dda159f3ab0c4548912370c85f94eff
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91441876"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Utilizar o serviço Importar/Exportar do Microsoft Azure para exportar dados do Armazenamento de blobs do Azure
@@ -156,11 +156,11 @@ Este passo *opcional* ajuda-o a determinar o número de unidades necessárias pa
     |Parâmetro de linha de comando|Descrição|  
     |--------------------------|-----------------|  
     |**/logdir:**|Opcional. O diretório de registos. Os ficheiros de registo verboso são escritos neste diretório. Se não for especificado, o diretório atual é utilizado como diretório de registo.|  
-    |**/sn:**|Necessário. O nome do armazém é responsável pelo trabalho de exportação.|  
+    |**/sn:**|Obrigatório. O nome do armazém é responsável pelo trabalho de exportação.|  
     |**/sk:**|Só é necessário se não for especificado um SAS de contentor. A conta-chave para o armazenamento é a conta do trabalho de exportação.|  
     |**/csas:**|Só é necessário se não for especificada uma chave de conta de armazenamento. O contentor SAS para a listagem das bolhas a exportar na laboral de exportação.|  
-    |**/ExportBlobListFile:**|Necessário. Caminho para o ficheiro XML que contém lista de caminhos blob ou prefixos de caminhos blob para as bolhas a exportar. O formato de ficheiro utilizado no `BlobListBlobPath` elemento na operação [Put Job](/rest/api/storageimportexport/jobs) da API do serviço de importação/exportação REST.|  
-    |**/DriveSize:**|Necessário. O tamanho das unidades a utilizar para uma tarefa de exportação, *por exemplo,* 500 GB, 1,5 TB.|  
+    |**/ExportBlobListFile:**|Obrigatório. Caminho para o ficheiro XML que contém lista de caminhos blob ou prefixos de caminhos blob para as bolhas a exportar. O formato de ficheiro utilizado no `BlobListBlobPath` elemento na operação [Put Job](/rest/api/storageimportexport/jobs) da API do serviço de importação/exportação REST.|  
+    |**/DriveSize:**|Obrigatório. O tamanho das unidades a utilizar para uma tarefa de exportação, *por exemplo,* 500 GB, 1,5 TB.|  
 
     Consulte um [exemplo do comando PreviewExport](#example-of-previewexport-command).
 
@@ -217,7 +217,7 @@ A tabela a seguir mostra exemplos de caminhos de bolhas válidos:
    | Igual a |$root/logo.bmp |Exportações blob **logo.bmp** no recipiente raiz |
    | Igual a |vídeos/story.mp4 |Exportações blob **story.mp4** em **vídeos** de contentores |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Ver o estado do trabalho e da unidade](storage-import-export-view-drive-status.md)
 - [Rever os requisitos de importação/exportação](storage-import-export-requirements.md)

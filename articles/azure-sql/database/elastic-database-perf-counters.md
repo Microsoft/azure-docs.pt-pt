@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/07/2019
 ms.openlocfilehash: 6038ec1d83957f20ca6e2759eeb5a88e66c2f77f
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91443420"
 ---
 # <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>Criar contadores de desempenho para acompanhar o desempenho do gestor de mapas de fragmentos
@@ -66,7 +66,7 @@ Os contadores de desempenho serão atualizados por todas as operações de cache
 * A criação da categoria de desempenho e dos contadores só deve ser realizada uma vez antes da criação do objeto ShardMapManager. Cada execução do comando CreatePerformanceCategoryAndCounters() limpa os contadores anteriores (perdendo dados reportados por todos os casos) e cria novos.  
 * As contra-instâncias de desempenho são criadas por processo. Qualquer falha de aplicação ou remoção de um mapa de fragmentos da cache resultará na eliminação das instâncias dos contadores de desempenho.  
 
-### <a name="see-also"></a>Veja também
+### <a name="see-also"></a>Consulte também
 
 [Descrição geral das funcionalidades da Base de Dados Elástica](elastic-scale-introduction.md)  
 

@@ -4,12 +4,12 @@ description: Monitorize ASP.NET aplicações web Core para disponibilidade, dese
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: cb192aa44e9e2ab8578881494852ddd41ae9094d
-ms.sourcegitcommit: b87c7796c66ded500df42f707bdccf468519943c
+ms.openlocfilehash: 825cd451120f06597922c142dfc6bf8c10f5c700
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91839015"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91875126"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Insights de Aplicação para aplicações core ASP.NET
 
@@ -134,7 +134,7 @@ Faça o seu pedido e faça-lhe pedidos. A telemetria deve agora fluir para Insig
 
 ### <a name="ilogger-logs"></a>Troncos ILogger
 
-Os registos emitidos através `ILogger` da severidade `Warning` e acima são capturados automaticamente. Siga [os docs ILogger](ilogger.md#control-logging-level) para personalizar quais os níveis de registo capturados pela Application Insights.
+A configuração padrão recolhe `ILogger` registos de gravidade `Warning` e acima. Esta configuração pode ser [personalizada.](#how-do-i-customize-ilogger-logs-collection)
 
 ### <a name="dependencies"></a>Dependências
 
@@ -478,7 +478,7 @@ Se o SDK for instalado no tempo de construção, como mostrado neste artigo, nã
 
 ### <a name="can-i-enable-application-insights-monitoring-by-using-tools-like-status-monitor"></a>Posso ativar a monitorização de Insights de Aplicação utilizando ferramentas como o Status Monitor?
 
-Não. [Atualmente, o Monitor](./monitor-performance-live-website-now.md) de Estado e [o Monitor de Estado v2](./status-monitor-v2-overview.md) suportam ASP.NET apenas 4.x.
+N.º [Atualmente, o Monitor](./monitor-performance-live-website-now.md) de Estado e [o Monitor de Estado v2](./status-monitor-v2-overview.md) suportam ASP.NET apenas 4.x.
 
 ### <a name="if-i-run-my-application-in-linux-are-all-features-supported"></a>Se eu executar a minha candidatura no Linux, todas as funcionalidades são suportadas?
 

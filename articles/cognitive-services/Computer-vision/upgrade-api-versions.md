@@ -12,10 +12,10 @@ ms.date: 08/11/2020
 ms.author: pafarley
 ROBOTS: NOINDEX
 ms.openlocfilehash: 5910c40729d07d5a759b2e5cc7b7a4272524c150
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91253858"
 ---
 # <a name="upgrade-from-read-v2x-to-read-v3x"></a>Upgrade de Ler v2.x para Ler v3.x
@@ -39,7 +39,7 @@ Em seguida, utilize as seguintes secções para reduzir as suas operações e su
 
 |Ler 2.x |Ler 3.x  |
 |----------|-----------|
-|https://{endpoint}/visão/**v2.0/read/core/asyncBatchAnalyze**     |https://{endpoint}/vision/<versão **version string**>/read/analyze[?language]|
+|https://{endpoint}/visão/**v2.0/read/core/asyncBatchAnalyze**     |https://{endpoint}/vision/<**versão>** /read/analyze[?language]|
     
 Um novo parâmetro _linguístico_ opcional está disponível. Se não conhece a linguagem do seu documento, ou pode ser multilíngue, não o inclua. 
 
@@ -47,7 +47,7 @@ Um novo parâmetro _linguístico_ opcional está disponível. Se não conhece a 
 
 |Ler 2.x |Ler 3.x  |
 |----------|-----------|
-|https://{endpoint}/visão/**v2.0/read/operations**/{operationId}     |https://{endpoint}/vision/<versão **version string**>/read/analyzeResults/{operationId}|
+|https://{endpoint}/visão/**v2.0/read/operations**/{operationId}     |https://{endpoint}/vision/<versão **>** /read/analyzeResults/{operationId}|
 
 ### <a name="get-read-operation-result-status-flag"></a>`Get Read Operation Result` bandeira de estado
 
@@ -177,7 +177,7 @@ Em v3.0, foi ajustado:
 
 |Reconhecer Texto 2.x |Ler 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/**v2.0/recogniseText[?mode]**|https://{endpoint}/vision/<versão **version string**>/read/analyze[?language]|
+|https://{endpoint}/vision/**v2.0/recogniseText[?mode]**|https://{endpoint}/vision/<**versão>** /read/analyze[?language]|
     
 O parâmetro _do modo_ não é suportado em `Read` . O texto manuscrito e impresso será automaticamente suportado.
     
@@ -187,7 +187,7 @@ Um novo parâmetro _linguístico_ opcional está disponível em v3.0. Se não co
 
 |Reconhecer Texto 2.x |Ler 3.x  |
 |----------|-----------|
-|https://{endpoint}/vision/**v2.0/textOperations/**{operationId}|https://{endpoint}/vision/<versão **version string**>/read/analyzeResults/{operationId}|
+|https://{endpoint}/vision/**v2.0/textOperations/**{operationId}|https://{endpoint}/vision/<versão **>** /read/analyzeResults/{operationId}|
 
 ### <a name="get-recognize-text-operation-result-status-flags"></a>`Get Recognize Text Operation Result` bandeiras de estado
 Quando a chamada `Get Recognize Text Operation Result` for bem sucedida, devolve um campo de cordas de estado no corpo JSON. 
@@ -311,4 +311,4 @@ Em v3.x, foi ajustado:
 
 |Ler 2.0 |Ler 3.x  |
 |----------|-----------|
-|https://{endpoint}/visão/**v2.0/read/core/Analyze**     |https://{endpoint}/vision/<versão **version string**>/read/syncAnalyze[?language]|
+|https://{endpoint}/visão/**v2.0/read/core/Analyze**     |https://{endpoint}/vision/<**versão>** /read/syncAnalyze[?language]|

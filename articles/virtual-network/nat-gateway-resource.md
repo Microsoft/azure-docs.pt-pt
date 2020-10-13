@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: allensu
 ms.openlocfilehash: 62c1b323899f03a043904f4b10d5fe3bb551e0f4
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91441761"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Projetar redes virtuais com recursos de gateway NAT
@@ -236,7 +236,7 @@ Cada gateway NAT pode suportar 64.000 fluxos para TCP e UDP, respectivamente, po
 
 A tradução de endereços de rede de origem (SNAT) reescreve a origem de um fluxo originário de um endereço IP diferente.  Os recursos de gateway NAT utilizam uma variante do SNAT comumente referida à tradução de endereços portuários (PAT). Pat reescreve o endereço de origem e a porta de origem. Com o SNAT, não há uma relação fixa entre o número de endereços privados e as suas moradas públicas traduzidas.  
 
-### <a name="fundamentals"></a>Fundamentos
+### <a name="fundamentals"></a>Noções básicas
 
 Vejamos um exemplo de quatro fluxos para explicar o conceito básico.  O gateway NAT está a utilizar o recurso de endereço IP público 65.52.1.1 e o VM está a fazer ligações a 65.52.0.1.
 
@@ -344,7 +344,7 @@ Uma porta SNAT está disponível para reutilização para o mesmo endereço IP d
 
 Queremos saber como podemos melhorar o serviço. Falta-lhe uma capacidade? Faça o seu caso para o que devemos construir a seguir no [UserVoice para NAT](https://aka.ms/natuservoice).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [a rede virtual NAT.](nat-overview.md)
 * Saiba mais [sobre métricas e alertas para os recursos de gateway DA NAT.](nat-metrics.md)
