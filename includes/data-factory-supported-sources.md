@@ -1,5 +1,5 @@
 ---
-title: incluir ficheiro
+title: ficheiro de inclusão
 description: incluir ficheiro
 services: storage
 author: twooley
@@ -9,10 +9,10 @@ ms.date: 11/19/2018
 ms.author: twooley
 ms.custom: include file
 ms.openlocfilehash: 51b76e2d5feb2b194ba472c2982ca0ace0f6f5fb
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91571881"
 ---
 |Categoria | Arquivo de dados |  

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 2/20/2019
 ms.author: raiye
 ms.subservice: disks
-ms.openlocfilehash: 0b5e6134de2260998e599bad0d1bf6b381898ffd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd0f489bd6109a5dcd6625eb26286e0d40c50c63
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88513250"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91962331"
 ---
 # <a name="enable-write-accelerator"></a>Ativar o acelerador de escrita
 
@@ -77,23 +77,23 @@ Para ativar ou implantar discos suportados pelo Write Accelerator, os seguintes 
 
 Um novo parâmetro do interruptor, **-WriteAccelerator** foi adicionado aos seguintes cmdlets:
 
-- [Set-AzVMOsDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk?view=azurermps-6.0.0)
-- [Add-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/Add-AzVMDataDisk?view=azurermps-6.0.0)
-- [Set-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/Set-AzVMDataDisk?view=azurermps-6.0.0)
-- [Add-AzVmssDataDisk](https://docs.microsoft.com/powershell/module/az.compute/Add-AzVmssDataDisk?view=azurermps-6.0.0)
+- [Set-AzVMOsDisk](/powershell/module/az.compute/set-azvmosdisk?view=azurermps-6.0.0)
+- [Add-AzVMDataDisk](/powershell/module/az.compute/Add-AzVMDataDisk?view=azurermps-6.0.0)
+- [Set-AzVMDataDisk](/powershell/module/az.compute/Set-AzVMDataDisk?view=azurermps-6.0.0)
+- [Add-AzVmssDataDisk](/powershell/module/az.compute/Add-AzVmssDataDisk?view=azurermps-6.0.0)
 
 Não dar o parâmetro define a propriedade para falso e irá implantar discos que não têm suporte por Write Accelerator.
 
 Um novo parâmetro de comutação, **-OsDiskWriteAccelerator** foi adicionado aos seguintes cmdlets:
 
-- [Set-AzVmssStorageProfile](https://docs.microsoft.com/powershell/module/az.compute/Set-AzVmssStorageProfile?view=azurermps-6.0.0)
+- [Set-AzVmssStorageProfile](/powershell/module/az.compute/Set-AzVmssStorageProfile?view=azurermps-6.0.0)
 
 Não especificando o parâmetro define a propriedade em falso por padrão, devolvendo discos que não alavancam o Write Accelerator.
 
 Um novo parâmetro opcional booleano (não anulado), **-OsDiskWriteAccelerator** foi adicionado aos seguintes cmdlets:
 
-- [Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/Update-AzVM?view=azurermps-6.0.0)
-- [Atualização-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/Update-AzVmss?view=azurermps-6.0.0)
+- [Update-AzVM](/powershell/module/az.compute/Update-AzVM?view=azurermps-6.0.0)
+- [Atualização-AzVmss](/powershell/module/az.compute/Update-AzVmss?view=azurermps-6.0.0)
 
 Especifique $true ou $false para controlar o suporte do Acelerador de Escrita Azure com os discos.
 
@@ -168,13 +168,13 @@ Pode ativar o Write Accelerator através do portal onde especifica as definiçõ
 
 ## <a name="enabling-write-accelerator-using-the-azure-cli"></a>Ativar o Acelerador de Escrita com a CLI do Azure
 
-Pode utilizar o [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) para ativar o Acelerador de Escrita.
+Pode utilizar o [Azure CLI](/cli/azure/?view=azure-cli-latest) para ativar o Acelerador de Escrita.
 
-Para ativar o Acelerador de Escrita num disco existente, utilize [a atualização az vm,](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-update)pode utilizar os seguintes exemplos se substituir o discoName, VMName e ResourceGroup pelos seus próprios valores: `az vm update -g group1 -n vm1 -write-accelerator 1=true`
+Para ativar o Acelerador de Escrita num disco existente, utilize [a atualização az vm,](/cli/azure/vm?view=azure-cli-latest#az-vm-update)pode utilizar os seguintes exemplos se substituir o discoName, VMName e ResourceGroup pelos seus próprios valores: `az vm update -g group1 -n vm1 -write-accelerator 1=true`
 
-Para anexar um disco com o Write Accelerator ativado, utilize [o az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk?view=azure-cli-latest#az-vm-disk-attach), pode utilizar o seguinte exemplo se substituir nos seus próprios valores: `az vm disk attach -g group1 -vm-name vm1 -disk d1 --enable-write-accelerator`
+Para anexar um disco com o Write Accelerator ativado, utilize [o az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest#az-vm-disk-attach), pode utilizar o seguinte exemplo se substituir nos seus próprios valores: `az vm disk attach -g group1 -vm-name vm1 -disk d1 --enable-write-accelerator`
 
-Para desativar o Acelerador de Escrita, utilize [a atualização az vm,](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-update)definindo as propriedades em falso: `az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false`
+Para desativar o Acelerador de Escrita, utilize [a atualização az vm,](/cli/azure/vm?view=azure-cli-latest#az-vm-update)definindo as propriedades em falso: `az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false`
 
 ## <a name="enabling-write-accelerator-using-rest-apis"></a>Ativar o acelerador de escrita usando APIs de repouso
 

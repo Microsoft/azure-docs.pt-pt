@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 08/25/2020
 ms.author: raynew
-ms.openlocfilehash: dc931b910981578a3257c9131bea93cd836d1def
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 83cd36683a0487f13ab5707e4b1534cc7f20a88a
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945168"
+ms.locfileid: "91948532"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>Apoio à deslocação de recursos do Azure pelas regiões
 
@@ -1134,11 +1134,11 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
 > | instâncias | Não | 
-> | managedinstances | Sim <br/><br/> [Saiba mais](/azure/azure-sql/database/move-resources-across-regions) sobre a mudança de instâncias geridas em todas as regiões. | 
+> | managedinstances | Sim <br/><br/> [Saiba mais](../../azure-sql/database/move-resources-across-regions.md) sobre a mudança de instâncias geridas em todas as regiões. | 
 > | managedinstances / bases de dados | Sim | 
 > | servidores | Sim | 
-> | servidores / bases de dados | Sim <br/><br/> [Saiba mais](/azure/azure-sql/database/move-resources-across-regions) sobre a mudança de bases de dados em regiões.<br/><br/> [Saiba mais](../../resource-mover/tutorial-move-region-sql.md) sobre a utilização do Azure Resource Mover para mover bases de dados Azure SQL.  | 
-> | servidores / elásticos | Sim <br/><br/> [Saiba mais](/azure/azure-sql/database/move-resources-across-regions) sobre a movimentação de piscinas elásticas em regiões.<br/><br/> [Saiba mais](../../resource-mover/tutorial-move-region-sql.md) sobre a utilização do Azure Resource Mover para mover piscinas elásticas Azure SQL.  | 
+> | servidores / bases de dados | Sim <br/><br/> [Saiba mais](../../azure-sql/database/move-resources-across-regions.md) sobre a mudança de bases de dados em regiões.<br/><br/> [Saiba mais](../../resource-mover/tutorial-move-region-sql.md) sobre a utilização do Azure Resource Mover para mover bases de dados Azure SQL.  | 
+> | servidores / elásticos | Sim <br/><br/> [Saiba mais](../../azure-sql/database/move-resources-across-regions.md) sobre a movimentação de piscinas elásticas em regiões.<br/><br/> [Saiba mais](../../resource-mover/tutorial-move-region-sql.md) sobre a utilização do Azure Resource Mover para mover piscinas elásticas Azure SQL.  | 
 > | virtualclusters | Sim | 
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine

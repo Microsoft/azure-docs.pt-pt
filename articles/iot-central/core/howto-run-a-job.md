@@ -8,10 +8,10 @@ ms.author: sahubbar
 ms.date: 09/30/2020
 ms.topic: how-to
 ms.openlocfilehash: 5b8aba74cb0914cf26382e0d17a8ce2ba6bd4063
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91573980"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Crie e executar um emprego na sua aplicação Azure IoT Central

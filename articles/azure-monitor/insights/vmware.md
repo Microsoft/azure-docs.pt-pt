@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
 ms.openlocfilehash: be50deb836082354db899e84ef24d75c4d403432
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91450399"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Solução de Monitorização VMware (Preprecada) no Azure Monitor
@@ -163,7 +163,7 @@ Depois de criar as suas consultas, talvez queira usar as consultas para alertá-
 A solução utiliza o mecanismo de reencaminhamento Syslog host Syslog nativo. Não precisa de nenhum software adicional da Microsoft no ESXi Host para capturar os registos. Deve ter um baixo impacto no seu ambiente existente. No entanto, é necessário definir o encaminhamento do syslog, que é a funcionalidade ESXI.
 
 ### <a name="do-i-need-to-restart-my-esxi-host"></a>Preciso de reiniciar o meu anfitrião ESXi?
-Não. Este processo não requer um reinício. Às vezes, a vSphere não atualiza corretamente o syslog. Nesse caso, inicie sessão no anfitrião ESXi e recarregue o syslog. Mais uma vez, não tens de reiniciar o hospedeiro, por isso este processo não é perturbador para o teu ambiente.
+N.º Este processo não requer um reinício. Às vezes, a vSphere não atualiza corretamente o syslog. Nesse caso, inicie sessão no anfitrião ESXi e recarregue o syslog. Mais uma vez, não tens de reiniciar o hospedeiro, por isso este processo não é perturbador para o teu ambiente.
 
 ### <a name="can-i-increase-or-decrease-the-volume-of-log-data-sent-to-log-analytics"></a>Posso aumentar ou diminuir o volume de dados de registo enviados para o Log Analytics?
 Sim, tu podes. Pode utilizar as definições de nível de registo do anfitrião ESXi em vSphere. A recolha de registos baseia-se no nível de *informação.* Por isso, se pretender auditar a criação ou eliminação de VM, tem de manter o nível de *informação* no Hostd. Para mais informações, consulte a Base de [Conhecimentos VMware.](https://kb.vmware.com/selfservice/microsites/search.do?&cmd=displayKC&externalId=1017658)
@@ -196,7 +196,7 @@ Pode haver várias razões:
 
      d. Se o ficheiro não existir ou a definição do utilizador e do grupo estiver errada, tome medidas corretivas [preparando um servidor Linux](#prepare-a-linux-server).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Utilize [consultas de registo](../log-query/log-query-overview.md) no Log Analytics para ver dados detalhados do anfitrião VMware.
 * [Crie os seus próprios dashboards](../learn/tutorial-logs-dashboards.md) mostrando dados do anfitrião VMware.
 * [Crie alertas](../platform/alerts-overview.md) quando ocorrerem eventos específicos de anfitrião VMware.

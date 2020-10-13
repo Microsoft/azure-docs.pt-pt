@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: aecda5ed9b87ba2345a52923a574919d6a08594f
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362676"
 ---
 # <a name="getting-started-with-the-azure-maps-power-bi-visual"></a>Começando com o Azure Maps Power BI visual
@@ -135,7 +135,7 @@ O visual Azure Maps está disponível nos seguintes serviços e aplicações:
 | Aplicações móveis do Power BI             | Sim          |
 | Publicar na Web do Power BI                  | Não           |
 | Power BI Embedded                        | Não           |
-| Incorporação do serviço Power BI (PowerBI.com) | Yes          |
+| Incorporação do serviço Power BI (PowerBI.com) | Sim          |
 
 O suporte para serviços/aplicações de Power BI adicionais será adicionado em futuras atualizações.
 

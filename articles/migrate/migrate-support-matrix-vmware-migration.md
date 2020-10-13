@@ -4,10 +4,10 @@ description: Saiba mais sobre o suporte à migração VMware VM em Azure Migrate
 ms.topic: conceptual
 ms.date: 06/08/2020
 ms.openlocfilehash: 87733cac23d0336e4b9319f2a325e8d844e6e5b2
-ms.sourcegitcommit: b4f303f59bb04e3bae0739761a0eb7e974745bb7
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91651960"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de suporte para migração VMware

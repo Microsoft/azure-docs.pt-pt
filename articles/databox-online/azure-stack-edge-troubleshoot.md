@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: alkohli
 ms.openlocfilehash: f668136713024ba57d72bf5a457cd249742a3b11
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91742031"
 ---
 # <a name="troubleshoot-your-azure-stack-edge-pro-issues"></a>Resolução de problemas dos seus problemas Azure Stack Edge Pro

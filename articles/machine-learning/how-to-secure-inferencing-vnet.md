@@ -12,10 +12,10 @@ author: peterclu
 ms.date: 09/24/2020
 ms.custom: contperfq4, tracking-python, contperfq1
 ms.openlocfilehash: 784a0acf139aa05179fd92afb4eab299c2669590
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91630853"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Garantir um ambiente de aprendizagem automática Azure com redes virtuais
@@ -75,7 +75,7 @@ Para adicionar AKS numa rede virtual ao seu espaço de trabalho, utilize os segu
     1. Na lista de down-down do __grupo de recursos,__ selecione o grupo de recursos que contém a rede virtual.
     1. Na lista de drop-down da __rede Virtual,__ selecione a rede virtual que contém a sub-rede.
     1. Na lista de drop-down __sub-rede,__ selecione a sub-rede.
-    1. Na caixa __de intervalo de endereços do Serviço Kubernetes,__ insira a gama de endereços de serviço Kubernetes. Esta gama de endereços utiliza uma gama IP de encaminhamento inter-domínio sem classe (CIDR) para definir os endereços IP disponíveis para o cluster. Não deve sobrepor-se a quaisquer gamas IP da sub-rede (por exemplo, 10.0.0.0/16).
+    1. Na caixa __de intervalo de endereços do Serviço Kubernetes,__ insira a gama de endereços de serviço Kubernetes. Esta gama de endereços utiliza uma gama IP de notação de encaminhamento de Inter-Domain (CIDR) sem classe para definir os endereços IP disponíveis para o cluster. Não deve sobrepor-se a quaisquer gamas IP da sub-rede (por exemplo, 10.0.0.0/16).
     1. Na caixa de __endereço IP do serviço Deps de serviço Kubernetes,__ insira o endereço IP de serviço DE SERVIÇO Kubernetes. Este endereço IP é atribuído ao serviço DNS da Kubernetes. Deve estar dentro da gama de endereços de serviço Kubernetes (por exemplo, 10.0.0.10).
     1. Na caixa de endereços da __ponte Docker,__ insira o endereço da ponte Docker. Este endereço IP é atribuído à Ponte Docker. Não deve estar em nenhuma gama IP de sub-rede, nem na gama de endereços de serviço Kubernetes (por exemplo, 172.17.0.1/16).
 

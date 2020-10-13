@@ -8,10 +8,10 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
 ms.openlocfilehash: 69bee753c2134b6eebe9c5df0a554c965208ad7c
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91366230"
 ---
 # <a name="tutorial-connect-to-a-storage-account-using-an-azure-private-endpoint"></a>Tutorial: Ligue-se a uma conta de armazenamento usando um Azure Private Endpoint
@@ -49,7 +49,7 @@ O hospedeiro de bastião será utilizado para ligar de forma segura à máquina 
     | Grupo de Recursos   | Selecione **myResourceGroup** |
     | **Detalhes da instância** |                                                                 |
     | Name             | Insira **myVNet**                                    |
-    | Region           | Selecione **E.U.A. Leste**. |
+    | Região           | Selecione **E.U.A. Leste**. |
 
 3. Selecione o separador **endereços IP** ou selecione o botão **Seguinte: Endereços IP** na parte inferior da página.
 
@@ -101,7 +101,7 @@ Nesta secção, irá criar uma máquina virtual que será usada para testar o po
     | Grupo de Recursos | Selecione **myResourceGroup** |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **o myVM** |
-    | Region | Selecione **E.U.A. Leste**. |
+    | Região | Selecione **E.U.A. Leste**. |
     | Opções de Disponibilidade | Selecione **Não é necessário um despedimento de infraestrutura** |
     | Imagem | Selecione **Windows Server 2019 Datacenter - Gen1** |
     | Instância do Azure Spot | Selecione **Não** |
@@ -161,7 +161,7 @@ Nesta secção, você vai criar uma conta de armazenamento e configurar o ponto 
     | Subscrição | selecione a subscrição do Azure |
     | Grupo de Recursos | Selecione **myResourceGroup** |
     | Localização | Selecione **E.U.A. Leste**. |
-    | Name | Insira **o myPrivateEndpoint** |
+    | Nome | Insira **o myPrivateEndpoint** |
     | Subresource de armazenamento | Deixe a **bolha** padrão |
     | **Redes** |  |
     | Rede virtual | Selecione **myVNet** |

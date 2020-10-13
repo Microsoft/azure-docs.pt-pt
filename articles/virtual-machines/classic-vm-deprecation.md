@@ -8,16 +8,16 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: c9277f510e71e4d6ecb6595aa2d67d16c2ac5695
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 730a29ff579ce6a1970ceafad5891611b52c059d
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326033"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972293"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>Migrar os seus recursos IaaS para o Azure Resource Manager até 1 de março de 2023 
 
-Em 2014, lançámos a infraestrutura como um serviço (IaaS) na [Azure Resource Manager.](https://azure.microsoft.com/features/resource-manager/) Temos vindo a aumentar as capacidades desde então. Como o Azure Resource Manager tem agora todas as capacidades iaaS e outros avanços, depreciemos a gestão de máquinas virtuais IaaS (VMs) através [do Azure Service Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq#what-is-azure-service-manager-and-what-does-it-mean-by-classic) (ASM) em 28 de fevereiro de 2020. Esta funcionalidade será totalmente reformada a 1 de março de 2023. 
+Em 2014, lançámos a infraestrutura como um serviço (IaaS) na [Azure Resource Manager.](https://azure.microsoft.com/features/resource-manager/) Temos vindo a aumentar as capacidades desde então. Como o Azure Resource Manager tem agora todas as capacidades iaaS e outros avanços, depreciemos a gestão de máquinas virtuais IaaS (VMs) através [do Azure Service Manager](./migration-classic-resource-manager-faq.md#what-is-azure-service-manager-and-what-does-it-mean-by-classic) (ASM) em 28 de fevereiro de 2020. Esta funcionalidade será totalmente reformada a 1 de março de 2023. 
 
 Hoje, cerca de 90% dos VMs da IaaS estão a usar o Azure Resource Manager. Se utilizar recursos iaaS através da ASM, comece já a planear a sua migração. Complete-o até 1 de março de 2023, para aproveitar [o Azure Resource Manager](../azure-resource-manager/management/index.yml).
 
@@ -42,18 +42,18 @@ Comece a planear a sua migração para o Azure Resource Manager, hoje.
 1. Faça uma lista de todos os VMs afetados: 
 
    - Os VMs de máquinas virtuais tipo **(clássicas)** no [painel VM do portal Azure](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ClassicCompute%2FVirtualMachines) são todos os VMs afetados dentro da subscrição. 
-   - Também pode consultar o Azure Resource Graph utilizando o [portal](https://portal.azure.com/#blade/HubsExtension/ArgQueryBlade/query/resources%0A%7C%20where%20type%20%3D%3D%20%22microsoft.classiccompute%2Fvirtualmachines%22) ou [o PowerShell](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) para ver a lista de todos os VMs sinalizados (clássicos) e informações relacionadas para as subscrições selecionadas. 
+   - Também pode consultar o Azure Resource Graph utilizando o [portal](https://portal.azure.com/#blade/HubsExtension/ArgQueryBlade/query/resources%0A%7C%20where%20type%20%3D%3D%20%22microsoft.classiccompute%2Fvirtualmachines%22) ou [o PowerShell](../governance/resource-graph/concepts/work-with-data.md) para ver a lista de todos os VMs sinalizados (clássicos) e informações relacionadas para as subscrições selecionadas. 
    - Nos dias 8 de fevereiro e 2 de setembro de 2020, enviamos e-mails aos proprietários de subscrições com uma lista de todas as subscrições que contêm estes VMs (clássico). Por favor, use-os para construir esta lista. 
 
 1. [Saiba mais](./windows/migration-classic-resource-manager-overview.md) sobre a migração dos seus [VMs Linux](./linux/migration-classic-resource-manager-plan.md) e [Windows](./windows/migration-classic-resource-manager-plan.md) (clássico) para o Azure Resource Manager. Para obter mais informações, consulte [Perguntas frequentes sobre a migração clássica do Azure Resource Manager.](./migration-classic-resource-manager-faq.md)
 
-1. Recomendamos iniciar o planeamento utilizando a [ferramenta de migração de suporte](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview) da plataforma para migrar os seus VMs existentes com três passos fáceis: validar, preparar e comprometer-se. A ferramenta foi concebida para migrar os seus VMs dentro do mínimo para nenhum tempo de inatividade. 
+1. Recomendamos iniciar o planeamento utilizando a [ferramenta de migração de suporte](./windows/migration-classic-resource-manager-overview.md) da plataforma para migrar os seus VMs existentes com três passos fáceis: validar, preparar e comprometer-se. A ferramenta foi concebida para migrar os seus VMs dentro do mínimo para nenhum tempo de inatividade. 
 
    1. O primeiro passo, validado, não tem impacto na sua implantação existente e fornece uma lista de todos os cenários não apoiados para a migração. 
-   1. Procure a [lista de soluções alternativas](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview#unsupported-features-and-configurations) para corrigir o seu destacamento e prepare-a para a migração. 
+   1. Procure a [lista de soluções alternativas](./windows/migration-classic-resource-manager-overview.md#unsupported-features-and-configurations) para corrigir o seu destacamento e prepare-a para a migração. 
    1. Idealmente, depois de todos os erros de validação serem corrigidos, não deverá encontrar quaisquer problemas durante os passos de preparação e de empenhamento. Após o compromisso ser bem sucedido, a sua implementação é migrada para o Azure Resource Manager e pode ser gerida através de novas APIs expostas pelo Azure Resource Manager. 
 
-   Se a ferramenta de migração não for adequada para a sua migração, pode explorar [outras ofertas de computação](https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree) para a migração. Porque há muitas ofertas de cálculo Azure, e são diferentes umas das outras, não podemos fornecer um caminho de migração apoiado pela plataforma para eles.  
+   Se a ferramenta de migração não for adequada para a sua migração, pode explorar [outras ofertas de computação](/azure/architecture/guide/technology-choices/compute-decision-tree) para a migração. Porque há muitas ofertas de cálculo Azure, e são diferentes umas das outras, não podemos fornecer um caminho de migração apoiado pela plataforma para eles.  
 
 1. Para questões técnicas, problemas e ajuda na adição de subscrições à lista de admissões, [suporte de contacto](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"8a82f77d-c3ab-7b08-d915-776b4ff64ff4"}).
 
@@ -61,11 +61,10 @@ Comece a planear a sua migração para o Azure Resource Manager, hoje.
 
 ## <a name="what-resources-are-available-for-this-migration"></a>Que recursos estão disponíveis para esta migração?
 
-- [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-virtual-machines-migration.html): Microsoft e suporte comunitário para a migração.
+- [Microsoft Q&A](/answers/topics/azure-virtual-machines-migration.html): Microsoft e suporte comunitário para a migração.
 
 - [Apoio à Migração Azure](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"1135e3d0-20e2-aec5-4ef0-55fd3dae2d58"}): Equipa de apoio dedicada à assistência técnica durante a migração.
 
 - [Microsoft Fast Track](https://www.microsoft.com/fasttrack): Fast track pode ajudar clientes elegíveis a planear & execução desta migração. [Nomeie-se.](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fprograms%2Fazure-fasttrack%2F%23nomination&data=02%7C01%7CTanmay.Gore%40microsoft.com%7C3e75bbf3617944ec663a08d85c058340%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637360526032558561&sdata=CxWTVQQPVWNwEqDZKktXzNV74pX91uyJ8dY8YecIgGc%3D&reserved=0)  
 
-- Se a sua empresa/organização tiver uma parceria com a Microsoft ou trabalhar com representantes da Microsoft (como arquitetos de solução em nuvem (CSAs) ou gestores técnicos de contas (TAMs)), trabalhe com eles para obter recursos adicionais para a migração. 
-
+- Se a sua empresa/organização tiver uma parceria com a Microsoft ou trabalhar com representantes da Microsoft (como arquitetos de solução em nuvem (CSAs) ou gestores técnicos de contas (TAMs)), trabalhe com eles para obter recursos adicionais para a migração.

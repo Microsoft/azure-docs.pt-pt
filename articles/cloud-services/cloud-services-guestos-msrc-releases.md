@@ -10,47 +10,44 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/29/2020
+ms.date: 10/12/2020
 ms.author: yohaddad
-ms.openlocfilehash: bdcf9417aca6ece24e5ef577620734eeb48d9362
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6fae523245189ca73caf38f643ded79dd0dd2f94
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91531161"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91949093"
 ---
 # <a name="azure-guest-os"></a>Hóspede Azure OS
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao Azure Guest OS. Pes faça uma pesquisa neste artigo para determinar se uma determinada atualização se aplica ao so-os convidado que está a utilizar. As atualizações são sempre transmitidas para a [família][family-explain] em particular em que foram introduzidas.
 
 ## <a name="september-2020-guest-os"></a>Os convidados de setembro de 2020
->[!NOTE]
->O Os Hóspedes de setembro está a ser lançado para os VMs do Cloud Service que estão configurados para atualizações automáticas. Quando o lançamento estiver concluído, esta versão será disponibilizada para atualizações manuais através do portal Azure e ficheiros de configuração. Os seguintes patches estão incluídos no Os Convidados de setembro. Esta lista está sujeita a alterações.
-
 
 | Product Category (Categoria de Produto) | Artigo KB dos pais | Descrição da Vulnerabilidade | SO convidado | Data Introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-|  Rel 20-09 |  [4577010]  |  Internet Explorer | 2.102, 3.89, 4.82 | 8 de set, 2020 |
-|  Rel 20-09 |  [4561600]  |  Atualização flash | 3.89, 4.82, 5.47, 6.23 | 8 de set, 2020 |
-|  Rel 20-09 |  [4577015]  |  Última atualização cumulativa (LCU) | 5.47 | 8 de set, 2020 |
-|  Rel 20-09 |  [4570333]  |  Última atualização cumulativa (LCU) | 6.23 | 8 de set, 2020 |
-|  Rel 20-09 |  [4570673]  |  Atualização de Stack de Manutenção | 2.102 | 8 de set, 2020 |
-|  Rel 20-09 |  [4577051]  |  Rollup mensal | 2.102 | 8 de set, 2020 |
-|  Rel 20-09 |  [4569767]  |  .Net Framework 3.5 Rollup de segurança e qualidade | 2.102 | 8 de set, 2020 |
-|  Rel 20-09 |  [4569780]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade | 2.102 | 8 de set, 2020 |
-|  Rel 20-09 |  [4566426]  |  Atualização de Stack de Manutenção | 3.89 | 8 de set, 2020 |
-|  Rel 20-09 |  [4577038]  |  Rollup mensal | 3.89 | 8 de set, 2020 |
-|  Rel 20-09 |  [4569765]  |  .Net Framework 3.5 Rollup de segurança e qualidade | 3.89 | 8 de set, 2020 |
-|  Rel 20-09 |  [4569779]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade | 3.89 | 8 de set, 2020 |
-|  Rel 20-09 |  [4566425]  |  Atualização de Stack de Manutenção | 2.102 | 8 de set, 2020 |
-|  Rel 20-09 |  [4577066]  |  Rollup mensal | 2.102 | 8 de set, 2020 |
-|  Rel 20-09 |  [4569768]  |  .Net Framework 3.5 Rollup de segurança e qualidade | 2.102 | 8 de set, 2020 |
-|  Rel 20-09 |  [4569778]  |  Quadro NET 4.5.2 Rollup de segurança e qualidade | 2.102 | 8 de set, 2020 |
-|  Rel 20-09 |  [4578013]  |  Atualização de Segurança | 2.102 | 8 de set, 2020 |
-|  Rel 20-09 |  [4576750]  |  Atualização de Stack de Manutenção | 5.47 | 8 de set, 2020 |
-|  Rel 20-09 |  [4494175]  |  Microcódigo | 5.47 | 8 de set, 2020 |
-|  Rel 20-09 |  [4570332]  |  Atualização de Stack de Manutenção | 6.23 | 8 de set, 2020 |
-|  Rel 20-09 |  [4570720]  |  .Net Framework 3.5 e 4.7.2 Atualização Cumulativa | 6.23 | 8 de set, 2020 |
-|  Rel 20-09 |  [4494174]  |  Microcódigo | 6.23 | 8 de set, 2020 |
+|  Rel 20-09 |  [4577010]  |  Internet Explorer | [2.102], [3.89], [4.82] | 8 de set, 2020 |
+|  Rel 20-09 |  [4561600]  |  Atualização flash | [3.89], [4.82], [5.47], [6.23] | 8 de set, 2020 |
+|  Rel 20-09 |  [4577015]  |  Última atualização cumulativa (LCU) | [5.47] | 8 de set, 2020 |
+|  Rel 20-09 |  [4570333]  |  Última atualização cumulativa (LCU) | [6.23] | 8 de set, 2020 |
+|  Rel 20-09 |  [4570673]  |  Atualização de Stack de Manutenção | [2.102] | 8 de set, 2020 |
+|  Rel 20-09 |  [4577051]  |  Rollup mensal | [2.102] | 8 de set, 2020 |
+|  Rel 20-09 |  [4569767]  |  .Net Framework 3.5 Rollup de segurança e qualidade | [2.102] | 8 de set, 2020 |
+|  Rel 20-09 |  [4569780]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade | [2.102] | 8 de set, 2020 |
+|  Rel 20-09 |  [4566426]  |  Atualização de Stack de Manutenção | [3.89] | 8 de set, 2020 |
+|  Rel 20-09 |  [4577038]  |  Rollup mensal | [3.89] | 8 de set, 2020 |
+|  Rel 20-09 |  [4569765]  |  .Net Framework 3.5 Rollup de segurança e qualidade | [3.89] | 8 de set, 2020 |
+|  Rel 20-09 |  [4569779]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade | [3.89] | 8 de set, 2020 |
+|  Rel 20-09 |  [4566425]  |  Atualização de Stack de Manutenção | [2.102] | 8 de set, 2020 |
+|  Rel 20-09 |  [4577066]  |  Rollup mensal | [2.102] | 8 de set, 2020 |
+|  Rel 20-09 |  [4569768]  |  .Net Framework 3.5 Rollup de segurança e qualidade | [2.102] | 8 de set, 2020 |
+|  Rel 20-09 |  [4569778]  |  Quadro NET 4.5.2 Rollup de segurança e qualidade | [2.102] | 8 de set, 2020 |
+|  Rel 20-09 |  [4578013]  |  Atualização de Segurança | [2.102] | 8 de set, 2020 |
+|  Rel 20-09 |  [4576750]  |  Atualização de Stack de Manutenção | [5.47] | 8 de set, 2020 |
+|  Rel 20-09 |  [4494175]  |  Microcódigo | [5.47] | 8 de set, 2020 |
+|  Rel 20-09 |  [4570332]  |  Atualização de Stack de Manutenção | [6.23] | 8 de set, 2020 |
+|  Rel 20-09 |  [4570720]  |  .Net Framework 3.5 e 4.7.2 Atualização Cumulativa | [6.23] | 8 de set, 2020 |
+|  Rel 20-09 |  [4494174]  |  Microcódigo | [6.23] | 8 de set, 2020 |
 
 [4577010]: https://support.microsoft.com/kb/4577010
 [4561600]: https://support.microsoft.com/kb/4561600
@@ -74,6 +71,11 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [4570332]: https://support.microsoft.com/kb/4570332
 [4570720]: https://support.microsoft.com/kb/4570720
 [4494174]: https://support.microsoft.com/kb/4494174
+[2.102]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3.89]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4.82]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5.47]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6.23]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 
 ## <a name="august-2020-guest-os"></a>Os convidados de agosto de 2020
 

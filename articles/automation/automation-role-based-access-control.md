@@ -7,15 +7,15 @@ ms.subservice: shared-capabilities
 ms.date: 07/21/2020
 ms.topic: conceptual
 ms.openlocfilehash: efdb195ad41b036f7f470884b3a441de1db7f7f4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91716165"
 ---
 # <a name="manage-role-permissions-and-security"></a>Gerir permissões e segurança de funções
 
-O controlo de acesso baseado em funções Azure (Azure RBAC) permite a gestão do acesso aos recursos Azure. Utilizando [o Azure RBAC,](../role-based-access-control/overview.md)pode segregar os deveres dentro da sua equipa e conceder apenas a quantidade de acesso aos utilizadores, grupos e aplicações de que necessitam para desempenharem os seus trabalhos. Pode conceder acesso baseado em funções aos utilizadores utilizando o portal Azure, ferramentas Azure Command-Line ou APIs de Gestão Azure.
+O controlo de acesso baseado em funções Azure (Azure RBAC) permite a gestão do acesso aos recursos Azure. Utilizando [o Azure RBAC,](../role-based-access-control/overview.md)pode segregar os deveres dentro da sua equipa e conceder apenas a quantidade de acesso aos utilizadores, grupos e aplicações de que necessitam para desempenharem os seus trabalhos. Pode conceder acesso baseado em funções aos utilizadores utilizando o portal Azure, ferramentas de Command-Line Azure ou APIs de Gestão Azure.
 
 ## <a name="roles-in-automation-accounts"></a>Funções em contas de Automação
 
@@ -431,7 +431,7 @@ Quando um utilizador atribuído à função de Operador de Automação no âmbit
 
 ![Só tem acesso para começar](media/automation-role-based-access-control/automation-only-start.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre o Azure RBAC usando PowerShell, consulte [adicionar ou remover atribuições de funções Azure usando Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 * Para obter mais informações sobre os tipos de livros de execução, consulte os tipos de [runbook da Azure Automation](automation-runbook-types.md).

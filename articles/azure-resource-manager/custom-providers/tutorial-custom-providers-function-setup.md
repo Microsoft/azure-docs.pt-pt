@@ -5,12 +5,12 @@ author: jjbfour
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: b6984bfdf7ec078d02999bccf77f3592cfbcab27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e11e08d861538ddf395f522495798546e04ca7c
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75649989"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91948957"
 ---
 # <a name="set-up-azure-functions-for-azure-custom-providers"></a>Configurar funções Azure para fornecedores personalizados Azure
 
@@ -51,7 +51,7 @@ Para configurar a função Azure para incluir os métodos de pedido RESTful do f
 > [!NOTE]
 > Se o seu ficheiro de projeto C# faltar no diretório do projeto, pode adicioná-lo manualmente. Ou aparecerá depois da extensão Microsoft.Azure.WebJobs.Extensions.Storage ser instalada na aplicação de função.
 
-Em seguida, atualize o ficheiro do projeto C# para incluir bibliotecas nuGet úteis. Estas bibliotecas facilitam a análise dos pedidos de entrada de fornecedores personalizados. Siga os [passos](../../azure-functions/install-update-binding-extensions-manual.md) para adicionar extensões do portal e atualizar o ficheiro do projeto C# para incluir as seguintes referências de pacote:
+Em seguida, atualize o ficheiro do projeto C# para incluir bibliotecas nuGet úteis. Estas bibliotecas facilitam a análise dos pedidos de entrada de fornecedores personalizados. Siga os [passos](../../azure-functions/functions-bindings-register.md) para adicionar extensões do portal e atualizar o ficheiro do projeto C# para incluir as seguintes referências de pacote:
 
 ```xml
 <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Storage" Version="3.0.4" />
@@ -80,4 +80,3 @@ O seguinte elemento XML é um ficheiro de projeto exemplo C#:
 Neste tutorial, criou uma aplicação de função Azure para funcionar como um ponto final de fornecedor personalizado Azure.
 
 Para aprender a autoria de um ponto final de fornecedor personalizado RESTful, consulte [Tutorial: Autoria de um ponto final de fornecedor personalizado RESTful](./tutorial-custom-providers-function-authoring.md).
-
