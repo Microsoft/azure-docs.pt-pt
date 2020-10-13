@@ -3,16 +3,16 @@ title: Publicar uma oferta de Serviço Gerido para o Azure Marketplace
 description: Saiba como publicar uma oferta de Serviço Gerido que a bordo dos clientes para o Farol de Azure.
 ms.date: 08/18/2020
 ms.topic: how-to
-ms.openlocfilehash: 11fb0073bcc3ba4437f78de8b263d165f0069db8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 033003d7e782ca0e99b1fc908c5261b6e31bf613
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589729"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974367"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publicar uma oferta de Serviço Gerido para o Azure Marketplace
 
-Neste artigo, você aprenderá a publicar uma oferta de Serviço Gerido público ou privado ao [Azure Marketplace](https://azuremarketplace.microsoft.com) usando o programa [De Marketplace Comercial](../../marketplace/partner-center-portal/commercial-marketplace-overview.md) no Partner Center. Os clientes que comprarem a oferta irão então delegar subscrições ou grupos de recursos, permitindo-lhe geri-las através [do Farol de Azure.](../overview.md)
+Neste artigo, você aprenderá a publicar uma oferta de Serviço Gerido público ou privado ao [Azure Marketplace](https://azuremarketplace.microsoft.com) usando o programa [De Marketplace Comercial](../../marketplace/overview.md) no Partner Center. Os clientes que comprarem a oferta irão então delegar subscrições ou grupos de recursos, permitindo-lhe geri-las através [do Farol de Azure.](../overview.md)
 
 ## <a name="publishing-requirements"></a>Requisitos de publicação
 
@@ -26,7 +26,7 @@ Se não quiser publicar uma oferta ao Azure Marketplace, ou não cumprir todos o
 
 A tabela a seguir pode ajudar a determinar se devem ou não embarcar clientes publicando uma oferta de Serviço Gerido ou utilizando modelos de Gestor de Recursos Azure.
 
-|**Consideração**  |**Oferta de Serviço Gerido**  |**Modelos do ARM**  |
+|**Consideração**  |**Oferta de Serviço Gerido**  |**Modelos de ARM**  |
 |---------|---------|---------|
 |Requer [conta partner center](../../marketplace/partner-center-portal/create-account.md)   |Sim         |Não        |
 |Requer [nível](/partner-center/learn-about-competencies) de competência da Plataforma Cloud prateada ou dourada ou [MSP expert Azure](https://partner.microsoft.com/membership/azure-expert-msp)      |Sim         |Não         |
@@ -40,7 +40,7 @@ A tabela a seguir pode ajudar a determinar se devem ou não embarcar clientes pu
 
 Para instruções detalhadas sobre como criar a sua oferta, incluindo todas as informações e bens que necessitará de fornecer, consulte [Create a Managed Service offer](../../marketplace/partner-center-portal/create-new-managed-service-offer.md).
 
-Para saber mais sobre o processo de publicação geral, consulte [o Azure Marketplace e o AppSource Publishing Guide](../../marketplace/marketplace-publishers-guide.md). Deve também rever as [políticas de certificação](/legal/marketplace/certification-policies)do mercado comercial, nomeadamente a secção [serviços geridos.](/legal/marketplace/certification-policies#700-managed-services)
+Para saber mais sobre o processo de publicação geral, consulte [o Azure Marketplace e o AppSource Publishing Guide](../../marketplace/overview.md). Deve também rever as [políticas de certificação](/legal/marketplace/certification-policies)do mercado comercial, nomeadamente a secção [serviços geridos.](/legal/marketplace/certification-policies#700-managed-services)
 
 Uma vez que um cliente adicione a sua oferta, eles serão capazes de delegar uma ou mais subscrições ou grupos de recursos, que serão então [a bordo do Farol de Azure.](#the-customer-onboarding-process)
 
@@ -64,6 +64,6 @@ Uma vez que o cliente delega uma subscrição (ou um ou mais grupos de recursos 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Conheça o [Mercado Comercial.](../../marketplace/partner-center-portal/commercial-marketplace-overview.md)
+- Conheça o [Mercado Comercial.](../../marketplace/overview.md)
 - Conheça as [experiências de gestão de inquilinos cruzados.](../concepts/cross-tenant-management-experience.md)
 - [Ver e gerir clientes](view-manage-customers.md) indo para **os meus clientes** no portal Azure.

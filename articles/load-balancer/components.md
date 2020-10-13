@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: ccc6611f14903e47a76de938994552378bb3bc24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4dbbd3443ec6c455ba9bcb88ff90dd4960aff5d2
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589712"
+ms.locfileid: "91930956"
 ---
 # <a name="azure-load-balancer-components"></a>Componentes do balançador de carga Azure
 
@@ -127,6 +127,13 @@ Uma regra de saída configura a tradução de endereço de rede de saída (NAT) 
 Saiba mais sobre [ligações e regras de saída.](load-balancer-outbound-connections.md)
 
 O equilibrador de carga básico não suporta as regras de saída.
+
+## <a name="limitations"></a>Limitações
+
+- O balançador de carga fornece o equilíbrio de carga e o encaminhamento da porta para protocolos específicos de TCP ou UDP. As regras de equilíbrio de carga e as regras nat de entrada suportam TCP e UDP, mas não outros protocolos IP, incluindo o ICMP.
+- O fluxo de saída de um VM de backend para uma parte frontal de um balanceador de carga interno falhará.
+- Uma regra do balançador de carga não pode abranger duas redes virtuais.  Os frontends e as suas instâncias de backend devem estar localizadas na mesma rede virtual.  
+- Reencaminhar fragmentos de IP não é suportado em regras de equilíbrio de carga. A fragmentação ip de pacotes UDP e TCP não é suportada em regras de equilíbrio de carga. As regras de equilíbrio de carga das portas HA podem ser utilizadas para encaminhar os fragmentos de IP existentes. Para mais informações, consulte [a visão geral das portas de alta disponibilidade.](load-balancer-ha-ports-overview.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

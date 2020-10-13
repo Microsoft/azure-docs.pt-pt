@@ -14,12 +14,12 @@ ms.date: 05/18/2020
 ms.author: kenwith
 ms.custom: aaddev
 ms.reviewer: paulgarn
-ms.openlocfilehash: 4990b81d929019b3d201f004176234fa0ea78339
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40bf202e0f14f18d817e4e918f8372ba3c0a4ad8
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88118455"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950674"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocolo SAML de Sign-On único
 
@@ -48,10 +48,10 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 
 | Parâmetro | Tipo | Descrição |
 | --- | --- | --- |
-| ID | Necessário | A Azure AD utiliza este atributo para preencher o `InResponseTo` atributo da resposta devolvida. O ID não deve começar com um número, por isso uma estratégia comum é preparar uma corda como "id" para a representação de cordas de um GUID. Por exemplo, `id6c1c178c166d486687be4aaf5e482730` é um ID válido. |
-| Versão | Necessário | Este parâmetro deve ser definido para **2.0**. |
-| EmissãoInstant | Necessário | Esta é uma cadeia DateTime com um valor UTC e [formato de ida e volta ("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings). A Azure AD espera um valor DateTime deste tipo, mas não avalia ou utiliza o valor. |
-| AfirmaçãoConsumerServiceUrl | Opcional | Se fornecido, este parâmetro deve coincidir com `RedirectUri` o serviço de nuvem em Azure AD. |
+| ID | Obrigatório | A Azure AD utiliza este atributo para preencher o `InResponseTo` atributo da resposta devolvida. O ID não deve começar com um número, por isso uma estratégia comum é preparar uma corda como "id" para a representação de cordas de um GUID. Por exemplo, `id6c1c178c166d486687be4aaf5e482730` é um ID válido. |
+| Versão | Obrigatório | Este parâmetro deve ser definido para **2.0**. |
+| EmissãoInstant | Obrigatório | Esta é uma cadeia DateTime com um valor UTC e [formato de ida e volta ("o")](/dotnet/standard/base-types/standard-date-and-time-format-strings). A Azure AD espera um valor DateTime deste tipo, mas não avalia ou utiliza o valor. |
+| AfirmaçãoConsumerServiceURL | Opcional | Se fornecido, este parâmetro deve coincidir com `RedirectUri` o serviço de nuvem em Azure AD. |
 | ForçaAuthn | Opcional | Este é um valor booleano. Se for verdade, significa que o utilizador será forçado a reautensar, mesmo que tenha uma sessão válida com Azure AD. |
 | IsPassive | Opcional | Este é um valor booleano que especifica se a Azure AD deve autenticar o utilizador silenciosamente, sem interação do utilizador, utilizando o cookie de sessão se existir. Se isso for verdade, o Azure AD tentará autenticar o utilizador utilizando o cookie de sessão. |
 

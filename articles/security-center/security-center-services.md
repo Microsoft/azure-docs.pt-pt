@@ -17,7 +17,7 @@ ms.openlocfilehash: a311439e8efc5481fbfd7431c1514ba6be576e39
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91858018"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recursos para máquinas

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c5b7debe0c94839e2ca7742817a49216328c571
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5126ae94d8c751952964aaf4df0736a5e546ff36
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855359"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91963640"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Instale o SAP NetWeaver HA num cluster de falha do Windows e disque partilhe o disco para uma instância SAP ASCS/SCS em Azure
 
@@ -149,7 +149,7 @@ ms.locfileid: "88855359"
 
 Este artigo descreve como instalar e configurar um sistema SAP de alta disponibilidade em Azure, utilizando um cluster de failover do Windows Server e um disco partilhado de cluster para agrupar uma instância SAP ASCS/SCS. Como descrito no [guia de arquitetura: Cluster uma instância SAP ASCS/SCS num cluster de failover do Windows utilizando um disco partilhado de cluster,][sap-high-availability-guide-wsfc-shared-disk]existem duas alternativas para *o disco compartilhado do cluster*:
 
-- [Discos partilhados do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared)
+- [Discos partilhados do Azure](../../windows/disks-shared.md)
 - Usando [a SIOS DataKeeper Cluster Edition](https://us.sios.com/products/datakeeper-cluster/) para criar armazenamento espelhado, que simulará disco compartilhado agrupado 
 
 ## <a name="prerequisites"></a>Pré-requisitos

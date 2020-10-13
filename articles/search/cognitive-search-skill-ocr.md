@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 56e3c1e48df51cd24d70517ee23d47ef27d378d7
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 8b6a7c3e05b26cbda80ebf1a3fc0d4fed8255e6b
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935335"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950810"
 ---
 # <a name="ocr-cognitive-skill"></a>Habilidade cognitiva OCR
 
-A habilidade **de reconhecimento de caracteres óticos (OCR)** reconhece texto impresso e manuscrito em ficheiros de imagem. Esta habilidade utiliza os modelos de aprendizagem automática fornecidos pela [Computer Vision](../cognitive-services/computer-vision/home.md) API [v3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) em Serviços Cognitivos. As habilidades **OCR** mapeiam para a seguinte funcionalidade:
+A habilidade **de reconhecimento de caracteres óticos (OCR)** reconhece texto impresso e manuscrito em ficheiros de imagem. Esta habilidade utiliza os modelos de aprendizagem automática fornecidos pela [Computer Vision](../cognitive-services/computer-vision/overview.md) API [v3.0](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) em Serviços Cognitivos. As habilidades **OCR** mapeiam para a seguinte funcionalidade:
 
 + Para inglês, espanhol, alemão, francês, italiano, português e holandês, é utilizada a nova API ["Read".](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api)
 + Para todas as outras línguas, é utilizada a API ["OCR".](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-api)
@@ -208,7 +208,7 @@ O exemplo de skillset acima pressupõe que existe um campo de imagens normalizad
 }
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 + [Competências incorporadas](cognitive-search-predefined-skills.md)
 + [Habilidade TextMerger](cognitive-search-skill-textmerger.md)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)

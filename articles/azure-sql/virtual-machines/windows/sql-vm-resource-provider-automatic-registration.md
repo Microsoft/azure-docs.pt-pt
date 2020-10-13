@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/21/2020
-ms.openlocfilehash: 45285f2f26f1f17408f97bfede2b97e4c4752a5c
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 75f68a4de2db0c4c9102a58da12d80cc273a6e80
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91762502"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91931177"
 ---
 # <a name="automatic-registration-with-sql-vm-resource-provider"></a>Registo automático com fornecedor de recursos SQL VM
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -27,7 +27,7 @@ Este artigo ensina-o a ativar a função de registo automático. Em alternativa,
 
 O [fornecedor de recursos SQL VM](sql-vm-resource-provider-register.md#overview) permite-lhe gerir o seu SQL Server VM a partir do portal Azure. Além disso, o fornecedor de recursos permite um conjunto de funcionalidades robusto, incluindo [patching automatizado,](automated-patching.md) [backup automatizado,](automated-backup.md)bem como capacidades de monitorização e gestão. Também desbloqueia a flexibilidade [de licenciamento](licensing-model-azure-hybrid-benefit-ahb-change.md) e [edição.](change-sql-server-edition.md) Anteriormente, estas funcionalidades estavam apenas disponíveis para imagens VM do SQL Server implementadas a partir do Azure Marketplace. 
 
-A função de registo automático permite que os clientes registem automaticamente todos os VMs do servidor SQL atual e futuro na sua assinatura Azure com o fornecedor de recursos SQL VM. Isto é diferente do registo manual, que se concentra apenas nos VMs do servidor SQL atuais. 
+A função de registo automático permite que os clientes registem automaticamente todos os VMs do servidor SQL atual e futuro na sua assinatura Azure com o fornecedor de recursos SQL VM. Isto é diferente do registo manual, que se foca apenas nos VMs do servidor SQL atuais. 
 
 O registo automático regista os seus VMs sql server em modo leve. Ainda precisa de [fazer um upgrade manual para o modo de gestão completa](sql-vm-resource-provider-register.md#upgrade-to-full) para tirar partido do conjunto completo de funcionalidades. 
 

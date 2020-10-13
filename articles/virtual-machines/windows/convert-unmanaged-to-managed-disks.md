@@ -7,16 +7,16 @@ ms.subservice: disks
 ms.topic: how-to
 ms.date: 07/12/2018
 ms.author: rogarana
-ms.openlocfilehash: cf601c7f7429d4676ec480ddc016158150da8ce5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2168b3e3c55eaf06b93358f4623b181f134b4f9e
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88815204"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974199"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Converter uma máquina virtual do Windows de discos não geridos em discos geridos
 
-Se tiver máquinas virtuais (VMs) existentes que utilizam discos não geridos, pode converter os VMs para utilizar discos geridos através do serviço [Azure Managed Disks.](managed-disks-overview.md) Este processo converte tanto o disco de SO como quaisquer discos de dados anexados.
+Se tiver máquinas virtuais (VMs) existentes que utilizam discos não geridos, pode converter os VMs para utilizar discos geridos através do serviço [Azure Managed Disks.](../managed-disks-overview.md) Este processo converte tanto o disco de SO como quaisquer discos de dados anexados.
 
  
 

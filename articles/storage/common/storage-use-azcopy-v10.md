@@ -11,7 +11,7 @@ ms.openlocfilehash: 2f5b82f07ecff36ba95917a1f1b347c42ae7e074
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91856790"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy

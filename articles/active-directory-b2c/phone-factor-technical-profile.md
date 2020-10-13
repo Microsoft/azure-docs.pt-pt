@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/31/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 10d5fda526c41704381bb544bdfd0589063c1d15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 322e4b78fbfb38f1822fb7a7cdcdbfcc0738b303
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85203865"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91950402"
 ---
 # <a name="define-a-phone-factor-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico de fator telefónico numa política personalizada do Azure Ative Directory B2C
 
@@ -32,7 +32,7 @@ O Azure Ative Directory B2C (Azure AD B2C) fornece suporte para a inscrição e 
 
 ## <a name="protocol"></a>Protocolo
 
-O **atributo nome** do elemento **Protocolo** tem de ser definido para `Proprietary` . O atributo **do manipulador** deve conter o nome totalmente qualificado do conjunto de manipuladores de protocolo que é utilizado pela Azure AD B2C para o fator telefone:`Web.TPEngine.Providers.PhoneFactorProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
+O **atributo nome** do elemento **Protocolo** tem de ser definido para `Proprietary` . O atributo **do manipulador** deve conter o nome totalmente qualificado do conjunto de manipuladores de protocolo que é utilizado pela Azure AD B2C para o fator telefone: `Web.TPEngine.Providers.PhoneFactorProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`
 
 O exemplo a seguir mostra um perfil técnico do fator telefónico para a inscrição e validação:
 
@@ -60,7 +60,7 @@ O elemento InputClaims deve conter as seguintes alegações. Também pode mapear
 |  Tipo de dados| Obrigatório | Descrição |
 | --------- | -------- | ----------- | 
 | cadeia (de carateres)| Sim | Um identificador único para o utilizador. O nome de reclamação, ou PartnerClaimType deve ser definido para `UserId` . Esta alegação não deve conter informações pessoais identificáveis.|
-| string| Sim | Lista de tipos de reclamações. Cada reclamação contém um número de telefone. Se alguma das alegações de entrada não contiver um número de telefone, o utilizador será solicitado a inscrever-se e verificar um novo número de telefone. O número de telefone validado é devolvido como reclamação de saída. Se uma das alegações de entrada contiver um número de telefone, o utilizador é solicitado a verificar. Se várias reclamações de entrada contiverem um número de telefone, o utilizador é solicitado a escolher e verificar um dos números de telefone. |
+| cadeia| Sim | Lista de tipos de reclamações. Cada reclamação contém um número de telefone. Se alguma das alegações de entrada não contiver um número de telefone, o utilizador será solicitado a inscrever-se e verificar um novo número de telefone. O número de telefone validado é devolvido como reclamação de saída. Se uma das alegações de entrada contiver um número de telefone, o utilizador é solicitado a verificar. Se várias reclamações de entrada contiverem um número de telefone, o utilizador é solicitado a escolher e verificar um dos números de telefone. |
 
 O exemplo a seguir demonstra a utilização de vários números de telefone. Para mais informações, consulte [a política da amostra.](https://github.com/azure-ad-b2c/samples/tree/master/policies/mfa-add-secondarymfa)
 
@@ -78,8 +78,8 @@ O elemento OutputClaims contém uma lista de reclamações devolvidas pelo perfi
 
 |  Tipo de dados| Obrigatório | Descrição |
 |  -------- | ----------- |----------- |
-| boolean | Sim | Indica se o novo número de telefone foi introduzido pelo utilizador. O nome de reclamação, ou PartnerClaimType deve ser definido para`newPhoneNumberEntered`|
-| string| Sim | O número de telefone verificado. O nome de reclamação, ou PartnerClaimType deve ser definido para `Verified.OfficePhone` .|
+| boolean | Sim | Indica se o novo número de telefone foi introduzido pelo utilizador. O nome de reclamação, ou PartnerClaimType deve ser definido para `newPhoneNumberEntered`|
+| cadeia| Sim | O número de telefone verificado. O nome de reclamação, ou PartnerClaimType deve ser definido para `Verified.OfficePhone` .|
 
 O elemento OutputClaimsTransformations pode conter uma coleção de elementos de saídaClaimsTransformation que são utilizados para modificar as alegações de saída ou gerar novos.
 
@@ -99,8 +99,8 @@ O elemento **CryptographicKeys** não é utilizado.
 
 ### <a name="ui-elements"></a>Elementos da IU
 
-Os elementos de interface de utilizador da página de autenticação do fator telefone podem ser [localizados](localization-string-ids.md#azure-mfa-error-messages).
+Os elementos de interface de utilizador da página de autenticação do fator telefone podem ser [localizados](localization-string-ids.md#phone-factor-authentication-page-user-interface-elements).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte as [contas sociais e locais com](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccountsWithMfa) o pacote de arranque MFA.

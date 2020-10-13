@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 09/30/2020
 ms.author: apimpm
-ms.openlocfilehash: 78743c5f045f2544cafe88414ed996d08bacd2a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 231ce9d946a2fb6650f25d90aaa423d1c95fb106
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631125"
+ms.locfileid: "91930718"
 ---
 # <a name="tutorial-mock-api-responses"></a>Tutorial: Respostas da API falsas
 
@@ -107,7 +107,7 @@ Embora não sejam necessárias para este exemplo, as definições adicionais par
 1. Selecione **Guardar**.
 
     > [!TIP]
-    > Uma barra amarela com o texto **Mocking está ativada** para a sua API indica que as respostas devolvidas da API Management enviam uma política de zombaria e não uma resposta real de backend.
+    > Uma barra amarela com o texto **Zombaria para** a sua API indica que as respostas devolvidas da API Management são ridicularizadas pela [política de zombaria](api-management-advanced-policies.md#mock-response) e não são produzidas pelo backend.
 
 ## <a name="test-the-mocked-api"></a>Testar a API simulada
 

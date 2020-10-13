@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 1298a1676d7a7ac0321ae768c3e596f481e80a8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36377d34a03150fefb8332bcfbe7bb6633ccc606
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617881"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973314"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças T-SQL entre SQL Server & Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -52,7 +52,7 @@ Problemas temporários conhecidos que são descobertos em SQL Managed Instance e
 - [GRUPO DE DISPONIBILIDADE DE DROP](/sql/t-sql/statements/drop-availability-group-transact-sql)
 - A cláusula [SET HADR](/sql/t-sql/statements/alter-database-transact-sql-set-hadr) da declaração [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql)
 
-### <a name="backup"></a>Backup
+### <a name="backup"></a>Cópia de segurança
 
 SQL Managed Instance tem backups automáticos, para que os utilizadores possam criar `COPY_ONLY` cópias de dados completas. As cópias de segurança diferenciais, de registos e de ficheiros não são suportadas.
 
@@ -353,7 +353,11 @@ As declarações não documentadas do DBCC que estão ativadas no SQL Server nã
 
 ### <a name="distributed-transactions"></a>Transações distribuídas
 
-MsDTC e [transações elásticas](../database/elastic-transactions-overview.md) atualmente não são suportados em SQL Managed Instance.
+O suporte parcial para [transações distribuídas](../database/elastic-transactions-overview.md) encontra-se atualmente em pré-visualização pública. Os cenários apoiados são:
+* Transações em que os participantes são apenas Azure SQL Managed Instances que fazem parte do [grupo de confiança Do Servidor.](https://aka.ms/mitrusted-groups)
+* Transações iniciadas a partir de .NET (classe TransactionScope) e Transact-SQL.
+
+A Azure SQL Managed Instance atualmente não suporta outros cenários que são regularmente suportados pela MSDTC no local ou em Máquinas Virtuais Azure.
 
 ### <a name="extended-events"></a>Eventos Alargados
 

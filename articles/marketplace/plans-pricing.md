@@ -11,7 +11,7 @@ ms.openlocfilehash: e97171e61814b832e78f7bd815d8d6f341a90840
 ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91858177"
 ---
 # <a name="plans-and-pricing-for-commercial-marketplace-offers"></a>Planos e preços para ofertas de mercado comercial

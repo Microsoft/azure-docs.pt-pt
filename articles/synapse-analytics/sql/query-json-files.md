@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0757c867d46144ac9fb9b9eca8b2a588aeeb15d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86ed3f005788627166c65b30398279f04388546c
+ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288329"
+ms.locfileid: "91930854"
 ---
 # <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Ficheiros de consulta JSON utilizando SQL on-demand (pré-visualização) em Azure Synapse Analytics
 
@@ -58,7 +58,7 @@ from openrowset(
     ) with (doc nvarchar(max)) as rows
 ```
 
-Esta consulta devolverá cada documento JSON como uma linha separada do conjunto de resultados. Certifique-se de que pode aceder a este ficheiro. Se o seu ficheiro estiver protegido com a chave SAS ou identidade personalizada, terá de configurar a [credencial ao nível do servidor para o início de sessão](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential). 
+O documento JSON na consulta de amostra anterior inclui uma variedade de objetos. A consulta devolve cada objeto como uma linha separada no conjunto de resultados. Certifique-se de que pode aceder a este ficheiro. Se o seu ficheiro estiver protegido com a chave SAS ou identidade personalizada, terá de configurar a [credencial ao nível do servidor para o início de sessão](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential). 
 
 ### <a name="data-source-usage"></a>Utilização de fontes de dados
 

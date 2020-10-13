@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
 ms.openlocfilehash: b8d16b4e112c9aebe86c60dc01d380d591fc7624
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91743527"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Começa com a Autoscale em Azure
@@ -127,7 +127,7 @@ A via de verificação de saúde deve verificar os componentes críticos da sua 
 
 #### <a name="security"></a>Segurança 
 
-As equipas de desenvolvimento das grandes empresas precisam frequentemente de aderir aos requisitos de segurança para as suas APIs expostas. Para garantir o ponto final do healthcheck, deve primeiro utilizar funcionalidades como [restrições IP,](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules) [certificados](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules)de cliente ou uma Rede Virtual para restringir o acesso à aplicação. Pode assegurar o próprio ponto final do healthcheck, exigindo que `User-Agent` o pedido de entrada corresponda `ReadyForRequest/1.0` . O User-Agent não pode ser falsificado uma vez que o pedido já foi assegurado pelas funcionalidades de segurança anteriores.
+As equipas de desenvolvimento das grandes empresas precisam frequentemente de aderir aos requisitos de segurança para as suas APIs expostas. Para garantir o ponto final do healthcheck, deve primeiro utilizar funcionalidades como [restrições IP,](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules) [certificados](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules)de cliente ou uma Rede Virtual para restringir o acesso à aplicação. Pode assegurar o próprio ponto final do healthcheck, exigindo que `User-Agent` o pedido de entrada corresponda `ReadyForRequest/1.0` . O User-Agent não pode ser falsificado, uma vez que o pedido já estava assegurado pelas funcionalidades de segurança anteriores.
 
 ### <a name="behavior"></a>Comportamento
 

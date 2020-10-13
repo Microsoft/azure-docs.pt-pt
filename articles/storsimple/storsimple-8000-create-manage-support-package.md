@@ -6,16 +6,16 @@ ms.service: storsimple
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: c4332f3e5a1ca6d434671d3a2cfe100a5d12795d
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 4a847b273472ecc9d2aaa3993ec9d88aa46f2e7f
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86182020"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91973874"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Criar e gerir um pacote de suporte para a série StorSimple 8000
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Overview (Descrição geral)
 
 Um pacote de suporte StorSimple é um mecanismo de fácil utilização que recolhe todos os registos relevantes para ajudar o Microsoft Support a resolver problemas em quaisquer problemas do dispositivo StorSimple. Os registos recolhidos são encriptados e comprimidos.
 
@@ -60,9 +60,9 @@ Pode partilhar o seu pacote de suporte gerado manualmente com o Microsoft Suppor
      
        O pacote de suporte é criado para ambos os controladores na pasta predefinidora. O pacote é um ficheiro encriptado e comprimido que pode ser enviado para o Microsoft Support para resolução de problemas. Para obter mais informações, consulte [contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 
-### <a name="the-export-hcssupportpackage-cmdlet-parameters"></a>Os parâmetros cmdlet Export-HcsSupportPackage
+### <a name="the-export-hcssupportpackage-cmdlet-parameters"></a>Os Export-HcsSupportPackage parâmetros do cmdlet
 
-Pode utilizar os seguintes parâmetros com o cmdlet Export-HcsSupportPackage.
+Pode utilizar os seguintes parâmetros com o Export-HcsSupportPackage cmdlet.
 
 | Parâmetro | Obrigatório/Opcional | Descrição |
 | --- | --- | --- |
@@ -108,7 +108,7 @@ Para editar um pacote de suporte antes de o enviar no site do Microsoft Support,
    
     `Close-HcsSupportPackage <Path to the folder that contains support package files>`
    
-    ![Editar pacote de suporte](./media/storsimple-8000-create-manage-support-package/IC750707.png)
+    ![Editar pacote de suporte 2](./media/storsimple-8000-create-manage-support-package/IC750707.png)
 8. Quando solicitado, forneça uma palavra-passe de encriptação para o pacote de suporte modificado.
    
     ```powershell
