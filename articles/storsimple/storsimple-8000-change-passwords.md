@@ -15,15 +15,15 @@ ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 038084ba9ae43e14bc2eb42bf258912be27d062c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86527868"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-change-your-storsimple-passwords"></a>Utilize o serviço StorSimple Device Manager para alterar as suas palavras-passe StorSimple
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 A opção **de definição do dispositivo do** portal Azure contém todos os parâmetros do dispositivo que pode reconfigurar num dispositivo StorSimple que é gerido por um serviço StorSimple Device Manager. Este tutorial explica como pode utilizar a opção **De Segurança** nas **definições do Dispositivo** para alterar o administrador do dispositivo ou a palavra-passe do Gestor de Instantâneo storSimple.
 
 ## <a name="change-the-device-administrator-password"></a>Alterar palavra-passe do administrador do dispositivo
@@ -92,7 +92,7 @@ Pode definir ou alterar a palavra-passe para StorSimple Snapshot Manager atravé
 
 A palavra-passe StorSimple Snapshot Manager deve agora ser atualizada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre [a segurança StorSimple](storsimple-8000-security.md).
 * Saiba mais sobre [a modificação da configuração do seu dispositivo.](storsimple-8000-modify-device-config.md)
 * Saiba mais sobre [a utilização do serviço StorSimple Device Manager para administrar o seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).

@@ -1,5 +1,5 @@
 ---
-title: Dicas de desempenho para Azure Cosmos DB Java SDK v4
+title: Sugestões de desempenho para o SDK Java v4 do Azure Cosmos DB
 description: Aprenda opções de configuração do cliente para melhorar o desempenho da base de dados do Azure Cosmos para Java SDK v4
 author: anfeldma-ms
 ms.service: cosmos-db
@@ -9,13 +9,13 @@ ms.date: 07/08/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
 ms.openlocfilehash: a014038996ae2846d059551b565feedd8de560a0
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88258308"
 ---
-# <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Dicas de desempenho para Azure Cosmos DB Java SDK v4
+# <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Sugestões de desempenho para o SDK Java v4 do Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [SDK v4 de Java](performance-tips-java-sdk-v4-sql.md)
@@ -157,7 +157,7 @@ Consulte as instruções [do Windows](https://docs.microsoft.com/azure/virtual-n
 
     * ***Visão geral do modo Direto***
 
-        :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Ilustração da arquitetura do modo direto" border="false":::
+        :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Ilustração da política de conexão DB Azure Cosmos" border="false":::
 
         A arquitetura do lado do cliente utilizada no modo Direct permite uma utilização previsível da rede e acesso multiplexed às réplicas DB do Azure Cosmos. O diagrama acima mostra como o modo direto encaminha os pedidos do cliente para réplicas no backend do Cosmos DB. A arquitetura do modo direto aloca até 10 **canais** no lado cliente por réplica DB. Um Canal é uma ligação TCP precedida por um tampão de pedido, que é de 30 pedidos de profundidade. Os canais pertencentes a uma réplica são dinamicamente atribuídos conforme necessário pelo **Ponto de Serviço**da réplica. Quando o utilizador emite um pedido em modo direto, o **TransportClient** encaminha o pedido para o ponto final de serviço adequado com base na chave de partição. Os pedidos de buffers **de fila de pedidos** antes do ponto de final de serviço.
 

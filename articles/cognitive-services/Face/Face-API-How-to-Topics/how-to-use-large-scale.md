@@ -1,5 +1,5 @@
 ---
-title: 'Exemplo: Use a funcionalidade de Grande Escala - Face'
+title: 'Exemplo: Use a funcionalidade Large-Scale - Face'
 titleSuffix: Azure Cognitive Services
 description: Este guia é um artigo sobre como escalar de objetos persongroup e FaceList existentes para objetos LargePersonGroup e LargeFaceList.
 services: cognitive-services
@@ -12,10 +12,10 @@ ms.date: 05/01/2019
 ms.author: sbowles
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 5341c2613624c6a52f1649dcd8a64b6746b84f67
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91332394"
 ---
 # <a name="example-use-the-large-scale-feature"></a>Exemplo: Utilize a característica em larga escala

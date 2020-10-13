@@ -12,10 +12,10 @@ ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 9e83fcd6a8e6a7b0c81f47cc3ad97b7f55da1b3b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91713177"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Parceiros isv do Azure Ative Directory B2C
@@ -43,7 +43,7 @@ A nossa rede de parceiros ISV alarga as nossas capacidades de solução para o a
 | ![logotipo](./media/partner-gallery/typingdna-logo.png) | [A Digitação deDNA](./partner-typingdna.md) é um fornecedor de verificação de identidade e de impermeabilização com base no padrão de dactilografia do utilizador, fornece soluções de verificação de ID que forçam a autenticação de vários fatores e ajuda a cumprir os requisitos da SCA para a Diretiva 2 dos Serviços de Pagamento (PSD2). |
 | ![logotipo](./media/partner-gallery/whoiam-logo.png) | [A WhoIAM](./partner-whoiam.md) é uma aplicação do Sistema de Gestão de Identidade de Marca (BRIMS) que permite às organizações verificarem a sua base de utilizadores por voz, SMS e e-mail. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Selecione um parceiro na tabela acima para aprender a integrar a sua solução com a Azure AD B2C.
 

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: sfrev
 ms.openlocfilehash: 4345c919e73e57667fb3b9c90c42224326bc3552
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91300773"
 ---
 # <a name="why-use-a-microservices-approach-to-building-applications"></a>Porquê usar uma abordagem de microserviços para a construção de aplicações
@@ -166,7 +166,7 @@ Lembre-se, pode *começar e parar em qualquer uma destas fases.* Não tens de pr
 
 Vejamos os exemplos de cada uma destas fases.
 
-**Migrate**  
+**Migrar**  
 Por duas razões, muitas empresas estão a migrar aplicações monolíticas existentes em contentores:
 
 * Redução de custos, quer devido à consolidação e remoção de hardware existente, quer devido a aplicações de execução com maior densidade.

@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/01/2019
 ms.openlocfilehash: 9a95970647a26ea80db9f63fb8523c6a65cc5e06
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86082085"
 ---
 # <a name="set-up-tls-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>Configurar encriptação e autenticação TLS para Apache Kafka em Azure HDInsight
@@ -52,7 +52,7 @@ O resumo do processo de configuração do corretor é o seguinte:
 Utilize as seguintes instruções detalhadas para completar a configuração do corretor:
 
 > [!Important]
-> No código seguinte, o WNX é uma abreviatura para um dos três nós operários e deve ser substituído por `wn0` , `wn1` ou conforme `wn2` apropriado. `WorkerNode0_Name`e `HeadNode0_Name` deve ser substituído pelos nomes das respetivas máquinas.
+> No código seguinte, o WNX é uma abreviatura para um dos três nós operários e deve ser substituído por `wn0` , `wn1` ou conforme `wn2` apropriado. `WorkerNode0_Name` e `HeadNode0_Name` deve ser substituído pelos nomes das respetivas máquinas.
 
 1. Executar a configuração inicial no nó de cabeça 0, que para o HDInsight preencherá o papel da Autoridade de Certificados (CA).
 
@@ -128,8 +128,8 @@ Para completar a modificação de configuração, faça os seguintes passos:
 
 1. Inscreva-se no portal Azure e selecione o seu cluster Apache Kafka Azure HDInsight.
 1. Vá ao Ambari UI clicando em **casa de Ambari** sob **os dashboards cluster.**
-1. Sob **Kafka Broker** definir a propriedade **dos ouvintes** para`PLAINTEXT://localhost:9092,SSL://localhost:9093`
-1. Sob **o advanced kafka-broker** definir a propriedade **security.inter.broker.protocol** para`SSL`
+1. Sob **Kafka Broker** definir a propriedade **dos ouvintes** para `PLAINTEXT://localhost:9092,SSL://localhost:9093`
+1. Sob **o advanced kafka-broker** definir a propriedade **security.inter.broker.protocol** para `SSL`
 
     ![Edição de propriedades de configuração ssl kafka em Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari.png)
 
@@ -355,6 +355,6 @@ Passa estes passos na máquina do cliente.
     $ /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server <FQDN_WORKER_NODE>:9093 --topic topic1 --consumer.config ~/ssl/client-ssl-auth.properties --from-beginning
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [O que é o Apache Kafka no HDInsight?](apache-kafka-introduction.md)

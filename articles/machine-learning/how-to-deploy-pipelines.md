@@ -12,10 +12,10 @@ ms.date: 8/25/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
 ms.openlocfilehash: 46a5f4036be2d670689f7e936a31dc63e0690ddc
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91302388"
 ---
 # <a name="publish-and-track-machine-learning-pipelines"></a>Publicar e rastrear gasodutos de aprendizagem de máquinas
@@ -87,7 +87,7 @@ response = requests.post(published_pipeline1.endpoint,
 
 O `json` argumento do pedido DOM deve conter, para a `ParameterAssignments` chave, um dicionário que contenha os parâmetros do gasoduto e os seus valores. Além disso, o `json` argumento pode conter as seguintes teclas:
 
-| Chave | Description |
+| Chave | Descrição |
 | --- | --- | 
 | `ExperimentName` | O nome da experiência associada a este ponto final |
 | `Description` | Texto freeform descrevendo o ponto final | 

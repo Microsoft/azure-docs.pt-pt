@@ -14,10 +14,10 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
 ms.openlocfilehash: c59dbe9464e70c1a071b64fabf91ce56f409d8d7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91258526"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Fichas de acesso à plataforma de identidade da Microsoft
@@ -71,7 +71,7 @@ As reclamações só estão presentes se existir um valor para preenchê-lo. Por
 
 ### <a name="header-claims"></a>Reclamações de cabeçalho
 
-|Afirmação | Formato | Description |
+|Afirmação | Formato | Descrição |
 |--------|--------|-------------|
 | `typ` | String - sempre "JWT" | Indica que o símbolo é um JWT.|
 | `nonce` | Cadeia | Um identificador único usado para proteger contra ataques de repetição de símbolos. O seu recurso pode registar este valor para proteger contra repetições. |
@@ -81,7 +81,7 @@ As reclamações só estão presentes se existir um valor para preenchê-lo. Por
 
 ### <a name="payload-claims"></a>Reclamações de carga útil
 
-| Afirmação | Formato | Description |
+| Afirmação | Formato | Descrição |
 |-----|--------|-------------|
 | `aud` | String, um ID URI de aplicativo | Identifica o destinatário pretendido do token. Em fichas de identificação, o público é o ID da aplicação da sua aplicação, atribuído à sua aplicação no portal Azure. A sua aplicação deve validar este valor e rejeitar o token se o valor não corresponder. |
 | `iss` | String, um STS URI | Identifica o serviço de fichas de segurança (STS) que constrói e devolve o token, e o inquilino AD AZure em que o utilizador foi autenticado. Se o token emitido for um sinal v2.0 (ver `ver` reclamação), o URI terminará em `/v2.0` . O GUID que indica que o utilizador é um utilizador consumidor de uma conta microsoft é `9188040d-6c67-4c5b-b112-36a304b66dad` . A sua aplicação deve utilizar a parte GUID da reivindicação para restringir o conjunto de inquilinos que podem iniciar sôm na app, se aplicável. |
@@ -139,7 +139,7 @@ Pode utilizar a `BulkCreateGroups.ps1` pasta de [Scripts de Criação de Aplica�
 
 As seguintes reclamações serão incluídas em fichas v1.0, se aplicável, mas não estão incluídas em fichas v2.0 por padrão. Se estiver a utilizar o v2.0 e precisar de uma destas reclamações, solicite-os usando [reclamações opcionais](active-directory-optional-claims.md).
 
-| Afirmação | Formato | Description |
+| Afirmação | Formato | Descrição |
 |-----|--------|-------------|
 | `ipaddr`| Cadeia | O endereço IP do utilizador autenticado. |
 | `onprem_sid`| String, em [formato SID](/windows/desktop/SecAuthZ/sid-components) | Nos casos em que o utilizador tenha uma autenticação no local, esta alegação fornece o seu SID. Pode usar `onprem_sid` para autorização em aplicações antigas.|

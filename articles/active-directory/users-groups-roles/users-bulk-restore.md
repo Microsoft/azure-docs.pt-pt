@@ -14,10 +14,10 @@ ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4fe5cacfec6ee85a5d61204ffce38c856b0d1baf
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87423342"
 ---
 # <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>Restaurar a granel utilizadores eliminados no Azure Ative Directory
@@ -89,7 +89,7 @@ Get-AzureADUser -Filter "UserType eq 'Member'"
 
 Deve ver se os utilizadores que restaurou estão listados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Utilizadores de importação a granel](users-bulk-add.md)
 - [Eliminar utilizadores em massa](users-bulk-delete.md)

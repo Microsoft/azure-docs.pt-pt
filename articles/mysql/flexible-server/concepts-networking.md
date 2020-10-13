@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/23/2020
 ms.openlocfilehash: 48265856e5e745e05f6625766f9cd0c9b15c90a5
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708667"
 ---
 # <a name="connectivity-and-networking-concepts-for-azure-database-for-mysql---flexible-server-preview"></a>Conceitos de conectividade e networking para Azure Database for MySQL - Servidor Flexível (Pré-visualização)
@@ -122,7 +122,7 @@ A Azure Database for MySQL Flexible Server suporta ligar as aplicações do seu 
 A base de dados Azure para o MySQL Flexible Server suporta apenas ligações encriptadas utilizando a Segurança da Camada de Transporte (TLS 1.2). Todas as ligações recebidas com TLS 1.0 e TLS 1.1 serão negadas. Não é possível desativar ou alterar a versão TLS para ligar à Base de Dados Azure para o MySQL Flexible Server.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre como ativar o acesso privado (integração de vnet) com o [portal do Azure](how-to-manage-virtual-network-portal.md) ou [CLI do Azure](how-to-manage-virtual-network-cli.md)
 * Saiba mais sobre como ativar o acesso público (endereços IP permitidos) com o [portal do Azure](how-to-manage-firewall-portal.md) ou [CLI do Azure](how-to-manage-firewall-cli.md)
 * Saiba como [usar o TLS](how-to-connect-tls-ssl.md)

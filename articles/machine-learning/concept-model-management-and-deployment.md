@@ -12,10 +12,10 @@ ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
 ms.openlocfilehash: 6f03a1e44fdb62570b693753f5e01c7ab0f53e78
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91302422"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Gestão de modelos, implantação e monitorização com Azure Machine Learning

@@ -8,10 +8,10 @@ ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.openlocfilehash: bff930153dc8941fbfe561edf963d5b1c1e7811f
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708021"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Problemas de conexão de resolução de problemas para Azure Database para PostgreSQL - Servidor Único
@@ -59,6 +59,6 @@ Se a aplicação não ligar persistentemente à Base de Dados Azure para Postgre
 3. Verifique a sua cadeia de ligação e outras definições de ligação.
 4. Verifique a saúde do serviço no painel de instrumentos. Se você acha que há uma paralisação regional, consulte [a visão geral da continuidade do negócio com a Azure Database for PostgreSQL](concepts-business-continuity.md) para as medidas para recuperar para uma nova região.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * [Tratamento de erros de conectividade transitórios para a Base de Dados de Azure para PostgreSQL](concepts-connectivity.md)

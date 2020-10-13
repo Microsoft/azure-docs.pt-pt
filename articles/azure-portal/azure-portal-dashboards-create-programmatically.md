@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
 ms.openlocfilehash: bdaf1261e9945aa862157f7e43a44387e14d3657
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84764048"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Criar programáticamente dashboards Azure
@@ -35,7 +35,7 @@ Quaisquer que sejam as ferramentas que utilizar, para criar um dashboard program
 
 A forma mais prática de construir este documento JSON é usar o portal Azure. Pode adicionar e posicionar interativamente os seus azulejos. Em seguida, exporte o JSON e crie um modelo a partir do resultado para posterior utilização em scripts, programas e ferramentas de implementação.
 
-## <a name="create-a-dashboard"></a>Create a dashboard (Criar um dashboard)
+## <a name="create-a-dashboard"></a>Criar um dashboard
 
 Para criar um dashboard, selecione **Dashboard** a partir do menu do [portal Azure](https://portal.azure.com) e, em seguida, selecione **Novo painel de instrumentos**.
 
@@ -78,7 +78,7 @@ Para publicar este dashboard para qualquer máquina virtual no futuro, paramese 
 Existem duas abordagens para as APIs que criam recursos em Azure:
 
 * As APIs imperativas criam um recurso de cada vez. Para mais informações, consulte [Recursos.](/rest/api/resources/resources)
-* Um sistema de implementação baseado em modelo que cria múltiplos recursos dependentes com uma única chamada API. Para obter mais informações, consulte [implementar recursos com modelos de Gestor de Recursos e Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
+* Um sistema de implementação baseado em modelo que cria múltiplos recursos dependentes com uma única chamada API. Para obter mais informações, consulte  [implementar recursos com modelos de Gestor de Recursos e Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
 
 A implementação baseada no modelo suporta a parametrização e a templário. Utilizamos esta abordagem neste artigo.
 

@@ -4,10 +4,10 @@ description: Uma introdução ao ACR Tasks, um conjunto de funcionalidades no Re
 ms.topic: article
 ms.date: 08/12/2020
 ms.openlocfilehash: 24cc0415fe8756e900a8ea0ce7039f6b4710cf6f
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89488648"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizar a imagem do contentor constrói e manutenção com tarefas ACR
@@ -58,8 +58,8 @@ A ACR Tasks suporta os seguintes gatilhos quando define um git repo como o conte
 
 | Acionador | Ativado por predefinição |
 | ------- | ------------------ |
-| Consolidação | Yes |
-| Pedido Pull | No |
+| Consolidação | Sim |
+| Pedido Pull | Não |
 
 Para configurar um gatilho de atualização de código fonte, é necessário fornecer à tarefa um token de acesso pessoal (PAT) para definir o webhook no repo do GitHub ou do Azure DevOps.
 
@@ -131,7 +131,7 @@ Cada execução de tarefa gera saída de log que pode inspecionar para determina
 
 Ver mais sobre [visualização e gestão de registos de tarefas](container-registry-tasks-logs.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Quando estiver pronto para automatizar a imagem do contentor e a manutenção na nuvem, confira a [série tutorial ACR Tasks](container-registry-tutorial-quick-task.md).
 

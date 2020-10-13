@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.openlocfilehash: be042a0ec076538cf0f0d155667acea6f1ae19cb
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710486"
 ---
 # <a name="security-in-azure-database-for-postgresql---single-server"></a>Segurança na Base de Dados Azure para PostgreSQL - Servidor Único
@@ -58,6 +58,6 @@ Pode optar pela [Advanced Threat Protection](concepts-data-access-and-security-t
 
 A Oracle suporta a Encriptação de Dados Transparente (TDE) para encriptar dados de tabela e espaço de mesa. Em Azure para PostgreSQL, os dados são automaticamente encriptados em várias camadas. Consulte a secção "At-rest" nesta página e consulte também vários tópicos de Segurança, incluindo [chaves geridas pelo cliente](./concepts-data-encryption-postgresql.md) e [encriptação dupla da Infraestrutura.](./concepts-infrastructure-double-encryption.md) Pode também considerar a utilização da extensão [pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html) que é suportada em [Azure para PostgreSQL](./concepts-extensions.md).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 - Ativar regras de firewall para [IPs](concepts-firewall-rules.md) ou [redes virtuais](concepts-data-access-and-security-vnet.md)
 - Saiba mais sobre [a autenticação do Azure Ative Directory](concepts-aad-authentication.md) na Base de Dados Azure para PostgreSQL
