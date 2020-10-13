@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 12/29/2019
 ms.custom: devx-track-java
 ms.openlocfilehash: dc8dffb12dcd205671e2219dbef45ac14f9f7df7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90892535"
 ---
 # <a name="tutorial-how-to-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Tutorial: Como monitorizar os recursos da Cloud da primavera usando alertas e grupos de ação
@@ -84,7 +84,7 @@ Os passos anteriores criaram um **Grupo de Ação** que utiliza o e-mail. També
 
    ![Screenshot Portal nova regra de alerta 3](media/alerts-action-groups/alerts-3-2.png)
 
-1. Clique em **Concluído**.
+1. Clique em **Done** (Concluído).
 
    Para obter mais informações sobre as condições disponíveis para monitorizar, consulte [as opções do portal do Utilizador](spring-cloud-concept-metrics.md#user-metrics-options).
 

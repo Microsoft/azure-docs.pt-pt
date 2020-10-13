@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6d8ec8eec28d66cf93608393ddca45f78460d831
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89279776"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect Sync: Funções Referência
@@ -124,7 +124,7 @@ As funções com os tipos **mvbin**, **mvstr**e **mvref** só podem funcionar em
   * [Erro](#error)
   * [IIF](#iif)
   * [Selecionar](#select)
-  * [Comutador](#switch)
+  * [Mudar](#switch)
   * [Onde](#where)
   * [Com](#with)
 * **Texto**
@@ -509,7 +509,7 @@ O formato de saída desta função é utilizado pelo Azure Ative Directory como 
 Devoluções 48656C6C6F20776F726C6421
 
 ---
-### <a name="count"></a>de palavras
+### <a name="count"></a>Contagem
 **Description:**  
 A função Contagem devolve o número de elementos num atributo multi-valor
 

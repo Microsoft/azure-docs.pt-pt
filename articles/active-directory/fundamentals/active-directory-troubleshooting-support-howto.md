@@ -16,10 +16,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9be6efeba101dc922a1045042b64ac64bc6cd093
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89322539"
 ---
 # <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>Encontre ajuda e abra um bilhete de apoio para o Azure Ative Directory
@@ -96,7 +96,7 @@ Se não conseguir encontrar respostas utilizando recursos de autoajuda, pode abr
 
 Consulte a página de suporte do [Contact Microsoft para](https://portal.office.com/Support/ContactUs.aspx) obter números de telefone de suporte.
 
-##  <a name="next-steps"></a>Próximos passos
+##  <a name="next-steps"></a>Passos seguintes
 
 * [Microsoft Tech Community](https://techcommunity.microsoft.com/)
 

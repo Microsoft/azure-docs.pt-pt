@@ -9,12 +9,12 @@ ms.date: 08/17/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 3c34fd198164d7e3ae0851749cf51809df31ca19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42d9c418ee6feae7a763b1a2cc76d8edb2fec6ce
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88522951"
+ms.locfileid: "91873715"
 ---
 # <a name="azure-portal-how-to-video-series"></a>Séries de vídeos de procedimentos do portal do Azure
 
@@ -22,18 +22,17 @@ A série de vídeos do portal Azure mostra como trabalhar com os serviços da Az
 
 ## <a name="featured-video"></a>Vídeo em destaque
 
-Neste vídeo em destaque, mostramos-lhe como implementar uma App Web Estática Azure.
+Neste vídeo em destaque, mostramos-lhe como criar e gerir um domínio de Serviço de Aplicações.
 
-> [!VIDEO https://www.youtube.com/embed/H2MPsgujpNk]
+> [!VIDEO https://www.youtube.com/embed/b1kDT8-6a3g]
 
-[Como implementar uma App Web Estática Azure](https://www.youtube.com/watch?v=H2MPsgujpNk)
+[Como criar e gerir um domínio de Serviço de Aplicações](https://www.youtube.com/watch?v=b1kDT8-6a3g)
 
 Acompanhe estes vídeos recentes que pode ter perdido:
 
-| [Como monitorizar as Funções Azure](https://www.youtube.com/watch?v=eVDZz8h0s00)  | [Como usar a versão blob](https://www.youtube.com/watch?v=b2oyxbSbLPA)  | [Conecte-se a uma conta de armazenamento usando o Azure Private Link](https://www.youtube.com/watch?v=m7e9h1gedWQ)  |
+| [Como adicionar e garantir um domínio personalizado na sua aplicação web do Serviço de Aplicações](https://www.youtube.com/watch?v=bXP6IvNYISw)  | [Melhorias na experiência da máquina virtual Linux](https://www.youtube.com/watch?v=obg6Fq2T898)  | [Como usar a versão blob](https://www.youtube.com/watch?v=m7e9h1gedWQ)  |
 | ------| ------ | ------ |
-| [![Imagem de vídeo do YouTube sobre como monitorizar as Funções do Azure](https://i.ytimg.com/vi/eVDZz8h0s00/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=eVDZz8h0s00) | [![Imagem de vídeo do YouTube sobre como usar a versão blob](https://i.ytimg.com/vi/m7e9h1gedWQ/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=m7e9h1gedWQ) | [![Imagem de vídeo do YouTube sobre a ligação a uma conta de armazenamento usando O Link Privado Azure](https://i.ytimg.com/vi/vM7yDwHSc_o/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](https://www.youtube.com/watch?v=vM7yDwHSc_o) |
-
+| [![Imagem de vídeo do YouTube sobre como adicionar e garantir um domínio personalizado na sua aplicação web do Serviço de Aplicações](https://i.ytimg.com/vi/bXP6IvNYISw/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAf2gcTSuNBP-DczGeEB7rQLKc4UQ)](http://www.youtube.com/watch?v=bXP6IvNYISw) | [![Imagem de vídeo do YouTube sobre melhorias na experiência da máquina virtual Linux](https://i.ytimg.com/vi/obg6Fq2T898/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLAiBhmM0tZo_eV_u_JClkx3SXaWFw)](https://www.youtube.com/watch?obg6Fq2T898) | [![Imagem de vídeo do YouTube sobre como usar a versão blob](https://i.ytimg.com/vi/m7e9h1gedWQ/hqdefault.jpg?sqp=-oaymwEYCKgBEF5IVfKriqkDCwgBFQAAiEIYAXAB&rs=AOn4CLBUZwS_xaZIkYNakpHFvFIiD8i-Tw)](http://www.youtube.com/watch?v=m7e9h1gedWQ) |
 
 ## <a name="video-playlist"></a>Lista de reprodução de vídeo
 

@@ -13,10 +13,10 @@ tags: ''
 keywords: ''
 ms.service: multiple
 ms.openlocfilehash: bfd40d39907c4e69ded0fa257305d346ca261836
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91320001"
 ---
 # <a name="run-micro-focus-enterprise-server-50-in-a-docker-container-on-azure"></a>Executar Micro Focus Enterprise Server 5.0 em um recipiente Docker em Azure
@@ -167,7 +167,7 @@ Neste momento, o VM está a funcionar e a ser anexado via RDP. Está inscrito e 
 
     ![Consola de administração de servidores empresariais](media/run-image-9.png)
 
-Já está! Agora estás a gerir e a gerir uma aplicação do CICS num contentor do Docker.
+Já está. Agora estás a gerir e a gerir uma aplicação do CICS num contentor do Docker.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -12,10 +12,10 @@ ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
 ms.openlocfilehash: c22593fbd1e1653efa98c760d5bbb73b03761059
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91708400"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Criar metas de computação para formação de modelos e implantação no estúdio Azure Machine Learning
@@ -24,7 +24,7 @@ Neste artigo, aprenda a criar e gerir alvos de computação no estúdio Azure Ma
 
 * Extensão Azure Machine Learning Learning SDK ou CLI para aprendizagem automática Azure
   * [Instância de computação](how-to-create-manage-compute-instance.md)
-  * [Cluster computacional](how-to-create-attach-compute-cluster.md)
+  * [Cluster de cálculo](how-to-create-attach-compute-cluster.md)
   * [Aglomerado de serviçoS Azure Kubernetes](how-to-create-attach-kubernetes.md)
   * [Outros recursos computacional](how-to-attach-compute-targets.md)
 * A [extensão do Código VS](how-to-manage-resources-vscode.md#compute-clusters) para Azure Machine Learning.
@@ -163,7 +163,7 @@ Utilize os [passos acima](#portal-create) para anexar um cálculo.  Em seguida, 
 1. __Selecione Anexar__. 
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de um alvo ser criado e ligado ao seu espaço de trabalho, utiliza-o na [configuração de execução](how-to-set-up-training-targets.md) com um `ComputeTarget` objeto:
 

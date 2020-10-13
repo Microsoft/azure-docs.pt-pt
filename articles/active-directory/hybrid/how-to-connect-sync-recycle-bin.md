@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 12073a75cd248c9226c7ce5ecc21b64617823b32
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89279640"
 ---
 # <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Sincronização Azure AD Connect: Ativar o caixote de reciclagem AD
@@ -41,7 +41,7 @@ Esta funcionalidade ajuda a restaurar os objetos do utilizador Azure AD, fazendo
 > [!NOTE]
 > Por predefinição, a Azure AD mantém os objetos de utilizador Azure AD apagados em estado de apagamento suave durante 30 dias antes de serem permanentemente eliminados. No entanto, os administradores podem acelerar a eliminação de tais objetos. Uma vez eliminados permanentemente os objetos, já não podem ser recuperados, mesmo que a função de Caixote do Lixo AD no local esteja ativada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 **Tópicos de visão geral**
 
 * [Azure AD Connect sync: Entenda e personalize a sincronização](how-to-connect-sync-whatis.md)

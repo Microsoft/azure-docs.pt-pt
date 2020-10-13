@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: seodec18, devx-track-python, devx-track-js, devx-track-csharp
 ms.date: 05/29/2020
 ms.openlocfilehash: 66c9368d06960790c6dc960d2d95bd82be1a6e39
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91345964"
 ---
 # <a name="how-to-consume-a-machine-learning-studio-classic-web-service"></a>Como consumir um serviço web Machine Learning Studio (clássico)
@@ -36,7 +36,7 @@ Com o serviço Web Azure Machine Learning, uma aplicação externa comunica com 
 
 O Azure Machine Learning Studio (clássico) tem dois tipos de serviços:
 
-* Serviço de Resposta a Pedidos (RRS) – Um serviço de baixa latência, altamente escalável que fornece uma interface aos modelos apátridas criados e implantados a partir do Machine Learning Studio (clássico).
+* Request-Response Service (RRS) – Um serviço de baixa latência, altamente escalável que fornece uma interface aos modelos apátridas criados e implantados a partir do Machine Learning Studio (clássico).
 * Serviço de Execução de Lotes (BES) – Um serviço assíncronos que marca um lote para registos de dados.
 
 Para obter mais informações sobre serviços Web machine learning, consulte [implementar um serviço Web de machine learning](deploy-a-machine-learning-web-service.md).
@@ -78,7 +78,7 @@ A ajuda da API machine learning contém detalhes sobre um serviço Web de previs
 1. Clique no serviço Web com o qual está a trabalhar.
 2. Clique no ponto final para o qual deseja ver a Página de Ajuda da API.
 3. No menu superior, clique em **Consumir.**
-4. Clique na **página de ajuda da API** nos pontos finais de Resposta a Pedidos ou de Execução de Lote.
+4. Clique na **página de ajuda da API** nos pontos finais de Request-Response ou execução de lote.
 
 **Para ver a ajuda da API machine learning para um novo serviço Web**
 
@@ -87,7 +87,7 @@ No [Portal Azure Machine Learning Web Services](https://services.azureml.net/):
 1. Clique nos **SERVIÇOS WEB** no menu superior.
 2. Clique no serviço Web para o qual deseja recuperar a chave.
 
-Clique em Utilizar o **Serviço Web** para obter os URIs para os serviços de execução de pedidos e de execução de lotes e o código de amostra em C#, R e Python.
+Clique em Utilizar o **Serviço Web** para obter os URIs para os serviços de execução de Request-Response e lote e código de amostra em C#, R e Python.
 
 Clique **em Swagger API** para obter documentação baseada em Swagger para as APIs chamadas a partir dos URIs fornecidos.
 

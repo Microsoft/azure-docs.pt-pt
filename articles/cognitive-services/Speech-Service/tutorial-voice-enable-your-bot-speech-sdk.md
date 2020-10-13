@@ -12,10 +12,10 @@ ms.date: 02/25/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3b0c85f2c9ba04ac999911e534b906c634d457b8
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91360961"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Tutorial: Ativar a voz do seu bot utilizando o SDK de discurso
@@ -75,7 +75,7 @@ A aplicação de cliente que você vai criar neste tutorial usa um punhado de se
    * Insira um nome para o seu **grupo de Recursos.** Recomendamos **o SpeechEchoBotTutorial-ResourceGroup**.
    * Da **Região,** selecione **West US.**
 1. Clique em **Rever e criar**. Devia ver um banner que dizia **validação passada.**
-1. Clique em **Create** (Criar). Pode levar alguns minutos para criar o grupo de recursos.
+1. Clique em **Criar**. Pode levar alguns minutos para criar o grupo de recursos.
 1. Tal como acontece com os recursos que irá criar mais tarde neste tutorial, é uma boa ideia fixar este grupo de recursos no seu painel de instrumentos para facilitar o acesso. Se quiser fixar este grupo de recursos, clique no ícone pino direito do nome do grupo de recursos.
 
 ### <a name="choosing-an-azure-region"></a>Escolher uma região de Azure
@@ -109,7 +109,7 @@ Neste ponto, verifique se o seu grupo de recursos **(SpeechEchoBotTutorial-Resou
 
 | Nome | Tipo  | Localização |
 |------|-------|----------|
-| DiscursoEchoBotTutorial-Discurso | Serviços Cognitivos | E.U.A. Oeste |
+| SpeechEchoBotTutorial-Speech | Serviços Cognitivos | E.U.A. Oeste |
 
 ### <a name="create-an-azure-app-service-plan"></a>Criar um plano do Serviço de Aplicações do Azure
 
@@ -124,14 +124,14 @@ O próximo passo é criar um Plano de Serviço de Aplicações. Um plano do Serv
    * Para **a Região**, selecione **West US**.
    * Para **o Preço Tier,** certifique-se de que **o Standard S1** está selecionado. Este deve ser o valor padrão. Se não for, certifique-se de que define o **Sistema Operativo** para o **Windows** como descrito acima.
 5. Clique em **Rever e criar**. Devia ver um banner que dizia **validação passada.**
-6. Clique em **Create** (Criar). Pode levar alguns minutos para criar o grupo de recursos.
+6. Clique em **Criar**. Pode levar alguns minutos para criar o grupo de recursos.
 
 Neste momento, verifique se o seu grupo de recursos **(SpeechEchoBotTutorial-ResourceGroup)** tem dois recursos:
 
 | Nome | Tipo  | Localização |
 |------|-------|----------|
 | SpeechEchoBotTutorial-AppServicePlan | Plano do Serviço de Aplicações | E.U.A. Oeste |
-| DiscursoEchoBotTutorial-Discurso | Serviços Cognitivos | E.U.A. Oeste |
+| SpeechEchoBotTutorial-Speech | Serviços Cognitivos | E.U.A. Oeste |
 
 ## <a name="build-an-echo-bot"></a>Construir um Echo Bot
 
@@ -201,7 +201,7 @@ O próximo passo é colocar o Echo Bot em Azure. Existem algumas formas de imple
    * Para **subscrição**, desemosseê-lo para **Teste Gratuito**
    * Para **o Grupo de Recursos**, selecione **SpeechEchoBotTutorial-ResourceGroup**
    * Para **o Plano de Hospedagem**, selecione **SpeechEchoBotTutorial-AppServicePlan**
-1. Clique em **Create** (Criar). No ecrã final do assistente, clique em **Terminar**.
+1. Clique em **Criar**. No ecrã final do assistente, clique em **Terminar**.
 1. Clique em **Publicar** no lado direito do ecrã Publicar. O Visual Studio implanta o bot para o Azure.
 1. Deve ver uma mensagem de sucesso na janela de saída do Visual Studio que se parece com isto:
 
@@ -217,7 +217,7 @@ O próximo passo é colocar o Echo Bot em Azure. Existem algumas formas de imple
 |------|-------|----------|
 | EchoBot20190805125647 | Serviço de Aplicações | E.U.A. Oeste |
 | SpeechEchoBotTutorial-AppServicePlan | Plano do Serviço de Aplicações | E.U.A. Oeste |
-| DiscursoEchoBotTutorial-Discurso | Serviços Cognitivos | E.U.A. Oeste |
+| SpeechEchoBotTutorial-Speech | Serviços Cognitivos | E.U.A. Oeste |
 
 ## <a name="enable-web-sockets"></a>Ativar tomadas web
 
@@ -227,7 +227,7 @@ Terá de fazer uma pequena alteração de configuração para que o seu bot poss
 2. No painel de navegação esquerdo, em **Definições,** clique em **Configuração**.
 3. Selecione o **separador Definições Gerais.**
 4. Localize o toggle para **tomadas Web** e coloque-o **em On**.
-5. Clique em **Save** (Guardar).
+5. Clique em **Guardar**.
 
 > [!TIP]
 > Pode utilizar os controlos na parte superior da sua página de Serviço de Aplicações Azure para parar ou reiniciar o serviço. Isto pode ser útil quando se resolver problemas.
@@ -255,7 +255,7 @@ Neste ponto, consulte o seu Grupo de Recursos **SpeechEchoBotTutorial-ResourceGr
 | EchoBot20190805125647 | Serviço de Aplicações | E.U.A. Oeste |
 | SpeechEchoBotTutorial-AppServicePlan | Plano do Serviço de Aplicações | E.U.A. Oeste |
 | SpeechEchoBotTutorial-BotRegistration-8726 | Registo de canais de bot | Global |
-| DiscursoEchoBotTutorial-Discurso | Serviços Cognitivos | E.U.A. Oeste |
+| SpeechEchoBotTutorial-Speech | Serviços Cognitivos | E.U.A. Oeste |
 
 > [!IMPORTANT]
 > O recurso De Registo de Canais Bot mostrará a região Global, apesar de ter selecionado os EUA Ocidentais. Isto era esperado.
@@ -291,11 +291,11 @@ Agora é hora de registar o seu bot no canal Direct Line Speech. Este canal cria
    * Reveja o texto na página intitulada **Configure Direct line Speech**, em seguida, expanda o menu de entrega de conta de **serviço cognitivo.**
    * Selecione o recurso de fala que criou anteriormente (por exemplo, **SpeechEchoBotTutorial-Speech**) do menu para associar o seu bot à tecla de subscrição de discurso.
    * Ignore o resto dos campos opcionais.
-   * Clique em **Save** (Guardar).
+   * Clique em **Guardar**.
 
 1. A partir da navegação **de gestão bot,** clique em **Definições**.
    * Verifique a caixa com a etiqueta **Enable Streaming Endpoint**. Isto é necessário para criar um protocolo de comunicação construído em tomadas web entre o seu bot e o canal Direct Line Speech.
-   * Clique em **Save** (Guardar).
+   * Clique em **Guardar**.
 
 > [!TIP]
 > Se quiser saber mais, consulte [o Connect a Bot to Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0). Esta página inclui informações adicionais e questões conhecidas.
@@ -472,13 +472,13 @@ Se não continuar a utilizar o eco-bot implantado neste tutorial, pode removê-l
 > [!div class="nextstepaction"]
 > [Construa a sua própria app de clientes com o Speech SDK](quickstart-voice-assistant-csharp-uwp.md)
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 * Implantação numa [região de Azure perto de si](https://azure.microsoft.com/global-infrastructure/locations/) para ver a melhoria do tempo de resposta do bot
 * Implantação numa [região do Azure que suporta vozes neurais de alta qualidade](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices)
 * Preços associados ao canal Direct Line Speech:
   * [Preços do Serviço bot](https://azure.microsoft.com/pricing/details/bot-service/)
-  * [Serviço de fala](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
+  * [Serviço de voz](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
 * Construindo e implantando o seu próprio bot ativado por voz:
   * Construa um [bot de estrutura bot.](https://dev.botframework.com/) Registe-o com [o canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0) e [personalize o seu bot para voz](https://docs.microsoft.com/azure/bot-service/directline-speech-bot?view=azure-bot-service-4.0)
   * Explore [as soluções existentes do Quadro de Bot:](https://microsoft.github.io/botframework-solutions/index)Construa um [assistente virtual](https://microsoft.github.io/botframework-solutions/overview/virtual-assistant-solution/) e [estenda-o ao Discurso de Linha Direta](https://microsoft.github.io/botframework-solutions/clients-and-channels/tutorials/enable-speech/1-intro/)

@@ -12,10 +12,10 @@ ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ms.openlocfilehash: 272a5dc75ca1ef2a4829eb85f5a57738cb663963
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710244"
 ---
 # <a name="azure-synapse-analytics-data-integration-partners"></a>Parceiros de integração de dados Azure Synapse Analytics
@@ -48,5 +48,5 @@ Para criar a sua solução de armazém de dados utilizando a funcionalidade de p
 | ![WhereScape](./media/sql-data-warehouse-partner-data-integration/wherescape_logo.png) |**Wherescape RED**<br> WhereScape RED é um IDE que fornece às equipas ferramentas de automação para agilizar os fluxos de trabalho da ETL. O IDE fornece as melhores práticas, código nativo otimizado para alvos de dados populares. Utilize o WhereScape RED para reduzir o tempo para desenvolver, implantar e operar a sua infraestrutura de dados.|[Página do produto](https://www.wherescape.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/wherescapesoftware.wherescape-red?source=datamarket&tab=Overview) |
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre outros parceiros, consulte [parceiros de Business Intelligence,](sql-data-warehouse-partner-business-intelligence.md) [parceiros de Gestão de Dados](sql-data-warehouse-partner-data-management.md)e [machine learning e parceiros de IA.](sql-data-warehouse-partner-machine-learning-ai.md)

@@ -9,10 +9,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.openlocfilehash: c8fa2efe708823ff4154edfd58f1b18e0176a990
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89381211"
 ---
 # <a name="how-to-market-your-saas-offer"></a>Como comercializar a sua oferta SaaS
@@ -29,7 +29,7 @@ Para obter detalhes e instruções para configurar o **Co-sell com** o separador
 
 Se optar por disponibilizar a sua oferta no programa Cloud Solution Provider (CSP), os CSPs podem vender o seu produto como parte de uma solução agregada aos seus clientes. Para obter mais informações sobre a revenda da sua oferta através do programa CSP e instruções passo a passo para configurar o separador Revender através do separador **CSPs,** consulte o [programa Cloud Solution Provider](cloud-solution-providers.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Testar e publicar uma oferta SaaS](test-publish-saas-offer.md)
 - [Recompensas de mercado ativas](partner-center-portal/marketplace-rewards.md)

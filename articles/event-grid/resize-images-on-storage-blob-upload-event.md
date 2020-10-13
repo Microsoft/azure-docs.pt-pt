@@ -4,10 +4,10 @@ description: 'Tutorial: A grelha de eventos Azure pode acionar em uploads de bol
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.openlocfilehash: 47ac8cad6d7c2ead8d25aa3525aafdab735f9e71
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91326597"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutorial: Automatizar redimensionar imagens carregadas usando a Grade de Eventos
@@ -263,7 +263,7 @@ Uma subscrição de evento indica que eventos gerados pelo fornecedor quer que s
 
 1.  Selecione **selecione Integração** e escolha o **Gatilho da grelha de eventos** e selecione Criar a **subscrição de 'Grelha de Eventos'.**
 
-    :::image type="content" source="./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png" alt-text="Navegue para adicionar subscrição de Grade de Eventos no portal Azure" :::
+    :::image type="content" source="./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png" alt-text="Escolha a função miniatura no portal" :::
 
 1. Utilize as definições de subscrição de evento especificadas na tabela.
     

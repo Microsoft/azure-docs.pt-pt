@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
 ms.openlocfilehash: 6d653594cce20439a6e1214f104d875ec76bf1a9
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90979855"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Salesforce
@@ -120,7 +120,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Create** (Criar).
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -140,7 +140,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     ![Extensão das minhas aplicações](common/install-myappssecure-extension.png)
 
-1. Depois de adicionar extensão ao navegador, clique em **Configurar o Salesforce** irá direcioná-lo para a aplicação Salesforce Single Sign-On. A partir daí, forneça as credenciais de administração para assinar no Salesforce Single Sign-On. A extensão do navegador configurará automaticamente a aplicação para si e automatizará os passos 3-13.
+1. Depois de adicionar extensão ao navegador, clique em **Configurar a Salesforce** irá direcioná-lo para a aplicação Sign-On Única Salesforce. A partir daí, forneça as credenciais de administração para assinar no Salesforce Single Sign-On. A extensão do navegador configurará automaticamente a aplicação para si e automatizará os passos 3-13.
 
     ![Configuração de configuração](common/setup-sso.png)
 
@@ -148,46 +148,46 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Clique na **Configuração** no **ícone de definições** no canto superior direito da página.
 
-    ![Configurar o ícone de definições únicas de inscrição](./media/salesforce-tutorial/configure1.png)
+    ![Configurar ícone de configurações de Sign-On únicas](./media/salesforce-tutorial/configure1.png)
 
-1. Desloque-se até às **DEFINIÇÕES** no painel de navegação, clique em **Identidade** para expandir a secção relacionada. Em seguida, clique em **Definições de Inscrição únicas**.
+1. Desloque-se até às **DEFINIÇÕES** no painel de navegação, clique em **Identidade** para expandir a secção relacionada. Em seguida, clique em **Definições Sign-On únicas**.
 
-    ![Configurar definições únicas de sinalização](./media/salesforce-tutorial/sf-admin-sso.png)
+    ![Configurar configurar configurações de Sign-On únicas](./media/salesforce-tutorial/sf-admin-sso.png)
 
-1. Na página **'Definições de 'Sessão',** clique no botão **Editar.**
+1. Na página **'Definições Sign-On única',** clique no botão **Editar.**
 
-    ![Configurar a edição única de sinal-on](./media/salesforce-tutorial/sf-admin-sso-edit.png)
+    ![Configure a edição de Sign-On única](./media/salesforce-tutorial/sf-admin-sso-edit.png)
 
     > [!NOTE]
-    > Se não conseguir ativar as definições de 'Sign-On' único para a sua conta Salesforce, poderá ter de contactar a equipa de [suporte do Cliente Salesforce.](https://help.salesforce.com/support)
+    > Se não conseguir ativar as definições de Sign-On única para a sua conta Salesforce, poderá ter de contactar a equipa de [suporte do Cliente Salesforce.](https://help.salesforce.com/support)
 
 1. Selecione **SAML Ativado**e, em seguida, clique em **Guardar**.
 
-    ![Configurar um único sinal-on SAML habilitado](./media/salesforce-tutorial/sf-enable-saml.png)
+    ![Configurar único Sign-On SAML habilitado](./media/salesforce-tutorial/sf-enable-saml.png)
 
 1. Para configurar as definições de inscrição única do SAML, clique em **Novo A partir do Ficheiro de Metadados**.
 
-    ![Configure o único sinal de inscrição a partir do ficheiro de metadados](./media/salesforce-tutorial/sf-admin-sso-new.png)
+    ![Configurar Sign-On Novo novo a partir do arquivo de metadados](./media/salesforce-tutorial/sf-admin-sso-new.png)
 
 1. Clique **em Escolher Ficheiro** para carregar o ficheiro XML dos metadados que descarregou a partir do portal Azure e clique em **Criar**.
 
-    ![Configurar um único ficheiro de escolha de súmula](./media/salesforce-tutorial/xmlchoose.png)
+    ![Configurar o ficheiro de escolha de Sign-On individuais](./media/salesforce-tutorial/xmlchoose.png)
 
-1. Na página **de Definições únicas de sinais de SDOL,** os campos povoam-se automaticamente, selecionam o Provisionamento do **Utilizador Ativado** e, em seguida, clique em **Guardar**.
+1. Na página **de Definições de Sign-On Único SAML,** os campos povoam-se automaticamente, selecionam o Provisionamento do **Utilizador Ativado** e, em seguida, clique em **Guardar**.
 
-    ![Configure o provisionamento único do utilizador de sinalização ativado](./media/salesforce-tutorial/salesforcexml.png)
+    ![Configure o provisionamento único Sign-On do utilizador habilitado](./media/salesforce-tutorial/salesforcexml.png)
 
 1. No painel de navegação à esquerda no Salesforce, clique em **Definições da Empresa** para expandir a secção relacionada e, em seguida, clique em **My Domain**.
 
-    ![Configurar um único sinal no meu domínio](./media/salesforce-tutorial/sf-my-domain.png)
+    ![Configurar single Sign-On Meu Domínio](./media/salesforce-tutorial/sf-my-domain.png)
 
 1. Desloque-se para baixo para a secção **de Configuração de Autenticação** e clique no botão **Editar.**
 
-    ![Configuração única de autenticação de assinatura única](./media/salesforce-tutorial/sf-edit-auth-config.png)
+    ![Configuração de autenticação única Sign-On única](./media/salesforce-tutorial/sf-edit-auth-config.png)
 
 1. Na secção Configuração de **Autenticação,** Verifique o Serviço de **Autenticação** **AzureSSO** da sua configuração SSO SAML e, em seguida, clique em **Guardar**.
 
-    ![Configurar um único serviço de autenticação por sinalização](./media/salesforce-tutorial/sf-auth-config.png)
+    ![Configure serviço único de autenticação Sign-On](./media/salesforce-tutorial/sf-auth-config.png)
 
     > [!NOTE]
     > Se for selecionado mais de um serviço de autenticação, os utilizadores são solicitados a selecionar em que serviço de autenticação gostam de iniciar a súmia enquanto iniciam uma única sação no seu ambiente Salesforce. Se não quer que aconteça, então deve **deixar todos os outros serviços de autenticação descontrolados.**

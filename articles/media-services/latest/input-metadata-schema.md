@@ -14,10 +14,10 @@ ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: 9ddfe3ea0d26a9032922423e7f2c2a2b6c3e411a
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89295569"
 ---
 # <a name="input-metadata"></a>Metadados de entrada
@@ -113,7 +113,7 @@ Contém uma coleção de elementos AssetFile para o trabalho de codificação.
 | Nome | Descrição |
 | --- | --- |
 | **chave**<br />Necessário |A chave no par chave/valor. |
-| **valor**<br /> Necessário |O valor no par chave/valor. |
+| **value**<br /> Necessário |O valor no par chave/valor. |
 
 ## <a name="schema-example"></a>Exemplo de Schema
 
@@ -240,6 +240,6 @@ Contém uma coleção de elementos AssetFile para o trabalho de codificação.
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Metadados de saída](output-metadata-schema.md)

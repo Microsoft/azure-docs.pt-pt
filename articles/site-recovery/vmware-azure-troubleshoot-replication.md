@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
 ms.openlocfilehash: 8b44a1d6119cc658b9460e0a52fa0629f759964a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91336210"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Resolver problemas de replicação para VMs VMware e servidores físicos
@@ -146,7 +146,7 @@ Algumas das questões mais comuns estão listadas abaixo
 #### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>Causa 3: Emissão conhecida no SQL Server 2016 e 2017
 **Como corrigir** : Consulte [o artigo](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) do Kb
 
-#### <a name="cause-4-app-consistency-not-enabled-on-linux-servers"></a>Causa 4: App-Consistência não ativada nos servidores Linux
+#### <a name="cause-4-app-consistency-not-enabled-on-linux-servers"></a>Causa 4: App-Consistency não ativados nos servidores Linux
 **Como corrigir** : A Azure Site Recovery for Linux Operation System suporta scripts personalizados de aplicações para consistência de aplicações. O script personalizado com opções pré e post será usado pelo Agente de Mobilidade de Recuperação do Site Azure para obter consistência de aplicações. [Aqui](./site-recovery-faq.md#replication) estão os passos para o permitir.
 
 ### <a name="more-causes-due-to-vss-related-issues"></a>Mais causas devido a problemas relacionados com VSS:

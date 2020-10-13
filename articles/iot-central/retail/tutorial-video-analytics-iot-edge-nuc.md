@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/27/2020
-ms.openlocfilehash: 4ecce689e287673a3b08f8f90f87c28e021106d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d05ab19ff7fee43d91a9620f96699d73bc38a1a
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88038389"
+ms.locfileid: "91873307"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-intel-nuc"></a>Tutorial: Criar uma instância IoT Edge para análise de vídeo (Intel NUC)
 
@@ -35,7 +35,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Antes de começar, deverá completar o anterior [Criar uma aplicação de análise de vídeo ao vivo no tutorial Azure IoT Central.](./tutorial-video-analytics-create-app.md)
+* Antes de começar, deverá completar a anterior [Criar uma aplicação de análise de vídeo ao vivo no Azure IoT Central (YOLO v3)](./tutorial-video-analytics-create-app-yolo-v3.md) ou criar uma análise de vídeo no tutorial [Azure IoT Central (OpenVINO). &trade; ](tutorial-video-analytics-create-app-openvino.md)
 * Um dispositivo, como um Intel NUC, que executa o Linux, que pode executar contentores Docker, e tem poder de processamento suficiente para executar análises de vídeo.
 * O [tempo de funcionamento IoT Edge instalado](../../iot-edge/how-to-install-iot-edge-linux.md) e em funcionamento no dispositivo.
 * Seja capaz de ligar ao dispositivo IoT Edge a partir da sua máquina Windows, precisa do [cliente PuTTY SSH](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) ou de um utilitário equivalente.

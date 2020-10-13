@@ -11,10 +11,10 @@ ms.subservice: studio
 ms.topic: how-to
 ms.date: 06/15/2017
 ms.openlocfilehash: b30cd926f6908c26c6f71c1513a8c68c8a46bf43
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91359754"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Ativar o registo de serviços web do Azure Machine Learning Studio (clássico)
@@ -44,7 +44,7 @@ Você permite iniciar sessão a partir do portal [Azure Machine Learning Studio 
 
    ![Selecione o nível de registo](./media/web-services-logging/enable-logging.png)
 
-6. Clique em **Save** (Guardar).
+6. Clique em **Guardar**.
 
 7. Para serviços web clássicos, crie o recipiente **ml-diagnóstico.**
 
@@ -71,9 +71,9 @@ Os registos podem ser vistos utilizando qualquer uma das várias ferramentas dis
 ## <a name="log-blob-detail-information"></a>Informação detalhada do blob de log
 Cada bolha no recipiente contém a informação de diagnóstico para uma das seguintes ações:
 
-* Uma execução do método de execução de lote  
-* Uma execução do método de resposta de pedido  
-* Inicialização de um recipiente de resposta de pedido
+* Uma execução do método Batch-Execution  
+* Uma execução do método Request-Response  
+* Inicialização de um recipiente de Request-Response
 
 O nome de cada bolha tem um prefixo do seguinte formulário: 
 

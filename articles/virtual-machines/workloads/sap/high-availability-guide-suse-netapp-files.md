@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: radeltch
 ms.openlocfilehash: 089976f6e97e303dd8faaf854e453a558b9eba84
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89067591"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server com Ficheiros Azure NetApp para aplicações SAP
@@ -250,7 +250,7 @@ Primeiro, tem de criar os volumes dos Ficheiros Azure NetApp. Desdobre os VMs. E
          1. Abra o equilibrador de carga, selecione o pool IP frontal e clique em Adicionar
          1. Insira o nome do novo pool IP frontend (por **exemplo, frontend. O QAS. ASCS**)
          1. Desaponda a Estática e introduza o endereço IP (por exemplo **10.1.1.20**)
-         1. Clicar em OK
+         1. Clique em OK
       1. Endereço IP 10.1.1.21 para o ASCS ERS
          * Repita os passos acima em "a" para criar um endereço IP para o ERS (por exemplo **10.1.1.21** e **frontend. O QAS. ERS**)
    1. Criar o conjunto de back-end
@@ -265,7 +265,7 @@ Primeiro, tem de criar os volumes dos Ficheiros Azure NetApp. Desdobre os VMs. E
          1. Abra o equilibrador de carga, selecione sondas de saúde e clique em Adicionar
          1. Insira o nome da nova sonda de saúde (por **exemplo, saúde. O QAS. ASCS**)
          1. Selecione TCP como protocolo, porta 620**00**, mantenha o Intervalo 5 e o limiar insalubre 2
-         1. Clicar em OK
+         1. Clique em OK
       1. Porto 621**01** para ASCS ERS
             * Repita os passos acima em "c" para criar uma sonda de saúde para o ERS (por exemplo 621**01** e **saúde. O QAS. ERS**)
    1. Regras de equilíbrio de carga
@@ -276,7 +276,7 @@ Primeiro, tem de criar os volumes dos Ficheiros Azure NetApp. Desdobre os VMs. E
          1. Selecione **portas HA**
          1. Aumente o tempo de inatividade para 30 minutos
          1. **Certifique-se de ativar o IP flutuante**
-         1. Clicar em OK
+         1. Clique em OK
          * Repita os passos acima para criar regras de equilíbrio de carga para ERS (por exemplo **lb. O QAS. ERS**)
 1. Em alternativa, se o seu cenário necessitar de um balanceador de carga básico (interno), siga estes passos:  
    1. Criar os endereços IP frontend
@@ -284,7 +284,7 @@ Primeiro, tem de criar os volumes dos Ficheiros Azure NetApp. Desdobre os VMs. E
          1. Abra o equilibrador de carga, selecione o pool IP frontal e clique em Adicionar
          1. Insira o nome do novo pool IP frontend (por **exemplo, frontend. O QAS. ASCS**)
          1. Desaponda a Estática e introduza o endereço IP (por exemplo **10.1.1.20**)
-         1. Clicar em OK
+         1. Clique em OK
       1. Endereço IP 10.1.1.21 para o ASCS ERS
          * Repita os passos acima em "a" para criar um endereço IP para o ERS (por exemplo **10.1.1.21** e **frontend. O QAS. ERS**)
    1. Criar o conjunto de back-end
@@ -293,13 +293,13 @@ Primeiro, tem de criar os volumes dos Ficheiros Azure NetApp. Desdobre os VMs. E
       1. Clique em Adicionar uma máquina virtual.
       1. Selecione o Conjunto de Disponibilidade que criou anteriormente para ASCS 
       1. Selecione as máquinas virtuais do cluster (A)SCS
-      1. Clicar em OK
+      1. Clique em OK
    1. Criar as sondas de saúde
       1. Porto 620**00** para ASCS
          1. Abra o equilibrador de carga, selecione sondas de saúde e clique em Adicionar
          1. Insira o nome da nova sonda de saúde (por **exemplo, saúde. O QAS. ASCS**)
          1. Selecione TCP como protocolo, porta 620**00**, mantenha o Intervalo 5 e o limiar insalubre 2
-         1. Clicar em OK
+         1. Clique em OK
       1. Porto 621**01** para ASCS ERS
             * Repita os passos acima em "c" para criar uma sonda de saúde para o ERS (por exemplo 621**01** e **saúde. O QAS. ERS**)
    1. Regras de equilíbrio de carga
@@ -310,7 +310,7 @@ Primeiro, tem de criar os volumes dos Ficheiros Azure NetApp. Desdobre os VMs. E
          1. Manter o protocolo **TCP,** inserir porta **3200**
          1. Aumente o tempo de inatividade para 30 minutos
          1. **Certifique-se de ativar o IP flutuante**
-         1. Clicar em OK
+         1. Clique em OK
       1. Portas adicionais para o ASCS
          * Repita os passos acima em "d" para as portas 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14,**5 00**16 e TCP para o ASCS
       1. Portos adicionais para o ASCS ERS
@@ -506,7 +506,7 @@ Os seguintes itens são prefixados com **ambos [A]** - aplicável a todos os nó
    > - Para sLES 15/15 SP1, a versão deve ser pelo menos agentes de recursos-4.3.0184.6ee15eb2-4.13.1.  
    >
    > Note que a mudança requer breves tempos de inatividade.  
-   > Para os clusters pacemaker existentes, se a configuração já foi alterada para usar socat como descrito no [Endurecimento de Deteção de Equilíbrio de Carga Azure,](https://www.suse.com/support/kb/doc/?id=7024128)não existe qualquer necessidade de mudar imediatamente para o agente de recursos azure-lb.
+   > Para os clusters pacemaker existentes, se a configuração já foi alterada para usar socat como descrito no [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128), não existe qualquer requisito para mudar imediatamente para o agente de recursos azure-lb.
 
    <pre><code>sudo crm node standby <b>anftstsapcl2</b>
    # If using NFSv3
