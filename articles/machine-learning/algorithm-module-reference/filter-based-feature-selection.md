@@ -10,10 +10,10 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
 ms.openlocfilehash: 1afa5df20c9bcbf63f8ad9f527e54f622eba3d19
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90893787"
 ---
 # <a name="filter-based-feature-selection"></a>Seleção de funcionalidades baseadas em filtro
@@ -36,7 +36,7 @@ Normalmente, usa-se apenas as colunas com as melhores pontuações para construi
 
 ## <a name="how-to-choose-a-feature-selection-metric"></a>Como escolher uma métrica de seleção de recursos
 
-O módulo de seleção de recursos baseado em filtros fornece uma variedade de métricas para avaliar o valor da informação em cada coluna. Esta secção fornece uma descrição geral de cada métrica, e como é aplicada. Pode encontrar requisitos adicionais para a utilização de cada métrica nas [notas técnicas](#technical-notes) e nas [instruções](#how-to-configure-filter-based-feature-selection) para configurar cada módulo.
+O módulo de seleção de recursos Filter-Based fornece uma variedade de métricas para avaliar o valor da informação em cada coluna. Esta secção fornece uma descrição geral de cada métrica, e como é aplicada. Pode encontrar requisitos adicionais para a utilização de cada métrica nas [notas técnicas](#technical-notes) e nas [instruções](#how-to-configure-filter-based-feature-selection) para configurar cada módulo.
 
 -   **Correlação pearson**  
 
@@ -52,11 +52,11 @@ O módulo de seleção de recursos baseado em filtros fornece uma variedade de m
 > [!TIP]
 > Se precisar de uma opção diferente para o método de seleção de funcionalidades personalizadas, utilize o módulo [Executar Script R.](execute-r-script.md) 
 
-## <a name="how-to-configure-filter-based-feature-selection"></a>Como configurar a seleção de funcionalidades baseadas em filtros
+## <a name="how-to-configure-filter-based-feature-selection"></a>Como configurar a seleção de recursos Filter-Based
 
 Escolhe-se uma métrica estatística padrão. O módulo calcula a correlação entre um par de colunas: a coluna de etiqueta e uma coluna de características.
 
-1.  Adicione o módulo de seleção de recursos baseado em filtro ao seu oleoduto. Pode encontrá-lo na categoria **de Seleção de Recursos** no designer.
+1.  Adicione o módulo de seleção de recursos Filter-Based ao seu oleoduto. Pode encontrá-lo na categoria **de Seleção de Recursos** no designer.
 
 2. Conecte um conjunto de dados de entrada que contenha pelo menos duas colunas que são funcionalidades potenciais.  
 
@@ -93,7 +93,7 @@ Escolhe-se uma métrica estatística padrão. O módulo calcula a correlação e
 7.  Envie o pipeline ou selecione o módulo de seleção de funções baseada no filtro e, em seguida, selecione **Executar selecionado**.
 
 
-## <a name="results"></a>Resultados
+## <a name="results"></a>Results
 
 Após o processamento estar concluído:
 

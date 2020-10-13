@@ -17,10 +17,10 @@ ms.date: 07/24/2019
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 721389b557fde41b1461654b03299601e2384108
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91361335"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Cluster uma instância SAP ASCS/SCS num cluster de failover do Windows utilizando uma partilha de ficheiros no Azure
@@ -133,7 +133,7 @@ Para utilizar uma partilha de ficheiros de escala, o seu sistema deve satisfazer
 * Recomendamos que formate volumes utilizando o Sistema de Ficheiros Resiliente (ReFS).
     * Para obter mais informações, consulte [o SAP Note 1869038 - suporte SAP para sistema de ficheiros ReFs][1869038] e o capítulo do sistema de [ficheiros][planning-volumes-s2d-choosing-filesystem] do artigo Planeamento volumes em Espaços de Armazenamento Direto.
     * Certifique-se de que instala [a atualização cumulativa do Microsoft KB4025334][kb4025334].
-* Pode utilizar tamanhos DS-Series ou DSv2-Series Azure VM.
+* Pode utilizar DS-Series ou DSv2-Series tamanhos Azure VM.
 * Para um bom desempenho de rede entre VMs, que é necessário para a sincronização do disco direto dos espaços de armazenamento, utilize um tipo VM que tenha pelo menos uma largura de banda de rede "alta".
     Para obter mais informações, consulte as especificações [da Série DSv2][dv2-series] e [da Série DS.][ds-series]
 * Recomendamos que reserve alguma capacidade não acoada na piscina de armazenamento. Deixar alguma capacidade não acoada na piscina de armazenamento dá espaço aos volumes para reparar "no lugar" se uma unidade falhar. Isto melhora a segurança e o desempenho dos dados.  Para obter mais informações, consulte [escolher o tamanho do volume.][choosing-the-size-of-volumes-s2d]

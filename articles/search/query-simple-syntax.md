@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.openlocfilehash: d07364e20cc11abc52ad9b308eb5daed8a65c146
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88923386"
 ---
 # <a name="simple-query-syntax-in-azure-cognitive-search"></a>Sintaxe de consulta simples na Pesquisa Cognitiva Azure
@@ -114,7 +114,7 @@ Para outras variantes de consulta wildcard, tais como sufixo ou infixo correspon
 
 Uma pesquisa de termo é uma consulta para um ou mais termos, onde qualquer um dos termos são considerados compatíveis. Uma pesquisa de frases é uma frase exata incluída em aspas `" "` . Por exemplo, enquanto `Roach Motel` (sem cotações) procuraria documentos que contenham `Roach` e/ou `Motel` em qualquer lugar em qualquer ordem, `"Roach Motel"` (com aspas) apenas corresponderá a documentos que contenham toda essa frase em conjunto e nessa ordem (a análise lexical ainda se aplica).
 
-## <a name="see-also"></a>Ver também  
+## <a name="see-also"></a>Consulte também  
 
 + [Como funciona a pesquisa em texto completo no Azure Cognitive Search](search-lucene-query-architecture.md)
 + [Exemplos de consulta para pesquisa simples](search-query-simple-examples.md)

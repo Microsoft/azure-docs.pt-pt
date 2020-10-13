@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 25314b4a306678dc877a95194907b3d73979e4f8
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89275866"
 ---
 # <a name="troubleshoot-azure-ad-connect-install-issues"></a>Resolução de problemas: Problemas de instalação Azure AD Connect
@@ -56,6 +56,6 @@ No entanto, se não cumprir os critérios de instalação expresso e tiver de fa
 * [Azure AD Connect: O que é o servidor de encenação?](./plan-connect-topologies.md#staging-server)
 * [O que é o Módulo ADConnectivityTool do PowerShell?](./how-to-connect-adconnectivitytools.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Sincronização Azure Ad Connect](how-to-connect-sync-whatis.md).
 - [O que é a identidade híbrida?](whatis-hybrid-identity.md)

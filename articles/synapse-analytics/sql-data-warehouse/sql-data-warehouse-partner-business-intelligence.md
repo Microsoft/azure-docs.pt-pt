@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 1414859d0735e75e2139dd79aab7dbba5b1e2f13
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.openlocfilehash: 909ea33ed96225c75a2d093f5bf2f4878ea51d2e
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
-ms.locfileid: "91710201"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939189"
 ---
 # <a name="azure-synapse-analytics-business-intelligence-partners"></a>Azure Synapse Analytics parceiros de inteligência empresarial
 
@@ -27,7 +27,6 @@ Para criar a sua solução de armazém de dados, pode escolher entre diferentes 
 | ------- | ----------- | -------------------- |
 | ![AtScale](./media/sql-data-warehouse-partner-business-intelligence/atscale-logo.png) |**AtScale**<br>A AtScale fornece um espaço de trabalho único, seguro e governado para dados distribuídos. O OLAP cloud da AtScale, Engenharia autónoma de dados™ e Universal Semântica Layer™ alimenta os resultados da inteligência empresarial para decisões de negócio mais rápidas e precisas. |[Página do produto](https://www.atscale.com/partners/microsoft/)<br> |
 | ![Rio Birst](./media/sql-data-warehouse-partner-business-intelligence/birst_logo.png) |**Rio Birst**<br>Birst conecta toda a organização através de uma rede de casos de BI virtualizados entrelaçados no topo de um tecido analítico comum compartilhado|[Página do produto](https://www.birst.com/)<br> |
-| ![Dados de História Clara](./media/sql-data-warehouse-partner-business-intelligence/clearstory_data_logo.png) |**Dados de História Clara (Insights empresariais contínuos)**<br>O ClearStory Data permite a análise de ciclo rápido através de dados díspares armazenados na piscina Synapse SQL. Plataforma integrada da ClearStory baseada em spark e analítico aplicação speed data access e harmonização de conjuntos de dados díspares. Permitem uma exploração rápida e colaborativa que suporta os utilizadores empresariais a serem autossuficientes para obterem informações rápidas. |[Página do produto](https://www.clearstorydata.com/product/continuous-insights/)<br> |
 | ![Dremio](./media/sql-data-warehouse-partner-business-intelligence/dremio-logo.png) |**Dremio**<br> Analistas e cientistas de dados podem descobrir, explorar e curar dados usando a UI intuitiva de Dremio, enquanto a TI mantém a governação e a segurança. O Dremio facilita a junção da ADLS com Blob Storage, Azure SQL Database, Azure Synapse SQL, HDInsight, entre outros. Com o Dremio, os analistas do Power BI podem pesquisar novos conjuntos de dados armazenados em ADLS, aceder imediatamente a esses dados no Power BI sem preparação por TI, criar visualizações e refinar relatórios iterativamente em tempo real. E os analistas podem criar novos relatórios que combinem dados entre a ADLS e outras bases de dados. |[Página do produto](https://www.dremio.com/azure/)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dremiocorporation.dremio_ce)<br> |
 | ![Dundas](./media/sql-data-warehouse-partner-business-intelligence/dundas_software_logo.png) |**Dundas BI**<br>A Dundas Data Visualization é um fornecedor líder global de software de Inteligência Empresarial e Visualização de Dados.  Os dashboards dundas, reporting e análise de dados visuais proporcionam uma integração perfeita em aplicações empresariais, permitindo melhores decisões e insights mais rápidos.|[Página do produto](https://www.dundas.com/dundas-bi)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dundas.dundas-bi)<br> |
 | ![IBM Cognos](./media/sql-data-warehouse-partner-business-intelligence/cognos_analytics_logo.png) |**IBM Cognos Analytics**<br>O Cognos Analytics inclui capacidades de self-service que o tornam simples, claro e fácil de usar, quer seja um analista de negócios experiente a examinar uma vasta cadeia de fornecimento, ou um marketer otimizando uma campanha. A Cognos Analytics utiliza IA e outras capacidades para orientar a exploração de dados. Torna-se mais fácil para os utilizadores obterem as respostas de que precisam|[Página do produto](https://www.ibm.com/products/cognos-analytics)<br>|

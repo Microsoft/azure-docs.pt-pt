@@ -9,10 +9,10 @@ ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: 08c105bd8ae9b5e0667ef5279e6c9484c631bd48
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91399045"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Serviço de Importação/Exportação Azure: perguntas frequentes
@@ -45,17 +45,17 @@ Sim. Para obter mais informações, aceda ao [fluxo de trabalho de backup offlin
 
 ### <a name="can-i-purchase-drives-for-importexport-jobs-from-microsoft"></a>Posso comprar unidades para empregos de importação/exportação da Microsoft?
 
-Não. Tens de enviar os teus próprios discos para trabalhos de importação e exportação.
+N.º Tens de enviar os teus próprios discos para trabalhos de importação e exportação.
 
 ## <a name="preparing-disks-for-importexport"></a>Preparação de discos para importação/exportação
 
 ### <a name="can-i-skip-the-drive-preparation-step-for-an-import-job-can-i-prepare-a-drive-without-copying"></a>Posso saltar o passo de preparação para um trabalho de importação? Posso preparar uma unidade sem copiar?
 
-Não. Qualquer unidade utilizada para importar dados deve ser preparada utilizando a ferramenta Azure WAImportExport. Utilize a ferramenta para também copiar dados para a unidade.
+N.º Qualquer unidade utilizada para importar dados deve ser preparada utilizando a ferramenta Azure WAImportExport. Utilize a ferramenta para também copiar dados para a unidade.
 
 ### <a name="do-i-need-to-perform-any-disk-preparation-when-creating-an-export-job"></a>Preciso de fazer alguma preparação em disco quando criar um trabalho de exportação?
 
-Não. Recomenda-se alguns pré-exames. Para verificar o número de discos necessários, utilize o comando PreviewExport da ferramenta WAImport. Para obter mais informações, consulte [pré-visualização do uso da unidade para um trabalho de exportação](https://msdn.microsoft.com/library/azure/dn722414.aspx). O comando ajuda-o a visualizar o uso da unidade para as bolhas selecionadas, com base no tamanho das unidades que vai utilizar. Verifique também se pode ler e escrever para o disco rígido que é enviado para o trabalho de exportação.
+N.º Recomenda-se alguns pré-exames. Para verificar o número de discos necessários, utilize o comando PreviewExport da ferramenta WAImport. Para obter mais informações, consulte [pré-visualização do uso da unidade para um trabalho de exportação](https://msdn.microsoft.com/library/azure/dn722414.aspx). O comando ajuda-o a visualizar o uso da unidade para as bolhas selecionadas, com base no tamanho das unidades que vai utilizar. Verifique também se pode ler e escrever para o disco rígido que é enviado para o trabalho de exportação.
 
 ## <a name="importexport-jobs"></a>Postos de trabalho nas importações/exportações
 
@@ -128,7 +128,7 @@ O centro de dados Azure devolverá a unidade que não está em conformidade com 
 
 ### <a name="does-the-service-format-the-drives-before-returning-them"></a>O formato de serviço é o acionamento antes de os devolver?
 
-Não. Todas as unidades estão encriptadas com o BitLocker.
+N.º Todas as unidades estão encriptadas com o BitLocker.
 
 ### <a name="how-can-i-access-data-that-is-imported-by-this-service"></a>Como posso aceder aos dados que são importados por este serviço?
 
@@ -144,7 +144,7 @@ Depende. Ao preparar a unidade, pode especificar se os ficheiros de destino deve
 
 ### <a name="is-the-waimportexport-tool-compatible-with-32-bit-operating-systems"></a>A ferramenta WAImportExport é compatível com sistemas operativos de 32 bits?
 
-Não. A ferramenta WAImportExport só é compatível com sistemas operativos Windows de 64 bits. Para obter uma lista completa de SISTEMAS Operativos Suportados, aceda a [Sistemas Operativos Suportados.](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements)
+N.º A ferramenta WAImportExport só é compatível com sistemas operativos Windows de 64 bits. Para obter uma lista completa de SISTEMAS Operativos Suportados, aceda a [Sistemas Operativos Suportados.](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements)
 
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Qual é o tamanho máximo de blob de bloco e de página suportado pela Azure Import/Export?
 

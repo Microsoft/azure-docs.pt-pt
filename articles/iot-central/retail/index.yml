@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: 8469f67967f311d4aca98417e8a5a639665b4641
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 8528c3a158c85c4b70bc1d6039b459993d06ce2b
+  ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
   ms.translationtype: HT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 10/09/2020
-  ms.locfileid: "90014927"
+  ms.locfileid: "91874208"
 landingContent:
 - title: Criar soluções de comércio
   linkLists:
@@ -38,7 +38,7 @@ landingContent:
     - text: Criar uma aplicação de centro de distribuição digital
       url: tutorial-iot-central-digital-distribution-center.md
     - text: Criar uma aplicação de análise de vídeo
-      url: tutorial-video-analytics-create-app.md
+      url: tutorial-video-analytics-create-app-yolo-v3.md
   - linkListType: how-to-guide
     links:
     - text: Ligar um Rigado Cascade 500
