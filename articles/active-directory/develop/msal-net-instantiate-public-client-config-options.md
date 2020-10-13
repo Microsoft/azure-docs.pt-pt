@@ -14,10 +14,10 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: 349ec8c99bc9e6768e5ec2ded346893da95c1636
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88166149"
 ---
 # <a name="instantiate-a-public-client-application-with-configuration-options-using-msalnet"></a>Instantiizar uma aplicação de cliente público com opções de configuração usando MSAL.NET
@@ -32,7 +32,7 @@ Antes de rubricar uma aplicação, primeiro precisa [de a registar](quickstart-r
 - Para aplicações web, e às vezes para aplicações de clientes públicos (em particular quando a sua aplicação precisa de usar um corretor), também terá definido o redirectUri onde o fornecedor de identidade irá contactar de volta a sua aplicação com os tokens de segurança.
 
 
-Uma aplicação de consola .NET Core pode ter as *seguintesappsettings.jsno* ficheiro de configuração:
+Uma aplicação de consola .NET Core pode ter as * seguintesappsettings.jsno* ficheiro de configuração:
 
 ```json
 {

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: jeedes
 ms.openlocfilehash: 2f3e540174643f20c87396b8568f6e5b0a1ab16d
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89658930"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-prezi"></a>Tutorial: Azure Ative Directy integração única com Prezi
@@ -76,7 +76,7 @@ Para ativar o Azure AD SSO no portal Azure:
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Prezi,** encontre a secção **Gerir** e selecione **'Único sinal de s-on'.**
 1. Na página de método **de inscrição** única, selecione **SAML**.
-1. Na **configuração de um único sinal com** a página SAML, selecione o ícone **Editar** para editar as definições na **Configuração BÁSICA SAML**.
+1. Na **configuração única Sign-On com** a página SAML, selecione o ícone **Editar** para editar as definições na **Configuração BÁSICA SAML**.
 
    ![Editar definições básicas de configuração SAML](common/edit-urls.png)
 
@@ -94,12 +94,12 @@ Para ativar o Azure AD SSO no portal Azure:
 
 1. A aplicação Prezi também espera que mais alguns atributos sejam repercutidos na resposta SAML, como mostra aqui. Estes atributos também são pré-gastos, mas pode revê-los com base nos seus requisitos.
     
-    | Name | Atributo de origem|
+    | Nome | Atributo de origem|
     | ---------------| --------------- |
     | given_name | user.givenname |
     | family_name | utilizador.sobrenome |
 
-1. Na **configuração de um único sinal com página SAML,** na secção Certificado de Assinatura **SAML,** encontre **o Certificado (Base64)**. Selecione **Baixar** para descarregar o certificado e guardá-lo no seu computador.
+1. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** encontre **Certificado (Base64)**. Selecione **Baixar** para descarregar o certificado e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
@@ -145,9 +145,9 @@ Nesta secção, você permite que B.Simon utilize o Azure SSO, concedendo acesso
 
     ![Separador de definições](./media/prezi-tutorial/settings-image.png)
 
-1. Aceda à secção **'Sign-On' (SSO)** e ligue o alternador para ativar o SSO.
+1. Vá à secção **single Sign-On (SSO)** e ligue o alternador para ativar o SSO.
     
-    ![Toggle de sign-on único (SSO)](./media/prezi-tutorial/single-signon.png)
+    ![Toggle single Sign-On (SSO)](./media/prezi-tutorial/single-signon.png)
 
 1. Na secção **'Sign-on' (SSO),** siga estes passos:
 

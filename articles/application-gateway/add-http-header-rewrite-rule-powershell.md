@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 04/12/2019
 ms.author: absha
 ms.openlocfilehash: f205b3a604aa38854969f6f62cbce44f46fa7d25
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84808262"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-powershell"></a>Reescrever os cabeçalhos de pedido e resposta HTTP com Gateway de Aplicação Azure - Azure PowerShell
@@ -20,7 +20,7 @@ Este artigo descreve como usar a Azure PowerShell para configurar uma [instânci
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 - Você precisa executar Azure PowerShell localmente para completar os passos neste artigo. Também precisa de ter a versão 1.0.0 do módulo Az ou posteriormente instalada. Corra `Import-Module Az` e, em seguida, `Get-Module Az` determine a versão que instalou. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](https://docs.microsoft.com/powershell/azure/install-az-ps). Depois de verificar a versão do PowerShell, execute `Login-AzAccount` para criar uma ligação ao Azure.
 - Precisa de ter uma instância SKU do Gateway v2. Reescrevendo cabeçalhos não é suportado no V1 SKU. Se não tiver o V2 SKU, crie uma [instância SKU SKU do Gateway v2](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) antes de começar.
@@ -102,6 +102,6 @@ $requestroutingrule.RewriteRuleSet= $null
 set-AzApplicationGateway -ApplicationGateway $appgw
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre como configurar alguns casos de uso comum, consulte [cenários comuns de reescrita do cabeçalho](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).

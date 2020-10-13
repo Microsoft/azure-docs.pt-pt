@@ -9,10 +9,10 @@ ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
 ms.openlocfilehash: e9dc6acf33208de44eec2b5b9706b9f0b176f0d7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87284477"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Scripts de exemplo do Azure Disk Encryption 
@@ -86,7 +86,7 @@ Para o Windows Server 2008 R2, utilize o seguinte comando:
 ServerManagerCmd -install BitLockers
 ```
 
-### <a name="prepare-the-os-volume-for-bitlocker-by-using-bdehdcfg"></a>Prepare o volume de SO para BitLocker utilizando`bdehdcfg`
+### <a name="prepare-the-os-volume-for-bitlocker-by-using-bdehdcfg"></a>Prepare o volume de SO para BitLocker utilizando `bdehdcfg`
 Para comprimir a partição de SO e preparar a máquina para BitLocker, execute o [bdehdcfg](/windows/security/information-protection/bitlocker/bitlocker-basic-deployment) se necessário:
 
 ```console
@@ -105,7 +105,7 @@ reboot
 > Prepare o VM com um VHD de dados/recursos separados para obter a chave externa utilizando o BitLocker.
 
 ## <a name="upload-encrypted-vhd-to-an-azure-storage-account"></a>Faça upload de VHD encriptado para uma conta de armazenamento Azure
-Após a encriptação DM-Crypt ser ativada, o VHD encriptado local precisa de ser carregado para a sua conta de armazenamento.
+Após DM-Crypt encriptação está ativada, o VHD encriptado local precisa de ser carregado para a sua conta de armazenamento.
 ```powershell
     Add-AzVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>]
 ```

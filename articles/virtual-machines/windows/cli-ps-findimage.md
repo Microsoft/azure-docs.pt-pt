@@ -9,10 +9,10 @@ ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
 ms.openlocfilehash: 96b5e3770a3f5e08237d61eab05cfeafbc72a5db
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87288347"
 ---
 # <a name="find-and-use-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Localizar e utilizar imagens VM no Mercado Azure com Azure PowerShell
@@ -39,8 +39,8 @@ Esta tabela mostra um subconjunto de Skus disponíveis para os Editores e Oferta
 | MicrosoftWindowsServer |WindowsServer |2012-R2-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2012-Datacenter |
 | MicrosoftSharePoint |MicrosoftSharePointServer |sp2019 |
-| MicrosoftSQLServer |SQL2019-WS2016 |Enterprise |
-| MicrosoftRServer |RServer-WS2016 |Enterprise |
+| MicrosoftSQLServer |SQL2019-WS2016 |Grandes Empresas |
+| MicrosoftRServer |RServer-WS2016 |Grandes Empresas |
 
 ## <a name="navigate-the-images"></a>Navegue pelas imagens
 
@@ -120,7 +120,7 @@ $pubName="MicrosoftWindowsServer"
 Get-AzVMImageOffer -Location $locName -PublisherName $pubName | Select Offer
 ```
 
-Saída:
+Resultado:
 
 ```
 Offer
@@ -185,7 +185,7 @@ $version = "2016.127.20170406"
 Get-AzVMImage -Location $locName -PublisherName $pubName -Offer $offerName -Skus $skuName -Version $version
 ```
 
-Saída:
+Resultado:
 
 ```
 Id               : /Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/Versions/2019.0.20190115
@@ -210,7 +210,7 @@ O exemplo abaixo mostra um comando semelhante para a Máquina Virtual de Ciênci
 Get-AzVMImage -Location "westus" -PublisherName "microsoft-ads" -Offer "windows-data-science-vm" -Skus "windows2016" -Version "0.2.02"
 ```
 
-Saída:
+Resultado:
 
 ```
 Id               : /Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/microsoft-ads/ArtifactTypes/VMImage/Offers/windows-data-science-vm/Skus/windows2016/Versions/19.01.14
@@ -241,7 +241,7 @@ Para ver os termos da licença, use o [cmdlet Get-AzMarketplaceterms](/powershel
 Get-AzMarketplaceterms -Publisher "microsoft-ads" -Product "windows-data-science-vm" -Name "windows2016"
 ```
 
-Saída:
+Resultado:
 
 ```
 Publisher         : microsoft-ads
@@ -262,7 +262,7 @@ $agreementTerms=Get-AzMarketplaceterms -Publisher "microsoft-ads" -Product "wind
 Set-AzMarketplaceTerms -Publisher "microsoft-ads" -Product "windows-data-science-vm" -Name "windows2016" -Terms $agreementTerms -Accept
 ```
 
-Saída:
+Resultado:
 
 ```
 Publisher         : microsoft-ads

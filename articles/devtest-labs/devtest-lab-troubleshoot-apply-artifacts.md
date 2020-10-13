@@ -4,10 +4,10 @@ description: Saiba como resolver problemas que ocorrem ao aplicar artefactos num
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: a89b675a1b3bf134b98e09c7278f0eccb594c325
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85483198"
 ---
 # <a name="troubleshoot-issues-when-applying-artifacts-in-an-azure-devtest-labs-virtual-machine"></a>Problemas de resolução de problemas ao aplicar artefactos numa máquina virtual Azure DevTest Labs
@@ -127,5 +127,5 @@ Existem outras fontes de erro menos frequentes. Certifique-se de avaliar cada um
 
 - **Sinal de acesso pessoal expirado para o repo privado**. Quando expirado, o artefacto não será listado e quaisquer scripts que se refiram a artefactos de um repositório com um token de acesso privado expirado falharão em conformidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Se nenhum destes erros ocorrer e ainda não conseguir aplicar artefactos, pode apresentar um incidente de suporte ao Azure. Vá ao [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter **Apoio**.

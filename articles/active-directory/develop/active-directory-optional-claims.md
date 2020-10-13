@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
 ms.openlocfilehash: 2d895a6703123d8725a375e29e2e26b64b621f23
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89436855"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Como: Fornecer reclamações opcionais à sua app
@@ -206,7 +206,7 @@ Se suportado por uma reclamação específica, também pode modificar o comporta
 
 Além do conjunto de reclamações opcionais padrão, também pode configurar fichas para incluir extensões. Para obter mais informações, consulte [a extensão do Microsoft GraphProperty documentação](/graph/api/resources/extensionproperty?view=graph-rest-1.0).
 
-As extensões de esquema e abertas não são suportadas por reclamações opcionais, apenas as extensões de diretório de estilo AAD-Graph. Esta funcionalidade é útil para anexar informações adicionais do utilizador que a sua aplicação pode utilizar – por exemplo, um identificador adicional ou uma opção de configuração importante que o utilizador definiu. Consulte a parte inferior desta página para dar um exemplo.
+O esquema e as extensões abertas não são suportados por reclamações opcionais, apenas as extensões de diretório de estilo AAD-Graph. Esta funcionalidade é útil para anexar informações adicionais do utilizador que a sua aplicação pode utilizar – por exemplo, um identificador adicional ou uma opção de configuração importante que o utilizador definiu. Consulte a parte inferior desta página para dar um exemplo.
 
 > [!NOTE]
 > As extensões de esquema de diretório são uma característica Azure AD apenas. Se o manifesto da sua aplicação solicitar uma extensão personalizada e um utilizador MSA entrar na sua aplicação, estas extensões não serão devolvidas.
@@ -435,7 +435,7 @@ No exemplo abaixo, utilizará a **configuração Token** UI e **Manifesto** para
 
 1. Quando terminar de atualizar o manifesto, **selecione Guardar** para guardar o manifesto.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre as reclamações padrão fornecidas pela Azure AD.
 

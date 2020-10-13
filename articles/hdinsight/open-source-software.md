@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/21/2020
 ms.openlocfilehash: f1e1518cce060374f14f1db7d5f4e594e3de8f85
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86086267"
 ---
 # <a name="open-source-software-support-in-azure-hdinsight"></a>Suporte de software de código aberto em Azure HDInsight
@@ -50,11 +50,11 @@ O serviço HDInsight fornece várias formas de utilizar componentes personalizad
 
 |Utilização |Descrição |
 |---|---|
-|Submissão de emprego|Hadoop ou outros tipos de trabalhos que executam ou utilizam componentes personalizados podem ser submetidos ao cluster.|
+|Submissão de trabalhos|Hadoop ou outros tipos de trabalhos que executam ou utilizam componentes personalizados podem ser submetidos ao cluster.|
 |Personalização do cluster|Durante a criação do cluster, pode especificar configurações adicionais e componentes personalizados que são instalados nos nós do cluster.|
 |Amostras|Para componentes personalizados populares, a Microsoft e outros podem fornecer amostras de como estes componentes podem ser usados em clusters HDInsight. Estas amostras são fornecidas sem suporte.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Personalize os clusters Azure HDInsight utilizando ações de script](./hdinsight-hadoop-customize-cluster-linux.md)
 * [Desenvolver scripts de ação de script para HDInsight](hdinsight-hadoop-script-actions-linux.md)

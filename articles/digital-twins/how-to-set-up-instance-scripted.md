@@ -8,10 +8,10 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 83741f5bc55eb222b379a274ef403f766553b21f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91328649"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurar uma instância e autenticação de Gémeos Digitais Azure (scripted)
@@ -49,11 +49,13 @@ Aqui estão os passos para executar o script de implementação em Cloud Shell.
  
 2. Na barra de ícones Cloud Shell, certifique-se de que a cloud shell está definida para executar a versão PowerShell.
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Janela Cloud Shell mostrando a seleção da versão PowerShell":::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Janela Cloud Shell mostrando a seleção da versão PowerShell&quot;:::
 
-1. Selecione o ícone "Carregar/Descarregar ficheiros" e escolha "Upload".
+1. Selecione o ícone &quot;Carregar/Descarregar ficheiros" e escolha "Upload".
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Janela cloud Shell mostrando a seleção do ícone upload":::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Janela Cloud Shell mostrando a seleção da versão PowerShell&quot;:::
+
+1. Selecione o ícone &quot;Carregar/Descarregar ficheiros":::
 
     Navegue para o ficheiro _**deploy.ps1**_ na sua máquina (em _Azure_Digital_Twins_samples > scripts > **deploy.ps1) ** _e acerte em "Open". Isto irá enviar o ficheiro para cloud Shell para que possa executá-lo na janela Cloud Shell.
 
@@ -82,7 +84,9 @@ O script criará uma instância Azure Digital Twins, atribuirá ao seu utilizado
 
 Aqui está um excerto do registo de saída do script:
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png" alt-text="Janela Cloud Shell mostrando log de entrada e saída através da execução do script de implementação" lightbox="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png":::
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png" alt-text="Janela Cloud Shell mostrando a seleção da versão PowerShell&quot;:::
+
+1. Selecione o ícone &quot;Carregar/Descarregar ficheiros" lightbox="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png":::
 
 Se o guião estiver concluído com sucesso, a impressão final dirá `Deployment completed successfully` . Caso contrário, endereça a mensagem de erro e reencando o script. Irá contornar os passos que já completou e começar a solicitar a entrada novamente no ponto onde deixou de lado.
 
@@ -103,7 +107,9 @@ No [portal Azure,](https://portal.azure.com)encontre a sua instância Azure Digi
 
 Selecioná-lo abrirá a página *geral* da instância. Note o seu *Nome,* *Grupo de Recursos*e Nome *hospedeiro.* Pode precisar mais tarde para identificar e ligar-se ao seu caso.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Realçando os valores importantes da página geral da instância":::
+:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Janela Cloud Shell mostrando a seleção da versão PowerShell&quot;:::
+
+1. Selecione o ícone &quot;Carregar/Descarregar ficheiros":::
 
 ### <a name="collect-app-registration-values"></a>Recolher valores de registo de aplicativos 
 
@@ -113,7 +119,9 @@ Para encontrá-los, siga [este link](https://portal.azure.com/#blade/Microsoft_A
 
 Você deve ver o registo de aplicações que acabou de criar nesta lista. Selecione-o para abrir os seus detalhes:
 
-:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Visão do portal dos valores importantes para o registo da aplicação":::
+:::image type="content" source="media/how-to-set-up-instance/portal/app-important-values.png" alt-text="Janela Cloud Shell mostrando a seleção da versão PowerShell&quot;:::
+
+1. Selecione o ícone &quot;Carregar/Descarregar ficheiros":::
 
 Tome nota do ID de *Aplicação (cliente)* e *Diretório (inquilino)* mostrado na **sua** página. Se você não é a pessoa que vai escrever código para aplicações de clientes, você precisará compartilhar estes valores com a pessoa que será.
 

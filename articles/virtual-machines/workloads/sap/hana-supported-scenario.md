@@ -14,10 +14,10 @@ ms.date: 11/26/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: b4946524768d0cff483feb4045a2cc5fba169a7a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86507952"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Cenários apoiados para HANA Grandes Instâncias
@@ -39,7 +39,7 @@ Vamos entender os termos e definições que são usados neste artigo:
 - **Multi-SID**: Um sistema com múltiplas instâncias configuradas; também chamado de ambiente MCOS
 - **HSR**: Replicação do sistema SAP HANA
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 HANA Large Instances suporta uma variedade de arquiteturas para ajudá-lo a cumprir os seus requisitos de negócio. As secções seguintes cobrem os cenários arquitetónicos e os seus detalhes de configuração. 
 
 O design de arquitetura derivada é puramente do ponto de vista da infraestrutura, e você deve consultar SAP ou seus parceiros de implementação para a implementação HANA. Se os seus cenários não estiverem listados neste artigo, contacte a equipa de conta da Microsoft para rever a arquitetura e obter uma solução para si.
@@ -792,6 +792,6 @@ Os seguintes pontos de montagem são pré-configurados:
 - [O Global Reach](../../../expressroute/expressroute-global-reach.md) é usado para ligar os circuitos ExpressRoute para fazer uma rede privada entre as suas redes regionais.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Infraestrutura e conectividade](./hana-overview-infrastructure-connectivity.md) para HANA Grandes Instâncias
 - [Alta disponibilidade e recuperação de desastres](./hana-overview-high-availability-disaster-recovery.md) para HANA Grandes Instâncias

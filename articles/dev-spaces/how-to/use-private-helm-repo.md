@@ -9,10 +9,10 @@ description: Use um repositório helm privado num espaço Azure Dev.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, contentores, Helm
 manager: gwallace
 ms.openlocfilehash: c8f0e463bc78d278d8162f8389664dbb46a83301
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "80240476"
 ---
 # <a name="use-a-private-helm-repository-in-azure-dev-spaces"></a>Use um repositório de leme privado em Azure Dev Spaces

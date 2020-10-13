@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5ca65a428af02eaf5ae6ac461006c720da4461bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5aafaa02f503582bd0050f8a6389d78b52eaa76
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538185"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91939158"
 ---
 # <a name="cloud-tiering-overview"></a>Visão geral do tiering da nuvem
 O tiering em nuvem é uma funcionalidade opcional do Azure File Sync, no qual os ficheiros frequentemente acedidos são cached localmente no servidor, enquanto todos os outros ficheiros são hierárquicos para Ficheiros Azure baseados em definições de política. Quando um ficheiro é hierarquizado, o filtro do sistema de ficheiros Azure File Sync (StorageSync.sys) substitui o ficheiro localmente por um ponteiro ou ponto de reparse. O ponto de reparse representa um URL para o ficheiro em Ficheiros Azure. Um ficheiro hierárquico tem o atributo "offline" e o atributo FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS definido no NTFS para que as aplicações de terceiros possam identificar de forma segura ficheiros hierárquicos.
@@ -48,9 +48,9 @@ Para as versões 9 e mais recentes, o tamanho mínimo do ficheiro para um fichei
 |8 KB (8192)                 | 16 KB   |
 |16 KB (16384)               | 32 KB   |
 |32 KB (32768)               | 64 KB   |
-|64 KB (65536) e maior    | 128 KB  |
+|64 KB (65536)    | 128 KB  |
 
-Com o Windows Server 2019 e o agente Azure File Sync versão 12 (versão futura do agente), os tamanhos do cluster até 2 MB também são suportados e o tiering nesses tamanhos de cluster maiores funciona da mesma forma. As versões mais antigas do SISTEMA ou do agente suportam tamanhos de cluster até 64 KB, mas além disso, o nível de nuvem não funciona.
+Os tamanhos do cluster até 64 KB são atualmente suportados mas, para tamanhos maiores, o nível de nuvem não funciona.
 
 Todos os sistemas de ficheiros utilizados pelo Windows, organizem o seu disco rígido com base no tamanho do cluster (também conhecido como tamanho da unidade de atribuição). O tamanho do cluster representa a menor quantidade de espaço em disco que pode ser usado para segurar um ficheiro. Quando os tamanhos dos ficheiros não saem para um múltiplo do tamanho do cluster, deve ser usado espaço adicional para segurar o ficheiro - até ao próximo múltiplo do tamanho do cluster.
 

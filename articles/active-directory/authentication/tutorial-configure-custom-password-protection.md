@@ -11,10 +11,10 @@ author: iainfoulds
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 24e0cfa4227ba5d7c38449d3cf1304add5ae5c1f
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "88718888"
 ---
 # <a name="tutorial-configure-custom-banned-passwords-for-azure-active-directory-password-protection"></a>Tutorial: Configurar senhas personalizadas proibidas para proteção de senha do Azure Ative Directory
@@ -104,7 +104,7 @@ Para ver a lista de senhas proibidas personalizadas em ação, tente alterar a p
 
     ![Mensagem de erro exibida quando tenta usar uma palavra-passe que faz parte da lista de senhas proibidas personalizadas](media/tutorial-configure-custom-password-protection/password-change-error.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se já não pretender utilizar a lista de palavras-passe proibidas personalizadas que configura como parte deste tutorial, complete os seguintes passos:
 

@@ -13,10 +13,10 @@ ms.date: 08/26/2019
 ms.author: marsma
 ms.custom: aaddev
 ms.openlocfilehash: a570dccad5f14cf9adf5ca2825d8a3b31ae60d3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85477197"
 ---
 # <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>Como: Solicitar reclamações personalizadas usando MSAL para iOS e macOS
@@ -33,7 +33,7 @@ Há vários cenários em que isto é necessário. Por exemplo:
 > [!NOTE]
 > A MSAL contorna a cache do token de acesso sempre que um pedido de reclamação é especificado. É importante apenas fornecer `claimsRequest` parâmetro quando são necessárias reclamações adicionais (em vez de fornecer sempre o mesmo `claimsRequest` parâmetro em cada chamada de API MSAL).
 
-`claimsRequest`pode ser especificado `MSALSilentTokenParameters` `MSALInteractiveTokenParameters` em:
+`claimsRequest` pode ser especificado `MSALSilentTokenParameters` `MSALInteractiveTokenParameters` em:
 
 ```objc
 /*!
@@ -49,7 +49,7 @@ Há vários cenários em que isto é necessário. Por exemplo:
 
 @end
 ```
-`MSALClaimsRequest`pode ser construído a partir de uma representação NSString do pedido de Reclamações JSON. 
+`MSALClaimsRequest` pode ser construído a partir de uma representação NSString do pedido de Reclamações JSON. 
 
 Objetivo C:
 
@@ -98,7 +98,7 @@ do {
 
 
 
-`MSALClaimsRequest`devem então ser definidos nos parâmetros simbólicos e fornecidos a uma das APIs de aquisição de tokens DAM:
+`MSALClaimsRequest` devem então ser definidos nos parâmetros simbólicos e fornecidos a uma das APIs de aquisição de tokens DAM:
 
 Objetivo C:
 
@@ -128,6 +128,6 @@ application.acquireToken(with: parameters) { (result: MSALResult?, error: Error?
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [fluxos de autenticação e cenários de aplicação](authentication-flows-app-scenarios.md)

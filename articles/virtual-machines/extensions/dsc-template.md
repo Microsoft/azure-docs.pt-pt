@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
 ms.openlocfilehash: dc73b5b9f05d24de206b25095ea7eaf93f035298
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86511165"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extensão de configuração de estado desejada com modelos de gestor de recursos Azure
@@ -180,7 +180,7 @@ Para obter uma lista dos argumentos disponíveis para o script de configuração
 | Nome da propriedade | Tipo | Descrição |
 | --- | --- | --- |
 | definições.wmfVersion |string |Especifica a versão do Quadro de Gestão do Windows (WMF) que deve ser instalada no seu VM. Definir esta propriedade para as **mais recentes** instala a versão mais recente do WMF. Atualmente, os únicos valores possíveis para esta propriedade são **4.0,** **5.0**, **5.1,** e **os mais recentes.** Estes valores possíveis estão sujeitos a atualizações. O valor predefinido é **o mais recente**. |
-| settings.configuration.url |string |Especifica a localização do URL a partir do qual descarrega o seu ficheiro DSC de configuração .zip. Se o URL fornecido necessitar de um token SAS para acesso, desacorra a **propriedade urationUrlSasTokenprotectedSettings.config** o valor do seu token SAS. Esta propriedade é necessária se **settings.configuration.script** ou **settings.configuration.fun** forem definidos. Se não for dado qualquer valor para estas propriedades, a extensão chama o script de configuração padrão para definir metadados do Gestor de Configuração de Localização (LCM) e os argumentos devem ser fornecidos. |
+| settings.configuration.url |string |Especifica a localização do URL a partir do qual descarrega o seu ficheiro DSC de configuração .zip. Se o URL fornecido necessitar de um token SAS para acesso, desacorra a ** propriedade urationUrlSasTokenprotectedSettings.config** o valor do seu token SAS. Esta propriedade é necessária se **settings.configuration.script** ou **settings.configuration.fun** forem definidos. Se não for dado qualquer valor para estas propriedades, a extensão chama o script de configuração padrão para definir metadados do Gestor de Configuração de Localização (LCM) e os argumentos devem ser fornecidos. |
 | settings.configuration.script |string |Especifica o nome do ficheiro do script que contém a definição da sua configuração DSC. Este script deve estar na pasta raiz do ficheiro .zip que é descarregado a partir do URL especificado pela **propriedade uration.urlsettings.config.** Esta propriedade é necessária se **settings.configuration.url** ou **settings.configuration.script** forem definidos. Se não for dado qualquer valor para estas propriedades, a extensão chama o script de configuração padrão para definir metadados LCM, e os argumentos devem ser fornecidos. |
 | settings.configuration.function |string |Especifica o nome da sua configuração DSC. A configuração que é nomeada deve ser incluída no script que **settings.configuration.script** define. Esta propriedade é necessária se **settings.configuration.url** ou **settings.configuration.fun** forem definidos. Se não for dado qualquer valor para estas propriedades, a extensão chama o script de configuração padrão para definir metadados LCM, e os argumentos devem ser fornecidos. |
 | settings.configurationArments |Coleção |Define quaisquer parâmetros que pretenda passar para a sua configuração DSC. Esta propriedade não está encriptada. |
@@ -189,7 +189,7 @@ Para obter uma lista dos argumentos disponíveis para o script de configuração
 | definições.advancedOptions.downloadMappings |Coleção |Define locais alternativos a partir dos quais o WMF. Para mais informações, consulte [a extensão 2.8 do Azure DSC e como mapear as dependências de extensão para a sua própria localização.](https://devblogs.microsoft.com/powershell/azure-dsc-extension-2-8-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location/) |
 | protectedSettings.configurationArments |Coleção |Define quaisquer parâmetros que pretenda passar para a sua configuração DSC. Esta propriedade está encriptada. |
 | protectedSettings.configurationUrlSasToken |string |Especifica o token SAS para usar para aceder ao URL que **settings.configuration.url** define. Esta propriedade está encriptada. |
-| protectedSettings.configurationDataUrlSasToken |string |Especifica o token SAS para usar para aceder ao URL que **settings.configurationData.url** define. Esta propriedade está encriptada. |
+| protectedSettings.configurationDataUrlSasToken |string |Especifica o token SAS para usar para aceder ao URL que  **settings.configurationData.url** define. Esta propriedade está encriptada. |
 
 ## <a name="default-configuration-script"></a>Script de configuração padrão
 
@@ -275,7 +275,7 @@ No modelo de Gestor de Recursos, o seguinte código instrui o VM a descarregar o
 
 ## <a name="example-using-referenced-azure-automation-registration-values"></a>Exemplo utilizando valores de registo de automação Azure referenciados
 
-O exemplo a seguir obtém o **RegistrationUrl** and **RegistrationKey,** referindo-se às propriedades da conta Azure Automation e utilizando o método **listkeys** para recuperar a Chave Primária (0).  Neste exemplo, os parâmetros **automationAm o Nome** e **o NodeConfigName** foram fornecidos ao modelo.
+O exemplo a seguir obtém o **RegistrationUrl** and **RegistrationKey,** referindo-se às propriedades da conta Azure Automation e utilizando o método  **listkeys** para recuperar a Chave Primária (0).  Neste exemplo, os parâmetros **automationAm o Nome** e **o NodeConfigName** foram fornecidos ao modelo.
 
 ```json
 "settings": {
@@ -425,7 +425,7 @@ Siga o formato fornecido nos exemplos anteriores. Cuidado com citações, vírgu
 - Forneça a propriedade desaparecida.
 - Remova a propriedade que precisa da propriedade desaparecida.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais [sobre a utilização de conjuntos de balança de máquinas virtuais com a extensão Azure DSC](../../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md).
 - Saiba mais detalhes sobre a [gestão de credenciais seguras da DSC.](dsc-credentials.md)

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
 ms.openlocfilehash: 415c95a441ac0cc6ed2dbf2d6a37f57d7a9e7341
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90562524"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Implementar uma solução de balanceador de carga virada para a Internet com o IPv6 utilizando um modelo
@@ -103,7 +103,7 @@ Quando o modelo tiver sido implementado com sucesso, pode validar a conectividad
 4. A partir de cada VM, inicie uma ligação de saída a um dispositivo internet ligado ao IPv6 ou iPv4. Em ambos os casos, o IP de origem visto pelo dispositivo de destino é o endereço público IPv4 ou IPv6 do equilibrista de carga.
 
 > [!NOTE]
-> O ICMP para o IPv4 e o IPv6 está bloqueado na rede Azure. Como resultado, ferramentas ICMP como ping falham sempre. Para testar a conectividade, utilize uma alternativa TCP, como o TCPing ou o cmdlet PowerShell Test-NetConnection. Note que os endereços IP apresentados no diagrama são exemplos de valores que pode ver. Uma vez que os endereços IPv6 são atribuídos dinamicamente, os endereços que receber serão diferentes e podem variar por região. Além disso, é comum que o endereço público IPv6 no equilibrista de carga comece com um prefixo diferente dos endereços privados do IPv6 na piscina traseira.
+> O ICMP para o IPv4 e o IPv6 está bloqueado na rede Azure. Como resultado, ferramentas ICMP como ping falham sempre. Para testar a conectividade, utilize uma alternativa TCP como a TCPing ou o Test-NetConnection cmdlet PowerShell. Note que os endereços IP apresentados no diagrama são exemplos de valores que pode ver. Uma vez que os endereços IPv6 são atribuídos dinamicamente, os endereços que receber serão diferentes e podem variar por região. Além disso, é comum que o endereço público IPv6 no equilibrista de carga comece com um prefixo diferente dos endereços privados do IPv6 na piscina traseira.
 
 ## <a name="template-parameters-and-variables"></a>Parâmetros e variáveis do modelo
 
