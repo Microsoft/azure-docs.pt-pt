@@ -4,16 +4,16 @@ description: Reveja as propriedades específicas e os seus valores para os géme
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/17/2019
+ms.date: 08/31/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f2d6603c264c9da3f2700f460a8c61b24681fac6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa7a56bcad067176d8f9805b418cca45ad144579
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80546194"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978701"
 ---
 # <a name="properties-of-the-iot-edge-agent-and-iot-edge-hub-module-twins"></a>Propriedades do agente IoT Edge e gémeos módulos de hub IoT Edge
 
@@ -33,7 +33,7 @@ O módulo twin para o agente IoT Edge é chamado `$edgeAgent` e coordena as comu
 
 | Propriedade | Descrição | Obrigatório |
 | -------- | ----------- | -------- |
-| schemaVersão | Tem que ser "1.0" | Sim |
+| schemaVersão | Ou "1.0" ou "1.1". A versão 1.1 foi introduzida com a versão 1.0.10 do IoT Edge, e é recomendada. | Sim |
 | tempo de execução.tipo | Tem que ser "estivador". | Sim |
 | runtime.settings.minDockerVersion | Definir para a versão estival mínima exigida por este manifesto de implantação | Sim |
 | tempo de execução.definições.loggingOptions | Um JSON com uma JSON com cordas que contém as opções de registo para o contentor do agente IoT Edge. [Opções de registo de estivadores](https://docs.docker.com/engine/admin/logging/overview/) | Não |
@@ -47,6 +47,7 @@ O módulo twin para o agente IoT Edge é chamado `$edgeAgent` e coordena as comu
 | systemModules.edgeHub.type | Tem que ser "estivador". | Sim |
 | systemModules.edgeHub.status | Tem que estar a "correr" | Sim |
 | systemModules.edgeHub.restartPolicy | Tem que ser "sempre" | Sim |
+| systemModules.edgeHub.startupOrder | Um valor inteiro para o qual um módulo tem na ordem de arranque. 0 é o primeiro e o inteiro máximo (4294967295) é o último. Se um valor não for fornecido, o padrão é o número máximo.  | Não |
 | systemModules.edgeHub.settings.image | O URI da imagem do hub IoT Edge. | Sim |
 | systemModules.edgeHub.settings<br>.createOptions | Um JSON cordificado contendo as opções para a criação do recipiente do hub IoT Edge. [Docker criar opções](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | Não |
 | systemModules.edgeHub.configuration.id | A identificação da implantação que implantou este módulo. | IoT Hub define esta propriedade quando o manifesto é aplicado usando uma implantação. Não faz parte de um manifesto de implantação. |
@@ -54,6 +55,7 @@ O módulo twin para o agente IoT Edge é chamado `$edgeAgent` e coordena as comu
 | módulos. {moduleId}.type | Tem que ser "estivador". | Sim |
 | módulos. {moduleId}.status | {"running" \| "parado"} | Sim |
 | módulos. {moduleId}.restartPolicy | {"nunca" \| "on-failure" \| "on-unhealthy" \| "always"} | Sim |
+| módulos. {moduleId}.startupOrder | Um valor inteiro para o qual um módulo tem na ordem de arranque. 0 é o primeiro e o inteiro máximo (4294967295) é o último. Se um valor não for fornecido, o padrão é o número máximo.  | Não |
 | módulos. {moduleId}.imagePullPolicy | {"on-create" \| "nunca"} | Não |
 | módulos. {moduleId}.env | Uma lista de variáveis ambientais para passar para o módulo. Toma o formato `"<name>": {"value": "<value>"}` | Não |
 | módulos. {moduleId}.definições.imagem | O URI para a imagem do módulo. | Sim |
@@ -107,7 +109,7 @@ O módulo twin para o hub IoT Edge é chamado `$edgeHub` e coordena as comunica�
 
 | Propriedade | Descrição | Requerido no manifesto de implantação |
 | -------- | ----------- | -------- |
-| schemaVersão | Tem que ser "1.0" | Sim |
+| schemaVersão | Ou "1.0" ou "1.1". A versão 1.1 foi introduzida com a versão 1.0.10 do IoT Edge, e é recomendada. | Sim |
 | rotas. {routeName} | Uma corda que representa uma rota do hub IoT Edge. Para mais informações, consulte [as rotas do Declaro.](module-composition.md#declare-routes) | O `routes` elemento pode estar presente, mas vazio. |
 | storeAndForwardConfiguration.timeToLiveSecs | O tempo em segundos que o hub IoT Edge mantém as mensagens se desligado dos pontos finais de encaminhamento, seja o IoT Hub ou um módulo local. O valor pode ser qualquer inteiro positivo. | Sim |
 

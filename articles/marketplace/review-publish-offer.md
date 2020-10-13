@@ -8,12 +8,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 08/12/2020
-ms.openlocfilehash: eff1db3aca2cab77d18698634b84e8e1b1c99f7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47d82982bbb7546b53dd4754c49bd22fe958d5ef
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89375890"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91976491"
 ---
 # <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>Como rever e publicar uma oferta ao mercado comercial
 
@@ -170,6 +170,84 @@ Agora que escolheu ir ao vivo com a sua oferta, que a disponibiliza no mercado c
     Garantimos que a sua oferta se torne publicamente disponível no mercado.
 
 Após estes cheques de validação estarem completos, a sua oferta será ao vivo no mercado.
+
+## <a name="publishing-history"></a>História da publicação
+
+A página **História** no Partner Center mostra os eventos de publicação das suas ofertas de marketplace comercial. Para cada evento, a página exibe o utilizador que iniciou a ação, o tipo de evento e a data e hora do evento. As [etapas de validação e publicação são](#validation-and-publishing-steps) listadas com a data e hora de conclusão.
+
+Para ver a história da sua oferta:
+
+1.    Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
+2.    No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview**.
+3.    Selecione a sua oferta.
+4.    Selecione o **separador Histórico** no menu de navegação à esquerda. A página fornece detalhes para os seguintes eventos, conforme aplicável à sua oferta:
+
+|Evento    |Descrição    |
+|---------|---------------|
+|Oferta criada    |A oferta foi criada no Partner Center. Um utilizador selecionou o tipo de oferta, oferece iD e oferece um pseudónimo na Visão Geral **do Mercado Comercial.**  >  **Overview**    |
+|Plano criado: *nome do plano*    |Um utilizador criou um novo plano ao introduzir o ID do plano e o nome do plano no separador **Plan overview.**</br>*Este evento aplica-se apenas para oferecer tipos que suportem planos.*    |
+|Plano eliminado    |Um utilizador eliminou um projeto de plano que não tinha sido publicado selecionando **o projeto de eliminação** da página **de visão geral** do Plano.</br>*Este evento aplica-se apenas para oferecer tipos que suportem planos.*    |
+|Plano iniciado parar de vender: *nome do plano*    |Um utilizador iniciou um plano de stop-sell selecionando Parar de **vender** na página **de visão geral** do Plano.</br>*Este evento aplica-se apenas para oferecer tipos que suportem planos.*    |
+|Desfazer plano parar de vender: *nome do plano*    |Um utilizador cancelou um plano de stop-sell selecionando **undo para parar** de vender a partir da página **de visão geral** do Plano.</br>*Este evento aplica-se apenas para oferecer tipos que suportem planos.*    |
+|Proposta submetida para pré-visualização    |Um utilizador submeteu a oferta para pré-visualização selecionando **Publicar** a partir da página **de Revisão e publicação.**    |
+|Iniciado submeter para cancelamento de pré-visualização    |Um utilizador solicitou que cancelasse a publicação da oferta para pré-visualização, selecionando **a publicação de Cancel a** partir da página geral da **Oferta** após a submissão à pré-visualização.</br>*Este evento é apresentado à medida que o pedido de cancelamento está a ser processado.*    |
+|Submissão cancelada para pré-visualização    |Um utilizador cancelou a publicação da oferta para pré-visualização selecionando **a publicação de Cancel a** partir da página geral da **Oferta** após a submissão à pré-visualização.</br>*Este evento é apresentado após o pedido de cancelamento ser processado com sucesso.*    |
+|Sign-off para ir ao vivo    |Um utilizador publicou a oferta para o mercado comercial selecionando **Go ao vivo** a partir da página geral da **Oferta.**    |
+|Iniciada publicação para cancelamento de mercado    |Um utilizador solicitou o cancelamento da publicação da oferta selecionando a **publicação cancele** a partir da página geral da **Oferta** após a assinatura para entrar em direto.</br>*Este evento é apresentado à medida que o pedido de cancelamento está a ser processado.*    |
+|Publicação cancelada no mercado comercial    |Um utilizador cancelou a publicação da oferta selecionando a **publicação cancele** a partir da página geral da **Oferta** após a assinatura para entrar em direto.</br>*Este evento é apresentado após o pedido de cancelamento ser processado com sucesso.*    |
+|Sincronizar audiência privada    |Um utilizador atualizou e sincronizou o público privado selecionando o **público privado Sync** a partir da página de **visão geral** do Plano ou da página **de preços do Plano &.**</br>*Este evento aplica-se apenas para oferecer tipos que suportem planos privados.*    |
+|Pare de vender oferta    |Um utilizador deixou de vender a oferta selecionando Parar de **vender** na página **de visão geral** da Oferta.    |
+
+> [!NOTE]
+> A página de História não diz quando um rascunho de oferta foi salvo.
+
+### <a name="filter-options"></a>Opções de filtragem
+
+Pode utilizar filtros para reduzir todo o histórico da sua oferta a eventos de publicação específicos:
+
+1.    Selecione o botão do filtro no canto superior direito da página.
+2.    Escolha um filtro e, em seguida, **selecione Aplicar** para ver quais os eventos de história que correspondem aos critérios selecionados.
+3.    Selecione **Filtros Clear** para voltar ao histórico completo da sua oferta.
+
+Há quatro filtros:
+* Eventos
+* Utilizadores
+* Data
+* Páginas
+
+Ao escolher o filtro **Páginas,** pode selecionar qualquer uma das páginas do Centro parceiro que sejam aplicáveis ao seu tipo de oferta. Quando aplicado, o filtro **Páginas** mostra toda a **oferta submetida a eventos de pré-visualização** com alterações na página selecionada.
+
+* Para todas as ofertas, a página **de configuração da Oferta** está incluída por padrão para cada evento de submissão.
+* Para ofertas que suportam planos, a página **de visão geral** do Plano está incluída para cada evento de submissão.
+* Para ofertas que suportam a unidade de teste, a página **test drive** está incluída para cada evento de submissão.
+
+### <a name="users"></a>Utilizadores
+
+Se um evento foi iniciado por um utilizador, a página Histórico mostrará o utilizador de acordo com os seguintes cenários:
+
+#### <a name="the-event-was-initiated-by-the-publisher"></a>O evento foi iniciado pela editora
+
+Os utilizadores com permissões de publicação para uma oferta terão o seu nome apresentado para os eventos de publicação que iniciam.
+
+[![A página Histórico apresenta o nome dos utilizadores com permissões de publicação.](./media/review-publish-offer/event-initiated-by-publisher.png)](./media/review-publish-offer/event-initiated-by-publisher.png#lightbox)
+
+#### <a name="the-event-was-initiated-by-microsoft"></a>O evento foi iniciado pela Microsoft
+
+Pode dar permissões aos administradores da Microsoft para iniciarem ações em seu nome ou tomarem ações corretivas após um erro inesperado do sistema. O nome e o logótipo da Microsoft são apresentados para a publicação de eventos iniciados pela Microsoft em nome da sua conta.
+
+[![Exemplo de como a página De Histórico exibe eventos iniciados pela Microsoft.](./media/review-publish-offer/event-initiated-by-microsoft.png)](./media/review-publish-offer/event-initiated-by-microsoft.png#lightbox)
+
+#### <a name="the-event-was-initiated-by-an-unidentified-user"></a>O evento foi iniciado por um utilizador não identificado
+
+Os utilizadores que já não estejam associados a uma conta terão o seu nome removido da coluna **Iniciada** após a retirada das suas permissões de publicação.
+
+[![Exemplo de como a página Histórico exibe eventos iniciados por utilizadores não identificados.](./media/review-publish-offer/event-initiated-by-unidentified-user.png)](./media/review-publish-offer/event-initiated-by-unidentified-user.png#lightbox)
+
+#### <a name="validation-and-publishing-steps"></a>Passos de validação e publicação
+
+Nenhum utilizador é apresentado para processos do sistema que correspondam a [etapas de validação e publicação](#validation-and-publishing-steps). Estes eventos são codificados por cores de acordo com o estado de conclusão do evento.
+
+[![Exemplo de como a página De Histórico apresenta passos de validação e publicação.](./media/review-publish-offer/validation-and-publishing-event.png)](./media/review-publish-offer/validation-and-publishing-event.png#lightbox)
 
 ## <a name="next-steps"></a>Passos seguintes
 

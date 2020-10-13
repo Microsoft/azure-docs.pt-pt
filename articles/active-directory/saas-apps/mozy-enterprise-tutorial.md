@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: c9c4cef07bf1de64bcb14bc4487e0f56d2a40dfc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bdeec23b6b0a0ef2884fa35bd0a576ef57bb7853
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88518643"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938506"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Tutorial: Integração do Azure Ative Directory com a Mozy Enterprise
 
@@ -126,11 +126,11 @@ Para configurar o Azure AD com a Mozy Enterprise, execute os seguintes passos:
 
 2. Na secção **Configuração,** clique em **Política de Autenticação**.
    
-    ![Política de autenticação](./media/mozy-enterprise-tutorial/ic777314.png "Política de autenticação")
+    ![A screenshot mostra a Política de Autenticação selecionada a partir da Configuração.](./media/mozy-enterprise-tutorial/ic777314.png "Política de autenticação")
 
 3. Na secção **Política de Autenticação,** execute os seguintes passos:
    
-    ![Política de autenticação](./media/mozy-enterprise-tutorial/ic777315.png "Política de autenticação")
+    ![A screenshot mostra a secção Política de Autenticação onde pode introduzir os valores descritos.](./media/mozy-enterprise-tutorial/ic777315.png "Política de autenticação")
    
     a. Selecione **o Serviço de Diretório** como **Fornecedor**.
    

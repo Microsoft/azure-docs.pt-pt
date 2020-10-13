@@ -8,16 +8,16 @@ ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: ac915aa3baba910895e10d21148b899347e8ae4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 884a9e82dacb2a0dfc6763809a2ccfd2b886df1a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91370492"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91974180"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Implementar VMs para anfitriões dedicados usando o Azure PowerShell
 
-Este artigo guia-o através da forma de criar um [anfitrião dedicado](dedicated-hosts.md) a Azure para hospedar as suas máquinas virtuais (VMs). 
+Este artigo guia-o através da forma de criar um [anfitrião dedicado](../dedicated-hosts.md) a Azure para hospedar as suas máquinas virtuais (VMs). 
 
 Certifique-se de que instalou a versão 2.8.0 ou posterior do Azure PowerShell e que está a fazer o seu sedumento numa conta Azure com `Connect-AzAccount` . 
 
@@ -278,4 +278,4 @@ Remove-AzResourceGroup -Name $rgName
 
 - Existe o modelo de amostra, encontrado [aqui,](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md)que usa ambas as zonas e domínios de avaria para máxima resiliência numa região.
 
-- Também pode implementar anfitriões dedicados utilizando o [portal Azure.](dedicated-hosts-portal.md)
+- Também pode implementar anfitriões dedicados utilizando o [portal Azure.](../dedicated-hosts-portal.md)

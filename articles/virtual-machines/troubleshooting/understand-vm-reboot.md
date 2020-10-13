@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 08fb794839adf9e8a986f53da00b4855e5535af5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4694b6ac829c42f20c6783810c248ee18d220433
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86508870"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91965765"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Compreenda um reboot de sistema para Azure VM
 
@@ -30,7 +30,7 @@ A melhor maneira de proteger uma aplicação que está a decorrer no Azure contr
 
 Para fornecer este nível de redundância à sua aplicação, recomendamos que você agrupe dois ou mais VMs em um conjunto de disponibilidade. Esta configuração garante que durante um evento de manutenção planeado ou não planeado, pelo menos um VM está disponível e cumpre o [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_5/)de 99,95 por cento .
 
-Para obter mais informações sobre os conjuntos de disponibilidade, consulte [Gerir a disponibilidade de VMs](../windows/manage-availability.md)
+Para obter mais informações sobre os conjuntos de disponibilidade, consulte [Gerir a disponibilidade de VMs](../manage-availability.md)
 
 ## <a name="resource-health-information"></a>Informação sobre saúde de recursos
 
@@ -72,7 +72,7 @@ Outros cenários que normalmente fazem com que o VM reinicie incluem múltiplas 
 
 ### <a name="azure-security-center-and-windows-update"></a>Centro de Segurança Azure e Atualização do Windows
 
-O Azure Security Center monitoriza diariamente os VMs windows e Linux diários para atualizações em falta do sistema operativo. O Security Center recupera uma lista de atualizações de segurança e críticas disponíveis a partir de Serviços de Atualização do Windows Update ou Windows Server Update Services (WSUS), dependendo do serviço configurado num VM do Windows. O Security Center também verifica as últimas atualizações para os sistemas Linux. Se o seu VM estiver a perder uma atualização do sistema, o Security Center recomenda que aplique atualizações do sistema. A aplicação destas atualizações do sistema é controlada através do Centro de Segurança no portal Azure. Depois de aplicar algumas atualizações, poderão ser necessárias reinicializações em VM. Para obter mais informações, consulte [Aplicar atualizações do sistema no Centro de Segurança Azure.](../../security-center/security-center-virtual-machine-protection.md)
+O Azure Security Center monitoriza diariamente os VMs windows e Linux diários para atualizações em falta do sistema operativo. O Security Center recupera uma lista de atualizações de segurança e críticas disponíveis a partir de Serviços de Atualização do Windows Update ou Windows Server Update Services (WSUS), dependendo do serviço configurado num VM do Windows. O Security Center também verifica as últimas atualizações para os sistemas Linux. Se o seu VM estiver a perder uma atualização do sistema, o Security Center recomenda que aplique atualizações do sistema. A aplicação destas atualizações do sistema é controlada através do Centro de Segurança no portal Azure. Depois de aplicar algumas atualizações, poderão ser necessárias reinicializações em VM. Para obter mais informações, consulte [Aplicar atualizações do sistema no Centro de Segurança Azure.](../../security-center/asset-inventory.md)
 
 Tal como os servidores no local, o Azure não empurra as atualizações do Windows Update para os VMs do Windows, uma vez que estas máquinas se destinam a ser geridas pelos seus utilizadores. No entanto, é encorajado a deixar ativada a definição automática de Atualização do Windows. A instalação automática de atualizações a partir do Windows Update também pode fazer com que as reinicializações ocorram após a aplicação das atualizações. Para mais informações, consulte [o Windows Update FAQ](https://support.microsoft.com/help/12373/windows-update-faq).
 

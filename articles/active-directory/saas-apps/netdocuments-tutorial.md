@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 245818b60647539c7fff7c45dcecdc6840153fb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 536fcab8cdfea4846cc1122fa56c939f525388f4
+ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88549046"
+ms.lasthandoff: 10/11/2020
+ms.locfileid: "91938479"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netdocuments"></a>Tutorial: Azure Ative Directory integração única (SSO) com NetDocuments
 
@@ -136,7 +136,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 3. Selecione **Centro de Segurança**.
    
-    ![Repositório](./media/netdocuments-tutorial/security-center.png "Centro de Segurança")
+    ![A screenshot mostra o Centro de Segurança selecionado a partir de Documentos Legais.](./media/netdocuments-tutorial/security-center.png "Centro de Segurança")
 
 4. Selecione **Autenticação Avançada**.
     
@@ -166,7 +166,7 @@ Para permitir que os utilizadores de Azure AD inscrevam-se no NetDocuments, deve
 
 3. Selecione **Utilizadores e grupos**.
    
-    ![Repositório](./media/netdocuments-tutorial/users-groups.png "Repositório")
+    ![A screenshot mostra grupos & de utilizadores selecionados a partir de documentos legais.](./media/netdocuments-tutorial/users-groups.png "Repositório")
 
 4. Na caixa de texto **do Endereço de E-mail,** digite o endereço de e-mail de uma conta de Diretório Ativo Azure válida que pretende obter e, em seguida, clique em **Adicionar Utilizador**.
    

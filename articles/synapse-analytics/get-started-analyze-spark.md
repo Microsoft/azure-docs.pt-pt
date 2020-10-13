@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: ebcec3907e40a8ba58aab841cd788c58ec7a94fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f03f98a1a1f36900d65e132a3420ac037214aaff
+ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "90017919"
+ms.locfileid: "91893545"
 ---
 # <a name="analyze-with-apache-spark"></a>Analise com Faísca Apache
 
@@ -22,7 +22,7 @@ ms.locfileid: "90017919"
 
 Neste tutorial, você vai aprender os passos básicos para carregar e analisar dados com Apache Spark para Azure Synapse.
 
-1. No centro de **dados** em **Linked**, clique à direita no **Azure Blob Storage > Sample Datasets > nyc_tlc_yellow** e selecione **SELECT New notebook**
+1. No centro **de dados,** clique em **Adicionar um novo recurso**(mais botão acima do **Linked**)  >> **Browse Samples**. Encontre **a Comissão de Táxis & Limousine da NYC - registos amarelos de viagem** de táxi e clique nele. Na parte inferior da página prima **Continue** e depois adicione **conjunto de dados**. Agora no centro **de dados** em **Linked** selecione clique direito em **Azure Blob Storage >> Sample Datasets >> nyc_tlc_yellow** e selecione **Novo caderno**
 1. Isto criará um novo Caderno com o seguinte código:
     ```
     from azureml.opendatasets import NycTlcYellow
@@ -119,6 +119,6 @@ df.write.sqlanalytics("SQLDB1.dbo.PassengerCountStats", Constants.INTERNAL )
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Analisar dados em Armazenamento](get-started-analyze-storage.md)
+> [Analisar dados com SQL a pedido](get-started-analyze-sql-on-demand.md)
 
 

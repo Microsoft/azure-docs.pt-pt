@@ -6,14 +6,14 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/12/2020
+ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: bdd27645045195016b7a563787470bf6f2187115
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ca190ae9e5679ce7622f89b39507d69d87f5b88
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "84985468"
+ms.locfileid: "91875585"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configure uma ligação VNet-to-VNet (clássico)
 
@@ -80,16 +80,7 @@ A tabela que se segue mostra um exemplo de como definir os seus VNets. Utilize o
 
 ## <a name="step-2---create-the-virtual-networks"></a><a name="vnetvalues"></a>Passo 2 - Criar as redes virtuais
 
-Criar duas redes virtuais no [portal Azure.](https://portal.azure.com) Para os passos para criar redes virtuais clássicas, consulte [Criar uma rede virtual clássica.](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) 
-
-Ao utilizar o portal para criar uma rede virtual clássica, tem de navegar para a página de rede virtual utilizando os seguintes passos, caso contrário não aparece a opção de criar uma rede virtual clássica:
-
-1. Clique no '+' para abrir a página 'Novo'.
-2. No campo 'Pesquisar o mercado', escreva 'Rede Virtual'. Se, em vez disso, selecionar Networking -> Virtual Network, não terá a opção de criar um VNet clássico.
-3. Localizar 'Rede Virtual' a partir da lista de devoluções e clicar nela para abrir a página 'Rede Virtual'. 
-4. Na página de rede virtual, selecione 'Classic' para criar um VNet clássico. 
-
-Se estiver a utilizar este artigo como exercício, pode utilizar os seguintes valores de exemplo:
+Neste passo, cria-se duas redes virtuais clássicas. Se estiver a utilizar este artigo como exercício, pode utilizar os seguintes valores de exemplo:
 
 **Valores para TestVNet1**
 
@@ -125,7 +116,11 @@ GatewaySubnet: 10.41.1.0/27
 
 * **Servidores DNS** – Introduza o nome do servidor DNS e o endereço IP. Esta definição não cria um servidor DNS. Permite-lhe especificar os servidores DNS que pretende utilizar para a resolução de nomes desta rede virtual.
 
-Nesta secção, configurar o tipo de ligação, o local local, e criar o gateway.
+### <a name="to-create-a-classic-virtual-network"></a>Para criar uma rede virtual clássica
+
+[!INCLUDE [basic classic vnet](../../includes/vpn-gateway-vnet-classic.md)]
+
+[!INCLUDE [basic classic DNS](../../includes/vpn-gateway-dns-classic.md)]
 
 ## <a name="step-3---configure-the-local-site"></a><a name="localsite"></a>Passo 3 - Configurar o site local
 
@@ -205,38 +200,7 @@ Depois de terem sido criados os seus gateways de rede virtuais para ambos os VNe
 
 ## <a name="step-7---retrieve-values-from-the-network-configuration-file"></a><a name="getvalues"></a>Passo 7 - Recuperar os valores do ficheiro de configuração da rede
 
-Quando cria vNets clássicos no portal Azure, o nome que vê não é o nome completo que usa para PowerShell. Por exemplo, um VNet que parece ser nomeado **TestVNet1** no portal, pode ter um nome muito mais longo no ficheiro de configuração da rede. O nome pode parecer algo como: **Group ClassicRG TestVNet1**. Quando cria as suas ligações, é importante utilizar os valores que vê no ficheiro de configuração da rede.
-
-Nos seguintes passos, irá ligar-se à sua conta Azure e descarregar e ver o ficheiro de configuração da rede para obter os valores necessários para as suas ligações.
-
-1. Descarregue e instale a versão mais recente dos cmdlets PowerShell powerShell da Azure Service Management (SM). Para obter mais informações, consulte [Working with Azure PowerShell](#powershell).
-
-2. Abra a sua consola PowerShell com direitos elevados. Utilize os seguintes exemplos para o ajudar a ligar. Tem de executar estes comandos localmente utilizando o módulo de gestão de serviços PowerShell. Para mudar para a gestão de serviços, utilize este comando:
-
-   ```powershell
-   azure config mode asm
-   ```
-3. Ligar à sua conta. Utilize o exemplo seguinte para o ajudar na ligação:
-
-   ```powershell
-   Add-AzureAccount
-   ```
-4. Verifique as subscrições da conta.
-
-   ```powershell
-   Get-AzureSubscription
-   ```
-5. Se tiver mais do que uma subscrição, selecione a subscrição que pretende utilizar.
-
-   ```powershell
-   Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
-   ```
-6. Exportar e ver o ficheiro de configuração da rede. Crie um diretório no seu computador e, em seguida, exporte o ficheiro de configuração de rede para o diretório. Neste exemplo, o ficheiro de configuração da rede é exportado para **C:\AzureNet**.
-
-   ```powershell
-   Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
-   ```
-7. Abra o ficheiro com um editor de texto e veja os nomes dos seus VNets e sites. Estes nomes serão os nomes que usa quando criar as suas ligações.<br>Os nomes VNet estão listados como **Nome VirtualNetworkSite =**<br>Os nomes do site estão listados como **LocalNetworkSiteRef nome =**
+[!INCLUDE [retrieve values](../../includes/vpn-gateway-values-classic.md)]
 
 ## <a name="step-8---create-the-vpn-gateway-connections"></a><a name="createconnections"></a>Passo 8 - Criar as ligações de gateway VPN
 

@@ -3,15 +3,15 @@ title: Windows Virtual Desktop host pool load-balance - Azure
 description: Saiba mais sobre os métodos de equilíbrio de carga da piscina do anfitrião para um ambiente de ambiente de trabalho virtual do Windows.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 10/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2b977d64dea1cef3b8142758e57d91e92e5bcc02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd8f9e4a3ef63cd97f96af3d4f96a2bb65c3cd09
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461124"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91951864"
 ---
 # <a name="host-pool-load-balancing-methods"></a>Métodos de balanceamento de carga do agrupamento de anfitriões
 
@@ -41,3 +41,6 @@ O primeiro método de primeira consulta acolhe anfitriões que permitem novas li
 O método de balanço de carga de profundidade primeiro permite-lhe saturar um anfitrião de cada vez para otimizar para este cenário. Este método é ideal para organizações conscientes do custo que querem mais controlo granular sobre o número de máquinas virtuais que atribuíram para uma piscina de anfitriões.
 
 O método de primeira consulta de profundidade acolhe anfitriões que permitem novas ligações e não ultrapassaram o limite máximo de sessão. Em seguida, o método seleciona o anfitrião da sessão com o maior número de sessões. Se houver um empate, o método seleciona o anfitrião da primeira sessão na consulta.
+
+>[!IMPORTANT]
+>O algoritmo de equilíbrio de primeira carga de profundidade distribui sessões a anfitriões de sessão com base no limite máximo de anfitrião da sessão. Este parâmetro é necessário quando se utiliza o algoritmo de equilíbrio de carga de profundidade primeiro. Para obter a melhor experiência possível do utilizador, certifique-se de alterar o parâmetro limite de anfitrião de sessão máxima para um número que melhor se adapte ao seu ambiente.

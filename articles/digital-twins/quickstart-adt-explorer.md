@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 565decb90a4d41024e94cb5225e58842763e75f4
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 2022a7448767b7ffea7baa70606a7f59e6d93951
+ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946043"
+ms.locfileid: "91952030"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Quickstart - Explore uma amostra do cenário Azure Digital Twins usando o ADT Explorer
 
@@ -323,7 +323,7 @@ Se planeia continuar com os tutoriais do Azure Digital Twins, a instância usada
 
 Por fim, elimine as pastas de amostra de projeto que descarregou para a sua máquina local_**(Azure_Digital_Twins__ADT__explorer**_ e _**Azure_Digital_Twins_samples).**_ Pode ter de eliminar as versões com fecho e desapertado.
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 
 Em seguida, continue para os tutoriais Azure Digital Twins para construir o seu próprio cenário Azure Digital Twins e ferramentas de interação.
 

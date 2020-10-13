@@ -4,12 +4,12 @@ description: Configure credenciais de repositório para descarregar imagens do r
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: 9bd6e6a0a22f7568760f014897fd28ff47e9450b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47a3fb39693bf6143d4033eed437f65b7e63eabb
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89421429"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91978684"
 ---
 # <a name="configure-repository-credentials-for-your-application-to-download-container-images"></a>Configure credenciais de repositório para a sua aplicação para descarregar imagens de contentores
 
@@ -96,6 +96,9 @@ O Service Fabric suporta o uso de tokens como credenciais para descarregar image
 1. Certifique-se de que *a identidade gerida atribuída* pelo sistema está ativada para o VM.
 
     ![Portal Azure: Criar opção de identidade definida em escala de máquina virtual](./media/configure-container-repository-credentials/configure-container-repository-credentials-acr-iam.png)
+
+> [!NOTE]
+> Para obter a identidade gerida atribuída pelo utilizador, ignore este passo. Os passos restantes abaixo funcionarão da mesma forma, desde que o conjunto de escala esteja apenas associado a uma única identidade gerida atribuída pelo utilizador.
 
 2. Conceder permissões à escala de máquina virtual definida para retirar/ler imagens do registo. A partir da lâmina do Controlo de Acesso (IAM) do seu Registo de Contentores Azure no portal Azure, adicione uma *atribuição de função* para a sua máquina virtual:
 
