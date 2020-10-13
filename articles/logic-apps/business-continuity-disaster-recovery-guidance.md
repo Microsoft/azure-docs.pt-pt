@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.openlocfilehash: 0a36cb468ebcb77c0614bffd0afc392df3655c20
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89658211"
 ---
 # <a name="business-continuity-and-disaster-recovery-for-azure-logic-apps"></a>Continuidade de negócios e recuperação de desastres para Azure Logic Apps
@@ -102,7 +102,7 @@ Pode configurar as suas localizações primárias e secundárias para que as ins
 
 | Papel primário-secundário | Descrição |
 |------------------------|-------------|
-| *Ativa-ativa* | As instâncias de aplicações lógicas primárias e secundárias em ambos os locais lidam ativamente com os pedidos seguindo qualquer um destes padrões: <p><p>- *Equilíbrio de carga*: Pode fazer com que ambas as instâncias ouçam um ponto final e carreguem o tráfego de equilíbrio para cada instância, se necessário. <p>- *Consumidores concorrentes*: Pode fazer com que ambas as instâncias atuem como consumidores concorrentes para que os casos concorram por mensagens de uma fila. Se um caso falhar, o outro caso assume a carga de trabalho. |
+| *Ativo ativo* | As instâncias de aplicações lógicas primárias e secundárias em ambos os locais lidam ativamente com os pedidos seguindo qualquer um destes padrões: <p><p>- *Equilíbrio de carga*: Pode fazer com que ambas as instâncias ouçam um ponto final e carreguem o tráfego de equilíbrio para cada instância, se necessário. <p>- *Consumidores concorrentes*: Pode fazer com que ambas as instâncias atuem como consumidores concorrentes para que os casos concorram por mensagens de uma fila. Se um caso falhar, o outro caso assume a carga de trabalho. |
 | *Ativa-passiva* | A instância da aplicação lógica primária lida ativamente com toda a carga de trabalho, enquanto a instância secundária é passiva (desativada ou inativa). O secundário aguarda um sinal de que o primário está indisponível ou não funciona devido a perturbação ou falha e assume a carga de trabalho como o caso ativo. |
 | Combinação | Algumas aplicações lógicas desempenham um papel ativo, enquanto outras aplicações lógicas desempenham um papel ativo-passivo. |
 |||
@@ -346,7 +346,7 @@ Pode configurar o registo para a sua aplicação lógica e enviar os dados de di
   * [Recuperação de desastres de armazenamento Azure Blob e falha na conta](../storage/common/storage-disaster-recovery-guidance.md)
   * [Azure Event Hubs recuperação de geo-desastres](../event-hubs/event-hubs-geo-dr.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Visão geral da resiliência para Azure](/azure/architecture/framework/resiliency/overview)
 * [Lista de verificação de resiliência para serviços específicos do Azure](/azure/architecture/checklist/resiliency-per-service)

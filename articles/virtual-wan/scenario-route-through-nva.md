@@ -10,10 +10,10 @@ ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 ms.openlocfilehash: d44964b5aed55e2ee70d18e6be5d632b652956e1
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90976260"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Cenário: Encaminhar o tráfego através de uma NVA
@@ -26,7 +26,7 @@ Ao trabalhar com o encaminhamento virtual do hub virtual WAN, existem alguns cen
 >* [Artigo PowerShell](virtual-wan-route-table-nva.md)
 >
 
-## <a name="design"></a><a name="design"></a>Design (Estruturar)
+## <a name="design"></a><a name="design"></a>Design
 
 Neste cenário, utilizaremos a convenção de nomeação:
 
@@ -99,7 +99,7 @@ Na **Figura 2**, existem dois hubs; **Hub1** e **Hub2.**
 
 **Figura 2**
 
-:::image type="content" source="./media/routing-scenarios/nva/nva.png" alt-text="Figura 2" lightbox="./media/routing-scenarios/nva/nva.png":::
+:::image type="content" source="./media/routing-scenarios/nva/nva.png" alt-text="Figura 1" lightbox="./media/routing-scenarios/nva/nva.png":::
 
 ## <a name="scenario-workflow"></a><a name="workflow"></a>Fluxo de trabalho de cenário
 
@@ -117,7 +117,7 @@ O WAN virtual não suporta um cenário em que os VNets 5,6 se conectem ao hub vi
 
 2. Adicione uma entrada de rota estática agregada para VNets 2,5,6 à tabela de rota padrão do Hub 1.
 
-   :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="Exemplo":::
+   :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="Figura 1":::
 
 3. Configurar uma rota estática para VNets 5,6 na ligação de rede virtual do VNet 2. Para configurar a configuração de encaminhamento para uma ligação de rede virtual, consulte [o encaminhamento do hub virtual](how-to-virtual-hub-routing.md#routing-configuration).
 
@@ -129,7 +129,7 @@ Isto resultará em alterações na configuração do encaminhamento, como mostra
 
 **Figura 3**
 
-   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Figura 3" lightbox="./media/routing-scenarios/nva/nva-result.png":::
+   :::image type="content" source="./media/routing-scenarios/nva/nva-result.png" alt-text="Figura 1" lightbox="./media/routing-scenarios/nva/nva-result.png":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

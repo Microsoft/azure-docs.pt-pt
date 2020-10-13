@@ -12,10 +12,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e2e24246c749978cd2bbb5b3d0821eea6d7dfb4b
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89660872"
 ---
 # <a name="azure-ad-connect-group-writeback"></a>Azure AD Connect group writeback
@@ -67,5 +67,5 @@ Para desativar o Writeback do Grupo, utilize os seguintes passos:
  >[!NOTE]
  > Desativará as bandeiras de Repartição total e Sincronização Completas para "verdadeiro" no Conector de Diretório Ativo Azure, fazendo com que as alterações de regras se propaguem no próximo ciclo de sincronização, eliminando os grupos previamente recímos para o seu Diretório Ativo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

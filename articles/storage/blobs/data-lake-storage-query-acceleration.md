@@ -9,10 +9,10 @@ ms.date: 09/09/2020
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: ae92828f08ae4abf9cc28f18872cca27ce747be4
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89657645"
 ---
 # <a name="azure-data-lake-storage-query-acceleration"></a>Aceleração da consulta de armazenamento do lago de dados Azure
@@ -72,7 +72,7 @@ Devido ao aumento da carga de cálculo dentro do serviço de armazenamento de da
 
 Apesar da alteração do modelo de faturação, o modelo de preços da Query Acceleration foi concebido para reduzir o custo total de propriedade para uma carga de trabalho, dada a redução dos custos de VM muito mais caros.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Filtrar dados utilizando a aceleração da consulta de armazenamento do lago de dados Azure](data-lake-storage-query-acceleration-how-to.md)
 - [Referência linguística SQL de aceleração de consulta](query-acceleration-sql-reference.md)

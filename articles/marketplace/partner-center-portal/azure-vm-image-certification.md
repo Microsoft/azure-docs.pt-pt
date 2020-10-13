@@ -8,10 +8,10 @@ author: github-2407
 ms.author: krsh
 ms.date: 08/14/2020
 ms.openlocfilehash: 83fc141a658fb3f5f639d56794c77fe7a3ff28bf
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91821328"
 ---
 # <a name="test-a-virtual-machine-image-for-azure-marketplace"></a>Teste uma imagem de máquina virtual para Azure Marketplace
@@ -1000,13 +1000,13 @@ Por fim, selecione 'Relatório de Geração' para descarregar os resultados dos 
 > [!Note]
 > Poucas editoras têm cenários em que os VM precisam de ser bloqueados, uma vez que têm software como firewalls instalados no VM. Neste caso, os editores podem descarregar a [Ferramenta de Teste Certificada](https://aka.ms/AzureCertificationTestTool) aqui, e fornecer o relatório no [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport)
 
-## <a name="how-to-use-powershell-to-consume-the-self-test-api"></a>Como usar o PowerShell para consumir a API de auto-teste
+## <a name="how-to-use-powershell-to-consume-the-self-test-api"></a>Como usar o PowerShell para consumir a API Self-Test
 
 ### <a name="on-linux-os"></a>No Linux OS
 
 Ligue para a API em PowerShell:
 
-1. Utilize o comando Invoke-WebRequest para ligar para a API.
+1. Use o comando Invoke-WebRequest para ligar para a API.
 2. O método é Post e o tipo de conteúdo é JSON, como mostrado no exemplo de código e captura de ecrã.
 3. Especifique os parâmetros do corpo no formato JSON.
 
@@ -1077,7 +1077,7 @@ For ($i = 0; $i -lt $actualresult.Tests.Length; $i++) {
 
 Ligue para a API em PowerShell:
 
-1. Utilize o comando Invoke-WebRequest para ligar para a API.
+1. Use o comando Invoke-WebRequest para ligar para a API.
 2. O método é Post e o tipo de conteúdo é JSON, como mostrado no seguinte exemplo de código e ecrã de amostra.
 3. Crie os parâmetros do corpo no formato JSON.
 
@@ -1735,7 +1735,7 @@ For ($i = 0; $i -lt $actualresult.Tests.Length; $i++) {
 
 ![Os resultados dos testes num visualizador JSON online.](media/vm/test-results-json-viewer-2.png)
 
-## <a name="how-to-use-curl-to-consume-the-self-test-api-on-linux-os"></a>Como usar o CURL para consumir a API de auto-teste no Linux OS
+## <a name="how-to-use-curl-to-consume-the-self-test-api-on-linux-os"></a>Como usar o CURL para consumir a API Self-Test no Linux OS
 
 Ligue para a API em CURL:
 

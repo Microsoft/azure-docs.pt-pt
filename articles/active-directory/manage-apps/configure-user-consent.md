@@ -12,10 +12,10 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.openlocfilehash: cff2af745e9b79f573aba02e0a9baefe4a5e45a3
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91819273"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Configurar a forma como os utilizadores finais concedem consentimento às aplicações
@@ -177,7 +177,7 @@ Pode utilizar o módulo de pré-visualização Azure AD PowerShell, [AzureADPrev
 Para saber mais:
 
 * [Configurar as definições de consentimento do utilizador](configure-user-consent.md)
-* [Gerir políticas de consentimento de aplicativos](manage-app-consent-policies.md)
+* [Gerir as políticas de consentimento da aplicação](manage-app-consent-policies.md)
 * [Configure o fluxo de trabalho de consentimento administrativo](configure-admin-consent-workflow.md)
 * [Saiba como gerir o consentimento das candidaturas e avaliar pedidos de consentimento](manage-consent-requests.md)
 * [Conceder consentimento de administrador ao nível do inquilino a uma aplicação](grant-admin-consent.md)

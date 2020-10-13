@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2020
 ms.author: duau
 ms.openlocfilehash: 45f9e7a4e508cffd3593cec7bbcea3dd7882a60c
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91819027"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Perguntas frequentes para Azure Front Door
@@ -251,7 +251,7 @@ Para ter ligações HTTPS bem sucedidas ao seu backend, seja para sondas de saú
 
 ### <a name="can-i-use-clientmutual-authentication-with-azure-front-door"></a>Posso usar a autenticação cliente/mútua com a Porta frontal Azure?
 
-Não. Embora a Azure Front Door suporte o TLS 1.2, que introduziu a autenticação cliente/mútua no [RFC 5246,](https://tools.ietf.org/html/rfc5246)atualmente, a Azure Front Door não suporta a autenticação cliente/mútua.
+N.º Embora a Azure Front Door suporte o TLS 1.2, que introduziu a autenticação cliente/mútua no [RFC 5246,](https://tools.ietf.org/html/rfc5246)atualmente, a Azure Front Door não suporta a autenticação cliente/mútua.
 
 ## <a name="diagnostics-and-logging"></a>Diagnóstico e registos
 

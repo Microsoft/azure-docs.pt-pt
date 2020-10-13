@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2dddad5692ab2eebb6ef9b427c091be449791d7c
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91818344"
 ---
 # <a name="conditional-access-conditions"></a>Acesso Condicional: Condições
@@ -132,14 +132,14 @@ Para suporte ao Chrome na **Atualização de Criadores do Windows 10 (versão 17
 
 Para implementar automaticamente esta extensão para os navegadores Chrome, crie a seguinte chave de registo:
 
-- Caminho HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist
+- HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist caminho
 - Nome 1
 - Tipo REG_SZ (Corda)
 - Dados ppnbnpeolgkicgegkbbbjmhlideopiji;https \: //clients2.google.com/service/update2/crx
 
 Para o suporte do Chrome no **Windows 8.1 e 7,** crie a seguinte chave de registo:
 
-- Caminho HKEY_LOCAL_MACHINE\SOFTWARE\Políticas\Google\Chrome\AutoSelectCertificateForUrls
+- HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls caminho
 - Nome 1
 - Tipo REG_SZ (Corda)
 - Dados {"pattern":" https://device.login.microsoftonline.com "filter":{"ISSUER":{"CN":"MS-Organization-Access}}}}

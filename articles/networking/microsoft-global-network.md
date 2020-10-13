@@ -14,10 +14,10 @@ ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
 ms.openlocfilehash: 05e966d3f4631e3c344bd97c0faec99cc3c6dd66
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91819902"
 ---
 # <a name="microsoft-global-network"></a>Rede global da Microsoft
@@ -36,7 +36,7 @@ Optar pela [melhor experiência possível](https://www.sdxcentral.com/articles/n
  
 Seja ligando de Londres a Tóquio, ou de Washington DC a Los Angeles, o desempenho da rede é quantificado e impactado por coisas como latência, nervosismo, perda de pacotes e produção.  Na Microsoft, preferimos e usamos interligações diretas em oposição às ligações de trânsito, isto mantém a resposta simétrica do tráfego e ajuda a manter o lúpulo, as partes e os caminhos o mais curtos e simples possível. 
 
-Por exemplo, se um utilizador em Londres tentar aceder a um serviço em Tóquio, então o tráfego da Internet entra numa das nossas bordas em Londres, passa por cima da Microsoft WAN através da França, dos nossos caminhos trans-Arabia entre a Europa e a Índia, e depois para o Japão, onde o serviço está hospedado. O tráfego de resposta é simétrico. Isto é por vezes referido como [encaminhamento de batatas frias,](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing) o que significa que o tráfego permanece na rede da Microsoft o máximo possível antes de o entregarmos.  
+Por exemplo, se um utilizador em Londres tentar aceder a um serviço em Tóquio, então o tráfego da Internet entra numa das nossas bordas em Londres, passa por cima da Microsoft WAN através da França, os nossos caminhos Trans-Arabia entre a Europa e a Índia, e depois para o Japão onde o serviço está hospedado. O tráfego de resposta é simétrico. Isto é por vezes referido como [encaminhamento de batatas frias,](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing) o que significa que o tráfego permanece na rede da Microsoft o máximo possível antes de o entregarmos.  
   
 Isso significa todo e qualquer tráfego quando se utiliza os serviços da Microsoft? Sim, qualquer tráfego entre centros de dados, dentro do Microsoft Azure ou entre serviços da Microsoft como Máquinas Virtuais, Microsoft 365, XBox, SQL DBs, Armazenamento e redes virtuais são encaminhados dentro da nossa rede global e nunca através da Internet pública, para garantir o melhor desempenho e integridade.  
  

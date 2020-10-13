@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 7aa33bb062abf748031b27df46d42e8f13aabfc3
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91819957"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Diretrizes de limitação do Azure Key Vault
@@ -96,7 +96,7 @@ No código de erro HTTP 429, comece a estrangular o seu cliente utilizando uma a
 
 Neste momento, não deverá receber códigos de resposta HTTP 429.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 
 Para uma orientação mais profunda de estrangulamento na Cloud microsoft, consulte o [Padrão de Aceleração](https://docs.microsoft.com/azure/architecture/patterns/throttling).
 

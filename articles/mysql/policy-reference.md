@@ -8,10 +8,10 @@ ms.author: andrela
 ms.service: mysql
 ms.custom: subject-policy-reference
 ms.openlocfilehash: 67c98295f37e00073ceb1933736f7bd1808fb37b
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91816219"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-database-for-mysql"></a>Definições incorporadas da Política Azure para a Base de Dados Azure para o MySQL
