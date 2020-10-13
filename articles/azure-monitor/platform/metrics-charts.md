@@ -8,10 +8,10 @@ ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
 ms.openlocfilehash: e554fe48c3cbf8b744bf2f435f7b51e424d28808
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87079558"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Advanced features of Azure Metrics Explorer (Funcionalidades avançadas do Explorador de Métricas do Azure)
@@ -21,7 +21,7 @@ ms.locfileid: "87079558"
 
 ## <a name="metrics-in-azure"></a>Métricas em Azure
 
-[As métricas no Azure Monitor](data-platform-metrics.md) são a série de valores e contagens medidos que são recolhidos e armazenados ao longo do tempo. Existem métricas padrão (ou "plataforma") e métricas personalizadas. As métricas padrão são fornecidas pela própria plataforma Azure. As métricas padrão refletem as estatísticas de saúde e utilização dos seus recursos Azure. Enquanto as métricas personalizadas são enviadas para a Azure pelas suas aplicações utilizando a [API de Insights de Aplicação para eventos e métricas personalizadas,](../app/api-custom-events-metrics.md) [extensão de Diagnóstico do Windows Azure (WAD)](./diagnostics-extension-overview.md)ou pela [Azure Monitor REST API](./metrics-store-custom-rest-api.md).
+[As métricas no Azure Monitor](data-platform-metrics.md) são a série de valores e contagens medidos que são recolhidos e armazenados ao longo do tempo. Existem métricas padrão (ou "plataforma") e métricas personalizadas. As métricas padrão são fornecidas pela própria plataforma Azure. As métricas padrão refletem as estatísticas de saúde e utilização dos seus recursos Azure. Enquanto as métricas personalizadas são enviadas para a Azure pelas suas aplicações utilizando a [API de Insights de Aplicação para eventos e métricas personalizadas,](../app/api-custom-events-metrics.md)  [extensão de Diagnóstico do Windows Azure (WAD)](./diagnostics-extension-overview.md)ou pela [Azure Monitor REST API](./metrics-store-custom-rest-api.md).
 
 ## <a name="create-views-with-multiple-metrics-and-charts"></a>Criar vistas com várias métricas e gráficos
 

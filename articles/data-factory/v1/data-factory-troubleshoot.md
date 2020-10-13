@@ -14,10 +14,10 @@ ms.reviewer: maghan
 manager: anandsub
 robots: noindex
 ms.openlocfilehash: 45aa444393ed81bc320a770203ca114c35e16107
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84195905"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Resolver Problemas do Data Factory
@@ -49,7 +49,7 @@ Provavelmente não está a utilizar a conta ou a subscrição do Azure adequada 
 
 1. Connect-AzAccount - Use o ID do utilizador certo e a palavra-passe
 2. Get-AzSubscription - Ver todas as subscrições da conta.
-3. Selecione-AzSubscription &lt; nome de subscrição &gt; - Selecione a subscrição certa. Use o mesmo que usa para criar uma fábrica de dados no portal Azure.
+3. Select-AzSubscription nome &lt; de subscrição &gt; - Selecione a subscrição certa. Use o mesmo que usa para criar uma fábrica de dados no portal Azure.
 
 ### <a name="problem-fail-to-launch-data-management-gateway-express-setup-from-azure-portal"></a>Problema: Falha no lançamento da Data Management Gateway Express Setup a partir do portal Azure
 A configuração rápida para o Data Management Gateway necessita do Internet Explorer ou de um browser compatível com o Microsoft ClickOnce. Se não for possível iniciar a Configuração Rápida, faça o seguinte:

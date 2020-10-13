@@ -4,10 +4,10 @@ description: Saiba como resolver problemas com uma conta de armazenamento invál
 ms.topic: article
 ms.date: 09/05/2018
 ms.openlocfilehash: c46ca214ab6c0798fdc39ead575fb2873b8c51c8
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87385862"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>Erro de resolução de problemas: "O tempo de execução das funções Azure é inacessível"
@@ -88,7 +88,7 @@ Também pode utilizar o portal a partir de um computador que está ligado à red
 
 Para obter mais informações sobre a configuração da regra de entrada, consulte a secção "Grupos de Segurança da Rede" de considerações de [Networking para um Ambiente de Serviço de Aplicações](../app-service/environment/network-info.md#network-security-groups).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como monitorizar as suas aplicações de função:
 

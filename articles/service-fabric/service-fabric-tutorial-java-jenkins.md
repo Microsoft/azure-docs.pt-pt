@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 08/27/2018
 ms.custom: mvc, devx-track-java
 ms.openlocfilehash: 4e29104f0586a8e18afb7a640903c57ce988b692
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91531977"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Tutorial: Configurar um ambiente Jenkins para ativar o CI/CD para uma aplicação Java no Service Fabric
@@ -113,7 +113,7 @@ Pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. As ins
     > Este cluster seria igual ao que aloja a aplicação de contentor do Jenkins, no caso de estar a utilizar o Service Fabric para implementar a imagem de contentor do Jenkins.
     >
 
-1. Clique em **Save** (Guardar).
+1. Clique em **Guardar**.
 
 ## <a name="update-your-existing-application"></a>Atualizar a aplicação existente
 

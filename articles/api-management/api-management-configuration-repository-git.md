@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
 ms.openlocfilehash: 18cc42c3447de733447c27db52a9a6d664539464
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89400365"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Como guardar e configurar a sua configuração do serviço de Gestão de API com Git
@@ -258,7 +258,7 @@ A `templates` pasta contém configuração para os modelos de [e-mail](api-manag
 * `<template name>\configuration.json` - esta é a configuração para o modelo de e-mail.
 * `<template name>\body.html` - este é o corpo do modelo de e-mail.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter informações sobre outras formas de gerir a sua instância de serviço, consulte:
 
 * Gerencie a sua instância de serviço utilizando os seguintes cmdlets PowerShell

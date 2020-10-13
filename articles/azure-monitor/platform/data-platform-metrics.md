@@ -10,10 +10,10 @@ ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
 ms.openlocfilehash: b05007e2ea7815afbba2a7a71368686cf7c049fb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87325615"
 ---
 # <a name="metrics-in-azure-monitor"></a>Métricas no Azure Monitor
@@ -31,12 +31,12 @@ A tabela que se segue lista as diferentes formas de utilizar dados métricos no 
 
 |  | Descrição |
 |:---|:---|
-| **Analisar** | Use [o explorador de métricas](metrics-charts.md) para analisar métricas recolhidas num gráfico e comparar métricas de diferentes recursos. |
+| **Análise** | Use [o explorador de métricas](metrics-charts.md) para analisar métricas recolhidas num gráfico e comparar métricas de diferentes recursos. |
 | **Visualização** | Pin um gráfico de explorador de métricas para um [painel Azure](../learn/tutorial-app-dashboards.md).<br>Crie um [livro para](./workbooks-overview.md) combinar com vários conjuntos de dados num relatório interativo. Exporte os resultados de uma consulta à [Grafana](grafana-plugin.md) para alavancar o seu dashboarding e combinar com outras fontes de dados. |
 | **Alerta** | Configure uma [regra de alerta métrico](alerts-metric.md) que envia uma notificação ou toma [medidas automatizadas](action-groups.md) quando o valor métrico cruza um limiar. |
 | **Automatizar** |  Utilize [a Autoescala](autoscale-overview.md) para aumentar ou diminuir os recursos com base num valor métrico que cruza um limiar. |
 | **Exportar** | [Rota métricas para Logs](./resource-logs.md#send-to-azure-storage) para analisar dados em Azure Monitor Metrics juntamente com dados em Registos monitores Azure e para armazenar valores métricos por mais de 93 dias.<br>Stream Metrics para um [Centro de Eventos](stream-monitoring-data-event-hubs.md) para encaminhá-los para sistemas externos. |
-| **Recuperar** | Aceder a valores métricos de uma linha de comando utilizando [cmdlets PowerShell](/powershell/module/az.applicationinsights)<br>Aceder a valores métricos de aplicação personalizada utilizando [API REST.](rest-api-walkthrough.md)<br>Aceder a valores métricos de uma linha de comando utilizando [OCLI](/cli/azure/monitor/metrics). |
+| **Recuperar** | Aceder a valores métricos de uma linha de comando utilizando  [cmdlets PowerShell](/powershell/module/az.applicationinsights)<br>Aceder a valores métricos de aplicação personalizada utilizando [API REST.](rest-api-walkthrough.md)<br>Aceder a valores métricos de uma linha de comando utilizando  [OCLI](/cli/azure/monitor/metrics). |
 | **Arquivo** | [Archive](./platform-logs-overview.md) o desempenho ou histórico de saúde do seu recurso para fins de conformidade, auditoria ou reporte offline. |
 
 ## <a name="how-is-data-in-azure-monitor-metrics-structured"></a>Como são estruturados os dados em Azure Monitor Metrics?

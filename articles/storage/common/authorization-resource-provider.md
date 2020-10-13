@@ -10,10 +10,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: e71e56b9da06bfd8f3be24481efd619b788a8839
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91822269"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Utilize o fornecedor de recursos de armazenamento Azure para aceder a recursos de gestão
@@ -48,7 +48,7 @@ As funções incorporadas que concedem permissões para chamadas de operações 
 |---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
 | **Proprietário** | Pode gerir todos os recursos de armazenamento e acesso a recursos.  | Sim, fornece permissões para visualizar e regenerar as chaves da conta de armazenamento. |
 | **Contribuinte**  | Pode gerir todos os recursos de armazenamento, mas não consegue gerir o acesso aos recursos. | Sim, fornece permissões para visualizar e regenerar as chaves da conta de armazenamento. |
-| **Leitor** | Pode ver informações sobre a conta de armazenamento, mas não pode ver as chaves da conta. | Não. |
+| **Leitor** | Pode ver informações sobre a conta de armazenamento, mas não pode ver as chaves da conta. | N.º |
 | **Contribuidor de Conta de Armazenamento** | Pode gerir a conta de armazenamento, obter informações sobre os grupos e recursos de recursos da subscrição, e criar e gerir implementações de grupos de recursos de subscrição. | Sim, fornece permissões para visualizar e regenerar as chaves da conta de armazenamento. |
 | **Administrador de Acesso do Utilizador** | Pode gerir o acesso à conta de armazenamento.   | Sim, permite que um diretor de segurança atribua quaisquer permissões a si mesmos e a outros. |
 | **Contribuidor de Máquina Virtual** | Pode gerir máquinas virtuais, mas não a conta de armazenamento à qual estão ligadas.   | Sim, fornece permissões para visualizar e regenerar as chaves da conta de armazenamento. |

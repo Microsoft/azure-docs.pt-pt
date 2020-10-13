@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
 ms.openlocfilehash: 8e18b79cc14fe98879ec97361f6e275d8fd918bb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90940928"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Selecione e coloque um agente de segurança no seu dispositivo IoT
@@ -44,16 +44,16 @@ O agente de segurança baseado em C tem uma pegada de memória mais baixa, e é 
 | --- | ----------- | --------- |
 | **É open-source** | Disponível sob [licença do MIT](https://en.wikipedia.org/wiki/MIT_License) no [GitHub](https://aka.ms/iot-security-github-c) | Disponível sob [licença do MIT](https://en.wikipedia.org/wiki/MIT_License) no [GitHub](https://aka.ms/iot-security-github-cs) |
 | **Linguagem de programação**    | C | C# |
-| **Plataformas suportadas do Windows?** | No | Yes |
+| **Plataformas suportadas do Windows?** | Não | Sim |
 | **Pré-requisitos do Windows** | --- | [WMI](https://docs.microsoft.com/windows/desktop/wmisdk/) |
 | **Apoiou plataformas Linux?** | Sim, x64 e x86 | Sim, apenas x64 |
 | **Pré-requisitos linux** | libunwind8, libcurl3, uuid-runtime, auditado, audispd-plugins | libunwind8, libcurl3, uuid-runtime, auditado, audispd-plugins, sudo, netstat, iptables |
 | **Pegada de disco** | 10,5 MB | 90 MB |
 | **Pegada de memória (em média)** | 5,5 MB | 33 MB |
-| **[Autenticação](concept-security-agent-authentication-methods.md) no IoT Hub** | Yes | Yes |
-| **Recolha [de](how-to-agent-configuration.md#supported-security-events) dados de segurança** | Yes | Yes |
-| **Agregação de eventos** | Yes | Yes |
-| **Configuração remota através do [módulo de segurança twin](concept-security-module.md)** | Yes | Yes |
+| **[Autenticação](concept-security-agent-authentication-methods.md) no IoT Hub** | Sim | Sim |
+| **Recolha [de](how-to-agent-configuration.md#supported-security-events) dados de segurança** | Sim | Sim |
+| **Agregação de eventos** | Sim | Sim |
+| **Configuração remota através do [módulo de segurança twin](concept-security-module.md)** | Sim | Sim |
 
 ## <a name="security-agent-installation-guidelines"></a>Diretrizes de instalação de agentes de segurança
 

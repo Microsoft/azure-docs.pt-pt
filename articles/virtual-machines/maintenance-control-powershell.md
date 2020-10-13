@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: cynthn
 ms.openlocfilehash: efd35cfe2660f4597ec0c95dc29bcb4b839da680
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91306944"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Atualizações de controlo com Controlo de Manutenção e Azure PowerShell
@@ -75,7 +75,7 @@ Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 > Esta versão de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
 > Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Utilize a Configuração new-AzMaintenance para criar uma configuração de manutenção com uma janela programada quando o Azure aplicar as atualizações dos seus recursos. Este exemplo cria uma configuração de manutenção chamada myConfig com uma janela programada de 5 horas na quarta segunda-feira de cada mês. Uma vez que crie uma janela programada, já não terá de aplicar as atualizações manualmente.
+Utilize New-AzMaintenanceConfiguration para criar uma configuração de manutenção com uma janela programada quando o Azure aplicar as atualizações dos seus recursos. Este exemplo cria uma configuração de manutenção chamada myConfig com uma janela programada de 5 horas na quarta segunda-feira de cada mês. Uma vez que crie uma janela programada, já não terá de aplicar as atualizações manualmente.
 
 ```azurepowershell-interactive
 $config = New-AzMaintenanceConfiguration `

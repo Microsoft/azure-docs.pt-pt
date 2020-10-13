@@ -14,10 +14,10 @@ ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 06/25/2019
 ms.openlocfilehash: a69332f1534e32a85ce084289dd00533612cc282
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91327566"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Descrição geral da continuidade empresarial com a Base de Dados SQL do Azure
@@ -65,13 +65,13 @@ Se o período máximo de retenção de backup suportado para a restauração pon
 
 |                                              | Georreplicação | Grupos de ativação pós-falha  |
 |:---------------------------------------------| :-------------- | :----------------|
-| **Ativação pós-falha automática**                          |     No          |      Yes         |
-| **Efetuar ativação pós-falha em várias bases de dados simultaneamente**  |     No          |      Yes         |
-| **O utilizador deve atualizar a cadeia de ligação após a ativação pós-falha**      |     Yes         |      No          |
-| **Suporte ao SQL Managed Instance**                   |     No          |      Yes         |
-| **Pode estar na mesma região que a primária**             |     Yes         |      No          |
-| **Várias réplicas**                            |     Yes         |      No          |
-| **Suporta o escalamento horizontal de leituras**                          |     Yes         |      Yes         |
+| **Ativação pós-falha automática**                          |     Não          |      Sim         |
+| **Efetuar ativação pós-falha em várias bases de dados simultaneamente**  |     Não          |      Sim         |
+| **O utilizador deve atualizar a cadeia de ligação após a ativação pós-falha**      |     Sim         |      Não          |
+| **Suporte ao SQL Managed Instance**                   |     Não          |      Sim         |
+| **Pode estar na mesma região que a primária**             |     Sim         |      Não          |
+| **Várias réplicas**                            |     Sim         |      Não          |
+| **Suporta o escalamento horizontal de leituras**                          |     Sim         |      Sim         |
 
 
 ## <a name="recover-a-database-to-the-existing-server"></a>Recuperar uma base de dados para o servidor existente

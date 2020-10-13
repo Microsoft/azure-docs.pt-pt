@@ -13,10 +13,10 @@ ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: a48a6de406f14c5339a4e6d92cd09a12357b73f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "84195971"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Mover dados utilizando a Atividade de Cópia
@@ -101,7 +101,7 @@ Quando tanto as lojas de dados de origem como as de sumidouros estão na nuvem, 
 | &nbsp; | E.U.A. Centro-Sul | E.U.A. Centro-Sul |
 | &nbsp; | E.U.A. Centro-Oeste | E.U.A. Centro-Oeste |
 | &nbsp; | E.U.A. Oeste | E.U.A. Oeste |
-| &nbsp; | E.U.A.Oeste 2 | E.U.A.Oeste 2 |
+| &nbsp; | E.U.A. Oeste 2 | E.U.A. Oeste 2 |
 | Canadá | Leste do Canadá | Canadá Central |
 | &nbsp; | Canadá Central | Canadá Central |
 | Brasil | Sul do Brasil | Sul do Brasil |
@@ -109,10 +109,10 @@ Quando tanto as lojas de dados de origem como as de sumidouros estão na nuvem, 
 | &nbsp; | Europa Ocidental | Europa Ocidental |
 | Reino Unido | Oeste do Reino Unido | Sul do Reino Unido |
 | &nbsp; | Sul do Reino Unido | Sul do Reino Unido |
-| Ásia-Pacífico | Ásia Sudeste | Ásia Sudeste |
-| &nbsp; | Ásia Leste | Ásia Sudeste |
+| Ásia-Pacífico | Sudeste Asiático | Sudeste Asiático |
+| &nbsp; | Ásia Leste | Sudeste Asiático |
 | Austrália | Leste da Austrália | Leste da Austrália |
-| &nbsp; | Austrália Sudeste | Austrália Sudeste |
+| &nbsp; | Austrália Sudeste | Sudeste da Austrália |
 | Índia | Índia Central | Índia Central |
 | &nbsp; | Oeste da Índia | Índia Central |
 | &nbsp; | Sul da Índia | Índia Central |
@@ -210,6 +210,6 @@ Diferentes lojas de dados têm diferentes sistemas de tipo nativo. Copy Activity
 
 O mapeamento de um sistema de tipo nativo para um tipo .NET para uma loja de dados está no respetivo artigo de loja de dados. (Clique no link específico na tabela de lojas de dados suportadas). Pode utilizar estes mapeamentos para determinar os tipos apropriados durante a criação das suas tabelas, de modo a que a Copy Activity realize as conversões certas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Para saber mais sobre a Atividade de Cópia, consulte [os dados da Cópia do armazenamento da Azure Blob para a Base de Dados Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 * Para obter informações sobre a deslocação de dados de uma loja de dados no local para uma loja de dados em nuvem, consulte [mover dados do local para lojas de dados na nuvem](data-factory-move-data-between-onprem-and-cloud.md).

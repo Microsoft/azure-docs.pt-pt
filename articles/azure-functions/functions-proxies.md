@@ -4,10 +4,10 @@ description: Visão geral de como usar Proxies de Funções Azure
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.openlocfilehash: 3e08b9cf633162cc7015f47774b043cf58c115a0
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87385879"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Trabalhar com proxies de funções Azure
@@ -28,7 +28,7 @@ Esta secção mostra-lhe como criar um proxy no portal Funções.
 3. Forneça um nome para o seu representante.
 4. Configure o ponto final que está exposto nesta aplicação de função especificando o modelo de **rota** e os **métodos HTTP**. Estes parâmetros comportam-se de acordo com as regras dos [gatilhos HTTP].
 5. Desaponte o **URL de backend** para outro ponto final. Este ponto final pode ser uma função em outra aplicação de função, ou pode ser qualquer outra API. O valor não precisa de ser estático, podendo referenciar [as definições] e parâmetros da aplicação [a partir do pedido original do cliente.]
-6. Clique em **Create** (Criar).
+6. Clique em **Criar**.
 
 O seu representante existe agora como um novo ponto final na sua aplicação de função. Do ponto de vista do cliente, é equivalente a um HttpTrigger em Funções Azure. Pode experimentar o seu novo representante copiando o URL proxy e testando-o com o seu cliente HTTP favorito.
 
@@ -55,7 +55,7 @@ A configuração para um proxy não precisa de ser estática. Pode condicioná-l
 ### <a name="reference-local-functions"></a><a name="reference-localhost"></a>Funções locais de referência
 Pode utilizar `localhost` para fazer referência a uma função dentro da mesma aplicação de função diretamente, sem um pedido de procuração de ida e volta.
 
-`"backendurl": "https://localhost/api/httptriggerC#1"`irá referenciar uma função local HTTP desencadeada na rota`/api/httptriggerC#1`
+`"backendurl": "https://localhost/api/httptriggerC#1"` irá referenciar uma função local HTTP desencadeada na rota `/api/httptriggerC#1`
 
  
 >[!Note]  
@@ -142,7 +142,7 @@ Cada procuração tem um nome amigável, como *proxy1* no exemplo anterior. O ob
 > [!NOTE] 
 > A propriedade *de rota* em Azure Functions Proxies não honra a propriedade *de rotaPrefix* da configuração do anfitrião da App de Função. Se quiser incluir um prefixo `/api` como, deve ser incluído na propriedade da *rota.*
 
-### <a name="disable-individual-proxies"></a><a name="disableProxies"></a>Desativar os proxies individuais
+### <a name="disable-individual-proxies"></a><a name="disableProxies"></a> Desativar os proxies individuais
 
 Pode desativar os proxies individuais adicionando `"disabled": true` ao representante no `proxies.json` ficheiro. Isto fará com que quaisquer pedidos que cumpram a partidaCondição de retornar 404.
 ```json
@@ -160,14 +160,14 @@ Pode desativar os proxies individuais adicionando `"disabled": true` ao represen
 }
 ```
 
-### <a name="application-settings"></a><a name="applicationSettings"></a>Definições de aplicação
+### <a name="application-settings"></a><a name="applicationSettings"></a> Definições de aplicação
 
 O comportamento por procuração pode ser controlado por várias configurações de aplicações. Todos eles estão delineados na referência de Definições de [Aplicações de Funções](./functions-app-settings.md)
 
 * [AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL](./functions-app-settings.md#azure_function_proxy_disable_local_call)
 * [AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES](./functions-app-settings.md#azure_function_proxy_backend_url_decode_slashes)
 
-### <a name="reserved-characters-string-formatting"></a><a name="reservedChars"></a>Caracteres Reservados (formatação de cordas)
+### <a name="reserved-characters-string-formatting"></a><a name="reservedChars"></a> Caracteres Reservados (formatação de cordas)
 
 Os proxies lêem todas as cordas de um ficheiro JSON, utilizando \ como símbolo de fuga. Os proxies também interpretam aparelhos encaracolados. Veja um conjunto completo de exemplos abaixo.
 

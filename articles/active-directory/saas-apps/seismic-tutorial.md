@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 08/27/2020
 ms.author: jeedes
 ms.openlocfilehash: c42180990f81e179a8fa8cdfe9e5d762323213b0
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89661062"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-seismic"></a>Tutorial: Integração do Diretório Ativo Azure com Sísmico
@@ -68,7 +68,7 @@ Para configurar e testar o Azure AD com sísmico, você precisa completar os seg
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     * Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
     * **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
-2. **[Configure sSO sísmico](#configure-seismic-sso)** - para configurar as definições de Sign-On único no lado da aplicação.
+2. **[Configure sSO sísmico](#configure-seismic-sso)** - para configurar as definições de Sign-On única no lado da aplicação.
     * **[Create Sísmico test user](#create-seismic-test-user)** - ter uma contraparte de Britta Simon em Sísmico que está ligada à representação AD AD do utilizador.
 3. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
@@ -93,9 +93,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     c. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<SUBDOMAIN>.seismic.com/SSO/<ROUTEURL>`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize o valor com o URL de inscrição, identificação e URL de resposta. Contacte a [equipa de suporte do Cliente Sísmico](mailto:support@seismic.com) para obter estes valores. Também pode fazer o upload dos **Metadados do Fornecedor de Serviços** para preencher automaticamente o valor do Identificador, para obter mais informações sobre **metadados do Fornecedor de Serviços,** contacto com a [equipa de suporte do Cliente Sísmico.](mailto:support@seismic.com)
+    > Estes valores não são reais. Atualizar o valor com o URL de Sign-On real, identifier e responder URL. Contacte a [equipa de suporte do Cliente Sísmico](mailto:support@seismic.com) para obter estes valores. Também pode fazer o upload dos **Metadados do Fornecedor de Serviços** para preencher automaticamente o valor do Identificador, para obter mais informações sobre **metadados do Fornecedor de Serviços,** contacto com a [equipa de suporte do Cliente Sísmico.](mailto:support@seismic.com)
 
-5. Na **configuração de 'Sessão Única' com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
+5. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 

@@ -14,10 +14,10 @@ ms.date: 06/16/2020
 ms.author: jenhayes
 ms.custom: include file
 ms.openlocfilehash: 3e4bca058f554f60dfa5c237633d1fecf06dfea7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87507631"
 ---
 ### <a name="general-requirements"></a>Requisitos gerais

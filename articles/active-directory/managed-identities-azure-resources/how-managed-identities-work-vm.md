@@ -16,10 +16,10 @@ ms.date: 06/11/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b93f45b05e6d7773afc2f750fd1a9a034c01ca1e
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "89178676"
 ---
 # <a name="how-managed-identities-for-azure-resources-work-with-azure-virtual-machines"></a>Como identidades geridas para recursos Azure funcionam com máquinas virtuais Azure
@@ -32,7 +32,7 @@ Neste artigo, aprende-se como as identidades geridas funcionam com máquinas vir
 ## <a name="how-it-works"></a>Como funciona
 
 Internamente, as identidades geridas são princípios de serviço de um tipo especial, que só pode ser usado com recursos Azure. Quando a identidade gerida é eliminada, o ressiculante de serviço correspondente é automaticamente removido.
-Além disso, quando uma Identidade Atribuída ao Utilizador ou ao Sistema é criada, o Fornecedor de Recursos de Identidade Gerido (MSRP) emite um certificado internamente a essa identidade. 
+Além disso, quando um User-Assigned ou System-Assigned Identidade é criado, o Fornecedor de Recursos de Identidade Gerido (MSRP) emite um certificado internamente para essa identidade. 
 
 O seu código pode utilizar uma identidade gerida para pedir tokens de acesso para serviços que suportem a autenticação do Azure AD. O Azure encarrega-se da implementação das credenciais que a instância do serviço utiliza. 
 

@@ -10,10 +10,10 @@ ms.date: 04/26/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: 55c826b4baf38732684aaa0465aeaab6a45564db
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87831503"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Saiba mais sobre modelos de conjunto de escala de máquina virtual
@@ -165,7 +165,7 @@ No seguinte corte, utilize os parâmetros de antes para definir o nome de utiliz
 ### <a name="specify-vm-network-configuration"></a>Especificar a configuração da rede VM
 Por fim, especifique a configuração de rede para os VMs no conjunto de escala. Neste caso, basta especificar o ID da sub-rede criada anteriormente. Isto indica a escala definida para colocar as interfaces de rede nesta sub-rede.
 
-Pode obter o ID da rede virtual que contém a sub-rede utilizando a `resourceId` função de modelo. Esta função requer o tipo e o nome de um recurso e devolve o identificador totalmente qualificado desse recurso. Este ID tem o formulário:`/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/<resourceProviderNamespace>/<resourceType>/<resourceName>`
+Pode obter o ID da rede virtual que contém a sub-rede utilizando a `resourceId` função de modelo. Esta função requer o tipo e o nome de um recurso e devolve o identificador totalmente qualificado desse recurso. Este ID tem o formulário: `/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/<resourceProviderNamespace>/<resourceType>/<resourceName>`
 
 No entanto, o identificador da rede virtual não é suficiente. Forneça a sub-rede específica em que os VMs definidos de escala devem estar dentro. Para isso, concatenate `/subnets/mySubnet` para o ID da rede virtual. O resultado é a identificação totalmente qualificada da sub-rede. Faça esta concatenação com a `concat` função, que leva uma série de cordas e devolve a sua concatenação.
 

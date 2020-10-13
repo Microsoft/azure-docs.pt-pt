@@ -4,10 +4,10 @@ description: Este artigo fornece uma lista de códigos de erro, mensagens de err
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.openlocfilehash: ab52cea6ab43763cf2d9dc2b57b7f369072a399e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86119043"
 ---
 # <a name="troubleshoot-azure-event-grid-errors"></a>Resolução de problemas Erros da Grelha de Eventos do Azure
@@ -51,8 +51,8 @@ Durante a criação de subscrição de eventos, se estiver a ver uma mensagem de
 
   942130 (SqL Injection Attack: SQL Tautology Detected.)
 
-  931130 (Possível inclusão de ficheiros remotos (RFI) Ataque = Referência/Ligação off-Domain)
+  931130 (Possível Inclusão de Ficheiros Remotos (RFI) Ataque = Off-Domain Referência/Ligação)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Se precisar de mais ajuda, publique o seu problema no [fórum Stack Overflow](https://stackoverflow.com/questions/tagged/azure-eventgrid) ou abra um bilhete de [apoio.](https://azure.microsoft.com/support/options/) 

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.custom: mvc
 ms.openlocfilehash: e4f630931e3cd79a46a539955b45d72e5b573271
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "87450531"
 ---
 # <a name="manage-updates-and-patches-for-your-vms"></a>Gerir atualizações e patches para os seus VMs

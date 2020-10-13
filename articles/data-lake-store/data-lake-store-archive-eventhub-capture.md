@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 8be242369ecae2c809a38428284c9ddcad440e3f
-ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91578245"
 ---
 # <a name="use-azure-data-lake-storage-gen1-to-capture-data-from-event-hubs"></a>Use a Azure Data Lake Storage Gen1 para capturar dados de Centros de Eventos
@@ -99,7 +99,7 @@ Nesta secção, você cria um Centro de Eventos dentro de um espaço de nomes de
 
     e. Deixe os **formatos de nome do ficheiro de captura de amostra** para o valor predefinido. Esta opção rege a estrutura da pasta que é criada sob a pasta de captura.
 
-    f. Clique em **Create** (Criar).
+    f. Clique em **Criar**.
 
 ## <a name="test-the-setup"></a>Teste a configuração
 
@@ -117,6 +117,6 @@ Agora pode testar a solução enviando dados para o Azure Event Hub. Siga as ins
 Uma vez que os dados estão na Data Lake Storage Gen1, você pode executar trabalhos analíticos para processar e recolher os dados. Consulte [o USQL Avro Exemplo](https://github.com/Azure/usql/tree/master/Examples/AvroExamples) sobre como fazê-lo usando a Azure Data Lake Analytics.
   
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Consulte também
 * [Proteger dados no Armazenamento do Data Lake Ger1](data-lake-store-secure-data.md)
 * [Copiar dados de Azure Storage Blobs para Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)

@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ms.openlocfilehash: e4564005e3b9cc9673cc20596d4114d102174b9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "85482858"
 ---
 # <a name="synapse-sql-recommendations"></a>Recomendações do SQL da Sinapse
@@ -38,7 +38,7 @@ Ter estatísticas sub-ideais pode impactar severamente o desempenho da consulta,
 
 - [Criação e atualização de estatísticas de quadros](sql-data-warehouse-tables-statistics.md)
 
-Para ver a lista de tabelas impactadas por estas recomendações, execute o seguinte [script T-SQL](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables). O Advisor executa continuamente o mesmo script T-SQL para gerar estas recomendações.
+Para ver a lista de tabelas impactadas por estas recomendações, execute o seguinte  [script T-SQL](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables). O Advisor executa continuamente o mesmo script T-SQL para gerar estas recomendações.
 
 ## <a name="replicate-tables"></a>Tabelas de replicação
 

@@ -8,10 +8,10 @@ ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
 ms.openlocfilehash: 0b2741a3d2b013ba7bd97038eb4ba4512f36af11
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86262068"
 ---
 # <a name="datetimeadd-azure-cosmos-db"></a>DateTimeAdd (Azure Cosmos DB)
@@ -29,14 +29,14 @@ DateTimeAdd (<DateTimePart> , <numeric_expr> ,<DateTime>)
 *DataTimePart*  
    A parte da data à qual o DateTimeAdd adiciona um número inteiro. Esta tabela lista todos os argumentos válidos dateTimePart:
 
-| DataTimePart | abreviaturas        |
+| DateTimePart | abreviaturas        |
 | ------------ | -------------------- |
 | Anual         | "ano", "yyyy", "yy" |
 | Mensal        | "mês", "mm", "m"   |
 | Dia          | "dia", "dd", "d"     |
 | Hora         | "hora", "hh"         |
 | Minuto       | "minuto", "mi", "n"  |
-| Segundo       | "segundo", "ss", "s"  |
+| Second       | "segundo", "ss", "s"  |
 | Milissegundo  | "milissegundo", "ms"  |
 | Microsegundo  | "microsegundo", "mcs" |
 | Nanossegundo   | "nanossegundo", "ns"   |
@@ -87,7 +87,7 @@ DateTimeAdd regressará `undefined` pelas seguintes razões:
 
 ## <a name="examples"></a>Exemplos
   
-O exemplo a seguir adiciona 1 mês à DataTime:`2020-07-09T23:20:13.4575530Z`
+O exemplo a seguir adiciona 1 mês à DataTime: `2020-07-09T23:20:13.4575530Z`
 
 ```sql
 SELECT DateTimeAdd("mm", 1, "2020-07-09T23:20:13.4575530Z") AS OneMonthLater
@@ -101,7 +101,7 @@ SELECT DateTimeAdd("mm", 1, "2020-07-09T23:20:13.4575530Z") AS OneMonthLater
 ]
 ```  
 
-O exemplo a seguir subtrai 2 horas a partir do Tempo de Data:`2020-07-09T23:20:13.4575530Z`
+O exemplo a seguir subtrai 2 horas a partir do Tempo de Data: `2020-07-09T23:20:13.4575530Z`
 
 ```sql
 SELECT DateTimeAdd("hh", -2, "2020-07-09T23:20:13.4575530Z") AS TwoHoursEarlier
