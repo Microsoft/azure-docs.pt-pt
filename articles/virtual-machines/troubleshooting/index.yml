@@ -10,12 +10,12 @@ metadata:
   author: genlin
   ms.author: genli
   ms.date: 09/09/2019
-  ms.openlocfilehash: df855334f91899ab23625f7161792d0bec416782
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 3cc1bfa72a61d13c27c02fdb114b49666b67fabe
+  ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "88816605"
+  ms.lasthandoff: 10/13/2020
+  ms.locfileid: "91969624"
 landingContent:
 - title: Resolver falhas de implementação
   linkLists:
@@ -126,7 +126,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: 'Resolver problemas com galerias de imagens partilhadas: a replicação é lenta'
-      url: ../windows/troubleshooting-shared-images.md#replication-is-slow
+      url: ../troubleshooting-shared-images.md#replication-is-slow
 - title: Problemas da Extensão da VM
   linkLists:
   - linkListType: how-to-guide

@@ -9,12 +9,12 @@ metadata:
   author: dikamath
   ms.author: dikamath
   ms.date: 09/21/2020
-  ms.openlocfilehash: e4f0ad8a075ce187605bf15a7df414825cc252df
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 197cf8ca3f819a83d13869a43c3685bba916ce4f
+  ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91742303"
+  ms.lasthandoff: 10/12/2020
+  ms.locfileid: "91949110"
 landingContent:
 - title: Acerca do Azure VMware Solution
   linkLists:
@@ -79,6 +79,6 @@ landingContent:
     - text: Implementar a recuperação após desastre para VMs
       url: disaster-recovery-for-virtual-machines.md
     - text: Implementar uma VM através da biblioteca de conteúdos
-      url: tutorial-deploy-vm-content-library.md
+      url: ./deploy-vm-content-library.md
     - text: Utilizar a funcionalidade de IP público
       url: public-ip-usage.md

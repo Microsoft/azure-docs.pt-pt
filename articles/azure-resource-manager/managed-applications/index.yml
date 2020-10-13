@@ -10,12 +10,12 @@ metadata:
   author: tfitzmac
   ms.author: tomfitz
   ms.date: 01/02/2020
-  ms.openlocfilehash: 15cd46ba2758fd1a56f7d19791713eae72bac1d2
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 34c22ad96b8d70023270d293541f0ea6b5411509
+  ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "86057658"
+  ms.lasthandoff: 10/12/2020
+  ms.locfileid: "91951830"
 landingContent:
 - title: Acerca das Aplicações Geridas
   linkLists:
@@ -44,7 +44,7 @@ landingContent:
     - text: Criar ficheiros de definição
       url: publish-service-catalog-app.md
     - text: Publicar a aplicação do marketplace
-      url: publish-marketplace-app.md
+      url: ../../marketplace/partner-center-portal/create-new-azure-apps-offer.md
     - text: Criar a aplicação gerida com fornecedor personalizado
       url: tutorial-create-managed-app-with-custom-provider.md
   - linkListType: how-to-guide

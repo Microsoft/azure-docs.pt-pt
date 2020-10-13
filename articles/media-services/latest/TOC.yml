@@ -61,6 +61,8 @@
           href: protect-with-aes128.md
         - name: Encriptar dinamicamente com o DRM
           href: protect-with-drm.md
+        - name: Proteção de conteúdo com o Azure AD
+          href: azure-ad-content-protection.md
     - name: REST
       items:
         - name: Codificar e transmitir em fluxo um ficheiro remoto REST
@@ -188,8 +190,6 @@
           href: streaming-policy-concept.md
         - name: Políticas de chave de conteúdo
           href: content-key-policy-concept.md
-        - name: Proteção de conteúdo com o Azure AD
-          href: azure-ad-content-protection.md
     - name: Monitorização
       items:
         - name: Eventos com o Event Grid
@@ -385,7 +385,7 @@
           href: 'https://aka.ms/ams-v3-python-ref'
         - name: Node.js
           href: /javascript/api/overview/azure/mediaservices/management
-        - name: Ir
+        - name: Go
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.media/allversions
