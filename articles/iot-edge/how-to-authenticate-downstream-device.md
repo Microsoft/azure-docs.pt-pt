@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: a9d2116062dc45f3602bf5ee0efba31ad815c0c9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91447854"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autenticar um dispositivo a jusante no Hub IoT do Azure
@@ -209,7 +209,7 @@ HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz
 
 Utilizará esta cadeia de ligação modificada no próximo artigo da série transparente gateway.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste momento, tem um dispositivo IoT Edge registado com o seu hub IoT e configurado como um gateway transparente. Também tem um dispositivo a jusante registado no seu hub IoT e aponta para o seu dispositivo gateway.
 

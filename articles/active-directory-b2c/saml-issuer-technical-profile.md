@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/17/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bb5383ee7930cb3d54593f71a709c033d3850889
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f52111fbbbd90f3d2f39f538c4bf1a2672cd504b
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88521217"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961243"
 ---
 # <a name="define-a-technical-profile-for-a-saml-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico para um emitente de token SAML numa política personalizada do Azure Ative Directory B2C
 
@@ -37,6 +37,7 @@ O exemplo a seguir mostra um perfil técnico `Saml2AssertionIssuer` para:
   <OutputTokenFormat>SAML2</OutputTokenFormat>
   <Metadata>
     <Item Key="IssuerUri">https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/B2C_1A_signup_signin_SAML</Item>
+    <Item Key="TokenNotBeforeSkewInSeconds">600</Item>
   </Metadata>
   <CryptographicKeys>
     <Key Id="MetadataSigning" StorageReferenceId="B2C_1A_SamlIdpCert"/>
@@ -58,6 +59,7 @@ Os **elementos InputClaims,** **OutputClaims**e **PersistClaims** estão vazios 
 | --------- | -------- | ----------- |
 | EmitenteUri | Não | O nome do emitente que aparece na resposta SAML. O valor deve ser o mesmo que configurado na aplicação do partido em gestão. |
 | XmlSignatureAlgorithm | Não | O método que a Azure AD B2C utiliza para assinar a Afirmação SAML. Valores possíveis: `Sha256` `Sha384` , , ou `Sha512` `Sha1` . Certifique-se de configurar o algoritmo de assinatura em ambos os lados com o mesmo valor. Use apenas o algoritmo que o seu certificado suporta. Para configurar a resposta SAML, consulte [os metadados SAML do partido Relying](relyingparty.md#metadata)|
+|TokenNotBeforeSkewInSeconds| Não| Especifica o desvio, como um inteiro, para o carimbo de tempo que marca o início do período de validade. Quanto maior for este número, mais recua no tempo o período de validade começa em relação ao tempo em que os pedidos são emitidos para a parte que conta. Por exemplo, quando o TokenNotBeforeSkewInSegundos está definido para 60 segundos, se o token for emitido às 13:05:10 UTC, o token é válido a partir das 13:04:10 UTC. O valor predefinido é 0. O valor máximo é de 3600 (uma hora). |
 
 ## <a name="cryptographic-keys"></a>Chaves criptográficas
 

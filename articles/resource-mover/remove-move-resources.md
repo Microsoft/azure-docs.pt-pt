@@ -7,28 +7,35 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: raynew
-ms.openlocfilehash: 241ccbda67f7a2518d0c44a0d362673922ad4284
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38a633a7a11ac29271231679e7075920e1f33a70
+ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89653130"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91945948"
 ---
-# <a name="remove-resources-from-a-move-collection"></a>Remover recursos de uma coleção de movimentação
+# <a name="manage-move-collections-and-resource-groups"></a>Gerir recolhas de movimentos e grupos de recursos
 
-Este artigo descreve como remover recursos de uma coleção de movimentos no [Azure Resource Mover](overview.md). As coleções de movimento são usadas para mover recursos Azure entre as regiões de Azure.
+Este artigo descreve como remover recursos de uma recolha de movimentos, ou remover um grupo de recolha/recursos de movimento, em [Azure Resource Mover](overview.md). As coleções de movimento são usadas para mover recursos Azure entre as regiões de Azure.
 
 ## <a name="remove-a-resource-portal"></a>Remover um recurso (portal)
 
-Remover no portal de mudanças de recursos da seguinte forma:
+Pode remover recursos numa recolha de movimentos, no portal Resource Mover da seguinte forma:
 
-1. Em **Regiões ,** selecione os recursos que pretende remover da recolha > **Remover**.
+1. Em **Regiões,** selecione todos os recursos que pretende remover da recolha e selecione **Remover**. 
 
     ![Botão para selecionar para remover](./media/remove-move-resources/portal-select-resources.png)
 
-1. Nos **recursos de remoção,** clique em **Remover**.
+2. Nos **recursos de remoção,** clique em **Remover**.
 
     ![Botão para selecionar para remover recursos de uma coleção de movimento](./media/remove-move-resources/remove-portal.png)
+
+## <a name="remove-a-move-collectionresource-group-portal"></a>Remover um grupo de recolha/recursos de movimento (portal)
+
+Pode remover um grupo de recolha/recursos em movimento no portal.
+
+1. Siga as instruções do procedimento acima para retirar os recursos da recolha. Se estiver a remover um grupo de recursos, certifique-se de que não contém recursos.
+2. Elimine a recolha de movimentos ou o grupo de recursos.  
 
 ## <a name="remove-a-resource-powershell"></a>Remover um recurso (PowerShell)
 
@@ -41,16 +48,20 @@ Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceG
 **Saída esperada** 
  ![ Texto de saída após remover um recurso de uma coleção de movimento](./media/remove-move-resources/remove-resource.png)
 
+
+
 ## <a name="remove-a-collection-powershell"></a>Remover uma coleção (PowerShell)
 
 Remova uma coleção de movimentos inteira usando o PowerShell, da seguinte forma:
 
-```azurepowershell-interactive
-# Remove a resource using the resource ID
-Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus 
-```
-**Saída esperada** 
- ![ Texto de saída após a remoção de uma coleção de movimento](./media/remove-move-resources/remove-collection.png)
+1. Siga as instruções acima para remover os recursos da recolha utilizando o PowerShell.
+2. Executar:
+
+    ```azurepowershell-interactive
+    # Remove a resource using the resource ID
+    Remove-AzResourceMoverMoveResource -SubscriptionId  <subscription-id> -ResourceGroupName RegionMoveRG-centralus-westcentralus  -MoveCollectionName MoveCollection-centralus-westcentralus 
+    ```
+    **Saída esperada** ![ Texto de saída após a remoção de uma coleção de movimento](./media/remove-move-resources/remove-collection.png)
 
 ## <a name="vm-resource-state-after-removing"></a>Estado de recursos VM após a remoção
 
@@ -91,6 +102,6 @@ O que acontece quando remove um recurso Azure SQL de uma recolha de movimentos d
 **Eliminar fonte pendente** | Apagado da coleção de movimentos.<br/><br/> Não apaga nada criado na região alvo. 
 **Eliminar fonte falhou** | Apagado da coleção de movimentos.<br/><br/> Não apaga nada criado na região alvo. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Tente [mover um VM](tutorial-move-region-virtual-machines.md) para outra região com o Resource Mover.

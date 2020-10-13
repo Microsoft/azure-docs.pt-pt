@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 5f7d400a3b0d910894c7aa54001b673aaf54aad9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d294bb4b3cae314e964407e5e75fcddf4fa5d92
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322789"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91971001"
 ---
 # <a name="automatic-language-detection-for-speech-to-text"></a>Deteção automática de linguagem para fala a texto
 
@@ -67,7 +67,8 @@ auto autoDetectSourceLanguageConfig =
 auto recognizer = SpeechRecognizer::FromConfig(
     speechConfig,
     autoDetectSourceLanguageConfig,
-    audioConfig);
+    audioConfig
+    );
 
 speechRecognitionResult = recognizer->RecognizeOnceAsync().get();
 auto autoDetectSourceLanguageResult =
@@ -140,7 +141,7 @@ NSString *detectedLanguage = [languageDetectionResult language];
 
 ```Javascript
 var autoDetectConfig = SpeechSDK.AutoDetectSourceLanguageConfig.fromLanguages(["en-US", "de-DE"]);
-var speechRecognizer = SpeechSDK.SpeechRecognizer.FromConfig(speechConfig, audioConfig, autoDetectConfig);
+var speechRecognizer = SpeechSDK.SpeechRecognizer.FromConfig(speechConfig, autoDetectConfig, audioConfig);
 speechRecognizer.recognizeOnceAsync((result: SpeechSDK.SpeechRecognitionResult) => {
         var languageDetectionResult = SpeechSDK.AutoDetectSourceLanguageResult.fromResult(result);
         var detectedLanguage = languageDetectionResult.language;

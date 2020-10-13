@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.reviewer: sngun
 ms.openlocfilehash: 0e02f0bf1bb9646a644a40279a8bae930de34c0b
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91568000"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>O que é Azure Synapse Link para Azure Cosmos DB (Preview)?

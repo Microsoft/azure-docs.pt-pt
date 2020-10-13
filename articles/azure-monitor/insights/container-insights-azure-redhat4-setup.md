@@ -4,10 +4,10 @@ description: Este artigo descreve como configurar a monitorização para um clus
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.openlocfilehash: 63db888419ee691e83ea456fcd7fc28a4d9909fe
-ms.sourcegitcommit: 4bebbf664e69361f13cfe83020b2e87ed4dc8fa2
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91620329"
 ---
 # <a name="configure-azure-red-hat-openshift-v4x-with-azure-monitor-for-containers"></a>Configure Azure Red Hat OpenShift v4.x com Monitor Azure para recipientes

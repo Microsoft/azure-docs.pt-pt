@@ -3,12 +3,12 @@ title: Azure Lighthouse e aplicações geridas do Azure
 description: Entenda como as aplicações geridas pelo Farol de Azure e Azure podem ajudar a ativar diferentes cenários e como podem ser usadas em conjunto.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7fd8801fc714a0f0c245d27462e368602dc41eb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 078361ba3cff80a5fff03e3d9ca767afcc3ca029
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89483852"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91970763"
 ---
 # <a name="azure-lighthouse-and-azure-managed-applications"></a>Azure Lighthouse e aplicações geridas do Azure
 
@@ -35,7 +35,7 @@ Numa aplicação gerida, os recursos utilizados pela aplicação são agregados 
 
 As aplicações geridas suportam experiências e integração [personalizadas do portal Azure](../../azure-resource-manager/managed-applications/concepts-view-definition.md) [com fornecedores personalizados.](../../azure-resource-manager/managed-applications/tutorial-create-managed-app-with-custom-provider.md) Estas opções podem ser usadas para proporcionar uma experiência mais personalizada e integrada, facilitando aos clientes a realização de algumas tarefas de gestão.
 
-As aplicações geridas podem ser [publicadas no Azure Marketplace,](../../azure-resource-manager/managed-applications/publish-marketplace-app.md)seja como uma oferta privada para uso específico de um cliente, quer como ofertas públicas que vários clientes podem comprar. Também podem ser entregues aos utilizadores dentro da sua [organização, publicando aplicações geridas no seu catálogo de serviços.](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md) Pode implementar tanto o catálogo de serviços como as instâncias do Marketplace utilizando modelos ARM, que podem incluir o identificador único de um parceiro do Mercado Comercial para acompanhar a atribuição de utilização do [cliente.](../../marketplace/azure-partner-customer-usage-attribution.md)
+As aplicações geridas podem ser [publicadas no Azure Marketplace,](../../marketplace/partner-center-portal/create-new-azure-apps-offer.md)seja como uma oferta privada para uso específico de um cliente, quer como ofertas públicas que vários clientes podem comprar. Também podem ser entregues aos utilizadores dentro da sua [organização, publicando aplicações geridas no seu catálogo de serviços.](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md) Pode implementar tanto o catálogo de serviços como as instâncias do Marketplace utilizando modelos ARM, que podem incluir o identificador único de um parceiro do Mercado Comercial para acompanhar a atribuição de utilização do [cliente.](../../marketplace/azure-partner-customer-usage-attribution.md)
 
 As aplicações geridas pelo Azure são normalmente utilizadas para uma necessidade específica do cliente que pode ser alcançada através de uma solução chave na mão que é totalmente gerida pelo prestador de serviços.
 

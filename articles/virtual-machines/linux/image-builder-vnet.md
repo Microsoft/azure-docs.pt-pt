@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: f216b6fa3a0e43c1c0313baa4f8414546a74d8f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d75d73fcd64917257b850861142e7f4a67da834c
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88068236"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91972327"
 ---
 # <a name="use-azure-image-builder-for-linux-vms-allowing-access-to-an-existing-azure-vnet"></a>Use O Azure Image Builder para VMs Linux permitindo o acesso a um Azure VNET existente
 
@@ -163,7 +163,7 @@ sed -i -e "s/<vnetRgName>/$vnetRgName/g" aibRoleNetworking.json
 
 ## <a name="set-permissions-on-the-resource-group"></a>Definir permissões no grupo de recursos
 
-O Image Builder utilizará a [identidade do utilizador](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity) fornecida para injetar a imagem na Galeria de Imagens Partilhadas Azure (SIG). Neste exemplo, irá criar uma definição de papel Azure que tem as ações granulares para executar a distribuição da imagem para o SIG. A definição de função será então atribuída à identidade do utilizador.
+O Image Builder utilizará a [identidade do utilizador](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) fornecida para injetar a imagem na Galeria de Imagens Partilhadas Azure (SIG). Neste exemplo, irá criar uma definição de papel Azure que tem as ações granulares para executar a distribuição da imagem para o SIG. A definição de função será então atribuída à identidade do utilizador.
 
 ```bash
 # create user assigned identity for image builder
@@ -269,7 +269,7 @@ Deve ver que a imagem foi personalizada com uma *Mensagem do Dia* assim que a su
 *******************************************************
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se quiser agora tentar recustomizar a versão de imagem para criar uma nova versão da mesma imagem, salte os próximos passos e continue a utilizar o [Azure Image Builder para criar outra versão de imagem](image-builder-gallery-update-image-version.md).
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 07/14/2020
 ms.author: jeedes
 ms.openlocfilehash: d2a3eda97fec03e767425b7f7a126073b2f13ca5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91713634"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Amazon Web Services (AWS)
@@ -113,7 +113,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação AWS espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
     
-    | Name  | Atributo de origem  | Espaço de Nomes |
+    | Nome  | Atributo de origem  | Espaço de Nomes |
     | --------------- | --------------- | --------------- |
     | Nome de FunSessionName | user.userprincipalname | `https://aws.amazon.com/SAML/Attributes` |
     | Função            | user.assignedroles |  `https://aws.amazon.com/SAML/Attributes` |

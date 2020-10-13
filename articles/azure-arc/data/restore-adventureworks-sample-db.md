@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: d238a889648e789087a0803f6b50288318462c7b
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91629068"
 ---
 # <a name="restore-the-adventureworks-sample-database-into-sql-managed-instance---azure-arc"></a>Restaurar a base de dados de amostras AdventureWorks em SQL Managed Instance - Azure Arc

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 08/07/2020
 ms.author: jeedes
 ms.openlocfilehash: 24814ede954980e3a9fc3c3ba60546cedad4e8fd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91713442"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws-legacy-tutorial"></a>Tutorial: Integração do Azure Ative Directory com a Amazon Web Services (AWS) (Tutorial Legado)
@@ -93,7 +93,7 @@ Na Amazon Web Services (AWS), atribua o valor do nome de **utilizador** em Azure
 Para configurar e testar o Azure AD com a Amazon Web Services (AWS), você precisa completar os seguintes blocos de construção:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure os Serviços Web da Amazon (AWS) Single Sign-On](#configure-amazon-web-services-aws-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+2. **[Configure o Amazon Web Services (AWS) Single Sign-On](#configure-amazon-web-services-aws-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
 3. **[Teste um único sinal](#test-single-sign-on)** - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar Azure AD único sinal de inscrição
@@ -110,19 +110,19 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
     ![Único modo de seleção de s-on](common/select-saml-option.png)
 
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
+3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
 
     ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
 4. Na secção **de Configuração Básica SAML,** o utilizador não tem de realizar qualquer passo, uma vez que a aplicação já está pré-integrada com o Azure e clique em **Guardar**.
 
-5. A aplicação Amazon Web Services (AWS) espera as afirmações da SAML num formato específico. Configure os seguintes pedidos para este pedido. Pode gerir os valores destes atributos a partir da secção **Atributos & Reclamações** do Utilizador na página de integração de aplicações. No **conjunto de Sessão de Inscrição única com página SAML,** clique no botão **Editar** para abrir **atributos do utilizador & o** diálogo Claims.
+5. A aplicação Amazon Web Services (AWS) espera as afirmações da SAML num formato específico. Configure os seguintes pedidos para este pedido. Pode gerir os valores destes atributos a partir da secção **Atributos & Reclamações** do Utilizador na página de integração de aplicações. Na **configuração de Sign-On única com** a página SAML, clique no botão **Editar** para abrir **o diálogo & Claims dos Atributos** do Utilizador.
 
     ![A screenshot mostra atributos do utilizador com o controlo de edição chamado.](common/edit-attribute.png)
 
 6. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** configurar o atributo de ficha SAML como mostrado na imagem acima e executar os seguintes passos:
 
-    | Name  | Atributo de origem  | Espaço de Nomes |
+    | Nome  | Atributo de origem  | Espaço de Nomes |
     | --------------- | --------------- | --------------- |
     | Nome de FunSessionName | user.userprincipalname | `https://aws.amazon.com/SAML/Attributes` |
     | Função            | user.assignedroles |  `https://aws.amazon.com/SAML/Attributes`|
@@ -146,29 +146,29 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
     exemplo, Clique em **Guardar**.
 
-7. Na **configuração de 'Sessão's Single's com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metadadata XML da Federação** e guardá-lo no seu computador.
+7. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Metdata XML da Federação** e guardá-lo no seu computador.
 
     ![O link de descarregamento de certificado](common/metadataxml.png)
 
-### <a name="configure-amazon-web-services-aws-single-sign-on"></a>Configurar os Serviços Web da Amazon (AWS) um único sign-on
+### <a name="configure-amazon-web-services-aws-single-sign-on"></a>Configurar os Serviços Web da Amazon (AWS) Sign-On únicos
 
 1. Numa janela de navegador diferente, inscreva-se no site da empresa Amazon Web Services (AWS) como administrador.
 
 1. Clique **em AWS home**.
 
-    ![Configurar único sign-on para casa][11]
+    ![Configurar casa Sign-On única][11]
 
 1. Clique em **Gestão de Identidade e Acesso.**
 
-    ![Configurar identidade única de inscrição única][12]
+    ![Configurar identidade Sign-On única][12]
 
 1. Clique em **Fornecedores de Identidade**e, em seguida, clique em **Criar Fornecedor.**
 
-    ![Configure um único fornecedor de inscrição][13]
+    ![Configure fornecedor único de Sign-On][13]
 
 1. Na página de diálogo **do Fornecedor configurar,** execute os seguintes passos:
 
-    ![Configurar o diálogo único de inscrição][14]
+    ![Configurar diálogo único Sign-On][14]
 
     a. Como **Tipo de Fornecedor,** selecione **SAML**.
 
@@ -180,15 +180,15 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
 1. Na página de diálogo **de informação do fornecedor,** clique em **Criar**.
 
-    ![Configurar um único sinal de verificação][15]
+    ![Configurar Sign-On único verificar][15]
 
 1. Clique em **Funções**e, em seguida, clique em **Criar função**.
 
-    ![Configurar papéis únicos de inscrição][16]
+    ![Configurar papéis de Sign-On único][16]
 
 1. Na página **'Criar' função,** execute os seguintes passos:  
 
-    ![Configurar um único sign-on trust][19]
+    ![Configure a Confiança Sign-On Única][19]
 
     a. Selecione **SAML 2.0 federação** sob **o tipo de entidade fidedigna Select**.
 
@@ -214,7 +214,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
 
 1. No diálogo **de revisão,** execute os seguintes passos:
 
-    ![Configure a revisão única do sign-on][34]
+    ![Configure a revisão de Sign-On única][34]
 
     a. Na caixa de texto **do nome funitário,** introduza o valor no seguinte padrão `accountname-aws-admin` .
 

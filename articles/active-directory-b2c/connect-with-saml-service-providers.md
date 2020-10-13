@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 10/12/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9e67f24cf670024432f64487df20b9fca515c006
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 2df2cf2a9d0a89f72078cd0da36272781e89e338
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91740382"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961328"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registar um pedido DE SAML em Azure AD B2C
 
@@ -437,6 +437,24 @@ Os seguintes cenários de partidos de suporte SAML (RP) são suportados através
 
 Os seguintes cenários de partidos dependentes da SAML (RP) não são atualmente suportados:
 * O Fornecedor de Identidade iniciou a sua inscrição, onde o Fornecedor de Identidade é um Fornecedor de Identidade externo, por exemplo, ADFS.
+
+## <a name="saml-token"></a>Ficha SAML
+
+Um token SAML é um símbolo de segurança emitido pela Azure AD B2C após uma súbdagem bem sucedida. Contém informações sobre o utilizador, o prestador de serviços para o qual o token se destina, assinatura e tempo de validade. A tabela que se segue lista as reclamações e propriedades que pode esperar num token SAML emitido pela Azure AD B2C.
+
+|Elemento  |Propriedade  |Notas  |
+|---------|---------|---------|
+|`<Response>`| `ID` | Um identificador único gerado automaticamente da resposta. | 
+|`<Response>`| `InResponseTo` | A identificação do pedido da SAML para que esta mensagem seja uma resposta. | 
+|`<Response>` | `IssueInstant` | O instante da emissão da resposta. O valor do tempo está codificado na UTC.Para alterar as definições das suas vidas simbólicas, defina os `TokenNotBeforeSkewInSeconds` [metadados](saml-issuer-technical-profile.md#metadata) do perfil técnico do emitente de token SAML. | 
+|`<Response>` | `Destination`| Uma referência URI indicando o endereço para o qual esta resposta foi enviada. O valor é idêntico ao pedido da `AssertionConsumerServiceURL` SAML. | 
+|`<Response>` `<Issuer>` | |Identifica o emitente simbólico. Este é um URI arbitrário definido pelos `IssuerUri` [metadados](saml-issuer-technical-profile.md#metadata) da emissão de fichas da SAML     |
+|`<Response>` `<Assertion>` `<Subject>` `<NameID>`     |         |O principal sobre o qual o símbolo afirma informações, como o ID do objeto de utilizador. Este valor é imutável e não pode ser reatribuído ou reutilizado. Pode ser usado para efetuar verificações de autorização com segurança, como quando o token é usado para aceder a um recurso. Por predefinição, a reclamação do sujeito é povoada com o ID do objeto do utilizador no diretório.|
+|`<Response>` `<Assertion>` `<Subject>` `<NameID>`     | `Format` | Uma referência URI que representa a classificação das informações do identificador baseado em cadeias. Por padrão, esta propriedade é omitida. Pode definir o subjectnamingInfo do grupo de [cingimento](relyingparty.md#subjectnaminginfo) para especificar o `NameID` formato, tal como `urn:oasis:names:tc:SAML:2.0:nameid-format:transient` . |
+|`<Response>` `<Assertion>` `<Subject>` `<Conditions>` |`NotBefore` |O momento em que o símbolo se torna válido. O valor do tempo está codificado na UTC. A sua aplicação deve utilizar esta alegação para verificar a validade da vida útil do token. Para alterar as definições das suas vidas simbólicas, defina os `TokenNotBeforeSkewInSeconds` [metadados](saml-issuer-technical-profile.md#metadata) do perfil técnico de emissão de token SAML. |
+|`<Response>` `<Assertion>` `<Subject>` `<Conditions>` | `NotOnOrAfter` | O momento em que o símbolo se torna inválido. A sua aplicação deve utilizar esta alegação para verificar a validade da vida útil do token. O valor é de 15 minutos após o `NotBefore` e não pode ser alterado.|
+|`<Response>` `<Assertion>` `<Conditions>` `<AudienceRestriction>` `<Audience>` | |Uma referência URI que identifica um público pretendido. Identifica o destinatário pretendido do símbolo. O valor é idêntico ao pedido da `AssertionConsumerServiceURL` SAML.|
+|`<Response>``<Assertion>` `<saml:AttributeStatement>` coleção de`<Attribute>` | | Recolha de afirmações (reclamações), tal como configurado nas alegações [de produção de perfil técnico](relyingparty.md#technicalprofile) do partido. Pode configurar o nome da afirmação definindo a `PartnerClaimType` reclamação de saída. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

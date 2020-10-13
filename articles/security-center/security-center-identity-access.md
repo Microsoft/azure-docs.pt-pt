@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 03/16/2020
 ms.author: memildin
 ms.openlocfilehash: 042780c313c444062fd512ab0d9f38aaeb6cf170
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "90894558"
 ---
 # <a name="monitor-identity-and-access"></a>Monitorizar a identidade e o acesso

@@ -8,10 +8,10 @@ ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 4db7727558d0b7f4c26aba3ffa823bebb07862f6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91713773"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Linha de base de segurança Azure para a Gestão da API
@@ -367,7 +367,7 @@ Opcionalmente, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de ter
 
 **Orientação**: Manter um inventário de contas que tenham acesso administrativo ao plano de controlo de gestão API Azure (portal Azure).
 
-O Azure Ative Directory (AD) tem funções incorporadas que devem ser explicitamente atribuídas e são consultadas. A API Management conta com estas funções e controlo de acesso baseado em funções para permitir uma gestão de acessos finos para serviços e entidades de Gestão de API.
+O Azure Ative Directory (AD) tem funções incorporadas que devem ser explicitamente atribuídas e são consultadas. A API Management conta com estas funções e Role-Based Access Control para permitir uma gestão de acessos finos para serviços e entidades de Gestão de API.
 
 Adicionalmente, a API Management contém um grupo de Administradores incorporados no sistema de utilizador da API Management. Os grupos na API Management controlam a visibilidade das APIs no portal do desenvolvedor e os membros do grupo de Administradores podem ver todas as APIs.
 
@@ -1112,9 +1112,9 @@ Identidades geridas podem ser usadas para obter certificados do Azure Key Vault 
 
 * [Recomendação de segurança para armazenamento de bolhas](../storage/blobs/security-recommendations.md)
 
-Ativar a eliminação suave no cofre de chaves para proteger as chaves contra a eliminação acidental ou maliciosa.
+Ativar Soft-Delete no Cofre de Chaves para proteger as chaves contra a eliminação acidental ou maliciosa.
 
-* [Como permitir o Soft-Delete no Cofre da Chave](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+* [Como permitir Soft-Delete em Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -1208,7 +1208,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](../security/benchmarks/overview.md)
 - Saiba mais sobre [as linhas de base de segurança da Azure](../security/benchmarks/security-baselines-overview.md)

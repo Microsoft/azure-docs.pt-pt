@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
 ms.openlocfilehash: cff4704b388594511809d92957cbbce97e948f2f
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362423"
 ---
 # <a name="evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Avalie o desempenho do modelo no Azure Machine Learning Studio (clássico)

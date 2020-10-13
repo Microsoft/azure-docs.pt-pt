@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: b-juche
 ms.openlocfilehash: bed1375631c017d23ed53b6102c424533237099e
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91447555"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Delegar uma sub-rede para os Azure NetApp Files 
@@ -51,7 +51,7 @@ Tem de delegar uma sub-rede para ficheiros Azure NetApp.   Quando cria um volume
     
 Também pode criar e delegar uma sub-rede quando [criar um volume para ficheiros Azure NetApp](azure-netapp-files-create-volumes.md). 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar um volume para o Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Conheça a integração de redes virtuais para serviços Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)

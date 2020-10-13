@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
 ms.openlocfilehash: a913756c0348622ec0d885c50b55d5cecf6dd91d
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91568102"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Apoio linguístico e regional para tradução de texto e fala
@@ -34,7 +34,7 @@ O tradutor apoia as seguintes línguas para tradução de texto para texto.
 
 [Ver Traduzir documentação de referência de operação](reference/v3-0-translate.md)
 
-|Linguagem|  Código do idioma|
+|Idioma|  Código do idioma|
 |:-----|:-----:|
 |Afrikaans| `af`|
 |Árabe|    `ar`    |
@@ -125,7 +125,7 @@ O tradutor deteta as seguintes línguas para tradução e transliteração.
 
 [Ver Detetar documentação de referência de operação](reference/v3-0-detect.md)
 
-|Linguagem|  Código do idioma|
+|Idioma|  Código do idioma|
 |:-----|:-----:|
 |Afrikaans| `af`|
 |Árabe|    `ar`    |
@@ -191,7 +191,7 @@ O método transliterado suporta as seguintes línguas. No "De/Para", "<->" indic
 [Ver documentação de referência de operação transliterada](reference/v3-0-translate.md)
 
 
-| Linguagem    | Código do idioma | Script | Para/De | Script|
+| Idioma    | Código do idioma | Script | Para/De | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Árabe | `ar` | Árabe `Arab` | <--> | Latim `Latn` |
 | Bangla  | `bn` | Bengalês `Beng` | <--> | Latim `Latn` |
@@ -220,7 +220,7 @@ O dicionário suporta as seguintes línguas de ou para o inglês usando os méto
 
 Ver documentação de referência para as operações [de Procura](reference/v3-0-dictionary-lookup.md) do Dicionário e [Exemplos de Dicionário.](reference/v3-0-dictionary-examples.md)
 
-| Linguagem    | Código do idioma |
+| Idioma    | Código do idioma |
 |:----------- |:-------------:|
 | Afrikaans      | `af`          |
 | Árabe       | `ar`          |
@@ -283,7 +283,7 @@ Pode obter uma lista de línguas apoiadas para Tradutor utilizando o método idi
 
 Os seguintes idiomas estão disponíveis para personalização de ou para inglês usando [o Tradutor Personalizado.](https://aka.ms/CustomTranslator)
 
-| Linguagem    | Código do idioma |
+| Idioma    | Código do idioma |
 |:----------- |:-------------:|
 |Afrikaans| `af`|
 | Árabe       | `ar`          |
@@ -352,7 +352,7 @@ A tradução da fala está disponível utilizando o serviço de Discurso de Trad
 ### <a name="speech-to-text"></a>Conversão de voz em texto
 Converta a fala em texto para traduzir para a linguagem de texto à sua escolha. A palavra-a-texto é usada para a tradução de texto ou para tradução fala-a-fala quando usada em conjunto com a síntese da fala.
 
-| Linguagem    |
+| Idioma    |
 |:----------- |
 |Árabe|
 |Cantonês (Tradicional)|
@@ -386,7 +386,7 @@ Converta a fala em texto para traduzir para a linguagem de texto à sua escolha.
 ### <a name="text-to-speech"></a>Conversão de texto em voz
 Converter texto em discurso. O texto-a-discurso é usado para adicionar produção audível dos resultados de tradução, ou para tradução fala-a-fala quando usado com discurso-a-texto. 
 
-| Linguagem    |
+| Idioma    |
 |:----------- |
 |Árabe|
 |Búlgaro|

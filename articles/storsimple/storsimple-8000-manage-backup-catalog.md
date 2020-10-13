@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: 549c14e0506613aca91ee4666026348d74afedbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ab4694159c6269f2f72d3d591147d43aef34a0a
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85514756"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961600"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-backup-catalog"></a>Utilize o serviço StorSimple Device Manager para gerir o seu catálogo de backup
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Overview (Descrição geral)
 A lâmina **do catálogo de backup** do catálogo do StorSimple Device Manager exibe todos os conjuntos de backup que são criados quando são recolhidas cópias de segurança manual ou programadas. Pode utilizar esta página para listar todas as cópias de segurança para uma política de backup ou volume, selecionar ou eliminar backups, ou utilizar uma cópia de segurança para restaurar ou clonar um volume.
 
 Este tutorial explica como listar, selecionar e eliminar um conjunto de backup. Para aprender a restaurar o seu dispositivo a partir de cópias de segurança, vá [para restaurar o seu dispositivo a partir de um conjunto de backup](storsimple-8000-restore-from-backup-set-u2.md). Para aprender a clonar um volume, vá ao [Clone a StorSimple volume](storsimple-8000-clone-volume-u2.md).
@@ -75,11 +75,11 @@ Preencha os seguintes passos para selecionar um conjunto de backup para uma pol�
       
       As cópias de segurança associadas à política de volume ou backup selecionada devem constar da lista de conjuntos de backup.
 
-      ![Vá para o catálogo de backup](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
+      ![Vá ao catálogo de backup 2](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
 
 3. Selecione e expanda um conjunto de backup. Agora é possível ver os conjuntos de backup avariados pelos volumes que contém. As opções **De Restaurar** e **Eliminar** estão disponíveis através do menu de contexto (clique à direita) para o conjunto de cópias de segurança. Pode executar qualquer uma destas ações no conjunto de backup que selecionou.
 
-    ![Vá para o catálogo de backup](./media/storsimple-8000-manage-backup-catalog/bucatalog2.png)
+    ![Vá ao catálogo de backup 3](./media/storsimple-8000-manage-backup-catalog/bucatalog2.png)
 
 ## <a name="delete-a-backup-set"></a>Excluir um conjunto de backup
 Elimine uma cópia de segurança quando já não pretender reter os dados que lhe estão associados. Execute os seguintes passos para eliminar um conjunto de backup.
@@ -95,19 +95,19 @@ Elimine uma cópia de segurança quando já não pretender reter os dados que lh
       
       As cópias de segurança associadas à política de volume ou backup selecionada devem constar da lista de conjuntos de backup.
 
-      ![Vá para o catálogo de backup](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
+      ![Vá ao catálogo de backup 4](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
 
 1. Selecione e expanda um conjunto de backup. Agora é possível ver os conjuntos de backup avariados pelos volumes que contém. As opções **De Restaurar** e **Eliminar** estão disponíveis através do menu de contexto (clique à direita) para o conjunto de cópias de segurança. Clique com o botão direito no conjunto de backup selecionado e no menu de contexto, selecione **Delete**.
 
-    ![Vá para o catálogo de backup](./media/storsimple-8000-manage-backup-catalog/bucatalog3.png)
+    ![Vá ao catálogo de backup 5](./media/storsimple-8000-manage-backup-catalog/bucatalog3.png)
 
 1. Quando solicitado para confirmação, reveja as informações apresentadas e clique em **Eliminar**. A cópia de segurança selecionada é eliminada permanentemente.
 
-    ![Vá para o catálogo de backup](./media/storsimple-8000-manage-backup-catalog/bucatalog4.png)  
+    ![Vá ao catálogo de backup 6](./media/storsimple-8000-manage-backup-catalog/bucatalog4.png)  
 
 1. Será notificado quando a supressão estiver em curso e quando terminar com sucesso. Depois de terminar a eliminação, refresque a consulta nesta página. O conjunto de backup eliminado deixará de aparecer na lista de conjuntos de backup.
 
-    ![Vá para o catálogo de backup](./media/storsimple-8000-manage-backup-catalog/bucatalog7.png)
+    ![Vá ao catálogo de backup 7](./media/storsimple-8000-manage-backup-catalog/bucatalog7.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 * Saiba como [utilizar o catálogo de backup para restaurar o seu dispositivo a partir de um conjunto de backup](storsimple-8000-restore-from-backup-set-u2.md).

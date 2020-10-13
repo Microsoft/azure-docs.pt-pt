@@ -7,12 +7,12 @@ ms.date: 01/28/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 62ea64f6f0ccf3a9f4ceabc64a97e1e5570b92b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ef41516d516ce6498fc8c502a229084acdebfa1
+ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "88586074"
+ms.locfileid: "91875531"
 ---
 # <a name="integrate-azure-key-vault-with-azure-policy"></a>Integrar o Azure Key Vault no Azure Policy
 
@@ -148,7 +148,10 @@ Gere um cofre usado por várias equipas que contém 100 certificados, e quer ter
 A atribuição de uma política com efeito de "negação" pode levar até 30 minutos (caso médio) e 1 hora (pior caso) para começar a negar a criação de recursos não conformes. A avaliação política dos componentes existentes num cofre pode demorar até 1 hora (caso médio) e 2 horas (pior caso) antes de os resultados de conformidade serem visualizados no portal UI. Se os resultados da conformidade aparecerem como "Não Iniciados" pode ser devido às seguintes razões:
 - A avaliação política ainda não está concluída. A latência inicial da avaliação pode demorar até 2 horas no pior dos cenários. 
 - Não há cofres chave no âmbito da atribuição de apólices.
-- Não há cofres-chave com certificados no âmbito da atribuição de apólices. 
+- Não há cofres-chave com certificados no âmbito da atribuição de apólices.
+
+> [!NOTE]
+> Os modos Azure Policy [Resouce Provider](../../governance/policy/concepts/definition-structure.md#resource-provider-modes), como os do Azure Key Vault, fornecem informações sobre a conformidade na página [de Conformidade dos Componentes.](../../governance/policy/how-to/get-compliance-data.md#component-compliance)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.reviewer: sngun
 ms.openlocfilehash: 0161c1599402fff25337549819f94b833142ba06
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91567864"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Compreender a fatura do Azure Cosmos DB
@@ -300,7 +300,7 @@ O que você efetivamente comprou é um crédito de $8 por hora, por 100 K RU/seg
 |----|----|----|----|----|
 |E.U.A. Leste|$0.008 |50 K|$4|$2.880 |
 |Leste do Japão|$0,009 |50 K| $4,50 |$3.240 |
-|||Pay-as-you-go|$8,50|$6120|
+|||Pay as you go|$8,50|$6120|
 |Capacidade Reservada Adquirida|$0.0064 (20% de desconto) |100 RU/seg ou $8 capacidade pré-comprada |-$8|-$5.760 |
 |Conta Líquida|||$0.50 |$360 |
 

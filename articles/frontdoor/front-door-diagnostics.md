@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: a1e77b5f669d1b492f2d71063a6c77bec1178696
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: d533b8fed47b1790cc35429613179f440f1fac51
+ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449283"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91961753"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Métricas de monitorização e troncos na Porta frontal de Azure
 
@@ -31,14 +31,14 @@ As métricas são uma característica de certos recursos Azure que permitem visu
 
 | Métrica | Nome de exibição métrica | Unidade | Dimensões | Descrição |
 | --- | --- | --- | --- | --- |
-| PedidoCount | Número de Pedidos | de palavras | HttpStatus</br>Grupo HttpStatus</br>Região do Cliente</br>ClientCountry | O número de pedidos de clientes servidos pela Porta da Frente.  |
+| PedidoCount | Número de Pedidos | Contagem | HttpStatus</br>Grupo HttpStatus</br>Região do Cliente</br>ClientCountry | O número de pedidos de clientes servidos pela Porta da Frente.  |
 | Solicitação | Tamanho do pedido | Bytes | HttpStatus</br>Grupo HttpStatus</br>Região do Cliente</br>ClientCountry | O número de bytes enviados como pedidos de clientes para a Porta da Frente. |
 | Tamanho das respostas | Tamanho da resposta | Bytes | HttpStatus</br>Grupo HttpStatus</br>Região do Cliente</br>ClientCountry | O número de bytes enviados como respostas da Porta da Frente aos clientes. |
-| TotalLatency | Latência total | Milissegundos | HttpStatus</br>Grupo HttpStatus</br>Região do Cliente</br>ClientCountry | O tempo calculado a partir do pedido de cliente recebido pela Porta da Frente até que o cliente reconheceu a última resposta byte da Porta frontal. |
-| BackendRequestCount | Contagem de pedidos de backend | de palavras | HttpStatus</br>Grupo HttpStatus</br>Back-end | O número de pedidos enviados da Porta da Frente para os backends. |
+| TotalLatency | Latência total | Milissegundos | HttpStatus</br>Grupo HttpStatus</br>Região do Cliente</br>ClientCountry | O tempo total do pedido de cliente recebido pela Porta da Frente até à última resposta byte enviado da AFD para o cliente. |
+| BackendRequestCount | Contagem de pedidos de backend | Contagem | HttpStatus</br>Grupo HttpStatus</br>Back-end | O número de pedidos enviados da Porta da Frente para os backends. |
 | BackendRequestatency | Pedido de backend Latência | Milissegundos | Back-end | O tempo calculado a partir do momento em que o pedido foi enviado pela Porta da Frente para o backend até que a Porta frontal recebeu a última resposta byte do backend. |
 | BackendHealthPercentage | Percentagem de Saúde backend | Percentagem | Back-end</br>BackendPool | A percentagem de sondas de saúde bem sucedidas da Porta da Frente para os backends. |
-| WebApplicationFirewallRequestCount | Contagem de pedidos de firewall de aplicação web | de palavras | PolicyName</br>Nome de Regras</br>Ação | O número de pedidos de cliente processados pela segurança da camada de aplicação da Porta frontal. |
+| WebApplicationFirewallRequestCount | Contagem de pedidos de firewall de aplicação web | Contagem | PolicyName</br>Nome de Regras</br>Ação | O número de pedidos de cliente processados pela segurança da camada de aplicação da Porta frontal. |
 
 ## <a name="activity-logs"></a><a name="activity-log"></a>Troncos de atividade
 
@@ -75,7 +75,7 @@ A Porta frontal fornece atualmente registos de diagnóstico (lotados por hora). 
 
 | Propriedade  | Descrição |
 | ------------- | ------------- |
-| BackendHostname | Se o pedido foi encaminhado para um backend, este campo representa o nome anfitrião do backend. Este campo ficará em branco se o pedido for redirecionado ou encaminhado para uma cache regional (quando o cache estiver ativado para a regra de encaminhamento). |
+| BackendHostname | Se o pedido foi encaminhado para um backend, este campo representa o nome anfitrião do backend. Este campo ficará em branco se o pedido for redirecionado ou reencaminhado para uma cache regional (quando o cache for ativado para a regra de encaminhamento). |
 | CacheStatus | Para cenários de cache, este campo define o cache hit/miss no POP |
 | ClientIp | O endereço IP do cliente que fez o pedido. Se houve um cabeçalho X-Forwarded-For no pedido, então o IP do Cliente é escolhido do mesmo. |
 | ClientPort | A porta IP do cliente que fez o pedido. |
@@ -90,21 +90,51 @@ A Porta frontal fornece atualmente registos de diagnóstico (lotados por hora). 
 | RoutingRuleName | O nome da regra de encaminhamento que o pedido correspondia. |
 | RegrasSEngineMatchNames | Os nomes das regras que o pedido correspondia. |
 | SecurityProtocol | A versão do protocolo TLS/SSL utilizada pelo pedido ou nula se não houver encriptação. |
-| SentToOriginShield | Campo booleano representando se houvesse uma falha de cache no primeiro ambiente e o pedido foi enviado para a cache regional. Ignore este campo se a regra de encaminhamento for um redirecionamento ou quando não tiver o caching ativado. |
+| SentToOriginShield </br> (depreciado) * **Ver notas sobre depreciação na secção seguinte.**| Se for verdade, significa que o pedido foi respondido a partir da cache do escudo de origem em vez do pop de borda. O escudo de origem é uma cache dos pais usada para melhorar a relação de cache. |
+| isReceivedFromClient | Se for verdade, significa que o pedido veio do cliente. Se for falso, o pedido é uma falha na borda (criança POP) e é respondido a partir do escudo de origem (pai POP). 
 | TimeTaken | O tempo de primeiro byte de pedido para a Porta frontal para durar a byte de resposta para fora, em segundos. |
 | TrackingReference | A cadeia de referência única que identifica um pedido servido pela Porta da Frente, também enviada como cabeçalho X-Azure-Ref para o cliente. Necessário para pesquisar detalhes nos registos de acesso para um pedido específico. |
 | UserAgent | O tipo de navegador que o cliente usou. |
 
-**Nota:** Para várias configurações de encaminhamento e comportamentos de tráfego, alguns dos campos como backendHostname, cacheStatus, sentToOriginShield e pop field podem responder com diferentes valores. A tabela abaixo explica os diferentes valores, estes campos terão para vários cenários:
+### <a name="sent-to-origin-shield-deprecation"></a>Enviado para a deprecação do escudo de origem
+A propriedade de log cru **isSentToOriginShield** foi depreciada e substituída por um novo campo **éReceivedFromClient**. Use o novo campo se já estiver a utilizar o campo deprecado. 
 
-| Cenários | Contagem de entradas de registo | POP | BackendHostname | SentToOriginShield | CacheStatus |
+Os registos brutos incluem troncos gerados tanto a partir da borda cdN (child POP) como do escudo de origem. O escudo de origem refere-se aos nós dos pais que estão estrategicamente localizados em todo o mundo. Estes nós comunicam com servidores de origem e reduzem a carga de tráfego na origem. 
+
+Para cada pedido que vai para o escudo de origem, existem entradas de 2 registos:
+
+* Um para os nosdes de borda
+* Um para o escudo de origem. 
+
+Para diferenciar a saída ou respostas dos nós de borda vs. escudo de origem, pode utilizar o campo **éReceivedFromClient** para obter os dados corretos. 
+
+Se o valor for falso, significa que o pedido é respondido do escudo de origem aos nós de borda. Esta abordagem é eficaz para comparar registos brutos com dados de faturação. As cargas não são incorridos por saídas do escudo de origem para os nós de borda. As taxas são cobradas por saídas dos nós de borda para os clientes. 
+
+**Amostra de consulta de Kusto para excluir registos gerados no escudo de origem em Log Analytics.**
+
+`AzureDiagnostics 
+| where Category == "FrontdoorAccessLog" and isReceivedFromClient_b == true`
+
+> [!NOTE]
+> Para várias configurações de encaminhamento e comportamentos de tráfego, alguns dos campos como backendHostname, cacheStatus, isReceivedFromClient e pop field podem responder com diferentes valores. A tabela abaixo explica os diferentes valores que estes campos terão para vários cenários:
+
+| Cenários | Contagem de entradas de registo | POP | BackendHostname | isReceivedFromClient | CacheStatus |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| Regra de encaminhamento sem caching ativado | 1 | Código POP edge | Backend onde o pedido foi reencaminhado | Falso | CONFIG_NOCACHE |
-| Regra de encaminhamento com caching ativado. Cache atingido na borda POP | 1 | Código POP edge | Vazio | Falso | ATROPELAMENTO |
-| Regra de encaminhamento com caching ativado. Cache falha na borda POP mas cache atingido em cache pai POP | 2 | 1. Código POP edge</br>2. Código POP cache dos pais | 1. Nome de anfitrião POP da cache dos pais</br>2. Vazio | 1. Verdade</br>2. Falso | 1. MISS</br>2. PARTIAL_HIT |
-| Regra de encaminhamento com caching ativado. Cache falha tanto na borda como na cache dos pais POP | 2 | 1. Código POP edge</br>2. Código POP cache dos pais | 1. Nome de anfitrião POP da cache dos pais</br>2. Backend que ajuda a preencher cache | 1. Verdade</br>2. Falso | 1. MISS</br>2. MISS |
+| Regra de encaminhamento sem caching ativado | 1 | Código POP edge | Backend onde o pedido foi reencaminhado | Verdadeiro | CONFIG_NOCACHE |
+| Regra de encaminhamento com caching ativado. Cache atingido na borda POP | 1 | Código POP edge | Vazio | Verdadeiro | ATROPELAMENTO |
+| Regra de encaminhamento com caching ativado. Cache falha na borda POP mas cache atingido em cache pai POP | 2 | 1. Código POP edge</br>2. Código POP cache dos pais | 1. Nome de anfitrião POP da cache dos pais</br>2. Vazio | 1. Verdade</br>2. Falso | 1. MISS</br>2. BATER |
+| Regra de encaminhamento com caching ativado. Cache falha na borda POP mas cache parcial atingido em cache dos pais POP | 2 | 1. Código POP edge</br>2. Código POP cache dos pais | 1. Nome de anfitrião POP da cache dos pais</br>2. Backend que ajuda a preencher cache | 1. Verdade</br>2. Falso | 1. MISS</br>2. PARTIAL_HIT |
+| Regra de encaminhamento com caching ativado. Cache PARTIAL_HIT no pop de borda mas cache bateu na cache dos pais POP | 2 | 1. Código POP edge</br>2. Código POP cache dos pais | 1. Código POP edge</br>2. Código POP cache dos pais | 1. Verdade</br>2. Falso | 1. PARTIAL_HIT</br>2. BATER |
+| Regra de encaminhamento com caching ativado. Cache falha tanto na borda como na cache dos pais POPP | 2 | 1. Código POP edge</br>2. Código POP cache dos pais | 1. Código POP edge</br>2. Código POP cache dos pais | 1. Verdade</br>2. Falso | 1. MISS</br>2. MISS |
 
-## <a name="next-steps"></a>Próximos passos
+> [!NOTE]
+> Para cenários de cache, o valor para o Estado de Cache será partial_hit quando alguns dos bytes para um pedido são servidos a partir da borda da porta frontal ou cache do escudo de origem enquanto alguns dos bytes são servidos da origem para objetos grandes.
+
+A Porta da Frente usa uma técnica chamada "pancada de objetos". Quando um ficheiro grande é solicitado, a Porta frontal recupera pedaços menores do ficheiro a partir da origem. Depois de o servidor POP da porta frontal receber uma gama completa ou byte do ficheiro solicitado, o servidor front door edge solicita o ficheiro a partir da origem em pedaços de 8 MB.
+
+Depois de o pedaço chegar à borda da porta da frente, é em cache e imediatamente servido ao utilizador. A Porta da Frente, em seguida, prefetches o próximo pedaço em paralelo. Esta prefetch garante que o conteúdo permanece um pedaço à frente do utilizador, o que reduz a latência. Este processo continua até que todo o ficheiro seja descarregado (se solicitado), todos os intervalos byte estão disponíveis (se solicitado), ou o cliente fecha a ligação. Para obter mais informações sobre o pedido de byte-range, consulte RFC 7233. A Porta da Frente cache qualquer pedaços como eles são recebidos. Todo o ficheiro não precisa de ser colocado na cache da porta da frente. Os pedidos subsequentes para o ficheiro ou intervalos de byte são servidos a partir da cache da Porta frontal. Se nem todos os pedaços estiverem em cache na porta da frente, a prefetch é utilizada para solicitar pedaços da origem. Esta otimização baseia-se na capacidade do servidor de origem de suportar pedidos de alcance byte. Se o servidor de origem não suportar pedidos de alcance byte, esta otimização não é eficaz.
+
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar um perfil da porta da frente](quickstart-create-front-door.md)
 - [Como funciona a Porta da Frente](front-door-routing-architecture.md)

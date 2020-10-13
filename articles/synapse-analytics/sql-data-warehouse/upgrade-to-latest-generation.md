@@ -12,10 +12,10 @@ ms.author: martinle
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
 ms.openlocfilehash: f97b7cb836009683a689fc49882e61ce66abac58
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91627079"
 ---
 # <a name="optimize-performance-by-upgrading-azure-synapse-analytics-sql-pool"></a>Otimizar o desempenho através da modernização da piscina SQL Azure Synapse Analytics
@@ -31,7 +31,7 @@ Pode agora fazer um upgrade perfeito para o sql pool Compute Optimized Gen2 tier
 > [!IMPORTANT]
 > Esta atualização aplica-se a piscinas SQL de nível SQL otimizados compute em [regiões apoiadas.](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 1. Verifique se a sua [região](gen2-migration-schedule.md#automated-schedule-and-region-availability-table) é apoiada para a migração GEN1 para GEN2. Note as datas de migração automática. Para evitar conflitos com o processo automatizado, planeie a sua migração manual antes da data de início do processo automatizado.
 2. Se você estiver em uma região que ainda não está apoiada, continue a verificar se a sua região deve ser adicionada ou [upgrade usando o restauro](#upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal) para uma região apoiada.
@@ -61,7 +61,7 @@ Pode agora fazer um upgrade perfeito para o sql pool Compute Optimized Gen2 tier
 - A migração da Gen1 para a Gen2 através do portal Azure é permanente. Não há um processo para regressar à Gen1.
 - Piscina SQL deve estar correndo para migrar para a Gen2
 
-### <a name="before-you-begin"></a>Before you begin
+### <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

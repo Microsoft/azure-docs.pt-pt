@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
 ms.openlocfilehash: c8ae129cbad56e3bb63e055f9d843cac1da22fb1
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91710469"
 ---
 # <a name="azure-database-for-postgresql---single-server"></a>Base de Dados do Azure para PostgreSQL – Servidor Único
@@ -62,7 +62,7 @@ Os parâmetros do servidor PostgreSQL determinam a configuração do servidor. N
 Como serviço gerido para Postgres, os parâmetros configuráveis na Base de Dados Azure para PostgreSQL são um subconjunto dos parâmetros num caso de Postgres local (Para obter mais informações sobre os parâmetros postgres, consulte a [documentação PostgreSQL).](https://www.postgresql.org/docs/9.6/static/runtime-config.html) A sua Base de Dados Azure para o servidor PostgreSQL está ativada com valores predefinidos para cada parâmetro na criação. Alguns parâmetros que exigiriam um reinício do servidor ou acesso de super-utilização para que as alterações produzam efeitos não possam ser configurados pelo utilizador.
 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 - Para obter uma visão geral do serviço, consulte [a Base de Dados Azure para obter uma visão geral pós-SQL.](overview.md)
 - Para obter informações sobre quotas e limitações específicas de recursos com base no seu **nível de serviço,** consulte [os níveis de Serviço](concepts-pricing-tiers.md).
 - Para obter informações sobre a ligação ao serviço, consulte [as bibliotecas de ligação para a base de dados Azure para PostgreSQL](concepts-connection-libraries.md).

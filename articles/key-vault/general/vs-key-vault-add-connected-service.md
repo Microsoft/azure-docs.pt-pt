@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 08/07/2019
 ms.author: ghogen
 ms.openlocfilehash: addccf337f82b1695c76ae975c4a33f44ba50f8a
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91448140"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Adicione o Cofre chave à sua aplicação web utilizando serviços conectados ao estúdio visual
@@ -202,7 +202,7 @@ Afeta o ficheiro do projeto .NET referências e `packages.config` (referências 
 - Adicionei o ItemGroup de Serviços Conectados e ConnectedServices.jsem ficheiro.
 - Referências aos conjuntos .NET descritos na secção [Referências Adicionadas.](#added-references-for-aspnet-framework)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se seguiu este tutorial, as suas permissões key Vault estão configuras para funcionar com a sua própria assinatura Azure, mas isso pode não ser desejável para um cenário de produção. Pode criar uma identidade gerida para gerir o acesso do Key Vault à sua aplicação. Ver [como autenticar para o cofre](/azure/key-vault/general/authentication) de chaves e atribuir uma política de acesso ao cofre de [chaves](/azure/key-vault/general/assign-access-policy-portal).
 

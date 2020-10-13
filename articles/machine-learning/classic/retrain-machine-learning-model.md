@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: seodec18, devx-track-csharp
 ms.date: 02/14/2019
 ms.openlocfilehash: 2f115313b17ed159973d2545b947e2ff031508eb
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91362338"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Retreine e implemente um modelo de aprendizagem automática
@@ -150,7 +150,7 @@ Em seguida, obtenha o objeto de Definição de Serviço Web chamando o cmdlet [G
 $wsd = Get-AzMlWebService -Name 'RetrainSamplePre.2016.8.17.0.3.51.237' -ResourceGroupName 'Default-MachineLearning-SouthCentralUS'
 ```
 
-Para determinar o nome do grupo de recursos de um serviço web existente, execute o cmdlet Get-AzMlWebService sem quaisquer parâmetros para exibir os serviços web na sua subscrição. Localize o serviço web e, em seguida, olhe para o seu ID de serviço web. O nome do grupo de recursos é o quarto elemento no ID, logo após o elemento *grupos de recursos.* No exemplo seguinte, o nome do grupo de recursos é Default-MachineLearning-SouthCentralUS.
+Para determinar o nome do grupo de recursos de um serviço web existente, executar o Get-AzMlWebService cmdlet sem quaisquer parâmetros para exibir os serviços web na sua subscrição. Localize o serviço web e, em seguida, olhe para o seu ID de serviço web. O nome do grupo de recursos é o quarto elemento no ID, logo após o elemento *grupos de recursos.* No exemplo seguinte, o nome do grupo de recursos é Default-MachineLearning-SouthCentralUS.
 
 ```azurepowershell
 Properties : Microsoft.Azure.Management.MachineLearning.WebServices.Models.WebServicePropertiesForGraph

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/07/2019
 ms.openlocfilehash: 0119d134861b54ac14c6fe22b638ab459344c5ec
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91569879"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Transformar dados usando fluxos de dados de mapeamento
@@ -131,7 +131,7 @@ Assim que criar o fluxo de dados, será automaticamente enviado para a tela de f
 
     Se tiver um cluster de depuração ativo, pode verificar a sua lógica clicando em **Refresh** para ver a saída da expressão em comparação com as entradas utilizadas. Há mais do que uma resposta certa sobre como pode realizar esta lógica usando a linguagem de expressão de fluxo de dados.
 
-    ![Filtro](media/tutorial-data-flow/filter2.png)
+    ![Filtrar](media/tutorial-data-flow/filter2.png)
 
     Clique **em Guardar e Terminar** assim que terminar com a sua expressão.
 

@@ -12,10 +12,10 @@ ms.date: 10/02/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
 ms.openlocfilehash: cc4256ae0591e9fc82dcdce7c66514710fad3f57
-ms.sourcegitcommit: 19dce034650c654b656f44aab44de0c7a8bd7efe
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "91711379"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>Configurar metas de computação para formação e implantação de modelos
@@ -344,7 +344,7 @@ Consulte estes cadernos para exemplos de formação com vários alvos de computa
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * Utilize o recurso computacional para [configurar e submeter uma formação](how-to-set-up-training-targets.md).
 * [Tutorial: Treinar um modelo](tutorial-train-models-with-aml.md) usa um alvo de computação gerido para treinar um modelo.
