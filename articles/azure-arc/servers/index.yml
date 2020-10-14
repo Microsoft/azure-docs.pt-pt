@@ -9,12 +9,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/07/2020
   ms.author: magoedte
-  ms.openlocfilehash: 346e64968c4616cb1ebcb02db4f4d6d7bca29526
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 845b1cac20e7dae35741027ebf2b709288c7dccc
+  ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91825792"
+  ms.lasthandoff: 10/14/2020
+  ms.locfileid: "92016625"
 landingContent:
 - title: Ligar computadores ao Azure com servidores preparados para o Azure Arc
   linkLists:
@@ -41,4 +41,4 @@ landingContent:
   - linkListType: architecture
     links:
     - text: Gerir configurações para servidores híbridos
-      url: /architecture/hybrid/azure-arc-hybrid-config
+      url: /azure/architecture/hybrid/azure-arc-hybrid-config
