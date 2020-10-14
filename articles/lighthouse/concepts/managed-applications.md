@@ -3,12 +3,12 @@ title: Azure Lighthouse e aplicações geridas do Azure
 description: Entenda como as aplicações geridas pelo Farol de Azure e Azure podem ajudar a ativar diferentes cenários e como podem ser usadas em conjunto.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 078361ba3cff80a5fff03e3d9ca767afcc3ca029
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 144917716da38cc99078f663cc2f4cb8ba0199c8
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970763"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014992"
 ---
 # <a name="azure-lighthouse-and-azure-managed-applications"></a>Azure Lighthouse e aplicações geridas do Azure
 
@@ -23,7 +23,7 @@ Tanto a Azure geriu aplicações como o trabalho do Farol Azure, permitindo a um
 
 Com [o Azure Lighthouse,](../overview.md)um prestador de serviços pode executar uma vasta gama de tarefas de gestão diretamente na subscrição (ou grupo de recursos) de um cliente. Este acesso é conseguido através de uma projeção lógica, permitindo aos prestadores de serviços inscreverem-se no seu próprio inquilino e recursos de acesso que pertencem ao arrendatário do cliente. O cliente pode determinar quais subscrições ou grupos de recursos para delegar ao prestador de serviços, e o cliente mantém o acesso total a esses recursos. Também podem remover o acesso do prestador de serviços a qualquer momento.
 
-Para utilizar o Farol Azure, os clientes estão a bordo para [a gestão de recursos delegados da Azure,](azure-delegated-resource-management.md) quer [através da implementação de modelos ARM,](../how-to/onboard-customer.md) quer através de uma [oferta de Serviço Gerido no Mercado Azure.](managed-services-offers.md) Pode acompanhar o seu impacto nos compromissos com os clientes e receber o crédito obtido pelo [parceiro, ligando o ID do seu parceiro.](../how-to/partner-earned-credit.md)
+Para utilizar o Farol Azure, os clientes estão a bordo para [a gestão de recursos delegados da Azure,](azure-delegated-resource-management.md) quer [através da implementação de modelos ARM,](../how-to/onboard-customer.md) quer através de uma [oferta de Serviço Gerido no Mercado Azure.](managed-services-offers.md) Pode acompanhar o seu impacto nos compromissos com os clientes [ligando o ID do seu parceiro.](../how-to/partner-earned-credit.md)
 
 O Azure Lighthouse é normalmente utilizado quando um prestador de serviços executa tarefas de gestão para um cliente numa base contínua.
 

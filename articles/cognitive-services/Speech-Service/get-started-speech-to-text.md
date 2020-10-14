@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 09/15/2020
 ms.author: trbye
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
-zone_pivot_groups: programming-languages-set-nineteen
+zone_pivot_groups: programming-languages-set-twenty-three
 keywords: discurso ao texto, discurso ao software de texto
-ms.openlocfilehash: 7dcf87f47f48f321c12caedfd3ed47b1f8a5f0a1
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 593fb9bb89bfa43c2eb186a3b9d3c5bc2322c956
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940813"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014154"
 ---
 # <a name="get-started-with-speech-to-text"></a>Introdução à conversão de voz em texto
 
@@ -54,7 +54,7 @@ ms.locfileid: "91940813"
 [!INCLUDE [REST include](includes/how-to/speech-to-text-basics/speech-to-text-basics-curl.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-spx"
+::: zone pivot="programmer-tool-spx"
 [!INCLUDE [CLI include](includes/how-to/speech-to-text-basics/speech-to-text-basics-cli.md)]
 ::: zone-end
 

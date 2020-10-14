@@ -3,19 +3,19 @@ title: Executar detetor de anomalias em instâncias de contentores de Azure
 titleSuffix: Azure Cognitive Services
 description: Desloque o recipiente do Detetor de Anomalias para uma Instância de Contentores Azure e teste-o num navegador web.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.author: aahi
-ms.openlocfilehash: 975efa9fdaff9175317794d8b6df7afbfc73cba8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: mbullwin
+ms.openlocfilehash: c7ce1985f4c7dcd14befce14abe5b913e2c9a67e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83585692"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014750"
 ---
 # <a name="deploy-an-anomaly-detector-container-to-azure-container-instances"></a>Implantar um detetor de anomalias em instâncias de contentores de Azure
 

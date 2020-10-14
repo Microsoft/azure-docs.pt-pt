@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a5dce5b53df817bd365d4ce9670ffd556ce365f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 697e5484c007c095201344fb4829a92eb642a6e3
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84015507"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014856"
 ---
 # <a name="manage-analysis-services"></a>Gerir o Analysis Services
 Uma vez criado um servidor de Serviços de Análise em Azure, pode haver algumas tarefas de administração e gestão que você precisa realizar imediatamente ou em algum momento na estrada. Por exemplo, executar o processamento para os dados de atualização, controlar quem pode aceder aos modelos no seu servidor ou monitorizar a saúde do seu servidor. Algumas tarefas de gestão só podem ser executadas no portal Azure, outras no SQL Server Management Studio (SSMS), e algumas tarefas podem ser feitas em qualquer uma delas.
@@ -30,7 +30,7 @@ Ligar-se ao seu servidor em Azure é como ligar-se a uma instância de servidor 
 ### <a name="download-and-install-ssms"></a>Transferir e instalar o SSMS
 Para obter todas as funcionalidades mais recentes e a experiência mais suave ao ligar-se ao servidor Azure Analysis Services, certifique-se de que está a utilizar a versão mais recente do SSMS. 
 
-[Baixar SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+[Baixar SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 
 ### <a name="to-connect-with-ssms"></a>Para ligar com sSMS
@@ -66,4 +66,3 @@ Ao ligar o SSMS, se tiver problemas, poderá ter de limpar a cache de início de
 Se ainda não implementou um modelo tabular para o seu novo servidor, agora é uma boa altura. Para obter mais informações, consulte [Deploy to Azure Analysis Services](analysis-services-deploy.md) (Implementar no Azure Analysis Services).
 
 Se implementou um modelo no seu servidor, está pronto para o ligar usando um cliente ou navegador. Para saber mais, consulte [obter dados do servidor Azure Analysis Services](analysis-services-connect.md).
-

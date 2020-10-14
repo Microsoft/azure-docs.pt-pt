@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 4414dc86ff318cfff5d224ce7aa064c31f3df460
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61233173452bb45162c7b254203e0ff2922a9784
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294534"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013751"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Instale o agente Log Analytics nos computadores Linux
 Este artigo fornece detalhes sobre a instalação do agente Log Analytics em computadores Linux utilizando os seguintes métodos:
@@ -81,7 +81,7 @@ Outros métodos de endurecimento e personalização não são suportados nem pla
 
 A tabela seguinte realça as embalagens necessárias para [os distros Linux suportados](#supported-operating-systems) em que o agente será instalado.
 
-|Pacote necessário |Descrição |Versão mínima |
+|Pacote necessário |Description |Versão mínima |
 |-----------------|------------|----------------|
 |Glibc |    Biblioteca GNU C | 2.5-12 
 |Openssl    | Bibliotecas OpenSSL | 1.0.x ou 1.1.x |
@@ -215,7 +215,7 @@ O upgrade a partir de uma versão anterior, a começar pela versão 1.0.0-47, é
 ## <a name="cache-information"></a>Cache informação
 Os dados do agente Log Analytics do Linux estão em cache na máquina local *a %STATE_DIR_WS%/out_oms_common*.buffer* antes de serem enviados para o Azure Monitor. Os dados de registo personalizados são tamponados em *%STATE_DIR_WS%/out_oms_blob*.buffer*. O caminho pode ser diferente para [algumas soluções e tipos de dados.](https://github.com/microsoft/OMS-Agent-for-Linux/search?utf8=%E2%9C%93&q=+buffer_path&type=)
 
-O agente tenta carregar a cada 20 segundos. Se falhar, esperará um período de tempo exponencialmente aumentando até que tenha sucesso. Aguarda 30 segundos antes da segunda tentativa, 60 segundos antes da próxima, 120 segundos, e assim por diante para um máximo de 9 minutos entre as retrações até que volte a ligar com sucesso. O agente só tentará novamente 10 vezes para um determinado pedaço de dados antes de descartar e passar para o próximo. Isto continua até que o agente possa carregar com sucesso novamente. Os meios que os dados podem ser tamponados até 8,5 horas antes de serem descartados.
+O agente tenta carregar a cada 20 segundos. Se falhar, esperará um período de tempo exponencialmente aumentando até que consiga: 30 segundos antes da segunda tentativa, 60 segundos antes do terceiro, 120 segundos... e assim até um máximo de 16 minutos entre as retrações até que se conecte com sucesso novamente. O agente tentará até 6 vezes para um determinado pedaço de dados antes de descartar e passar para o próximo. Isto continua até que o agente possa carregar com sucesso novamente. Isto significa que os dados podem ser tamponados até aproximadamente 30 minutos antes de serem descartados.
 
 O tamanho da cache padrão é de 10 MB, mas pode ser modificado no [ficheiro omsagent.conf](https://github.com/microsoft/OMS-Agent-for-Linux/blob/e2239a0714ae5ab5feddcc48aa7a4c4f971417d4/installer/conf/omsagent.conf).
 

@@ -12,12 +12,12 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-Synapse
-ms.openlocfilehash: 9cf65b2fdeb7faa03b950593db86dd32a4ef91a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea4038e88d41a089958d4199e4c5a00f0d2acabd
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86495743"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015571"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analisar dados com o Azure Machine Learning
 
@@ -56,7 +56,7 @@ FROM [dbo].[vTargetMail]
 
 Uma vez que os dados estão disponíveis no Azure Data Lake Storage, datastores em Azure Machine Learning são usados para [ligar aos serviços de armazenamento Azure](https://docs.microsoft.com/azure/machine-learning/how-to-access-data). Siga os passos abaixo para criar uma Datastore e um conjunto de dados correspondente:
 
-1. Lance o estúdio de aprendizagem Azure Machine a partir do portal Azure ou inicie seduca no [estúdio Azure Machine Learning](https://ml.azure.com/).
+1. Lance o estúdio Azure Machine Learning a partir do portal Azure ou inicie seduca no [estúdio Azure Machine Learning](https://ml.azure.com/).
 
 1. Clique em **Datastores** no painel esquerdo na secção **Gestão** e clique em **New Datastore**.
 

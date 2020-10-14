@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: eb9d901a32d558f676ba10eaf65b54c51bfbcda8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99604092ea901458062abd6423d74ad8f1f2c8d7
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89259188"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014414"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Cenários e disponibilidade das funcionalidades dos Serviços de Multimédia em datacenters
 
@@ -89,10 +89,10 @@ Para obter informações sobre a disponibilidade em datacenters, veja a secção
 
 ## <a name="use-media-analytics-to-derive-actionable-insights-from-your-videos"></a>Utilize a Análise de Multimédia para derivar conhecimentos acionáveis dos seus vídeos
 
-A Análise de Multimédia é um conjunto de componentes de voz e visão que facilitam a derivação de conhecimentos acionáveis das organizações e empresas dos seus respetivos ficheiros de vídeo. Para obter mais informações, consulte [Descrição Geral da Análise dos Media Services do Azure](media-services-analytics-overview.md).
+A Análise de Multimédia é um conjunto de componentes de voz e visão que facilitam a derivação de conhecimentos acionáveis das organizações e empresas dos seus respetivos ficheiros de vídeo. Para obter mais informações, consulte [Descrição Geral da Análise dos Media Services do Azure](./legacy-components.md).
 
 1. Carregue um ficheiro multimédia de alta qualidade para um elemento.
-2. Processe os seus vídeos com um dos serviços de Análise de Multimédia descritos na secção [Media Analytics overview](media-services-analytics-overview.md) (Descrição geral da Análise de Multimédia).
+2. Processe os seus vídeos com um dos serviços de Análise de Multimédia descritos na secção [Media Analytics overview](./legacy-components.md) (Descrição geral da Análise de Multimédia).
 3. Os processadores de multimédia de Análise de Multimédia produzem ficheiros MP4 ou ficheiros JSON. Se um processador de multimédia produzir um ficheiro MP4, pode transferir progressivamente o ficheiro. Se um processador de multimédia produzir um ficheiro JSON, pode transferir o ficheiro a partir do Blob Storage do Azure.
 
 Para obter informações sobre a disponibilidade em datacenters, veja a secção [Disponibilidade](#availability).
@@ -203,7 +203,7 @@ O AMS oferece dois codificadores a pedido, o **Media Encoder Standard** e o **Me
 
 ### <a name="analytics-media-processors"></a>Processadores de multimédia de análise
 
-A Análise de Multimédia é um conjunto de componentes de voz e visão que facilitam a derivação de conhecimentos acionáveis por parte das organizações e empresas dos respetivos ficheiros de vídeo. Para obter mais informações, consulte [Descrição Geral da Análise dos Media Services do Azure](media-services-analytics-overview.md).
+A Análise de Multimédia é um conjunto de componentes de voz e visão que facilitam a derivação de conhecimentos acionáveis por parte das organizações e empresas dos respetivos ficheiros de vídeo. Para obter mais informações, consulte [Descrição Geral da Análise dos Media Services do Azure](./legacy-components.md).
 
 > [!NOTE]
 > Alguns processadores de mídia analíticos serão reformados. Para as datas de aposentadoria, consulte o tema dos [componentes do legado.](legacy-components.md)

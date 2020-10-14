@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4d335affa5a06bdb8e5c733c871654cf58947581
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd4f50365ced61e35ae6d10a9763a0f9815098d7
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91652963"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92014108"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de lançamento da Azure Media Services
 
@@ -35,7 +35,7 @@ Queremos ouvir os nossos clientes para que possamos focar-nos na resolução de 
 ## <a name="known-issues"></a><a name="issues"></a>Problemas conhecidos
 ### <a name="media-services-general-issues"></a><a name="general_issues"></a>Questões gerais dos Serviços de Comunicação Social
 
-| Problema | Descrição |
+| Problema | Description |
 | --- | --- |
 | Vários cabeçalhos HTTP comuns não são fornecidos na API REST. |Se desenvolver aplicações de Serviços de Mídia utilizando a API REST, descobre que alguns campos comuns de cabeçalho HTTP (incluindo O ID DO CLIENTE-PEDIDO, ID de PEDIDO e RETORNO-CLIENTE-PEDIDO-ID) não são suportados. Os cabeçalhos serão adicionados numa futura atualização. |
 | Não é permitido codificar por cento. |Os Serviços de Comunicação Social utilizam o valor da propriedade IAssetFile.Name ao construir URLs para o conteúdo de streaming (por exemplo, `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters` ). Por esta razão, a codificação por cento não é permitida. O valor da propriedade Name não pode ter nenhum dos [seguintes caracteres reservados por cento](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'(;:@&=+$,/?%#[]". Além disso, só pode haver um "." para a extensão do nome do ficheiro. |
@@ -53,8 +53,8 @@ Para obter informações sobre o histórico da versão API dos Serviços de Míd
 
 As seguintes propriedades v2 deixarão de ser preenchidas com dados históricos de progresso do trabalho:
 
-* [Eventos Históricos](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.historicalevents)
-* [PerfMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.perfmessage)
+* [Eventos Históricos](/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.historicalevents)
+* [PerfMessage](/dotnet/api/microsoft.windowsazure.mediaservices.client.itask.perfmessage)
 
 Para obter o histórico de tarefas, deve utilizar as notificações de emprego v2 através de webhooks ou mensagens de fila utilizando Pontos Finais de Notificação. Para obter mais informações, consulte:
 
@@ -81,7 +81,7 @@ Consulte também [a Migração do Azure Media Indexer e do Azure Media Indexer 2
 
 Estamos a anunciar a depreciação dos processadores de mídia *Windows Azure Media Encoder* (WAME) e *Azure Media Encoder* (AME). Para as datas de aposentadoria, consulte este tema [dos componentes do legado.](legacy-components.md)
 
-Para mais detalhes, consulte [a Migração WAME para Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) e [Migrar AME para Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
+Para mais detalhes, consulte [a Migração WAME para Media Encoder Standard](./migrate-windows-azure-media-encoder.md) e [Migrar AME para Media Encoder Standard](./migrate-azure-media-encoder.md).
 
 ## <a name="march-2019"></a>Março de 2019
 
@@ -198,7 +198,7 @@ Alguns clientes podem encontrar um problema de marcação repetida no manifesto 
 
 ## <a name="april-2016-release"></a><a id="apr_changes16"></a>Lançamento de abril de 2016
 ### <a name="media-analytics"></a>Análise de Multimédia
- Os Media Services introduziram a Media Analytics para uma poderosa inteligência de vídeo. Para mais informações, consulte a [visão geral da Media Services Analytics](media-services-analytics-overview.md).
+ Os Media Services introduziram a Media Analytics para uma poderosa inteligência de vídeo. Para mais informações, consulte a [visão geral da Media Services Analytics](./legacy-components.md).
 
 ### <a name="apple-fairplay-preview"></a>Apple FairPlay (pré-visualização)
 Agora pode utilizar os Media Services para encriptar dinamicamente o seu conteúdo HTTP Live Streaming (HLS) com o Apple FairPlay. Também pode utilizar o serviço de entrega de licenças media Services para entregar licenças FairPlay aos clientes. Para obter mais informações, consulte "Use a Azure Media Services para transmitir o seu conteúdo HLS protegido com o Apple FairPlay."
@@ -275,7 +275,7 @@ Para mais informações, consulte [este blog.](https://azure.microsoft.com/blog/
 ## <a name="july-2015-release"></a><a id="july_changes_15"></a>Lançamento de julho de 2015
 * Foi anunciada a disponibilidade geral da Media Encoder Standard. Para mais informações, consulte [este post de blog.](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
   
-    A Media Encoder Standard utiliza predefinições, conforme descrito [nesta secção](https://go.microsoft.com/fwlink/?LinkId=618336). Quando utilizar uma pré-sintonia para codificações 4K, obtenha o tipo de unidade reservada Premium. Para obter mais informações, consulte [a codificação da Escala.](media-services-scale-media-processing-overview.md)
+    A Media Encoder Standard utiliza predefinições, conforme descrito [nesta secção](./media-services-mes-presets-overview.md). Quando utilizar uma pré-sintonia para codificações 4K, obtenha o tipo de unidade reservada Premium. Para obter mais informações, consulte [a codificação da Escala.](media-services-scale-media-processing-overview.md)
 * As legendas em tempo real foram usadas com os Media Services e o Media Player. Para mais informações, consulte [este post de blog.](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/)
 
 ### <a name="media-services-net-sdk-updates"></a>Atualizações de Media Services .NET SDK

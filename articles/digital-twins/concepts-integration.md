@@ -7,16 +7,18 @@ ms.author: baanders
 ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 7e360c158c7887109684d13f774cbbda1813373e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fcad5798d421939717a6beae01ae9930cfcb117
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729139"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015026"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Integre a Azure Digital Twins com outros serviços
 
-Azure Digital Twins é normalmente usado juntamente com outros serviços. Utilizando as rotas dos [**eventos,**](concepts-route-events.md)a Azure Digital Twins recebe dados de serviços a montante como [ioT Hub](../iot-hub/about-iot-hub.md) ou Logic [Apps](../logic-apps/logic-apps-overview.md), que são usados para fornecer telemetria e notificações. 
+A Azure Digital Twins é normalmente utilizada juntamente com outros serviços para criar soluções flexíveis e conectadas que utilizam os seus dados de várias maneiras.
+
+Utilizando rotas de [**eventos,**](concepts-route-events.md)a Azure Digital Twins pode receber dados de serviços a montante como [IoT Hub](../iot-hub/about-iot-hub.md) ou Logic [Apps](../logic-apps/logic-apps-overview.md), que são usados para fornecer telemetria e notificações. 
 
 A Azure Digital Twins também pode encaminhar dados para serviços a jusante, como [Azure Maps](../azure-maps/about-azure-maps.md) e [Time Series Insights,](../time-series-insights/time-series-insights-update-overview.md)para armazenamento, integração de fluxos de trabalho, análises e muito mais. 
 
@@ -24,7 +26,7 @@ A Azure Digital Twins também pode encaminhar dados para serviços a jusante, co
 
 A Azure Digital Twins pode ser conduzido com dados e eventos de qualquer serviço,[IoT Hub,](../iot-hub/about-iot-hub.md) [Logic Apps,](../logic-apps/logic-apps-overview.md)seu próprio serviço personalizado, e muito mais. Isto permite-lhe recolher telemetria a partir de dispositivos físicos no seu ambiente, e processar estes dados usando o gráfico Azure Digital Twins na nuvem.
 
-A Azure Digital Twins não tem um Hub IoT incorporado. Você pode usar um Hub IoT existente que você tem atualmente em produção, ou implementar um novo. Isto dá-lhe acesso total a todas as capacidades de gestão de dispositivos do IoT Hub.
+Em vez de ter um IoT Hub incorporado nos bastidores, a Azure Digital Twins permite-lhe "trazer o seu próprio" IoT Hub para usar com o serviço. Você pode usar um Hub IoT existente que você tem atualmente em produção, ou implementar um novo para ser usado para este fim. Isto dá-lhe acesso total a todas as capacidades de gestão de dispositivos do IoT Hub.
 
 Para ingerir dados de qualquer fonte em Azure Digital Twins, utilize uma [**função Azure**](../azure-functions/functions-overview.md). Saiba mais sobre este padrão em [*Como-a-: Ingerir telemetria a partir do IoT Hub,*](how-to-ingest-iot-hub-data.md)ou experimente-o no Tutorial de Gémeos Digitais Azure: [*Conecte uma solução de ponta a ponta*](tutorial-end-to-end.md). 
 

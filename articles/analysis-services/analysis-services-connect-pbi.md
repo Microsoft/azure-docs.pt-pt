@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f79ff9af1272ca908c7a5ba35fbaa1e8bb87fc50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb1781394e0091d8358570c2eaa07ca97297a6ad
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86506715"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013785"
 ---
 # <a name="connect-with-power-bi"></a>Ligar com o Power BI
 
@@ -49,7 +49,6 @@ Depois de criar um servidor em Azure, e implementar um modelo tabular para o mes
 1. Crie um ficheiro Power BI Desktop que tenha uma ligação ao vivo com o seu modelo no seu servidor.
 2. No [Power BI,](https://powerbi.microsoft.com)clique em Obter Ficheiros **de**  >  **Dados**e, em seguida, localize e selecione o seu ficheiro .pbix.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 [Ligar-se aos Serviços de Análise Azure](analysis-services-connect.md)   
-[Bibliotecas de cliente](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)
-
+[Bibliotecas de cliente](/analysis-services/client-libraries?view=azure-analysis-services-current)

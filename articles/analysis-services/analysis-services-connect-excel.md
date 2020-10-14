@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 123e271ae1b83603d599b9ef0381e25b3c963def
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4658a4c05aac7932d8a99c3511f21024f19fbe47
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85361562"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013734"
 ---
 # <a name="connect-with-excel"></a>Ligar com o Excel
 
@@ -40,9 +40,7 @@ A ligação a um servidor no Excel é suportada utilizando o Get Data no Excel 2
     ![Conecte-se a partir do modelo de seleção do Excel](./media/analysis-services-connect-excel/aas-connect-excel-select.png)
 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-[Bibliotecas de clientes](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current)   
-[Gerencie o seu servidor](analysis-services-manage.md)     
-
-
+[Bibliotecas de clientes](/analysis-services/client-libraries?view=azure-analysis-services-current)   
+[Gerencie o seu servidor](analysis-services-manage.md)

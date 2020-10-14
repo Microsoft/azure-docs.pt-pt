@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ee332eb7dea86e07c2d8f9b75a0e152dc7482a41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fed184c349789dc38f12f62567acc0d0500ca94c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87438836"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016098"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Ligação a fontes de dados no local com gateway de dados no local
 
@@ -62,7 +62,7 @@ Poderá ter de incluir endereços IP para a sua região de dados na sua firewall
 
 Seguem-se os nomes de domínio totalmente qualificados utilizados pelo gateway.
 
-| Nomes de domínio | Portas de saída | Descrição |
+| Nomes de domínio | Portas de saída | Description |
 | --- | --- | --- |
 | *.powerbi.com |80 |HTTP utilizado para transferir o instalador. |
 | *.powerbi.com |443 |HTTPS |
@@ -91,11 +91,11 @@ Pode forçar a porta de entrada a comunicar com a Azure Service Bus utilizando H
 
 Os seguintes artigos estão incluídos no conteúdo geral do portal de dados on-ins que se aplica a todos os serviços que o gateway suporta:
 
-* [FAQ do gateway de dados no local](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)   
-* [Utilizar a aplicação de gateway de dados no local](https://docs.microsoft.com/data-integration/gateway/service-gateway-app)   
-* [Administração ao nível do inquilino](https://docs.microsoft.com/data-integration/gateway/service-gateway-tenant-level-admin)
-* [Configurar configurações de procuração](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)   
-* [Ajustar as definições de comunicação](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication)   
-* [Configurar ficheiros de registo](https://docs.microsoft.com/data-integration/gateway/service-gateway-log-files)   
-* [Resolução de problemas](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
-* [Monitorizar e otimizar o desempenho de gateways](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
+* [FAQ do gateway de dados no local](/data-integration/gateway/service-gateway-onprem-faq)   
+* [Utilizar a aplicação de gateway de dados no local](/data-integration/gateway/service-gateway-app)   
+* [Administração ao nível do inquilino](/data-integration/gateway/service-gateway-tenant-level-admin)
+* [Configurar configurações de procuração](/data-integration/gateway/service-gateway-proxy)   
+* [Ajustar as definições de comunicação](/data-integration/gateway/service-gateway-communication)   
+* [Configurar ficheiros de registo](/data-integration/gateway/service-gateway-log-files)   
+* [Resolução de problemas](/data-integration/gateway/service-gateway-tshoot)
+* [Monitorizar e otimizar o desempenho de gateways](/data-integration/gateway/service-gateway-performance)

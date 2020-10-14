@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Consulte as perguntas frequentes quando executar piscinas de nó do Windows Server e cargas de trabalho de aplicação no Serviço Azure Kubernetes (AKS).
 services: container-service
 ms.topic: article
-ms.date: 07/29/2020
-ms.openlocfilehash: df9a4dd546ddc5944d9a282e74c2444a5161b862
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/12/2020
+ms.openlocfilehash: 00e749a8b066f72518b38685dd7a7779e406cf74
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87927571"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92013972"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>Perguntas frequentes para piscinas de nó de nó do Windows Server em AKS
 
@@ -113,6 +113,49 @@ Sim, pode, no entanto, o Azure Monitor está em pré-visualização pública par
 
 Um cluster com nós Windows pode ter aproximadamente 500 serviços antes de encontrar exaustão portuária.
 
+## <a name="can-i-use-azure-hybrid-benefit-with-windows-nodes"></a>Posso usar o Azure Hybrid Benefit com nós Windows?
+
+Sim. O Azure Hybrid Benefit for Windows Server reduz os custos de operação ao permitir-lhe levar a sua licença de Servidor Windows no local para os nós do AKS Windows.
+
+O Azure Hybrid Benefit pode ser usado em todo o seu cluster AKS ou em nós individuais. Para os nós individuais, é necessário navegar para o [grupo de recursos][resource-groups] do nó e aplicar o Benefício Híbrido Azure nos nós diretamente. Para obter mais informações sobre a aplicação do Benefício Híbrido Azure aos nós individuais, consulte [O Benefício Híbrido Azure para o Servidor do Windows][hybrid-vms]. 
+
+Para utilizar o Azure Hybrid Benefit num novo cluster AKS, use o `--enable-ahub` argumento.
+
+```azurecli
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --load-balancer-sku Standard \
+    --windows-admin-password 'Password1234$' \
+    --windows-admin-username azure \
+    --network-plugin azure
+    --enable-ahub
+```
+
+Para utilizar o Azure Hybrid Benefit num cluster AKS existente, atualize o cluster utilizando o `--enable-ahub` argumento.
+
+```azurecli
+az aks update \
+    --resource-group myResourceGroup
+    --name myAKSCluster
+    --enable-ahub
+```
+
+Para verificar se o Benefício Híbrido Azure está definido no cluster, utilize o seguinte comando:
+
+```azurecli
+az vmss show --name myAKSCluster --resource-group MC_CLUSTERNAME
+```
+
+Se o cluster tiver o Benefício Híbrido Azure ativado, a saída `az vmss show` será semelhante à seguinte:
+
+```console
+"platformFaultDomainCount": 1,
+  "provisioningState": "Succeeded",
+  "proximityPlacementGroup": null,
+  "resourceGroup": "MC_CLUSTERNAME"
+```
+
 ## <a name="can-i-use-the-kubernetes-web-dashboard-with-windows-containers"></a>Posso usar o Painel Web Kubernetes com recipientes Windows?
 
 Sim, pode utilizar o [Painel Web Kubernetes][kubernetes-dashboard] para aceder a informações sobre recipientes Windows, mas neste momento não é possível encaminhar *o executivo de kubectl* para um contentor do Windows em funcionamento diretamente do Painel Web kubernetes. Para obter mais detalhes sobre a ligação ao seu recipiente Windows em funcionamento, consulte [Ligar-se com os nós do Cluster Do Windows Server (AKS) do Azure Kubernetes para manutenção ou resolução de problemas][windows-rdp].
@@ -152,3 +195,5 @@ Para começar com os recipientes do Windows Server em AKS, [crie uma piscina de 
 [windows-rdp]: rdp.md
 [upgrade-node-image]: node-image-upgrade.md
 [managed-identity]: use-managed-identity.md
+[hybrid-vms]: ../virtual-machines/windows/hybrid-use-benefit-licensing.md
+[resource-groups]: faq.md#why-are-two-resource-groups-created-with-aks

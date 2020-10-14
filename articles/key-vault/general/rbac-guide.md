@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b4c48f25f1d4bd3822a93d2c780dd148d9e29827
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 38072e95ed89d8fbc095e2f8ed41ea1381636300
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940536"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015160"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Fornecer acesso a chaves, certificados e segredos do Cofre Chave com um controlo de acesso baseado em funções Azure (pré-visualização)
 
@@ -37,7 +37,7 @@ As permissões individuais de chaves, segredos e certificados devem ser utilizad
 
 -   Aplicações em várias camadas que precisam de separar o controlo de acesso entre camadas
 
--   Cofre de chaves compartilhado com segredos comuns, quando as aplicações precisam de acesso a subconjuntos de segredos naquele cofre chave
+-   Partilha de segredo individual entre múltiplas aplicações
 
 Mais sobre as diretrizes de gestão do Azure Key Vault, consulte:
 
@@ -48,7 +48,7 @@ Mais sobre as diretrizes de gestão do Azure Key Vault, consulte:
 > [!NOTE]
 > `Key Vault Contributor` papel é para operações de avião de gestão para gerir cofres chave. Não permite o acesso a chaves, segredos e certificados.
 
-| Papel incorporado | Descrição | ID |
+| Papel incorporado | Description | ID |
 | --- | --- | --- |
 | Administrador do cofre chave (pré-visualização) | Execute todas as operações de avião de dados num cofre chave e todos os objetos nele, incluindo certificados, chaves e segredos. Não é possível gerir os recursos-chave do cofre ou gerir atribuições de funções. Só funciona para cofres-chave que utilizam o modelo de permissão de acesso baseado em funções "Azure". | 00482a5a-887f-4fb3-b363-3b7fe8e74483 |
 | Key Vault Certificates Officer (pré-visualização) | Efetue qualquer ação nos certificados de um cofre chave, exceto gerir permissões. Só funciona para cofres-chave que utilizam o modelo de permissão de acesso baseado em funções "Azure". | a4417e6f-fecd-4de8-b567-7b0420556985 |

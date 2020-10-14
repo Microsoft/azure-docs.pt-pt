@@ -5,20 +5,18 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 10/09/2020
+ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: e4f8bc38a79fdbb84624e126c84d679a906a701b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c5361a777b2fdab20fab70214ddcb3bbf5248acb
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91980172"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015264"
 ---
-# <a name="tutorial-create-an-azure-bastion-host-and-connect-to-a-windows-vm"></a>Tutorial: Criar um hospedeiro Azure Bastion e ligar-se a um VM do Windows
+# <a name="tutorial-create-an-azure-bastion-host-and-connect-to-a-windows-vm-through-a-browser"></a>Tutorial: Criar um anfitrião Azure Bastion e ligar-se a um Windows VM através de um browser
 
-Pode ligar-se a uma máquina virtual do Windows (VM) através de um browser através do portal Azure. Conecte-se ao seu VM diretamente através do navegador através do TLS usando um endereço IP privado. Não precisa de instalar e configurar o software do cliente localmente.
-
-Para se ligar a um VM utilizando o Bastion, é necessário providenciar o serviço Azure Bastion na sua rede virtual (VNet). Uma vez prestado o serviço, este tipo de ligação está disponível para todos os VMs que se encontram no VNet, dependendo da configuração de segurança do VM. A implementação do Azure Bastion é por rede virtual, não por subscrição/conta ou máquina virtual.
+Este tutorial mostra-lhe como se conectar a uma máquina virtual através do seu navegador usando Azure Bastion e o portal Azure. No portal Azure, implementa Bastion para a sua rede virtual. Depois de implementar o Bastion, liga-se a um VM através do seu endereço IP privado utilizando o portal Azure. O seu VM não necessita de um endereço IP público ou de um software especial. Uma vez prestado o serviço, a experiência RDP/SSH está disponível para todas as máquinas virtuais na mesma rede virtual. Para mais informações sobre Azure Bastion, veja [o que é Azure Bastion?](bastion-overview.md)
 
 Neste tutorial, irá aprender a:
 

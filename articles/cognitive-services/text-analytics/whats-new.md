@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: 17c9797935612c8697d30455e28cc91321b84772
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: f79152dbfa5a0576cd13484f9b3704eaed3901ea
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999676"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92015929"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>O que há de novo na API de Análise de Texto?
 
@@ -24,6 +24,7 @@ A API text Analytics é atualizada numa base contínua. Para se manter atualizad
 ## <a name="october-2020"></a>Outubro de 2020
 
 * Suporte hindi para Análise de Sentimento v3.x, começando com a versão modelo `2020-04-01` . 
+* Verion do modelo `2020-09-01` para o ponto final v3/idiomas, que adiciona melhorias aumentadas na deteção da linguagem e precisão.
 
 ## <a name="september-2020"></a>Setembro de 2020
 
@@ -191,9 +192,9 @@ Os tipos de entidades adicionais estão agora disponíveis no serviço de pré-v
 
 #### <a name="named-entity-recognition-ner"></a>Reconhecimento de Entidades Nomeadas (NER)
 
-* Um [novo ponto final](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionPii) para o reconhecimento de tipos de entidades de informação pessoal (apenas em inglês)
+* Um [novo ponto final](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionPii) para o reconhecimento de tipos de entidades de informação pessoal (apenas em inglês)
 
-* Pontos finais separados para [reconhecimento de entidades](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) e [ligação de entidades.](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesLinking)
+* Pontos finais separados para [reconhecimento de entidades](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral) e [ligação de entidades.](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesLinking)
 
 * [Versão do modelo,](concepts/model-versioning.md) `2019-10-01` que inclui:
     * Deteção e categorização alargadas de entidades encontradas em texto. 
@@ -205,7 +206,7 @@ A ligação de entidade suporta inglês e espanhol. O suporte linguístico NER v
 
 #### <a name="sentiment-analysis-v3-public-preview"></a>Análise de Sentimento v3 visualização pública
 
-* Um [novo ponto final](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment) para analisar o sentimento.
+* Um [novo ponto final](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/Sentiment) para analisar o sentimento.
 * [Versão do modelo,](concepts/model-versioning.md) `2019-10-01` que inclui:
 
     * Melhorias significativas na precisão e detalhe da categorização e pontuação de texto da API.
