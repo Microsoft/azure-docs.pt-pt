@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 483c29d4aed4102440b09f26fe6778709836145f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b449913c9d1abbbec84f0ff77f7a1c1bc5321bf
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91629833"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048462"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Suporte linguístico e de voz para o serviço de fala
 
@@ -36,7 +36,7 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Região  | Idioma                          | Personalizações                                    |
+| Região  | Linguagem                          | Personalizações                                    |
 |---------|-----------------------------------|---------------------------------------------------|
 | `ar-AE` | Árabe (Emirados Árabes Unidos)     | Modelo de linguagem                                    |
 | `ar-BH` | Árabe (Bahrein), padrão moderno | Modelo de linguagem                                    |
@@ -136,7 +136,7 @@ As vozes neurais podem ser usadas para tornar as interações com chatbots e ass
 
 Para obter mais informações sobre a disponibilidade regional, consulte [as regiões.](regions.md#standard-and-neural-voices)
 
-|Região  | Idioma            | Sexo | Nome de voz | Suporte de estilo |
+|Região  | Linguagem            | Sexo | Nome de voz | Suporte de estilo |
 |--|--|--|--|--|
 | `ar-EG` | Árabe (Egito) | Mulheres | `ar-EG-SalmaNeural` | Geral |
 | `ar-SA` | Árabe (Arábia Saudita) | Mulheres | `ar-SA-ZariyahNeural` | Geral |
@@ -154,7 +154,7 @@ Para obter mais informações sobre a disponibilidade regional, consulte [as reg
 | `en-CA` | Inglês (Canadá) | Mulheres | `en-CA-ClaraNeural` | Geral |
 | `en-GB` | Inglês (Reino Unido) | Mulheres | `en-GB-LibbyNeural` | Geral |
 | `en-GB` | Inglês (Reino Unido) | Mulheres | `en-GB-MiaNeural` | Geral |
-| `en-GB` <sup>Novo</sup> | Inglês (Reino Unido) | Homens | `En-GB-RyanNeural` | Geral |
+| `en-GB` <sup>Novo</sup> | Inglês (Reino Unido) | Homens | `en-GB-RyanNeural` | Geral |
 | `en-IE` <sup>Novo</sup> | Inglês irlandês (Irlanda) | Mulheres | `en-IE-EmilyNeural` | Geral |
 | `en-IN` | Inglês (Índia) | Mulheres | `en-IN-NeerjaNeural` | Geral |
 | `en-US` | Inglês (Estados Unidos) | Mulheres | `en-US-AriaNeural` | Geral, vários estilos de voz disponíveis |
@@ -220,7 +220,7 @@ Para aprender como pode configurar e ajustar vozes neurais, consulte a [linguage
 
 Mais de 75 vozes padrão estão disponíveis em mais de 45 línguas e locais, que permitem converter texto em discurso sintetizado. Para obter mais informações sobre a disponibilidade regional, consulte [as regiões.](regions.md#standard-and-neural-voices)
 
-| Região | Idioma | Sexo | Nome de voz |
+| Região | Linguagem | Sexo | Nome de voz |
 |--|--|--|--|
 | `ar-EG` | Árabe (árabe) | Mulheres | `ar-EG-Hoda` |
 | `ar-SA` | Árabe (Arábia Saudita) | Homens | `ar-SA-Naayf` |
@@ -397,9 +397,9 @@ A API **de Tradução de Discursos** apoia diferentes línguas para a tradução
 
 Consulte a tabela seguinte para as línguas suportadas para as várias APIs de reconhecimento de altifalantes. Consulte a [visão geral](speaker-recognition-overview.md) para obter informações adicionais sobre o reconhecimento de colunas.
 
-| Região | Idioma | Verificação dependente de texto | Verificação independente de texto | Identificação independente de texto |
+| Região | Linguagem | Verificação dependente de texto | Verificação independente de texto | Identificação independente de texto |
 |----|----|----|----|----|
-| pt-PT | Inglês (E.U.A.) | sim | sim | sim |
+| en-PT | Inglês (E.U.A.) | sim | sim | sim |
 |zh-CN    |Chinês (mandarim, simplificado)|    n/a|    sim|    sim|
 |de-DE    |Alemão (Alemanha)    |n/a    |sim    |sim|
 |en-GB    |Inglês (Reino Unido)    |n/a    |sim    |sim|

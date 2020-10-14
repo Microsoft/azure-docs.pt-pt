@@ -3,19 +3,19 @@ title: A bordo do feed de dados para o Advisor Métricas
 titleSuffix: Azure Cognitive Services
 description: Como começar com o embarque dos seus dados para o Metrics Advisor.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.author: aahi
-ms.openlocfilehash: 83ff710804b43837657ea0da7c8f44c245017c7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: mbullwin
+ms.openlocfilehash: fe3b87c733f54d8bd52c4d973977e3c8cbfefe19
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940129"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043218"
 ---
 # <a name="how-to-onboard-your-metric-data-to-metrics-advisor"></a>Como fazer: A bordo dos seus dados métricos ao Metrics Advisor
 
@@ -82,7 +82,7 @@ Se o ponto de datação de um ponto de dados for omitido, o Metrics Advisor util
 
 Se pretender ignorar as colunas, recomendamos atualizar a sua consulta ou fonte de dados para excluir essas colunas. Também pode ignorar colunas usando **colunas Ignore** e, em seguida, **ignorar** nas colunas específicas. Se uma coluna deve ser uma dimensão e é erroneamente definida como *ignorada,* o Metrics Advisor pode acabar por ingerir dados parciais. Por exemplo, assuma que os dados da sua consulta são os seguintes:
 
-| ID de linha | Timestamp | País | Idioma | Receita |
+| ID de linha | Timestamp | País | Linguagem | Receita |
 | --- | --- | --- | --- | --- |
 | 1 | 2019/11/10 | China | ZH-CN | 10000 |
 | 2 | 2019/11/10 | China | EN-US | 1000 |
@@ -109,7 +109,7 @@ Pondere os seguintes cenários:
 
     Esta opção significa que o Metrics Advisor não precisa de arregaçar os dados porque as linhas já estão resumidas. Por exemplo, se selecionar *apenas NU,* então a segunda linha de dados no exemplo abaixo será vista como uma agregação de todos os países e da linguagem *EN-US;* a quarta linha de dados que tem um valor vazio para *o País,* no entanto, será vista como uma linha ordinária que pode indicar dados incompletos.
     
-    | País | Idioma | Receita |
+    | País | Linguagem | Receita |
     |---------|----------|--------|
     | China   | ZH-CN    | 10000  |
     | (NU)  | EN-US    | 999999 |

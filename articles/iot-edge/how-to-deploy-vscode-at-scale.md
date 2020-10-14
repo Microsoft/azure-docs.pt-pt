@@ -9,16 +9,16 @@ ms.date: 1/8/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: dc059cae927c1aaa057080172313f5720f483bdb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 7f6e90edc0503326dc9dbb06abfcf59fa2d51e1e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972582"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043821"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-visual-studio-code"></a>Implementar módulos IoT Edge em escala usando Código de Estúdio Visual
 
-Pode criar uma **implementação automática IoT Edge** utilizando o Código do Estúdio Visual para gerir as implementações em curso para muitos dispositivos ao mesmo tempo. As implementações automáticas para ioT Edge fazem parte da funcionalidade automática de [gestão](/azure/iot-hub/iot-hub-automatic-device-management) do dispositivo do IoT Hub. As implementações são processos dinâmicos que permitem implantar vários módulos em vários dispositivos. Também pode acompanhar o estado e a saúde dos módulos e fazer alterações quando necessário.
+Pode criar uma **implementação automática IoT Edge** utilizando o Código do Estúdio Visual para gerir as implementações em curso para muitos dispositivos ao mesmo tempo. As implementações automáticas para ioT Edge fazem parte da funcionalidade automática de [gestão](../iot-hub/iot-hub-automatic-device-management.md) do dispositivo do IoT Hub. As implementações são processos dinâmicos que permitem implantar vários módulos em vários dispositivos. Também pode acompanhar o estado e a saúde dos módulos e fazer alterações quando necessário.
 
 Para obter mais informações, consulte [as configurações automáticas Understand IoT Edge para dispositivos individuais ou à escala.](module-deployment-monitoring.md)
 
@@ -60,13 +60,16 @@ Para implementar módulos utilizando o Código do Estúdio Visual, guarde o mani
 
 Aqui está um manifesto básico de implantação com um módulo como exemplo:
 
+>[!NOTE]
+>Este manifesto de implantação da amostra utiliza a versão 1.1 do esquema para o agente e o hub IoT Edge. A versão 1.1 do Schema foi lançada juntamente com a versão 1.0.10 do IoT Edge e permite funcionalidades como a ordem de arranque do módulo e a priorização da rota.
+
 ```json
 {
   "content": {
     "modulesContent": {
       "$edgeAgent": {
         "properties.desired": {
-          "schemaVersion": "1.0",
+          "schemaVersion": "1.1",
           "runtime": {
             "type": "docker",
             "settings": {
@@ -95,7 +98,7 @@ Aqui está um manifesto básico de implantação com um módulo como exemplo:
           },
           "modules": {
             "SimulatedTemperatureSensor": {
-              "version": "1.0",
+              "version": "1.1",
               "type": "docker",
               "status": "running",
               "restartPolicy": "always",

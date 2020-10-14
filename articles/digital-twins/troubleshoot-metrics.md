@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 084a823571281c91419a56b6212ddf6c44dd80bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db4383526874c98f717c5f166b296d814724184a
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322636"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044640"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Problemas na resolução de gémeos digitais Azure: Métricas
 
@@ -70,7 +70,7 @@ Métricas que têm a ver com faturação:
 | --- | --- | --- | --- | --- | --- |
 | BillingApiOperações | Operações de faturação da API (Pré-visualização) | Contagem | Total | Métrica de faturação para a contagem de todos os pedidos da API feitos contra o serviço Azure Digital Twins. | ID do medidor |
 | BillingMessagesProcessado | Mensagens de faturação processadas (pré-visualização) | Contagem | Total | Métrica de faturação para o número de mensagens enviadas da Azure Digital Twins para pontos finais externos.<br><br>Para ser considerada uma única mensagem para efeitos de faturação, uma carga útil não deve ser superior a 1 KB. As cargas superiores a esta serão contadas como mensagens adicionais em incrementos de 1 KB (assim, uma mensagem entre 1 e 2 KB será contada como 2 mensagens, entre 2 e 3 KB serão 3 mensagens, e assim por diante).<br>Esta restrição também se aplica às respostas, pelo que uma chamada que devolve 1.5KB no organismo de resposta, por exemplo, será faturada como 2 operações. | ID do medidor |
-| BillingQueryUnits | Unidades de consulta de faturação (pré-visualização) | Contagem | Total | O número de Unidades de Consulta, uma medida internamente calculada de utilização de recursos de serviço, consumido para executar consultas. Há também uma API auxiliar disponível para medir Unidades de Consulta: [Classe QueryChargeHelper](https://docs.microsoft.com/dotnet/api/azure.digitaltwins.core.querychargehelper?view=azure-dotnet-preview&preserve-view=true) | ID do medidor |
+| BillingQueryUnits | Unidades de consulta de faturação (pré-visualização) | Contagem | Total | O número de Unidades de Consulta, uma medida internamente calculada de utilização de recursos de serviço, consumido para executar consultas. Há também uma API auxiliar disponível para medir Unidades de Consulta: [Classe QueryChargeHelper](/dotnet/api/azure.digitaltwins.core.querychargehelper?preserve-view=true&view=azure-dotnet-preview) | ID do medidor |
 
 #### <a name="ingress-metrics"></a>Métricas de entrada
 

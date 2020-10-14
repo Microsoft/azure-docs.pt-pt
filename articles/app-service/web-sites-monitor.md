@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 888118d227529110c209d7c8d5a3bb79cfcf3a9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 327abb2e67f21c2893fc652b0e30c640980914c2
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88959796"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044535"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorize aplicativos no Azure App Service
 [O Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) fornece funcionalidades de monitorização incorporadas para aplicações web, móveis e API no [portal Azure.](https://portal.azure.com)
@@ -58,7 +58,7 @@ Pode aumentar ou remover quotas da sua aplicação através da atualização do 
 ## <a name="understand-metrics"></a>Compreender métricas
 
 > [!NOTE]
-> **O Uso do Sistema de Ficheiros** é uma nova métrica que está a ser lançada globalmente, não são esperados dados a menos que lhe tenha sido concedido acesso para pré-visualização privada.
+> **O Uso do Sistema de Ficheiros** é uma nova métrica que está a ser lançada globalmente, não são esperados dados a menos que a sua aplicação esteja hospedada num Ambiente de Serviço de Aplicações.
 > 
 
 > [!IMPORTANT]

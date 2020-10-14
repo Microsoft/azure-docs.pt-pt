@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 9531a812d60c6e5a60ff0a0936fafde4a77e5a67
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0d6d543e1f7d68f1312b6531b798cf7f9a0cf3b8
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017051"
+ms.locfileid: "92048513"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Quickstart - Explore uma amostra do cenário Azure Digital Twins usando o ADT Explorer
 
 Com a Azure Digital Twins, pode criar e interagir com modelos ao vivo dos seus ambientes do mundo real. Isto é feito modelando elementos individuais como **gémeos digitais,** ligando-os depois a um **gráfico de** conhecimento que pode responder a eventos ao vivo e ser questionado para obter informações.
 
-Neste quickstart, você explorará um gráfico pré-construído Azure Digital Twins, com a ajuda de uma aplicação de amostra chamada [**Azure Digital Twins (ADT) Explorer**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). O ADT Explorer permite-lhe fazer o upload de uma representação digital de um ambiente, ver imagens visuais dos gémeos e gráficos que são criados para representar o ambiente em Azure Digital Twins, e realizar outras atividades de gestão através de uma experiência visual baseada no navegador.
+Neste quickstart, você explorará um gráfico pré-construído Azure Digital Twins, com a ajuda de uma aplicação de amostra chamada [**Azure Digital Twins (ADT) Explorer**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). O ADT Explorer permite-lhe fazer o upload de uma representação digital de um ambiente, ver imagens visuais dos gémeos e gráficos que são criados para representar o ambiente em Azure Digital Twins, e realizar outras atividades de gestão através de uma experiência visual baseada no navegador.
 
 O quickstart contém os seguintes passos principais:
 
@@ -38,8 +38,8 @@ Você precisará de uma subscrição Azure para completar este arranque rápido.
 Também vai precisar de **Node.js** na sua máquina. Pode obter a versão mais recente neste link: [Node.js](https://nodejs.org/).
 
 Finalmente, também terá de descarregar duas amostras para utilizar durante o arranque rápido:
-* A aplicação de amostra **do ADT Explorer.** Esta amostra contém a aplicação principal que utiliza no arranque rápido para carregar e explorar um cenário Azure Digital Twins. Para obter a aplicação, navegue aqui: [Azure Digital Twins (ADT) explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Aperda no botão *Baixar ZIP* para descarregar um *. Ficheiro ZIP* deste código de amostra para a sua máquina. Isto irá descarregar um . Pasta ZIP para a sua máquina _** comoAzure_Digital_Twins__ADT__explorer.zip**_. Desaperte a pasta e extraa os ficheiros.
-* O **cenário do exemplo Azure Digital Twins**. Isto inclui um gráfico pré-construído da Azure Digital Twins que você vai carregar no ADT Explorer para trabalhar. Para obter o cenário, navegue aqui: [amostras de Azure Digital Twins](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples). Aperda no botão *Baixar ZIP* para descarregar um *. Ficheiro ZIP* deste código de amostra para a sua máquina. Isto irá descarregar um . Pasta ZIP para a sua máquina _** comoAzure_Digital_Twins_samples.zip**_. Desaperte a pasta e extraa os ficheiros.
+* A aplicação de amostra **do ADT Explorer.** Esta amostra contém a aplicação principal que utiliza no arranque rápido para carregar e explorar um cenário Azure Digital Twins. Para obter a aplicação, navegue aqui: [Azure Digital Twins (ADT) explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Aperda no botão *Baixar ZIP* para descarregar um *. Ficheiro ZIP* deste código de amostra para a sua máquina. Isto irá descarregar um . Pasta ZIP para a sua máquina _** comoAzure_Digital_Twins__ADT__explorer.zip**_. Desaperte a pasta e extraa os ficheiros.
+* O **cenário do exemplo Azure Digital Twins**. Isto inclui um gráfico pré-construído da Azure Digital Twins que você vai carregar no ADT Explorer para trabalhar. Para obter o cenário, navegue aqui: [amostras de Azure Digital Twins](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Aperda no botão *Baixar ZIP* para descarregar um *. Ficheiro ZIP* deste código de amostra para a sua máquina. Isto irá descarregar um . Pasta ZIP para a sua máquina _** comoAzure_Digital_Twins_samples.zip**_. Desaperte a pasta e extraa os ficheiros.
 
 ## <a name="set-up-azure-digital-twins-and-adt-explorer"></a>Configurar gémeos digitais Azure e ADT Explorer
 

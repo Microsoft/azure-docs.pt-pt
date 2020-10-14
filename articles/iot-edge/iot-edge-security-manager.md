@@ -9,12 +9,12 @@ ms.author: eustacea
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: d5cfa16196a8815b711fd5277a80f6eb67d3a388
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d50ff37c3d29ae8e9e25d8759ef3c55787a58047
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76548701"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043005"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Gestor de segurança Azure IoT Edge
 
@@ -75,7 +75,7 @@ O daemon de segurança IoT Edge aproveita qualquer raiz de hardware disponível 
 
 #### <a name="cloud-interface"></a>Interface em nuvem
 
-A interface na nuvem permite que o daemon de segurança IoT Edge aceda a serviços na nuvem, como elogios na nuvem à segurança do dispositivo, como renovação de segurança.  Por exemplo, o daemon de segurança IoT Edge utiliza atualmente esta interface para aceder ao [Serviço de Provisionamento de Dispositivos](https://docs.microsoft.com/azure/iot-dps/) Azure IoT Hub para gestão do ciclo de vida da identidade do dispositivo.  
+A interface na nuvem permite que o daemon de segurança IoT Edge aceda a serviços na nuvem, como elogios na nuvem à segurança do dispositivo, como renovação de segurança.  Por exemplo, o daemon de segurança IoT Edge utiliza atualmente esta interface para aceder ao [Serviço de Provisionamento de Dispositivos](../iot-dps/index.yml) Azure IoT Hub para gestão do ciclo de vida da identidade do dispositivo.  
 
 #### <a name="management-api"></a>API de Gestão
 

@@ -9,20 +9,20 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 07945926600163a3fca228ef6d848b50efc4318d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4854e61b646c0ca2a2070d676e3efc5cfbac6b9b
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88042807"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044586"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutorial: Classificar imagens na periferia com o Serviço de Visão Personalizada
 
-O Azure IoT Edge pode mover as suas cargas de trabalho da cloud para a periferia e tornar a sua solução IoT Edge mais eficiente. Esta capacidade é particularmente útil para serviços que processam muitos dados, como modelos de imagem digitalizada. O [Serviço de Visão Personalizada](../cognitive-services/custom-vision-service/home.md) permite-lhe compilar classificadores de imagens personalizados e implementá-los como contentores nos dispositivos. Em conjunto, estes dois serviços permitem-lhe obter informações de imagens ou de transmissões em fluxo de vídeos sem que seja necessário transferir todos os dados do local primeiro. A Visão Personalizada oferece um classificador que compara uma imagem com um modelo preparado para gerar informações.
+O Azure IoT Edge pode mover as suas cargas de trabalho da cloud para a periferia e tornar a sua solução IoT Edge mais eficiente. Esta capacidade é particularmente útil para serviços que processam muitos dados, como modelos de imagem digitalizada. O [Serviço de Visão Personalizada](../cognitive-services/custom-vision-service/overview.md) permite-lhe compilar classificadores de imagens personalizados e implementá-los como contentores nos dispositivos. Em conjunto, estes dois serviços permitem-lhe obter informações de imagens ou de transmissões em fluxo de vídeos sem que seja necessário transferir todos os dados do local primeiro. A Visão Personalizada oferece um classificador que compara uma imagem com um modelo preparado para gerar informações.
 
 Por exemplo, a Visão Personalizada num dispositivo IoT Edge pode determinar se o tráfego numa autoestrada é superior ou inferior ao normal ou se um parque de estacionamento tem lugares disponíveis numa fila. Essas informações podem ser partilhadas com outro serviço, o que possibilita realizar ações.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -46,7 +46,7 @@ Antes de iniciar este tutorial, deveria ter passado pelo tutorial anterior para 
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) no escalão gratuito ou standard no Azure.
 * Um [dispositivo Linux executando Azure IoT Edge](quickstart-linux.md)
-* Um registo de contentores, como [o Registo de Contentores de Azure.](https://docs.microsoft.com/azure/container-registry/)
+* Um registo de contentores, como [o Registo de Contentores de Azure.](../container-registry/index.yml)
 * [Código de Estúdio Visual](https://code.visualstudio.com/) configurado com as [Ferramentas Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) configurado para executar contentores Linux.
 
@@ -439,7 +439,7 @@ A partir do Código do Estúdio Visual, clique com o botão direito no nome do s
 
 Os resultados do módulo da Visão Personalizada, que são enviados como mensagens a partir do módulo cameraCapture, incluem a probabilidade de a imagem ser de uma cicuta ou de uma cerejeira. Uma vez que a imagem é de uma cicuta, a probabilidade deverá aparecer como 1,0.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se planeia avançar para o próximo artigo recomendado, pode manter os recursos e as configurações que criou e reutilizá-los. Também pode continuar a utilizar o mesmo dispositivo IoT Edge como um dispositivo de teste. 
 

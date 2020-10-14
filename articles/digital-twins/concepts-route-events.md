@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d41518b1fc0d8cdda3ded1e8036bd29e24e2b34a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02b977a7b6abdb77deec3973bd94b82fae9c2af5
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541361"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044297"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Rotas eventos dentro e fora de Azure Digital Twins
 
@@ -21,7 +21,7 @@ As gémeas Azure Digital usam rotas de **eventos** para enviar dados aos consumi
 Durante a pré-visualização, existem dois casos importantes para o envio de dados da Azure Digital Twins:
 * Envio de dados de um gémeo no gráfico Azure Digital Twins para outro. Por exemplo, quando uma propriedade com um gémeo digital muda, pode querer notificar e atualizar outro gémeo digital em conformidade.
 * Envio de dados para serviços de dados a jusante para armazenamento ou tratamento adicional (também conhecido como *saída de dados).* Por exemplo,
-  - Um hospital pode querer enviar dados de eventos da Azure Digital Twins para [a Time Series Insights (TSI)](../time-series-insights/time-series-insights-update-overview.md), para registar dados de séries de tempo de eventos relacionados com lavagem de mãos para análise a granel.
+  - Um hospital pode querer enviar dados de eventos da Azure Digital Twins para [a Time Series Insights (TSI)](../time-series-insights/overview-what-is-tsi.md), para registar dados de séries de tempo de eventos relacionados com lavagem de mãos para análise a granel.
   - Um negócio que já está a usar [o Azure Maps](../azure-maps/about-azure-maps.md) pode querer usar a Azure Digital Twins para melhorar a sua solução. Eles podem rapidamente ativar um Mapa Azure depois de criar as Gémeas Digitais Azure, trazer as entidades do Azure Map para as Gémeas Digitais Azure como [gémeas digitais](concepts-twins-graph.md) no gráfico gémeo, ou executar consultas poderosas aproveitando os seus dados Azure Maps e Azure Digital Twins juntos.
 
 As rotas dos eventos são usadas para ambos os cenários.

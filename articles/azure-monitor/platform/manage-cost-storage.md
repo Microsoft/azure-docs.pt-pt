@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 10/06/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: c78cfd2a453a082ce3f352504719a7fb8cc2b8ec
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: f8f5d41b7f4df3cd82a388bc24ccc8fa5a9a91f6
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875959"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044110"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerir a utilização e os custos com Registos do Azure Monitor    
 
@@ -102,7 +102,7 @@ As subscrições que tenham um espaço de trabalho log Analytics ou um recurso a
 
 A utilização no nível de preços autónomos é faturada pelo volume de dados ingerido. É relatado no serviço **Log Analytics** e o contador chama-se "Dados Analisados". 
 
-Os preços per nó de preços por VM (nó) monitorizados em uma hora de granularidade. Para cada nó monitorizado, o espaço de trabalho é atribuído a 500 MB de dados por dia que não são faturados. Esta dotação é agregada ao nível do espaço de trabalho. Os dados ingeridos acima da alocação agregada de dados diários são faturados por GB como excesso de dados. Note que na sua conta, o serviço será **Insight e Analytics** para utilização do Log Analytics se o espaço de trabalho estiver no nível de preços per nó. A utilização é reportada em três metros:
+Os preços per nó de preços por VM (nó) monitorizados em uma hora de granularidade. Para cada nó monitorizado, o espaço de trabalho é atribuído a 500 MB de dados por dia que não são faturados. Esta alocação é calculada com granularidade horária e é agregada ao nível do espaço de trabalho todos os dias. Os dados ingeridos acima da alocação agregada de dados diários são faturados por GB como excesso de dados. Note que na sua conta, o serviço será **Insight e Analytics** para utilização do Log Analytics se o espaço de trabalho estiver no nível de preços per nó. A utilização é reportada em três metros:
 
 1. Nó: trata-se de utilização para o número de nós monitorizados (VMs) em unidades de nó*meses.
 2. Sobreavalagem de dados por nó: este é o número de GB de dados ingeridos acima da atribuição de dados agregados.
@@ -125,6 +125,10 @@ Nenhum dos níveis de preços antigos tem preços regionais.
 
 > [!NOTE]
 > Para utilizar os direitos que vêm da compra da Suite OMS E1, da Suite OMS E2 ou da Add-On OMS para o System Center, escolha o nível de preços do Log Analytics *Per Node.*
+
+## <a name="log-analytics-and-security-center"></a>Log Analytics e Centro de Segurança
+
+A faturação [do Azure Security Center](https://docs.microsoft.com/azure/security-center/) está intimamente ligada à faturação do Log Analytics. O Security Center fornece uma alocação de 500 MB/nó/dia contra um conjunto de tipos de [dados](https://docs.microsoft.com/azure/azure-monitor/reference/tables/tables-category#security) de segurança (WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus) e os tipos de dados Update and UpdateSummary quando a solução de Gestão de Atualização não está a funcionar no espaço de trabalho ou na solução-alvo está ativada. Se o espaço de trabalho estiver no nível de preços per nóleiro legado, as alocações do Security Center e do Log Analytics são combinadas e aplicadas conjuntamente a todos os dados ingeridos.  
 
 ## <a name="change-the-data-retention-period"></a>Change the data retention period (Alterar o período de retenção de dados)
 
@@ -284,6 +288,24 @@ find where TimeGenerated > ago(24h) project _BilledSize, Computer
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName
 ```
 
+### <a name="nodes-billed-by-the-legacy-per-node-pricing-tier"></a>Nódes faturados pelo nível de preços de Per Node
+
+O [legado Per Node preços de preços de preços](#legacy-pricing-tiers) de nós com granularidade horária e também não conta nós apenas enviando um conjunto de tipos de dados de segurança. A sua contagem diária de nódes seria próxima da seguinte consulta:
+
+```kusto
+find where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now()) project Computer, _IsBillable, Type, TimeGenerated
+| where Type !in ("SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent")
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| where _IsBillable == true
+| summarize billableNodesPerHour=dcount(computerName) by bin(TimeGenerated, 1h)
+| summarize billableNodesPerDay = sum(billableNodesPerHour)/24., billableNodeMonthsPerDay = sum(billableNodesPerHour)/24./31.  by day=bin(TimeGenerated, 1d)
+| sort by day asc
+```
+
+O número de unidades na sua conta está em unidades de node*meses que são representadas na `billableNodeMonthsPerDay` consulta. Se o espaço de trabalho tiver a solução de Gestão de Atualização instalada, adicione os tipos de dados Update e UpdateSummary à lista na seguinte cláusula na consulta acima. Finalmente, existe alguma complexidade adicional no algoritmo de faturação real quando é usado o alvo de solução que não está representado na consulta acima. 
+
+
 > [!TIP]
 > Utilize estas `find` consultas com moderação, uma vez que as verificações em todos os tipos de dados são [intensivas](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) em recursos para executar. Se não necessitar de resultados **por computador,** consulte o tipo de dados de utilização (ver abaixo).
 
@@ -338,7 +360,7 @@ Usage
 | where TimeGenerated > ago(32d)
 | where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
 | where IsBillable == true
-| summarize BillableDataGB = sum(Quantity) / 1000 by Solution, DataType
+| summarize BillableDataGB = sum(Quantity) by Solution, DataType
 | sort by Solution asc, DataType asc
 ```
 

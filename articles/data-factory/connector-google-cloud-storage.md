@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 10/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 24f9b7655398cbd6a2621edb61d67d4fc4edfb52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a916da121c8ffee1729ede6dd700ca4f6872fbf7
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332037"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043515"
 ---
 # <a name="copy-data-from-google-cloud-storage-by-using-azure-data-factory"></a>Copie os dados do Google Cloud Storage utilizando a Azure Data Factory
 
@@ -47,7 +47,11 @@ A seguinte configuração é necessária na sua conta de Armazenamento no Google
 
 ## <a name="required-permissions"></a>Permissões obrigatórias
 
-Para copiar dados do Google Cloud Storage, certifique-se de que concedeu as permissões necessárias. As permissões definidas na conta de serviço podem conter `storage.buckets.get` `storage.buckets.list` , ou para `storage.objects.get` operações de objetos.
+Para copiar dados do Google Cloud Storage, certifique-se de que lhe foram concedidas as seguintes permissões para operações de objetos: ` storage.objects.get` e ` storage.objects.list` .
+
+Se utilizar a UI da Data Factory para autor, é necessária uma autorização adicional ` storage.buckets.list` para operações como testar a ligação ao serviço ligado e navegar a partir da raiz. Se não quiser conceder esta permissão, pode escolher as opções de "Testar a ligação para o caminho do ficheiro" ou "Navegar a partir do caminho especificado" a partir da UI.
+
+Para obter a lista completa de funções de Armazenamento no Google Cloud e permissões associadas, consulte [os papéis do IAM para armazenamento](https://cloud.google.com/storage/docs/access-control/iam-roles) em nuvem no site do Google Cloud.
 
 ## <a name="getting-started"></a>Introdução
 
@@ -62,8 +66,8 @@ As seguintes propriedades são suportadas para serviços ligados ao Google Cloud
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade **tipo** deve ser definida para **GoogleCloudStorage**. | Sim |
-| accessKeyId | Identificação da chave de acesso secreta. Para encontrar a chave de acesso e o segredo, consulte [Pré-requisitos.](#prerequisites) |Sim |
-| SecretAccessKey | A chave de acesso secreto em si. Marque este campo como **SecureString** para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). |Sim |
+| accessKeyId | Identificação da chave de acesso secreta. Para encontrar a chave de acesso e o segredo, consulte [Pré-requisitos.](#prerequisites) |Yes |
+| SecretAccessKey | A chave de acesso secreto em si. Marque este campo como **SecureString** para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). |Yes |
 | serviceUrl | Especifique o ponto final GCS personalizado como `https://storage.googleapis.com` . | Sim |
 | connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o tempo de funcionamento da integração Azure ou o tempo de integração auto-hospedado (se a sua loja de dados estiver numa rede privada). Se esta propriedade não for especificada, o serviço utiliza o tempo de execução de integração Azure padrão. |Não |
 
@@ -99,7 +103,7 @@ As seguintes propriedades são suportadas para o Google Cloud Storage `location`
 | Propriedade   | Descrição                                                  | Obrigatório |
 | ---------- | ------------------------------------------------------------ | -------- |
 | tipo       | A propriedade **tipo** `location` no conjunto de dados deve ser definida para **GoogleCloudStorageLocation**. | Sim      |
-| baldeName | O nome do balde GCS.                                          | Sim      |
+| baldeName | O nome do balde GCS.                                          | Yes      |
 | folderPath | O caminho para a pasta sob o balde dado. Se pretender utilizar um wildcard para filtrar a pasta, ignore esta definição e especifique-a nas definições de origem da atividade. | Não       |
 | fileName   | O nome do ficheiro sob o caminho do balde e da pasta. Se pretender utilizar um wildcard para filtrar os ficheiros, ignore esta definição e especifique-a nas definições de origem de atividade. | Não       |
 

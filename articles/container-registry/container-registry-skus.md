@@ -3,12 +3,12 @@ title: Níveis e funcionalidades de serviço de registo
 description: Conheça as funcionalidades e limites nos níveis básico, standard e premium (SKUs) do Registo de Contentores Azure.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: 66cb5d7c3cdca45f7a44f0f23bfa449d5ade6dbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2a5ad52775e9000aa0beb0a926d809da1c5a0e0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86512622"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048479"
 ---
 # <a name="azure-container-registry-service-tiers"></a>Níveis de serviço de registo de contentores Azure
 
@@ -17,7 +17,7 @@ O Registo de Contentores Azure está disponível em vários níveis de serviço 
 | Escalão de serviço | Descrição |
 | --- | ----------- |
 | **Básica** | Um ponto de entrada com otimização de custos para os programadores que estão a aprender sobre o Azure Container Registry. Os registos básicos têm as mesmas capacidades programáticas que o Standard e o Premium (como [a integração de autenticação](container-registry-authentication.md#individual-login-with-azure-ad)do Azure Ative Directory, [a eliminação de imagens][container-registry-delete]e [os webhooks).][container-registry-webhook] No entanto, o armazenamento incluído e a produção de imagem são mais adequados para cenários de menor utilização. |
-| **Standard** | Os registos padrão oferecem as mesmas capacidades que o Basic, com o aumento do armazenamento incluído e produção de imagem. Os registos Standard devem satisfazer as necessidades da maioria dos cenários de produção. |
+| **Padrão** | Os registos padrão oferecem as mesmas capacidades que o Basic, com o aumento do armazenamento incluído e produção de imagem. Os registos Standard devem satisfazer as necessidades da maioria dos cenários de produção. |
 | **Premium** | Os registos premium fornecem a maior quantidade de armazenamento incluído e operações simultâneas, permitindo cenários de grande volume. Além de uma maior produção de imagem, o Premium adiciona funcionalidades como [a geo-replicação][container-registry-geo-replication] para a gestão de um único registo em várias regiões, [a confiança de conteúdos](container-registry-content-trust.md) para a assinatura de etiquetas de imagem, a [ligação privada com os pontos finais privados](container-registry-private-link.md) para restringir o acesso ao registo. |
 
 Os níveis Básico, Standard e Premium fornecem todas as mesmas capacidades programáticas. Todos eles também beneficiam do armazenamento de [imagem][container-registry-storage] gerido inteiramente pela Azure. Escolher um nível mais alto proporciona mais desempenho e escala. Com vários níveis de serviço, pode começar com o Basic, depois converter para Standard e Premium à medida que o seu registo aumenta.

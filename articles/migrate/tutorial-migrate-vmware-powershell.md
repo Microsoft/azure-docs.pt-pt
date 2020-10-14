@@ -7,12 +7,12 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 10/1/2020
 ms.author: rahugup
-ms.openlocfilehash: ea2768c22aeaab3dabb546df5aced0f2a5b35e41
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: eed10f13b9495ab2cccfd9c57ae14ccc5d8e4a63
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92002678"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043549"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless---powershell"></a>Migrar VMware VMs para Azure (sem agente) - PowerShell
 
@@ -43,7 +43,7 @@ Antes de começar este tutorial, tem de:
 
 ## <a name="install-azure-migrate-powershell-module"></a>Instalar módulo Azure Migrate PowerShell
 
-O módulo Azure Migrate PowerShell está disponível em visualização pública. Terá de instalar o módulo PowerShell utilizando o seguinte comando. 
+O módulo Azure Migrate PowerShell está disponível na pré-visualização. Terá de instalar o módulo PowerShell utilizando o seguinte comando. 
 
 ```azurepowershell
 Install-Module -Name Az.Migrate 
@@ -424,7 +424,7 @@ $StopReplicationJob = Remove-AzMigrateServerReplication -InputObject $Replicatin
     - Implemente o [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md) para ajudar a proteger discos e a manter os dados protegidos contra roubo e acesso não autorizado.
     - Leia mais sobre como [proteger recursos de IaaS](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) e aceda ao [Centro de Segurança do Azure](https://azure.microsoft.com/services/security-center/).
 - Para monitorização e gestão:
--  Considere implementar o Azure Cost Management para monitorizar a utilização e as despesas do recurso.
+-  Considere implementar o [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) para monitorizar a utilização e as despesas do recurso.
 
 
 

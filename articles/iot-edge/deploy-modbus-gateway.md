@@ -8,12 +8,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: kgremban
-ms.openlocfilehash: 23fbbd87230ea0a0147dc9d90c77729f4d531e98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d07a1d1ab0d3b1f4315c09f1c403126139b34612
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76511149"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043906"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Ligue os dispositivos Modbus TCP através de um gateway de dispositivo IoT Edge
 
@@ -35,7 +35,7 @@ Este artigo pressupõe que está a utilizar o protocolo Modbus TCP. Para obter m
 
 Se quiser testar a funcionalidade do gateway do Modbus, a Microsoft disponibiliza-lhe um módulo de exemplo. Pode aceder ao módulo a partir do Azure Marketplace, [Modbus,](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot.edge-modbus?tab=Overview)ou com a imagem URI, `mcr.microsoft.com/azureiotedge/modbus:1.0` .
 
-Se quiser criar o seu próprio módulo e personalizá-lo para o seu ambiente, existe um projeto de [módulo Azure IoT Edge Modbus](https://github.com/Azure/iot-edge-modbus) de código aberto no GitHub. Siga as orientações desse projeto para criar a sua própria imagem de contentor. Para criar uma imagem de recipiente, consulte [os módulos Develop C# em Visual Studio](how-to-visual-studio-develop-csharp-module.md) ou desenvolver [módulos no Código do Estúdio Visual](how-to-vs-code-develop-module.md). Esses artigos fornecem instruções sobre a criação de novos módulos e a publicação de imagens de contentores num registo.
+Se quiser criar o seu próprio módulo e personalizá-lo para o seu ambiente, existe um projeto de [módulo Azure IoT Edge Modbus](https://github.com/Azure/iot-edge-modbus) de código aberto no GitHub. Siga as orientações desse projeto para criar a sua própria imagem de contentor. Para criar uma imagem de recipiente, consulte [os módulos Develop C# em Visual Studio](./how-to-visual-studio-develop-module.md) ou desenvolver [módulos no Código do Estúdio Visual](how-to-vs-code-develop-module.md). Esses artigos fornecem instruções sobre a criação de novos módulos e a publicação de imagens de contentores num registo.
 
 ## <a name="try-the-solution"></a>Experimente a solução
 

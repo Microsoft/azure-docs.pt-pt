@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 3950cc16cd8661ee4e509cf14d12f561cb29c4ea
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 4328d1da8c82bc09aa8353838d08c31ea77f58aa
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940710"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043396"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Quais as novidades na Base de Dados Azure SQL & SQL Managed Instance?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -64,6 +64,7 @@ Esta tabela proporciona uma comparação rápida para a mudança na terminologia
 
 | Funcionalidade | Detalhes |
 | ---| --- |
+| <a href="/azure/azure-sql/database/elastic-transactions-overview">Transações distribuídas</a> | Transações distribuídas por Instâncias Geridas. |
 | <a href="/azure/sql-database/sql-database-instance-pools">Conjuntos de instâncias</a> | Uma forma conveniente e económica de migrar pequenos exemplos de SQL para a nuvem. |
 | <a href="https://aka.ms/managed-instance-aadlogins">Principais do servidor Azure AD ao nível de instância (logins)</a> | Crie logins de nível de instância utilizando uma declaração <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">DE CRIAÇÃO DE PROVEDOR EXTERNO.</a> |
 | [Replicação transacional](../managed-instance/replication-transactional-overview.md) | Replique as alterações das suas tabelas para outras bases de dados em SQL Managed Instance, SQL Database ou SQL Server. Ou atualize as suas tabelas quando algumas linhas são alteradas em outros casos de SQL Managed Instance ou SQL Server. Para obter informações, consulte a replicação de [configuração em Azure SQL Managed Instance](../managed-instance/replication-between-two-instances-configure-tutorial.md). |

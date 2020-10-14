@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 960f76b06644a86ebaaaed40b57db95bdb350833
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 8ffdcac61a3ab0d27fec7602e8625c0367f6c33b
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945520"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048496"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Tutorial: Explore a Azure Digital Twins com uma aplicação de cliente de amostra
 
@@ -79,7 +79,7 @@ Certifique-se de que guarda o ficheiro antes de seguir em frente.
 > Se quiser tentar criar o seu próprio modelo, pode colar o código do modelo *Room* num novo ficheiro que guarde com uma extensão *.json* na pasta *AdtSampleApp\SampleClientApp\Models.* Depois, brinque com a adição de propriedades e relacionamentos para representar o que quiser. Também pode olhar para os outros modelos de amostra desta pasta para ideias.
 
 > [!TIP] 
-> Existe uma [amostra de DTDL Validador](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) agnóstico que pode usar para verificar documentos de modelo para se certificar de que o DTDL é válido. É construído sobre a biblioteca de parser DTDL, sobre a qual pode ler mais em [*Como-a: Parse e validar modelos.*](how-to-parse-models.md)
+> Existe uma [amostra de DTDL Validador](/samples/azure-samples/dtdl-validator/dtdl-validator) agnóstico que pode usar para verificar documentos de modelo para se certificar de que o DTDL é válido. É construído sobre a biblioteca de parser DTDL, sobre a qual pode ler mais em [*Como-a: Parse e validar modelos.*](how-to-parse-models.md)
 
 ### <a name="get-started-with-the-command-line-app"></a>Começar com a app de linha de comando
 
@@ -293,7 +293,7 @@ O projeto neste tutorial constitui a base para o próximo tutorial, [*Tutorial: 
 
 Por fim, elimine a pasta de amostras de projeto que descarregou para a sua máquina local.
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 
 Neste tutorial, começou com a Azure Digital Twins, criando uma instância e uma aplicação de cliente para interagir com o caso. Usou a aplicação do cliente para explorar a Azure Digital Twins, criando modelos, gémeos digitais e relacionamentos. Também fez algumas perguntas sobre a solução, para ter uma ideia do tipo de perguntas que a Azure Digital Twins pode responder sobre um ambiente.
 

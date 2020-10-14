@@ -9,12 +9,12 @@ ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-js
-ms.openlocfilehash: 2fcb389736df8bedb2602919e986f7d65e8f3024
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebc12e6d64d015267497497bebc22c8586adf999
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91296914"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043736"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Use o Código do Estúdio Visual para desenvolver e depurar módulos para Azure IoT Edge
 
@@ -51,13 +51,13 @@ Também terá de instalar algumas ferramentas adicionais específicas da linguag
 
 - Node.js: [Node.js. ](https://nodejs.org) Também vai querer instalar o [Yeoman](https://www.npmjs.com/package/yo) e o [Gerador de Módulos Azure IoT Edge Node.js](https://www.npmjs.com/package/generator-azure-iot-edge-module).
 
-- Java: [Java SE Development Kit 10](https://aka.ms/azure-jdks) e [Maven](https://maven.apache.org/). Terá de [definir a `JAVA_HOME` variável ambiental](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) para apontar para a sua instalação JDK.
+- Java: [Java SE Development Kit 10](/azure/developer/java/fundamentals/java-jdk-long-term-support) e [Maven](https://maven.apache.org/). Terá de [definir a `JAVA_HOME` variável ambiental](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) para apontar para a sua instalação JDK.
 
 Para construir e implantar a imagem do módulo, precisa do Docker para construir a imagem do módulo e um registo de contentores para manter a imagem do módulo:
 
 - [Edição Comunitária do Docker](https://docs.docker.com/install/) na sua máquina de desenvolvimento.
 
-- [Registo de contentores Azure](https://docs.microsoft.com/azure/container-registry/) ou [Centro de Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
+- [Registo de contentores Azure](../container-registry/index.yml) ou [Centro de Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
 
     > [!TIP]
     > Você pode usar um registro estivador local para fins de protótipo e teste em vez de um registro em nuvem.

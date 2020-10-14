@@ -4,17 +4,17 @@ description: Utilize o Código de Estúdio Visual com as Ferramentas IoT Azure p
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/8/2019
+ms.date: 10/13/2020
 ms.topic: conceptual
 ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: bb3c03b16ae05d3e5e78378e88b9337842e3d98d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ccc87b1b3103e799a5974542de602090df8e1e4b
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972633"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048394"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Implementar módulos Azure IoT Edge a partir do Código do Estúdio Visual
 
@@ -40,12 +40,15 @@ Para implementar módulos utilizando o Código do Estúdio Visual, guarde o mani
 
 Aqui está um manifesto básico de implantação com um módulo como exemplo:
 
+>[!NOTE]
+>Este manifesto de implantação da amostra utiliza a versão 1.1 do esquema para o agente e o hub IoT Edge. A versão 1.1 do Schema foi lançada juntamente com a versão 1.0.10 do IoT Edge e permite funcionalidades como a ordem de arranque do módulo e a priorização da rota.
+
    ```json
    {
      "modulesContent": {
        "$edgeAgent": {
          "properties.desired": {
-           "schemaVersion": "1.0",
+           "schemaVersion": "1.1",
            "runtime": {
              "type": "docker",
              "settings": {
@@ -88,7 +91,7 @@ Aqui está um manifesto básico de implantação com um módulo como exemplo:
        },
        "$edgeHub": {
          "properties.desired": {
-           "schemaVersion": "1.0",
+           "schemaVersion": "1.1",
            "routes": {
                "route": "FROM /messages/* INTO $upstream"
            },

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 4deab6fcadda36ad729096ff2f38e40ce81c7ae9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f165064ed5b0583ebb469c47426a2b6403307971
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91446092"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048360"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: VMs de balanceamento de carga em múltiplas zonas de disponibilidade com um Balanceador de Carga Standard, através do portal do Azure
 
@@ -40,6 +40,10 @@ Para obter mais informações sobre a utilização das Zonas de disponibilidade 
 Se preferir, pode concluir este tutorial com a [CLI do Azure](load-balancer-standard-public-zone-redundant-cli.md).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* Uma subscrição do Azure
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -229,10 +233,12 @@ Para permitir ao balanceador de carga monitorizar o estado da aplicação, pode 
 
 Para ver o balanceador de carga a distribuir tráfego nas VMs ao longo da zona, pode forçar a atualização do browser.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, elimine o grupo de recursos, o balanceador de carga e todos os recursos relacionados. Para tal, selecione o grupo de recursos que contém o balanceador de carga e clique em **Eliminar**.
+Quando já não for necessário, elimine o grupo de recursos, o balanceador de carga e todos os recursos relacionados. Para tal, selecione o grupo de recursos que contém o balançador de carga e selecione **Delete**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre [o Balancer de Carga Padrão](load-balancer-standard-overview.md).
+Saiba mais sobre a carga equilibrando um VM dentro de uma zona de disponibilidade específica..
+> [!div class="nextstepaction"]
+> [VMs de equilíbrio de carga dentro de uma zona de disponibilidade](tutorial-load-balancer-standard-public-zonal-portal.md)

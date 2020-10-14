@@ -10,18 +10,18 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: b5d2156707d8a4c308ed577b7407d5eae30edc65
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f5f2a9800d3796d217294e757076d6ff706281d1
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979687"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044203"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Recuperar registos de implementações IoT Edge
 
 Recupere os registos das suas implementações IoT Edge sem necessitar de acesso físico ou SSH ao dispositivo utilizando os métodos diretos incluídos no módulo de agente IoT Edge. Os métodos diretos são implementados no dispositivo e, em seguida, podem ser invocados a partir da nuvem. O agente IoT Edge inclui métodos diretos que o ajudam a monitorizar e gerir remotamente os seus dispositivos IoT Edge. Os métodos diretos discutidos neste artigo estão geralmente disponíveis com a versão 1.0.10.
 
-Para obter mais informações sobre métodos diretos, como usá-los e como implementá-los nos seus próprios módulos, consulte [Compreender e invocar métodos diretos do IoT Hub.](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-direct-methods)
+Para obter mais informações sobre métodos diretos, como usá-los e como implementá-los nos seus próprios módulos, consulte [Compreender e invocar métodos diretos do IoT Hub.](../iot-hub/iot-hub-devguide-direct-methods.md)
 
 Os nomes destes métodos diretos são tratados com problemas de caso.
 
@@ -67,13 +67,13 @@ Este método aceita uma carga JSON com o seguinte esquema:
 |-|-|-|
 | schemaVersão | cadeia | Definir para `1.0` |
 | itens | Matriz JSON | Uma matriz com `id` `filter` tuples. |
-| ID | cadeia | Uma expressão regular que fornece o nome do módulo. Pode combinar vários módulos num dispositivo de borda. Espera-se o formato [.NET Expressões Regulares.](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) |
+| ID | cadeia | Uma expressão regular que fornece o nome do módulo. Pode combinar vários módulos num dispositivo de borda. Espera-se o formato [.NET Expressões Regulares.](/dotnet/standard/base-types/regular-expressions) |
 | filter | Secção JSON | Registar filtros para aplicar aos módulos correspondentes à `id` expressão regular no tuple. |
 | cauda | número inteiro | Número de linhas de registo no passado para recuperar a partir das últimas. Opcional. |
 | desde | número inteiro | Só os registos de retorno desde este tempo, como duração (1 d, 90 m, 2 dias 3 horas 2 minutos), fc3339 de timetamp ou cartão de tempo UNIX.  Se ambos `tail` e `since` forem especificados, os registos são recuperados usando primeiro o `since` valor. Em seguida, o `tail` valor é aplicado ao resultado, e o resultado final é devolvido. Opcional. |
 | até | número inteiro | Apenas os registos de devolução antes do tempo especificado, como um relógio rfc3339, relógio DE TEMPO UNIX ou duração (1 d, 90 m, 2 dias 3 horas 2 minutos). Opcional. |
 | nível de log | número inteiro | Filtrar linhas de registo inferiores ou iguais ao nível de registo especificado. As linhas de registo devem seguir o formato de registo recomendado e utilizar o padrão [de nível de severidade Syslog.](https://en.wikipedia.org/wiki/Syslog#Severity_level) Opcional. |
-| regex | cadeia | Filtrar linhas de registo que tenham conteúdo que corresponda à expressão regular especificada utilizando o formato [.NET Expressões Regulares.](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) Opcional. |
+| regex | cadeia | Filtrar linhas de registo que tenham conteúdo que corresponda à expressão regular especificada utilizando o formato [.NET Expressões Regulares.](/dotnet/standard/base-types/regular-expressions) Opcional. |
 | codificação | cadeia | `gzip` ou `none`. A predefinição é `none`. |
 | conteúdoType | cadeia | `json` ou `text`. A predefinição é `text`. |
 
@@ -166,7 +166,7 @@ Este método aceita uma carga útil JSON semelhante à **GetModuleLogs,** com a 
 
 | Nome | Tipo | Descrição |
 |-|-|-|
-| sasURL | corda (URI) | [URL de assinatura de acesso compartilhado com acesso de escrita ao recipiente de armazenamento Azure Blob](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/). |
+| sasURL | corda (URI) | [URL de assinatura de acesso compartilhado com acesso de escrita ao recipiente de armazenamento Azure Blob](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer). |
 
 Um pedido bem sucedido para carregar registos devolve um **"status": 200** seguido de uma carga útil com o seguinte esquema:
 
@@ -259,7 +259,7 @@ No portal Azure, invoque o método com o nome do método `UploadModuleLogs` e a 
 
 ## <a name="upload-support-bundle-diagnostics"></a>Upload de diagnósticos de pacote de suporte
 
-Utilize o método direto **uploadSupportBundle** para embalar e carregar um ficheiro zip de registos de módulos IoT Edge para um recipiente de armazenamento Azure Blob disponível. Este método direto executa o [`iotedge support-bundle`](https://docs.microsoft.com/azure/iot-edge/troubleshoot#gather-debug-information-with-support-bundle-command) comando no seu dispositivo IoT Edge para obter os registos.
+Utilize o método direto **uploadSupportBundle** para embalar e carregar um ficheiro zip de registos de módulos IoT Edge para um recipiente de armazenamento Azure Blob disponível. Este método direto executa o [`iotedge support-bundle`](./troubleshoot.md#gather-debug-information-with-support-bundle-command) comando no seu dispositivo IoT Edge para obter os registos.
 
 Este método aceita uma carga JSON com o seguinte esquema:
 
@@ -276,7 +276,7 @@ Este método aceita uma carga JSON com o seguinte esquema:
 | Nome | Tipo | Descrição |
 |-|-|-|
 | schemaVersão | cadeia | Definir para `1.0` |
-| sasURL | corda (URI) | [URL de assinatura de acesso compartilhado com acesso de escrita ao recipiente de armazenamento Azure Blob](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/) |
+| sasURL | corda (URI) | [URL de assinatura de acesso compartilhado com acesso de escrita ao recipiente de armazenamento Azure Blob](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer) |
 | desde | número inteiro | Só os registos de retorno desde este tempo, como duração (1 d, 90 m, 2 dias 3 horas 2 minutos), fc3339 de timetamp ou cartão de tempo UNIX. Opcional. |
 | até | número inteiro | Apenas os registos de devolução antes do tempo especificado, como um relógio rfc3339, relógio DE TEMPO UNIX ou duração (1 d, 90 m, 2 dias 3 horas 2 minutos). Opcional. |
 | edgeRuntimeOnly | boolean | Se for verdade, só devolva os registos do Edge Agent, edge hub e do Edge Security Daemon. Predefinição: false.  Opcional. |

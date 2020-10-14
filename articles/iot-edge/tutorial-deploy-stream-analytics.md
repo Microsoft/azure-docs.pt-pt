@@ -7,16 +7,16 @@ ms.date: 07/29/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: c259e913a8ee5181bc58aea651af62324cf01fcb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61779527d4b855f4327ad4b77a1e22207a94b8c0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87439402"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048377"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Tutorial: Implementar Azure Stream Analytics como um módulo IoT Edge
 
-Muitas soluções IoT usam serviços de análise para obter informações sobre dados à medida que chegam à nuvem a partir de dispositivos IoT. Com o Azure IoT Edge, pode utilizar a lógica do [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) e movê-la para o dispositivo propriamente dito. Ao processar os fluxos de telemetria na periferia, pode reduzir a quantidade de dados carregados, bem como o tempo que demora a reagir a informações acionáveis.
+Muitas soluções IoT usam serviços de análise para obter informações sobre dados à medida que chegam à nuvem a partir de dispositivos IoT. Com o Azure IoT Edge, pode utilizar a lógica do [Azure Stream Analytics](../stream-analytics/index.yml) e movê-la para o dispositivo propriamente dito. Ao processar os fluxos de telemetria na periferia, pode reduzir a quantidade de dados carregados, bem como o tempo que demora a reagir a informações acionáveis.
 
 A azure IoT Edge e Azure Stream Analytics estão integrados para simplificar o desenvolvimento da sua carga de trabalho. Pode criar um trabalho Azure Stream Analytics no portal Azure e, em seguida, implantá-lo como um módulo IoT Edge sem código adicional.  
 
@@ -24,7 +24,7 @@ O Azure Stream Analytics fornece uma sintaxe de consulta ricamente estruturada p
 
 O módulo do Stream Analytics neste tutorial calcula a temperatura média num período de 30 segundos graduais. Quando essa média atingir 70, o módulo envia um alerta para o dispositivo tomar medidas. Neste caso, essa ação é repor o sensor de temperatura simulada. Num ambiente de produção, pode utilizar esta funcionalidade para encerrar uma máquina ou tomar medidas preventivas quando a temperatura atingir níveis perigosos.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 > [!div class="checklist"]
 >
 > * Crie uma tarefa do Azure Stream Analytics para processar dados na periferia.
@@ -238,7 +238,7 @@ Agora pode ir ao seu dispositivo IoT Edge para verificar a interação entre o m
 
    ![Redefinir a saída do comando em registos de módulos](./media/tutorial-deploy-stream-analytics/docker_log.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se planeia avançar para o próximo artigo recomendado, pode manter os recursos e as configurações que criou e reutilizá-los. Também pode continuar a utilizar o mesmo dispositivo IoT Edge como um dispositivo de teste.
 

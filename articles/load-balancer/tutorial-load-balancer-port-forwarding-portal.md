@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: dcb151c8be0ab3a2393d0659b75985a92ac60507
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63d1a08dc588f0303ccb1ae13bd4c28af2a393c7
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82207892"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043658"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Tutorial: Encaminhamento de porta de configuração em Azure Load Balancer usando o portal
 
@@ -39,6 +39,10 @@ Neste tutorial, você configura o reencaminhamento de porta em um Balançador de
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar. 
 
 Para todos os passos neste tutorial, inscreva-se no portal Azure em [https://portal.azure.com](https://portal.azure.com) .
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* Uma subscrição do Azure.
 
 ## <a name="create-a-standard-load-balancer"></a>Criar um equilibrador de carga standard
 
@@ -329,7 +333,7 @@ Com o encaminhamento da porta, pode fazer um ambiente de trabalho remoto para um
 
 A ligação RDP é bem sucedida, uma vez que a regra NAT de entrada **MyNATRuleVM2** direciona o tráfego da porta frontal 4222 do balançador de carga para a porta 3389 do MyVM2 (a porta RDP).
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para eliminar o equilibrador de carga e todos os recursos relacionados quando já não precisar deles, abra o grupo de recursos **MyResourceGroupLB** e selecione **Delete resource group**.
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 6aa4273933190ccfe495bcaf243ee15a5ce823fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cdee274ebc815b23b8ce59e8b9eca90d00e3818
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91577650"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042971"
 ---
 # <a name="how-to-certify-iot-plug-and-play-devices"></a>Como certificar dispositivos IoT Plug and Play
 
@@ -47,13 +47,13 @@ Para satisfazer os requisitos de certificação, o seu dispositivo deve:
 
 ## <a name="test-with-the-azure-iot-extension-cli"></a>Testar com a CLI da Extensão do Azure IoT
 
-A [extensão Azure IoT CLI](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/product?view=azure-cli-latest&preserve-view=true) permite validar que a implementação do dispositivo corresponde ao modelo antes de submeter o dispositivo para certificação através do portal Azure Certified Device.
+A [extensão Azure IoT CLI](/cli/azure/ext/azure-iot/iot/product?preserve-view=true&view=azure-cli-latest) permite validar que a implementação do dispositivo corresponde ao modelo antes de submeter o dispositivo para certificação através do portal Azure Certified Device.
 
 Os seguintes passos mostram-lhe como preparar e executar os testes de certificação utilizando o CLI:
 
 ### <a name="install-the-azure-iot-extension-for-the-azure-cli"></a>Instale a extensão Azure IoT para o Azure CLI
 
-Consulte as instruções de instalação para configurar o [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true) no seu ambiente.
+Consulte as instruções de instalação para configurar o [Azure CLI](/cli/azure/?preserve-view=true&view=azure-cli-latest) no seu ambiente.
 
 Para instalar a Extensão Azure IoT, executar o seguinte comando:
 
@@ -61,7 +61,7 @@ Para instalar a Extensão Azure IoT, executar o seguinte comando:
 az extension add --name azure-iot
 ```
 
-Para saber mais, consulte [Azure CLI para Azure IoT](https://docs.microsoft.com/cli/azure/azure-cli-reference-for-iot?view=azure-cli-latest&preserve-view=true).
+Para saber mais, consulte [Azure CLI para Azure IoT](/cli/azure/azure-cli-reference-for-iot?preserve-view=true&view=azure-cli-latest).
 
 ### <a name="create-a-new-product-test"></a>Criar um novo teste de produto
 
@@ -75,7 +75,7 @@ az iot product test create --badge-type Pnp --at SymmetricKey --device-type Fini
 ```
 
 > [!NOTE]
-> Tem de [iniciar súmis na](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true) sua subscrição quando utilizar o CLI.
+> Tem de [iniciar súmis na](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest) sua subscrição quando utilizar o CLI.
 
 A saída JSON do comando contém `primaryKey` o , e para usar quando liga o seu `registrationId` `scopeID` dispositivo.
 
@@ -199,7 +199,7 @@ Há três passos a serem concluídos:
 
 1. Conecte-se e descubra interfaces. O dispositivo deve ligar-se ao serviço de certificação Azure IoT através de DPS. Escolha o método de autenticação (certificado X.509, chaves simétricas ou módulo de plataforma fidedigna) para utilizar e atualizar a aplicação do dispositivo com as informações DPS.
 1. Rever interfaces. Reveja a interface e certifique-se de que cada um tem entradas de carga útil que fazem sentido para testes.
-1. Test (Testar). O sistema testa cada modelo de dispositivo para verificar se a telemetria, propriedades e comandos descritos no modelo seguem as convenções IoT Plug and Play. Quando o teste estiver concluído, selecione a ligação **de registos** de visualização para ver a telemetria do dispositivo e os dados brutos enviados para as propriedades gémeas do dispositivo IoT Hub.
+1. O teste. O sistema testa cada modelo de dispositivo para verificar se a telemetria, propriedades e comandos descritos no modelo seguem as convenções IoT Plug and Play. Quando o teste estiver concluído, selecione a ligação **de registos** de visualização para ver a telemetria do dispositivo e os dados brutos enviados para as propriedades gémeas do dispositivo IoT Hub.
 
 ### <a name="submit-and-publish"></a>Submeter e publicar
 

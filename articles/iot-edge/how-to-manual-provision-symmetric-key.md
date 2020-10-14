@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: kgremban
-ms.openlocfilehash: 9e288bcbebe4118bfc8cfa7cff46c79d7075555a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: f5371539c1b45c14b519729c7c07003bf74847a0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979716"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92043872"
 ---
 # <a name="set-up-an-azure-iot-edge-device-with-symmetric-key-authentication"></a>Configurar um dispositivo Azure IoT Edge com autenticação de chave simétrica
 
@@ -141,12 +141,12 @@ Também pode selecionar **Obter Informação** do Dispositivo no menu de clique 
 ### <a name="prerequisites-for-the-azure-cli"></a>Pré-requisitos para o CLI Azure
 
 * Um [hub IoT](../iot-hub/iot-hub-create-using-cli.md) na sua assinatura Azure.
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) no seu ambiente. No mínimo, a sua versão Azure CLI deve ser 2.0.70 ou mais recente. Utilize `az --version` para validar. Esta versão suporta comandos de extensão az e apresenta a arquitetura de comandos Knack.
+* [Azure CLI](/cli/azure/install-azure-cli) no seu ambiente. No mínimo, a sua versão Azure CLI deve ser 2.0.70 ou mais recente. Utilize `az --version` para validar. Esta versão suporta comandos de extensão az e apresenta a arquitetura de comandos Knack.
 * A [extensão IoT para Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
 ### <a name="create-an-iot-edge-device-with-the-azure-cli"></a>Criar um dispositivo IoT Edge com o Azure CLI
 
-Utilize o comando [az iot hub device-identity create](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create) para criar uma nova identidade do dispositivo no seu hub IoT. Por exemplo:
+Utilize o comando [az iot hub device-identity create](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create) para criar uma nova identidade do dispositivo no seu hub IoT. Por exemplo:
 
    ```azurecli
    az iot hub device-identity create --device-id [device id] --hub-name [hub name] --edge-enabled
@@ -162,7 +162,7 @@ Este comando inclui três parâmetros:
 
 ### <a name="view-iot-edge-devices-with-the-azure-cli"></a>Ver dispositivos IoT Edge com o Azure CLI
 
-Utilize o comando [da lista de identificação de dispositivos az iot](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-list) para visualizar todos os dispositivos no seu hub IoT. Por exemplo:
+Utilize o comando [da lista de identificação de dispositivos az iot](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-list) para visualizar todos os dispositivos no seu hub IoT. Por exemplo:
 
    ```azurecli
    az iot hub device-identity list --hub-name [hub name]
@@ -172,7 +172,7 @@ Qualquer dispositivo registado como um dispositivo IoT Edge terá as capacidades
 
 ### <a name="retrieve-the-connection-string-with-the-azure-cli"></a>Recupere a cadeia de ligação com o Azure CLI
 
-Quando estiver pronto para configurar o seu dispositivo, precisa da cadeia de ligação que liga o seu dispositivo físico à sua identidade no hub IoT. Utilize o comando [az iot hub-identidade-ligação-ligação-cadeia](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-show-connection-string) para devolver a cadeia de ligação para um único dispositivo:
+Quando estiver pronto para configurar o seu dispositivo, precisa da cadeia de ligação que liga o seu dispositivo físico à sua identidade no hub IoT. Utilize o comando [az iot hub-identidade-ligação-ligação-cadeia](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-show-connection-string) para devolver a cadeia de ligação para um único dispositivo:
 
    ```azurecli
    az iot hub device-identity show-connection-string --device-id [device id] --hub-name [hub name]

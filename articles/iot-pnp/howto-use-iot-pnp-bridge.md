@@ -7,12 +7,12 @@ ms.date: 09/22/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 4c84fbb131809c92d597b46d18c53e46b636f8ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6670f654685f8d5cdcaf55d2b1679738a57ecab4
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613480"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042801"
 ---
 # <a name="how-to-connect-an--iot-plug-and-play-bridge-sample-running-on-linux-or-windows-to-iot-hub"></a>Como ligar uma amostra de ponte IoT Plug e Play que funciona no Linux ou windows ao IoT Hub
 
@@ -48,7 +48,7 @@ gcc --version
 
 Para completar este arranque rápido no Windows, instale o seguinte software no ambiente local do Windows:
 
-* [Visual Studio (Comunidade, Profissional ou Enterprise)](https://visualstudio.microsoft.com/downloads/) - certifique-se de que inclui o Desktop Development com carga de trabalho **C++** quando [instalar](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019&preserve-view=true) o Visual Studio.
+* [Visual Studio (Comunidade, Profissional ou Enterprise)](https://visualstudio.microsoft.com/downloads/) - certifique-se de que inclui o Desktop Development com carga de trabalho **C++** quando [instalar](/cpp/build/vscpp-step-0-installation?preserve-view=true&view=vs-2019) o Visual Studio.
 * [Git.](https://git-scm.com/download/)
 * [CMake.](https://cmake.org/download/)
 
@@ -149,7 +149,7 @@ Para o `root-_interface_model_id` campo terá de copiar o IoT Plug e o ID do mod
 
 Navegue para a pasta *pnpbridge* no diretório do repositório.
 
-Para o Windows executar o seguinte num [pedido de comando do desenvolvedor para o estúdio visual:](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs)
+Para o Windows executar o seguinte num [pedido de comando do desenvolvedor para o estúdio visual:](/dotnet/framework/tools/developer-command-prompt-for-vs)
 
 ```cmd
 cd scripts\windows

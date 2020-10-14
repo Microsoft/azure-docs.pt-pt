@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: ae3f29e6c3b07a837e772466f84d227e35507d32
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 2eeb68ca5b0b6be0970a1adb071a7662399bc879
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018938"
+ms.locfileid: "92042563"
 ---
 # <a name="quickstart-azure-key-vault-keys-client-library-for-python"></a>Quickstart: Azure Key Vault chaves biblioteca cliente para Python
 
@@ -31,7 +31,7 @@ Este quickstart pressupõe que está a executar [o Azure CLI](/cli/azure/install
 
 ## <a name="set-up-your-local-environment"></a>Configurar o seu ambiente local
 
-Este quickstart está a utilizar a biblioteca Azure Identity com o Azure CLI para autenticar o utilizador nos Serviços Azure. Os desenvolvedores também podem usar Visual Studio ou Visual Studio Code para autenticar as suas chamadas, para mais informações, ver [Autenticar o cliente com a biblioteca de clientes da Azure Identity](https://docs.microsoft.com/java/api/overview/azure/identity-readme)
+Este quickstart está a utilizar a biblioteca Azure Identity com o Azure CLI para autenticar o utilizador nos Serviços Azure. Os desenvolvedores também podem usar o Visual Studio ou Visual Studio Code para autenticar as suas chamadas, para obter mais informações, ver [Autenticar o cliente com a biblioteca de clientes da Azure Identity](https://docs.microsoft.com/java/api/overview/azure/identity-readme).
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -49,7 +49,7 @@ Este quickstart está a utilizar a biblioteca Azure Identity com o Azure CLI par
 
 ### <a name="install-the-packages"></a>Instalar as embalagens
 
-1. Num terminal ou pedido de comando, crie uma pasta de projeto adequada e, em seguida, crie e ative um ambiente virtual Python como descrito em [ambientes virtuais Use Python](/azure/developer/python/configure-local-development-environment?tabs=cmd#use-python-virtual-environments)
+1. Num terminal ou pedido de comando, crie uma pasta de projeto adequada e, em seguida, crie e ative um ambiente virtual Python como descrito em [ambientes virtuais Use Python](/azure/developer/python/configure-local-development-environment?tabs=cmd#use-python-virtual-environments).
 
 1. Instalar a biblioteca de identidade do Diretório Ativo Azure:
 
@@ -70,7 +70,7 @@ Este quickstart está a utilizar a biblioteca Azure Identity com o Azure CLI par
 
 ### <a name="grant-access-to-your-key-vault"></a>Conceder acesso ao seu cofre chave
 
-Crie uma política de acesso para o cofre-chave que concede permissão secreta à sua conta de utilizador
+Crie uma política de acesso para o seu cofre-chave que concede permissão secreta à sua conta de utilizador.
 
 ```console
 az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set

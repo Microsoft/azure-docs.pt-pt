@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 0db39884ef54310db849abcef1062adbaeb9f22e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e7d966aa5aa4b5a498c80cab26686411dd586185
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91292717"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044603"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Construir uma solução de ponta a ponta
 
@@ -442,11 +442,11 @@ Aqui está uma revisão do cenário que você construiu neste tutorial.
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario.png" alt-text="Gráfico do cenário de construção completo. Retrata dados que fluem de um dispositivo para o IoT Hub, através de uma função Azure (seta B) para uma instância Azure Digital Twins (secção A), em seguida, através da Grade de Evento para outra função Azure para o processamento (seta C)":::
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se já não necessitar dos recursos criados neste tutorial, siga estes passos para eliminá-los. 
 
-Utilizando o [Azure Cloud Shell,](https://shell.azure.com)pode eliminar todos os recursos Azure num grupo de recursos com o comando de eliminação do [grupo AZ.](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-delete) Isto remove o grupo de recursos; o exemplo das Gémeas Digitais Azure; o hub IoT e o registo do dispositivo do hub; o tópico da grelha de eventos e as subscrições associadas; e a app Azure Functions, incluindo ambas as funções e recursos associados como o armazenamento.
+Utilizando o [Azure Cloud Shell,](https://shell.azure.com)pode eliminar todos os recursos Azure num grupo de recursos com o comando de eliminação do [grupo AZ.](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-delete) Isto remove o grupo de recursos; o exemplo das Gémeas Digitais Azure; o hub IoT e o registo do dispositivo do hub; o tópico da grelha de eventos e as subscrições associadas; e a app Azure Functions, incluindo ambas as funções e recursos associados como o armazenamento.
 
 > [!IMPORTANT]
 > A eliminação de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos nele contidos são eliminados permanentemente. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. 

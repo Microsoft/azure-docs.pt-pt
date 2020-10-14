@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: d2a538cac1e8bcf9c67c88b206cacd928bfb73c8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 50c1cd62f52583a005e6e7fe8fb29ee8eafd1af9
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91448230"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044467"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Quickstart: Configure propriedades para uma aplicação no seu inquilino Azure Ative (Azure AD)
 
@@ -41,10 +41,7 @@ Para editar as propriedades da aplicação:
 
 1. No portal AD Azure, selecione **aplicações Enterprise**. Em seguida, encontre e selecione a aplicação que pretende configurar.
 2. Na secção **Gerir,** selecione **Propriedades** para abrir o painel **propriedades** para edição.
-
-    ![Screenshot do ecrã Propriedades que mostra propriedades de aplicações editáveis.](media/add-application-portal/edit-properties.png)
-
-3. Aproveite um momento para entender as opções disponíveis para configurar:
+3. Aproveite um momento para entender as opções disponíveis. As opções disponíveis dependerão da forma como a aplicação é integrada com o Azure AD. Por exemplo, uma aplicação que utilize um único sinal baseado em SAML terá campos como URL de *acesso ao utilizador,* enquanto uma aplicação que utiliza um único sinal baseado no OIDC não o fará. Note também que as aplicações adicionadas através **do Azure Ative Directory > Os registos da App** são por padrão aplicações baseadas em OIDC. Enquanto as aplicações adicionadas através do **Azure Ative Directory > aplicações enterprise** podem usar qualquer uma de uma série de normas únicas de inscrição. Todas as aplicações terão campos para configurar quando uma aplicação aparece e pode ser usada. Estes campos são:
     - **Habilitado para os utilizadores fazerem o s.a.?** determina se os utilizadores designados para a aplicação podem iniciar sessão.
     - **Atribuição de utilizadores necessária?** determina se os utilizadores que não estão atribuídos à aplicação podem iniciar sessão.
     - **Visível para os utilizadores?** determina se os utilizadores atribuídos a uma aplicação podem vê-la nas [My Apps](https://myapps.microsoft.com) e no launcher da aplicação Microsoft 365. (Consulte o menu de waffles no canto superior esquerdo de um website da Microsoft 365.)
@@ -59,9 +56,9 @@ Para editar as propriedades da aplicação:
     | Sim | Sim | Sim | Os utilizadores designados podem ver a aplicação e iniciar sessão.<br>Os utilizadores não atribuídos não podem ver a aplicação e não podem iniciar seduca. |
     | Sim | Sim | Não  | As utilizações atribuídas não podem ver a aplicação, mas podem iniciar sessão.<br>Os utilizadores não atribuídos não podem ver a aplicação e não podem iniciar seduca. |
     | Sim | Não  | Sim | Os utilizadores designados podem ver a aplicação e iniciar sessão.<br>Os utilizadores não atribuídos não conseguem ver a aplicação, mas podem iniciar sedu. |
-    | Sim | Não  | Não  | Os utilizadores designados não podem ver a aplicação, mas podem iniciar sessão.<br>Os utilizadores não atribuídos não conseguem ver a aplicação, mas podem iniciar sedu. |
-    | Não  | Sim | Sim | Os utilizadores designados não podem ver a aplicação e não podem iniciar sessão.<br>Os utilizadores não atribuídos não podem ver a aplicação e não podem iniciar seduca. |
-    | Não  | Sim | Não  | Os utilizadores designados não podem ver a aplicação e não podem iniciar sessão.<br>Os utilizadores não atribuídos não podem ver a aplicação e não podem iniciar seduca. |
+    | Yes | Não  | Não  | Os utilizadores designados não podem ver a aplicação, mas podem iniciar sessão.<br>Os utilizadores não atribuídos não conseguem ver a aplicação, mas podem iniciar sedu. |
+    | Não  | Yes | Sim | Os utilizadores designados não podem ver a aplicação e não podem iniciar sessão.<br>Os utilizadores não atribuídos não podem ver a aplicação e não podem iniciar seduca. |
+    | Não  | Yes | Não  | Os utilizadores designados não podem ver a aplicação e não podem iniciar sessão.<br>Os utilizadores não atribuídos não podem ver a aplicação e não podem iniciar seduca. |
     | Não  | Não  | Sim | Os utilizadores designados não podem ver a aplicação e não podem iniciar sessão.<br>Os utilizadores não atribuídos não podem ver a aplicação e não podem iniciar seduca. |
     | Não  | Não  | Não  | Os utilizadores designados não podem ver a aplicação e não podem iniciar sessão.<br>Os utilizadores não atribuídos não podem ver a aplicação e não podem iniciar seduca. |
 

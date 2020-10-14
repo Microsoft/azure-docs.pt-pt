@@ -7,16 +7,16 @@ ms.date: 09/23/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: edcfcda8de1fade605c409537155231d90d5849e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d61ca10612a0935f8483745d164835d7498280c0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91610080"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042818"
 ---
 # <a name="implement-iot-plug-and-play-on-constrained-devices"></a>Implementar IoT Plug e Reproduzir em dispositivos constrangidos
 
-Se estiver a desenvolver *dispositivos constrangidos,* pode utilizar o IoT Plug e o Play com o [Azure SDK para bibliotecas de clientes C IoT incorporados](https://aka.ms/embeddedcsdk) ou com [o Azure RTOS](https://docs.microsoft.com/azure/rtos/overview-rtos). Este artigo inclui links e recursos para estes cenários constrangidos.
+Se estiver a desenvolver *dispositivos constrangidos,* pode utilizar o IoT Plug e o Play com o [Azure SDK para bibliotecas de clientes C IoT incorporados](https://aka.ms/embeddedcsdk) ou com [o Azure RTOS](/azure/rtos/overview-rtos). Este artigo inclui links e recursos para estes cenários constrangidos.
 
 ## <a name="use-the-sdk-for-embedded-c"></a>Utilize o SDK para Embedded C
 
@@ -39,7 +39,7 @@ O repositório SDK para incorporado C contém [várias amostras](https://github.
 
 ## <a name="using-azure-rtos"></a>Utilização de RTOS Azure
 
-O Azure RTOS inclui uma camada leve que adiciona conectividade nativa aos serviços de nuvem Azure IoT. Esta camada fornece um mecanismo simples para ligar dispositivos constrangidos ao Azure IoT enquanto utiliza as funcionalidades avançadas do Azure RTOS. Para saber mais, consulte o [RtOS do Microsoft Azure.](https://docs.microsoft.com/azure/rtos/overview-rtos)
+O Azure RTOS inclui uma camada leve que adiciona conectividade nativa aos serviços de nuvem Azure IoT. Esta camada fornece um mecanismo simples para ligar dispositivos constrangidos ao Azure IoT enquanto utiliza as funcionalidades avançadas do Azure RTOS. Para saber mais, consulte o [RtOS do Microsoft Azure.](/azure/rtos/overview-rtos)
 
 ### <a name="toolchains"></a>Poltronas de ferramentas
 

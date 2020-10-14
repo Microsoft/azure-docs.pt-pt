@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5b682e371a341c8dbd707652acc60773663326dc
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 4bd1bb93c9ce0f491c5bf1153917491b88d55109
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019125"
+ms.locfileid: "92043719"
 ---
 # <a name="whats-in-the-current-iot-plug-and-play-release"></a>O que está no atual lançamento ioT plug e play
 
@@ -61,7 +61,7 @@ Para saber mais sobre as bibliotecas e SDKs, consulte [microsoft SDKs para IoT P
 
 ## <a name="rest-apis"></a>APIs REST
 
-REST API [2020-09-30](https://docs.microsoft.com/rest/api/iothub).
+REST API [2020-09-30](/rest/api/iothub).
 
 Para saber mais, consulte [o guia de desenvolvimento IoT Plug and Play](concepts-developer-guide-service.md).
 

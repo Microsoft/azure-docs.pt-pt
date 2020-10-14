@@ -5,21 +5,21 @@ keywords: ''
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 4/14/2020
+ms.date: 10/13/2020
 ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 5ad4e72f8992c8798ce17faec6c47b753c10cfc4
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0a73651b11c9ca6f7cb34deb755543c3b5a6d710
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978837"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042988"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Implementar e monitorizar os módulos IoT Edge em escala utilizando o CLI Azure
 
-Crie uma **implementação automática IoT Edge** utilizando a interface da linha de comando Azure para gerir as implementações em curso para muitos dispositivos ao mesmo tempo. As implementações automáticas para ioT Edge fazem parte da funcionalidade automática de [gestão](/azure/iot-hub/iot-hub-automatic-device-management) do dispositivo do IoT Hub. As implementações são processos dinâmicos que permitem implantar vários módulos em vários dispositivos, acompanhar o estado e a saúde dos módulos e fazer alterações quando necessário.
+Crie uma **implementação automática IoT Edge** utilizando a interface da linha de comando Azure para gerir as implementações em curso para muitos dispositivos ao mesmo tempo. As implementações automáticas para ioT Edge fazem parte da funcionalidade automática de [gestão](../iot-hub/iot-hub-automatic-device-management.md) do dispositivo do IoT Hub. As implementações são processos dinâmicos que permitem implantar vários módulos em vários dispositivos, acompanhar o estado e a saúde dos módulos e fazer alterações quando necessário.
 
 Para obter mais informações, consulte [as configurações automáticas Understand IoT Edge para dispositivos individuais ou à escala.](module-deployment-monitoring.md)
 
@@ -32,7 +32,7 @@ Neste artigo, você configura Azure CLI e a extensão IoT. Em seguida, aprende a
 
   Se não tiver um dispositivo IoT Edge configurado, pode criar um numa máquina virtual Azure. Siga os passos num dos artigos de arranque rápido para [criar um dispositivo Linux virtual](quickstart-linux.md) ou criar um dispositivo Virtual [Windows](quickstart.md).
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) no seu ambiente. No mínimo, a sua versão Azure CLI deve ser de 2.0.70 ou superior. Utilize `az --version` para validar. Esta versão suporta comandos de extensão az e apresenta a arquitetura de comandos Knack.
+* [Azure CLI](/cli/azure/install-azure-cli) no seu ambiente. No mínimo, a sua versão Azure CLI deve ser de 2.0.70 ou superior. Utilize `az --version` para validar. Esta versão suporta comandos de extensão az e apresenta a arquitetura de comandos Knack.
 * A [extensão IoT para Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="configure-a-deployment-manifest"></a>Configure um manifesto de implantação
@@ -43,13 +43,16 @@ Para implementar módulos utilizando o Azure CLI, guarde o manifesto de implanta
 
 Aqui está um manifesto básico de implantação com um módulo como exemplo:
 
+>[!NOTE]
+>Este manifesto de implantação da amostra utiliza a versão 1.1 do esquema para o agente e o hub IoT Edge. A versão 1.1 do Schema foi lançada juntamente com a versão 1.0.10 do IoT Edge e permite funcionalidades como a ordem de arranque do módulo e a priorização da rota.
+
 ```json
 {
   "content": {
     "modulesContent": {
       "$edgeAgent": {
         "properties.desired": {
-          "schemaVersion": "1.0",
+          "schemaVersion": "1.1",
           "runtime": {
             "type": "docker",
             "settings": {
@@ -78,7 +81,7 @@ Aqui está um manifesto básico de implantação com um módulo como exemplo:
           },
           "modules": {
             "SimulatedTemperatureSensor": {
-              "version": "1.0",
+              "version": "1.1",
               "type": "docker",
               "status": "running",
               "restartPolicy": "always",

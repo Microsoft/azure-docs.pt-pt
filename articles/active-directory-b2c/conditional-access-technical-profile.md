@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/01/2020
+ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ef7599441cbfa11c555453adea0ca135569524b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f88548b57cee9b5f637247fda1536488382ae2f6
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91459834"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92042631"
 ---
 # <a name="define-a-conditional-access-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico de acesso condicional numa política personalizada do Azure Ative Directory B2C
 
@@ -61,10 +61,10 @@ O elemento **InputClaims** contém uma lista de reclamações a enviar para Aces
 
 | ReclamaçãoReferênciaId | Necessário | Tipo de Dados | Descrição |
 | --------- | -------- | ----------- |----------- |
-| IDUtilizador | Sim | string | O identificador do utilizador que se inscreve. |
-| Autenticação MehodsUsed | Sim |stringCollection | A lista de métodos que o utilizador usou para iniciar sinscrevi-se. Valores possíveis: `Password` e `OneTimePasscode` . |
-| IsFederated | Sim |boolean | Indica se um utilizador assinou ou não com uma conta federada. O valor deve `false` ser. |
-| IsMfaRegistered | Sim |boolean | Indica se o utilizador já inscreveu um número de telefone para autenticação multi-factor. |
+| IDUtilizador | Yes | cadeia | O identificador do utilizador que se inscreve. |
+| Autenticação MehodsUsed | Yes |stringCollection | A lista de métodos que o utilizador usou para iniciar sinscrevi-se. Valores possíveis: `Password` e `OneTimePasscode` . |
+| IsFederated | Yes |boolean | Indica se um utilizador assinou ou não com uma conta federada. O valor deve `false` ser. |
+| IsMfaRegistered | Yes |boolean | Indica se o utilizador já inscreveu um número de telefone para autenticação multi-factor. |
 
 
 O elemento **InputClaimsTransformations** pode conter uma coleção de elementos de **entradaClaimsTransformation** que são utilizados para modificar as reclamações de entrada ou gerar novas antes de enviá-las para o serviço de Acesso Condicional.
@@ -76,7 +76,7 @@ O elemento **OutputClaims** contém uma lista de reclamações geradas pelo Cond
 | ReclamaçãoReferênciaId | Necessário | Tipo de Dados | Descrição |
 | --------- | -------- | ----------- |----------- |
 | Desafios | Sim |stringCollection | Lista de ações para remediar a ameaça identificada. Valores possíveis: `block` |
-| MultiConditionalAccessStatus | Sim | stringCollection |  |
+| MultiConditionalAccessStatus | Yes | stringCollection |  |
 
 O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos de **saídaClaimsTransformation** que são utilizados para modificar as alegações de saída ou gerar novos.
 
@@ -521,3 +521,7 @@ Segue-se um exemplo de um ficheiro de partido que faz referência a esta Jornada
   </RelyingParty>
 </TrustFrameworkPolicy>
 ```
+
+## <a name="next-steps"></a>Passos seguintes
+
+- Pode encontrar um exemplo de uma política de acesso condicional no [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/conditional-access).

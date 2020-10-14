@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/16/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 4fcad5798d421939717a6beae01ae9930cfcb117
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 118b02ab694d27dbe4e13cbfa1a617a56b052772
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015026"
+ms.locfileid: "92043073"
 ---
 # <a name="integrate-azure-digital-twins-with-other-services"></a>Integre a Azure Digital Twins com outros serviços
 
@@ -20,7 +20,7 @@ A Azure Digital Twins é normalmente utilizada juntamente com outros serviços p
 
 Utilizando rotas de [**eventos,**](concepts-route-events.md)a Azure Digital Twins pode receber dados de serviços a montante como [IoT Hub](../iot-hub/about-iot-hub.md) ou Logic [Apps](../logic-apps/logic-apps-overview.md), que são usados para fornecer telemetria e notificações. 
 
-A Azure Digital Twins também pode encaminhar dados para serviços a jusante, como [Azure Maps](../azure-maps/about-azure-maps.md) e [Time Series Insights,](../time-series-insights/time-series-insights-update-overview.md)para armazenamento, integração de fluxos de trabalho, análises e muito mais. 
+A Azure Digital Twins também pode encaminhar dados para serviços a jusante, como [Azure Maps](../azure-maps/about-azure-maps.md) e [Time Series Insights,](../time-series-insights/overview-what-is-tsi.md)para armazenamento, integração de fluxos de trabalho, análises e muito mais. 
 
 ## <a name="data-ingress"></a>Entrada de dados
 
@@ -41,7 +41,7 @@ A Azure Digital Twins pode enviar dados para **pontos finais conectados**. Os po
 
 Os pontos finais são anexados a Azure Digital Twins utilizando APIs de gestão ou o portal Azure. Saiba mais sobre como anexar um ponto final às Gémeas Digitais Azure em [*Como-a: Gerir pontos finais e rotas*](how-to-manage-routes-apis-cli.md).
 
-Existem muitos outros serviços onde poderá querer direcionar os seus dados, tais como [Azure Storage,](../storage/common/storage-introduction.md) [Azure Maps](../azure-maps/about-azure-maps.md)ou [Time Series Insights](../time-series-insights/time-series-insights-update-overview.md). Para enviar os seus dados para serviços como estes, anexe o serviço de destino a um ponto final.
+Existem muitos outros serviços onde poderá querer direcionar os seus dados, tais como [Azure Storage,](../storage/common/storage-introduction.md) [Azure Maps](../azure-maps/about-azure-maps.md)ou [Time Series Insights](../time-series-insights/overview-what-is-tsi.md). Para enviar os seus dados para serviços como estes, anexe o serviço de destino a um ponto final.
 
 Por exemplo, se também estiver a utilizar o Azure Maps e quiser correlacionar a [localização](concepts-twins-graph.md)com o seu gráfico gémeo Azure Digital Twins, pode utilizar funções Azure com a Grade de Eventos para estabelecer comunicação entre todos os serviços da sua implementação. Saiba mais sobre isso em [ *How-to: Use Azure Digital Twins para atualizar um mapa interior do Azure Maps*](how-to-integrate-maps.md)
 

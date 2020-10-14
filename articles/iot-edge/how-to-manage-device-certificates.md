@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4159b464493a34e17a04f17540b3f9c7a20f4740
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1f07f9d481ca8ede29c8b8443dad81a442962a71
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971800"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044144"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>Gerir certificados num dispositivo IoT Edge
 
@@ -68,7 +68,7 @@ Por exemplo, se utilizar os scripts de amostra para [criar certificados de demon
 
 1. Copie os três certificados e ficheiros chave no seu dispositivo IoT Edge.
 
-   Pode utilizar um serviço como [o Azure Key Vault](https://docs.microsoft.com/azure/key-vault) ou uma função como o protocolo de cópia [Secure](https://www.ssh.com/ssh/scp/) para mover os ficheiros de certificado.  Se tiver gerado os certificados no próprio dispositivo IoT Edge, pode saltar este passo e utilizar o caminho para o diretório de trabalho.
+   Pode utilizar um serviço como [o Azure Key Vault](../key-vault/index.yml) ou uma função como o protocolo de cópia [Secure](https://www.ssh.com/ssh/scp/) para mover os ficheiros de certificado.  Se tiver gerado os certificados no próprio dispositivo IoT Edge, pode saltar este passo e utilizar o caminho para o diretório de trabalho.
 
 1. Abra o ficheiro IoT Edge security daemon config.
 

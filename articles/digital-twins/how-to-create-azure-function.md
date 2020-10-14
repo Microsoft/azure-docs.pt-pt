@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 11034a585db6ef3a3e1e445bbed8a1e51f83948d
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: d81d26c4cf975a20f31b4b4546c1477ed1a630e0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91949791"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048326"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Ligue as aplicações Azure Functions para processamento de dados
 
@@ -200,7 +200,7 @@ Utilize o valor _principalid_ no seguinte comando para atribuir a identidade da 
 ```azurecli 
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
 ```
-Por último, pode tornar o URL da sua instância Azure Digital Twins acessível à sua função, definindo uma variável ambiental. Para obter mais informações sobre a definição de variáveis ambientais, consulte [*variáveis ambientais*](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables). 
+Por último, pode tornar o URL da sua instância Azure Digital Twins acessível à sua função, definindo uma variável ambiental. Para obter mais informações sobre a definição de variáveis ambientais, consulte [*variáveis ambientais*](/sandbox/functions-recipes/environment-variables). 
 
 > [!TIP]
 > O URL da instância Azure Digital Twins é feito adicionando *https://* ao início do *nome de anfitrião*da sua instância Azure Digital Twins . Para ver o nome do anfitrião, juntamente com todas as propriedades do seu caso, pode `az dt show --dt-name <your-Azure-Digital-Twins-instance>` correr.
@@ -232,24 +232,24 @@ Note também o **ID** do objeto mostrado na página _Identidade,_ uma vez que se
 
 ### <a name="assign-access-roles-using-azure-portal"></a>Atribuir funções de acesso usando o portal Azure
 
-Selecione o botão _de atribuições de funções Azure,_ que se abre para a página de atribuições de funções Azure. Em seguida, selecione _+Adicionar atribuição de função (Pré-visualização)_.
+Selecione o botão _de atribuições de funções Azure,_ que abrirá a página *de atribuições de funções Azure.* Em seguida, _selecione + Adicionar atribuição de função (Pré-visualização)_.
 
 :::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Estúdio Visual: novo diálogo de projeto":::
 
-Na janela _de atribuição de função Adicionar (Pré-visualização)_ que se abre, selecione:
+Na página _de atribuição de funções adicionar (Pré-visualização)_ que se abre, selecione:
 
 * _Âmbito_: grupo de recursos
 * _Subscrição_: selecione a sua subscrição Azure
 * _Grupo de recursos_: selecione o seu grupo de recursos a partir do dropdown
 * _Função_: selecione _Azure Digital Twins Owner (Preview)_ from the dropdown
 
-Guarde os seus dados selecionando o botão _Guardar._
+Em seguida, guarde os seus dados premindo o botão _Guardar._
 
 :::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Estúdio Visual: novo diálogo de projeto":::
 
 ### <a name="configure-application-settings-using-azure-portal"></a>Configurar configurações de aplicações usando o portal Azure
 
-Pode tornar o URL da sua instância Azure Digital Twins acessível à sua função definindo uma variável ambiental. Para obter mais informações sobre este ponto, consulte [*as variáveis Ambiente.*](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables) As configurações da aplicação são expostas como variáveis ambientais para aceder à instância de gémeos digitais. 
+Pode tornar o URL da sua instância Azure Digital Twins acessível à sua função definindo uma variável ambiental. Para obter mais informações sobre este ponto, consulte [*as variáveis Ambiente.*](/sandbox/functions-recipes/environment-variables) As configurações da aplicação são expostas como variáveis ambientais para aceder à instância de gémeos digitais. 
 
 Terá de ADT_INSTANCE_URL para criar uma definição de aplicação.
 

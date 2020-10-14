@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 78accf9009e532b4f254bf1b96c9fe269815b8af
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: cfdf22ac9b97ff7187bc360efe07cfe16249bd6b
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019176"
+ms.locfileid: "92042886"
 ---
 # <a name="device-model-repository"></a>Repositório de modelo de dispositivo
 

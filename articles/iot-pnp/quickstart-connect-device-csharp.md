@@ -7,12 +7,12 @@ ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 9bbacabdd96c9d1059457b01411082499e9ad19b
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: da1ac77ad2716abf964c835634d049895fe88654
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91943905"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92044552"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-running-on-windows-to-iot-hub-c"></a>Quickstart: Conecte uma aplicação de dispositivo IoT Plug e Play de amostra que está a decorrer no Windows ao IoT Hub (C#)
 
@@ -108,9 +108,9 @@ using Newtonsoft.Json;
 DateTime since = JsonConvert.DeserializeObject<DateTime>(request.DataAsJson);
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, aprendeu a ligar um dispositivo IoT Plug e Play a um hub IoT. Para saber mais sobre como construir uma solução que interage com os seus dispositivos IoT Plug e Play, consulte:
 
 > [!div class="nextstepaction"]
-> [Como fazer: Ligar e interagir com um dispositivo](howto-develop-solution.md)
+> [Como fazer: Ligar e interagir com um dispositivo](./quickstart-service-node.md)
