@@ -4,12 +4,12 @@ description: Instruções sobre como mover um cofre dos Serviços de Recuperaç�
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: references_regions
-ms.openlocfilehash: 19b1c930ffc0e4b519c25f421662547a4d8dcde6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55c906585e6f6d4a2ae3f2279b2c3ffbaaccb025
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91773370"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056434"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Mover um cofre de serviços de recuperação através de subscrições e grupos de recursos Azure
 
@@ -34,7 +34,7 @@ França Central, França Sul, Alemanha Nordeste, Alemanha Central, EUA Gov Iowa,
 - Se um VM não se mover com o cofre dos Serviços de Recuperação através de subscrições, ou para um novo grupo de recursos, os atuais pontos de recuperação de VM permanecerão intactos no cofre até expirarem.
 - Quer o VM seja movido com o cofre ou não, pode sempre restaurar o VM do histórico de reserva retido no cofre.
 - A Encriptação do Disco Azure requer que o cofre-chave e vMs residam na mesma região de Azure e subscrição.
-- Para mover uma máquina virtual com discos geridos, consulte este [artigo](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/).
+- Para mover uma máquina virtual com discos geridos, consulte este [artigo](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription).
 - As opções de movimentação de recursos implementados através do modelo Classic diferem consoante esteja a mover os recursos dentro de uma subscrição ou a uma nova subscrição. Para mais informações, consulte este [artigo.](../azure-resource-manager/management/move-resource-group-and-subscription.md)
 - As políticas de backup definidas para o cofre são mantidas após o cofre se mover através de subscrições ou para um novo grupo de recursos.
 - Só é possível mover um cofre que contenha qualquer um dos seguintes tipos de itens de reserva. Quaisquer itens de backup de tipos não listados abaixo terão de ser interrompidos e os dados permanentemente eliminados antes de mover o cofre.

@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: b0f2a6fcd888afd7eb99a810fad6e876fe6ff4ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8049df552c9754a1674c9e38e6d9b9b2cea3bd85
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617065"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058221"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Tutorial: Configurar a replicação entre dois casos geridos
 
@@ -27,7 +27,7 @@ A replicação transacional permite replicar dados de uma base de dados para out
 
 A replicação transacional está atualmente em pré-visualização pública para SQL Managed Instance. 
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -48,7 +48,7 @@ Este tutorial destina-se a um público experiente e assume que o utilizador est�
 
 Configurar a SQL Managed Instance para funcionar como editor e/ou distribuidor requer:
 
-- Que a editora geriu o exemplo está na mesma rede virtual que o distribuidor e o assinante, ou [o espreitamento de rede virtual](../../virtual-network/tutorial-connect-virtual-networks-powershell.md) foi configurado entre as redes virtuais das três entidades. 
+- Que a editora geriu o exemplo está na mesma rede virtual que o distribuidor e o assinante, ou [gateways VPN](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) foram configurados entre as redes virtuais das três entidades. 
 - A conectividade utiliza a Autenticação SQL entre os participantes da replicação.
 - Uma parte da conta de armazenamento Azure para o diretório de trabalho de replicação.
 - A Porta 445 (saída TCP) está aberta nas regras de segurança da NSG para as instâncias geridas para aceder à partilha de ficheiros Azure.  Se encontrar o `failed to connect to azure storage \<storage account name> with os error 53` erro, terá de adicionar uma regra de saída ao NSG da sub-rede de instância gerida do SQL apropriado.
@@ -293,7 +293,7 @@ Execute o seguinte corte T-SQL para inserir linhas adicionais na editora e, em s
 INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para deixar cair a publicação, executar o seguinte comando T-SQL:
 

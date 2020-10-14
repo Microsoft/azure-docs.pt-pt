@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6ccc2911312a74825b885f5f492e67774354316
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ea814f3f855758895a5a887b944e5f760edb5e9
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91858132"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057795"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administrator role permissions in Azure Active Directory (Permissões de cargos de administrador no Azure Active Directory)
 
@@ -500,7 +500,7 @@ Os utilizadores com esta função podem criar utilizadores e gerir todos os aspe
 | Apenas em utilizadores que não sejam administradores ou em qualquer uma das seguintes funções de administração limitadas:<ul><li>Leitores de Diretório<li>Administrador de Grupos<li>Convidado Convidado<li>Administrador helpdesk<li>Leitor do Centro de Mensagens<li>Administrador de password<li>Leitor de Relatórios<li>Administrador de Utilizadores|<p>Eliminar e restaurar</p><p>Desativar e ativar</p><p>Tokens de atualização invalidado</p><p>Gerir todas as propriedades do utilizador, incluindo o nome principal do utilizador</p><p>Repor palavra-passe</p><p>Teclas de dispositivo de atualização (FIDO)</p>|
 
 > [!IMPORTANT]
-> Os utilizadores com esta função podem alterar palavras-passe para pessoas que possam ter acesso a informações sensíveis ou privadas ou configuração crítica dentro e fora do Azure Ative Directory. Alterar a palavra-passe de um utilizador pode significar a capacidade de assumir a identidade e permissões desse utilizador. Por exemplo:
+>  Os utilizadores com quaisquer funções incorporadas ou personalizadas com a permissão microsoft.directy/users/password/update podem alterar palavras-passe para pessoas que possam ter acesso a informações confidenciais ou privadas ou configuração crítica dentro e fora do Azure Ative Directory. Alterar a palavra-passe de um utilizador pode significar a capacidade de assumir a identidade e permissões desse utilizador. Por exemplo:
 >
 >- Os proprietários de Registo de Aplicações e Aplicações Empresariais, que podem gerir credenciais de apps que possuam. Essas aplicações podem ter permissões privilegiadas em Azure AD e em outros lugares não concedidos aos Administradores de Utilizadores. Por este caminho, um Administrador de Utilizador poderá assumir a identidade de um titular da aplicação e, em seguida, assumir a identidade de uma aplicação privilegiada atualizando as credenciais para a aplicação.
 >- Proprietários de subscrições Azure, que podem ter acesso a informações sensíveis ou privadas ou configuração crítica em Azure.

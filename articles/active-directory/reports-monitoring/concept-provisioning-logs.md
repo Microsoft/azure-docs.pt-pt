@@ -17,12 +17,12 @@ ms.date: 10/07/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6109f35c42d4b4a44430eeb99ec115f4cdc1a619
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61a143d4294359249bffceac12e65c36ea9e5fb9
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812561"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056162"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Relatórios de provisionamento no portal Azure Ative Directory (pré-visualização)
 
@@ -42,7 +42,7 @@ Este tópico dá-lhe uma visão geral do relatório de provisionamento.
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="who-can-access-the-data"></a>Quem pode aceder aos dados?
-* Proprietários de aplicações
+* Os proprietários de aplicações podem ver registos de aplicações que possuam
 * Utilizadores nas funções de Administrador de Segurança, Leitor de Segurança, Leitor de Relatórios, Administrador de Aplicações e Administrador de Aplicações em Nuvem
 * Administradores Globais
 
@@ -56,7 +56,7 @@ O seu inquilino deve ter uma licença Azure AD Premium associada a ela para ver 
 Os registos de provisionamento fornecem respostas às seguintes questões:
 
 * Que grupos foram criados com sucesso no ServiceNow?
-* Como os papéis foram importados da Amazon Web Services?
+* Que funções foram importadas da Amazon Web Services?
 * Que utilizadores foram criados sem sucesso no DropBox?
 
 Pode aceder aos registos de provisionamento selecionando **Registos de Provisionamento** na secção de **Monitorização** da lâmina do **Diretório Ativo Azure** no [portal Azure](https://portal.azure.com). Pode levar até duas horas para que alguns registos de provisionamento apareçam no portal.
@@ -86,7 +86,7 @@ Isto permite-lhe apresentar campos adicionais ou remover campos que já são apr
 
 Selecione um item na vista da lista para obter informações mais detalhadas.
 
-![Informações detalhadas](./media/concept-provisioning-logs/steps.png "Filtrar")
+![Informações detalhadas](./media/concept-provisioning-logs/steps.png "Filtro")
 
 
 ## <a name="filter-provisioning-activities"></a>Atividades de provisão de filtros
@@ -100,7 +100,7 @@ Na vista predefinitiva, pode selecionar os seguintes filtros:
 - Ação
 
 
-![Adicionar filtros](./media/concept-provisioning-logs/default-filter.png "Filtrar")
+![Adicionar filtros](./media/concept-provisioning-logs/default-filter.png "Filtro")
 
 O filtro **identidade** permite especificar o nome ou a identidade que lhe interessa. Esta identidade pode ser um utilizador, grupo, papel ou outro objeto. Pode pesquisar pelo nome ou identificação do objeto. O ID varia por cenário. Por exemplo, ao aprovisionar um objeto do Azure AD à SalesForce, o ID de Origem é o ID do objeto do utilizador em Azure AD enquanto o TargetID é o ID do utilizador em Salesforce. Ao ser fornecida de Workday a Ative Directory, o ID de Origem é o ID do trabalhador do Workday. Note que o nome do utilizador pode nem sempre estar presente na coluna Identidade. Haverá sempre uma identificação. 
 
@@ -191,7 +191,7 @@ O separador **Passos** descreve os passos dados para a disposição de um objeto
 
 
 
-![A screenshot mostra o separador Passos, que mostra os passos de provisionamento.](./media/concept-provisioning-logs/steps.png "Filtrar")
+![A screenshot mostra o separador Passos, que mostra os passos de provisionamento.](./media/concept-provisioning-logs/steps.png "Filtro")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>Resolução de problemas e recomendações
@@ -211,7 +211,7 @@ O **separador resumo** fornece uma visão geral do que aconteceu e identifica o 
 
 ## <a name="what-you-should-know"></a>O que deve saber
 
-- As lojas do portal Azure reportaram dados de provisionamento durante 30 dias se tiver uma edição premium e 7 dias se tiver uma edição gratuita. Os registos de provisionamento podem ser publicados para registar análises para retenção além de 30 dias. 
+- As lojas do portal Azure reportaram dados de provisionamento durante 30 dias se tiver uma edição premium e 7 dias se tiver uma edição gratuita. Os registos de provisionamento podem ser publicados para [registar análises](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) para retenção além de 30 dias. 
 
 - Pode utilizar o atributo Change ID como identificador único. Isto é, por exemplo, útil quando interage com o suporte do produto.
 

@@ -3,12 +3,12 @@ title: Elevada disponibilidade e recuperação após desastre
 description: Saiba como desenhar a sua aplicação batch para uma paragem regional.
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: 1e22cb19aba1dcedc4ece7ddc2d1de0ab3233238
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c77e6fa672d26545af47b262a982a7d0d7303eec
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83725742"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058017"
 ---
 # <a name="design-your-application-for-high-availability"></a>Conceber a sua aplicação para elevada disponibilidade
 
@@ -39,5 +39,5 @@ Considere os seguintes pontos ao desenhar uma solução que possa falhar:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre a criação de contas batch com o [portal Azure,](batch-account-create-portal.md)o [Azure CLI,](cli-samples.md) [PowerShell](batch-powershell-cmdlets-get-started.md)ou a [API de gestão de lotes.](batch-management-dotnet.md)
+- Saiba mais sobre a criação de contas batch com o [portal Azure,](batch-account-create-portal.md)o [Azure CLI,](./scripts/batch-cli-sample-create-account.md) [PowerShell](batch-powershell-cmdlets-get-started.md)ou a [API de gestão de lotes.](batch-management-dotnet.md)
 - As quotas predefinidas estão associadas a uma conta Batch; [este artigo](batch-quota-limit.md) detalha os valores de quota padrão e descreve como as quotas podem ser aumentadas.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/02/2020
-ms.openlocfilehash: cf48e26133326d43754b38df6f3b2caaf7a587ab
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c9a7ba63246f747a132c315e22452ca9c7144448
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978093"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058187"
 ---
 # <a name="operationalinsights-api-version-retirement"></a>OperacionalInsights API versão reforma
 A Microsoft fornece a notificação com pelo menos 12 meses de antecedência para retirar uma API de forma a suavizar a transição para uma versão mais recente/suportada. Lançámos uma nova versão (2020-08-01) para o fornecedor de recursos **OperationalInsights** APIs e reformaremos quaisquer versões anteriores da API a 31 de outubro de 2023. Uma vez que novas funcionalidades e funcionalidades e otimizações só são adicionadas à API atual, deve fazer o upgrade para a versão API mais recente o mais cedo possível.
@@ -67,4 +67,4 @@ Dependendo do método de configuração que utiliza, deverá atualizar a nova ve
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Consulte a [referência para a API OperacionalInsights](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/allversions).
+- Consulte a [referência para o espaço de trabalho OperationalInsights API](https://docs.microsoft.com/rest/api/loganalytics/workspaces).

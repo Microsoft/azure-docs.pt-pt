@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f70d1caacfd655c956d4fcc36e3f0d3848d8f0fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01f762ef1fa3a997c01873df02abf87362b8c06f
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230573"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055958"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Integre registos AD AD com registos do Azure Monitor
 
@@ -46,6 +46,7 @@ Pode encaminhar registos de atividades de auditoria e registos de atividades de 
 
 * **Registos de auditoria**: o [relatório de atividades de registos de auditoria](concept-audit-logs.md) dá-lhe acesso ao histórico de cada tarefa que é executada no seu inquilino.
 * **Registos de inícios de sessão**: com o [relatório de atividades de inícios de sessão](concept-sign-ins.md), pode saber quem executou as tarefas reportadas no relatório de registos de auditoria.
+* **Registos de provisionamento**: Com os [registos de provisionamento,](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics)pode monitorizar quais os utilizadores que foram criados, atualizados e eliminados em todas as suas aplicações de terceiros. 
 
 > [!NOTE]
 > A auditoria relacionada com B2C e os registos de atividades de inícios de sessão não são suportados atualmente.

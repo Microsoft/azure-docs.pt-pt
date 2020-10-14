@@ -1,14 +1,14 @@
 ---
 title: Como trabalhar com os seus grupos de gestão - Azure Governance
 description: Saiba como ver, manter, atualizar e eliminar a hierarquia do seu grupo de gestão.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: c10333e5be746aa0ca696d235f2d5fed75060e9d
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 4ce265084662fb7a83f902e046d6e079abff9a48
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951949"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058102"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerir os seus recursos com grupos de gestão
 
@@ -119,7 +119,7 @@ Você pode ver qualquer grupo de gestão em que tenha um papel de Azure direto o
 
 1. Selecione **Todos os**  >  **grupos de gestão de serviços**.
 
-1. A página da hierarquia do grupo de gestão vai carregar. Esta página é onde você pode explorar todos os grupos de gestão e subscrições a que você tem acesso. A seleção do nome de grupo leva-o a um nível na hierarquia. A navegação funciona da mesma forma que um explorador de ficheiros.
+1. A página da hierarquia do grupo de gestão vai carregar. Esta página é onde você pode explorar todos os grupos de gestão e subscrições a que você tem acesso. A seleção do nome de grupo leva-o a um nível mais baixo na hierarquia. A navegação funciona da mesma forma que um explorador de ficheiros.
 
 1. Para ver os detalhes do grupo de gestão, selecione o link **(detalhes)** ao lado do título do grupo de gestão. Se este link não estiver disponível, não tem permissões para ver esse grupo de gestão.
 
@@ -211,7 +211,7 @@ Se estás a fazer a ação de movimento, precisas:
 
 **Exceção**: Se o objetivo ou o grupo de gestão parental existente for o grupo de gestão Root, os requisitos de permissões não se aplicam. Uma vez que o grupo de gestão Root é o local de aterragem padrão para todos os novos grupos de gestão e subscrições, você não precisa de permissões nele para mover um item.
 
-Se a função do Proprietário na subscrição for herdada do grupo de gestão atual, os seus alvos de movimento são limitados. Só pode mover a subscrição para outro grupo de gestão onde tem a função De Proprietário. Não pode movê-lo para um grupo de gestão onde é um contribuinte porque perderia a propriedade da subscrição. Se você está diretamente designado para o papel de Proprietário para a subscrição (não herdado do grupo de gestão), você pode movê-lo para qualquer grupo de gestão onde você é um contribuinte.
+Se a função do Proprietário na subscrição for herdada do grupo de gestão atual, os seus alvos de movimento são limitados. Só pode mover a subscrição para outro grupo de gestão onde tem a função De Proprietário. Não pode mover a subscrição para um grupo de gestão onde é apenas um contribuinte porque perderia a propriedade da subscrição. Se você está diretamente designado para o papel proprietário para a subscrição, você pode movê-lo para qualquer grupo de gestão onde você é um contribuinte.
 
 Para ver que permissões tem no portal Azure, selecione o grupo de gestão e, em seguida, selecione **IAM**. Para saber mais sobre os papéis do Azure, consulte [o controlo de acesso baseado em funções do Azure (Azure RBAC)](../../role-based-access-control/overview.md).
 
