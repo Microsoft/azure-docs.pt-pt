@@ -1,15 +1,15 @@
 ---
 title: 'Quickstart: A sua primeira consulta .NET Core'
 description: Neste arranque rápido, siga os passos para ativar os pacotes De NuGet de Gráfico de Recurso para .NET Core e executar a sua primeira consulta.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0470f100b6323f760bc48af70e8a6c11b94dfb3c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5f825b22712956c0b94531ddb163301167f30f00
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89005875"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057472"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-net-core"></a>Quickstart: Executar a sua primeira consulta de Gráfico de Recurso usando .NET Core
 

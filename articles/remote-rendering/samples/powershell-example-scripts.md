@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fbac172952c9feea92341dbc028567235b9250bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c17750fbe016e8bfa86569f34f9af26b1c6de3bd
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89075278"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055856"
 ---
 # <a name="example-powershell-scripts"></a>Scripts do PowerShell de exemplo
 
@@ -23,7 +23,7 @@ A Azure Remote Rendering fornece as seguintes duas APIs DE REST:
 O [repositório de amostras de ARR](https://github.com/Azure/azure-remote-rendering) contém scripts de amostra na pasta *Scripts* para interagir com as APIs REST do serviço. Este artigo descreve o seu uso.
 
 > [!CAUTION]
-Chamar as funções de API REST com demasiada frequência fará com que o servidor se ausse e volte a falhar eventualmente. O código de falha http id neste caso é 429 ("muitos pedidos"). Em regra, deve haver um atraso de **5-10 segundos entre chamadas subsequentes**.
+> Chamar as funções de API REST com demasiada frequência fará com que o servidor se ausse e volte a falhar eventualmente. O código de falha http id neste caso é 429 ("muitos pedidos"). Em regra, deve haver um atraso de **5-10 segundos entre chamadas subsequentes**.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

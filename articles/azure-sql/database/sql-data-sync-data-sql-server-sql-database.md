@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/20/2019
-ms.openlocfilehash: 7bdb2c6ba6717624b19184ca3bcb47ee9b3da367
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 268455e582e54dfa8eb73fe81eaad19f453e303b
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856114"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057897"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>O que é SQL Data Sync para Azure?
 
@@ -136,7 +136,7 @@ O fornecimento e desprovisionamento durante a criação, atualização e elimina
 - Tenha cuidado quando utilizar os seguintes tipos de dados como chave primária, porque a precisão suportada é apenas para a segunda: hora, data, data 2, datatimeoff.
 - Os nomes dos objetos (bases de dados, tabelas e colunas) não podem conter o período de caracteres imprimíveis (.), suporte quadrado esquerdo ([) ou suporte quadrado direito (]).
 - A autenticação do Diretório Ativo Azure não é suportada.
-- As tabelas com o mesmo nome mas esquemas diferentes (por exemplo, dbo.clientes e vendas.clientes) não são suportados.
+- Se houver tabelas com o mesmo nome mas esquemas diferentes (por exemplo, dbo.clientes e vendas.clientes) apenas uma das tabelas pode ser adicionada em sincronização.
 - Colunas com User-Defined Tipos de Dados não são suportadas
 - A movimentação de servidores entre diferentes subscrições não é suportada. 
 

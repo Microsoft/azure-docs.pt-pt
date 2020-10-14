@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ab60cb83e68a0c325ec1e2ac102870493016b57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a48a72aa021a17c59adb86bece66cec966e234bd
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89231236"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056145"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Analise os registos de atividades da AZure com registos do Monitor Azure
 
@@ -100,16 +100,13 @@ Também pode configurar alertas na sua consulta. Por exemplo, para configurar um
 
 5. Uma vez configurado o alerta, selecione **Criar alerta** para o ativar. 
 
-## <a name="install-and-use-pre-built-views-for-azure-ad-activity-logs"></a>Instale e utilize vistas pré-construídas para registos de atividades Azure AD
+## <a name="use-pre-built-workbooks-for-azure-ad-activity-logs"></a>Utilize livros pré-construídos para registos de atividades Azure AD
 
-Também pode baixar as vistas pré-construídas para a análise de registos Ad. Os pontos de vista fornecem vários relatórios relacionados com cenários comuns que envolvem eventos de auditoria e de acesso. Também pode alertar qualquer um dos dados fornecidos nos relatórios, utilizando os passos descritos na secção anterior.
+Os livros fornecem vários relatórios relacionados com cenários comuns envolvendo eventos de auditoria, inscrição e provisionamento. Também pode alertar qualquer um dos dados fornecidos nos relatórios, utilizando os passos descritos na secção anterior.
 
-* **Eventos de Provisionamento de Conta AZure AD**: Esta visão mostra relatórios relacionados com a atividade de provisionamento de auditoria, tais como o número de novos utilizadores a provisionados e falhas de provisionamento, o número de utilizadores atualizados e as falhas de atualização e o número de utilizadores desavisionados e falhas correspondentes.    
-* **Eventos de início de**sposição : Esta vista mostra os relatórios mais relevantes relacionados com a monitorização da atividade de início de sposição, tais como inserções por aplicação, utilizador, dispositivo, bem como uma visão sumária que rastreia o número de ins-ins ao longo do tempo.
-* **Utilizadores Realizando Consentimento**: Esta vista mostra relatórios relacionados com o consentimento do utilizador, tais como as concessões de consentimento por utilizador, as entradas de utilizadores que concederam o consentimento, bem como as insusões por aplicação para todas as aplicações baseadas no consentimento. 
-
-Saiba como [instalar e utilizar vistas de análise de registos para registos de atividades Azure AD](howto-install-use-log-analytics-views.md). 
-
+* **Análise do provisionamento**: Este [livro](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) mostra relatórios relacionados com a atividade de fornecimento de auditoria, tais como o número de novos utilizadores a provisionados e falhas no provisionamento, o número de utilizadores atualizados e falhas de atualização e o número de utilizadores desavisionados e falhas correspondentes.    
+* **Eventos de início de sposição**: Este livro mostra os relatórios mais relevantes relacionados com a monitorização da atividade de início de sposição, tais como inserções por aplicação, utilizador, dispositivo, bem como uma visão sumária que rastreia o número de ins- ins ao longo do tempo.
+* **Insights de acesso condicional**: Os insights de acesso condicional e [o livro](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-insights-reporting) de relatórios permitem-lhe compreender o impacto das políticas de Acesso Condicional na sua organização ao longo do tempo. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

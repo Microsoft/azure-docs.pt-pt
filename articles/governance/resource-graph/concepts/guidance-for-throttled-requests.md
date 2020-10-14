@@ -1,15 +1,15 @@
 ---
 title: Documentação de orientação para pedidos limitados
 description: Aprenda a agrupar, cambalear, paginar e consultar em paralelo para evitar que os pedidos sejam estrangulados pelo Azure Resource Graph.
-ms.date: 08/03/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c8576fe38433026a28a3fb09a03332b5dd756bab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a8ba991d13b9be221e67f2ff1e393fb01f8a2d4
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89006011"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056179"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Orientação para pedidos acelerados no Gráfico de Recursos Azure
 
@@ -132,7 +132,7 @@ Devido à forma como o estrangulamento é aplicado, recomendamos que as consulta
   |---------------------|-----|------|-------|-------|
   | Intervalo de tempo (seg) | 0-5 | 5-10 | 10-15 | 15-20 |
 
-Abaixo está um exemplo de respeito pelos cabeçalhos de estrangulamento ao consultar o Gráfico de Recursos Azure:
+Aqui está um exemplo de respeito pelos cabeçalhos de estrangulamento ao consultar o Azure Resource Graph:
 
 ```csharp
 while (/* Need to query more? */)
@@ -156,7 +156,7 @@ while (/* Need to query more? */)
 
 ### <a name="query-in-parallel"></a>Consulta em Paralelo
 
-Embora o agrupamento seja recomendado sobre a paralelização, há momentos em que as consultas não podem ser facilmente agrupadas. Nestes casos, poderá querer consultar o Azure Resource Graph enviando várias consultas de forma paralela. Abaixo está um exemplo de como _recuar_ com base em cabeçalhos de estrangulamento em tais cenários:
+Embora o agrupamento seja recomendado sobre a paralelização, há momentos em que as consultas não podem ser facilmente agrupadas. Nestes casos, poderá querer consultar o Azure Resource Graph enviando várias consultas de forma paralela. Aqui está um exemplo de como _recuar_ com base em cabeçalhos estrangulantes em tais cenários:
 
 ```csharp
 IEnumerable<IEnumerable<string>> queryGroup = /* Groups of queries  */
@@ -219,7 +219,7 @@ Uma vez que o Azure Resource Graph retorna no máximo 1000 entradas numa única 
 
 - Azure CLI / Azure PowerShell
 
-  Ao utilizar o Azure CLI ou o Azure PowerShell, as consultas ao Azure Resource Graph são automaticamente paginadas para obter no máximo 5000 entradas. Os resultados da consulta devolvem uma lista combinada de entradas de todas as chamadas paginadas. Neste caso, dependendo do número de entradas no resultado da consulta, uma única consulta paginada pode consumir mais do que uma quota de consulta. Por exemplo, no exemplo abaixo, uma única tiragem da consulta pode consumir até cinco quotas de consulta:
+  Ao utilizar o Azure CLI ou o Azure PowerShell, as consultas ao Azure Resource Graph são automaticamente paginadas para obter no máximo 5000 entradas. Os resultados da consulta devolvem uma lista combinada de entradas de todas as chamadas paginadas. Neste caso, dependendo do número de entradas no resultado da consulta, uma única consulta paginada pode consumir mais do que uma quota de consulta. Por exemplo, nos seguintes exemplos, uma única tiragem da consulta pode consumir até cinco quotas de consulta:
 
   ```azurecli-interactive
   az graph query -q 'Resources | project id, name, type' --first 5000

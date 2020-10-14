@@ -13,12 +13,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9fddd5cb749b1dfe50505c139ed7900f709b584e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f40c91672310d5963dab01180ea92633e970c5c
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90706256"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055376"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Como: Migrar do Serviço de Controlo de Acesso Azure
 
@@ -214,7 +214,7 @@ A um nível elevado, *o Azure Ative Directory é provavelmente a melhor escolha 
 
 Se decidir que o Azure AD é o melhor caminho de migração para as suas aplicações e serviços, deve estar ciente de duas formas de integrar a sua app com a Azure AD.
 
-Para utilizar WS-Federation ou WIF para integrar com a Azure AD, recomendamos seguir a abordagem descrita em [Configure federado único sinal para uma aplicação não-galeria](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md). O artigo refere-se à configuração do Azure AD para um único sign-on baseado em SAML, mas também funciona para configurar a WS-Federation. Seguindo esta abordagem requer uma licença Azure AD Premium. Esta abordagem tem duas vantagens:
+Para utilizar WS-Federation ou WIF para integrar com a Azure AD, recomendamos seguir a abordagem descrita em [Configure federado único sinal para uma aplicação não-galeria](../manage-apps/configure-saml-single-sign-on.md). O artigo refere-se à configuração do Azure AD para um único sign-on baseado em SAML, mas também funciona para configurar a WS-Federation. Seguindo esta abordagem requer uma licença Azure AD Premium. Esta abordagem tem duas vantagens:
 
 - Obtém-se a flexibilidade total da personalização do Azure AD. Pode personalizar as reclamações emitidas pela Azure AD para corresponder às reclamações emitidas pelo Access Control. Isto inclui especialmente a reclamação do ID do utilizador ou do identificador de nomes. Para continuar a receber IDentifiers de utilizador consistentes para os seus utilizadores depois de alterar as tecnologias, certifique-se de que os IDs do utilizador emitidos pela Azure AD correspondem aos emitidos pelo Access Control.
 - Você pode configurar um certificado de assinatura simbólica específico para a sua aplicação, e com uma vida inteira que você controla.
@@ -226,7 +226,7 @@ Uma abordagem alternativa é seguir [esta amostra de código,](https://github.co
 
 Se escolher esta abordagem, tem de compreender a assinatura da [chave de capotamento em Azure AD](../develop/active-directory-signing-key-rollover.md). Esta abordagem utiliza a chave de assinatura global Azure AD para emitir fichas. Por predefinição, a WIF não atualiza automaticamente as teclas de assinatura. Quando o Azure AD roda as suas chaves de assinatura global, a sua implementação wif precisa estar preparada para aceitar as alterações. Para obter mais informações, consulte [informações importantes sobre a assinatura da chave de capotamento em Azure AD](/previous-versions/azure/dn641920(v=azure.100)).
 
-Se puder integrar-se com a Azure AD através dos protocolos OpenID Connect ou OAuth, recomendamos que o faça. Dispomos de documentação e orientação extensiva sobre como integrar o Azure AD na sua aplicação web disponível no nosso [guia de desenvolvimento AZure AD.](https://aka.ms/aaddev)
+Se puder integrar-se com a Azure AD através dos protocolos OpenID Connect ou OAuth, recomendamos que o faça. Dispomos de documentação e orientação extensiva sobre como integrar o Azure AD na sua aplicação web disponível no nosso [guia de desenvolvimento AZure AD.](../develop/index.yml)
 
 #### <a name="migrate-to-azure-active-directory-b2c"></a>Migrar para O Diretório Ativo B2C
 
@@ -332,7 +332,7 @@ Também pode utilizar o AZure AD para autenticação servidor-a-servidor utiliza
 
 Para obter orientações sobre a implementação de cenários servidor-a-servidor, consulte os seguintes recursos:
 
-- Secção de serviço-a-serviço do guia de [desenvolvimento Azure AD](https://aka.ms/aaddev)
+- Secção de serviço-a-serviço do guia de [desenvolvimento Azure AD](../develop/index.yml)
 - [Amostra de código Daemon usando credenciais simples do cliente de senha](https://github.com/Azure-Samples/active-directory-dotnet-daemon)
 - [Amostra de código Daemon usando credenciais de cliente certificado](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
 

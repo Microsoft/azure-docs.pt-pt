@@ -1,15 +1,15 @@
 ---
 title: 'Quickstart: Criar uma consulta partilhada com modelos'
 description: Neste arranque rápido, utiliza-se um modelo de Gestor de Recursos Azure (modelo ARM) para criar uma consulta partilhada de Gráfico de Recurso que conta com máquinas virtuais por SISTEMA.
-ms.date: 07/06/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: cc9da201b10b697f125e8ffe7402f23f5eaa8362
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a629dd5325fc20d6f173d9f4e0524885af8fdf49
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88685532"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057013"
 ---
 # <a name="quickstart-create-a-shared-query-by-using-an-arm-template"></a>Quickstart: Crie uma consulta partilhada utilizando um modelo ARM
 
@@ -53,9 +53,9 @@ O recurso definido no modelo é:
    | Subscrição | Selecione a sua subscrição do Azure. |
    | Grupo de recursos | **Selecione Criar novo,** especifique um nome e, em seguida, selecione **OK**. |
    | Localização | selecione uma região. Por exemplo, **E.U.A. Central**. |
-   | Nome de consulta | Deixe o valor padrão **Conde VMs por OS**. |
-   | Código de consulta | Deixe o valor padrão `Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)` |
-   | Descrição de consultas | Deixe o valor predefinido **Esta consulta partilhada conta todos os recursos da máquina virtual e resume pelo tipo de SO.** |
+   | Nome de consulta | Deixe o valor predefinido: **Conde VMs por OS**. |
+   | Código de consulta | Deixe o valor predefinido: `Resources | where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)` |
+   | Descrição de consultas | Deixe o valor predefinido: **Esta consulta partilhada conta todos os recursos da máquina virtual e resume pelo tipo de SO.** |
    | Concordo com os termos e condições acima indicados | (Selecione) |
 
 1. Selecione **Comprar**.
@@ -75,7 +75,7 @@ Para executar a nova consulta partilhada, siga estes passos:
 
 1. Selecione a consulta partilhada denominada **Count VMs por OS**e, em seguida, selecione o **separador Resultados** na página **'Vista Geral'.**
 
-Em alternativa, a consulta partilhada pode ser aberta a partir do Explorador de Gráficos de Recursos:
+A consulta partilhada também pode ser aberta a partir do Explorador de Gráficos de Recursos:
 
 1. A partir da barra de pesquisa do portal, procure **o Explorador de Gráficos de Recursos** e selecione-o.
 
@@ -83,7 +83,7 @@ Em alternativa, a consulta partilhada pode ser aberta a partir do Explorador de 
 
 1. Alterar **tipo** para _consultas partilhadas_. Se não vir os **VMs do Conde por OS** na lista, utilize a caixa de filtro para limitar os resultados. Uma vez visíveis os **VMs do Conde por OS,** selecione o seu nome.
 
-1. Uma vez carregada a consulta, selecione o botão **de consulta 'Executar'.** Os resultados são apresentados no separador **Resultados** abaixo.
+1. Uma vez carregada a consulta, selecione o botão **de consulta 'Executar'.** Os resultados são apresentados no separador **Resultados.**
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

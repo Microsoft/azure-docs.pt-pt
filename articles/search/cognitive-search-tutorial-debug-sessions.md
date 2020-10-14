@@ -2,18 +2,18 @@
 title: 'Tutorial: Use sessões de Debug para diagnosticar, corrigir e comprometer alterações no seu skillset'
 titleSuffix: Azure Cognitive Search
 description: As sessões de depurg (pré-visualização) fornecem uma interface baseada no portal para avaliar e reparar problemas/erros nas suas habilidades
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: 8bbd0b1979da69e5d4d18009100a7caee5a3d722
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33c26af86bfcf2f748a0fa68ee4f3d0da1f132e1
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397407"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057557"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>Tutorial: Diagnosticar, reparar e comprometer alterações na sua habilidade
 
@@ -190,9 +190,9 @@ Quando o indexante terminar de funcionar, deve haver uma marca de verificação 
 1. Abra o índice 'ensaios clínicos' e no separador Explorador de Pesquisa, clique em **Procurar**.
 1. A janela de resultados deve mostrar que as entidades de organizações e locais estão agora povoadas com os valores esperados.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
-Ao trabalhar na sua própria subscrição, recomendamos que verifique, depois de concluir um projeto, se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
+Ao trabalhar na sua própria subscrição, depois de concluir um projeto, recomendamos que verifique se irá precisar dos recursos que criou. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 
 Pode encontrar e gerir recursos no portal, utilizando a ligação **de todos os recursos** ou **grupos** de recursos no painel de navegação à esquerda.
 

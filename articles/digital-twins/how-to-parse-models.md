@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c9e489d58b2c4bee0cd9551d15bfa59c3610d959
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 2cc60af26754eddbe8699019ae8d906a4c1e9e62
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047204"
+ms.locfileid: "92057693"
 ---
 # <a name="parse-and-validate-models-with-the-dtdl-parser-library"></a>Parse e valide modelos com a biblioteca de parser DTDL
 
@@ -112,9 +112,9 @@ async void ParseDemo(DigitalTwinsClient client)
 {
     try
     {
-        AsyncPageable<DigitalTwinsModelData> mdata = client.GetModelsAsync(null, true);
+        AsyncPageable<ModelData> mdata = client.GetModelsAsync(null, true);
         List<string> models = new List<string>();
-        await foreach (DigitalTwinsModelData md in mdata)
+        await foreach (ModelData md in mdata)
             models.Add(md.Model);
         ModelParser parser = new ModelParser();
         IReadOnlyDictionary<Dtmi, DTEntityInfo> dtdlOM = await parser.ParseAsync(models);

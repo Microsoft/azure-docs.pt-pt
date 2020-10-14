@@ -1,14 +1,14 @@
 ---
 title: Exemplos de consultas avançadas
 description: Use o Gráfico de Recursos Azure para executar algumas consultas avançadas, incluindo trabalhar com colunas, listar etiquetas usadas e combinar recursos com expressões regulares.
-ms.date: 08/13/2020
+ms.date: 10/14/2020
 ms.topic: sample
-ms.openlocfilehash: 8463880189a76f299ce5552fff2b7bccddfa8dec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dff4b06cc5cf4385820c7f6251efaae792d9c22d
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89425301"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057149"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Amostras avançadas de consulta de gráficos de recursos
 
@@ -625,9 +625,7 @@ Search-AzGraph -Query "GuestConfigurationResources | extend vmid = split(propert
 
 ## <a name="query-details-of-guest-configuration-assignment-reports"></a><a name="query-gcreports"></a>Detalhes de consulta dos relatórios de atribuição de configuração de hóspedes
 
-Apresentar relatório a partir de detalhes da razão da atribuição de [configuração do hóspede.](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)
-No exemplo abaixo, a consulta retorna apenas os resultados onde o nome de Atribuição de Hóspedes é `installed_application_linux` e a saída contém a cadeia para `Python` listar todas as máquinas Linux onde está instalado um pacote que inclui o nome **Python**.
-Para consultar a conformidade de todas as máquinas para uma atribuição específica, remova a 2ª `where` cláusula.
+Apresentar relatório a partir de detalhes da razão da atribuição de [configuração do hóspede.](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) No exemplo seguinte, a consulta retorna apenas os resultados onde o nome de Atribuição de Hóspedes é `installed_application_linux` e a saída contém a cadeia para `Python` listar todas as máquinas Linux onde está instalado um pacote que inclui o nome **Python**. Para consultar a conformidade de todas as máquinas para uma atribuição específica, remova a segunda `where` cláusula.
 
 ```kusto
 GuestConfigurationResources
@@ -666,8 +664,7 @@ Search-AzGraph -Query "GuestConfigurationResources | extend vmid = split(propert
 
 ## <a name="find-all-reasons-a-machine-is-non-compliant-for-guest-configuration-assignments"></a><a name="query-gcmachinedetails"></a>Encontre todas as razões pelas quais uma máquina não é compatível com as atribuições de Configuração de Hóspedes
 
-Mostrar todas as [razões de atribuição de configuração do hóspede](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) para uma máquina específica.
-Remova a primeira `where` cláusula para incluir também auditorias em que a máquina está em conformidade.
+Mostrar todas as [razões de atribuição de configuração do hóspede](../../policy/how-to/determine-non-compliance.md#compliance-details-for-guest-configuration) para uma máquina específica. Remova a primeira `where` cláusula para incluir também auditorias em que a máquina está em conformidade.
 
 ```kusto
 GuestConfigurationResources
