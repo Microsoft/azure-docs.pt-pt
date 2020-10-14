@@ -1,22 +1,22 @@
 ### YamlMime:Landing
 title: Documentação do Azure Dev Spaces
-summary: O Azure Dev Spaces é uma extensão do AKS que lhe permite executar e depurar facilmente o seu código no contexto de uma aplicação maior. Pode testar o código ponto a ponto, acertar nos pontos de interrupção no código em execução no cluster e partilhar um cluster de desenvolvimento entre os membros da equipa sem interferência.
+summary: O Azure Dev Spaces foi preterido e será descontinuado a 31 de outubro de 2023.
 metadata:
   title: Documentação do Azure Dev Spaces
-  description: O Azure Dev Spaces é uma extensão do AKS que lhe permite executar e depurar facilmente o seu código no contexto de uma aplicação maior. Pode testar o código ponto a ponto, acertar nos pontos de interrupção no código em execução no cluster e partilhar um cluster de desenvolvimento entre os membros da equipa sem interferência.
+  description: O Azure Dev Spaces foi preterido e será descontinuado a 31 de outubro de 2023.
   services: azure-dev-spaces
   ms.service: azure-dev-spaces
   ms.topic: landing-page
   author: zr-msft
   ms.author: zarhoads
   manager: gwallace
-  ms.date: 09/30/2019
-  ms.openlocfilehash: a3583cf57725acfdc812e44c921842acebbfd0a0
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.date: 10/12/2020
+  ms.openlocfilehash: 47cc21196875e09576b7a8e0a5a8233df294de7d
+  ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91773319"
+  ms.lasthandoff: 10/13/2020
+  ms.locfileid: "91965867"
 landingContent:
 - title: Acerca do Azure Dev Spaces
   linkLists:

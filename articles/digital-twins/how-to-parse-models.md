@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 496ca7edfbfb81d8d8838d704b128701a5960e5b
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c9e489d58b2c4bee0cd9551d15bfa59c3610d959
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974928"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047204"
 ---
 # <a name="parse-and-validate-models-with-the-dtdl-parser-library"></a>Parse e valide modelos com a biblioteca de parser DTDL
 
@@ -20,11 +20,11 @@ ms.locfileid: "91974928"
 
 Para o ajudar a fazê-lo, uma biblioteca de análise DTDL do lado do cliente .NET é fornecida no NuGet: [**Microsoft.Azure.DigitalTwins.Parser**](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). 
 
-Pode utilizar a biblioteca parser diretamente no seu código C# ou utilizar o projeto de amostra de código agnóstico linguístico que é construído na biblioteca de parser: [**amostra de validador DTDL**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator).
+Pode utilizar a biblioteca parser diretamente no seu código C# ou utilizar o projeto de amostra de código agnóstico linguístico que é construído na biblioteca de parser: [**amostra de validador DTDL**](/samples/azure-samples/dtdl-validator/dtdl-validator).
 
 ## <a name="use-the-dtdl-validator-sample"></a>Utilize a amostra de validador DTDL
 
-O [**DTDL Validator**](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) é um projeto de amostra que pode validar documentos de modelo para garantir que o DTDL é válido. É construído na biblioteca .NET parser e é linguagem-agnóstico. Pode obtê-lo com o botão *Download ZIP* no link da amostra.
+O [**DTDL Validator**](/samples/azure-samples/dtdl-validator/dtdl-validator) é um projeto de amostra que pode validar documentos de modelo para garantir que o DTDL é válido. É construído na biblioteca .NET parser e é linguagem-agnóstico. Pode obtê-lo com o botão *Download ZIP* no link da amostra.
 
 O código de origem mostra exemplos de como utilizar a biblioteca de parser. Pode utilizar a amostra validador como utilitário de linha de comando para validar uma árvore de diretório de ficheiros DTDL. Também fornece um modo interativo.
 

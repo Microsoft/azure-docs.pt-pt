@@ -173,8 +173,8 @@
       href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
     - name: Azure PowerShell
       href: 'https://aka.ms/azure-powershell-cognitiveservices'
-    - name: API de Imagem Digitalizada v3.1 pré-visualização
-      href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005'
+    - name: API de Imagem Digitalizada v3.1
+      href: 'https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005'
     - name: API de Imagem Digitalizada v3.0
       href: 'https://aka.ms/computer-vision-v3-ref'
     - name: API de Imagem Digitalizada v2.1

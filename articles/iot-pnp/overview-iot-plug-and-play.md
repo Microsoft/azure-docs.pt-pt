@@ -9,12 +9,12 @@ ms.service: iot-pnp
 services: iot-pnp
 manager: eliotgra
 ms.custom: references_regions
-ms.openlocfilehash: 984977d7cef1a923bf7f17de0c503bddeeebcd82
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 3a5d0ba92ab976f9ea3aa2722f92865f06d5a70e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998377"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045045"
 ---
 # <a name="what-is-iot-plug-and-play"></a>O que é o IoT Plug and Play?
 
@@ -26,7 +26,7 @@ O IoT Plug and Play permite aos construtores de soluções integrar dispositivos
 
 Pode agrupar estes elementos em interfaces para reutilizar os modelos para facilitar a colaboração e acelerar o desenvolvimento.
 
-Para que o IoT Plug and Play funcione com [as Gémeas Digitais Azure,](../digital-twins/about-digital-twins.md)define modelos e interfaces utilizando a [Linguagem de Definição de Gémeos Digitais (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl). O IoT Plug and Play e o DTDL estão abertos à comunidade, e a Microsoft congratula-se com a colaboração com clientes, parceiros e indústria. Ambos são baseados em padrões W3C abertos, tais como JSON-LD e RDF, o que permite uma adoção mais fácil entre serviços e ferramentas.
+Para que o IoT Plug and Play funcione com [as Gémeas Digitais Azure,](../digital-twins/overview.md)define modelos e interfaces utilizando a [Linguagem de Definição de Gémeos Digitais (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl). O IoT Plug and Play e o DTDL estão abertos à comunidade, e a Microsoft congratula-se com a colaboração com clientes, parceiros e indústria. Ambos são baseados em padrões W3C abertos, tais como JSON-LD e RDF, o que permite uma adoção mais fácil entre serviços e ferramentas.
 
 Não há custos adicionais para a utilização de IoT Plug e Play e DTDL. As tarifas padrão para [o Azure IoT Hub](../iot-hub/about-iot-hub.md) e outros serviços Azure permanecem as mesmas.
 
@@ -74,4 +74,3 @@ Agora que tem uma visão geral do IoT Plug and Play, o próximo passo sugerido �
 
 - [Ligue um dispositivo ao Hub IoT (C)](./quickstart-connect-device-c.md)
 - [Interagir com um dispositivo a partir da sua solução (Node.js)](./quickstart-service-node.md)
-

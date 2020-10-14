@@ -7,12 +7,12 @@ ms.date: 08/25/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f0f0452854ef7456d1bdf7caf0674fab5bd14557
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d57c1828b9456851d37a65b88eb5f8ea860a80fe
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91297135"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045861"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-starter"></a>Criar um pipeline CI/CD para IoT Edge com Azure DevOps Starter
 
@@ -81,7 +81,7 @@ DevOps Starter criou um repositório Git para o seu projeto em Azure Repos. Nest
 
    ![Abra module.jsem arquivo em Azure Repos](./media/how-to-devops-starter/open-module-json.png)
 
-3. Note que este ficheiro utiliza [Azure DevOps para construir variáveis](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables) no parâmetro da **versão.** Esta configuração garante que uma nova versão do módulo será criada sempre que uma nova construção for executado.
+3. Note que este ficheiro utiliza [Azure DevOps para construir variáveis](/azure/devops/pipelines/build/variables?view=vsts#build-variables) no parâmetro da **versão.** Esta configuração garante que uma nova versão do módulo será criada sempre que uma nova construção for executado.
 
 ## <a name="examine-the-cicd-pipeline"></a>Examinar o gasoduto CI/CD
 
@@ -125,7 +125,7 @@ Nas secções anteriores, o Azure DevOps Starter configurau automaticamente um p
 
 14. Selecione o nome de um lançamento para ver mais informações sobre o mesmo.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Pode eliminar o Azure App Service e outros recursos relacionados que criou quando já não precisa deles. Utilize a funcionalidade **Eliminar** no painel de arranque de devOps.
 
