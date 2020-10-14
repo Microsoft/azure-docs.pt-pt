@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Gerir consultas no portal Azure'
 description: Neste tutorial, cria-se uma Consulta de Gráfico de Recurso e partilha a nova consulta com outros no portal Azure.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: tutorial
-ms.openlocfilehash: f602a6ed26f467f2d3395bdf5e3346c83684b108
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98d4c7d0493686a45bdfef9d85823432cb637a66
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88005183"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057931"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Tutorial: Criar e partilhar uma consulta de Gráfico de Recursos Azure no portal Azure
 
@@ -60,8 +60,7 @@ As consultas privadas são acessíveis e visíveis apenas à conta que as cria. 
 
 ## <a name="create-a-shared-query"></a>Criar uma consulta partilhada
 
-Ao contrário de uma consulta privada, uma consulta partilhada é um recurso de Gestor de Recursos. Este facto significa que a consulta é guardada para um grupo de recursos, pode ser gerida e controlada com o Azure RBAC, e pode até ser protegida com bloqueios de recursos. Como recurso, qualquer pessoa que tenha as permissões apropriadas pode vê-lo e usá-lo.
-Para criar uma nova consulta partilhada, siga estes passos:
+Ao contrário de uma consulta privada, uma consulta partilhada é um recurso de Gestor de Recursos. Este facto significa que a consulta é guardada para um grupo de recursos, pode ser gerida e controlada com o Azure RBAC, e pode até ser protegida com bloqueios de recursos. Como recurso, qualquer pessoa que tenha as permissões apropriadas pode vê-lo e usá-lo. Para criar uma nova consulta partilhada, siga estes passos:
 
 1. A partir do menu do portal, selecione **Todos os serviços**ou utilize a caixa de pesquisa Azure no topo de todas as páginas para procurar e selecionar **o Explorador de Gráficos de Recursos**.
 
@@ -107,7 +106,7 @@ Para criar uma nova consulta partilhada, siga estes passos:
 
 Como uma consulta partilhada é um recurso do Gestor de Recursos, existem várias formas de encontrar uma:
 
-- A partir do Explorador de Gráficos de Recurso, selecione **Abrir uma consulta** e definir o tipo para consulta **partilhada**.
+- Do Explorador de Gráficos de Recursos. Selecione **Abrir uma consulta** e definir o tipo de consulta **partilhada**.
 - A partir da página do portal de consultas de gráfico de recurso.
 - Do grupo de recursos em que a consulta partilhada foi salva.
 - Através de uma consulta ao Gráfico de Recursos.
@@ -149,7 +148,7 @@ Pode eliminar uma consulta partilhada através das seguintes interfaces:
 - Abra uma página **de consulta** no Explorador de Gráficos de Recursos
 - Página de grupos de recursos
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando terminar este tutorial, elimine as consultas privadas e partilhadas que criou se já não as quiser.
 

@@ -5,14 +5,14 @@ services: web-application-firewall
 ms.topic: article
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 02/01/2020
+ms.date: 10/14/2020
 ms.author: victorh
-ms.openlocfilehash: 10a90a7f94633fac52086953697eb90a98d9509d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 789a60c80d14301c107824d178a3566d358d287f
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86143841"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056400"
 ---
 # <a name="azure-web-application-firewall-waf-policy-overview"></a>Visão geral da política do Azure Web Application Firewall (WAF)
 
@@ -62,4 +62,4 @@ Todas as definições waf da Web Application Firewall (regras personalizadas, co
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Crie políticas por site e per-URI utilizando a Azure PowerShell.
+- [Crie políticas por local e por URI utilizando a Azure PowerShell](per-site-policies.md).

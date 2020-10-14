@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: b3cc70eadfaa1295cd67fa3f2b36c97f107b4bad
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 51c177af10713dfb35857097b267638156f0cc5d
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047000"
+ms.locfileid: "92057540"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Backup e restauro na Base de Dados Azure para o MySQL
 
@@ -29,19 +29,19 @@ O tipo de cópia de segurança e a frequência dependem do armazenamento de back
 
 #### <a name="basic-storage-servers"></a>Servidores básicos de armazenamento
 
-Os servidores de armazenamento básico são o armazenamento de backend para [servidores Basic SKU](concepts-pricing-tiers.md). As cópias de segurança nos servidores básicos de armazenamento são baseadas em instantâneos. Uma foto de base de dados completa é realizada diariamente. Não existem cópias de segurança diferenciais realizadas para servidores de armazenamento básicos e todas as cópias de segurança instantâneas são apenas cópias de segurança completas da base de dados. 
+O armazenamento básico é o armazenamento de backend que suporta [servidores de nível básico](concepts-pricing-tiers.md). As cópias de segurança nos servidores básicos de armazenamento são baseadas em instantâneos. Uma foto de base de dados completa é realizada diariamente. Não existem cópias de segurança diferenciais realizadas para servidores de armazenamento básicos e todas as cópias de segurança instantâneas são apenas cópias de segurança completas da base de dados. 
 
 As cópias de segurança de registo de transações ocorrem a cada cinco minutos. 
 
 #### <a name="general-purpose-storage-servers-with-up-to-4-tb-storage"></a>Servidores de armazenamento de finalidade geral com armazenamento até 4-TB
 
-Para os servidores que suportam até 4-TB de armazenamento de finalidade geral máxima, as cópias de segurança completas ocorrem uma vez por semana. As cópias de segurança diferenciais ocorrem duas vezes por dia. As cópias de segurança do registo de transações ocorrem a cada cinco minutos. As cópias de segurança no armazenamento de fins gerais até 4-TB não são baseadas em instantâneos e consomem largura de banda IO no momento da cópia de segurança. Para grandes bases de dados (> 1TB) no armazenamento de 4-TB, recomendamos que considere 
+O armazenamento para fins gerais é o armazenamento de backend suportando o servidor de nível [de finalidade geral](concepts-pricing-tiers.md) e [de memória otimizado.](concepts-pricing-tiers.md) Para servidores com armazenamento de finalidade geral até 4-TB, as cópias de segurança completas ocorrem uma vez por semana. As cópias de segurança diferenciais ocorrem duas vezes por dia. As cópias de segurança do registo de transações ocorrem a cada cinco minutos. As cópias de segurança no armazenamento de fins gerais até 4-TB não são baseadas em instantâneos e consomem largura de banda IO no momento da cópia de segurança. Para grandes bases de dados (> 1TB) no armazenamento de 4-TB, recomendamos que considere 
 
-- Provisionar mais IOPs para responder a iOs de backup  
-- Alternativamente, migrar para o armazenamento de propósito geral que suporte até 16-TB de armazenamento se o armazenamento estiver disponível nas suas [regiões Azure preferidas](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage). Não existe um custo adicional para o armazenamento para fins gerais que suporte até 16-TB armazenamento. Para assistência com a migração para o armazenamento de 16-TB, abra um bilhete de apoio a partir do portal Azure. 
+- Provisionando mais IOPs para responder a iOs de backup OR
+- Alternativamente, migrar para o armazenamento de propósito geral que suporta até 16-TB armazenamento se a infastructure de armazenamento subjacente estiver disponível nas suas [regiões de Azure preferidas](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage). Não existe um custo adicional para o armazenamento para fins gerais que suporte até 16-TB armazenamento. Para assistência com a migração para o armazenamento de 16-TB, abra um bilhete de apoio a partir do portal Azure. 
 
 #### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>Servidores de armazenamento de finalidade geral com armazenamento até 16-TB
-Num subconjunto de [regiões Azure,](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)todos os servidores recém-abastados podem suportar o armazenamento de fins gerais até 16-TB. As cópias de segurança nestes servidores de armazenamento de 16 TB são baseadas em instantâneos. A primeira cópia de segurança de instantâneos completa é agendada imediatamente após a criação do servidor. A primeira cópia de segurança total do instantâneo é mantida como a cópia de segurança base do servidor. As cópias de segurança de instantâneos subsequentes são apenas cópias de segurança diferenciais. 
+Num subconjunto de [regiões Azure,](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)todos os servidores recém-abastados podem suportar o armazenamento de fins gerais até 16-TB. Por outras palavras, o armazenamento até 16-TB é o armazenamento geral padrão para todas as [regiões](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage) onde é suportado. As cópias de segurança nestes servidores de armazenamento de 16 TB são baseadas em instantâneos. A primeira cópia de segurança de instantâneos completa é agendada imediatamente após a criação do servidor. A primeira cópia de segurança total do instantâneo é mantida como a cópia de segurança base do servidor. As cópias de segurança de instantâneos subsequentes são apenas cópias de segurança diferenciais. 
 
 As cópias de segurança de instantâneos diferenciais ocorrem, pelo menos, uma vez por dia. As cópias de segurança de instantâneos diferenciais não ocorrem num agendamento fixo. As cópias de segurança instantânea diferenciais ocorrem a cada 24 horas, a menos que o registo de transação (binlog no MySQL) exceda 50-GB desde a última cópia de segurança diferencial. Num dia, são permitidos, no máximo, seis instantâneos diferenciais. 
 

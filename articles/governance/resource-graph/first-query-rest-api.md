@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: A sua primeira consulta de API REST'
 description: Neste arranque rápido, siga os passos para ligar para o ponto final do Gráfico de Recursos para API REST e executar a sua primeira consulta.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 8776a107484691ffab72f2e1622ed5837375b7fb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8be0556b6aa2fd234c0f3e25d83c0239c8f674bb
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85802746"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057234"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-rest-api"></a>Quickstart: Execute a sua primeira consulta de Gráfico de Recursos usando a API REST
 
@@ -49,7 +49,8 @@ $restUri = 'https://management.azure.com/subscriptions/{subscriptionId}?api-vers
 $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 ```
 
-Substitua `{subscriptionId}` na variável **$restUri** acima para obter informações sobre a sua subscrição. A variável $response inclui o resultado do cmdlet `Invoke-RestMethod`, que pode ser analisado com cmdlets, tais como [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json). Se o ponto final de serviço da API REST esperar um **Corpo do Pedido**, forneça uma variável com o formato JSON para o parâmetro `-Body` de `Invoke-RestMethod`.
+Substitua `{subscriptionId}` na `$restUri` variável para obter informações sobre a sua subscrição.
+A `$response` variável detém o resultado do `Invoke-RestMethod` cmdlet, que pode ser analisado com cmdlets como [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json). Se o ponto final de serviço da API REST esperar um **Corpo do Pedido**, forneça uma variável com o formato JSON para o parâmetro `-Body` de `Invoke-RestMethod`.
 
 ## <a name="run-your-first-resource-graph-query"></a>Executar a primeira consulta do Resource Graph
 

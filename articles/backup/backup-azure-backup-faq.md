@@ -3,12 +3,12 @@ title: Respostas a perguntas comuns
 description: 'Respostas a perguntas comuns sobre: funcionalidades do Azure Backup incluindo os cofres dos Serviços de Recuperação, que cópias de segurança podem criar, como funcionam, a encriptação e os limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 26d833dfea214c5f29b77c2ac34a5f8863c7fbc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50cbd1d28ca3f04b8963c58b443765d4280b14ed
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986430"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058085"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – Perguntas frequentes
 
@@ -43,7 +43,7 @@ Sim. Para mover um cofre dos Serviços de Recuperação, veja este [artigo](back
 
 ### <a name="can-i-move-backup-data-to-another-vault"></a>Posso mover dados de cópia de segurança para outro cofre?
 
-N.º Os dados da cópia de segurança armazenados num cofre não podem ser movidos para um cofre diferente.
+Não. Os dados da cópia de segurança armazenados num cofre não podem ser movidos para um cofre diferente.
 
 ### <a name="can-i-change-the-storage-redundancy-setting-after-a-backup"></a>Posso mudar a definição de redundância de armazenamento depois de uma cópia de segurança?
 
@@ -139,7 +139,7 @@ Não, o Azure Backup não suporta a eliminação ou limpeza de itens individuais
 
 ### <a name="if-i-cancel-a-backup-job-after-it-starts-is-the-transferred-backup-data-deleted"></a>Se cancelar uma tarefa de cópia de segurança após ter sido iniciada, os dados transferidos serão eliminados?
 
-N.º Todos os dados que foram transferidos para o cofre antes da tarefa de cópia de segurança ser cancelada permanecem no cofre.
+Não. Todos os dados que foram transferidos para o cofre antes da tarefa de cópia de segurança ser cancelada permanecem no cofre.
 
 - O Backup do Azure utiliza um mecanismo de ponto de verificação para adicionar, ocasionalmente, pontos de verificação aos dados de cópia de segurança durante a cópia de segurança.
 - Por existirem pontos de verificação nos dados de cópia de segurança, o processo de cópia de segurança seguinte pode validar a integridade dos ficheiros.
@@ -159,13 +159,13 @@ Sim, há políticas personalizadas. Por exemplo, pode configurar requisitos de r
 
 ### <a name="can-i-use-different-times-for-backup-scheduling-and-retention-policies"></a>Posso utilizar horários diferentes para o agendamento de cópias de segurança e políticas de retenção?
 
-N.º Só podem ser aplicadas políticas de retenção em pontos de cópia de segurança. Por exemplo, esta imagem mostra uma política de retenção para cópias de segurança efetuadas às 12:00 e às 18:00.
+Não. Só podem ser aplicadas políticas de retenção em pontos de cópia de segurança. Por exemplo, esta imagem mostra uma política de retenção para cópias de segurança efetuadas às 12:00 e às 18:00.
 
 ![Agendar Cópia de Segurança e Retenção](./media/backup-azure-backup-faq/Schedule.png)
 
 ### <a name="if-a-backup-is-kept-for-a-long-time-does-it-take-more-time-to-recover-an-older-data-point"></a>Se uma cópia de segurança for mantida durante muito tempo, demora mais tempo para recuperar um ponto de dados mais antigo?
 
-N.º Não, o tempo para recuperar o ponto mais antigo ou mais recente é o mesmo. Cada ponto de recuperação funciona como um ponto completo.
+Não. Não, o tempo para recuperar o ponto mais antigo ou mais recente é o mesmo. Cada ponto de recuperação funciona como um ponto completo.
 
 ### <a name="if-each-recovery-point-is-like-a-full-point-does-it-impact-the-total-billable-backup-storage"></a>Se cada ponto de recuperação é como um ponto completo, afeta o armazenamento de cópia de segurança faturável total?
 
@@ -174,7 +174,7 @@ Os produtos de ponto de retenção de longa duração típicos armazenam cópias
 - Os pontos completos são *ineficazes* ao nível do armazenamento, mas é mais rápido e mais fácil restaurá-los.
 - As cópias incrementais são *eficientes* ao nível do armazenamento, mas necessitam que restaure uma cadeia de dados, que tem impacto no tempo de recuperação
 
-A arquitetura de armazenamento do Backup do Azure dá-lhe o melhor dos dois mundos ao armazenar da melhor maneira dados para restauros rápidos e incorrer em custos de armazenamento reduzido reduzidos. Tal garante que a largura de banda de entrada e de saída é utilizada com eficácia. A quantidade do armazenamento de dados e o tempo necessário para recuperar os dados são mantidos num mínimo. Obtenha mais informações sobre as [cópias de segurança incrementais](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/).
+A arquitetura de armazenamento do Backup do Azure dá-lhe o melhor dos dois mundos ao armazenar da melhor maneira dados para restauros rápidos e incorrer em custos de armazenamento reduzido reduzidos. Tal garante que a largura de banda de entrada e de saída é utilizada com eficácia. A quantidade do armazenamento de dados e o tempo necessário para recuperar os dados são mantidos num mínimo. Obtenha mais informações sobre as [cópias de segurança incrementais](backup-architecture.md#backup-types).
 
 ### <a name="is-there-a-limit-on-the-number-of-recovery-points-that-can-be-created"></a>Existe um limite no número de pontos de recuperação que podem ser criados?
 
@@ -188,7 +188,7 @@ Não há limite para o número de recuperações do Reforço Azure.
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure"></a>Quando restaurar os dados, pago pelo tráfego de saída do Azure?
 
-N.º A recuperação é gratuita e não lhe é cobrado o tráfego de saída.
+Não. A recuperação é gratuita e não lhe é cobrado o tráfego de saída.
 
 ### <a name="what-happens-when-i-change-my-backup-policy"></a>O que acontece quando altero a minha política de cópias de segurança?
 

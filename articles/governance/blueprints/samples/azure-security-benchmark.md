@@ -1,14 +1,14 @@
 ---
 title: Descrição geral do exemplo de esquema da Referência de Segurança do Azure
 description: Descrição geral do exemplo de esquema da Referência de Segurança do Azure. Este exemplo de esquema ajuda os clientes a avaliar controlos específicos.
-ms.date: 06/02/2020
+ms.date: 10/14/2020
 ms.topic: sample
-ms.openlocfilehash: 4113f350c21087dbda5f69d9c3981e2d169ffc00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b147ffd4efbf814b6119f5d7e90dc7af2ea2687
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651901"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057591"
 ---
 # <a name="azure-security-benchmark-blueprint-sample"></a>Amostra de projeto de benchmark de segurança Azure
 
@@ -18,7 +18,7 @@ O exemplo de esquema da Referência de Segurança do Azure disponibiliza proteç
 
 O [mapeamento de controlo de política Azure](../../policy/samples/azure-security-benchmark.md) fornece detalhes sobre as definições de política incluídas neste projeto e como estas definições de política mapeiam para os **domínios** de conformidade e **controlos** no Benchmark de Segurança Azure. Quando atribuídos a uma arquitetura, os recursos são avaliados pela Azure Policy para o incumprimento das definições políticas atribuídas. Para obter mais informações, veja [Azure Policy](../../policy/overview.md).
 
-## <a name="deploy"></a>Implementação
+## <a name="deploy"></a>Implementar
 
 Para implantar a amostra de projeto Azure Security Benchmark, devem ser tomadas as seguintes medidas:
 
@@ -46,7 +46,7 @@ Primeiro, crie um esquema novo no ambiente utilizando o exemplo como ponto de pa
 
 1. Selecione o separador _Artefactos_, na parte superior da página, ou **Seguinte: Artefactos**, na parte inferior.
 
-1. Reveja a lista de artefactos que compõem o esquema de exemplo. Muitos dos artefactos têm parâmetros que vamos definir mais tarde. Quando terminar de rever o esquema de exemplo, selecione **Guardar Rascunho**.
+1. Reveja a lista de artefactos incluídos na amostra de planta. Muitos dos artefactos têm parâmetros que vamos definir mais tarde. Quando terminar de rever o esquema de exemplo, selecione **Guardar Rascunho**.
 
 ### <a name="publish-the-sample-copy"></a>Publicar a cópia do exemplo
 

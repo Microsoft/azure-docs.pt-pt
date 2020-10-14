@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: Criar uma consulta partilhada com o Azure CLI'
 description: Neste arranque rápido, siga os passos para ativar a extensão do Gráfico de Recurso para O Azure CLI e crie uma consulta partilhada.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: c888cee5899c45747db1775ffdfbc0d0c78e00c7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: daaa0dc4039c37094330148f839fadf7b4013276
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667661"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057200"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-cli"></a>Quickstart: Criar uma consulta partilhada de gráficos de recurso usando O Azure CLI
 
@@ -84,7 +84,7 @@ Com a extensão Azure CLI adicionada ao seu ambiente de eleição, é hora de um
    ```
 
 1. Executar a consulta partilhada em Azure CLI com a `{{shared-query-uri}}` sintaxe num comando [de consulta de gráfico az.](/cli/azure/ext/resource-graph/graph#ext-resource-graph-az-graph-query)
-   Primeiro, copie o `id` campo do resultado do comando `show` acima. Substitua `shared-query-uri` o texto no exemplo pelo valor do `id` campo, mas deixe o ambiente e os `{{` `}}` caracteres.
+   Primeiro, copie o `id` campo do resultado do comando `show` anterior. Substitua `shared-query-uri` o texto no exemplo pelo valor do `id` campo, mas deixe o ambiente e os `{{` `}}` caracteres.
 
    ```azurecli-interactive
    # Run a Azure Resource Graph shared query

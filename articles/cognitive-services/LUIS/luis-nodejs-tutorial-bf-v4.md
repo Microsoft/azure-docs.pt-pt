@@ -6,18 +6,18 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: d6ef0b0d437674d78064e6c5c5a91e1b2b89074a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb158b713bea588e9de94e13ac194ec0a4d0020a
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324676"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058153"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>Tutorial: Use um Bot de aplicação web ativado com compreensão de linguagem em Node.js
 
 Use Node.js para construir um chat bot integrado com a compreensão da linguagem (LUIS). O bot é construído com o recurso [bot da app](https://docs.microsoft.com/azure/bot-service/) Azure Web e a versão Bot [Framework](https://github.com/Microsoft/botbuilder-dotnet) V4.
 
-**Neste tutorial, ficará a saber como:**
+**Neste tutorial, vai aprender a:**
 
 > [!div class="checklist"]
 > * Criar um bot de aplicação Web. Este processo cria uma aplicação LUIS nova.
@@ -27,7 +27,7 @@ Use Node.js para construir um chat bot integrado com a compreensão da linguagem
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Emulador de bot](https://aka.ms/abs/build/emulatordownload)
+* [Emulador de estrutura de bot](https://aka.ms/abs/build/emulatordownload)
 * [Visual Studio Code](https://code.visualstudio.com/Download)
 
 ## <a name="create-a-web-app-bot-resource"></a>Criar um recurso bot de aplicativo web
@@ -371,20 +371,20 @@ Para poder desenvolver o código de bot de aplicação Web, transfira o código 
 
 ![Uma página inicial exibe informações sobre o seu bot.](./media/bfv4-csharp/running-bot-web-home-page-success.png)
 
-## <a name="use-the-bot-emulator-to-test-the-bot"></a>Use o emulador de bot para testar o bot
+## <a name="use-the-bot-framework-emulator-to-test-the-bot"></a>Use o emulador de estrutura bot para testar o bot
 
 Faça uma pergunta ao Bot para a intenção do Voo do Livro.
 
-1. Inicie o Emulador Bot e selecione **Open Bot**.
+1. Inicie o emulador De Estrutura bot e selecione **Open Bot**.
 1. No **Open um diálogo** pop-up bot, insira o seu URL bot, tal como `http://localhost:3978/api/messages` . A `/api/messages` rota é o endereço web para o bot.
 1. Introduza a **palavra-passe** **do Microsoft App ID** e da Microsoft App , encontrada no ficheiro **.env** na raiz do código bot que descarregou.
 
-1. No emulador de bots, entre `Book a flight from Seattle to Berlin tomorrow` e obtenha a mesma resposta para o bot básico que recebeu no Teste em Web **Chat.**
+1. No emulador Bot Framework, insira `Book a flight from Seattle to Berlin tomorrow` e obtenha a mesma resposta para o bot básico que recebeu no Teste em Web **Chat.**
 
     [![Resposta básica do bot no emulador](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
 
 1. Selecione **Sim**. O bot responde com um resumo das suas ações.
-1. A partir do registo do emulador de bot, selecione a linha que inclui `<- trace LuisV3 Trace` . Isto mostra a resposta JSON da LUIS para a intenção e entidades da expressão.
+1. A partir do registo do emulador Desaquisador do Quadro bot, selecione a linha que inclui `<- trace LuisV3 Trace` . Isto mostra a resposta JSON da LUIS para a intenção e entidades da expressão.
 
     [![Resposta básica do bot no emulador](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
 

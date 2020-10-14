@@ -9,19 +9,19 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6f4dd0836ba04d0e07ada8aced964317498b1f22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c326aed172bb8159185829f80d66e8e00496aad2
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757600"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057812"
 ---
 # <a name="query-azure-cosmos-db-data-using-sql-serverless-in-azure-synapse-link-preview"></a>Consulta dados DB da Azure Cosmos utilizando o sql sem servidor em Azure Synapse Link (pré-visualização)
 
 O synapse SQL sem servidor (anteriormente SQL on demand) permite-lhe analisar dados nos seus contentores DB Azure Cosmos que estão ativados com [Azure Synapse Link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) em quase tempo real sem afetar o desempenho das suas cargas de trabalho transacionais. Oferece uma sintaxe T-SQL familiar para consultar dados da [loja analítica](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) e conectividade integrada a uma ampla gama de ferramentas de consulta bi e ad-hoc através da interface T-SQL.
 
 > [!NOTE]
-> O suporte para consulta da loja analítica Azure Cosmos DB com o sql sem servidor está atualmente em pré-visualização fechada. 
+> O suporte para consulta da loja analítica Azure Cosmos DB com o sql sem servidor está atualmente em pré-visualização fechada. A pré-visualização pública aberta será anunciada na página [de atualizações do serviço Azure.](https://azure.microsoft.com/updates/?status=nowavailable&category=databases)
 
 Para consulta do Azure Cosmos DB, toda a área [de](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) superfície SELECT é suportada através da função [OPENROWSET,](develop-openrowset.md) incluindo a maioria das [funções e operadores SQL](overview-features.md). Também pode armazenar os resultados da consulta que lê os dados da Azure Cosmos DB juntamente com os dados em Azure Blob Storage ou Azure Data Lake Storage utilizando [criar uma tabela externa como selecionado.](develop-tables-cetas.md#cetas-in-sql-on-demand) Não é possível armazenar atualmente resultados de consulta sem servidor SQL para Azure Cosmos DB utilizando [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
 
@@ -36,10 +36,15 @@ OPENROWSET(
        'CosmosDB',
        '<Azure Cosmos DB connection string>',
        <Container name>
-    )  [ < with clause > ]
+    )  [ < with clause > ] AS alias
 ```
 
-A cadeia de conexão DB Azure Cosmos especifica o nome da conta DB Azure Cosmos, nome da base de dados, chave principal de conta de base de dados e um nome de região opcional para `OPENROWSET` funcionar. A cadeia de ligação tem o seguinte formato:
+A cadeia de conexão DB Azure Cosmos especifica o nome da conta DB Azure Cosmos, nome da base de dados, chave principal de conta de base de dados e um nome de região opcional para `OPENROWSET` funcionar. 
+
+> [!IMPORTANT]
+> Certifique-se de que usa pseudónimo depois `OPENROWSET` . Existe um [problema conhecido](#known-issues) que causa problema de ligação ao ponto final SQL sem servidor Synapse se não especificar o pseudónimo após a `OPENROWSET` função.
+
+A cadeia de ligação tem o seguinte formato:
 ```sql
 'account=<database account name>;database=<database name>;region=<region name>;key=<database account master key>'
 ```
@@ -245,13 +250,20 @@ As contas DB da Azure Cosmos de SQL (Core) suportam tipos de propriedade JSON de
 | Booleano | bit |
 | Número inteiro | bigint |
 | Decimal | float |
-| Cadeia | varchar (colagem de base de dados UTF8) |
+| String | varchar (colagem de base de dados UTF8) |
 | Data (cadeia formatada ISO) | varchar(30) |
 | Data (semente de tempo unix) | bigint |
 | Nulo | `any SQL type` 
 | Objeto aninhado ou matriz | varchar(máx) (colagem de base de dados UTF8), serializado como texto JSON |
 
 Para consultar as contas DB da Azure Cosmos do tipo Mongo DB API, você pode saber mais sobre a representação total do esquema de fidelidade na loja analítica e os nomes de propriedade estendidas a serem usados [aqui.](../../cosmos-db/analytical-store-introduction.md#analytical-schema)
+
+## <a name="known-issues"></a>Problemas conhecidos
+
+- O pseudónimo **DEVE** ser especificado após `OPENROWSET` a função (por exemplo, `OPENROWSET (...) AS function_alias` ). Omitir um pseudónimo pode causar problemas de ligação e o ponto final SQL sem servidor Synapse pode estar temporariamente indisponível. Esta questão será resolvida em novembro de 2020.
+- O SQL sem servidor sinapse não suporta atualmente [o esquema de fidelidade completa da Azure Cosmos DB](../../cosmos-db/analytical-store-introduction.md#schema-representation). Utilize o SQL sem servidor Synapse apenas para aceder ao esquema bem definido da Cosmos DB.
+
+Pode relatar sugestões e problemas na [página de feedback do Azure Synapse](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=387862).
 
 ## <a name="next-steps"></a>Próximos passos
 

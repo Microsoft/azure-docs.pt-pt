@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 10/01/2020
 ms.author: trbye
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
-zone_pivot_groups: programming-languages-set-eighteen
+zone_pivot_groups: programming-languages-set-twenty-four
 keywords: texto para a fala
-ms.openlocfilehash: 8db06e69c9f14bc0002831d3c9045383f8bd174d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c3f1db836ce028b6881efe0b2fa90e9ac19caac8
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977396"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92058238"
 ---
 # <a name="get-started-with-text-to-speech"></a>Introdução à conversão de texto em voz
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 18e3f29a90ae2c6c66858e14ee91fb447a4a0045
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d435a33ba45daf2c8a6a42e51c3e0d58f3abc23b
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968655"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92057761"
 ---
 # <a name="access-azure-storage-as-a-network-share-from-a-container-in-app-service"></a>Aceder ao Armazenamento do Microsoft Azure como uma partilha de rede de um contentor no Serviço de Aplicações
 
@@ -90,7 +90,7 @@ Deve fazê-lo para quaisquer outros diretórios que pretenda estar ligado a uma 
 
 Uma vez criada a sua [conta de Armazenamento Azure, partilha de ficheiros e diretório,](#prerequisites)pode agora configurar a sua aplicação com o Azure Storage.
 
-Para montar uma conta de armazenamento num diretório na sua aplicação App Service, utilize o [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) comando. O Tipo de Armazenamento pode ser AzureBlob ou AzureFiles. AzureFiles é usado neste exemplo. A definição do caminho de montagem corresponde à pasta que pretende montar a partir do Azure Storage. Definindo-o para '/' monta todo o Azure Storage.
+Para montar uma conta de armazenamento num diretório na sua aplicação App Service, utilize o [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add) comando. O Tipo de Armazenamento pode ser AzureBlob ou AzureFiles. AzureFiles é usado neste exemplo. A regulação do caminho de montagem corresponde à pasta no interior do recipiente que pretende montar no Azure Storage. Defini-lo para '/' monta todo o recipiente para o Azure Storage.
 
 
 > [!CAUTION]

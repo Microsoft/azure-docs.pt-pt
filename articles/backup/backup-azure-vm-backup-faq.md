@@ -4,24 +4,24 @@ description: Neste artigo, descubra respostas a perguntas comuns sobre o backup 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 8813794d44803a32bc6e156d3ca76360d84604c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51c54aa732259180a5393488891b21956553f581
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91370832"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92056723"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas frequentes-Back up Azure VMs
 
 Este artigo responde a perguntas comuns sobre o backup dos VMs Azure com o serviço [Azure Backup.](./backup-overview.md)
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Cópia de segurança
 
 ### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>Que imagens VM podem ser ativadas para backup quando as crio?
 
 Quando criar um VM, pode ativar a cópia de segurança para VMs que [executam sistemas operativos suportados.](backup-support-matrix-iaas.md#supported-backup-actions)
 
-### <a name="why-initial-backup-is-taking-lot-of-time-to-complete"></a>Porque é que o reforço inicial está a demorar muito tempo a ser concluído?
+### <a name="why-initial-backup-is-taking-lot-of-time-to-complete"></a>Por que motivo a conclusão da cópia de segurança inicial está a demorar muito tempo?
 
 A cópia de segurança inicial é sempre uma cópia de segurança completa e dependerá do tamanho dos dados e quando a cópia de segurança for processada. <br>
 Para melhorar o desempenho de backup ver, [backup boas práticas;](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#best-practices) [Considerações de backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-and-restore-considerations) e [desempenho de backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-performance)<br>
@@ -29,7 +29,7 @@ Apesar de o tempo total das cópias de segurança incrementais ser inferior a 24
 
 ### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>O custo de reserva está incluído no custo do VM?
 
-N.º Os custos de backup são separados dos custos de um VM. Saiba mais sobre [os preços de backup da Azure.](https://azure.microsoft.com/pricing/details/backup/)
+Não. Os custos de backup são separados dos custos de um VM. Saiba mais sobre [os preços de backup da Azure.](https://azure.microsoft.com/pricing/details/backup/)
 
 ### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>Que permissões são necessárias para permitir a cópia de segurança para um VM?
 
@@ -49,7 +49,7 @@ Se o cofre dos Serviços de Recuperação e o VM tiverem diferentes grupos de re
 
 ### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>Um trabalho de reserva a pedido usa o mesmo horário de retenção que os backups programados?
 
-N.º Especifique o intervalo de retenção para um trabalho de backup a pedido. Por padrão, é retido por 30 dias quando disparado do portal.
+Não. Especifique o intervalo de retenção para um trabalho de backup a pedido. Por padrão, é retido por 30 dias quando disparado do portal.
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>Ativei recentemente o Azure Disk Encryption em algumas VMs. As minhas cópias de segurança vão continuar a funcionar?
 
@@ -79,7 +79,7 @@ Retire a fechadura e limpe a recolha do ponto de restauro desse grupo de recurso
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>O Azure Backup suporta discos geridos por SSD padrão?
 
-Sim, o Azure Backup suporta [discos geridos SSD padrão.](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)
+Sim, o Azure Backup suporta [discos geridos SSD padrão.](https://docs.microsoft.com/azure/virtual-machines/disks-types#standard-ssd)
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>Podemos fazer um VM com um disco ativado por Write Accelerator (WA)?
 
@@ -161,7 +161,7 @@ Operações como o secret/key roll-over não requerem este passo e o mesmo cofre
 
 Sim, acede ao VM uma vez restaurado devido a um VM ter quebrado a relação com o controlador de domínio. Para mais informações, consulte este [artigo](./backup-azure-arm-restore-vms.md#post-restore-steps)
 
-### <a name="why-restore-operation-is-taking-long-time-to-complete"></a>Por que restaurar a operação está a demorar muito tempo a ser concluída?
+### <a name="why-restore-operation-is-taking-long-time-to-complete"></a>Por que motivo a conclusão da operação de restauro está a demorar muito tempo?
 
 O tempo total de restauro depende das operações de Entrada/saída por segundo (IOPS) e do rendimento da conta de armazenamento. O tempo total de restauro pode ser afetado se a conta de armazenamento do alvo for carregada com outras operações de leitura e escrita de aplicações. Para melhorar o funcionamento da restauração, selecione uma conta de armazenamento que não esteja carregada com outros dados da aplicação.
 
