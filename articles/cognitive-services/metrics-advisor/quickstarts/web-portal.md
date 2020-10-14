@@ -3,19 +3,19 @@ title: 'Quickstart: Portal web Metrics Advisor'
 titleSuffix: Azure Cognitive Services
 description: Saiba como começar a usar o portal web Metrics Advisor.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: quickstart
 ms.date: 09/30/2020
-ms.author: aahi
-ms.openlocfilehash: 65542ca88d055af2c537907d7ae801250943ed0b
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.author: mbullwin
+ms.openlocfilehash: 0afd8fab6072e1563d2b2f277e8a53b56a8161c2
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930378"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048241"
 ---
 # <a name="quickstart-monitor-your-first-metric-using-the-web-portal"></a>Quickstart: Monitorize a sua primeira métrica utilizando o portal web
 

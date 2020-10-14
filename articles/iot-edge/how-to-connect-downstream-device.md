@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 78db26318fc95adec1b31799ed143b3e4a6b3acc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4faec8f79d856b86052745ad530e17b9b25634e8
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91281461"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045844"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Ligar um dispositivo a jusante a um gateway do Azure IoT Edge
 
@@ -77,7 +77,7 @@ Para saber mais sobre certificados IoT Edge e algumas implicações de produçã
 
 ## <a name="provide-the-root-ca-certificate"></a>Fornecer o certificado de CA raiz
 
-Para verificar os certificados do dispositivo gateway, o dispositivo a jusante necessita da sua própria cópia do certificado de CA raiz. Se usou os scripts fornecidos no repositório IoT Edge git para criar certificados de teste, então o certificado de CA raiz é chamado **azure-iot-test-only.root.ca.cert.pem**. Se ainda não fez parte das outras etapas de preparação do dispositivo a jusante, mova este ficheiro de certificado para qualquer diretório do seu dispositivo a jusante. Pode utilizar um serviço como [o Azure Key Vault](https://docs.microsoft.com/azure/key-vault) ou uma função como o protocolo de cópia [Secure](https://www.ssh.com/ssh/scp/) para mover o ficheiro de certificado.
+Para verificar os certificados do dispositivo gateway, o dispositivo a jusante necessita da sua própria cópia do certificado de CA raiz. Se usou os scripts fornecidos no repositório IoT Edge git para criar certificados de teste, então o certificado de CA raiz é chamado **azure-iot-test-only.root.ca.cert.pem**. Se ainda não fez parte das outras etapas de preparação do dispositivo a jusante, mova este ficheiro de certificado para qualquer diretório do seu dispositivo a jusante. Pode utilizar um serviço como [o Azure Key Vault](../key-vault/index.yml) ou uma função como o protocolo de cópia [Secure](https://www.ssh.com/ssh/scp/) para mover o ficheiro de certificado.
 
 ## <a name="install-certificates-in-the-os"></a>Instalar certificados no SISTEMA
 
@@ -98,7 +98,7 @@ Deve ver uma mensagem que diz: "Atualizar certificados em /etc/ssl/certs... 1 ad
 
 Os seguintes passos são um exemplo de como instalar um certificado de CA num anfitrião do Windows. Este exemplo pressupõe que está a utilizar o certificado **azure-iot-test-only.root.ca.cert.pem** a partir dos artigos pré-requisitos, e que copiou o certificado para um local no dispositivo a jusante.
 
-Pode instalar certificados utilizando o [Certificado de Importação](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate?view=win10-ps) da PowerShell como administrador:
+Pode instalar certificados utilizando o [Certificado de Importação](/powershell/module/pkiclient/import-certificate?view=win10-ps) da PowerShell como administrador:
 
 ```powershell
 import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorelocation cert:\LocalMachine\root
@@ -113,7 +113,7 @@ Também pode instalar certificados utilizando o utilitário **certlm:**
 
 Também pode instalar certificados programáticamente utilizando .NET APIs, como mostrado na amostra .NET mais tarde neste artigo.
 
-Normalmente, as aplicações utilizam a stack TLS fornecida pelo Windows chamada [Schannel](https://docs.microsoft.com/windows/desktop/com/schannel) para ligar de forma segura sobre o TLS. A Schannel *exige* que quaisquer certificados sejam instalados na loja de certificados do Windows antes de tentar estabelecer uma ligação TLS.
+Normalmente, as aplicações utilizam a stack TLS fornecida pelo Windows chamada [Schannel](/windows/desktop/com/schannel) para ligar de forma segura sobre o TLS. A Schannel *exige* que quaisquer certificados sejam instalados na loja de certificados do Windows antes de tentar estabelecer uma ligação TLS.
 
 ## <a name="use-certificates-with-azure-iot-sdks"></a>Utilize certificados com Azure IoT SDKs
 

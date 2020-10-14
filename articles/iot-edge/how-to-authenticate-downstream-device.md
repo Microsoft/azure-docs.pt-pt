@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d2f189adf198a7e04edd3900a1e6da134329857e
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 73584353d0d003588ef7de6131d3c3c4bbfcff59
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932146"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046728"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autenticar um dispositivo a jusante no Hub IoT do Azure
 
@@ -110,7 +110,7 @@ Para a autenticação auto-assinada X.509, por vezes referida como autenticaçã
 
 4. Copie os certificados do dispositivo primário e secundário e as suas chaves para qualquer local do dispositivo a jusante. Também mova uma cópia do certificado de CA de raiz partilhada que gerou tanto o certificado do dispositivo gateway como os certificados do dispositivo a jusante.
 
-   Você vai referenciar estes ficheiros de certificado em quaisquer aplicações no dispositivo a jusante que se conectam ao IoT Hub. Pode utilizar um serviço como [o Azure Key Vault](https://docs.microsoft.com/azure/key-vault) ou uma função como o protocolo de cópia [Secure](https://www.ssh.com/ssh/scp/) para mover os ficheiros de certificado.
+   Você vai referenciar estes ficheiros de certificado em quaisquer aplicações no dispositivo a jusante que se conectam ao IoT Hub. Pode utilizar um serviço como [o Azure Key Vault](../key-vault/index.yml) ou uma função como o protocolo de cópia [Secure](https://www.ssh.com/ssh/scp/) para mover os ficheiros de certificado.
 
 5. Dependendo do seu idioma preferido, reveja amostras de como os certificados X.509 podem ser referenciados em aplicações IoT:
 
@@ -156,7 +156,7 @@ Esta secção baseia-se nas instruções detalhadas no artigo do IoT Hub [Config
 
 5. Copie o certificado e as chaves do dispositivo para qualquer local do dispositivo a jusante. Também mova uma cópia do certificado de CA de raiz partilhada que gerou tanto o certificado do dispositivo gateway como os certificados do dispositivo a jusante.
 
-   Irá fazer referência a estes ficheiros em quaisquer aplicações do dispositivo a jusante que se ligam ao IoT Hub. Pode utilizar um serviço como [o Azure Key Vault](https://docs.microsoft.com/azure/key-vault) ou uma função como o protocolo de cópia [Secure](https://www.ssh.com/ssh/scp/) para mover os ficheiros de certificado.
+   Irá fazer referência a estes ficheiros em quaisquer aplicações do dispositivo a jusante que se ligam ao IoT Hub. Pode utilizar um serviço como [o Azure Key Vault](../key-vault/index.yml) ou uma função como o protocolo de cópia [Secure](https://www.ssh.com/ssh/scp/) para mover os ficheiros de certificado.
 
 6. Dependendo do seu idioma preferido, reveja amostras de como os certificados X.509 podem ser referenciados em aplicações IoT:
 

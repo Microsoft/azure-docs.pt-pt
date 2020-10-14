@@ -3,19 +3,19 @@ title: Alertas de métricas de configuração
 titleSuffix: Azure Cognitive Services
 description: Como configurar os seus alertas Métricas Advisor usando ganchos para e-mail, web e Azure DevOps.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.author: aahi
-ms.openlocfilehash: 870b412a1fa5d362ac7b5be1df6c92d95c2936ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: mbullwin
+ms.openlocfilehash: ab1c07bd7814afb054bb20b77bbc84c1ee9df017
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90977791"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046796"
 ---
 # <a name="how-to-configure-alerts-and-get-notifications-using-a-hook"></a>Como fazer: Configurar alertas e receber notificações usando um gancho
 
@@ -67,7 +67,7 @@ Quando uma notificação é empurrada através de um gancho web, você pode usar
 - `query_alert_result_anomalies`
 - `query_alert_result_incidents`
 
-### <a name="azure-devops"></a>DevOps do Azure
+### <a name="azure-devops"></a>Azure DevOps
 
 O Metrics Advisor também suporta a criação automática de um item de trabalho em Azure DevOps para rastrear problemas/bugs quando qualquer anomalia detetada. Todos os alertas podem ser enviados através dos ganchos Azure DevOps.
 
@@ -132,7 +132,7 @@ O seletor **do operador** é a relação lógica de cada secção, para determin
 |Operador  |Descrição  |
 |---------|---------|
 |AND     | Envie apenas um alerta se uma série corresponder a cada secção de alerta, e todos os pontos de dados são anomalias. Se as métricas tiverem nomes de dimensão diferentes, um alerta nunca será acionado.         |
-|OU     | Envie o alerta se pelo menos uma secção contiver anomalias.         |
+|OR     | Envie o alerta se pelo menos uma secção contiver anomalias.         |
 
 :::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="janela de criação de gancho web.":::
 

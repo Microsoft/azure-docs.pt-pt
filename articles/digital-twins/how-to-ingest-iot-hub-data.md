@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 9fa3c27f9cc35b31fc78b2a09bea725934093e63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e53a7f5e76a6161016cbbb6b3566de4cad923f6a
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983329"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048054"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Ingesteia IoT Hub em Azure Digital Twins
 
@@ -129,7 +129,7 @@ await client.UpdateDigitalTwinAsync(deviceId, uou.Serialize());
 
 ### <a name="update-your-azure-function-code"></a>Atualize o seu código de função Azure
 
-Agora que compreende o código das amostras anteriores, abra a sua função Azure a partir da secção [*Pré-Requisitos*](https://docs.microsoft.com/azure/digital-twins/how-to-ingest-iot-hub-data#prerequisites) em Estúdio Visual. (Se não tiver uma função Azure, visite o link nos pré-requisitos para criar um agora).
+Agora que compreende o código das amostras anteriores, abra a sua função Azure a partir da secção [*Pré-Requisitos*](#prerequisites) em Estúdio Visual. (Se não tiver uma função Azure, visite o link nos pré-requisitos para criar um agora).
 
 Substitua o código da função Azure por este código de amostra.
 
@@ -193,7 +193,7 @@ namespace IotHubtoTwins
     }
 }
 ```
-Guarde o seu código de função e publique a função App para Azure. Pode fazê-lo referindo-se à Publicação da secção [*De*](https://docs.microsoft.com/azure/digital-twins/how-to-create-azure-function#publish-the-function-app-to-azure) [*Como-a-Saber: Configurar uma função Azure para o processamento de dados.*](how-to-create-azure-function.md)
+Guarde o seu código de função e publique a função App para Azure. Pode fazê-lo referindo-se à Publicação da secção [*De*](./how-to-create-azure-function.md#publish-the-function-app-to-azure) [*Como-a-Saber: Configurar uma função Azure para o processamento de dados.*](how-to-create-azure-function.md)
 
 Após uma publicação bem sucedida, verá a saída na janela de comando do Estúdio Visual, como mostrado abaixo:
 
@@ -214,7 +214,7 @@ Também pode verificar o seu estado do processo de publicação no [portal Azure
 ## <a name="connect-your-function-to-iot-hub"></a>Ligue a sua função ao IoT Hub
 
 Crie um destino de eventos para os dados do hub.
-No [portal Azure,](https://portal.azure.com/)navegue para o seu IoT Hub que criou na secção [*Pré-Requisitos.*](https://docs.microsoft.com/azure/digital-twins/how-to-ingest-iot-hub-data#prerequisites) Em **Eventos,** crie uma subscrição para a sua função Azure.
+No [portal Azure,](https://portal.azure.com/)navegue para o seu IoT Hub que criou na secção [*Pré-Requisitos.*](#prerequisites) Em **Eventos,** crie uma subscrição para a sua função Azure.
 
 :::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Um diagrama mostrando um gráfico de fluxo. Na tabela, um dispositivo IoT Hub envia telemetria de temperatura através do IoT Hub para uma Função Azure, que atualiza uma propriedade de temperatura num gémeo em Azure Digital Twins.":::
 
@@ -242,7 +242,7 @@ Selecione _Criar_ o botão para criar a subscrição do evento.
 
 ## <a name="send-simulated-iot-data"></a>Enviar dados IoT simulados
 
-Para testar a sua nova função de entrada, utilize o simulador do dispositivo a partir do [*Tutorial: Ligue uma solução de ponta a ponta*](./tutorial-end-to-end.md). Este tutorial é conduzido por um projeto de amostra escrito em C#. O código de amostra está localizado aqui: [amostras de Gémeos Digitais Azure](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples). Vais usar o projeto **DeviceSimulator** nesse repositório.
+Para testar a sua nova função de entrada, utilize o simulador do dispositivo a partir do [*Tutorial: Ligue uma solução de ponta a ponta*](./tutorial-end-to-end.md). Este tutorial é conduzido por um projeto de amostra escrito em C#. O código de amostra está localizado aqui: [amostras de Gémeos Digitais Azure](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Vais usar o projeto **DeviceSimulator** nesse repositório.
 
 No tutorial de ponta a ponta, complete os seguintes passos:
 1. [*Registar o dispositivo simulado com ioT Hub*](./tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)

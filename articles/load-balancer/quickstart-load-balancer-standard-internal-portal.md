@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: beafff2276d0b6dc525b586fa2d5943675012981
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: efe4753e78c6dd16fa0b6ce3e98dd21ceae52577
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91446119"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047816"
 ---
 # <a name="quickstart-create-an-internal-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Quickstart: Criar um equilibrador de carga interno para carregar VMs de equilíbrio utilizando o portal Azure
 
@@ -64,7 +64,7 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede.
     | Grupo de Recursos   | Selecione **myResourceGroupLB** |
     | **Detalhes da instância** |                                                                 |
     | Name             | Insira **myVNet**                                    |
-    | Region           | Selecione **Europa Ocidental** |
+    | Região           | Selecione **Europa Ocidental** |
 
 3. Selecione o separador **endereços IP** ou selecione o botão **Seguinte: Endereços IP** na parte inferior da página.
 
@@ -110,8 +110,8 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede.
     | ---                     | ---                                                |
     | Subscrição               | Selecione a sua subscrição.    |    
     | Grupo de recursos         | Selecione **myResourceGroupLB** criado no passo anterior.|
-    | Name                   | Insira **o myLoadBalancer**                                   |
-    | Region         | Selecione **Europa Ocidental**.                                        |
+    | Nome                   | Insira **o myLoadBalancer**                                   |
+    | Região         | Selecione **Europa Ocidental**.                                        |
     | Tipo          | Selecione **Interno**.                                        |
     | SKU           | Selecione **Standard** |
     | Rede virtual | Selecione **myVNet** criado no passo anterior. |
@@ -226,7 +226,7 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
     | Grupo de Recursos | Selecione **myResourceGroupLB** |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **o myVM1** |
-    | Region | Selecione **Europa Ocidental** |
+    | Região | Selecione **Europa Ocidental** |
     | Opções de Disponibilidade | Selecione **zonas de disponibilidade** |
     | Zona de disponibilidade | Selecione **1** |
     | Imagem | Selecione **o Centro de Dados 2019 do Windows Server 2019** |
@@ -264,7 +264,7 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
 
     | Definição | VM 2|
     | ------- | ----- |
-    | Name |  **myVM2** |
+    | Nome |  **myVM2** |
     | Zona de disponibilidade | **2** |
     | Grupo de segurança de rede | Selecione o **myNSG** existente|
 
@@ -297,7 +297,7 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede.
     | Grupo de Recursos   | Selecione **myResourceGroupLB** |
     | **Detalhes da instância** |                                                                 |
     | Name             | Insira **myVNet**                                    |
-    | Region           | Selecione **Europa Ocidental** |
+    | Região           | Selecione **Europa Ocidental** |
 
 3. Selecione o separador **endereços IP** ou selecione o botão **Seguinte: Endereços IP** na parte inferior da página.
 
@@ -343,8 +343,8 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede.
     | ---                     | ---                                                |
     | Subscrição               | Selecione a sua subscrição.    |    
     | Grupo de recursos         | Selecione **myResourceGroupLB** criado no passo anterior.|
-    | Name                   | Insira **o myLoadBalancer**                                   |
-    | Region         | Selecione **Europa Ocidental**.                                        |
+    | Nome                   | Insira **o myLoadBalancer**                                   |
+    | Região         | Selecione **Europa Ocidental**.                                        |
     | Tipo          | Selecione **Interno**.                                        |
     | SKU           | Selecione **Basic** |
     | Rede virtual | Selecione **myVNet** criado no passo anterior. |
@@ -465,7 +465,7 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
     | Grupo de Recursos | Selecione **myResourceGroupLB** |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **o myVM1** |
-    | Region | Selecione **Europa Ocidental** |
+    | Região | Selecione **Europa Ocidental** |
     | Opções de Disponibilidade | Selecione **Conjunto de disponibilidade** |
     | Conjunto de disponibilidade | Selecione **Criar novo**. </br> Insira **o mySilabilitySet** no **nome**. </br> Selecione **OK** |
     | Imagem | **Windows Server 2019 Datacenter** |
@@ -499,7 +499,7 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
 
     | Definição | VM 2 |
     | ------- | ----- |
-    | Name |  **myVM2** |
+    | Nome |  **myVM2** |
     | Conjunto de disponibilidade| Selecione **mySIlabilitySet** |
     | Grupo de segurança de rede | Selecione o **myNSG** existente|
 
@@ -537,7 +537,7 @@ Nesta secção, irá criar um VM chamado **myTestVM**.  Este VM será utilizado 
     | Grupo de Recursos | Selecione **myResourceGroupLB** |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **o myTestVM** |
-    | Region | Selecione **Europa Ocidental** |
+    | Região | Selecione **Europa Ocidental** |
     | Opções de Disponibilidade | Selecione **Não é necessário um despedimento de infraestrutura** |
     | Imagem | Selecione **o Centro de Dados 2019 do Windows Server 2019** |
     | Instância do Azure Spot | Selecione **Não** |
@@ -630,5 +630,6 @@ Neste início rápido, irá:
 * Fixado 2 VMs ao equilibrador de carga.
 * Configurar a regra de tráfego do balanceador de carga, a sonda de saúde, e depois testou o equilibrador de carga. 
 
-Para saber mais sobre o Azure Load Balancer, continue até [Load Balancer frequently asked questions](load-balancer-faqs.md) [o que é o Equilibr de Carga Azure?](load-balancer-overview.md)
-
+Para saber mais sobre o Azure Load Balancer, continue a.
+> [!div class="nextstepaction"]
+> [What is Azure Load Balancer?](load-balancer-overview.md) (O que é o Balanceador de Carga do Azure?) 

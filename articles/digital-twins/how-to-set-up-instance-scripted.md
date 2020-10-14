@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 83741f5bc55eb222b379a274ef403f766553b21f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e8e26f73aef155e4194ca7a4178827b6a7366fb
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328649"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047425"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurar uma instância e autenticação de Gémeos Digitais Azure (scripted)
 
@@ -20,7 +20,7 @@ ms.locfileid: "91328649"
 
 Este artigo abrange as etapas para **a criação de um novo exemplo de Azure Digital Twins**, incluindo a criação do caso e a criação de autenticação. Depois de completar este artigo, terá uma instância Azure Digital Twins pronta para começar a programar contra.
 
-Esta versão deste artigo completa estes passos executando uma amostra [ **de script de implementação automatizada** ](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/) que simplifica o processo. 
+Esta versão deste artigo completa estes passos executando uma amostra [ **de script de implementação automatizada** ](/samples/azure-samples/digital-twins-samples/digital-twins-samples/) que simplifica o processo. 
 * Para ver os passos manuais do CLI que o script percorre nos bastidores, consulte a versão CLI deste artigo: [*Como-a-fazer: Configurar uma instância e autenticação (CLI)*](how-to-set-up-instance-cli.md).
 * Para ver os passos manuais de acordo com o portal Azure, consulte a versão porta deste artigo: [*Como-a-fazer: Configurar uma instância e autenticação (portal)*](how-to-set-up-instance-portal.md).
 
@@ -28,7 +28,7 @@ Esta versão deste artigo completa estes passos executando uma amostra [ **de sc
 
 ## <a name="prerequisites-download-the-script"></a>Pré-requisitos: Descarregue o script
 
-O guião da amostra está escrito no PowerShell. Faz parte das [**amostras Azure Digital Twins,**](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/)que pode descarregar para a sua máquina navegando para essa ligação de amostra e selecionando o botão *Download ZIP* por baixo do título.
+O guião da amostra está escrito no PowerShell. Faz parte das [**amostras Azure Digital Twins,**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/)que pode descarregar para a sua máquina navegando para essa ligação de amostra e selecionando o botão *Download ZIP* por baixo do título.
 
 Isto irá transferir o projeto de amostra para a sua máquina à medida _** queAzure_Digital_Twins_samples.zip**_. Navegue para a pasta da sua máquina e desaperte-a para extrair os ficheiros.
 
@@ -165,7 +165,7 @@ Se uma ou ambas as etapas de verificação não forem bem sucedidas, rejulem a c
 ## <a name="next-steps"></a>Passos seguintes
 
 Teste as chamadas individuais da API REST no seu caso utilizando os comandos CLI dos Gémeos Digitais Azure: 
-* [az dt referência](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true)
+* [az dt referência](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
 * [*Como fazer: Use o CLI das Gémeas Digitais Azure*](how-to-use-cli.md)
 
 Ou, veja como ligar a aplicação do seu cliente ao seu caso escrevendo o código de autenticação da aplicação do cliente:

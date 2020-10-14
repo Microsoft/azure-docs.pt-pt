@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 09/02/2020
+ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: 34aa805e6af68933326325587c0a442fe5e3652c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e4c0174e9f5e1a15fe85d5744ddcb6ee21c4a86
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89420660"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048275"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Tutorial: Criar e gerir uma porta de entrada VPN usando o PowerShell
 
@@ -28,7 +28,7 @@ O diagrama seguinte mostra a rede virtual e o gateway de VPN criados como parte 
 
 ![VNet e gateway de VPN](./media/vpn-gateway-tutorial-create-gateway-powershell/vnet1-gateway.png)
 
-### <a name="working-with-azure-cloud-shell-and-azure-powershell"></a>Trabalhando com Azure Cloud Shell e Azure PowerShell
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [working with cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
@@ -164,7 +164,7 @@ Reset-AzVirtualNetworkGateway -VirtualNetworkGateway $gateway
 
 Para obter mais informações, veja [Repor um gateway de VPN](vpn-gateway-resetgw-classic.md).
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se está a avançar para o [próximo tutorial,](vpn-gateway-tutorial-vpnconnection-powershell.md)vai querer manter estes recursos porque são os pré-requisitos.
 
@@ -184,9 +184,7 @@ Neste tutorial, aprendeu sobre a criação e gestão básicas do gateway de VPN,
 > * Redimensionar um gateway de VPN
 > * Repor um Gateway de VPN
 
-Avance para os tutoriais seguintes para saber mais sobre ligações S2S, VNet a VNet e P2S.
+Em seguida, proceda com o seguinte tutorial:
 
 > [!div class="nextstepaction"]
-> * [Criar ligações S2S](vpn-gateway-tutorial-vpnconnection-powershell.md)
-> * [Criar ligações VNet-to-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [Criar ligações P2S](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Criar uma ligação](vpn-gateway-tutorial-vpnconnection-powershell.md)

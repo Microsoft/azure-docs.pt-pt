@@ -7,12 +7,12 @@ ms.date: 07/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 1873d2acb96c0c94c7e0d678e450596c60ca51fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1a2a45d0f5743874ce0c0b20190d7d396094e43
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575406"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046388"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-multiple-component-device-applications-running-on-linux-or-windows-to-iot-hub-c"></a>Tutorial: Ligue uma ficha IoT e reproduza várias aplicações de dispositivos componentes em execução no Linux ou Windows ao IoT Hub (C)
 
@@ -52,7 +52,7 @@ gcc --version
 
 Para completar este tutorial no Windows, instale o seguinte software no seu ambiente local do Windows:
 
-* [Visual Studio (Comunidade, Profissional ou Enterprise)](https://visualstudio.microsoft.com/downloads/) - certifique-se de que inclui o Desktop Development com carga de trabalho **C++** quando [instalar](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019&preserve-view=true) o Visual Studio.
+* [Visual Studio (Comunidade, Profissional ou Enterprise)](https://visualstudio.microsoft.com/downloads/) - certifique-se de que inclui o Desktop Development com carga de trabalho **C++** quando [instalar](/cpp/build/vscpp-step-0-installation?preserve-view=true&view=vs-2019) o Visual Studio.
 * [Git.](https://git-scm.com/download/)
 * [CMake.](https://cmake.org/download/)
 

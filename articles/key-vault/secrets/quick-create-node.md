@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 5149f58879581a67c7fc61e45b2e3025a0042e91
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 045589d3b1f0e376eaf854562d271a4483702997
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013221"
+ms.locfileid: "92047901"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-javascript-v4"></a>Quickstart: Biblioteca de clientes Azure Key Vault para JavaScript (v4)
 
@@ -30,7 +30,7 @@ Começa com a biblioteca secreta do Azure Key Vault para o JavaScript. Siga os p
 Este quickstart pressupõe que está a executar [o Azure CLI](/cli/azure/install-azure-cli) numa janela do terminal Linux.
 
 ## <a name="setting-up"></a>Configuração
-Este quickstart está a utilizar a biblioteca Azure Identity com o Azure CLI para autenticar o utilizador nos Serviços Azure. Os desenvolvedores também podem usar Visual Studio ou Visual Studio Code para autenticar as suas chamadas, para mais informações, ver [Autenticar o cliente com a biblioteca de clientes da Azure Identity](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)
+Este quickstart está a utilizar a biblioteca Azure Identity com o Azure CLI para autenticar o utilizador nos Serviços Azure. Os desenvolvedores também podem usar o Visual Studio ou Visual Studio Code para autenticar as suas chamadas, para obter mais informações, ver [Autenticar o cliente com a biblioteca de clientes da Azure Identity](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme).
 
 ### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -66,7 +66,7 @@ npm install @azure/identity
 
 #### <a name="grant-access-to-your-key-vault"></a>Conceder acesso ao seu cofre chave
 
-Crie uma política de acesso para o cofre-chave que concede permissão secreta à sua conta de utilizador
+Crie uma política de acesso para o seu cofre-chave que concede permissão secreta à sua conta de utilizador.
 
 ```console
 az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set

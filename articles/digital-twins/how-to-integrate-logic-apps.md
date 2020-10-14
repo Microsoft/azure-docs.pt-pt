@@ -8,18 +8,18 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: d1288f117a6b6c9fb05fd29578be35c676453177
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 4e9b9a7fb6e739b3bd288557457d1c152e372e26
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975166"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045300"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integre com As Aplicações Lógicas usando um conector personalizado
 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) é um serviço de cloud que o ajuda a automatizar fluxos de trabalho através de apps e serviços. Ao ligar as Aplicações Lógicas às APIs das Gémeas Digitais Azure, pode criar fluxos automatizados em torno das Gémeas Digitais Azure e dos seus dados.
 
-A Azure Digital Twins não tem atualmente um conector certificado (pré-construído) para aplicações lógicas. Em vez disso, o processo atual de utilização de Apps Lógicas com Gémeos Digitais Azure é criar um [**conector de Aplicações Lógicas personalizado**](../logic-apps/custom-connector-overview.md), utilizando um [Azure Digital Twins Swagger](https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) que foi modificado para trabalhar com apps lógicas.
+A Azure Digital Twins não tem atualmente um conector certificado (pré-construído) para aplicações lógicas. Em vez disso, o processo atual de utilização de Apps Lógicas com Gémeos Digitais Azure é criar um [**conector de Aplicações Lógicas personalizado**](../logic-apps/custom-connector-overview.md), utilizando um [Azure Digital Twins Swagger](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) que foi modificado para trabalhar com apps lógicas.
 
 > [!NOTE]
 > Existem várias versões do Swagger contidas na amostra personalizada de Swagger ligada acima. A versão mais recente será encontrada na sub-página com a data mais recente, mas as versões anteriores contidas na amostra também são suportadas.
@@ -93,7 +93,7 @@ Serão levados para a página de implantação do conector. Quando terminar a im
 
 Em seguida, configurará o conector que criou para chegar às Gémeas Digitais Azure.
 
-Primeiro, faça o download de um Azure Digital Twins Swagger que foi modificado para trabalhar com as Aplicações Lógicas. Descarregue a amostra **Azure Digital Twins Custom Swaggers** a partir [**deste link,**](https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) premindo o botão *Download ZIP.* Navegue para a pasta *Azure_Digital_Twins_Custom_Swaggers.zip* descarregada e desaperte-a. 
+Primeiro, faça o download de um Azure Digital Twins Swagger que foi modificado para trabalhar com as Aplicações Lógicas. Descarregue a amostra **Azure Digital Twins Custom Swaggers** a partir [**deste link,**](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) premindo o botão *Download ZIP.* Navegue para a pasta *Azure_Digital_Twins_Custom_Swaggers.zip* descarregada e desaperte-a. 
 
 O Swagger personalizado para este tutorial está localizado na pasta _**Azure_Digital_Twins_Custom_Swaggers\LogicApps.**_ Esta pasta contém sub-dobradeiras chamadas *estáveis* e *de pré-visualização,* ambas com diferentes versões do Swagger organizadas por data. A pasta com a data mais recente conterá a mais recente cópia do Swagger. Seja qual for a versão que selecionar, o ficheiro Swagger é nomeado _**digitaltwins.js.**_
 
@@ -213,7 +213,7 @@ Pode escolher outras operações selecionando _+ Novo passo_ na mesma janela.
 
 Agora que a sua aplicação lógica foi criada, o evento de atualização dupla que definiu no Logic Apps Designer deve ocorrer numa recorrência a cada três segundos. Isto significa que, após três segundos, deverá ser capaz de consultar o seu gémeo e ver os seus novos valores remendados refletidos.
 
-Pode consultar o seu gémeo através do seu método de escolha (como uma [aplicação personalizada](tutorial-command-line-app.md)para clientes, a [aplicação de amostras Azure Digital Twins Explorer,](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)os [SDKs e APIs,](how-to-use-apis-sdks.md)ou o [CLI).](how-to-use-cli.md) 
+Pode consultar o seu gémeo através do seu método de escolha (como uma [aplicação personalizada](tutorial-command-line-app.md)para clientes, a [aplicação de amostras Azure Digital Twins Explorer,](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)os [SDKs e APIs,](how-to-use-apis-sdks.md)ou o [CLI).](how-to-use-cli.md) 
 
 Para saber mais sobre a consulta do seu exemplo de Gémeos Digitais Azure, consulte [*Como fazer: Consultar o gráfico gémeo*](how-to-query-graph.md).
 

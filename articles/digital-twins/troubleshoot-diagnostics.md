@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: fc397b6d6beb719e11dc3959bbcf4d75c08a8dda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f4abf78c153bd3d61068e4b7607794d6ccf1ed04
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88723933"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047680"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Resolução de problemas Azure Digital Twins: Registo de diagnósticos
 
@@ -73,7 +73,7 @@ Cada categoria de registo consiste em operações de escrita, leitura, exclusão
 | Eliminar | DELETE |
 | Ação | POST |
 
-Aqui está uma lista completa das operações e [correspondentes chamadas API de Azure Digital Twins](https://docs.microsoft.com/rest/api/azure-digitaltwins/) REST que são registadas em cada categoria. 
+Aqui está uma lista completa das operações e [correspondentes chamadas API de Azure Digital Twins](/rest/api/azure-digitaltwins/) REST que são registadas em cada categoria. 
 
 >[!NOTE]
 > Cada categoria de registo contém várias chamadas de API de operações/REST. Na tabela abaixo, cada categoria de registo mapeia todas as chamadas de API de operações/REST por baixo até à lista da próxima categoria de registo. 
@@ -109,18 +109,18 @@ Aqui estão as descrições de campo e propriedade para registos API.
 | Nome do campo | Tipo de dados | Descrição |
 |-----|------|-------------|
 | `Time` | DateTime | A data e hora em que este evento ocorreu, na UTC |
-| `ResourceID` | Cadeia | O ID de Recursos Azure Resource Manager para o recurso onde o evento teve lugar |
-| `OperationName` | Cadeia  | O tipo de ação que está a ser realizada durante o evento |
-| `OperationVersion` | Cadeia | A versão API utilizada durante o evento |
-| `Category` | Cadeia | O tipo de recurso que está a ser emitido |
-| `ResultType` | Cadeia | Resultado do evento |
-| `ResultSignature` | Cadeia | Código de estado http para o evento |
-| `ResultDescription` | Cadeia | Detalhes adicionais sobre o evento |
-| `DurationMs` | Cadeia | Quanto tempo demorou a realizar o evento em milissegundos |
-| `CallerIpAddress` | Cadeia | Um endereço IP de origem mascarada para o evento |
+| `ResourceID` | String | O ID de Recursos Azure Resource Manager para o recurso onde o evento teve lugar |
+| `OperationName` | String  | O tipo de ação que está a ser realizada durante o evento |
+| `OperationVersion` | String | A versão API utilizada durante o evento |
+| `Category` | String | O tipo de recurso que está a ser emitido |
+| `ResultType` | String | Resultado do evento |
+| `ResultSignature` | String | Código de estado http para o evento |
+| `ResultDescription` | String | Detalhes adicionais sobre o evento |
+| `DurationMs` | String | Quanto tempo demorou a realizar o evento em milissegundos |
+| `CallerIpAddress` | String | Um endereço IP de origem mascarada para o evento |
 | `CorrelationId` | GUID | O cliente forneceu um identificador único para o evento |
-| `Level` | Cadeia | A gravidade do registo do evento |
-| `Location` | Cadeia | A região onde o evento teve lugar |
+| `Level` | String | A gravidade do registo do evento |
+| `Location` | String | A região onde o evento teve lugar |
 | `RequestUri` | Uri | O ponto final utilizado durante o evento |
 
 Abaixo estão os corpos JSON exemplo para este tipo de registos.
@@ -195,13 +195,13 @@ Este é o esquema para `ADTEventRoutesOperation` registos. Estes contêm detalhe
 |Nome do campo | Tipo de dados | Descrição |
 |-----|------|-------------|
 | `Time` | DateTime | A data e hora em que este evento ocorreu, na UTC |
-| `ResourceId` | Cadeia | O ID de Recursos Azure Resource Manager para o recurso onde o evento teve lugar |
-| `OperationName` | Cadeia  | O tipo de ação que está a ser realizada durante o evento |
-| `Category` | Cadeia | O tipo de recurso que está a ser emitido |
-| `ResultDescription` | Cadeia | Detalhes adicionais sobre o evento |
-| `Level` | Cadeia | A gravidade do registo do evento |
-| `Location` | Cadeia | A região onde o evento teve lugar |
-| `EndpointName` | Cadeia | O nome do ponto final da saída criado em Azure Digital Twins |
+| `ResourceId` | String | O ID de Recursos Azure Resource Manager para o recurso onde o evento teve lugar |
+| `OperationName` | String  | O tipo de ação que está a ser realizada durante o evento |
+| `Category` | String | O tipo de recurso que está a ser emitido |
+| `ResultDescription` | String | Detalhes adicionais sobre o evento |
+| `Level` | String | A gravidade do registo do evento |
+| `Location` | String | A região onde o evento teve lugar |
+| `EndpointName` | String | O nome do ponto final da saída criado em Azure Digital Twins |
 
 Abaixo estão os corpos JSON exemplo para este tipo de registos.
 

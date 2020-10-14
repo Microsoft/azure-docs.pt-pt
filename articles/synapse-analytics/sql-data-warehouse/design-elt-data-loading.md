@@ -11,12 +11,12 @@ ms.date: 05/13/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 1b73b82b4367d50cc5fbe9881a67e0afa041db86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af3eb828e1fd2c4aa14467e5afc18f1b5a0b7fa1
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85201163"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047714"
 ---
 # <a name="data-loading-strategies-for-synapse-sql-pool"></a>Estratégias de carregamento de dados para conjuntos Synapse SQL
 
@@ -28,10 +28,6 @@ Enquanto o pool SQL suporta muitos métodos de carregamento, incluindo as opçõ
 
 Com a PolyBase e a declaração COPY, pode aceder a dados externos armazenados no armazenamento Azure Blob ou na Azure Data Lake Store através do idioma T-SQL. Para maior flexibilidade no carregamento, recomendamos a utilização da declaração COPY.
 
-> [!NOTE]  
-> A declaração COPY encontra-se atualmente em pré-visualização pública. Para fornecer feedback, envie e-mail para a seguinte lista de distribuição: sqldwcopypreview@service.microsoft.com .
-
-> [!VIDEO https://www.youtube.com/embed/l9-wP7OdhDk]
 
 ## <a name="what-is-elt"></a>O que é ELT?
 
@@ -111,7 +107,7 @@ Utilize o seguinte mapeamento do tipo de dados SQL ao carregar ficheiros Parquet
 |                            INT32                             |            INT(8, falso)            |     tinyint      |
 |                            INT32                             |            INT(16, falso)             |       int        |
 |                            INT32                             |           INT(32, falso)            |      bigint      |
-|                            INT32                             |                 DATE                  |       date       |
+|                            INT32                             |                 DATE                  |       data       |
 |                            INT32                             |                DECIMAL                |     decimal      |
 |                            INT32                             |            TEMPO (MILLIS)             |       hora       |
 |                            INT64                             |            INT(64, verdade)            |      bigint      |

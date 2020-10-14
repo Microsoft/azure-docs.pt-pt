@@ -7,18 +7,18 @@ ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: bdf7a46dec6f4ea766d5d5a039109022755bc3fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ccc450242c50f82d4215f6b172f72d8eceab7c52
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761282"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046341"
 ---
 # <a name="tutorial-how-to-convert-an-iot-plug-and-play-device-to-a-module-c"></a>Tutorial: Como converter um dispositivo IoT Plug and Play num módulo (C#)
 
 Este tutorial mostra-lhe como converter o código do dispositivo IoT Plug e Play para funcionar como um módulo genérico.
 
-Um dispositivo é um dispositivo IoT Plug and Play se publicar o seu ID modelo quando se conecta a um hub IoT e implementa as propriedades e métodos descritos no modelo Digital Twins Definition Language (DTDL) identificado pelo ID do modelo. Para saber mais sobre como os dispositivos utilizam um DTDL e um ID de modelo, consulte [o guia de desenvolvimento IoT Plug and Play](concepts-developer-guide.md). Os módulos utilizam iDs de modelo e modelos DTDL da mesma forma.
+Um dispositivo é um dispositivo IoT Plug and Play se publicar o seu ID modelo quando se conecta a um hub IoT e implementa as propriedades e métodos descritos no modelo Digital Twins Definition Language (DTDL) identificado pelo ID do modelo. Para saber mais sobre como os dispositivos utilizam um DTDL e um ID de modelo, consulte [o guia de desenvolvimento IoT Plug and Play](./concepts-developer-guide-device-csharp.md). Os módulos utilizam iDs de modelo e modelos DTDL da mesma forma.
 
 Para demonstrar como implementar um módulo IoT Plug and Play, este tutorial mostra-lhe como converter a amostra do dispositivo termóstato C# num módulo genérico.
 
@@ -224,7 +224,7 @@ Para converter esta amostra para funcionar como um módulo IoT Plug e Play IoT E
 Para aprender a implantar o seu módulo contentorizado, consulte:
 
 * [Executar Azure IoT Edge em Máquinas Virtuais Ubuntu](../iot-edge/how-to-install-iot-edge-ubuntuvm.md).
-* [Instale o tempo de execução Azure IoT Edge nos sistemas Linux baseados em Debian](../iot-edge/how-to-install-iot-edge-linux.md).
+* [Instale o tempo de execução Azure IoT Edge nos sistemas Linux baseados em Debian](../iot-edge/how-to-install-iot-edge.md).
 
 Pode utilizar a ferramenta Azure IoT Explorer para ver:
 
@@ -238,4 +238,4 @@ Pode utilizar a ferramenta Azure IoT Explorer para ver:
 Neste tutorial, aprendeu a ligar um dispositivo IoT Plug and Play com módulos a um hub IoT. Para saber mais sobre os modelos ioT Plug e Play, consulte:
 
 > [!div class="nextstepaction"]
-> [Guia de desenvolvedores de modelação IoT Plug e Play](concepts-developer-guide.md)
+> [Guia de desenvolvedores de modelação IoT Plug e Play](./concepts-developer-guide-device-csharp.md)

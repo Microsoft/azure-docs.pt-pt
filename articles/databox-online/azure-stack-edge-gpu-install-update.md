@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/29/2020
+ms.date: 10/13/2020
 ms.author: alkohli
-ms.openlocfilehash: 3ec89b897b4ea2e802188e3aefe9b830d7ff1cf8
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: b0377d7b209da76b03a115dc82831eeb00e1ff95
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969182"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047085"
 ---
 # <a name="update-your-azure-stack-edge-pro-gpu"></a>Atualize o seu GPU Azure Stack Edge Pro 
 
@@ -22,7 +22,7 @@ Este artigo descreve os passos necessários para instalar a atualização no Azu
 O procedimento descrito neste artigo foi realizado usando uma versão diferente do software, mas o processo permanece o mesmo para a versão atual do software.
 
 > [!IMPORTANT]
-> - A atualização **de 2009** corresponde à versão de software **2.1.1364.2110** no seu dispositivo. Para obter informações sobre esta atualização, aceda às [notas de lançamento](azure-stack-edge-gpu-2009-release-notes.md).
+> - A atualização **de 2010** corresponde à versão de software **2.1.1377.2170** no seu dispositivo. Para obter informações sobre esta atualização, aceda às [notas de lançamento](azure-stack-edge-gpu-2009-release-notes.md).
 >
 > - Tenha em atenção que a instalação de uma atualização ou correção reinicia o dispositivo. Esta atualização requer que aplique duas atualizações sequencialmente. Primeiro aplica-se as atualizações de software do dispositivo e depois as atualizações de Kubernetes. Dado que o Azure Stack Edge Pro é um único dispositivo de nó, qualquer I/S em andamento é interrompido e o seu dispositivo experimenta um tempo de inatividade de até 30 minutos para a atualização do software do dispositivo.
 
@@ -163,9 +163,9 @@ Faça os seguintes passos para descarregar a atualização a partir do Catálogo
 
 2. Na caixa de pesquisa do Catálogo de Atualizações da Microsoft, insira o número de Base de Conhecimento (KB) do hotfix ou termos para a atualização que pretende descarregar. Por exemplo, insira **Azure Stack Edge Pro**e, em seguida, clique em **Procurar**.
    
-    A lista geminada de atualização aparece como **Azure Stack Edge Pro 2006**.
+    A lista geminada de atualização aparece como **Azure Stack Edge Update 2010**.
    
-    ![Catálogo de pesquisa 2](./media/azure-stack-edge-gpu-install-update/download-update-2b.png)
+    <!--![Search catalog 2](./media/azure-stack-edge-gpu-install-update/download-update-2b.png)-->
 
 4. Selecione **Transferir**. Existem dois ficheiros para descarregar com * sufixosSoftwareUpdatePackage.exe* e *Kubernetes_Package.exe* que correspondem a atualizações de software de dispositivos e atualizações de Kubernetes, respectivamente. Descarregue os ficheiros para uma pasta no sistema local. Também pode copiar a pasta para uma partilha de rede que seja acessível a partir do dispositivo.
 
@@ -198,9 +198,9 @@ Este procedimento leva cerca de 20 minutos para ser concluído. Execute os segui
 
 5. A atualização começa. Depois de o dispositivo ser atualizado com sucesso, reinicia-o. A UI local não é acessível nesta duração.
    
-6. Após o reinício, é levado para a página **Signo.** Para verificar se o software do dispositivo foi atualizado, **Maintenance**na UI web local, aceda à  >  **atualização do Software**de Manutenção . A versão de software apresentada neste exemplo é **2.0.1257.1591**.
+6. Após o reinício, é levado para a página **Signo.** Para verificar se o software do dispositivo foi atualizado, **Maintenance**na UI web local, aceda à  >  **atualização do Software**de Manutenção . Para a versão atual, a versão do software visualizada deve ser **2.1.1377.2170**.
 
-   ![dispositivo de atualização 6](./media/azure-stack-edge-gpu-install-update/local-ui-update-6.png) 
+   <!--![update device 6](./media/azure-stack-edge-gpu-install-update/local-ui-update-6.png)--> 
 
 7. Irá agora atualizar a versão de software Kubernetes. Repita os passos acima. Forneça um caminho para o ficheiro de atualização kubernetes com o sufixo *Kubernetes_Package.exe.*  
 

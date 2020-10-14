@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sharrai
 ms.custom: MVC
-ms.openlocfilehash: f33d5ff37cbc9923262963b3e59b9266ea6760a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33d1be493cba9fd9f01ecdbad10afb5330256aa0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90006419"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045351"
 ---
 # <a name="move-vms-to-another-azure-region"></a>Mover VMs para outra região de Azure
 
@@ -21,7 +21,7 @@ Existem cenários em que gostaria de mover as suas máquinas virtuais Azure IaaS
 
 Pode utilizar o serviço [de Recuperação do Local Azure](site-recovery-overview.md) para mover VMs Azure para uma região secundária.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > 
@@ -100,8 +100,8 @@ Os passos a seguir mostram como preparar a máquina virtual para o movimento uti
 1. No **Nome**, especifique o nome amigável **ContosoVMVault**. Se tiver mais do que uma subscrição, selecione a que for adequada.
 1. Crie o grupo de recursos **ContosoRG**.
 1. Selecione uma região do Azure. Para verificar as regiões apoiadas, consulte a disponibilidade geográfica nos [detalhes dos preços de recuperação do local de Azure](https://azure.microsoft.com/pricing/details/site-recovery/).
-1. Nos **cofres dos Serviços de Recuperação**, selecione **Visão Geral**  >  **ContosoVMVault**  >  **Itens replicados**  >  **+Replicate .**
-1. Em **Origem**, selecione **Azure**.
+1. Nos **cofres dos Serviços de Recuperação**, selecione **ContosoVMVault**  >  **Itens replicados**  >  **+Replicate**.
+1. No dropdown, selecione **Azure Virtual Machines**.
 1. Em **Localização de origem**, selecione a região do Azure de origem onde as VMs estão atualmente a ser executadas.
 1. Selecione o modelo de implementação do Resource Manager. Em seguida, selecione a **subscrição Source** e **o grupo de recursos Source**.
 1. Selecione **OK** para guardar as definições.

@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/31/2020
-ms.openlocfilehash: b010a90929a5eb905f21ebe23aa971f05d210941
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: f9907b746c1dceb0b0e847c09ea4a549138f0064
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282702"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047731"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Copie os dados do Serviço de Armazenamento Simples da Amazon utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -47,10 +47,9 @@ Especificamente, este conector Amazon S3 suporta a cópia de ficheiros como est�
 
 ## <a name="required-permissions"></a>Permissões obrigatórias
 
-Para copiar dados do Amazon S3, certifique-se de que lhe foram concedidas as seguintes permissões:
+Para copiar dados do Amazon S3, certifique-se de que lhe foram concedidas as seguintes permissões para operações de objetos Amazon S3: `s3:GetObject` e `s3:GetObjectVersion` .
 
-- **Para a execução da atividade do Copy**: e para `s3:GetObject` `s3:GetObjectVersion` operações de objetos Amazon S3.
-- **Para a data factory GUI autoria:** `s3:ListAllMyBuckets` e para `s3:ListBucket` / `s3:GetBucketLocation` operações de baldes Amazon S3. São também necessárias permissões para operações como testar ligações e navegar para caminhos de arquivo. Se não pretender conceder estas permissões, ignore a ligação de teste na página de criação de serviços ligado e especifique o caminho diretamente nas definições do conjunto de dados.
+Se utilizar a UI da Data Factory para autor, são necessárias permissões adicionais `s3:ListAllMyBuckets` para `s3:ListBucket` / `s3:GetBucketLocation` operações como testar a ligação ao serviço ligado e navegar a partir da raiz. Se não quiser conceder estas permissões, pode escolher as opções de "Testar a ligação para o caminho do ficheiro" ou "Navegar a partir do caminho especificado" a partir da UI.
 
 Para obter a lista completa das permissões do Amazon S3, consulte [especificar permissões numa política](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html) no site da AWS.
 
@@ -67,8 +66,8 @@ As seguintes propriedades são suportadas para um serviço ligado à Amazon S3:
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade **tipo** deve ser definida para **AmazonS3**. | Sim |
-| accessKeyId | Identificação da chave de acesso secreta. |Sim |
-| SecretAccessKey | A chave de acesso secreto em si. Marque este campo como um **SecureString** para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). |Sim |
+| accessKeyId | Identificação da chave de acesso secreta. |Yes |
+| SecretAccessKey | A chave de acesso secreto em si. Marque este campo como um **SecureString** para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). |Yes |
 | serviceUrl | Especifique o ponto final personalizado S3 se estiver a copiar dados de um fornecedor de armazenamento compatível com S3, para além do serviço oficial Amazon S3. Por exemplo, para copiar dados do Google Cloud Storage, especifique `https://storage.googleapis.com` . | Não |
 | connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o tempo de funcionamento da integração Azure ou o tempo de integração auto-hospedado (se a sua loja de dados estiver numa rede privada). Se esta propriedade não for especificada, o serviço utiliza o tempo de execução de integração Azure padrão. |Não |
 

@@ -4,12 +4,12 @@ description: Resume o apoio à recuperação de desastres dos VMs do Azure para 
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: dd4cbf0228bc68fa253f9e7a06b4eaba5157d2bd
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 390dba92091a9e419bcd7a8f0e8e83f65597305e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952085"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045334"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para recuperação após desastre de VMs do Azure entre regiões do Azure
 
@@ -247,6 +247,7 @@ Geração 2 (bota UEFI) | Suportado
 Discos NVMe | Não suportado
 Discos partilhados do Azure | Não suportado
 Opção de transferência segura | Suportado
+Escreva discos ativados pelo acelerador | Não suportado
 
 >[!IMPORTANT]
 > Para evitar problemas de desempenho, certifique-se de que segue a escalabilidade do disco VM e os alvos de desempenho para Os VMs [do Linux](../virtual-machines/linux/disk-scalability-targets.md) ou [do Windows.](../virtual-machines/windows/disk-scalability-targets.md) Se utilizar as definições predefinidas, a Recuperação do Site cria os discos e contas de armazenamento necessários, com base na configuração de origem. Se personalizar e selecionar as suas próprias definições, siga a escalabilidade do disco e os alvos de desempenho para os seus VMs de origem.

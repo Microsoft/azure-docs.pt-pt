@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: be79f7bd6687b2e53e6abe19dc0a20999942071d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: a7fcd32335b5d9e04986355adeea473cf77b970e
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974975"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048207"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gerir os modelos Azure Digital Twins
 
@@ -84,7 +84,7 @@ As secções seguintes mostram como completar diferentes operações de gestão 
 Uma vez criados os modelos, pode enviá-los para a instância Azure Digital Twins.
 
 > [!TIP]
-> É aconselhável validar os seus modelos offline antes de os enviar para a sua instância Azure Digital Twins. Pode utilizar a [biblioteca de parser do lado do cliente DTDL](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) e [a amostra DTDL Validator](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) descrita em [*How-to: Parse e validar modelos*](how-to-parse-models.md) para verificar os seus modelos antes de os enviar para o serviço.
+> É aconselhável validar os seus modelos offline antes de os enviar para a sua instância Azure Digital Twins. Pode utilizar a [biblioteca de parser do lado do cliente DTDL](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) e [a amostra DTDL Validator](/samples/azure-samples/dtdl-validator/dtdl-validator) descrita em [*How-to: Parse e validar modelos*](how-to-parse-models.md) para verificar os seus modelos antes de os enviar para o serviço.
 
 Quando estiver pronto para carregar um modelo, pode utilizar o seguinte corte de código:
 

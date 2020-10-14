@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: 1725c3ff162e4f6b7ac3a5ea1ede6976c827b510
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c7f9ed9558adc9d129d1df767a05aff1fa4c66c
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328501"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047391"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Mover uma instância Azure Digital Twins para uma região de Azure diferente
 
@@ -43,24 +43,24 @@ Aqui estão algumas perguntas que talvez queira considerar:
 * Onde é que o meu caso **se liga a outros serviços da Azure?** Alguns pontos comuns de integração incluem...
     - Grelha de eventos, Centro de Eventos ou Ônibus de Serviço
     - Funções do Azure
-    - Aplicações Lógicas
+    - Logic Apps
     - Time Series Insights
     - Azure Maps
     - Serviço de Fornecimento de Dispositivos (DPS)
 * Que outras **aplicações pessoais ou da empresa** tenho que se ligam ao meu caso?
 
-Pode recolher esta informação utilizando o [portal Azure](https://portal.azure.com) [, APIs e SDKs de Gémeos Digitais Azure,](how-to-use-apis-sdks.md) [comandos CLI de Gémeos Digitais Azure ,](how-to-use-cli.md)ou a amostra do Explorador [Azure Digital Twins (ADT).](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)
+Pode recolher esta informação utilizando o [portal Azure](https://portal.azure.com) [, APIs e SDKs de Gémeos Digitais Azure,](how-to-use-apis-sdks.md) [comandos CLI de Gémeos Digitais Azure ,](how-to-use-cli.md)ou a amostra do Explorador [Azure Digital Twins (ADT).](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)
 
 ## <a name="prepare"></a>Preparação
 
-Nesta secção, você se preparará para recriar o seu **exemplo, descarregando os seus modelos originais, gémeos e gráfico** da sua instância original. Este artigo faz isto utilizando a amostra [do Azure Digital Twins (ADT) Explorer.](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)
+Nesta secção, você se preparará para recriar o seu **exemplo, descarregando os seus modelos originais, gémeos e gráfico** da sua instância original. Este artigo faz isto utilizando a amostra [do Azure Digital Twins (ADT) Explorer.](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/)
 
 >[!NOTE]
 >Pode já ter ficheiros que contenham os modelos e/ou o gráfico no seu caso. Em caso afirmativo, não precisa de descarregar tudo novamente — apenas as peças que está a perder ou coisas que podem ter mudado desde que fez o upload original destes ficheiros (como gémeos que podem ter sido atualizados com novos dados).
 
 ### <a name="limitations-of-adt-explorer"></a>Limitações do Explorador ADT
 
-A [amostra Azure Digital Twins (ADT) Explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) é uma amostra de aplicação do cliente que suporta uma representação visual do seu gráfico e proporciona interação visual com o seu exemplo. Este artigo mostra como usá-lo para descarregar, e mais tarde re-carregar, os seus modelos, gémeos e gráficos.
+A [amostra Azure Digital Twins (ADT) Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) é uma amostra de aplicação do cliente que suporta uma representação visual do seu gráfico e proporciona interação visual com o seu exemplo. Este artigo mostra como usá-lo para descarregar, e mais tarde re-carregar, os seus modelos, gémeos e gráficos.
 
 Por favor, note, no entanto, que esta é uma **amostra** e não uma ferramenta completa. Não foi testado pelo stress e não foi construído para manusear gráficos de grande dimensão. Por conseguinte, tenha em mente as seguintes limitações de amostra fora da caixa:
 * A amostra só foi testada em tamanhos de gráfico até 1000 nóns e relações de 2000
@@ -76,7 +76,7 @@ Se a amostra não for capaz de lidar com o tamanho do seu gráfico, pode exporta
 
 Para prosseguir com o ADT Explorer, primeiro descarregue o código de aplicação da amostra e confita-o para funcionar na sua máquina. 
 
-Navegue para a amostra aqui: [Azure Digital Twins (ADT) explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Aperda no botão *Baixar ZIP* para descarregar um *. Ficheiro ZIP* deste código de amostra para a sua máquina _** comoADT_Explorer.zip**_. Desaperte o ficheiro.
+Navegue para a amostra aqui: [Azure Digital Twins (ADT) explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Aperda no botão *Baixar ZIP* para descarregar um *. Ficheiro ZIP* deste código de amostra para a sua máquina _** comoADT_Explorer.zip**_. Desaperte o ficheiro.
 
 Em seguida, crie permissões para que o ADT Explorer seja executado na sua máquina. Para isso, siga os passos na secção [*de permissões set ADT Explorer*](quickstart-adt-explorer.md#set-adt-explorer-permissions) do arranque rápido das Gémeas Digitais Azure.
 
@@ -206,7 +206,7 @@ Caso contrário, para prosseguir, considere os recursos conectados no seu cenár
 Os recursos exatos que precisa de editar dependem do seu cenário, mas aqui estão alguns pontos de integração comuns:
 * Funções Azure. Se tiver uma função Azure cujo código inclui o nome de anfitrião da instância original, deverá atualizar este valor para o nome de anfitrião da nova instância e voltar a publicar a função.
 * Grelha de eventos, centros de eventos ou ônibus de serviço
-* Aplicações Lógicas
+* Logic Apps
 * Time Series Insights
 * Azure Maps
 * Serviço de Fornecimento de Dispositivos (DPS)
@@ -219,7 +219,7 @@ Após completar este passo, a sua nova instância na região alvo deve ser uma c
 Para verificar se a sua nova instância foi configurada corretamente, pode utilizar as seguintes ferramentas:
 * O [**portal Azure**](https://portal.azure.com) (bom para verificar se a sua nova instância existe e está na região alvo correta; também é bom para verificar pontos finais e rotas, e ligações a outros serviços Azure)
 * Os [ **comandos CLI** dos Gémeos Digitais Azure (bom](how-to-use-cli.md) para verificar se a sua nova instância existe e está na região alvo correta; também podem ser utilizados para verificar dados de instâncias)
-* [**ADT Explorer**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) (bom para verificar dados de instâncias como modelos, gémeos e gráficos)
+* [**ADT Explorer**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) (bom para verificar dados de instâncias como modelos, gémeos e gráficos)
 * As [APIs e SDKs das Gémeas Digitais Azure](how-to-use-apis-sdks.md) (boas para verificar dados de instâncias como modelos, gémeos e gráficos; também bons para verificar pontos finais e rotas)
 
 Também pode tentar executar quaisquer aplicações personalizadas ou fluxos de ponta a ponta que tenha em execução com a sua instância original, para ajudá-lo a verificar se estão a trabalhar corretamente com a nova instância.

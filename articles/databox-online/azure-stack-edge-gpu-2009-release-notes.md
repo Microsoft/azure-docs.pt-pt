@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/29/2020
+ms.date: 10/13/2020
 ms.author: alkohli
-ms.openlocfilehash: c43f7ba52ed0f6018ee32583011bb92786708119
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ddc83874526a99383f94491771a81da2cde86d8
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460480"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047306"
 ---
 # <a name="azure-stack-edge-pro-with-gpu-general-availability-ga-release-notes"></a>Azure Stack Edge Pro com notas de lançamento gpu Geral Availability (GA)
 
@@ -21,11 +21,11 @@ As seguintes notas de lançamento identificam os problemas abertos críticos e o
 
 As notas de lançamento são continuamente atualizadas, e à medida que são descobertas questões críticas que requerem uma solução alternativa, são adicionadas. Antes de implementar o seu dispositivo Azure Stack Edge Pro, reveja cuidadosamente as informações contidas nas notas de lançamento.
 
-Este artigo aplica-se ao lançamento do **Azure Stack Edge Pro 2009** que mapeia para a versão do software número **2.1.1364.2110**.
+Este artigo aplica-se ao lançamento do **Azure Stack Edge Pro 2010** que mapeia para a versão do software número **2.1.1377.2170**.
 
 ## <a name="whats-new"></a>Novidades
 
-As seguintes novas funcionalidades estão disponíveis na versão Azure Stack Edge 2009. 
+As seguintes novas funcionalidades estão disponíveis na versão Azure Stack Edge 2010. 
 
 - **Aulas de armazenamento** - Neste lançamento, estão disponíveis aulas de armazenamento que lhe permitem armazenar dinamicamente. Para obter mais informações, consulte a [gestão de armazenamento da Kubernetes no seu dispositivo GPU Azure Stack Edge Pro](azure-stack-edge-gpu-kubernetes-storage.md#dynamicprovisioning). 
 - **Painel de persa com servidor de métricas** - Nesta versão, um Painel de Instrumentos Kubernetes é adicionado com um addons servidor de métricas. Pode utilizar o dashboard para obter uma visão geral das aplicações em execução no seu dispositivo Azure Stack Edge Pro, ver o estado dos recursos do cluster Kubernetes e ver quaisquer erros que tenham ocorrido no dispositivo. O servidor Metrics agrega o CPU e o uso da memória através dos recursos de Kubernetes no dispositivo. Para obter mais informações, consulte [o painel de instrumentos Kubernetes para monitorizar o seu dispositivo GPU Azure Stack Edge Pro](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
@@ -35,7 +35,7 @@ As seguintes novas funcionalidades estão disponíveis na versão Azure Stack Ed
 
 A tabela seguinte fornece um resumo de problemas conhecidos para o dispositivo Azure Stack Edge Pro.
 
-| N.º | Funcionalidade | Problema | Soluções/comentários |
+| Não. | Funcionalidade | Problema | Soluções/comentários |
 | --- | --- | --- | --- |
 |**1.**|Funcionalidades de pré-visualização |Para esta versão GA, as seguintes funcionalidades: Local Azure Resource Manager, VMs, Kubernetes, Azure Arc habilitado a Kubernetes, serviço multi-processo (MPS) para GPU - estão todas disponíveis na pré-visualização do seu dispositivo Azure Stack Edge Pro.  |Estas funcionalidades estarão geralmente disponíveis num lançamento posterior. |
 | **2.** |Azure Stack Edge Pro + Azure SQL | A criação da base de dados SQL requer acesso ao Administrador.   |Faça os seguintes passos em vez dos passos 1-2 em [https://docs.microsoft.com/azure/iot-edge/tutorial-store-data-sql-server#create-the-sql-database](https://docs.microsoft.com/azure/iot-edge/tutorial-store-data-sql-server#create-the-sql-database) . <ul><li>Na UI local do seu dispositivo, ative a interface compute. **Selecione Compute > Port # > Ative para calcular > Apply.**</li><li>Faça o download `sqlcmd` na sua máquina de clientes a partir de https://docs.microsoft.com/sql/tools/sqlcmd-utility </li><li>Ligue-se ao endereço IP da interface de computação (a porta que estava ativada), adicionando um "1401" ao final do endereço.</li><li>O comando final será assim: sqlcmd -S {Interface IP},1401 -U SA -P "Forte! Passw0rd".</li>Depois disso, os passos 3-4 da documentação atual devem ser idênticos. </li></ul> |

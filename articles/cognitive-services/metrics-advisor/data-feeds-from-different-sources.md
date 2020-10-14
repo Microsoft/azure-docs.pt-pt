@@ -3,19 +3,19 @@ title: Como adicionar feeds de dados de diferentes fontes ao Metrics Advisor
 titleSuffix: Azure Cognitive Services
 description: adicionar diferentes feeds de dados ao Metrics Advisor
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.author: aahi
-ms.openlocfilehash: 11b75bcadc6292c17ef7e1e0f482d0c53bd9f8f5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.author: mbullwin
+ms.openlocfilehash: a37f3cfd250d152129245395680dbd847359e869
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91971953"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046915"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Adicione feeds de dados de diferentes fontes de dados ao Metrics Advisor
 
@@ -43,7 +43,7 @@ Utilize este artigo para encontrar as configurações e requisitos para ligar di
 |[**Azure Data Explorer (Kusto)**](#kusto) | Básico<br>ManagedIdentity|
 |[**Armazenamento do Azure Data Lake Ger2**](#adl) | Básico<br>DataLakeGen2SharedKey<br>Service principal (Principal de serviço)<br>Diretor de serviço do cofre chave<br> |
 |[**Base de Dados Azure SQL / Servidor SQL**](#sql) | Básico<br>ManagedIdentity<br>Service principal (Principal de serviço)<br>Diretor de serviço do cofre chave<br>AzuresQLConnectionString
-|[**Armazenamento de mesa Azure**](#table) | Básico | 
+|[**Table Storage do Azure**](#table) | Básico | 
 |[**Elasticsearch**](#es) | Básico |
 |[**Solicitar**](#http) | Básico | 
 |[**InfluxDB (InfluxQL)**](#influxdb) | Básico |
@@ -210,7 +210,7 @@ The timestamp field must match one of these two formats:
     select StartDate, JobStatusId, COUNT(*) AS JobNumber from IngestionJobs WHERE and StartDate = '2019-12-12 00:00:00'
     ```
 
-## <a name="span-idtableazure-table-storagespan"></a><span id="table">Armazenamento de mesa Azure</span>
+## <a name="span-idtableazure-table-storagespan"></a><span id="table">Table Storage do Azure</span>
 
 * **Cadeia de ligação**: Consulte a [Visualização e copie uma cadeia de ligação](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=azure-portal#view-account-access-keys) para obter informações sobre como recuperar a cadeia de ligação do Azure Table Storage.
 

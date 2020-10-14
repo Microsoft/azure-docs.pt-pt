@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 409d4195a8c0a4b41996274f68ec74864bebe208
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 0728e5d12b13164d127941a49603836ff92fd515
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873358"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92045793"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Tutorial: Desenvolver módulos IoT Edge para dispositivos Windows
 
@@ -24,7 +24,7 @@ No arranque rápido, criou um dispositivo IoT Edge utilizando uma máquina virtu
 
 Este tutorial utiliza o exemplo de implantação de um **módulo C# num dispositivo Windows**. Este exemplo foi escolhido porque é o cenário de desenvolvimento mais comum. Se você está interessado em desenvolver em uma linguagem diferente, ou planejar implementar serviços Azure como módulos, este tutorial ainda será útil para aprender sobre as ferramentas de desenvolvimento. Assim que compreender os conceitos de desenvolvimento, poderá escolher o seu idioma preferido ou o serviço Azure para mergulhar nos detalhes.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -48,7 +48,7 @@ A tabela seguinte lista os cenários de desenvolvimento suportados para **recipi
 |   | Visual Studio Code | Estúdio Visual 2017/2019 |
 | - | ------------------ | ------------------ |
 | **Serviços do Azure** | Funções do Azure <br> Azure Stream Analytics |   |
-| **Linguagens** | C# (depurar não suportado) | C <br> C# |
+| **Idiomas** | C# (depurar não suportado) | C <br> C# |
 | **Mais informações** | [Azure IoT Edge para Código de Estúdio Visual](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [Ferramentas Azure IoT Edge para Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)<br>[Ferramentas Azure IoT Edge para Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -87,13 +87,13 @@ Este tutorial ensina os passos de desenvolvimento do Visual Studio 2019. Se esti
 
 1. Prepare o Visual Studio 2019 na sua máquina de desenvolvimento.
 
-   * Se ainda não tiver o Visual Studio na sua máquina de desenvolvimento, instale o [Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) com as seguintes cargas de trabalho:
+   * Se ainda não tiver o Visual Studio na sua máquina de desenvolvimento, instale o [Visual Studio 2019](/visualstudio/install/install-visual-studio) com as seguintes cargas de trabalho:
 
       * Desenvolvimento do Azure
       * Desenvolvimento de desktop com C++
       * Desenvolvimento de várias plataformas .NET core
 
-   * Se já tem o Visual Studio 2019 na sua máquina de desenvolvimento, siga os passos no [Modificar Visual Studio](https://docs.microsoft.com/visualstudio/install/modify-visual-studio) para adicionar as cargas de trabalho necessárias.
+   * Se já tem o Visual Studio 2019 na sua máquina de desenvolvimento, siga os passos no [Modificar Visual Studio](/visualstudio/install/modify-visual-studio) para adicionar as cargas de trabalho necessárias.
 
 2. Descarregue e instale a extensão [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) para Visual Studio 2019.
 
@@ -329,7 +329,7 @@ Os comandos desta secção são para o seu dispositivo IoT Edge, não para a sua
 
    Os registos SimulatedTemperatureSensor e IotEdgeModule1 devem mostrar as mensagens que estão a processar. O módulo EdgeAgent é responsável por iniciar os outros módulos, pelo que os seus registos terão informações sobre a implementação do manifesto de implementação. Se algum módulo não estiver listado ou não estiver em execução, os registos edgeAgent provavelmente terão os erros. O módulo EdgeHub é responsável pelas comunicações entre os módulos e o IoT Hub. Se os módulos estiverem a funcionar, mas as mensagens não chegarem ao seu hub IoT, os registos edgeHub provavelmente terão os erros.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se planeia avançar para o próximo artigo recomendado, pode manter os recursos e as configurações que criou e reutilizá-los. Também pode continuar a utilizar o mesmo dispositivo IoT Edge como um dispositivo de teste.
 

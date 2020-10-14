@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 224f86a40fa812003463301f97bcae07de907f3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0435fe3946118d59d786dd3e6cec350a5ab4eee4
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91580468"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046456"
 ---
 # <a name="iot-plug-and-play-bridge"></a>Bridge do IoT Plug and Play
 
@@ -67,7 +67,7 @@ Para construir, estender e desenvolver a ponte IoT Plug e Play que você precisa
 
 ### <a name="azure-iot-products-and-tools"></a>Produtos e ferramentas Azure IoT
 
-- **Azure IoT Hub** - Você precisará de um [hub Azure IoT](https://docs.microsoft.com/azure/iot-hub/) na sua assinatura Azure para ligar o seu dispositivo. Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar. Se não tiver um hub IoT, [siga estas instruções para criar uma](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-using-cli).
+- **Azure IoT Hub** - Você precisará de um [hub Azure IoT](../iot-hub/index.yml) na sua assinatura Azure para ligar o seu dispositivo. Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar. Se não tiver um hub IoT, [siga estas instruções para criar uma](../iot-hub/iot-hub-create-using-cli.md).
 
 > [!Note]
 > O IoT Plug and Play está atualmente disponível em hubs IoT criados nas regiões centro-americana, norte da Europa e Japão Oriental. O suporte IoT Plug e Play não está incluído em centros IoT de nível básico. Para interagir com o seu dispositivo IoT Plug and Play, pode utilizar a ferramenta exploradorA Azure IoT. [Descarregue e instale a mais recente versão do explorador Azure IoT](./howto-use-iot-explorer.md) para o seu sistema operativo.

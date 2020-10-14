@@ -8,12 +8,12 @@ ms.date: 04/27/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0e4ec7127df288ec1818df307da1ea9824141309
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 540c4394a73ceff1f68a613561c034ca3bc7efc5
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87902461"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046575"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Resolução de problemas do seu dispositivo IoT Edge
 
@@ -251,7 +251,7 @@ iotedge restart edgeAgent && iotedge restart edgeHub
 
 ## <a name="check-your-firewall-and-port-configuration-rules"></a>Verifique as regras de firewall e configuração da porta
 
-O Azure IoT Edge permite a comunicação de um servidor no local para a nuvem Azure utilizando protocolos IoT Hub suportados, consulte [a escolha de um protocolo de comunicação](../iot-hub/iot-hub-devguide-protocols.md). Para uma maior segurança, os canais de comunicação entre Azure IoT Edge e Azure IoT Hub estão sempre configurados para serem outbound. Esta configuração baseia-se no [padrão de Comunicação Assistida de Serviços,](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/)que minimiza a superfície de ataque para uma entidade maliciosa explorar. A comunicação de entrada só é necessária para cenários específicos onde o Azure IoT Hub precisa de empurrar mensagens para o dispositivo Azure IoT Edge. As mensagens cloud-to-device são protegidas utilizando canais TLS seguros e podem ser mais protegidas utilizando certificados X.509 e módulos de dispositivoS TPM. O Azure IoT Edge Security Manager governa como esta comunicação pode ser estabelecida, ver [IoT Edge Security Manager](../iot-edge/iot-edge-security-manager.md).
+O Azure IoT Edge permite a comunicação de um servidor no local para a nuvem Azure utilizando protocolos IoT Hub suportados, consulte [a escolha de um protocolo de comunicação](../iot-hub/iot-hub-devguide-protocols.md). Para uma maior segurança, os canais de comunicação entre Azure IoT Edge e Azure IoT Hub estão sempre configurados para serem outbound. Esta configuração baseia-se no [padrão de Comunicação Assistida de Serviços,](/archive/blogs/clemensv/service-assisted-communication-for-connected-devices)que minimiza a superfície de ataque para uma entidade maliciosa explorar. A comunicação de entrada só é necessária para cenários específicos onde o Azure IoT Hub precisa de empurrar mensagens para o dispositivo Azure IoT Edge. As mensagens cloud-to-device são protegidas utilizando canais TLS seguros e podem ser mais protegidas utilizando certificados X.509 e módulos de dispositivoS TPM. O Azure IoT Edge Security Manager governa como esta comunicação pode ser estabelecida, ver [IoT Edge Security Manager](../iot-edge/iot-edge-security-manager.md).
 
 Embora o IoT Edge forneça uma configuração melhorada para assegurar o tempo de execução do Azure IoT Edge e os módulos implantados, ainda depende da configuração da máquina e da rede subjacentes. Por isso, é imperativo garantir que as regras adequadas de rede e firewall são criadas para uma borda segura para a comunicação na nuvem. A tabela a seguir pode ser utilizada como uma orientação quando a configuração de firewall reina para os servidores subjacentes onde o tempo de execução do Azure IoT Edge está hospedado:
 

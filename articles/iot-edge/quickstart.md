@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: eae7a44d77d63641ba9ad062c504aaf624582668
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: acd2f12150155efbccc668b99dcc4683d81b87e0
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91969233"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047034"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Quickstart: Implemente o seu primeiro módulo IoT Edge num dispositivo Virtual Windows
 
@@ -74,7 +74,7 @@ Dispositivo IoT Edge
   Abra este ficheiro com Ligação de Ambiente de Trabalho Remoto para ligar à sua máquina virtual Do Windows utilizando o nome de administrador e a palavra-passe especificada com o `az vm create` comando.
 
 > [!NOTE]
-> A sua máquina virtual Windows começa com a versão 1809 do Windows (construa 17763), que é a mais recente [construção de suporte a longo prazo](https://docs.microsoft.com/windows/release-information/)do Windows . O Windows verifica automaticamente as atualizações a cada 22 horas por predefinição. Depois de uma verificação na sua máquina virtual, o Windows empurra uma atualização de versão incompatível com o IoT Edge para windows, o que impede a utilização posterior do IoT Edge para funcionalidades do Windows. Recomendamos limitar a utilização da sua máquina virtual dentro de 22 horas ou [interromper temporariamente as atualizações do Windows](https://support.microsoft.com/help/4028233/windows-10-manage-updates).
+> A sua máquina virtual Windows começa com a versão 1809 do Windows (construa 17763), que é a mais recente [construção de suporte a longo prazo](/windows/release-information/)do Windows . O Windows verifica automaticamente as atualizações a cada 22 horas por predefinição. Depois de uma verificação na sua máquina virtual, o Windows empurra uma atualização de versão incompatível com o IoT Edge para windows, o que impede a utilização posterior do IoT Edge para funcionalidades do Windows. Recomendamos limitar a utilização da sua máquina virtual dentro de 22 horas ou [interromper temporariamente as atualizações do Windows](https://support.microsoft.com/help/4028233/windows-10-manage-updates).
 >
 > Este arranque rápido utiliza uma máquina virtual de ambiente de trabalho do Windows para simplificar. Para obter informações sobre quais os sistemas operativos Windows geralmente disponíveis para cenários de produção, consulte [os sistemas suportados pelo Azure IoT Edge](support.md).
 >

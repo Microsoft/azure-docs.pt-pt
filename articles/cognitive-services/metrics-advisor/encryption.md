@@ -2,19 +2,19 @@
 title: Encriptação do serviço Métrica Advisor
 titleSuffix: Azure Cognitive Services
 description: Métricas Advisor encriptação de dados em repouso.
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.author: aahi
-ms.openlocfilehash: 9d6a2f8a69d41d29e635b03425ed738484d6f408
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: mbullwin
+ms.openlocfilehash: 9a7a914acd1358243c1e8a29f59dadf4fac46957
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939057"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92046932"
 ---
 # <a name="metrics-advisor-service-encryption-of-data-at-rest"></a>Métricas Advisor encriptação de dados em repouso
 

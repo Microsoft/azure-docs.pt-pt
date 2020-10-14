@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: f64b5a186c026bf752d7975ac4337535ca64458e
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: b3cc70eadfaa1295cd67fa3f2b36c97f107b4bad
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876537"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92047000"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Backup e restauro na Base de Dados Azure para o MySQL
 
@@ -19,18 +19,29 @@ A Azure Database for MySQL cria automaticamente cópias de segurança do servido
 
 ## <a name="backups"></a>Cópias de segurança
 
-A Azure Database for MySQL retira cópias dos ficheiros de dados e do registo de transações. Dependendo do tamanho máximo de armazenamento suportado, ou fazemos cópias de segurança completas e diferenciais (servidores de armazenamento máximo de 4-TB) ou cópias de segurança instantâneas (até 16-TB máximo de armazenamento). Estas cópias de segurança permitem restaurar um servidor em qualquer ponto no tempo dentro do período de retenção de backup configurado. O período de retenção de backup predefinido é de sete dias. Pode [configurar opcionalmente](howto-restore-server-portal.md#set-backup-configuration) até 35 dias. Todas as cópias de segurança são encriptadas através da encriptação AES de 256 bits.
+A Azure Database for MySQL retira cópias dos ficheiros de dados e do registo de transações. Estas cópias de segurança permitem restaurar um servidor em qualquer ponto no tempo dentro do período de retenção de backup configurado. O período de retenção de backup predefinido é de sete dias. Pode [configurar opcionalmente](howto-restore-server-portal.md#set-backup-configuration) até 35 dias. Todas as cópias de segurança são encriptadas através da encriptação AES de 256 bits.
 
 Estes ficheiros de cópia de segurança não são expostos ao utilizador e não podem ser exportados. Estas cópias de segurança só podem ser utilizadas para operações de restauro na Base de Dados Azure para o MySQL. Pode usar [o meu "mysqldump"](concepts-migrate-dump-restore.md) para copiar uma base de dados.
 
-### <a name="backup-frequency"></a>Frequência de cópia de segurança
+O tipo de cópia de segurança e a frequência dependem do armazenamento de backend para os servidores.
 
-#### <a name="servers-with-up-to-4-tb-storage"></a>Servidores com armazenamento até 4-TB
+### <a name="backup-type-and-frequency"></a>Tipo de backup e frequência
 
-Para os servidores que suportam até 4-TB de armazenamento máximo, as cópias de segurança completas ocorrem uma vez por semana. As cópias de segurança diferenciais ocorrem duas vezes por dia. As cópias de segurança de registo de transações ocorrem a cada cinco minutos.
+#### <a name="basic-storage-servers"></a>Servidores básicos de armazenamento
 
-#### <a name="servers-with-up-to-16-tb-storage"></a>Servidores com armazenamento até 16-TB
-Num subconjunto de [regiões Azure,](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)todos os servidores recém-abastados podem suportar até 16-TB de armazenamento. As cópias de segurança nestes grandes servidores de armazenamento são baseadas em instantâneos. A primeira cópia de segurança de instantâneos completa é agendada imediatamente após a criação do servidor. A primeira cópia de segurança total do instantâneo é mantida como a cópia de segurança base do servidor. As cópias de segurança de instantâneos subsequentes são apenas cópias de segurança diferenciais. 
+Os servidores de armazenamento básico são o armazenamento de backend para [servidores Basic SKU](concepts-pricing-tiers.md). As cópias de segurança nos servidores básicos de armazenamento são baseadas em instantâneos. Uma foto de base de dados completa é realizada diariamente. Não existem cópias de segurança diferenciais realizadas para servidores de armazenamento básicos e todas as cópias de segurança instantâneas são apenas cópias de segurança completas da base de dados. 
+
+As cópias de segurança de registo de transações ocorrem a cada cinco minutos. 
+
+#### <a name="general-purpose-storage-servers-with-up-to-4-tb-storage"></a>Servidores de armazenamento de finalidade geral com armazenamento até 4-TB
+
+Para os servidores que suportam até 4-TB de armazenamento de finalidade geral máxima, as cópias de segurança completas ocorrem uma vez por semana. As cópias de segurança diferenciais ocorrem duas vezes por dia. As cópias de segurança do registo de transações ocorrem a cada cinco minutos. As cópias de segurança no armazenamento de fins gerais até 4-TB não são baseadas em instantâneos e consomem largura de banda IO no momento da cópia de segurança. Para grandes bases de dados (> 1TB) no armazenamento de 4-TB, recomendamos que considere 
+
+- Provisionar mais IOPs para responder a iOs de backup  
+- Alternativamente, migrar para o armazenamento de propósito geral que suporte até 16-TB de armazenamento se o armazenamento estiver disponível nas suas [regiões Azure preferidas](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage). Não existe um custo adicional para o armazenamento para fins gerais que suporte até 16-TB armazenamento. Para assistência com a migração para o armazenamento de 16-TB, abra um bilhete de apoio a partir do portal Azure. 
+
+#### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>Servidores de armazenamento de finalidade geral com armazenamento até 16-TB
+Num subconjunto de [regiões Azure,](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)todos os servidores recém-abastados podem suportar o armazenamento de fins gerais até 16-TB. As cópias de segurança nestes servidores de armazenamento de 16 TB são baseadas em instantâneos. A primeira cópia de segurança de instantâneos completa é agendada imediatamente após a criação do servidor. A primeira cópia de segurança total do instantâneo é mantida como a cópia de segurança base do servidor. As cópias de segurança de instantâneos subsequentes são apenas cópias de segurança diferenciais. 
 
 As cópias de segurança de instantâneos diferenciais ocorrem, pelo menos, uma vez por dia. As cópias de segurança de instantâneos diferenciais não ocorrem num agendamento fixo. As cópias de segurança instantânea diferenciais ocorrem a cada 24 horas, a menos que o registo de transação (binlog no MySQL) exceda 50-GB desde a última cópia de segurança diferencial. Num dia, são permitidos, no máximo, seis instantâneos diferenciais. 
 

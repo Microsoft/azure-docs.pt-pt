@@ -3,19 +3,19 @@ title: Configure a sua instância Métrica Advisor usando o portal web
 titleSuffix: Azure Cognitive Services
 description: Como configurar a sua instância Métrica Advisor e afinar os resultados de deteção de anomalias.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.author: aahi
-ms.openlocfilehash: 93fdf2884ca6593cfdb4fb2878ba0dd21246266d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: mbullwin
+ms.openlocfilehash: 7923dad3d47122c0ceb04d1240736e2b66a0dd64
+ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91446346"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92048258"
 ---
 # <a name="how-to-configure-metrics-and-fine-tune-detecting-configuration"></a>Como: Configurar métricas e configuração de deteção de afinação
 
