@@ -3,12 +3,12 @@ title: O que é o Azure Lighthouse?
 description: O Azure Lighthouse permite que os prestadores de serviços entreguem serviços geridos aos seus clientes com maior automatização e eficiência em escala.
 ms.date: 08/19/2020
 ms.topic: overview
-ms.openlocfilehash: 22bec7ec8944a11ce0cfdf51776f1f193a1aedaa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 41fa836321da7cdb42b9a3419bc0bb32963a5849
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89488818"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017868"
 ---
 # <a name="what-is-azure-lighthouse"></a>O que é o Azure Lighthouse?
 
@@ -22,7 +22,7 @@ O Azure Lighthouse ajuda-o a construir e prestar serviços geridos de forma rent
 
 - **Gestão em escala**: As operações de envolvimento do cliente e ciclo de vida para gerir os recursos dos clientes são mais fáceis e escaláveis. As APIs existentes, ferramentas de gestão e fluxos de trabalho podem ser usados com recursos delegados, independentemente das regiões em que estão localizadas.
 - **Maior visibilidade e precisão para os clientes**: Os clientes terão maior visibilidade nas suas ações e controlo preciso sobre o âmbito que delegam para a gestão, incluindo a capacidade de remover completamente o acesso, enquanto o seu IP é preservado.
-- **Ferramenta de plataforma abrangente e unificada**: A nossa experiência de ferramentas aborda cenários chave do prestador de serviços, incluindo vários modelos de licenciamento como EA, CSP e pay-as-you-go. As novas capacidades funcionam com ferramentas e APIs existentes, modelos de licenciamento e programas parceiros como o [programa Cloud Solution Provider (CSP)](/partner-center/csp-overview). O Azure Lighthouse pode ser integrado nos seus fluxos de trabalho e aplicações existentes, e pode acompanhar o seu impacto nos compromissos com os clientes e receber o crédito adquirido pelo [parceiro, ligando o seu ID do parceiro.](./how-to/partner-earned-credit.md)
+- **Ferramenta de plataforma abrangente e unificada**: A nossa experiência de ferramentas aborda cenários chave do prestador de serviços, incluindo vários modelos de licenciamento como EA, CSP e pay-as-you-go. As novas capacidades funcionam com ferramentas e APIs existentes, modelos de licenciamento e programas parceiros como o [programa Cloud Solution Provider (CSP)](/partner-center/csp-overview). O Farol Azure pode ser integrado nos fluxos de trabalho e aplicações existentes, e pode acompanhar o seu impacto nos compromissos com os clientes [ligando o ID do seu parceiro.](./how-to/partner-earned-credit.md)
 
 Não existem custos adicionais associados à utilização do Farol Azure para gerir os recursos da Azure. Qualquer cliente ou parceiro Azure pode usar o Farol Azure.
 

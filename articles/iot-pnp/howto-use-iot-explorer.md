@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: e64586ced7a619de02ae3a9d6beda35660ca04a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf68bdafbb8b6fde187a2d787bb5464e5ece4cb2
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91577582"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019159"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Instale e utilize o explorador Azure IoT
 
@@ -36,7 +36,7 @@ Para utilizar a ferramenta exploradora Azure IoT, precisa:
 Vá ao [Azure IoT explorer lança](https://github.com/Azure/azure-iot-explorer/releases) e expanda a lista de ativos para o lançamento mais recente. Faça o download e instale a versão mais recente da aplicação.
 
 >[!Important]
->A partir da versão 0.11.0 IoT Explorer apenas suporta o lançamento IoT Plug and Play GA (a partir de setembro de 2020). Para utilizar as funcionalidades disponíveis no pré-lançamento anterior a partir de agosto de 2019, instale uma versão 0.10.x.
+> Atualizar para a versão 0.13.x para resolver os modelos de qualquer repositório baseado em [https://github.com/Azure/iot-plugandplay-models](https://github.com/Azure/iot-plugandplay-models)
 
 ## <a name="use-azure-iot-explorer"></a>Use o explorador Azure IoT
 
@@ -136,4 +136,4 @@ Para visualizar a telemetria para a interface selecionada, aceda ao separador **
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo de como instalar e utilizar o explorador Azure IoT para interagir com os seus dispositivos IoT Plug e Play. Um próximo passo sugerido é aprender a usar os [comandos Azure CLI IoT Plug and Play](./howto-use-iot-pnp-cli.md).
+Neste artigo de como instalar e utilizar o explorador Azure IoT para interagir com os seus dispositivos IoT Plug e Play. Um próximo passo sugerido é aprender a [instalar e utilizar as ferramentas de autoria DTDL](howto-use-dtdl-authoring-tools.md).

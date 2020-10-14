@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 2022a7448767b7ffea7baa70606a7f59e6d93951
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 9531a812d60c6e5a60ff0a0936fafde4a77e5a67
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952030"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017051"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Quickstart - Explore uma amostra do cenário Azure Digital Twins usando o ADT Explorer
 
 Com a Azure Digital Twins, pode criar e interagir com modelos ao vivo dos seus ambientes do mundo real. Isto é feito modelando elementos individuais como **gémeos digitais,** ligando-os depois a um **gráfico de** conhecimento que pode responder a eventos ao vivo e ser questionado para obter informações.
 
-Neste quickstart, você explorará um gráfico pré-construído Azure Digital Twins, com a ajuda de uma aplicação de amostra chamada [**Azure Digital Twins (ADT) Explorer**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). O ADT Explorer permite-lhe fazer o upload de um cenário, ver representações visuais dos seus gémeos e gráfico, e realizar outras atividades de gestão através de uma experiência visual baseada no navegador.
+Neste quickstart, você explorará um gráfico pré-construído Azure Digital Twins, com a ajuda de uma aplicação de amostra chamada [**Azure Digital Twins (ADT) Explorer**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). O ADT Explorer permite-lhe fazer o upload de uma representação digital de um ambiente, ver imagens visuais dos gémeos e gráficos que são criados para representar o ambiente em Azure Digital Twins, e realizar outras atividades de gestão através de uma experiência visual baseada no navegador.
 
 O quickstart contém os seguintes passos principais:
 
@@ -307,7 +307,7 @@ Neste quickstart, criou um exemplo de Azure Digital Twins, ligou-o ao ADT Explor
 Depois, explorou o gráfico, por...
 1. Usando uma pergunta para responder a uma pergunta sobre o cenário.
 2. Editar uma propriedade num gémeo digital.
-    * Executando novamente a consulta para ver como a resposta mudou como resultado da sua atualização.
+3. Executando novamente a consulta para ver como a resposta mudou como resultado da sua atualização.
 
 A intenção deste exercício é demonstrar como pode usar o gráfico Azure Digital Twins para responder a questões sobre o seu ambiente, mesmo que o ambiente continue a mudar. 
 

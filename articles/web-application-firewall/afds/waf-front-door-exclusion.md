@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 02/25/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 6ed382e88700e4ecd7f8de20a2c8da7ed3c13566
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43565e812abcf0b7dbb992ac4d25a62a4d08df2b
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77925933"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018649"
 ---
 # <a name="web-application-firewall-waf-with-front-door-service-exclusion-lists"></a>Firewall de aplicação web (WAF) com listas de exclusão do Serviço de Porta Frontal 
 
@@ -45,6 +45,17 @@ Pode especificar um cabeçalho de pedido exato, corpo, cookie ou combinação de
 Nomes de cabeçalho e biscoitos são insensíveis a caso.
 
 Pode aplicar a lista de exclusão a todas as regras dentro da regra gerida definida, às regras de um grupo de regras específicos, ou a uma única regra, como mostrado no exemplo anterior. 
+
+## <a name="define-exclusion-based-on-web-application-firewall-logs"></a>Defina exclusão com base em registos de firewall de aplicação web
+ A monitorização e registo de registos da [Azure Web Application Firewall](waf-front-door-monitor.md) mostra detalhes compatíveis com um pedido bloqueado. Se um valor de cabeçalho, valor de cookies, valor de argumento pós-post ou valor de argumento de consulta produzir falsos positivos para algumas regras, pode excluir que parte do pedido seja considerado pela regra. O quadro a seguir mostra valores de exemplo a partir de registos WAF e as condições de exclusão correspondentes.
+
+|matchVariableName de registos WAF    |Exclusão de regras no Portal|
+|--------|------|
+|CookieValue:SOME_NAME  |Solicitar nome de cookies Igual a SOME_NAME|
+|HeaderValue:SOME_NAME  |Pedido nome de cabeçalho Igual a SOME_NAME|
+|PostParamValue:SOME_NAME|  Solicitar nome de args post do corpo Igual SOME_NAME|
+|ConsultaParamValue:SOME_NAME| Nome de args de cadeia de consulta é igual a SOME_NAME|
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

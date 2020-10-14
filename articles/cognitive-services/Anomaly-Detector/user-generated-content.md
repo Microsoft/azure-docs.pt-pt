@@ -3,19 +3,19 @@ title: Conteúdo gerado pelo Utilizador em destaque para a API do Detetor de Ano
 titleSuffix: Azure Cognitive Services
 description: Encontre conteúdo em destaque e descubra como outras pessoas estão a pensar e a usar a API do Detetor de Anomalias.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.author: aahi
-ms.openlocfilehash: 81a2cb7ece775bfaffaf1b1932feb12b2da5f08f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: mbullwin
+ms.openlocfilehash: df526c23460e7146cd630afcb8b29a380c568250
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74012016"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017441"
 ---
 # <a name="featured-user-generated-content-for-the-anomaly-detector-api"></a>Conteúdo gerado pelo Utilizador em destaque para a API do Detetor de Anomalias
 

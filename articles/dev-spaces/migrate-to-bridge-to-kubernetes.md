@@ -5,12 +5,12 @@ ms.date: 10/12/2020
 ms.topic: conceptual
 description: Descreve o processo de migração de Azure Dev Spaces para Bridge to Kubernetes
 keywords: Espaços Azure Dev, Dev Spaces, Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores, Ponte para Kubernetes
-ms.openlocfilehash: 2b923e87e1eefe9cb0ba4afc018eed728ee6aaba
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 209776be80f2814dc8e4d347c0eea273017f70ad
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993932"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019941"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Migrar para o Bridge to Kubernetes
 
@@ -48,24 +48,24 @@ Azure Dev Spaces e Bridge to Kubernetes têm características semelhantes, tamb�
 | Acesso de segurança necessário no seu cluster  | Colaborador do Cluster AKS  | Kubernetes RBAC -Atualização de implantação   |
 | Acesso de segurança necessário no seu computador de desenvolvimento  | N/D  | Administrador local / sudo   |
 | **Usabilidade** |
-| Independente dos artefactos de Kubernetes e Docker  | No  | Yes   |
-| Reversão automática de alterações, pós-depuro  | No  | Yes   |
+| Independente dos artefactos de Kubernetes e Docker  | Não  | Sim   |
+| Reversão automática de alterações, pós-depuro  | Não  | Sim   |
 | **Ambientes** |
-| Obras com Visual Studio 2019  | Yes  | Yes   |
-| Trabalha com Código de Estúdio Visual  | Yes  | Yes   |
-| Trabalha com o CLI  | Yes  | No   |
+| Obras com Visual Studio 2019  | Sim  | Sim   |
+| Trabalha com Código de Estúdio Visual  | Yes  | Sim   |
+| Trabalha com o CLI  | Yes  | Não   |
 | **Compatibilidade do Sistema Operativo** |
-| Funciona no Windows 10  | Yes  | Yes  |
+| Funciona no Windows 10  | Sim  | Sim  |
 | Trabalha em Linux  | Yes  | Yes  |
 | Trabalha no macOS  | Yes  | Yes  |
 | **Capacidades** |
 | Isolamento do desenvolvedor ou desenvolvimento de equipas  | Yes  | Yes  |
-| Variáveis ambientais seletivamente substituindo  | No  | Yes  |
-| Criação de Dockerfile e Gráfico helm  | Yes  | No  |
-| Implementação persistente do código para Kubernetes  | Yes  | No  |
-| Depuragem remota em uma cápsula Kubernetes  | Yes  | No  |
-| Depuragem local, ligada a Kubernetes  | No  | Yes  |
-| Depurando vários serviços ao mesmo tempo, na mesma estação de trabalho  | Yes  | Yes  |
+| Variáveis ambientais seletivamente substituindo  | Não  | Sim  |
+| Criação de Dockerfile e Gráfico helm  | Yes  | Não  |
+| Implementação persistente do código para Kubernetes  | Yes  | Não  |
+| Depuragem remota em uma cápsula Kubernetes  | Yes  | Não  |
+| Depuragem local, ligada a Kubernetes  | Não  | Yes  |
+| Depurando vários serviços ao mesmo tempo, na mesma estação de trabalho  | Sim  | Yes  |
 
 ## <a name="kubernetes-inner-loop-development"></a>Desenvolvimento do loop interno de Kubernetes
 
@@ -80,9 +80,9 @@ A Ponte para Kubernetes tem a flexibilidade para trabalhar com aplicações em e
 > [!TIP]
 > A [extensão microsoft Kubernetes][kubernetes-extension] permite-lhe desenvolver rapidamente manifestos kubernetes com Intellisense e ajuda gráficos de andaimes Helm.  
 
-### <a name="use-visual-studio-to-transition-to-bridge-to-kubernetes-from-azure-dev-spaces"></a>Use o Estúdio Visual para a transição para Bridge para Kubernetes a partir de Azure Dev Spaces
+### <a name="transition-to-bridge-to-kubernetes-from-azure-dev-spaces"></a>Transição para Bridge para Kubernetes de Azure Dev Spaces
 
-1. Atualize o seu Visual Studio IDE para a versão 16.7 ou superior e instale a extensão Bridge to Kubernetes a partir do [Visual Studio Marketplace][vs-marketplace].
+1. Se estiver a utilizar o Visual Studio, atualize o seu Visual Studio IDE para a versão 16.7 ou superior e instale a extensão Bridge to Kubernetes a partir do [Visual Studio Marketplace][vs-marketplace]. Se estiver a utilizar o Código do Estúdio Visual, instale a [extensão Bridge to Kubernetes][vsc-marketplace].
 1. Desative o controlador Azure Dev Spaces utilizando o portal Azure Ou o [Azure Dev Spaces CLI][azds-delete].
 1. Use [a casca de nuvem Azure](https://shell.azure.com). Ou no Mac, Linux ou Windows com bash instalado, abra um pedido de concha de bash. Certifique-se de que as seguintes ferramentas estão disponíveis no seu ambiente de linha de comando: Azure CLI, docker, kubectl, curl, alcatrão e gunzip.
 1. Crie um registo de contentores ou use um existente. Pode criar um registo de contentores em Azure utilizando [o Registo do Contentor Azure](../container-registry/index.yml) ou utilizando o Docker [Hub](https://hub.docker.com/).
@@ -109,18 +109,9 @@ A Ponte para Kubernetes tem a flexibilidade para trabalhar com aplicações em e
 1. Migrar manualmente quaisquer personalizações, tais como configurações variáveis ambientais, em *azds.yaml* para os valores do seu *projeto.arquivo yml.*
 1. (opcional) Retire o `azds.yaml` ficheiro do seu projeto.
 1. Reimplantar a sua aplicação.
-1. Configure a Ponte para Kubernetes na sua aplicação implementada. Para obter mais informações sobre a utilização de Bridge to Kubernetes em Visual Studio, consulte [Use Bridge to Kubernetes][use-btk-vs].
-1. Comece a depurar no Visual Studio usando o perfil de depuragem de Bridge to Kubernetes recém-criado.
+1. Configure a Ponte para Kubernetes na sua aplicação implementada. Para obter mais informações sobre a utilização de Bridge to Kubernetes em Visual Studio, consulte [Use Bridge to Kubernetes in Visual Studio][use-btk-vs]. Para obter o código VS, consulte [use bridge to Kubernetes no código VS][use-btk-vsc].
+1. Comece a depurar usando o perfil de ponte recém-criado para Kubernetes debug/launch.
 1. Pode executar o script novamente conforme necessário para recolocar o seu cluster.
-
-### <a name="use-visual-studio-code-to-transition-to-bridge-to-kubernetes-from-azure-dev-spaces"></a>Use código de estúdio visual para a transição para Bridge para Kubernetes de Azure Dev Spaces
-
-1. Instale [a extensão da Ponte para Kubernetes.][vsc-marketplace]
-1. Desative o controlador Azure Dev Spaces utilizando o portal Azure Ou o [Azure Dev Spaces CLI][azds-delete].
-1. Retire o `azds.yaml` ficheiro do seu projeto.
-1. Reimplantar a sua aplicação.
-1. Configure a Ponte para Kubernetes na sua aplicação implementada. Para obter mais informações sobre a utilização de Bridge to Kubernetes em Código de Estúdio Visual, consulte [Use Bridge to Kubernetes][use-btk-vsc].
-1. Comece a depurar no Visual Studio Code usando o perfil de lançamento da Ponte para Kubernetes recém-criada.
 
 ## <a name="team-development-in-a-shared-cluster"></a>Desenvolvimento de equipa em um cluster compartilhado
 

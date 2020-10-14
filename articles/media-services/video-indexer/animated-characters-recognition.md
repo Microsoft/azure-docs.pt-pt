@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: 3b449f68b25fce19dc034d2a0db0ae5ce8a28ec7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d304767cf28c0e9230c93d5b9e7504b03ed25d4
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87047493"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018887"
 ---
 # <a name="animated-character-detection-preview"></a>Deteção de carateres animados (pré-visualização)
 
@@ -55,7 +55,7 @@ Uma vez que nas contas de teste a integração Custom Vision é gerida pelo Vide
 
 ### <a name="connect-your-custom-vision-account-paid-accounts-only"></a>Conecte a sua conta De Visão Personalizada (apenas contas pagas)
 
-Se possuir uma conta paga por Video Indexer, tem de ligar primeiro uma conta De Visão Personalizada. Se já não tem uma conta Visão Personalizada, por favor crie uma. Para mais informações, consulte [a Visão Personalizada.](../../cognitive-services/custom-vision-service/home.md)
+Se possuir uma conta paga por Video Indexer, tem de ligar primeiro uma conta De Visão Personalizada. Se já não tem uma conta Visão Personalizada, por favor crie uma. Para mais informações, consulte [a Visão Personalizada.](../../cognitive-services/custom-vision-service/overview.md)
 
 > [!NOTE]
 > Ambas as contas têm de estar na mesma região. A integração da Visão Personalizada não é atualmente apoiada na região japonesa.
@@ -160,7 +160,7 @@ Siga estes passos para ligar a conta De Visão Personalizada ao Indexador de Ví
 1. Conecte uma conta Visão Personalizada.
 
     Se possuir uma conta paga por Video Indexer, tem de ligar primeiro uma conta De Visão Personalizada. <br/>
-    Se já não tem uma conta Visão Personalizada, por favor crie uma. Para mais informações, consulte [a Visão Personalizada.](../../cognitive-services/custom-vision-service/home.md)
+    Se já não tem uma conta Visão Personalizada, por favor crie uma. Para mais informações, consulte [a Visão Personalizada.](../../cognitive-services/custom-vision-service/overview.md)
 
     [Ligue a sua conta De Visão Personalizada utilizando a API.](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Connect-Custom-Vision-Account?tags=&pattern=&groupBy=tag)
 1. Crie um modelo de personagens animados.

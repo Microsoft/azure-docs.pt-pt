@@ -6,17 +6,17 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 10/13/2020
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 50abe5071ef424b03d92522e01477d1152930b2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69ec30a14d4c04e1f47c909e829f7388132e64d6
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187817"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018218"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Join an Azure-SSIS integration runtime to a virtual network (Associar um runtime de integração do Azure-SSIS a uma rede virtual)
 
@@ -151,7 +151,7 @@ Uma abordagem recomendada é a seguir:
 Para obter mais informações, consulte [a resolução Nome que utiliza o seu próprio servidor DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server). 
 
 > [!NOTE]
-> Utilize um nome de domínio totalmente qualificado (FQDN) para o nome de anfitrião privado, por exemplo, utilize `<your_private_server>.contoso.com` em vez de , uma vez que a `<your_private_server>` Azure-SSIS IR não anexa automaticamente o seu próprio sufixo DNS.
+> Utilize um nome de domínio totalmente qualificado (FQDN) para o seu nome de anfitrião privado (por exemplo, use `<your_private_server>.contoso.com` em vez de `<your_private_server>` ). Em alternativa, pode utilizar uma configuração personalizada padrão no seu Azure-SSIS IR para anexar automaticamente o seu próprio sufixo DNS (por exemplo) a qualquer nome de `contoso.com` domínio de rótulo único não qualificado e transformá-lo num FQDN antes de o utilizar em consultas DNS, consulte [amostras de configuração personalizadas padrão.](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup#standard-custom-setup-samples) 
 
 ### <a name="set-up-an-nsg"></a><a name="nsg"></a> Configurar um NSG
 Se precisar de implementar um NSG para a sub-rede utilizada pelo seu Azure-SSIS IR, permita o tráfego de entrada e saída através das seguintes portas: 

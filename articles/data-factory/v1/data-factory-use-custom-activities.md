@@ -13,12 +13,12 @@ ms.author: abnarain
 ms.custom: devx-track-csharp
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: b8935b9f2c3c598aee7c5d0eb37f21d8114dac42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8cd72d34535ac3a2aec60aa3d2369da34dd7194
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88997460"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017408"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-version-1-pipeline"></a>Utilize atividades personalizadas num pipeline da versão 1 da Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -31,7 +31,7 @@ ms.locfileid: "88997460"
 Existem dois tipos de atividades que pode utilizar num oleoduto Azure Data Factory.
 
 - [Atividades de Movimento de Dados](data-factory-data-movement-activities.md) para mover dados entre [fontes suportadas e lojas de dados de sumidouros](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
-- [Atividades de transformação de dados](data-factory-data-transformation-activities.md) para transformar dados usando serviços de computação como Azure HDInsight, Azure Batch e Azure Machine Learning.
+- [Atividades de transformação de dados](data-factory-data-transformation-activities.md) para transformar dados usando serviços de computação como Azure HDInsight, Azure Batch e Azure Machine Learning Studio (clássico).
 
 Para mover dados de/para uma loja de dados que a Data Factory não suporta, crie uma **atividade personalizada** com a sua própria lógica de movimento de dados e utilize a atividade num pipeline. Da mesma forma, para transformar/processar dados de uma forma que não seja suportada pela Data Factory, crie uma atividade personalizada com a sua própria lógica de transformação de dados e use a atividade num oleoduto.
 
@@ -1025,7 +1025,7 @@ A [Azure Data Factory -](https://github.com/gbrueckl/Azure.DataFactory.LocalEnvi
 | Sample | Que atividade personalizada faz |
 | --- | --- |
 | [HTTP Downloader de Dados](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/HttpDataDownloaderSample). |Descarrega dados de um http endpoint para Azure Blob Storage usando atividade C# personalizada na Data Factory. |
-| [Amostra de Análise de Sentimento do Twitter](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Invoca um modelo de estúdio Azure Machine Learning e faz análise de sentimentos, pontuação, previsão etc. |
+| [Amostra de Análise de Sentimento do Twitter](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TwitterAnalysisSample-CustomC%23Activity) |Invoca um modelo Azure Machine Learning Studio (clássico) e faz análise de sentimentos, pontuação, previsão etc. |
 | [Executar O Script R](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample). |Invoca o script R executando RScript.exe no seu cluster HDInsight que já tem R Instalado nele. |
 | [Atividade Cross AppDomain .NET](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/CrossAppDomainDotNetActivitySample) |Utiliza diferentes versões de montagem das utilizadas pelo lançador data factory |
 | [Reprocessar um modelo em Serviços de Análise Azure](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/AzureAnalysisServicesProcessSample) |  Reprocessa um modelo nos Serviços de Análise Azure. |

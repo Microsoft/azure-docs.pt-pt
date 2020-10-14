@@ -7,12 +7,12 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 7df4df1f7c2fbb600b2350940f910f488827804d
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 5d8adea95708f4c7bbe3e7113c3e39e0484159ee
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875464"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018054"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria em Insights de Aplicação
 
@@ -147,7 +147,7 @@ Adicione a seguinte configuração:
       distributedTracingMode: 2 // DistributedTracingModes.W3C
   ```
 > [!IMPORTANT] 
-> Para ver todas as configurações necessárias para permitir a correlação, consulte a documentação de [correlação JavaScript](/app/javascript.md#enable-correlation).
+> Para ver todas as configurações necessárias para permitir a correlação, consulte a documentação de [correlação JavaScript](/azure/azure-monitor/app/javascript#enable-correlation).
 
 ## <a name="telemetry-correlation-in-opencensus-python"></a>Correlação de telemetria em OpenCensus Python
 

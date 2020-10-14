@@ -8,13 +8,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
-ms.openlocfilehash: b74621f357613bc60457ab4846b58f6f85009401
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/13/2020
+ms.openlocfilehash: 12693fb11556380e62df277be093ce20c02ff372
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541888"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018037"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Armazenamento e remoção de dados em Serviços Cognitivos de Compreensão linguística (LUIS)
 A LUIS armazena dados encriptados numa loja de dados Azure correspondente à região especificada pela chave. Estes dados são armazenados por 30 dias. 
@@ -50,9 +50,14 @@ Se não quer declarações de aprendizagem ativa, pode [desativar a aprendizagem
 <a name="accounts"></a>
 
 ## <a name="delete-an-account"></a>Eliminar uma conta
-Se eliminar uma conta, todas as aplicações são eliminadas, juntamente com as suas palavras de exemplo e registos. Os dados são conservados por 60 dias antes de a conta e os dados serem eliminados permanentemente.
+Se não estiver migrado, pode eliminar a sua conta e todas as suas aplicações serão eliminadas juntamente com as suas palavras de exemplo e registos. Os dados são conservados por 90 dias antes de a conta e os dados serem eliminados permanentemente.
 
 A eliminação da conta está disponível na página **Definições.** Selecione o nome da sua conta na barra de navegação superior direita para chegar à página **Definições.**
+
+## <a name="delete-an-authoring-resource"></a>Eliminar um recurso de autoria
+Se tiver [migrado para um recurso de autoria,](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-authoring)eliminando o próprio recurso do portal Azure irá eliminar todas as suas aplicações associadas a esse recurso, juntamente com as suas expressões de exemplo e registos. Os dados são conservados durante 90 dias antes de serem eliminados permanentemente.    
+
+Para eliminar o seu recurso, vá ao [portal Azure](https://ms.portal.azure.com/#home) e selecione o seu recurso de autoria LUIS. Vá ao **separador 'Vista Geral'** e clique no botão **Eliminar** na parte superior da página. Em seguida, confirme que o seu recurso foi apagado. 
 
 ## <a name="data-inactivity-as-an-expired-subscription"></a>Inatividade de dados como subscrição caducada
 Para efeitos de retenção e eliminação de dados, uma aplicação LUIS inativa pode, a _critério da Microsoft,_ ser tratada como uma subscrição expirada. Uma aplicação é considerada inativa se cumprir os seguintes critérios para os últimos 90 dias: 

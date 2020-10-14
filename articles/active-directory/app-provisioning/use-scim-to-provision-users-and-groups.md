@@ -1,24 +1,24 @@
 ---
-title: Desenvolver um ponto final SCIM para o fornecimento de utilizadores a apps a partir do Azure AD
-description: O sistema de gestão de identidade de domínio cruzado (SCIM) normaliza o fornecimento automático do utilizador. Aprenda a desenvolver um ponto final SCIM, integre a sua API SCIM com o Azure Ative Directory e comece a automatizar utilizadores e grupos de provisionamento nas suas aplicações em nuvem.
+title: Tutorial - Desenvolver um ponto final SCIM para o fornecimento de utilizadores a apps a partir do Azure AD
+description: O sistema de gestão de identidade de domínio cruzado (SCIM) normaliza o fornecimento automático do utilizador. Neste tutorial, aprende-se a desenvolver um ponto final SCIM, a integrar a sua API SCIM com o Azure Ative Directory e a automatizar utilizadores e grupos de a provisionamento nas suas aplicações na nuvem.
 services: active-directory
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: fd534443c56612d0c0d67c228cba154fb1db18c3
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3a6f7bd282dbfc5087c5ddcb066c8e38a478c99f
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967057"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018666"
 ---
-# <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Construa um ponto final SCIM e configuure o fornecimento de utilizadores com Azure AD
+# <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Tutorial - Construa um ponto final SCIM e configuure o fornecimento de utilizadores com Azure AD
 
 Como desenvolvedor de aplicações, pode utilizar a API de gestão de identidade de controlo de identidade de domínio cruzado (SCIM) para permitir o fornecimento automático de utilizadores e grupos entre a sua aplicação e a Azure AD. Este artigo descreve como construir um ponto final SCIM e integrar-se com o serviço de fornecimento AZURE AD. A especificação SCIM fornece um esquema comum de utilização para o provisionamento. Quando usado em conjunto com padrões da federação como SAML ou OpenID Connect, o SCIM dá aos administradores uma solução baseada em padrões para a gestão de acessos.
 

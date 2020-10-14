@@ -2,19 +2,19 @@
 title: Início rápido da biblioteca de clientes JavaScript do detetor de anomalias
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/22/2020
-ms.author: aahi
+ms.author: mbullwin
 ms.custom: devx-track-js
-ms.openlocfilehash: 0aecf99c248d745288716c8638066ddec92e1a39
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 376ad893bf6fee36543e691fe50f369d8a43142c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91319273"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018513"
 ---
 Começa com a biblioteca de clientes do Detetor de Anomalias para o JavaScript. Siga estes passos para instalar o pacote comece a usar os algoritmos fornecidos pelo serviço. O serviço Detetor de Anomalias permite-lhe encontrar anomalias nos dados da sua série de tempo utilizando automaticamente os modelos mais adequados, independentemente da indústria, cenário ou volume de dados.
 

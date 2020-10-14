@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 4d1c68ba1e0b7db8afefa64abefc671d51e78bd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d57a6705973fbd5ee39042404015347d75b49b3
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569506"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019788"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Programar com as APIs dos Serviços de Multimédia v3
 
@@ -122,14 +122,14 @@ Apenas uma operação de longa duração é suportada para um determinado Evento
 
 |SDK|Referência|
 |---|---|
-|[SDK do .NET](https://aka.ms/ams-v3-dotnet-sdk)|[Referência a .NET](https://aka.ms/ams-v3-dotnet-ref)|
-|[SDK Java](https://aka.ms/ams-v3-java-sdk)|[Referência a Java](https://aka.ms/ams-v3-java-ref)|
-|[Python SDK](https://aka.ms/ams-v3-python-sdk)|[Referência a Python](https://aka.ms/ams-v3-python-ref)|
+|[SDK do .NET](https://aka.ms/ams-v3-dotnet-sdk)|[Referência a .NET](/dotnet/api/overview/azure/mediaservices/management)|
+|[SDK Java](https://aka.ms/ams-v3-java-sdk)|[Referência a Java](/java/api/overview/azure/mediaservices/management)|
+|[Python SDK](https://aka.ms/ams-v3-python-sdk)|[Referência a Python](/python/api/overview/azure/mediaservices/management)|
 |[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk) |[Referência a Node.js](/javascript/api/overview/azure/mediaservices/management)| 
 |[SDK Go](https://aka.ms/ams-v3-go-sdk) |[Referência a Go](https://aka.ms/ams-v3-go-ref)|
 |[SDK Ruby](https://aka.ms/ams-v3-ruby-sdk)||
 
-### <a name="see-also"></a>Consulte também
+### <a name="see-also"></a>Ver também
 
 - [EventGrid .NET SDK que inclui eventos de Media Service](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definições de eventos de Serviços de Mídia](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
@@ -148,7 +148,7 @@ Consulte [a filtragem, encomenda, paging de entidades da Azure Media Services](e
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 Para obter todos os valores necessários, consulte [a Access Azure Media Services API](./access-api-howto.md).
 

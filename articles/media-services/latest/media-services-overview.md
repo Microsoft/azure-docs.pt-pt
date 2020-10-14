@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: mvc
-ms.openlocfilehash: b11cd602850d23ac6ec37a9be51912adceb9afbc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 58a142f0be87bb56f9ded9ace5a5143931740e93
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89267620"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019868"
 ---
 # <a name="azure-media-services-v3-overview"></a>Descrição geral dos Serviços de Multimédia do Azure v3
 
@@ -33,7 +33,7 @@ Os Serviços de Multimédia do Azure são uma plataforma baseada na cloud que lh
 Os Serviços de Comunicação Social v3 SDKs baseiam-se na [Especificação v3 OpenAPI (Swagger) dos Serviços de Comunicação](https://aka.ms/ams-v3-rest-sdk)Social .
 
 > [!NOTE]
-> Atualmente, pode utilizar o [portal Azure](https://portal.azure.com/) para: gerir os Serviços de Media v3 [Live Events,](live-events-outputs-concept.md)ver (não gerir) v3 [Ativos,](assets-concept.md) [obter informações sobre o acesso às APIs.](./access-api-howto.md) Para todas as outras tarefas de gestão (por exemplo, [Transformações e Empregos](transforms-jobs-concept.md) e [Proteção de Conteúdos),](content-protection-overview.md)utilize o [REST API](/rest/api/media/), [CLI](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs suportados.](media-services-apis-overview.md#sdks)
+> Atualmente, pode utilizar o [portal Azure](https://portal.azure.com/) para: gerir os Serviços de Media v3 [Live Events,](live-events-outputs-concept.md)ver (não gerir) v3 [Ativos,](assets-concept.md) [obter informações sobre o acesso às APIs.](./access-api-howto.md) Para todas as outras tarefas de gestão (por exemplo, [Transformações e Empregos](transforms-jobs-concept.md) e [Proteção de Conteúdos),](content-protection-overview.md)utilize o [REST API](/rest/api/media/), [CLI](/cli/azure/ams)ou um dos [SDKs suportados.](media-services-apis-overview.md#sdks)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -78,7 +78,7 @@ Os quickstarts mostram instruções fundamentais do dia 1 para novos clientes ex
 * [Stream de ficheiros de vídeo - CLI](stream-files-cli-quickstart.md)
 * [Transmitir ficheiros de vídeo - Node.js](stream-files-nodejs-quickstart.md)
 
-### <a name="tutorials"></a>Tutoriais
+### <a name="tutorials"></a>Tutorials (Tutoriais)
 
 Os tutoriais mostram procedimentos baseados em cenários para algumas das principais tarefas dos Serviços de Comunicação Social.
 

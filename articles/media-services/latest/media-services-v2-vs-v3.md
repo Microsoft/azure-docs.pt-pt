@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 10/01/2020
 ms.author: inhenkel
-ms.openlocfilehash: 515379a4207a582b441d132b1c28ff11bc83c714
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23baa6ed92aa01251b4c7ccf34ef784910a0321f
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91651757"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019839"
 ---
 # <a name="media-services-v2-vs-v3"></a>Serviços de Mídia v2 vs. v3
 
@@ -74,7 +74,7 @@ Este artigo descreve alterações que foram introduzidas no Azure Media Services
 
 A API v3 tem as seguintes lacunas de características no que diz respeito à API v2. Fechar as lacunas é trabalhar em andamento.
 
-* O [Premium Encoder](../previous/media-services-premium-workflow-encoder-formats.md) e os [processadores de análise de mídia](../previous/media-services-analytics-overview.md) legacy (Azure Media Services Indexer 2 Preview, Face Redator, etc.) não estão acessíveis via v3.<br/>Os clientes que desejem migrar da pré-visualização do Media Indexer 1 ou 2 podem utilizar imediatamente a predefinição AudioAnalyzer na API v3.  Esta nova predefinição contém mais funcionalidades do que o Indexer 1 ou 2 mais antigo. 
+* O [Premium Encoder](../previous/media-services-encode-asset.md) e os [processadores de análise de mídia](../previous/legacy-components.md) legacy (Azure Media Services Indexer 2 Preview, Face Redator, etc.) não estão acessíveis via v3.<br/>Os clientes que desejem migrar da pré-visualização do Media Indexer 1 ou 2 podem utilizar imediatamente a predefinição AudioAnalyzer na API v3.  Esta nova predefinição contém mais funcionalidades do que o Indexer 1 ou 2 mais antigo. 
 * Muitas das [funcionalidades avançadas da Norma Media Encoder em APIs v2](../previous/media-services-advanced-encoding-with-mes.md) não estão atualmente disponíveis em v3, tais como:
   
     * Costura de Ativos
@@ -115,7 +115,7 @@ A tabela seguinte mostra como as propriedades do [Ativo](/rest/api/media/assets/
 
 Para proteger os seus Ativos em repouso, os ativos devem ser encriptados pela encriptação do lado do armazenamento. A tabela a seguir mostra como funciona a encriptação do lado do armazenamento nos Serviços de Media:
 
-|Opção de encriptação|Descrição|Serviços de Multimédia v2|Serviços de Multimédia v3|
+|Opção de encriptação|Description|Serviços de Multimédia v2|Serviços de Multimédia v3|
 |---|---|---|---|
 |Encriptação de armazenamento de serviços de mídia|Encriptação AES-256, chave gerida pelos Media Services.|Suportado<sup>(1)</sup>|Não suportado<sup>(2)</sup>|
 |[Encriptação do serviço de armazenamento para dados em repouso](../../storage/common/storage-service-encryption.md)|Encriptação do lado do servidor oferecida pelo Azure Storage, chave gerida pelo Azure ou pelo cliente.|Suportado|Suportado|

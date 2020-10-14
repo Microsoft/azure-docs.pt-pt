@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: dec0503ec369ae473fb592db958c0e30a27a4268
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 897df7f07a349457c49929b69993c75345f52241
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297438"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017816"
 ---
 # <a name="media-services-terminology-and-concepts"></a>Terminologia e conceitos de Serviços de Mídia
 
@@ -30,7 +30,7 @@ Os conceitos fundamentais descritos nestes tópicos devem ser revistos antes do 
 
 > [!NOTE]
 > Atualmente, pode utilizar o [portal Azure](https://portal.azure.com/) para: gerir os Serviços de Mídia v3 [Live Events,](live-events-outputs-concept.md)ver (não gerir) v3 [Ativos,](assets-concept.md)e [obter informações sobre o acesso às APIs.](./access-api-howto.md)
-> Para todas as outras tarefas de gestão (por exemplo, [Transformações e Empregos](transforms-jobs-concept.md) e [Proteção de Conteúdos),](content-protection-overview.md)utilize o [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref)ou um dos [SDKs suportados.](media-services-apis-overview.md#sdks)
+> Para todas as outras tarefas de gestão (por exemplo, [Transformações e Empregos](transforms-jobs-concept.md) e [Proteção de Conteúdos),](content-protection-overview.md)utilize o [REST API](/rest/api/media/accountfilters), [CLI](/cli/azure/ams)ou um dos [SDKs suportados.](media-services-apis-overview.md#sdks)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,7 +43,7 @@ Os conceitos fundamentais descritos nestes tópicos devem ser revistos antes do 
 
 ## <a name="media-services-v3-concepts"></a>Conceitos de Serviços de Mídia v3
 
-|Conceitos|Descrição|Ligações|
+|Conceitos|Description|Ligações|
 |---|---|---|
 |Ativos e conteúdo sonoro|Para começar a gerir, encriptar, codificar, analisar e transmitir conteúdos de mídia em Azure, é necessário criar uma conta de Media Services e enviar os seus ficheiros digitais para **o Ativo**.|[Carregamento e armazenamento na cloud](storage-account-concept.md)<br/><br/>[Conceito de ativos](assets-concept.md)|
 |Codificar conteúdo|Assim que enviar os seus ficheiros de meios digitais de alta qualidade para o Assets, pode codificá-los em formatos que podem ser reproduzidos numa grande variedade de navegadores e dispositivos. <br/><br/>Para codificar com os Media Services v3, é necessário criar **Transforms** and **Jobs**.|[Transformações e Empregos](transforms-jobs-concept.md)<br/><br/>[Codificação com Serviços de Media](encoding-concept.md)|

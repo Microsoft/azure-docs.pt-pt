@@ -1,23 +1,23 @@
 ---
 title: 'Quickstart: Criar um anfitrião bastonário a partir de um VM e ligar através de endereço IP privado'
 titleSuffix: Azure Bastion
-description: Neste artigo, aprenda a criar um anfitrião Azure Bastion a partir de uma máquina virtual e conecte-se de forma segura usando um endereço IP privado.
+description: Neste artigo de arranque rápido, aprenda a criar um anfitrião Azure Bastion a partir de uma máquina virtual e conecte-se de forma segura usando um endereço IP privado.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: quickstart
 ms.date: 10/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0ff85e6ceb6867db417d8d8202ff3281478e5687
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 6f451e7b115c00bc7b2cf350e00b9f704ab1d29f
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996949"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019057"
 ---
 # <a name="quickstart-connect-to-a-virtual-machine-using-a-private-ip-address-and-azure-bastion"></a>Quickstart: Ligue-se a uma máquina virtual usando um endereço IP privado e Azure Bastion
 
-Este artigo de arranque rápido mostra-lhe como se conectar a uma máquina virtual usando um endereço IP privado através do seu navegador usando Azure Bastion e o portal Azure. Os passos deste artigo ajudam-no a implantar o Bastion na sua rede virtual a partir da sua máquina virtual e, em seguida, a ligar-se ao VM. Uma vantagem de criar um anfitrião Bastion para o seu VNet diretamente do seu VM é que muitas das configurações são pré-voos para si.
+Este artigo de arranque rápido mostra-lhe como se conectar a uma máquina virtual através do seu navegador usando Azure Bastion e o portal Azure. No portal Azure, a partir do seu Azure VM, pode implantar Bastion para a sua rede virtual. Depois de implementar o Bastião, pode ligar-se ao VM através do seu endereço IP privado utilizando o portal Azure. O seu VM não necessita de um endereço IP público ou de um software especial. Uma vantagem de criar um anfitrião Bastion para o seu VNet diretamente do seu VM é que muitas das definições são pré-voos para si.
 
 Uma vez prestado o serviço, a experiência RDP/SSH está disponível para todas as máquinas virtuais na mesma rede virtual. Para mais informações sobre Azure Bastion, veja [o que é Azure Bastion?](bastion-overview.md)
 
@@ -36,7 +36,7 @@ Uma vez prestado o serviço, a experiência RDP/SSH está disponível para todas
 
 |**Nome** | **Valor** |
 | --- | --- |
-| Name |  TestVNet1-bastião |
+| Nome |  TestVNet1-bastião |
 | Rede virtual |  TestVNet1 (baseado no VM) |
 | + Nome da sub-rede | AzureBastionSubnet |
 | Endereços AzureBastionSubnet |  10.1.254.0/27 |
@@ -96,7 +96,7 @@ Quando terminar de usar a rede virtual e as máquinas virtuais, elimine o grupo 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, criou um hospedeiro Bastion para a sua rede virtual e, em seguida, ligado a uma máquina virtual de forma segura através do anfitrião Bastion.
+Neste arranque rápido, criou um hospedeiro Bastion para a sua rede virtual e, em seguida, ligado a uma máquina virtual de forma segura através do anfitrião Bastion. Em seguida, pode continuar com o passo seguinte se quiser ligar-se a um conjunto de balanças de máquina virtual.
 
-* Para saber mais sobre O Bastião Azure, veja o [Bastião de Azure e](bastion-overview.md) o FaQ do [Bastião.](bastion-faq.md)
-* Para ligar a um conjunto de balança de máquina virtual, consulte [Connect a um conjunto de balança de máquina virtual utilizando Azure Bastion](bastion-connect-vm-scale-set.md).
+> [!div class="nextstepaction"]
+> [Ligue-se a um conjunto de escala de máquina virtual usando Azure Bastion](bastion-connect-vm-scale-set.md)

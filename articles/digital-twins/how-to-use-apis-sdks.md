@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 030b41e086d700c527107d2246bc7f7df07e860f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e9804eb2af28108572688244d6d7b513454e375b
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977719"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019006"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Utilizar as APIs e SDKs do Azure Digital Twins
 
@@ -269,10 +269,7 @@ client.UpdateDigitalTwin("myTwin", uou.Serialize());
 ## <a name="general-apisdk-usage-notes"></a>Notas gerais de utilização da API/SDK
 
 > [!NOTE]
-> Por favor, note que durante a pré-visualização, a Azure Digital Twins não suporta **a Partilha de Recursos de Origem Cruzada (CORS)**. Como resultado, se estiver a chamar uma API REST a partir de uma aplicação de navegador, uma interface [de Gestão API (APIM)](../api-management/api-management-key-concepts.md) ou um conector [Power Apps,](https://docs.microsoft.com/powerapps/powerapps-overview) poderá ver um erro de política.
-> Para resolver este erro, pode fazer um dos seguintes:
-> * Retire o cabeçalho CORS `Access-Control-Allow-Origin` da mensagem. Este cabeçalho indica se a resposta pode ser partilhada. 
-> * Em alternativa, crie um proxy CORS e faça o pedido de API para as Gémeas Digitais Azure. 
+> Por favor, note que a Azure Digital Twins não suporta atualmente **a Partilha de Recursos cross-Origin (CORS)**. Para obter mais informações sobre as estratégias de impacto e resolução, consulte a secção [*de Partilha de Recursos de Origem Cruzada (CORS)*](concepts-security.md#cross-origin-resource-sharing-cors) de *Conceitos: Segurança para as soluções Azure Digital Twins*.
 
 A lista a seguir fornece detalhes adicionais e orientações gerais para a utilização das APIs e dos SDKs.
 

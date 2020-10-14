@@ -8,58 +8,95 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: cd8a5751c018b9b3b3b2ef96765545f2edab685b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b5159ce623c03d1158bf719611c158067fdd5b9e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89489209"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019108"
 ---
-# <a name="quickstart-azure-key-vault-secrets-client-library-for-python"></a>Quickstart: Azure Key Vault secreta biblioteca de clientes para Python
+# <a name="quickstart-azure-key-vault-secret-client-library-for-python"></a>Quickstart: Azure Key Vault biblioteca secreta de clientes para Python
 
-Começa com a biblioteca de clientes do Azure Key Vault para python. Siga os passos abaixo para instalar a embalagem e experimente o código de exemplo para tarefas básicas. Ao utilizar o Key Vault para armazenar segredos, evita guardar segredos no seu código, o que aumenta a segurança da sua aplicação.
+Começa com a biblioteca secreta do Azure Key Vault para python. Siga os passos abaixo para instalar a embalagem e experimente o código de exemplo para tarefas básicas. Ao utilizar o Key Vault para armazenar segredos, evita guardar segredos no seu código, o que aumenta a segurança da sua aplicação.
 
-[Documentação de](/python/api/overview/azure/keyvault-secrets-readme?view=azure-python)  |  referência da API [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-secrets)  |  [Pacote (Índice de Pacote Python)](https://pypi.org/project/azure-keyvault-secrets/)
+[Documentação de](/python/api/overview/azure/keyvault-secrets-readme)  |  referência da API [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-secrets)  |  [Pacote (Índice de Pacote Python)](https://pypi.org/project/azure-keyvault-secrets/)
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+- Uma subscrição Azure - [crie uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- [Python 2.7+ ou 3.5.3+](https://docs.microsoft.com/azure/developer/python/configure-local-development-environment)
+- [CLI do Azure](/cli/azure/install-azure-cli)
+
+Este quickstart pressupõe que está a executar [o Azure CLI](/cli/azure/install-azure-cli) numa janela do terminal Linux.
+
 
 ## <a name="set-up-your-local-environment"></a>Configurar o seu ambiente local
+Este quickstart está a utilizar a biblioteca Azure Identity com o Azure CLI para autenticar o utilizador nos Serviços Azure. Os desenvolvedores também podem usar Visual Studio ou Visual Studio Code para autenticar as suas chamadas, para mais informações, ver [Autenticar o cliente com a biblioteca de clientes da Azure Identity](https://docs.microsoft.com/java/api/overview/azure/identity-readme)
 
-[!INCLUDE [Set up your local environment](../../../includes/key-vault-python-qs-setup.md)]
+### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-7. Instale a biblioteca de segredos do Cofre de Chaves:
+1. Execute o comando `login`.
+
+    ```azurecli-interactive
+    az login
+    ```
+
+    Se o CLI conseguir abrir o seu navegador predefinido, fá-lo-á e carregará uma página de inscrição do Azure.
+
+    Caso contrário, abra uma página do navegador [https://aka.ms/devicelogin](https://aka.ms/devicelogin) e introduza o código de autorização exibido no seu terminal.
+
+2. Inicie sessão com as credenciais da sua conta no browser.
+
+### <a name="install-the-packages"></a>Instalar as embalagens
+
+1. Num terminal ou pedido de comando, crie uma pasta de projeto adequada e, em seguida, crie e ative um ambiente virtual Python como descrito em [ambientes virtuais Use Python](/azure/developer/python/configure-local-development-environment?tabs=cmd#use-python-virtual-environments)
+
+1. Instalar a biblioteca de identidade do Diretório Ativo Azure:
+
+    ```terminal
+    pip install azure.identity
+    ```
+
+
+1. Instale a biblioteca de segredos do Cofre de Chaves:
 
     ```terminal
     pip install azure-keyvault-secrets
     ```
 
-## <a name="create-a-resource-group-and-key-vault"></a>Criar um grupo de recursos e cofre chave
+### <a name="create-a-resource-group-and-key-vault"></a>Criar um grupo de recursos e cofre chave
 
 [!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-python-qs-rg-kv-creation.md)]
 
-## <a name="give-the-service-principal-access-to-your-key-vault"></a>Dê ao serviço acesso principal ao seu cofre de chaves
+### <a name="grant-access-to-your-key-vault"></a>Conceder acesso ao seu cofre chave
 
-Executar o seguinte comando [de definição de keyvault az](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) para autorizar o seu principal de serviço para obter, listar e definir operações em segredos. Este comando baseia-se nas `KEY_VAULT_NAME` `AZURE_CLIENT_ID` variáveis ambientais criadas em etapas anteriores.
+Crie uma política de acesso para o cofre-chave que concede permissão secreta à sua conta de utilizador
 
-# <a name="cmd"></a>[cmd](#tab/cmd)
-
-```azurecli
-az keyvault set-policy --name %KEY_VAULT_NAME% --spn %AZURE_CLIENT_ID% --resource-group KeyVault-PythonQS-rg --secret-permissions delete get list set 
+```console
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set
 ```
 
-# <a name="bash"></a>[festa](#tab/bash)
+#### <a name="set-environment-variables"></a>Definir variáveis de ambiente
 
-```azurecli
-az keyvault set-policy --name $KEY_VAULT_NAME --spn $AZURE_CLIENT_ID --resource-group KeyVault-PythonQS-rg --secret-permissions delete get list set 
+Esta aplicação está a usar o nome do cofre como uma variável ambiental chamada `KEY_VAULT_NAME` .
+
+Windows
+```cmd
+set KEY_VAULT_NAME=<your-key-vault-name>
+````
+Windows PowerShell
+```powershell
+$Env:KEY_VAULT_NAME=<your-key-vault-name>
 ```
 
----
-
-Este comando baseia-se nas `KEY_VAULT_NAME` `AZURE_CLIENT_ID` variáveis ambientais criadas em etapas anteriores.
-
-Para mais informações, consulte [Atribuir uma política de acesso - CLI](../general/assign-access-policy-cli.md)
+macOS ou Linux
+```cmd
+export KEY_VAULT_NAME=<your-key-vault-name>
+```
 
 ## <a name="create-the-sample-code"></a>Criar o código de amostra
 
-A biblioteca de clientes Azure Key Vault para Python permite-lhe gerir segredos e ativos relacionados, tais como certificados e chaves criptográficas. A seguinte amostra de código demonstra como criar um cliente, estabelecer um segredo, recuperar um segredo e apagar um segredo.
+A biblioteca secreta do Azure Key Vault para Python permite-lhe gerir segredos. A seguinte amostra de código demonstra como criar um cliente, estabelecer um segredo, recuperar um segredo e apagar um segredo.
 
 Crie um ficheiro chamado *kv_secrets.py* que contenha este código.
 
@@ -105,14 +142,16 @@ Certifique-se de que o código na secção anterior está num ficheiro denominad
 python kv_secrets.py
 ```
 
-- Se encontrar permissões, certifique-se de que executou o [ `az keyvault set-policy` comando](#give-the-service-principal-access-to-your-key-vault).
+- Se encontrar permissões, certifique-se de que executou o [ `az keyvault set-policy` comando](#grant-access-to-your-key-vault).
 - Re-executar o código com o mesmo nome secreto pode produzir o erro, "(Conflito) Segredo <name> está atualmente em um estado apagado, mas recuperável." Use um nome secreto diferente.
 
 ## <a name="code-details"></a>Detalhes do código
 
 ### <a name="authenticate-and-create-a-client"></a>Autenticar e criar um cliente
 
-No código anterior, o [`DefaultAzureCredential`](/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python) objeto utiliza as variáveis ambientais que criou para o seu principal serviço. Fornece esta credencial sempre que cria um objeto cliente a partir de uma biblioteca Azure, [`SecretClient`](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?view=azure-python) como, juntamente com o URI do recurso com o quais pretende trabalhar através desse cliente:
+Neste arranque rápido, o utilizador com sessão é utilizado para autenticar o cofre de chaves, que é o método preferido para o desenvolvimento local. Para aplicações implantadas no Azure, a identidade gerida deve ser atribuída ao Serviço de Aplicações ou Máquina Virtual, para obter mais informações, consulte [a Visão Geral da Identidade Gerida](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+
+Por exemplo, o nome do seu cofre-chave é expandido para o cofre uri chave, no formato "https:// \<your-key-vault-name\> .vault.azure.net". Este exemplo está a usar a classe  ['DefaultAzureCredential()'](https://docs.microsoft.com/python/api/azure-identity/azure.identity.defaultazurecredential) que permite usar o mesmo código em diferentes ambientes com diferentes opções para fornecer identidade. Para mais informações, consulte [a Autenticação Credencial Azure Padrão.](https://docs.microsoft.com/python/api/overview/azure/identity-readme) 
 
 ```python
 credential = DefaultAzureCredential()
@@ -121,7 +160,7 @@ client = SecretClient(vault_url=KVUri, credential=credential)
 
 ### <a name="save-a-secret"></a>Salvar um segredo
 
-Assim que tiver obtido o objeto do cliente para o cofre da chave, pode armazenar um segredo utilizando o método [set_secret:](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?view=azure-python#set-secret-name--value----kwargs-) 
+Assim que tiver obtido o objeto do cliente para o cofre da chave, pode armazenar um segredo utilizando o método [set_secret:](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?#set-secret-name--value----kwargs-) 
 
 ```python
 client.set_secret(secretName, secretValue)
@@ -131,11 +170,9 @@ A chamada `set_secret` gera uma chamada para a AZure REST API para o cofre chave
 
 Ao lidar com o pedido, a Azure autentica a identidade do autor da chamada (o principal do serviço) utilizando o objeto de credencial que forneceu ao cliente.
 
-Verifica igualmente se o autor da chamada está autorizado a executar a ação solicitada. Concedeu esta autorização ao diretor de serviço mais cedo usando o [ `az keyvault set-policy` comando.](#give-the-service-principal-access-to-your-key-vault)
-
 ### <a name="retrieve-a-secret"></a>Recuperar um segredo
 
-Para ler um segredo do Key Vault, use o método [get_secret:](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?view=azure-python#get-secret-name--version-none----kwargs-)
+Para ler um segredo do Key Vault, use o método [get_secret:](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?#get-secret-name--version-none----kwargs-)
 
 ```python
 retrieved_secret = client.get_secret(secretName)
@@ -143,11 +180,11 @@ retrieved_secret = client.get_secret(secretName)
 
 O valor secreto está contido em `retrieved_secret.value` .
 
-Você também pode recuperar um segredo com o azure CLI comando [az keyvault show secreto](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show).
+Você também pode recuperar um segredo com o azure CLI comando [az keyvault show secreto](/cli/azure/keyvault/secret?#az-keyvault-secret-show).
 
 ### <a name="delete-a-secret"></a>Eliminar um segredo
 
-Para eliminar um segredo, utilize o método [begin_delete_secret:](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?view=azure-python#begin-delete-secret-name----kwargs-)
+Para eliminar um segredo, utilize o método [begin_delete_secret:](/python/api/azure-keyvault-secrets/azure.keyvault.secrets.secretclient?#begin-delete-secret-name----kwargs-)
 
 ```python
 poller = client.begin_delete_secret(secretName)
@@ -156,7 +193,7 @@ deleted_secret = poller.result()
 
 O `begin_delete_secret` método é assíncrona e devolve um objeto poller. Chamar o método do poller `result` espera pela sua conclusão.
 
-Pode verificar se o segredo foi removido com o comando Azure CLI [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show).
+Pode verificar se o segredo foi removido com o comando Azure CLI [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show).
 
 Uma vez apagado, um segredo permanece em estado apagado, mas recuperável por um tempo. Se voltar a executar o código, use um nome secreto diferente.
 
@@ -173,6 +210,7 @@ az group delete --resource-group KeyVault-PythonQS-rg
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Descrição geral do cofre de chave do Azure](../general/overview.md)
+- [Acesso seguro a um cofre de chaves](../general/secure-your-key-vault.md)
 - [Guia de desenvolvedores do Azure Key Vault](../general/developers-guide.md)
 - [As melhores práticas do Azure Key Vault](../general/best-practices.md)
 - [Autenticar com cofre de chaves](../general/authentication.md)

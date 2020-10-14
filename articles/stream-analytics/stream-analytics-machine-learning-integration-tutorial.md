@@ -1,6 +1,6 @@
 ---
-title: Integração Azure Stream Analytics com Azure Machine Learning
-description: Este artigo descreve como configurar rapidamente um simples trabalho Azure Stream Analytics que integra o Azure Machine Learning, utilizando uma função definida pelo utilizador.
+title: Integração Azure Stream Analytics com Azure Machine Learning Studio (clássico)
+description: Este artigo descreve como configurar rapidamente um simples trabalho Azure Stream Analytics que integra o Azure Machine Learning Studio (clássico), utilizando uma função definida pelo utilizador.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
@@ -8,16 +8,16 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 26a1208131f1d9d3df7dccd8e27bda37992f043f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 529b1ce8026d9880bbc8caf87ab59148baf92df3
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88236685"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019465"
 ---
 # <a name="do-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic"></a>Faça análise de sentimento com Azure Stream Analytics e Azure Machine Learning Studio (clássico)
 
-Este artigo mostra-lhe como configurar um simples trabalho Azure Stream Analytics que usa o Azure Machine Learning Studio (clássico) para análise de sentimentos. Você usa um modelo de análise de sentimento de Machine Learning da Galeria de Inteligência Cortana para analisar dados de streaming de texto e determinar a pontuação do sentimento.
+Este artigo mostra-lhe como configurar um simples trabalho Azure Stream Analytics que usa o Azure Machine Learning Studio (clássico) para análise de sentimentos. Você usa um modelo de análise de sentimento (clássico) da Cortana Intelligence Gallery para analisar dados de streaming de texto e determinar a pontuação do sentimento.
 
 > [!TIP]
 > É altamente recomendado usar [UDFs de aprendizagem de máquinas Azure](machine-learning-udf.md) em vez de Azure Machine Learning Studio (clássico) UDF para melhorar o desempenho e a fiabilidade.
@@ -79,31 +79,31 @@ Agora que os dados da amostra estão numa bolha, pode ativar o modelo de anális
 
 2. Selecione **Open in Studio (clássico)**.  
    
-   ![Stream Analytics Machine Learning, estúdio aberto de aprendizagem automática](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)  
+   ![Stream Analytics Azure Machine Learning Studio (clássico), open Studio (clássico)](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-open-ml-studio.png)  
 
 3. Inscreva-se para ir ao espaço de trabalho. Selecione uma localização.
 
 4. Selecione **Executar** na parte inferior da página. O processo decorre, o que leva cerca de um minuto.
 
-   ![executar experiência no Estúdio de Machine Learning](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-run-experiment.png)  
+   ![Experimente em Estúdio (clássico)](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-run-experiment.png)  
 
 5. Depois de o processo ter sido executado com sucesso, selecione Implementar o **Serviço Web** na parte inferior da página.
 
-   ![implementar experiência no Machine Learning Studio como um serviço web](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-deploy-web-service.png)  
+   ![Implementar experiência em Studio (clássico) como um serviço web](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-deploy-web-service.png)  
 
 6. Para validar que o modelo de análise de sentimento está pronto a ser utilizado, selecione o botão **Teste.** Fornecer entrada de texto como "I love Microsoft".
 
-   ![experiência de teste no Estúdio de Aprendizagem automática](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-test.png)  
+   ![Experiência de teste em Estúdio (clássico)](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-test.png)  
 
    Se o teste funcionar, vê um resultado semelhante ao seguinte exemplo:
 
-   ![resultados do teste no Machine Learning Studio](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-test-results.png)  
+   ![Resultados dos testes em Studio (clássico)](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-test-results.png)  
 
 7. Na coluna **Apps,** selecione o link **excel 2010 ou** anterior para descarregar um livro do Excel. O livro contém a chave API e o URL que precisa mais tarde para configurar o trabalho stream Analytics.
 
-    ![Stream Analytics Machine Learning, olhar rápido](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)  
+    ![Stream Analytics Azure Machine Learning Studio (clássico), olhar rápido](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-quick-glance.png)  
 
-## <a name="create-a-stream-analytics-job-that-uses-the-machine-learning-model"></a>Crie um trabalho stream analytics que use o modelo de Machine Learning
+## <a name="create-a-stream-analytics-job-that-uses-the-studio-classic-model"></a>Crie um trabalho stream Analytics que use o modelo Studio (clássico)
 
 Agora pode criar um trabalho stream Analytics que lê os tweets de amostra do ficheiro CSV no armazenamento de bolhas.
 
@@ -147,9 +147,9 @@ O trabalho envia resultados para o mesmo armazenamento de bolhas onde obtém ent
 
 3. Selecione **Guardar**.
 
-### <a name="add-the-machine-learning-function"></a>Adicione a função de Aprendizagem automática
+### <a name="add-the-studio-classic-function"></a>Adicione a função Studio (clássico)
 
-Anteriormente publicou um modelo de Machine Learning para um serviço web. Neste cenário, quando o trabalho de Análise de Fluxo funciona, envia cada tweet da amostra da entrada para o serviço web para análise de sentimento. O serviço web Machine Learning devolve um sentimento `positive` `neutral` (, `negative` ou) e uma probabilidade de o tweet ser positivo.
+Anteriormente publicou um modelo studio (clássico) para um serviço web. Neste cenário, quando o trabalho de Análise de Fluxo funciona, envia cada tweet da amostra da entrada para o serviço web para análise de sentimento. O serviço web Studio (clássico) devolve um sentimento `positive` `neutral` (, `negative` ou) e uma probabilidade de o tweet ser positivo.
 
 Nesta secção, define-se uma função no trabalho de Análise de Fluxo. A função pode ser invocada para enviar um tweet para o serviço web e obter a resposta de volta.
 
@@ -169,7 +169,7 @@ Nesta secção, define-se uma função no trabalho de Análise de Fluxo. A funç
 
 ### <a name="create-a-query-to-transform-the-data"></a>Criar uma consulta para transformar os dados
 
-Stream Analytics usa uma consulta declarativa baseada em SQL para examinar a entrada e processá-la. Nesta secção, cria-se uma consulta que lê cada tweet a partir da entrada e, em seguida, invoca a função machine learning para realizar a análise de sentimento. A consulta envia então o resultado para a saída que definiu (armazenamento de bolhas).
+Stream Analytics usa uma consulta declarativa baseada em SQL para examinar a entrada e processá-la. Nesta secção, você cria uma consulta que lê cada tweet a partir da entrada e, em seguida, invoca a função Studio (clássico) para executar a análise de sentimento. A consulta envia então o resultado para a saída que definiu (armazenamento de bolhas).
 
 1. Voltar à visão geral do trabalho stream Analytics.
 
@@ -215,18 +215,18 @@ Agora pode iniciar o trabalho stream Analytics.
 
 3. Abra o ficheiro CSV gerado. Vê-se algo como o seguinte exemplo:  
 
-   ![Stream Analytics Machine Learning, vista CSV](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-csv-view.png)  
+   ![Stream Analytics Azure Machine Learning Studio (clássico), vista CSV](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-csv-view.png)  
 
 ### <a name="view-metrics"></a>Ver métricas
 
-Também pode ver métricas relacionadas com a função Azure Machine Learning. As seguintes métricas relacionadas com a função são apresentadas na caixa de **monitorização** da visão geral do trabalho:
+Também pode ver métricas relacionadas com a função studio (clássica). As seguintes métricas relacionadas com a função são apresentadas na caixa de **monitorização** da visão geral do trabalho:
 
-* **Pedidos de função** indicam o número de pedidos enviados para um serviço web machine learning.  
-* **Eventos de função** indicam o número de eventos no pedido. Por predefinição, cada pedido a um serviço web machine learning contém até 1.000 eventos.
+* **Pedidos de função** indicam o número de pedidos enviados para um serviço web Studio (clássico).  
+* **Eventos de função** indicam o número de eventos no pedido. Por padrão, cada pedido a um serviço web studio (clássico) contém até 1.000 eventos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Referência do idioma de consulta do Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Integrar API rest e machine learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
+* [Integrar o REST API e o Machine Learning Studio (clássico)](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 * [Referência de API do REST de gestão do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1d090070dd7b2afe5ea1ece9b5da8b8b5b7b0780
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed13111584e7e9621ec2ccde16efb3cdf2eef50c
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87438972"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016183"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalar e configurar um gateway de dados no local
 
@@ -132,7 +132,7 @@ Depois de ter instalado e registado o seu portal, precisa de criar um recurso de
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Utilize [o Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) para obter o gateway ResourceID. Em seguida, ligue o recurso gateway a um servidor existente ou novo especificando **-GatewayResourceID** em [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver) ou [New-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesserver).
+Utilize [o Get-AzResource](/powershell/module/az.resources/get-azresource) para obter o gateway ResourceID. Em seguida, ligue o recurso gateway a um servidor existente ou novo especificando **-GatewayResourceID** em [Set-AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver) ou [New-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver).
 
 Para obter o ID do recurso gateway:
 

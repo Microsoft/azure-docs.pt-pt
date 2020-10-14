@@ -5,15 +5,15 @@ services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/25/2020
+ms.date: 10/12/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: e5a6dae98e786bf55dc17d8fabe42f84e9927442
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5ac97812f973a20f6ee4c2dea34baaeb91203af
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91606002"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92016466"
 ---
 ![Documentação Dsv3](media/vm-disk-performance/dsv3-documentation.jpg)
 
@@ -129,4 +129,21 @@ Métricas que ajudam a diagnosticar a tampa de IO VM:
 - **VM Cached Bandwidth Consumed Percentagem** - a percentagem calculada pela produção total do disco concluída sobre a potência da máquina virtual em cache máximo. Se este valor estiver a 100%, a sua aplicação em execução será limitada ao limite de largura de banda em cache do seu VM.
 - **VM IOPS Educar A Percentagem Consumida** - a percentagem calculada pelo total de IOPS numa máquina virtual concluída sobre o limite máximo de IOPS da máquina virtual não-acolhida. Se este valor estiver a 100%, a sua aplicação em execução será limitada a partir do limite IOPS não coberto do seu VM.
 - **VM Percentagem consumida** pela largura de banda não colada - a percentagem calculada pela produção total do disco numa máquina virtual concluída sobre a potência máxima da máquina virtual. Se este valor estiver a 100%, a sua aplicação em execução será limitada a partir do limite de largura de banda não coberta do seu VM.
+
+## <a name="storage-io-utilization-metrics-example"></a>Exemplo de métricas de utilização de IO de armazenamento
+Vamos analisar um exemplo de como usar estas novas métricas de utilização de IO de armazenamento para nos ajudar a depurar onde um estrangulamento está no nosso sistema. O sistema configurado é exatamente o que tínhamos no exemplo anterior, exceto que desta vez o nosso disco DE que temos anexado **não** está em cache.
+
+Configurar:
+- Standard_D8s_v3 
+    - IOPS em cache: 16.000
+    - IOPS sem cocó: 12.800
+- Disco P30 OS 
+    - IOPS: 5.000
+    - Caching hospedeiro: Deficiente
+- 2 Discos de dados P30 X 2
+    - IOPS: 5.000
+    - Caching do anfitrião: Ler/escrever
+- 2 Discos de dados P30 X 2
+    - IOPS: 5.000
+    - Caching hospedeiro: Deficiente
 

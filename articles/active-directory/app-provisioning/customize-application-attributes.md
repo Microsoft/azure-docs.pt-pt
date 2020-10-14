@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: kenwith
-ms.openlocfilehash: 666c4e52ed521c169ff80b33e2ab0e83b13e4d03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e789810240b1a537e8cc3a18351f0b2a066cb4e1
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91266705"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018870"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizar o fornecimento de produtos de fornecimento de mapeamentos de atributos para aplicações SaaS no Azure Ative Directory
 
@@ -321,7 +321,7 @@ A seleção desta opção forçará efetivamente a ressincronização de todos o
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Automatizar o Provisionamento/Desprovisionamento do Utilizador para aplicações SaaS](user-provisioning.md)
-- [Expressãos de escrita para atributos-mapeamentos](../app-provisioning/functions-for-customizing-application-data.md)
-- [Filtros de deteção para o provisionamento do utilizador](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)
+- [Expressãos de escrita para atributos-mapeamentos](functions-for-customizing-application-data.md)
+- [Filtros de deteção para o provisionamento do utilizador](define-conditional-rules-for-provisioning-user-accounts.md)
 - [Utilizar o SCIM para ativar o aprovisionamento automático de utilizadores e grupos do Azure Active Directory a aplicações](use-scim-to-provision-users-and-groups.md)
 - [Lista de Tutoriais sobre Como Integrar Aplicações SaaS](../saas-apps/tutorial-list.md)

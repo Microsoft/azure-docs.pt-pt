@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 14358f60b700e80c17b1dd8259f1d0566a854c43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e92ff75bb6a9757c06de3561a385cbcbb7f75ba
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91543412"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019975"
 ---
 # <a name="tutorial-machine-learning-model-scoring-wizard-for-synapse-sql-pools"></a>Tutorial: Assistente de pontuação do modelo de machine learning para piscinas Sinapse SQL
 
@@ -50,7 +50,7 @@ Antes de executar todas as células no caderno, verifique se a instância de com
 
 1. Baixar [Previsivelmente Dicas de Táxi NYC.ipynb](https://go.microsoft.com/fwlink/?linkid=2144301).
 
-1. Lançar o espaço de trabalho Azure Machine Learning no [Azure Machine Learning Studio.](https://ml.azure.com)
+1. Lançar o espaço de trabalho Azure Machine Learning no [estúdio Azure Machine Learning.](https://ml.azure.com)
 
 1. Vá a **Cadernos** e clique em **Carregar ficheiros,** selecione "Predict NYC Taxi Tips.ipynb" que descarregou e carreja o ficheiro.
    ![Carregar o ficheiro](media/tutorial-sql-pool-model-scoring-wizard/tutorial-sql-scoring-wizard-train-00a.png)

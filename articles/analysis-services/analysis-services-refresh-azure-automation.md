@@ -6,18 +6,18 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: chlound
-ms.openlocfilehash: 61679e1ee3843ed866ef12138a0edeff8877b1e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe811c81d0774393f40dc5c8403d1af8b22da109
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448601"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019142"
 ---
 # <a name="refresh-with-azure-automation"></a>Atualizar com a Automatização do Azure
 
 Utilizando a Azure Automation e PowerShell Runbooks, pode realizar operações automatizadas de atualização de dados nos seus modelos tabulares Azure Analysis.  
 
-O exemplo neste artigo utiliza o [módulo SqlServer PowerShell](https://docs.microsoft.com/powershell/module/sqlserver/?view=sqlserver-ps). Uma amostra powerShell Runbook, que demonstra que refrescar um modelo é fornecido mais tarde neste artigo.  
+O exemplo neste artigo utiliza o [módulo SqlServer PowerShell](/powershell/module/sqlserver/?view=sqlserver-ps). Uma amostra powerShell Runbook, que demonstra que refrescar um modelo é fornecido mais tarde neste artigo.  
 
 ## <a name="authentication"></a>Autenticação
 
@@ -226,4 +226,4 @@ else
 ## <a name="next-steps"></a>Passos seguintes
 
 [Amostras](analysis-services-samples.md)  
-[API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)
+[API REST](/rest/api/analysisservices/servers)

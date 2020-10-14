@@ -3,13 +3,13 @@ title: Implementar ações do contentor pela ação do GitHub
 description: Configure uma ação GitHub que automatiza passos para construir, empurrar e implantar uma imagem de contentor para instâncias de contentores Azure
 ms.topic: article
 ms.date: 08/20/2020
-ms.custom: ''
-ms.openlocfilehash: 8da72d3911797e8e3a4551f2af100afb0d7ea0fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: github-actions-azure
+ms.openlocfilehash: c01075bcb64aa9b91869daba2e995957da74daf4
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88755012"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019193"
 ---
 # <a name="configure-a-github-action-to-create-a-container-instance"></a>Configurar uma ação do GitHub para criar uma instância de contentor
 
@@ -282,7 +282,7 @@ acr-build-helloworld-node.westus.azurecontainer.io     Succeeded
 
 Após o fornecimento da instância, navegue para o FQDN do contentor no seu navegador para ver a aplicação web em execução.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Pare a instância de contentor com o comando [az container delete][az-container-delete]:
 

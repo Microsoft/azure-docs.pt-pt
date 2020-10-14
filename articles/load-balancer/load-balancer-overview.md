@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: 602a36964d4a6d5f3660499570327db3479c980e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4a397a67c0e40de8be1d42ee56618357cf36c55f
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89299206"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017731"
 ---
 # <a name="what-is-azure-load-balancer"></a>O que é o Balanceador de Carga do Azure?
 
@@ -32,7 +32,7 @@ Um **[equilibrador de carga pública](./components.md#frontend-ip-configurations
 Um **[equilibrador de carga interno (ou privado)](./components.md#frontend-ip-configurations)** é utilizado onde os IPs privados são necessários apenas no frontend. Os balançadores de carga internos são utilizados para carregar o tráfego de equilíbrio dentro de uma rede virtual. Um frontend de balançador de carga pode ser acedido a partir de uma rede no local num cenário híbrido.
 
 <p align="center">
-  <img src="./media/load-balancer-overview/load-balancer.svg" alt="Figure depicts both public and internal load balancers directing traffic to port 80 on multiple servers on a Web tier and port 443 on multiple servers on a business tier." width="512" title="Balanceador de Carga do Azure">
+  <img src="./media/load-balancer-overview/load-balancer.svg" alt="Figure depicts both public and internal load balancers directing traffic to port 80 on multiple servers on a Web tier and port 443 on multiple servers on a business tier." width="512" title="Azure Load Balancer">
 </p>
 
 *Figura: Equilibrar aplicações multi-camadas utilizando o balanceador de carga público e interno*
@@ -80,10 +80,8 @@ Ver [SLA para balanceador de carga](https://aka.ms/lbsla). O Balanceador de Carg
 Subscreva o feed RSS e veja as atualizações mais recentes da funcionalidade Azure Load Balancer na página [Azure Updates.](https://azure.microsoft.com/updates/?category=networking&query=load%20balancer)
 
 ## <a name="next-steps"></a>Passos seguintes
-Consulte [a atualização de um balanceador de carga básico](upgrade-basic-standard.md) para atualizar o Balanceador de Carga Básico para o Balanceador de Carga Padrão.
 
-Consulte [Criar um balanceador de carga padrão público](quickstart-load-balancer-standard-public-portal.md) para começar com um balanceador de carga.
+Consulte [Criar um equilibrador de carga padrão público](quickstart-load-balancer-standard-public-portal.md) para começar com um equilibrador de carga.
 
 Para obter mais informações sobre as limitações e componentes do Balançador de Carga Azure consulte os componentes do [Balançador de Carga Azure](./components.md) e [os conceitos do Balançador de Carga Azure](./concepts.md)
 
-Para uma comparação de opções de equilíbrio de carga Azure, consulte [a visão geral das opções de equilíbrio de carga em Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).

@@ -4,12 +4,12 @@ description: Fornece respostas a algumas das perguntas comuns sobre a Azure VMwa
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: a3e50a6a34a6588ecce8b9ecc3c6b358fddc38b7
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 67309aafe5c1bc841399006285a9862f711e4296
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948719"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92018564"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Perguntas frequentes sobre Azure VMware Solution
 
@@ -33,7 +33,7 @@ Todos os serviços da Azure estarão disponíveis para os clientes da Azure VMwa
 
 #### <a name="do-i-use-the-same-tools-that-i-use-now-to-manage-private-cloud-resources"></a>Uso as mesmas ferramentas que uso agora para gerir recursos privados em nuvem?
 
-Yes. O portal Azure é utilizado para implantação e várias operações de gestão. vCenter e NSX Manager são usados para gerir recursos vSphere e NSX-T.
+Sim. O portal Azure é utilizado para implantação e várias operações de gestão. vCenter e NSX Manager são usados para gerir recursos vSphere e NSX-T.
 
 #### <a name="can-i-manage-a-private-cloud-with-my-on-premises-vcenter"></a>Posso gerir uma nuvem privada com o meu vCenter no local?
 
@@ -45,7 +45,7 @@ Integrações específicas e casos de utilização podem ser avaliados caso a ca
 
 #### <a name="can-i-migrate-vsphere-vms-from-on-premises-environments-to-azure-vmware-solution-private-clouds"></a>Posso migrar vSphere VMs de ambientes no local para nuvens privadas Azure VMware Solution?
 
-Yes. A migração vM e vMotion podem ser usadas para mover VMs para uma nuvem privada se os requisitos padrão de vCenter [vCenter vMotion forem cumpridos.](https://kb.vmware.com/s/article/210695)
+Sim. A migração vM e vMotion podem ser usadas para mover VMs para uma nuvem privada se os requisitos padrão de vCenter [vCenter vMotion forem cumpridos.](https://kb.vmware.com/s/article/210695)
 
 #### <a name="is-a-specific-version-of-vsphere-required-in-on-premises-environments"></a>É necessária uma versão específica da vSphere em ambientes no local?
 
@@ -66,6 +66,13 @@ A Microsoft e a Red Hat partilham uma equipa de suporte integrada e co-localizad
 #### <a name="is-vmware-hcx-enterprise-edition-available-and-if-so-how-much-does-it-cost"></a>A VMware HCX Enterprise Edition está disponível e, em caso afirmativo, quanto custa?
 
 VMware HCX Enterprise Edition (EE) está disponível com a Azure VMware Solution como uma função/serviço *de pré-visualização.* Enquanto vMware HCX EE para Azure VMware Solution está em Pré-visualização, é uma função/serviço gratuito e sujeito a termos e condições de serviço de pré-visualização. Assim que o serviço VMware HCX EE for classificado, receberá um aviso de 30 dias de que a faturação irá mudar. Também terá a opção de desligar/excluir o serviço.
+
+#### <a name="can-azure-vmware-solution-vms-be-managed-by-vmrc"></a>Os VMS de Solução VMware Azure podem ser geridos pela VMRC?
+Sim, desde que o sistema em que esteja instalado possa aceder ao vCenter de nuvem privada e que esteja a utilizar DNS públicos (para que possa resolver os hostnames ESXi).
+
+#### <a name="are-there-special-instructions-for-installing-and-using-vmrc-with-azure-vmware-solution-vms"></a>Existem instruções especiais para instalar e utilizar VMRC com VMS de Solução VMware Azure?
+Não, utilize as [instruções fornecidas pela VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) e cumpra os pré-requisitos VM especificados nessas instruções. 
+
 
 ## <a name="compute-network-storage-and-backup"></a>Computação, rede, armazenamento e backup
 
@@ -176,7 +183,7 @@ Não. O tráfego de rede a entrar da internet diretamente para nuvens privadas n
 
 #### <a name="do-i-need-to-restrict-internet-access-from-vms-on-logical-networks-to-the-internet"></a>Preciso de restringir o acesso à Internet de VMs em redes lógicas para a internet?
 
-Yes. Terá de usar o gestor NSX-T para criar uma firewall que restringe o acesso de VM à internet.
+Sim. Terá de usar o gestor NSX-T para criar uma firewall que restringe o acesso de VM à internet.
 
 
 

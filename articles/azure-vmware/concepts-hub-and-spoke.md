@@ -3,12 +3,12 @@ title: Conceito - Integre uma implementação de Solução VMware Azure num hub 
 description: Conheça as recomendações para a integração de uma implementação de Azure VMware Solution num centro existente ou novo e falou arquitetura sobre a Azure.
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: bfd0da4f03eedaf215ddb55facffc2296a9d0b85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1bbb2a771ac6f7981460b1e81881725a11299242
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91580283"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019274"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Integre a Solução Azure VMware num hub e falou arquitetura
 
@@ -28,7 +28,7 @@ O tráfego entre o datacenter no local, a nuvem privada Azure VMware Solution e 
 
 O diagrama mostra um exemplo de uma implantação de Hub e Spoke em Azure ligada às instalações e Solução Azure VMware através do ExpressRoute Global Reach.
 
-:::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-and-spoke-deployment.png" alt-text="Azure VMware Solution Hub e implementação de integração de spoke" border="false":::
+:::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-and-spoke-deployment.png" alt-text="Azure VMware Solution Hub e implementação de integração de spoke" border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-and-spoke-deployment.png":::
 
 A arquitetura tem os seguintes componentes principais:
 
@@ -65,12 +65,12 @@ Como um gateway ExpressRoute não fornece um encaminhamento transitório entre o
 
 * **No local para o fluxo de tráfego da Solução VMware Azure**
 
-  :::image type="content" source="media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png" alt-text="Azure VMware Solution Hub e implementação de integração de spoke" border="false":::
+  :::image type="content" source="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png" alt-text="Azure VMware Solution Hub e implementação de integração de spoke" border="false" lightbox="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png":::
 
 
 * **Solução Azure VMware para o fluxo de tráfego hub VNET**
 
-  :::image type="content" source="media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Azure VMware Solution Hub e implementação de integração de spoke" border="false":::
+  :::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Azure VMware Solution Hub e implementação de integração de spoke" border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png":::
 
 
 Pode encontrar mais detalhes sobre a rede de soluções Azure VMware e conceitos de conectividade na documentação do [produto Azure VMware Solution](./concepts-networking.md).

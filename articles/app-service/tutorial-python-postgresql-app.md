@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: cfc4341e4b3f0c894f9440b4910c3f8bec7326d1
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: e171ce1ab7d2b9d4a78399ee639945bde16b71ca
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91929783"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92019414"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Tutorial: Implementar uma aplicação web Django com PostgreSQL no Azure App Service
 
@@ -114,7 +114,7 @@ A amostra também é modificada para funcionar num ambiente de produção como o
 - As definições de produção estão no ficheiro *azuresite/production.py.* Os detalhes do desenvolvimento estão em *azuresite/definições.py*.
 - A aplicação utiliza definições de produção quando a `DJANGO_ENV` variável ambiente está definida para "produção". Você cria esta variável de ambiente mais tarde no tutorial juntamente com outros usados para a configuração da base de dados PostgreSQL.
 
-Estas alterações são específicas para configurar o Django para funcionar em qualquer ambiente de produção e não são particulares para o App Service. Para mais informações, consulte a [lista de verificação de implementação do Django.](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/)
+Estas alterações são específicas para configurar o Django para funcionar em qualquer ambiente de produção e não são particulares para o App Service. Para mais informações, consulte a [lista de verificação de implementação do Django.](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/) Consulte também [as definições de Produção de Django em Azure](configure-language-python.md#production-settings-for-django-apps) para obter detalhes sobre algumas das alterações.
 
 [Tendo problemas? Deixe-nos saber.](https://aka.ms/DjangoCLITutorialHelp)
 
@@ -452,7 +452,7 @@ Por predefinição, o portal mostra a página **geral** da sua aplicação, que 
 
 [Tendo problemas? Deixe-nos saber.](https://aka.ms/DjangoCLITutorialHelp)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se quiser manter a app ou continuar com os tutoriais adicionais, avance para os [próximos passos.](#next-steps) Caso contrário, para evitar incorrer em encargos em curso, pode eliminar o grupo de recursos criado para este tutorial:
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 10/13/2020
 ms.author: b-juche
-ms.openlocfilehash: 80746d7cef4bb0a70c6bb9eb6ff2e053ea6c7a0a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c79586703c49fe37d4d0915f49b69e6aa842083e
+ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91824684"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92017527"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Métricas do Azure NetApp Files
 
@@ -86,6 +86,9 @@ O Azure NetApp Files fornece métricas sobre armazenamento atribuído, uso real 
 
 
 ## <a name="volume-replication-metrics"></a><a name="replication"></a>Métricas de replicação de volume
+
+> [!NOTE] 
+> O tamanho da transferência de rede (por exemplo, as métricas totais de transferência de replicação do *volume)* podem diferir dos volumes de origem ou destino de uma replicação entre regiões. Este comportamento é o resultado de um motor de replicação eficiente que está a ser usado para minimizar o custo de transferência da rede.
 
 - *É o estado de replicação do volume saudável*   
     A condição da relação de replicação. Um estado saudável é denotado `1` por. Um estado pouco saudável é denotado `0` por.
