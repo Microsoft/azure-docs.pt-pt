@@ -1,14 +1,14 @@
 ---
 title: Amostra de projeto benchmark da CIS Microsoft Azure Foundations
 description: Descrição geral do exemplo de esquema CIS Microsoft Azure Foundations Benchmark. Este exemplo de esquema ajuda os clientes a avaliar controlos específicos.
-ms.date: 06/02/2020
+ms.date: 10/14/2020
 ms.topic: sample
-ms.openlocfilehash: 6cc985fe127eae795d9a8e37624c403dd6e6f96a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c09e539e192db8422b25079264b9f4e8965d994
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84740308"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92054615"
 ---
 # <a name="cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Amostra de projeto benchmark da CIS Microsoft Azure Foundations
 
@@ -18,7 +18,7 @@ O exemplo de esquema CIS Microsoft Azure Foundations Benchmark oferece proteçõ
 
 O [mapeamento da recomendação da Política Azure](../../policy/samples/cis-azure-1-1-0.md) fornece detalhes sobre as definições de política incluídas neste projeto e como estas definições de política mapeiam para os **domínios** de conformidade e **controlos** no CIS Microsoft Azure Foundations Benchmark v1.1.0. Quando atribuídos a uma arquitetura, os recursos são avaliados pela Azure Policy para o incumprimento das definições políticas atribuídas. Para obter mais informações, veja [Azure Policy](../../policy/overview.md).
 
-## <a name="deploy"></a>Implementação
+## <a name="deploy"></a>Implementar
 
 Para implementar a amostra de projeto benchmark do Azure Blueprints CIS Microsoft Azure Foundations, devem ser tomadas as seguintes medidas:
 
@@ -46,7 +46,7 @@ Primeiro, crie um esquema novo no ambiente utilizando o exemplo como ponto de pa
 
 1. Selecione o separador _Artefactos_, na parte superior da página, ou **Seguinte: Artefactos**, na parte inferior.
 
-1. Reveja a lista de artefactos que compõem o esquema de exemplo. Muitos dos artefactos têm parâmetros que vamos definir mais tarde. Quando terminar de rever o esquema de exemplo, selecione **Guardar Rascunho**.
+1. Reveja a lista de artefactos incluídos na amostra de planta. Muitos dos artefactos têm parâmetros que vamos definir mais tarde. Quando terminar de rever o esquema de exemplo, selecione **Guardar Rascunho**.
 
 ### <a name="publish-the-sample-copy"></a>Publicar a cópia do exemplo
 

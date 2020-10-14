@@ -13,19 +13,16 @@ ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: c6e59ab0432ad2b7bdccb5ce9916e85eb6d95048
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f6170de65ae5e1ca8ecb5f7cc8a78f4f194ac41
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88116398"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92055295"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Porquê atualizar a plataforma de identidade da Microsoft (v2.0)?
 
 Ao desenvolver uma nova aplicação, é importante saber as diferenças entre a plataforma de identidade da Microsoft (v2.0) e o Azure Ative Directory (v1.0). Este artigo cobre as principais diferenças entre os pontos finais e algumas limitações existentes para a plataforma de identidade da Microsoft.
-
-> [!NOTE]
-> O ponto final da plataforma de identidade da Microsoft não suporta todos os cenários e funcionalidades do AD Azure. Para determinar se deve utilizar o ponto final da plataforma de identidade da Microsoft, leia sobre [as limitações da plataforma de identidade da Microsoft](#limitations).
 
 ## <a name="who-can-sign-in"></a>Quem pode entrar
 
@@ -35,7 +32,7 @@ Ao desenvolver uma nova aplicação, é importante saber as diferenças entre a 
 * O ponto final da plataforma de identidade da Microsoft permite que contas de trabalho e escola a partir de Azure AD e contas pessoais da Microsoft (MSA), como hotmail.com, outlook.com e msn.com, se inscrevam.
 * Ambos os pontos finais também aceitam inscrições de *[utilizadores convidados](../external-identities/what-is-b2b.md)* de um diretório AD Azure para aplicações configuradas como *[inquilino único](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* ou para aplicações *multi-arrendatários* configuradas para apontar para o ponto final específico do inquilino ( `https://login.microsoftonline.com/{TenantId_or_Name}` ).
 
-O ponto final da plataforma de identidade da Microsoft permite-lhe escrever apps que aceitam ins-ins a partir de contas pessoais da Microsoft, e contas de trabalho e escola. Isto dá-lhe a capacidade de escrever a sua aplicação completamente agnóstico de conta. Por exemplo, se a sua aplicação ligar para o [Microsoft Graph,](https://graph.microsoft.io)algumas funcionalidades e dados adicionais estarão disponíveis para contas de trabalho, tais como os seus sites SharePoint ou dados de diretório. Mas para muitas ações, como [ler o correio de um utilizador,](/graph/api/user-list-messages?view=graph-rest-1.0)o mesmo código pode aceder ao e-mail tanto para contas pessoais como de trabalho e escolas.
+O ponto final da plataforma de identidade da Microsoft permite-lhe escrever apps que aceitam ins-ins a partir de contas pessoais da Microsoft, e contas de trabalho e escola. Isto dá-lhe a capacidade de escrever a sua aplicação completamente agnóstico de conta. Por exemplo, se a sua aplicação ligar para o [Microsoft Graph,](https://graph.microsoft.io)algumas funcionalidades e dados adicionais estarão disponíveis para contas de trabalho, tais como os seus sites SharePoint ou dados de diretório. Mas para muitas ações, como [ler o correio de um utilizador,](/graph/api/user-list-messages)o mesmo código pode aceder ao e-mail tanto para contas pessoais como de trabalho e escolas.
 
 Para o ponto final da plataforma de identidade da Microsoft, pode utilizar a Microsoft Authentication Library (MSAL) para ter acesso aos mundos do consumidor, educacional e empresarial. O ponto final Azure AD v1.0 aceita inscrições apenas do trabalho e das contas escolares.
 
@@ -114,7 +111,7 @@ Estes âmbitos permitem-lhe codificar a sua aplicação de forma de divulgação
 O ponto final da plataforma de identidade da Microsoft emite um conjunto menor de reclamações nos seus tokens por padrão para manter as cargas pequenas. Se tiver aplicações e serviços que tenham uma dependência de uma determinada reclamação num token v1.0 que já não é fornecido por padrão num token da plataforma de identidade da Microsoft, considere usar a funcionalidade [de reclamações opcionais](../develop/active-directory-optional-claims.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) para incluir essa alegação.
 
 > [!IMPORTANT]
-> os tokens v1.0 e v2.0 podem ser emitidos tanto pelos pontos finais v1.0 como v2.0! id_tokens *sempre* correspondem ao ponto final de onde são solicitados, e os tokens de acesso *correspondem sempre* ao formato esperado pela API Web que o seu cliente irá chamar usando esse token.  Assim, se a sua aplicação usar o ponto final v2.0 para obter um token para ligar para o Microsoft Graph, que espera tokens de acesso ao formato V1.0, a sua aplicação receberá um símbolo no formato v1.0.  
+> os tokens v1.0 e v2.0 podem ser emitidos tanto pelos pontos finais v1.0 como v2.0! id_tokens *sempre* correspondem ao ponto final de onde são solicitados, e os tokens de acesso *correspondem sempre* ao formato esperado pela API Web que o seu cliente irá chamar usando esse token.  Assim, se a sua aplicação usar o ponto final v2.0 para obter um token para ligar para o Microsoft Graph, que espera tokens de acesso ao formato V1.0, a sua aplicação receberá um símbolo no formato v1.0.
 
 ## <a name="limitations"></a>Limitações
 
@@ -153,18 +150,22 @@ Atualmente, o suporte à biblioteca para o ponto final da plataforma de identida
 * Se estiver a construir um ambiente de trabalho ou uma aplicação móvel, pode utilizar uma das Bibliotecas de Autenticação da Microsoft (MSAL). Estas bibliotecas estão geralmente disponíveis ou numa pré-visualização apoiada pela produção, pelo que é seguro usá-las em aplicações de produção. Pode ler mais sobre os termos da pré-visualização e as bibliotecas disponíveis em [referência de bibliotecas de autenticação.](../develop/reference-v2-libraries.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)
 * Para plataformas não abrangidas pelas bibliotecas da Microsoft, pode integrar-se com o ponto final da plataforma de identidade da Microsoft, enviando e recebendo diretamente mensagens de protocolo no seu código de aplicação. Os protocolos OpenID Connect e OAuth [estão explicitamente documentados](../develop/active-directory-v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) para ajudá-lo a fazer tal integração.
 * Por fim, pode utilizar bibliotecas OpenID Connect e OAuth de código aberto para integrar-se no ponto final da plataforma de identidade da Microsoft. O ponto final da plataforma de identidade da Microsoft deve ser compatível com muitas bibliotecas de protocolos de código aberto sem alterações. A disponibilidade deste tipo de bibliotecas varia consoam em termos linguísticos e plataformas. Os websites [OpenID Connect](https://openid.net/connect/) e [OAuth 2.0](https://oauth.net/2/) mantêm uma lista de implementações populares. Para mais informações, consulte [a plataforma de identidade da Microsoft e as bibliotecas de autenticação](../develop/reference-v2-libraries.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json), e a lista de bibliotecas de clientes de código aberto e amostras que foram testadas com o ponto final da plataforma de identidade da Microsoft.
-* Para referência, o `.well-known` ponto final para a plataforma de identidade da Microsoft é . `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` `common`Substitua-se pela sua identificação de inquilino para obter dados específicos do seu inquilino.  
+* Para referência, o `.well-known` ponto final para a plataforma de identidade da Microsoft é . `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` `common`Substitua-se pela sua identificação de inquilino para obter dados específicos do seu inquilino.
 
 ### <a name="protocol-changes"></a>Alterações de protocolo
 
-O ponto final da plataforma de identidade da Microsoft não suporta SAML ou WS-Federation; suporta apenas OpenID Connect e OAuth 2.0.  As notáveis alterações aos protocolos OAuth 2.0 do ponto final v1.0 são: 
+O ponto final da plataforma de identidade da Microsoft não suporta SAML ou WS-Federation; suporta apenas OpenID Connect e OAuth 2.0.  As notáveis alterações aos protocolos OAuth 2.0 do ponto final v1.0 são:
 
-* A `email` reclamação é devolvida se uma reclamação opcional for configurada **ou** o scope=email tiver sido especificado no pedido. 
-* O `scope` parâmetro é agora suportado no lugar do `resource` parâmetro.  
-* Muitas respostas foram modificadas para torná-las mais compatíveis com a especificação OAuth 2.0, por exemplo, regressando corretamente `expires_in` como um int em vez de uma corda.  
+* A `email` reclamação é devolvida se uma reclamação opcional for configurada **ou** o scope=email tiver sido especificado no pedido.
+* O `scope` parâmetro é agora suportado no lugar do `resource` parâmetro.
+* Muitas respostas foram modificadas para torná-las mais compatíveis com a especificação OAuth 2.0, por exemplo, regressando corretamente `expires_in` como um int em vez de uma corda.
 
 Para melhor compreender o âmbito da funcionalidade do protocolo suportado no ponto final da plataforma de identidade da Microsoft, consulte a [referência do protocolo OpenID Connect e OAuth 2.0](../develop/active-directory-v2-protocols.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
-#### <a name="saml-restrictions"></a>Restrições SAML
+#### <a name="saml-usage"></a>Utilização de SAML
 
-Se utilizou a Ative Directory Authentication Library (ADAL) em aplicações windows, pode ter aproveitado a autenticação integrada do Windows, que utiliza o subsídio de afirmação de marcação de afirmação de segurança (SAML). Com esta subvenção, os utilizadores de inquilinos federados da Azure AD podem autenticar silenciosamente com a sua instância ative do Diretório no local sem introduzir credenciais. A bolsa de afirmação SAML não é suportada no ponto final da plataforma de identidade da Microsoft.
+Se utilizou a Ative Directory Authentication Library (ADAL) em aplicações windows, pode ter aproveitado a autenticação integrada do Windows, que utiliza o subsídio de afirmação de marcação de afirmação de segurança (SAML). Com esta subvenção, os utilizadores de inquilinos federados da Azure AD podem autenticar silenciosamente com a sua instância ative do Diretório no local sem introduzir credenciais. Embora [a SAML ainda seja um protocolo suportado](../develop/active-directory-saml-protocol-reference.md) para utilização com utilizadores empresariais, o ponto final v2.0 é apenas para utilização com aplicações OAuth 2.0.
+
+## <a name="next-steps"></a>Passos seguintes
+
+Saiba mais na documentação da plataforma de identidade da [Microsoft.](../develop/index.yml)

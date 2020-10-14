@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e701ac8cee15a338c363ec2697e02e82bb4f4e68
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4db3c58da791a5cad5fc3b9c98f245202d8119e2
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396438"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92054768"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Perguntas frequentes (FAQ)
 
@@ -49,7 +49,7 @@ A Azure AD B2C também suporta [políticas personalizadas.](custom-policy-overvi
 
 ### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>Posso configurar âmbitos para recolher mais informações sobre os consumidores de vários fornecedores de identidade social?
 
-N.º Os âmbitos padrão utilizados para o nosso conjunto suportado de fornecedores de identidade social são:
+Não. Os âmbitos padrão utilizados para o nosso conjunto suportado de fornecedores de identidade social são:
 
 * Facebook: e-mail
 * Google+: e-mail
@@ -149,7 +149,6 @@ Você pode usar a nossa nova experiência de registos de **Aplicações unificad
 1. Selecione cada utilizador por sua vez (exclua o utilizador *do Administrador de Subscrição* em que está atualmente inscrito como). Selecione **Eliminar** na parte inferior da página e selecione **Sim** quando solicitado.
 1. Selecione **Azure Ative Directory** no menu da esquerda.
 1. Em **Gestão**, selecione **as definições do Utilizador**.
-1. Se estiver presente, nas **ligações da conta LinkedIn**, selecione **Nº**, em seguida, **selecione Guardar**.
 1. Em **Gestão**, selecione **Propriedades**
 1. Em **Gestão de acesso dos recursos do Azure**, selecione **Sim** e, em seguida, **Guardar**.
 1. Assine fora do portal Azure e, em seguida, inscreva-se de volta para refrescar o seu acesso.
