@@ -10,24 +10,24 @@ ms.workload: cloud-services
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: memccror
-ms.openlocfilehash: d4f869c8b4ae6e90cfe64a2bf3d13839d72727be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ae1509d552de1d5473c7d995af2db68d7113e79
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84015306"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077529"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>O que fazer em caso de interrupção de serviço Azure que afetas os Serviços Cloud do Azure
 Na Microsoft, trabalhamos arduamente para garantir que os nossos serviços estão sempre disponíveis para si quando precisa deles. Forças fora do nosso controlo, por vezes, afetam-nos de formas que causam perturbações não planeadas de serviços.
 
 A Microsoft fornece um Acordo de Nível de Serviço (SLA) para os seus serviços como um compromisso para o tempo de trabalho e conectividade. O SLA para serviços individuais da Azure pode ser consultado nos [Acordos de Nível de Serviço da Azure.](https://azure.microsoft.com/support/legal/sla/)
 
-O Azure já conta com muitas funcionalidades de plataforma integradas que suportam aplicações altamente disponíveis. Para mais informações sobre estes serviços, leia [a recuperação de desastres e alta disponibilidade para aplicações Azure.](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
+O Azure já conta com muitas funcionalidades de plataforma integradas que suportam aplicações altamente disponíveis. Para mais informações sobre estes serviços, leia [a recuperação de desastres e alta disponibilidade para aplicações Azure.](/azure/architecture/framework/resiliency/backup-and-recovery)
 
 Este artigo cobre um verdadeiro cenário de recuperação de desastres, quando toda uma região sofre uma paragem devido a grandes desastres naturais ou à interrupção generalizada do serviço. São ocorrências raras, mas deve preparar-se para a possibilidade de haver uma paragem de toda uma região. Se uma região inteira sofrer uma perturbação de serviço, as cópias locais redundantes dos seus dados estariam temporariamente indisponíveis. Se tiver ativado a geo-replicação, três cópias adicionais das suas bolhas e mesas de armazenamento Azure estão armazenadas numa região diferente. Em caso de paralisação regional completa ou de uma catástrofe em que a região primária não seja recuperável, o Azure remaps todas as entradas de DNS para a região geo-replicada.
 
 > [!NOTE]
-> Esteja ciente de que não tem qualquer controlo sobre este processo, e isso só ocorrerá para interrupções de serviço em todo o datacenter. Por isso, deve também contar com outras estratégias de backup específicas para obter o mais alto nível de disponibilidade. Para obter mais informações, consulte [a recuperação de desastres e a elevada disponibilidade para aplicações construídas no Microsoft Azure.](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md) Se quiser ser capaz de afetar o seu próprio fracasso, talvez deva considerar a utilização de [armazenamento geo-redundante de acesso à leitura (RA-GRS),](../storage/common/storage-redundancy.md)que cria uma cópia apenas de leitura dos seus dados noutra região.
+> Esteja ciente de que não tem qualquer controlo sobre este processo, e isso só ocorrerá para interrupções de serviço em todo o datacenter. Por isso, deve também contar com outras estratégias de backup específicas para obter o mais alto nível de disponibilidade. Para obter mais informações, consulte [a recuperação de desastres e a elevada disponibilidade para aplicações construídas no Microsoft Azure.](/azure/architecture/framework/resiliency/backup-and-recovery) Se quiser ser capaz de afetar o seu próprio fracasso, talvez deva considerar a utilização de [armazenamento geo-redundante de acesso à leitura (RA-GRS),](../storage/common/storage-redundancy.md)que cria uma cópia apenas de leitura dos seus dados noutra região.
 >
 >
 
@@ -54,6 +54,6 @@ Dependendo das fontes de dados da sua aplicação, poderá ter de verificar os p
 Neste caso, não é necessária qualquer ação da sua parte, mas o seu serviço estará indisponível até que a região seja restaurada. Pode ver o estado atual do serviço no Painel de Saúde do [Serviço Azure](https://azure.microsoft.com/status/).
 
 ## <a name="next-steps"></a>Passos seguintes
-Para saber mais sobre como implementar uma estratégia de recuperação de desastres e alta disponibilidade, consulte [a recuperação de desastres e a elevada disponibilidade para aplicações Azure.](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
+Para saber mais sobre como implementar uma estratégia de recuperação de desastres e alta disponibilidade, consulte [a recuperação de desastres e a elevada disponibilidade para aplicações Azure.](/azure/architecture/framework/resiliency/backup-and-recovery)
 
 Para desenvolver uma compreensão técnica detalhada das capacidades de uma plataforma em nuvem, consulte [a orientação técnica de resiliência do Azure](/azure/architecture/checklist/resiliency-per-service).
