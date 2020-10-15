@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.openlocfilehash: 9259e3d3e41a5ba4986fbef48e745210f80e6093
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54f80310f274b757d118f34542c1aa2e838ca7b9
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91255261"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92082236"
 ---
 A utilização da Integração VNet regional permite que a sua aplicação aceda:
 
@@ -36,7 +36,8 @@ Por padrão, a sua aplicação apenas encaminha o tráfego RFC1918 para o seu VN
 1. Selecione **OK**.
 1. Selecione **Guardar**.
 
-Se encaminhar todo o tráfego de saída para o seu VNet, está sujeito aos NSGs e UDRs que são aplicados na sua sub-rede de integração. Quando encaminha todo o tráfego de saída para o seu VNet, os seus endereços de saída ainda são os endereços de saída que estão listados nas propriedades da sua aplicação, a menos que forneça rotas para enviar o tráfego para outro lugar.
+> [!NOTE]
+> Se encaminhar todo o tráfego de saída para o seu VNet, está sujeito aos NSGs e UDRs que são aplicados na sua sub-rede de integração. Quando encaminha todo o tráfego de saída para o seu VNet, os seus endereços de saída ainda são os endereços de saída que estão listados nas propriedades da sua aplicação, a menos que forneça rotas para enviar o tráfego para outro lugar.
 
 Existem algumas limitações com a utilização da Integração VNet com VNets na mesma região:
 

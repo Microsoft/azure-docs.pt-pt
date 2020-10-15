@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 7ca15baffd3fac4a1f3635ac7377bac620673446
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d889b7dabc5d97a36f8b12bcff90cf3ad2069fb7
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91451626"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92082158"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -424,6 +424,8 @@ targetRemoteParticipantView.update(ACSScalingMode.fit)
 ```swift
 // [Bool] isRendering - indicating if stream is being rendered
 remoteVideoRenderer.isRendering()
+// [Synchronous] dispose() - dispose renderer and all `RendererView` associated with this renderer. To be called when you have removed all associated views from the UI.
+remoteVideoRenderer.dispose()
 ```
 
 ## <a name="device-management"></a>Gestão de dispositivos
