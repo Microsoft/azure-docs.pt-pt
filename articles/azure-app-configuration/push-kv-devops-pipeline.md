@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: lcozzens
-ms.openlocfilehash: c1142ef7b37dee916118964778f6c1db2a65d591
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2b903f259fdd2564fbcaed5eb0a750edf9c06e2
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88719704"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075880"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Push configurações para configuração de aplicativos com pipelines Azure
 
@@ -56,7 +56,7 @@ Atribua as atribuições de funções de configuração de aplicação adequadas
 
 Esta secção abrangerá como utilizar a tarefa Azure App Configuration Push num pipeline de construção de Azure DevOps.
 
-1. Navegue para a página **Pipelines**do gasoduto de construção clicando em  >  **Pipelines Pipelines**. A documentação para a construção de gasodutos pode ser [consultada aqui.](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=tfs-2018-2)
+1. Navegue para a página **Pipelines**do gasoduto de construção clicando em  >  **Pipelines Pipelines**. A documentação para a construção de gasodutos pode ser [consultada aqui.](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2&view=azure-devops)
       - Se estiver a criar um novo pipeline de construção, selecione **Mostrar assistente** no lado direito do oleoduto e procure a tarefa **Azure App Configuration Push.**
       - Se estiver a utilizar um pipeline de construção existente, navegue no separador **Tarefas** ao editar o pipeline e procure a Tarefa de Push de Configuração da **Aplicação Azure.**
 2. Configure os parâmetros necessários para a tarefa de empurrar os valores-chave do ficheiro de configuração para a loja de Configuração de Aplicações. O parâmetro **Caminho do Ficheiro de Configuração** começa na raiz do repositório de ficheiros.
@@ -66,10 +66,10 @@ Esta secção abrangerá como utilizar a tarefa Azure App Configuration Push num
 
 Esta secção abrangerá como utilizar a tarefa Azure App Configuration Push num pipeline de lançamento Azure DevOps.
 
-1. Navegue para lançar a página do gasoduto selecionando **lançamentos**de  >  **pipelines**. A documentação para os gasodutos de libertação pode ser [consultada aqui.](https://docs.microsoft.com/azure/devops/pipelines/release?view=azure-devops)
+1. Navegue para lançar a página do gasoduto selecionando **lançamentos**de  >  **pipelines**. A documentação para os gasodutos de libertação pode ser [consultada aqui.](/azure/devops/pipelines/release?view=azure-devops)
 1. Escolha um gasoduto de desbloqueio existente. Se não tiver um, selecione **+ Novo** para criar um novo.
 1. Selecione o botão **Editar** no canto superior direito para editar o pipeline de desbloqueio.
-1. Escolha o **Palco** para adicionar a tarefa. Mais informações sobre as etapas podem ser [encontradas aqui.](https://docs.microsoft.com/azure/devops/pipelines/release/environments?view=azure-devops)
+1. Escolha o **Palco** para adicionar a tarefa. Mais informações sobre as etapas podem ser [encontradas aqui.](/azure/devops/pipelines/release/environments?view=azure-devops)
 1. Selecione **+** para esse Trabalho e, em seguida, adicione a tarefa **Azure App Configuration Push** no **separador Implementar.**
 1. Configure os parâmetros necessários na tarefa de empurrar os valores-chave do seu ficheiro de configuração para a sua loja de Configuração de Aplicações. As explicações dos parâmetros estão disponíveis na secção **Parâmetros** abaixo e nas pontas das ferramentas ao lado de cada parâmetro.
 1. Poupe e faça fila para uma libertação. O registo de desbloqueio apresentará quaisquer falhas encontradas durante a execução da tarefa.

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: devx-track-csharp
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: f133572b0c3163f5c5fe0a5c2e48ce5e6d53adcc
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: bb12224fd29d50765bc56a531787b7a0849cd06e
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767738"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075795"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Quickstart: Criar uma aplicação .NET Core com Configuração de Aplicações
 
@@ -40,7 +40,7 @@ Neste arranque rápido, incorpora a Configuração de Aplicações Azure numa ap
 
 ## <a name="create-a-net-core-console-app"></a>Criar uma aplicação de consola .NET Core
 
-Utiliza a [interface de linha de comando .NET Core (CLI)](https://docs.microsoft.com/dotnet/core/tools/) para criar um novo projeto de aplicação de consola .NET Core. A vantagem de utilizar o .NET Core CLI sobre o Visual Studio é que está disponível nas plataformas Windows, macOS e Linux.  Em alternativa, utilize as ferramentas pré-instaladas disponíveis no [Azure Cloud Shell](https://shell.azure.com).
+Utiliza a [interface de linha de comando .NET Core (CLI)](/dotnet/core/tools/) para criar um novo projeto de aplicação de consola .NET Core. A vantagem de utilizar o .NET Core CLI sobre o Visual Studio é que está disponível nas plataformas Windows, macOS e Linux.  Em alternativa, utilize as ferramentas pré-instaladas disponíveis no [Azure Cloud Shell](https://shell.azure.com).
 
 1. Crie uma pasta nova para o projeto.
 
@@ -118,13 +118,13 @@ Utiliza a [interface de linha de comando .NET Core (CLI)](https://docs.microsoft
     dotnet run
     ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste quickstart, criou uma nova loja de Configuração de Aplicações e utilizou-a com uma aplicação de consola .NET Core através do fornecedor de Configuração de [Aplicações.](https://go.microsoft.com/fwlink/?linkid=2074664) Para aprender a configurar a sua aplicação .NET Core para atualizar dinamicamente as definições de configuração, continue até ao próximo tutorial.
+Neste quickstart, criou uma nova loja de Configuração de Aplicações e utilizou-a com uma aplicação de consola .NET Core através do fornecedor de Configuração de [Aplicações.](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) Para aprender a configurar a sua aplicação .NET Core para atualizar dinamicamente as definições de configuração, continue até ao próximo tutorial.
 
 > [!div class="nextstepaction"]
 > [Ativar a configuração dinâmica](./enable-dynamic-configuration-dotnet-core.md)

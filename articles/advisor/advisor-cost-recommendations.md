@@ -3,12 +3,12 @@ title: Reduzir os custos de serviço usando o Azure Advisor
 description: Utilize o Azure Advisor para otimizar o custo das suas implementações Azure.
 ms.topic: article
 ms.date: 09/27/2020
-ms.openlocfilehash: 3b7e57aa178380ff4cf0561718c292dc1e6c6aa9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 454ed02c06511b55f9f592bbe6fe5ab08605d752
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448173"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075914"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Reduzir os custos de serviço utilizando o Azure Advisor
 
@@ -60,7 +60,7 @@ O Advisor analisa os padrões de utilização dos últimos 30 dias para os segui
 O Advisor analisa os seus padrões de utilização do Azure Cosmos DB nos últimos 30 dias e recomenda compras de capacidade reservada para otimizar os custos. Ao utilizar a capacidade reservada, pode pré-comprar o uso de hora a hora da Azure Cosmos e economizar sobre os seus custos de pagamento. A capacidade reservada é um benefício de faturação e aplica-se automaticamente a implementações novas e existentes. O Advisor calcula as estimativas de poupança para subscrições individuais utilizando preços de reserva de 3 anos e extrapolando os padrões de utilização observados nos últimos 30 dias. As recomendações de âmbito partilhado estão disponíveis para compras de capacidade reservada e podem aumentar a poupança.
 
 ### <a name="sql-database-and-sql-managed-instance-reserved-capacity"></a>SqL Database e SQL Managed Instance reservado capacidade
-O Advisor analisa os padrões de utilização da SQL Database e da SQL Managed Instance nos últimos 30 dias. Recomenda então compras de capacidade reservada que otimizem os custos. Ao utilizar a capacidade reservada, pode pré-comprar o uso de DB SQL por hora e economizar acima dos seus custos de computação SQL. A sua licença SQL é cobrada separadamente e não é descontada pela reserva. A capacidade reservada é um benefício de faturação e aplica-se automaticamente a implementações novas e existentes. O Advisor calcula as estimativas de poupança para subscrições individuais utilizando preços de reserva de 3 anos e extrapolando os padrões de utilização observados nos últimos 30 dias. As recomendações de âmbito partilhado estão disponíveis para compras de capacidade reservada e podem aumentar a poupança. Para mais informações, consulte [a Base de Dados Azure SQL & capacidade reservada de instância gerida SQL.](https://docs.microsoft.com/azure/azure-sql/database/reserved-capacity-overview)
+O Advisor analisa os padrões de utilização da SQL Database e da SQL Managed Instance nos últimos 30 dias. Recomenda então compras de capacidade reservada que otimizem os custos. Ao utilizar a capacidade reservada, pode pré-comprar o uso de DB SQL por hora e economizar acima dos seus custos de computação SQL. A sua licença SQL é cobrada separadamente e não é descontada pela reserva. A capacidade reservada é um benefício de faturação e aplica-se automaticamente a implementações novas e existentes. O Advisor calcula as estimativas de poupança para subscrições individuais utilizando preços de reserva de 3 anos e extrapolando os padrões de utilização observados nos últimos 30 dias. As recomendações de âmbito partilhado estão disponíveis para compras de capacidade reservada e podem aumentar a poupança. Para mais informações, consulte [a Base de Dados Azure SQL & capacidade reservada de instância gerida SQL.](../azure-sql/database/reserved-capacity-overview.md)
 
 ### <a name="app-service-stamp-fee-reserved-capacity"></a>Taxa de selo de serviço de aplicação reservada
 O Advisor analisa o padrão de utilização da Taxa de Selo para o seu ambiente isolado do Serviço de Aplicações Azure ao longo dos últimos 30 dias e recomenda compras de capacidade reservada que otimizem os custos. Ao utilizar a capacidade reservada, pode pré-comprar o uso por hora para o ambiente isolado Stamp Fee e economizar sobre os seus custos de pagamento à medida. Note que a capacidade reservada se aplica apenas à Taxa de Selo e não às instâncias do Serviço de Aplicações. A capacidade reservada é um benefício de faturação e aplica-se automaticamente a implementações novas e existentes. O Advisor calcula a poupança de estimativas para subscrições individuais utilizando preços de reserva de 3 anos com base em padrões de utilização nos últimos 30 dias.
