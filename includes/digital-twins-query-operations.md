@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/28/2020
 ms.author: baanders
-ms.openlocfilehash: 450ea0b8024192f6f351b4893fe6e8e07db236f7
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 333a7ec4ae0e5c8cbc94a603e2ccf81ee92e7d48
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931988"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078464"
 ---
 ## <a name="query-language-features"></a>Características da linguagem de consulta
 
@@ -33,6 +33,7 @@ Pode ainda melhorar as suas consultas com as seguintes operações:
   - Durante a pré-visualização, são permitidos até cinco níveis de `JOIN` níveis.
 * Selecione apenas os resultados de consulta superior `Select TOP` (operador)
 * Conte o número de itens num conjunto de resultados usando `Select COUNT`
+* Use projeções para escolher quais colunas uma consulta vai devolver
 * Utilize funções de escala: `IS_BOOL` , , , , , , , , , `IS_DEFINED` , , `IS_NULL` . `IS_NUMBER` `IS_OBJECT` `IS_PRIMITIVE` `IS_STRING` `STARTSWITH` `ENDSWITH` .
 * Utilize operadores de comparação de consultas: `IN` / `NIN` , , , `=` , , , , `!=` `<` `>` `<=` `>=` .
 * Utilize qualquer combinação `AND` (, `OR` `NOT` operador) de `IS_OF_MODEL` funções escalar e operadores de comparação.

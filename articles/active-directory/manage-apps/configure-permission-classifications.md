@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: phsignor
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: 0add5001e2e62e26d448b06927210c14f17729f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5016dbff30eb054e413acc66b1b2dfee62a5873
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91804345"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070678"
 ---
 # <a name="configure-permission-classifications"></a>Configurar as classificações de permissão
 
@@ -33,7 +33,7 @@ Atualmente, apenas a classificação de permissão de "baixo impacto" é suporta
 
 Siga estes passos para classificar as permissões utilizando o portal Azure:
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) como [Administrador Global.](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator)
+1. Inscreva-se no [portal Azure](https://portal.azure.com) como [Administrador Global,](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator) [Administrador de Aplicação](../users-groups-roles/directory-assign-admin-roles.md#application-administrator)ou [Administrador de Aplicação em Nuvem](../users-groups-roles/directory-assign-admin-roles.md#cloud-application-administrator)
 1. Selecione **Azure Ative Directory**  >  **Enterprise Aplicações**  >  **Consentimento e permissões**  >  **Classificações de permissão**.
 1. Escolha **Permissões de adicionar** para classificar outra permissão como "Baixo impacto".
 1. Selecione a API e, em seguida, selecione as permissões delegadas.
