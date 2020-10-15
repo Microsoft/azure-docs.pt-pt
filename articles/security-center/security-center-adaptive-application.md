@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: c3f3aad08266337756038dfa6ac6ff0c9afe093c
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: c580dd26c64a27b88b4416e85da101b78782013e
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996786"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076985"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Utilize controlos de aplicação adaptativos para reduzir as superfícies de ataque das suas máquinas
 
@@ -159,7 +159,7 @@ Para editar as regras para um grupo de máquinas:
     :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="Abertura de controlos de aplicação adaptativa a partir do Painel Azure" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
 
     > [!IMPORTANT]
-    > A opção **Enforce** nas definições do modo de proteção do tipo de ficheiro está acinzentado em todos os cenários. Não há opções de execução disponíveis neste momento. 
+    > A opção **Enforce,** nas definições do modo de proteção do tipo de ficheiro, está acinzentado em **todos os** cenários. Não há opções de execução disponíveis neste momento. 
     >
     > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="Abertura de controlos de aplicação adaptativa a partir do Painel Azure":::
 
