@@ -5,16 +5,16 @@ services: synapse-analytics
 author: saveenr
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: ''
+ms.subservice: overview
 ms.date: 09/03/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 04bbab477f20ec25ccb0e975dad2b30a511346d2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bc7bcc3ee5de7ba72885462a410da718387825fa
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667763"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088895"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Quickstart: Criar um espaço de trabalho synapse
 Este quickstart descreve os passos para criar um espaço de trabalho Azure Synapse utilizando o portal Azure.
@@ -27,8 +27,8 @@ Este quickstart descreve os passos para criar um espaço de trabalho Azure Synap
 
     |Tecla de Tabulação|Definição | Valor sugerido | Descrição |
     |---|---|---|---|
-    |Informações básicas|**Nome da área de trabalho**|Pode dar-lhe o nome de qualquer coisa.| Neste documento, usaremos **o meu espaço de trabalho.**|
-    |Informações básicas|**Região**|Combine com a região da conta de armazenamento.|
+    |Noções básicas|**Nome da área de trabalho**|Pode dar-lhe o nome de qualquer coisa.| Neste documento, usaremos **o meu espaço de trabalho.**|
+    |Noções básicas|**Região**|Combine com a região da conta de armazenamento.|
 
 1. Precisa de uma conta ADLSGEN2 para criar um espaço de trabalho. A escolha mais simples é criar uma nova. Se quiser reutilizar uma existente, terá de realizar alguma configuração adicional. 
 1. OPÇÃO 1 Criação de uma nova conta ADLSGEN2 

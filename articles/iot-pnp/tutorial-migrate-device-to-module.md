@@ -1,22 +1,22 @@
 ---
-title: Converta um dispositivo IoT Plug and Play num Módulo Genérico Microsoft Docs
-description: Utilize o código do dispositivo PnP C# e converta-o num módulo.
+title: Ligue um módulo genérico IoT Plug and Play / Microsoft Docs
+description: Utilize o código do dispositivo IoT Plug e Play da amostra C# num módulo genérico.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: ccc450242c50f82d4215f6b172f72d8eceab7c52
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 671809b9cdbe72c8f3091b0056897c2342a38b1f
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046341"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089167"
 ---
-# <a name="tutorial-how-to-convert-an-iot-plug-and-play-device-to-a-module-c"></a>Tutorial: Como converter um dispositivo IoT Plug and Play num módulo (C#)
+# <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>Tutorial: Ligue um módulo IoT Plug and Play (C#)
 
-Este tutorial mostra-lhe como converter o código do dispositivo IoT Plug e Play para funcionar como um módulo genérico.
+Este tutorial mostra-lhe como ligar um [módulo](../iot-hub/iot-hub-devguide-module-twins.md)genérico IoT Plug and Play .
 
 Um dispositivo é um dispositivo IoT Plug and Play se publicar o seu ID modelo quando se conecta a um hub IoT e implementa as propriedades e métodos descritos no modelo Digital Twins Definition Language (DTDL) identificado pelo ID do modelo. Para saber mais sobre como os dispositivos utilizam um DTDL e um ID de modelo, consulte [o guia de desenvolvimento IoT Plug and Play](./concepts-developer-guide-device-csharp.md). Os módulos utilizam iDs de modelo e modelos DTDL da mesma forma.
 
@@ -98,7 +98,7 @@ Para abrir e preparar o projeto da amostra:
 
 1. No Estúdio Visual, navegue para **Project > Thermostat Properties > Debug**. Em seguida, adicione as seguintes variáveis ambientais ao projeto:
 
-    | Nome | Valor |
+    | Name | Valor |
     | ---- | ----- |
     | IOTHUB_DEVICE_SECURITY_TYPE | conexãoStragem |
     | IOTHUB_MODULE_CONNECTION_STRING | A cadeia de ligação do módulo que fez uma nota de anteriormente |
@@ -173,7 +173,7 @@ Os SDKs de serviço permitem-lhe recuperar o ID do modelo de dispositivos e mód
 
 1. No Estúdio Visual, navegue para **Project > Thermostat Properties > Debug**. Em seguida, adicione as seguintes variáveis ambientais ao projeto:
 
-    | Nome | Valor |
+    | Name | Valor |
     | ---- | ----- |
     | IOTHUB_DEVICE_ID | meu módulo-dispositivo |
     | IOTHUB_CONNECTION_STRING | O valor que fez notar quando completou [Configurar o seu ambiente](set-up-environment.md) |

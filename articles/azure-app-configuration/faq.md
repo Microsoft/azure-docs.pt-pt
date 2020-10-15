@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: ef4633953f7ac03737608124309d94e436913794
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99c74547d5f48f57af56af69f47190d80d9cd350
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715448"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074962"
 ---
 # <a name="azure-app-configuration-faq"></a>Azure App Configuration FAQ
 
@@ -45,11 +45,11 @@ Sim. A Configuração de Aplicativos encripta todos os valores-chave que detém 
 
 ## <a name="where-does-data-stored-in-app-configuration-reside"></a>Onde residem os dados armazenados na Configuração de Aplicações? 
 
-Os dados do cliente armazenados na Configuração de Aplicações residem na região onde foi criada a loja de Configuração de Aplicações do cliente. A Configuração de Aplicativos pode replicar dados para [regiões emparelhadas](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) para resiliência de dados, mas não vai replicar ou mover os dados dos clientes para fora do seu Geo, conforme definido pela [residência de dados em Azure](https://azure.microsoft.com/global-infrastructure/data-residency/). Os clientes e os utilizadores finais podem mover-se, copiar ou aceder aos dados dos seus clientes a partir de qualquer local a nível global.
+Os dados do cliente armazenados na Configuração de Aplicações residem na região onde foi criada a loja de Configuração de Aplicações do cliente. A Configuração de Aplicativos pode replicar dados para [regiões emparelhadas](../best-practices-availability-paired-regions.md) para resiliência de dados, mas não vai replicar ou mover os dados dos clientes para fora do seu Geo, conforme definido pela [residência de dados em Azure](https://azure.microsoft.com/global-infrastructure/data-residency/). Os clientes e os utilizadores finais podem mover-se, copiar ou aceder aos dados dos seus clientes a partir de qualquer local a nível global.
 
 ## <a name="how-is-app-configuration-different-from-azure-app-service-settings"></a>Como é que a Configuração da Aplicação é diferente das definições do Serviço de Aplicações Azure?
 
-O Azure App Service permite-lhe definir as definições de aplicações para cada instância do Serviço de Aplicações. Estas definições são passadas como variáveis ambientais para o código de aplicação. Pode associar uma definição a uma ranhura de implantação específica, se quiser. Para obter mais informações, consulte [as definições da aplicação Configure](/azure/app-service/configure-common#configure-app-settings).
+O Azure App Service permite-lhe definir as definições de aplicações para cada instância do Serviço de Aplicações. Estas definições são passadas como variáveis ambientais para o código de aplicação. Pode associar uma definição a uma ranhura de implantação específica, se quiser. Para obter mais informações, consulte [as definições da aplicação Configure](../app-service/configure-common.md#configure-app-settings).
 
 Em contraste, a Configuração de Aplicações Azure permite definir definições que podem ser partilhadas entre várias aplicações. Isto inclui aplicações em execução no Serviço de Aplicações, bem como outras plataformas. O seu código de aplicação acede a estas definições através dos fornecedores de configuração de .NET e Java, através do Azure SDK, ou diretamente através de REST APIs.
 

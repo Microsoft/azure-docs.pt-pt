@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: aa33106f200b2edb3b710c6b0e08208bd4da8ace
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 4c578f99e22e35871f0c52440c3b73a636ef958b
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932265"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089320"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>PERGUNTAS Frequentes Sobre Ficheiros Azure NetApp
 
@@ -29,7 +29,7 @@ Este artigo responde a perguntas frequentes (FAQs) sobre ficheiros Azure NetApp.
 
 ### <a name="does-the-nfs-data-path-go-over-the-internet"></a>O caminho dos dados da NFS passa pela Internet?  
 
-N.º O caminho dos dados da NFS não passa pela Internet. O Azure NetApp Files é um serviço nativo do Azure que está implantado na Rede Virtual Azure (VNet) onde o serviço está disponível. O Azure NetApp Files utiliza uma sub-rede delegada e fornece uma interface de rede diretamente no VNet. 
+Não. O caminho dos dados da NFS não passa pela Internet. O Azure NetApp Files é um serviço nativo do Azure que está implantado na Rede Virtual Azure (VNet) onde o serviço está disponível. O Azure NetApp Files utiliza uma sub-rede delegada e fornece uma interface de rede diretamente no VNet. 
 
 Consulte as Diretrizes para o planeamento da [rede Azure NetApp Files](./azure-netapp-files-network-topologies.md) para obter mais detalhes.  
 
@@ -48,7 +48,7 @@ Sim, pode, se criar as entradas de DNS necessárias. A Azure NetApp Files fornec
 
 ### <a name="can-i-set-or-select-my-own-ip-address-for-an-azure-netapp-files-volume"></a>Posso definir ou selecionar o meu próprio endereço IP para um volume de Ficheiros Azure NetApp?  
 
-N.º A atribuição de IP aos volumes de Ficheiros Azure NetApp é dinâmica. A atribuição ip estática não é suportada. 
+Não. A atribuição de IP aos volumes de Ficheiros Azure NetApp é dinâmica. A atribuição ip estática não é suportada. 
 
 ### <a name="does-azure-netapp-files-support-dual-stack-ipv4-and-ipv6-vnet"></a>Os Ficheiros Azure NetApp suportam a dupla pilha (IPv4 e IPv6) VNet?
 
@@ -80,9 +80,9 @@ Sim, pode configurar até cinco regras numa única política de exportação da 
 
 Não, atualmente não é possível aplicar Grupos de Segurança de Rede à sub-rede delegada dos Ficheiros Azure NetApp ou às interfaces de rede criadas pelo serviço.
 
-### <a name="can-i-use-azure-iam-with-azure-netapp-files"></a>Posso utilizar o Azure IAM com ficheiros Azure NetApp?
+### <a name="can-i-use-azure-rbac-with-azure-netapp-files"></a>Posso utilizar o Azure RBAC com ficheiros Azure NetApp?
 
-Sim, o Azure NetApp Files suporta funcionalidades DO RBAC com O Azure IAM.
+Sim, o Azure NetApp Files suporta funcionalidades do Azure RBAC.
 
 ## <a name="performance-faqs"></a>FAQs de Desempenho
 
@@ -192,7 +192,7 @@ O Azure NetApp Files fornece métricas de utilização de pool e volume de capac
 
 ### <a name="can-i-manage-azure-netapp-files-through-azure-storage-explorer"></a>Posso gerir ficheiros Azure NetApp através do Azure Storage Explorer?
 
-N.º Os ficheiros Azure NetApp não são suportados pelo Azure Storage Explorer.
+Não. Os ficheiros Azure NetApp não são suportados pelo Azure Storage Explorer.
 
 ### <a name="how-do-i-determine-if-a-directory-is-approaching-the-limit-size"></a>Como posso determinar se um diretório se aproxima do tamanho do limite?
 
@@ -249,11 +249,11 @@ Os requisitos para replicar um volume de Ficheiros Azure NetApp para outra regi�
 
 ### <a name="is-migration-with-azure-data-box-supported"></a>A migração com a Caixa de Dados Azure está suportada?
 
-N.º A Azure Data Box não suporta ficheiros Azure NetApp atualmente. 
+Não. A Azure Data Box não suporta ficheiros Azure NetApp atualmente. 
 
 ### <a name="is-migration-with-azure-importexport-service-supported"></a>A migração com o serviço Azure Import/Export é suportada?
 
-N.º O serviço Azure Import/Export não suporta atualmente ficheiros Azure NetApp.
+Não. O serviço Azure Import/Export não suporta atualmente ficheiros Azure NetApp.
 
 ## <a name="next-steps"></a>Passos seguintes  
 
