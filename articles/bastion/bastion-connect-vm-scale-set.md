@@ -5,22 +5,22 @@ services: bastion
 author: charwen
 ms.service: bastion
 ms.topic: how-to
-ms.date: 02/03/2020
+ms.date: 10/14/2020
 ms.author: charwen
-ms.openlocfilehash: e3dc7ce36e773b5a615b1abf4f50406fcb07826b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 001d2ff6789ec4cfcc391171f0859b67ab1ee0a5
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84744311"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077784"
 ---
 # <a name="connect-to-a-virtual-machine-scale-set-using-azure-bastion"></a>Ligue-se a um conjunto de escala de máquina virtual usando Azure Bastion
 
 Este artigo mostra-lhe como obter RDP de forma segura e perfeita para o seu conjunto de escala de máquina virtual Windows numa rede virtual Azure utilizando O Azure Bastion. Pode ligar-se a uma placa de escala de máquina virtual diretamente a partir do portal Azure. Ao utilizar o Azure Bastion, os VM não requerem um cliente, agente ou software adicional. Para mais informações sobre O Bastião Azure, consulte a [Visão Geral.](bastion-overview.md)
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="prerequisites"></a>Pré-requisitos
 
-Certifique-se de que criou um anfitrião Azure Bastion para a rede virtual em que reside o conjunto de escalas de máquina virtual. Para mais informações, consulte [Criar um anfitrião do Azure Bastion.](bastion-create-host-portal.md) Uma vez que o serviço Bastion é aloque e implementado na sua rede virtual, pode usá-lo para ligar a uma placa de escala de máquina virtual definida nesta rede virtual. O Bastion assume que está a utilizar o RDP para ligar a um conjunto de escala de máquina virtual do Windows e sSH para ligar ao conjunto de balanças de máquina virtual Linux. Para obter informações sobre a ligação a um Linux VM, consulte [Connect to a VM - Linux](bastion-connect-vm-ssh.md).
+Certifique-se de que criou um anfitrião Azure Bastion para a rede virtual em que reside o conjunto de escalas de máquina virtual. Para mais informações, consulte [Criar um anfitrião do Azure Bastion.](./tutorial-create-host-portal.md) Uma vez que o serviço Bastion é aloque e implementado na sua rede virtual, pode usá-lo para ligar a uma placa de escala de máquina virtual definida nesta rede virtual. O Bastion assume que está a utilizar o RDP para ligar a um conjunto de escala de máquina virtual do Windows e sSH para ligar ao conjunto de balanças de máquina virtual Linux. Para obter informações sobre a ligação a um Linux VM, consulte [Connect to a VM - Linux](bastion-connect-vm-ssh.md).
 
 ## <a name="connect-using-rdp"></a><a name="rdp"></a>Ligar usando RDP
 
@@ -30,7 +30,7 @@ Certifique-se de que criou um anfitrião Azure Bastion para a rede virtual em qu
 2. Navegue para a instância de conjunto de escala de máquina virtual a que pretende ligar e, em seguida, selecione **Connect**. Ao utilizar uma ligação RDP, o conjunto de escala de máquina virtual deve ser um conjunto de balança de máquina virtual do Windows.
 
    ![conjunto de escala de máquina virtual](./media/bastion-connect-vm-scale-set/2.png)
-3. Depois de selecionar **Connect,** aparece uma barra lateral que tem três separadores - RDP, SSH e Bastion. Selecione o **separador Bastion** da barra lateral. Se não forte Bastion para a rede virtual, pode selecionar o link para configurar Bastion. Para obter instruções de configuração, consulte [Configure Bastion](bastion-create-host-portal.md).
+3. Depois de selecionar **Connect,** aparece uma barra lateral que tem três separadores - RDP, SSH e Bastion. Selecione o **separador Bastion** da barra lateral. Se não forte Bastion para a rede virtual, pode selecionar o link para configurar Bastion. Para obter instruções de configuração, consulte [Configure Bastion](./tutorial-create-host-portal.md).
 
    ![Separador de bastião](./media/bastion-connect-vm-scale-set/3.png)
 4. No separador Bastion, introduza o nome de utilizador e a palavra-passe para o seu conjunto de escala de máquina virtual e, em seguida, selecione **Connect**.

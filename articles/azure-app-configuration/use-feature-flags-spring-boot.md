@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2019
 ms.author: mametcal
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 83c437cb613e3dad04dee17f0f67040532066c3b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0dcf85add4e1c9f1d701c4ce4a122c8d6b31382a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326601"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077835"
 ---
 # <a name="tutorial-use-feature-flags-in-a-spring-boot-app"></a>Tutorial: Use bandeiras de recurso numa aplicação de Boot de primavera
 
@@ -185,5 +185,5 @@ public String getOldFeature() {
 
 Neste tutorial, aprendeu a implementar bandeiras de funcionalidades na sua aplicação Boot De primavera utilizando as `spring-cloud-azure-feature-management-web` bibliotecas. Para obter mais informações sobre o suporte à gestão de funcionalidades na Configuração de Boot e App de Mola, consulte os seguintes recursos:
 
-* [Código de amostra de bandeira de mola](/azure/azure-app-configuration/quickstart-feature-flag-spring-boot)
+* [Código de amostra de bandeira de mola](./quickstart-feature-flag-spring-boot.md)
 * [Gerir sinalizadores de funcionalidades](./manage-feature-flags.md)

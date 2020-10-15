@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4db7727558d0b7f4c26aba3ffa823bebb07862f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6b94c30f00765164385987ed0ea9b201044f248
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91713773"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077444"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Linha de base de segurança Azure para a Gestão da API
 
@@ -100,7 +100,7 @@ Use a Azure Security Center Integrated Threat Intelligence para negar comunicaç
 
 * [Como configurar a Norma de Proteção DDoS do Azure](../virtual-network/manage-ddos-protection.md)
 
-* [Compreender a Azure Security Center Integrada Desespionagem de Ameaças](../security-center/threat-protection.md)
+* [Compreender a Azure Security Center Integrada Desespionagem de Ameaças](../security-center/azure-defender.md)
 
 **Monitorização do Centro de Segurança Azure**: Sim
 
@@ -588,7 +588,7 @@ Configure uma monitorização avançada com a API Management utilizando a `log-t
 
 * [Como criar subscrições adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Como criar Grupos de Gestão](../governance/management-groups/create.md)
+* [Como criar Grupos de Gestão](../governance/management-groups/create-management-group-portal.md)
 
 * [Como criar e usar tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -774,7 +774,7 @@ Além disso, utilize a política da Azure para impor restrições ao tipo de rec
 
 * [Como criar subscrições adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-* [Como criar Grupos de Gestão](../governance/management-groups/create.md)
+* [Como criar Grupos de Gestão](../governance/management-groups/create-management-group-portal.md)
 
 * [Como criar e usar Tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -838,7 +838,7 @@ Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da
 
 * [Como configurar e gerir a Política de Azure](../governance/policy/tutorials/create-and-manage.md)
 
-* [Como negar um tipo específico de recurso com a Política Azure](/azure/governance/policy/samples/not-allowed-resource-types)
+* [Como negar um tipo específico de recurso com a Política Azure](../governance/policy/samples/index.md)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -1114,7 +1114,7 @@ Identidades geridas podem ser usadas para obter certificados do Azure Key Vault 
 
 Ativar Soft-Delete no Cofre de Chaves para proteger as chaves contra a eliminação acidental ou maliciosa.
 
-* [Como permitir Soft-Delete em Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+* [Como permitir Soft-Delete em Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
