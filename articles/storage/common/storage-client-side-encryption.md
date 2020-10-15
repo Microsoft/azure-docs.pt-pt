@@ -10,18 +10,18 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f54b91ab1ea4521c17a3b40c88214f5637ab47a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cf137eae9e026f4854034efe1565dc8f7f0b35d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021617"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091666"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Client-Side Encryption e Azure Key Vault para o Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>Descrição geral
-A [Biblioteca do Cliente de Armazenamento Azure para .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet) suporta encriptar dados dentro das aplicações do cliente antes de fazer o upload para o Azure Storage e desencriptar dados enquanto faz o download para o cliente. A biblioteca também suporta a integração com [o Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para gestão de chaves de conta de armazenamento.
+A [Biblioteca do Cliente de Armazenamento Azure para .NET](/dotnet/api/overview/azure/storage) suporta encriptar dados dentro das aplicações do cliente antes de fazer o upload para o Azure Storage e desencriptar dados enquanto faz o download para o cliente. A biblioteca também suporta a integração com [o Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para gestão de chaves de conta de armazenamento.
 
 Para um tutorial passo a passo que o conduz através do processo de encriptação de bolhas usando encriptação do lado do cliente e cofre de chave Azure, consulte [blobs encriptadas e desencriptadas no Microsoft Azure Storage usando o Cofre da Chave Azure](../blobs/storage-encrypt-decrypt-blobs-key-vault.md).
 

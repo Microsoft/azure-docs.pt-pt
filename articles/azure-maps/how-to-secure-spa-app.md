@@ -1,7 +1,7 @@
 ---
 title: Como garantir uma aplicação de uma única página com o sign-in não interativo
 titleSuffix: Azure Maps
-description: Como configurar uma aplicação de uma única página com o controlo de acesso baseado em Ad Role não interativo e com o Azure Maps Web SDK.
+description: Como configurar uma aplicação de uma única página com controlo de acesso baseado em funções não interativa (Azure RBAC) e Azure Maps Web SDK.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 06/12/2020
@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
-ms.openlocfilehash: e49954065f8a4ec03eb54d7333a3fff34bafb143
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 000f6a80a2cee14abc3d954de479dd87b1edf876
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319661"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090255"
 ---
 # <a name="how-to-secure-a-single-page-application-with-non-interactive-sign-in"></a>Como garantir uma aplicação de uma única página com o sign-in não interativo
 
@@ -36,7 +36,7 @@ Crie uma aplicação de serviço web segura que seja responsável pela autentica
 
 3. [Adicione uma identidade atribuída](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) ao sistema na função Azure para permitir a criação de um diretor de serviço para autenticar a Azure AD.  
 
-4. Conceder acesso baseado em funções para a identidade atribuída ao sistema para a conta Azure Maps. Consulte [o acesso baseado em funções grant](#grant-role-based-access) para mais detalhes.
+4. Conceder acesso baseado em funções para a identidade atribuída ao sistema na conta Azure Maps. Consulte [o acesso baseado em funções grant](#grant-role-based-access) para obter detalhes.
 
 5. Escreva código para a função Azure para obter tokens de acesso Azure Maps utilizando identidade atribuída ao sistema com um dos mecanismos suportados ou o protocolo REST. Ver [Obter fichas para recursos Azure](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity)
 

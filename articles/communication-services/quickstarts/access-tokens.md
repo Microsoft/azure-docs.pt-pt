@@ -2,20 +2,20 @@
 title: Quickstart - Criar e gerir fichas de acesso
 titleSuffix: An Azure Communication Services quickstart
 description: Saiba como gerir identidades e fichas de acesso utilizando a biblioteca de clientes da Administração de Serviços de Comunicação Azure.
-author: matthewrobertson
+author: tomaschladek
 manager: jken
 services: azure-communication-services
-ms.author: marobert
+ms.author: tchladek
 ms.date: 08/20/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: a76000ecacdf78196ec1b80a60940484f6421641
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e323f1f50fe6c67a841c300fcbec1eed3afc4497
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90948149"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074129"
 ---
 # <a name="quickstart-create-and-manage-access-tokens"></a>Quickstart: Criar e gerir fichas de acesso
 

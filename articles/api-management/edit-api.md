@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 11/08/2017
 ms.author: apimpm
-ms.openlocfilehash: d3ce7318266f3fbaf818e5bcfa245ce5f64d74ba
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 4241ba55c464169257ec0a4b2d20eaa5e76534d5
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/15/2020
-ms.locfileid: "92076934"
+ms.locfileid: "92092703"
 ---
 # <a name="edit-an-api"></a>Editar uma API
 
@@ -35,7 +35,7 @@ Os passos deste tutorial mostram como utilizar a Gestão de API (APIM) para edit
 
 ## <a name="edit-an-api-in-apim"></a>Editar uma API no APIM
 
-![Editar uma API](./media/edit-api/edit-api001.png)
+![Screenshot que destaca o processo de edição de uma API em APIM.](./media/edit-api/edit-api001.png)
 
 1. Clique no separador **APIs**.
 2. Selecione uma das APIs que importou anteriormente.
@@ -50,7 +50,7 @@ Pode atualizar a API do seu back-end no portal do Azure, seguindo estes passos:
 1. Selecione **Todas as operações**.
 2. Clique no lápis na janela **Front-end**.
 
-    ![Editar uma API](./media/edit-api/edit-api002.png)
+    ![Screenshot que destaca o ícone do lápis no ecrã Frontend.](./media/edit-api/edit-api002.png)
 
     É apresentado o swagger da sua API.
 

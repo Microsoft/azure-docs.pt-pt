@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 07/01/2020
 ms.author: tamram
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 115ab9767c23afd5876eb23821bd1283777cdb5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9fb77179a00969da7a3dc372dc70c99cfe4220ca
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018931"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091003"
 ---
 # <a name="manage-container-properties-and-metadata-with-net"></a>Gerir propriedades de contentores e metadados com .NET
 
-Os contentores blob suportam as propriedades do sistema e os metadados definidos pelo utilizador, além dos dados que contêm. Este artigo mostra como gerir as propriedades do sistema e metadados definidos pelo utilizador com a biblioteca de [clientes de Armazenamento Azure para .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
+Os contentores blob suportam as propriedades do sistema e os metadados definidos pelo utilizador, além dos dados que contêm. Este artigo mostra como gerir as propriedades do sistema e metadados definidos pelo utilizador com a biblioteca de [clientes de Armazenamento Azure para .NET](/dotnet/api/overview/azure/storage).
 
 ## <a name="about-properties-and-metadata"></a>Sobre propriedades e metadados
 
@@ -170,7 +170,7 @@ public static async Task ReadContainerMetadataAsync(CloudBlobContainer container
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Obter operação de propriedades de contentores](/rest/api/storageservices/get-container-properties)
 - [Definir operação de metadados de contentores](/rest/api/storageservices/set-container-metadata)

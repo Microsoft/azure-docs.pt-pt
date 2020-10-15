@@ -8,19 +8,19 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8100914e9a1d1489cb80de55a689e17f6d28a941
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 266e31ae9865c8fb427e06e89cd755e7ff38b27f
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "61443450"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073874"
 ---
 # <a name="import-an-automatic-device-management-package-into-your-remote-monitoring-solution-accelerator"></a>Importe um pacote automático de gestão de dispositivos no seu acelerador de solução de monitorização remota
 
 Uma configuração automática de gestão do dispositivo define as alterações de configuração para implantar num grupo de dispositivos. Este artigo assume que um desenvolvedor na sua organização já criou uma configuração automática de gestão de dispositivos. Para saber como um desenvolvedor cria uma configuração, consulte um dos seguintes artigos ioT Hub como-a-fazer:
 
-- [Configurar e monitorizar dispositivos IoT em escala utilizando o portal Azure](../iot-hub/iot-hub-auto-device-config.md)
-- [Configurar e monitorizar dispositivos IoT em escala utilizando o CLI Azure](../iot-hub/iot-hub-auto-device-config-cli.md)
+- [Configurar e monitorizar dispositivos IoT em escala utilizando o portal Azure](../iot-hub/iot-hub-automatic-device-management.md)
+- [Configurar e monitorizar dispositivos IoT em escala utilizando o CLI Azure](../iot-hub/iot-hub-automatic-device-management-cli.md)
 
 Um desenvolvedor cria e testa uma configuração automática de gestão de dispositivos num ambiente de desenvolvimento. Quando estiver pronto, pode importar a configuração para o seu acelerador de solução de monitorização remota.
 

@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 02772f153cdda7e3f3c866c727d589e755e19033
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd0b9d1369fb1c0e662de83b7056da0ff7c83bd1
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906938"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090833"
 ---
 # <a name="integrate-azure-spring-cloud-with-azure-load-balance-solutions"></a>Integrar o Azure Spring Cloud nas Soluções de Balanceamento de Carga do Azure
 
@@ -28,10 +28,10 @@ O Azure já fornece diferentes soluções de equilíbrio de carga. Existem três
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Azure Spring Cloud: [Como criar um serviço de nuvem de primavera Azure](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart)
-* Gestor de Tráfego Azure: [Como criar um gestor de tráfego](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile/)
-* Azure App Gateway: [Como criar um gateway de aplicações](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
-* Porta frontal Azure: [Como criar uma porta da frente](https://docs.microsoft.com/azure/frontdoor/quickstart-create-front-door)
+* Azure Spring Cloud: [Como criar um serviço de nuvem de primavera Azure](./spring-cloud-quickstart.md)
+* Gestor de Tráfego Azure: [Como criar um gestor de tráfego](../traffic-manager/quickstart-create-traffic-manager-profile.md)
+* Azure App Gateway: [Como criar um gateway de aplicações](../application-gateway/quick-create-portal.md)
+* Porta frontal Azure: [Como criar uma porta da frente](../frontdoor/quickstart-create-front-door.md)
 
 ## <a name="integrate-azure-spring-cloud-with-azure-traffic-manager"></a>Integre a nuvem de primavera do Azure com o Gestor de Tráfego Azure
 
@@ -92,6 +92,6 @@ Para integrar com o serviço Azure Spring Cloud e configurar a piscina de backen
     ![Porta da frente 2](media/spring-cloud-load-balancers/front-door-2.png)
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Como criar um gestor de tráfego](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile/)
-* [Como criar um portal de aplicações](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
-* [Como criar uma porta da frente](https://docs.microsoft.com/azure/frontdoor/quickstart-create-front-door)
+* [Como criar um gestor de tráfego](../traffic-manager/quickstart-create-traffic-manager-profile.md)
+* [Como criar um portal de aplicações](../application-gateway/quick-create-portal.md)
+* [Como criar uma porta da frente](../frontdoor/quickstart-create-front-door.md)

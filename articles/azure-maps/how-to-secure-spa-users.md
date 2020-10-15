@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
-ms.openlocfilehash: 0ba2e23e8121a76ec281b5e411819ee7d450cbe0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bfd38f03601f7c4ebfbb5dde4fd7587e78df9efc
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319695"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090289"
 ---
 # <a name="secure-a-single-page-application-with-user-sign-in"></a>Proteja uma aplicação de uma única página com o pedido de s indicador
 
@@ -67,7 +67,7 @@ Crie a aplicação web em Azure AD para os utilizadores iniciarem sessão. A apl
         </script>   
     ```
 
-7. Configure O controlo de acesso baseado em funções Azure para utilizadores ou grupos. Consulte as [seguintes secções para permitir o RBAC](#grant-role-based-access-for-users-to-azure-maps).
+7. Configure O controlo de acesso baseado em funções (Azure RBAC) para utilizadores ou grupos. Consulte as [seguintes secções para ativar o Azure RBAC](#grant-role-based-access-for-users-to-azure-maps).
    
 [!INCLUDE [grant role access to users](./includes/grant-rbac-users.md)]
 
