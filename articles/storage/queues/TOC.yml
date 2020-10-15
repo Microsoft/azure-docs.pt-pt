@@ -266,10 +266,10 @@
           href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Acessibilidade do Explorador de Armazenamento
           href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Armazenamento do Azure no Microsoft Q&A
+    - name: Armazenamento de Filas no Microsoft Q&A
       href: 'https://docs.microsoft.com/answers/topics/azure-queue-storage.html'
-    - name: Armazenamento do Azure no Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
+    - name: Armazenamento de Filas no Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-queues'
     - name: Preços do Armazenamento de Filas
       href: 'https://azure.microsoft.com/pricing/details/storage/queues/'
     - name: Calculadora de preços do Azure

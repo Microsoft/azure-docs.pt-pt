@@ -9,12 +9,12 @@ ms.service: industrial-iot
 ms.custom: devx-track-azurecli
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 657373bdc899cb53c8dd934d18d144fe37eb370b
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 075f6f83e5af43cde3886f637a8ee326309e4218
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874334"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071511"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Implementar módulo OPC Twin e dependências do zero
 
@@ -25,8 +25,8 @@ O módulo OPC Twin funciona no IoT Edge e fornece vários serviços de borda par
 
 Existem várias opções para implementar módulos para o seu [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) Gateway, entre eles
 
-- [Implantação a partir da lâmina IoT Edge do portal Azure](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal)
-- [Implantação usando CLI AZ](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-monitor-cli)
+- [Implantação a partir da lâmina IoT Edge do portal Azure](../iot-edge/how-to-deploy-modules-portal.md)
+- [Implantação usando CLI AZ](../iot-edge/how-to-deploy-cli-at-scale.md)
 
 > [!NOTE]
 > Para obter mais informações sobre detalhes e instruções de implantação, consulte o [repositório](https://github.com/Azure/azure-iiot-components)GitHub .
@@ -117,7 +117,7 @@ A forma mais fácil de implantar os módulos num dispositivo de gateway Azure Io
 
 1. Implemente as [dependências](howto-opc-twin-deploy-dependencies.md) OPC Twin e obtenha o `.env` ficheiro resultante. Note a implantação `hub name` da `PCS_IOTHUBREACT_HUB_NAME` variável no `.env` ficheiro resultante.
 
-2. Registe-se e inicie um gateway [Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) ou [Windows](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) IoT Edge e note o seu `device id` .
+2. Registe-se e inicie um gateway [Linux](../iot-edge/how-to-install-iot-edge-linux.md) ou [Windows](../iot-edge/how-to-install-iot-edge-windows.md) IoT Edge e note o seu `device id` .
 
 ### <a name="deploy-to-an-edge-device"></a>Implementar para um dispositivo de borda
 
@@ -143,7 +143,7 @@ A forma mais fácil de implantar os módulos num dispositivo de gateway Azure Io
    {"NetworkingConfig": {"EndpointsConfig": {"host": {}}}, "HostConfig": {"NetworkMode": "host" }}
    ```
 
-   Preencha os campos opcionais, se necessário. Para obter mais informações sobre o contentor, crie opções, reinicie a política e o estado desejado consulte [as propriedades desejadas pela EdgeAgent](https://docs.microsoft.com/azure/iot-edge/module-edgeagent-edgehub#edgeagent-desired-properties). Para obter mais informações sobre o módulo twin consulte [Definir ou atualizar as propriedades desejadas.](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties)
+   Preencha os campos opcionais, se necessário. Para obter mais informações sobre o contentor, crie opções, reinicie a política e o estado desejado consulte [as propriedades desejadas pela EdgeAgent](../iot-edge/module-edgeagent-edgehub.md#edgeagent-desired-properties). Para obter mais informações sobre o módulo twin consulte [Definir ou atualizar as propriedades desejadas.](../iot-edge/module-composition.md#define-or-update-desired-properties)
 
 7. **Selecione Guardar** e repetir passo **5**.  
 
@@ -182,7 +182,7 @@ A forma mais fácil de implantar os módulos num dispositivo de gateway Azure Io
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-1. Instale a versão mais recente da interface da linha de [comando Azure (AZ)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) a partir [daqui](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+1. Instale a versão mais recente da interface da linha de [comando Azure (AZ)](/cli/azure/?view=azure-cli-latest) a partir [daqui](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ### <a name="quickstart"></a>Início Rápido
 
@@ -195,7 +195,7 @@ A forma mais fácil de implantar os módulos num dispositivo de gateway Azure Io
    ```
 
    O `device id` parâmetro é sensível a casos. O parâmetro de conteúdo aponta para o ficheiro manifesto de implantação que guardou. 
-    ![saída de módulos de set-modules IoT Edge az](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/set-modules.png)
+    ![saída de módulos de set-modules IoT Edge az](/azure/iot-edge/media/how-to-deploy-cli/set-modules.png)
 
 3. Uma vez implantados módulos no seu dispositivo, pode vê-los todos com o seguinte comando:
 
@@ -203,7 +203,7 @@ A forma mais fácil de implantar os módulos num dispositivo de gateway Azure Io
    az iot hub module-identity list --device-id [device id] --hub-name [hub name]
    ```
 
-   O parâmetro de identificação do dispositivo é sensível a maiôs. ![az iot hub módulo-identidade saída](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/list-modules.png)
+   O parâmetro de identificação do dispositivo é sensível a maiôs. ![az iot hub módulo-identidade saída](/azure/iot-edge/media/how-to-deploy-cli/list-modules.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

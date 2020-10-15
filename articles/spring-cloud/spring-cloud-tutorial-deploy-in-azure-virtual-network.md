@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 979ecf77fe53238dfd377c5fd2baf394de985c2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1a6a99285e54338b0020aad63fef2944ce3469d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892889"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92088674"
 ---
 # <a name="tutorial-deploy-azure-spring-cloud-in-azure-virtual-network-vnet-injection"></a>Tutorial: Implementar Azure Spring Cloud em rede virtual Azure (injeção VNet)
 
@@ -27,7 +27,7 @@ A implantação permite:
 * Capacitação dos clientes para controlar comunicações de rede de entrada e saída para a Azure Spring Cloud
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Deve registar o fornecedor de recursos Azure Spring Cloud `Microsoft.AppPlatform` de acordo com as instruções Registar Fornecedor de Recursos no portal [Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal) ou executando o seguinte comando Az CLI:
+Deve registar o fornecedor de recursos Azure Spring Cloud `Microsoft.AppPlatform` de acordo com as instruções Registar Fornecedor de Recursos no portal [Azure](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) ou executando o seguinte comando Az CLI:
 
 ```azurecli
 az provider register --namespace Microsoft.AppPlatform
@@ -57,7 +57,7 @@ Se já tem uma rede virtual para hospedar a instância de serviço Azure Spring 
     |-----------------|--------------------------------------------------|
     |Subscrição     |Selecione a sua subscrição.                         |
     |Grupo de recursos   |Selecione o seu grupo de recursos ou crie um novo.  |
-    |Nome             |*Insira azure-spring-cloud-vnet*                   |
+    |Name             |*Insira azure-spring-cloud-vnet*                   |
     |Localização         |Selecione **E.U.A. Leste**.                                |
 
 1. Clique **em seguida: endereços IP >**. 
@@ -154,7 +154,7 @@ Esses recursos de rede estão ligados à sua rede virtual criada acima.
 
 [Implementar aplicação para Azure Spring Cloud no seu VNet](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/02-deploy-application-to-azure-spring-cloud-in-your-vnet.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Resolução de problemas Azure Spring Cloud em VNET](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/05-troubleshooting-azure-spring-cloud-in-vnet.md)
 - [Responsabilidades do cliente para correr Azure Spring Cloud em VNET](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/06-customer-responsibilities-for-running-azure-spring-cloud-in-vnet.md)
