@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0a42763ff47cccfa506acbbbd95d20d41eb0827f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de060be7ace84ea309b71087a50fd572091bed43
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72965377"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076458"
 ---
 # <a name="add-an-iot-edge-device-to-your-remote-monitoring-solution-accelerator"></a>Adicione um dispositivo IoT Edge ao seu acelerador de solução de monitorização remota
 
@@ -40,15 +40,15 @@ Também é possível registar um dispositivo IoT Edge diretamente com a instânc
 
 Quando regista um dispositivo diretamente com o hub IoT no acelerador de solução de monitorização remota, está listado na página **device Explorer** na UI web.
 
-## <a name="install-the-iot-edge-runtime"></a>Instale o tempo de execução IoT Edge
+## <a name="install-the-iot-edge-runtime"></a>Instalar o runtime do IoT Edge
 
 Antes de poder implantar módulos no seu dispositivo Edge, tem de instalar o tempo de funcionaamento do IoT Edge no dispositivo real. Os seguintes guias de como instalar o tempo de funcionaamento nas plataformas comuns do dispositivo:
 
 - [Instale o tempo de execução Azure IoT Edge no Linux (x64)](../iot-edge/how-to-install-iot-edge-linux.md)
-- [Instale o tempo de execução da borda Azure IoT em Linux (ARM32v7/armhf)](../iot-edge/how-to-install-iot-edge-linux-arm.md)
-- [Instale o tempo de execução do Azure IoT Edge no Windows para utilizar com recipientes Windows](../iot-edge/how-to-install-iot-edge-windows-with-windows.md)
+- [Instale o tempo de execução da borda Azure IoT em Linux (ARM32v7/armhf)](../iot-edge/how-to-install-iot-edge-linux.md)
+- [Instale o tempo de execução do Azure IoT Edge no Windows para utilizar com recipientes Windows](../iot-edge/how-to-install-iot-edge-windows.md)
 - [Instale o tempo de execução do Azure IoT Edge no Windows para utilizar com recipientes Linux](../iot-edge/how-to-install-iot-edge-windows-with-linux.md)
-- [Instale o tempo de execução IoT Edge no Windows IoT Core](../iot-edge/how-to-install-iot-core.md)
+- [Instale o tempo de execução IoT Edge no Windows IoT Core](../iot-edge/how-to-install-iot-edge-windows.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

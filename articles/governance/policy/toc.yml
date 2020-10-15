@@ -240,6 +240,8 @@
           href: /rest/api/resources/policyassignments
         - name: Definições de Política
           href: /rest/api/resources/policydefinitions
+        - name: Isenções de Política
+          href: /rest/api/resources/policyexemptions
         - name: Definições de Iniciativas
           href: /rest/api/resources/policysetdefinitions
         - name: Recursos Controlados por Política
