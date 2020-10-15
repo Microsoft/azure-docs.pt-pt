@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/12/2020
 ms.author: apimpm
-ms.openlocfilehash: 4d077f6b3c84b0279a7a1c99243240192c2b45d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44ebd2d3084ab8df63f2c941e6e924e6f2a86d65
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86243720"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071290"
 ---
 # <a name="api-management-authentication-policies"></a>Políticas de autenticação da Gestão de API
-Este tópico fornece uma referência para as seguintes políticas de Gestão da API. Para obter informações sobre políticas de adição e configuração, consulte [Políticas em Gestão de API.](https://go.microsoft.com/fwlink/?LinkID=398186)
+Este tópico fornece uma referência para as seguintes políticas de Gestão da API. Para obter informações sobre políticas de adição e configuração, consulte [Políticas em Gestão de API.](./api-management-policies.md)
 
 ##  <a name="authentication-policies"></a><a name="AuthenticationPolicies"></a> Políticas de autenticação
 
@@ -50,14 +50,14 @@ Este tópico fornece uma referência para as seguintes políticas de Gestão da 
 
 |Nome|Descrição|Obrigatório|
 |----------|-----------------|--------------|
-|autenticação-básico|Elemento de raiz.|Sim|
+|autenticação-básico|Elemento de raiz.|Yes|
 
 ### <a name="attributes"></a>Atributos
 
 |Nome|Descrição|Obrigatório|Predefinição|
 |----------|-----------------|--------------|-------------|
-|nome de utilizador|Especifica o nome de utilizador da credencial Básica.|Sim|N/D|
-|palavra-passe|Especifica a palavra-passe da credencial Básica.|Sim|N/D|
+|nome de utilizador|Especifica o nome de utilizador da credencial Básica.|Yes|N/D|
+|palavra-passe|Especifica a palavra-passe da credencial Básica.|Yes|N/D|
 
 ### <a name="usage"></a>Utilização
  Esta política pode ser utilizada nas [seguintes secções](./api-management-howto-policies.md#sections) e [âmbitos políticos.](./api-management-howto-policies.md#scopes)
@@ -67,7 +67,7 @@ Este tópico fornece uma referência para as seguintes políticas de Gestão da 
 -   **Âmbitos de política:** todos os âmbitos
 
 ##  <a name="authenticate-with-client-certificate"></a><a name="ClientCertificate"></a> Autenticar com certificado de cliente
- Utilize a `authentication-certificate` apólice para autenticar com um serviço de backend utilizando o certificado do cliente. O certificado tem de ser instalado primeiro [na API Management](https://go.microsoft.com/fwlink/?LinkID=511599) e é identificado pela sua impressão digital.
+ Utilize a `authentication-certificate` apólice para autenticar com um serviço de backend utilizando o certificado do cliente. O certificado tem de ser instalado primeiro [na API Management](./api-management-howto-mutual-certificates.md) e é identificado pela sua impressão digital.
 
 ### <a name="policy-statement"></a>Declaração política
 
@@ -99,7 +99,7 @@ Neste exemplo, o certificado de cliente é definido na apólice em vez de ser re
   
 |Nome|Descrição|Obrigatório|  
 |----------|-----------------|--------------|  
-|certificado de autenticação|Elemento de raiz.|Sim|  
+|certificado de autenticação|Elemento de raiz.|Yes|  
   
 ### <a name="attributes"></a>Atributos  
   
@@ -107,7 +107,7 @@ Neste exemplo, o certificado de cliente é definido na apólice em vez de ser re
 |----------|-----------------|--------------|-------------|  
 |impressão digital|A impressão digital do certificado do cliente.|Ou `thumbprint` `certificate-id` deve estar presente.|N/D|
 |certificado id|O nome do recurso do certificado.|Ou `thumbprint` `certificate-id` deve estar presente.|N/D|
-|body|Certificado de cliente como um byte array.|Não|N/D|
+|body|Certificado de cliente como um byte array.|No|N/D|
 |palavra-passe|Senha para o certificado do cliente.|Usado se o certificado especificado é `body` protegido por palavra-passe.|N/D|
   
 ### <a name="usage"></a>Utilização  
@@ -176,16 +176,16 @@ Tanto a identidade atribuída ao sistema como qualquer uma das identidades atrib
   
 |Nome|Descrição|Obrigatório|  
 |----------|-----------------|--------------|  
-|identidade gerida por autenticação |Elemento de raiz.|Sim|  
+|identidade gerida por autenticação |Elemento de raiz.|Yes|  
   
 ### <a name="attributes"></a>Atributos  
   
 |Nome|Descrição|Obrigatório|Predefinição|  
 |----------|-----------------|--------------|-------------|  
-|recurso|Cadeia. O ID da aplicação da API web alvo (recurso seguro) no Azure Ative Directory.|Sim|N/D|
-|id cliente|Cadeia. O ID da aplicação da identidade atribuída ao utilizador no Azure Ative Directory.|Não|identidade atribuída ao sistema|
-|nome variável-ficha de saída|Cadeia. Nome da variável de contexto que receberá valor simbólico como tipo de `string` objeto. |Não|N/D|  
-|ignorar erro|O Boolean. Se estiver `true` definido, o gasoduto de política continuará a ser executado mesmo que não seja obtido um sinal de acesso.|Não|false|  
+|recurso|Cadeia. O ID da aplicação da API web alvo (recurso seguro) no Azure Ative Directory.|Yes|N/D|
+|id cliente|Cadeia. O ID da aplicação da identidade atribuída ao utilizador no Azure Ative Directory.|No|identidade atribuída ao sistema|
+|nome variável-ficha de saída|Cadeia. Nome da variável de contexto que receberá valor simbólico como tipo de `string` objeto. |No|N/D|  
+|ignorar erro|O Boolean. Se estiver `true` definido, o gasoduto de política continuará a ser executado mesmo que não seja obtido um sinal de acesso.|No|false|  
   
 ### <a name="usage"></a>Utilização  
  Esta política pode ser utilizada nas [seguintes secções](./api-management-howto-policies.md#sections) e [âmbitos políticos.](./api-management-howto-policies.md#scopes)  
@@ -200,4 +200,4 @@ Para obter mais informações sobre as políticas, consulte:
 + [Políticas em Gestão de API](api-management-howto-policies.md)
 + [Transformar APIs](transform-api.md)
 + [Referência política](./api-management-policies.md) para uma lista completa de declarações políticas e suas definições
-+ [Amostras de política](policy-samples.md)
++ [Amostras de política](./policy-reference.md)
