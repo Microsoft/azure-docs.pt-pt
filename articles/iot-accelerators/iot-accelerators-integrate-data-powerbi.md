@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1a7d29583636879698abc598e1935358796b6062
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba669c86c406959a3f92949e5f806fa011527d47
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90976009"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070916"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualizar dados de monitorização remota utilizando o Power BI
 
@@ -55,7 +55,7 @@ Este tutorial irá acompanhá-lo como ligar os dados da sua solução de monitor
 
 2. Quando solicitado para introduzir dados, opte por procurar "Azure Cosmos DB" e selecione este conector. Este conector essencialmente retira dados diretamente da base de dados cosmos da sua Solução Azure IoT
   
-    ![BD do Cosmos](./media/iot-accelerators-integrate-data-powerbi/cosmos_db.png)
+    ![Cosmos DB](./media/iot-accelerators-integrate-data-powerbi/cosmos_db.png)
   
 3. Introduza as informações, que já registou acima:
 
@@ -94,9 +94,9 @@ Uma vez ligado o fluxo, está pronto para criar os seus dashboards personalizado
 
 ## <a name="publishing-the-dashboard-and-refreshing-the-data"></a>Publicar o painel de instrumentos e refrescar os dados
 
-Depois de ter criado com sucesso os seus dashboards, recomendamos que [publique os seus dashboards Power BI](https://docs.microsoft.com/power-bi/desktop-upload-desktop-files) para partilhar com outros.
+Depois de ter criado com sucesso os seus dashboards, recomendamos que [publique os seus dashboards Power BI](/power-bi/desktop-upload-desktop-files) para partilhar com outros.
 
-Também deverá atualizar [os dados](https://docs.microsoft.com/power-bi/refresh-data) do painel de instrumentos publicado para se certificar de que tem os dados mais recentes.
+Também deverá atualizar [os dados](/power-bi/refresh-data) do painel de instrumentos publicado para se certificar de que tem os dados mais recentes.
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -107,4 +107,3 @@ Para obter mais informações sobre a personalização da solução de Monitoriz
 * [Personalizar a Solução de Monitorização Remota UI](iot-accelerators-remote-monitoring-customize.md)
 * [Guia de Referência para Programadores](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 * [Guia de Resolução de Problemas para Programadores](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
-

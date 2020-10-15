@@ -7,18 +7,18 @@ ms.author: jimmyca
 ms.date: 02/20/2020
 ms.topic: article
 ms.service: azure-app-configuration
-ms.openlocfilehash: ae3417f991c0d810d8946cdaf358218ebbe4f6a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 640be797b2653f9e6c969306b7e2b99393b99c39
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88590035"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078209"
 ---
 # <a name="reacting-to-azure-app-configuration-events"></a>Reagir a eventos de configuração de aplicativos Azure
 
 Os eventos de Configuração de Aplicações Azure permitem que as aplicações reajam a alterações nos valores-chave. Isto é feito sem a necessidade de um código complicado ou de serviços de sondagens dispendiosos e ineficientes. Em vez disso, os eventos são empurrados através [da Azure Event Grid](https://azure.microsoft.com/services/event-grid/) para assinantes como [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), ou até mesmo para o seu próprio ouvinte personalizado. Criticamente, só se paga pelo que se usa.
 
-Os eventos de Configuração de Aplicações Azure são enviados para a Grelha de Eventos Azure que fornece serviços de entrega confiáveis às suas aplicações através de políticas de repreensão ricas e entrega de cartas mortas. Para saber mais, consulte a [entrega de mensagens de Event Grid e retentou.](https://docs.microsoft.com/azure/event-grid/delivery-and-retry)
+Os eventos de Configuração de Aplicações Azure são enviados para a Grelha de Eventos Azure que fornece serviços de entrega confiáveis às suas aplicações através de políticas de repreensão ricas e entrega de cartas mortas. Para saber mais, consulte a [entrega de mensagens de Event Grid e retentou.](../event-grid/delivery-and-retry.md)
 
 Os cenários comuns de configuração da configuração da aplicação incluem configuração de aplicação refrescante, implementações de desencadeamento ou qualquer fluxo de trabalho orientado para a configuração. Quando as mudanças são pouco frequentes, mas o seu cenário requer capacidade de resposta imediata, a arquitetura baseada em eventos pode ser especialmente eficiente.
 
@@ -39,17 +39,17 @@ Os eventos de Configuração de Aplicações Azure contêm todas as informaçõe
 
 > |Propriedade|Tipo|Descrição|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
-> |tópico|string|Full Azure Resource Manager id da Configuração de Aplicação que emite o evento.|
-> |Assunto|string|O URI do valor-chave que é o tema do evento.|
-> |eventTime|string|A data/hora em que o evento foi gerado, no formato ISO 8601.|
-> |eventType|string|"Microsoft.AppConfiguration.KeyValueModified" ou "Microsoft.AppConfiguration.KeyValueDeleted".|
-> |Id|string|Um identificador único deste evento.|
-> |dataVersion|string|A versão do esquema do objeto de dados.|
-> |metadadosVersão|string|A versão de esquema de propriedades de alto nível.|
+> |tópico|cadeia|Full Azure Resource Manager id da Configuração de Aplicação que emite o evento.|
+> |Assunto|cadeia|O URI do valor-chave que é o tema do evento.|
+> |eventTime|cadeia|A data/hora em que o evento foi gerado, no formato ISO 8601.|
+> |eventType|cadeia|"Microsoft.AppConfiguration.KeyValueModified" ou "Microsoft.AppConfiguration.KeyValueDeleted".|
+> |Id|cadeia|Um identificador único deste evento.|
+> |dataVersion|cadeia|A versão do esquema do objeto de dados.|
+> |metadadosVersão|cadeia|A versão de esquema de propriedades de alto nível.|
 > |dados|objeto|Recolha de dados específicos de configuração de aplicativos Azure|
-> |data.key|string|A chave do valor-chave que foi modificada ou eliminada.|
-> |data.label|string|A etiqueta, se houver, do valor-chave que foi modificada ou eliminada.|
-> |data.etag|string|Para `KeyValueModified` o etag do novo valor-chave. Para `KeyValueDeleted` o etag do valor-chave que foi eliminado.|
+> |data.key|cadeia|A chave do valor-chave que foi modificada ou eliminada.|
+> |data.label|cadeia|A etiqueta, se houver, do valor-chave que foi modificada ou eliminada.|
+> |data.etag|cadeia|Para `KeyValueModified` o etag do novo valor-chave. Para `KeyValueDeleted` o etag do valor-chave que foi eliminado.|
 
 Aqui está um exemplo de um evento KeyValueModified:
 ```json

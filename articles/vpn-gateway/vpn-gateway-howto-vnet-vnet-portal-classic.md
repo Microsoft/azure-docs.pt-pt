@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9ca190ae9e5679ce7622f89b39507d69d87f5b88
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 4b1007fe89cf455b6af8ebba00f24e8019ad8013
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875585"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078294"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configure uma ligação VNet-to-VNet (clássico)
 
@@ -32,8 +32,6 @@ Este artigo ajuda-o a criar uma ligação de gateway VPN entre redes virtuais. A
 >
 
 ![Diagrama de conectividade VNet para VNet](./media/vpn-gateway-howto-vnet-vnet-portal-classic/v2vclassic.png)
-
-
 
 ## <a name="about-vnet-to-vnet-connections"></a>Acerca das ligações VNet a VNet
 
@@ -61,7 +59,7 @@ Poderá pretender ligar redes virtuais pelos seguintes motivos:
 
 Para obter mais informações sobre ligações de VNet a VNet, veja [Considerações de VNet a VNet](#faq) no final deste artigo.
 
-### <a name="working-with-azure-powershell"></a><a name="powershell"></a>Trabalhar com a Azure PowerShell
+## <a name="prerequisites"></a>Pré-requisitos
 
 Utilizamos o portal para a maioria dos passos, mas tem de usar o PowerShell para criar as ligações entre os VNets. Não é possível criar as ligações utilizando o portal Azure. [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
@@ -73,7 +71,7 @@ A tabela que se segue mostra um exemplo de como definir os seus VNets. Utilize o
 
 **Exemplo**
 
-| Rede Virtual | Espaço de Endereços | Region | Liga-se ao site de rede local |
+| Rede Virtual | Espaço de Endereços | Região | Liga-se ao site de rede local |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |E.U.A. Leste |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |E.U.A. Oeste |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |
@@ -87,7 +85,7 @@ Neste passo, cria-se duas redes virtuais clássicas. Se estiver a utilizar este 
 Nome: TestVNet1<br>
 Espaço do endereço: 10.11.0.0/16, 10.12.0.0/16 (opcional)<br>
 Nome da sub-rede: predefinição<br>
-Intervalo de endereços da sub-rede: 10.11.0.1/24<br>
+Intervalo de endereços da sub-rede: 10.11.0.0/24<br>
 Grupo de recursos: ClassicRG<br>
 Localização: E.U.A. Leste<br>
 GatewaySubnet: 10.11.1.0/27
@@ -130,7 +128,7 @@ Por exemplo, o TestVNet1 conecta-se a um site de rede local que cria chamado 'VN
 
 O site local para cada VNet é o outro VNet. Os seguintes valores de exemplo são utilizados para a nossa configuração:
 
-| Rede Virtual | Espaço de Endereços | Region | Liga-se ao site de rede local |
+| Rede Virtual | Espaço de Endereços | Região | Liga-se ao site de rede local |
 |:--- |:--- |:--- |:--- |
 | TestVNet1 |TestVNet1<br>(10.11.0.0/16)<br>(10.12.0.0/16) |E.U.A. Leste |VNet4Local<br>(10.41.0.0/16)<br>(10.42.0.0/16) |
 | TestVNet4 |TestVNet4<br>(10.41.0.0/16)<br>(10.42.0.0/16) |E.U.A. Oeste |VNet1Local<br>(10.11.0.0/16)<br>(10.12.0.0/16) |

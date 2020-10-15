@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 05/06/2019
+ms.date: 10/14/2020
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 2127009e5a60ff9f0a1defc9592184a7fa52121b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a4d872b878ba10bf3208971be061bc73999ab2d9
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331408"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078005"
 ---
 # <a name="shared-image-gallery-overview"></a>Visão geral da Galeria de Imagens Partilhada
 

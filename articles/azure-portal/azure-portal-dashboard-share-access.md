@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: mblythe
-ms.openlocfilehash: b478272ff790121d914a51f8ee4c5cf250134f4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89c2b90b12a4fc16dd48571c00ff46dc62168d42
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87923888"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077886"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Partilhar dashboards do Azure mediante a utilização do Controlo de Acesso Baseado em Funções
 
@@ -88,4 +88,4 @@ Pode atribuir um grupo de utilizadores a uma função para esse painel de instru
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma lista de papéis, consulte [as funções incorporadas do Azure.](../role-based-access-control/built-in-roles.md)
-* Para conhecer a gestão de recursos, consulte [gerir os recursos do Azure utilizando o portal Azure.](resource-group-portal.md)
+* Para conhecer a gestão de recursos, consulte [gerir os recursos do Azure utilizando o portal Azure.](../azure-resource-manager/management/manage-resources-portal.md)
