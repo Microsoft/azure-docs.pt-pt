@@ -1,6 +1,10 @@
 ### YamlMime:Landing
 title: Azure Active Directory para programadores
-summary: O Azure Active Directory (Azure AD) é um serviço de identidade na cloud que permite que os programadores criem aplicações que iniciam a sessão dos utilizadores de forma segura com uma conta escolar ou profissional da Microsoft. O Azure AD suporta programadores que criam aplicações de inquilino único e de linha de negócio (LOB), bem como os programadores que procuram desenvolver aplicações multi-inquilino. A plataforma de identidade da Microsoft é uma evolução da plataforma de programador do Azure Active Directory (Azure AD). Para novas aplicações, recomendamos que utilize a plataforma de identidade da Microsoft (v2.0) e a MSAL para adquirir fichas e aceder a APIs Web protegidos.
+summary: >
+  O Azure Active Directory (Azure AD) é um serviço de identidade na cloud que permite aos programadores criar aplicações que iniciam a sessão dos utilizadores com uma conta escolar ou profissional da Microsoft. O Azure AD suporta a criação de aplicações de linha de negócio (LOB) de inquilino único, bem como de aplicações multi-inquilino.
+
+
+  IMPORTANTE: Este conteúdo destina-se ao ponto final v1.0 mais antigo do Azure AD. Utilize a nova plataforma de identidades da Microsoft para novos projetos.
 metadata:
   ms.topic: landing-page
   ms.date: 01/27/2020
@@ -9,12 +13,13 @@ metadata:
   ms.service: active-directory
   ms.subservice: azuread-dev
   ms.workload: identity
-  ms.openlocfilehash: 113a28ca5b4152ca8beedc7bdc3f1027c5acdf17
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ROBOTS: NOINDEX
+  ms.openlocfilehash: 9089b944402c31135b32b3304ecf7cf69d86ad93
+  ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "88116075"
+  ms.lasthandoff: 10/14/2020
+  ms.locfileid: "92055125"
 landingContent:
 - title: Azure Active Directory para programadores
   linkLists:
@@ -22,33 +27,19 @@ landingContent:
     links:
     - text: Azure Active Directory para programadores (v1.0)
       url: v1-overview.md
-    - text: Evolução da plataforma de identidade da Microsoft
-      url: ./about-microsoft-identity-platform.md
-    - text: Plataforma de identidade da Microsoft (v2.0)
-      url: ../develop/v2-overview.md
-  - linkListType: concept
-    links:
-    - text: Porquê atualizar a plataforma de identidade da Microsoft (v2.0)?
-      url: azure-ad-endpoint-comparison.md
-    - text: Tipos de aplicação e cenários
-      url: app-types.md
-- title: Protocolos de autenticação
+- title: Comparar plataformas
   linkLists:
   - linkListType: overview
     links:
-    - text: Noções básicas sobre autenticação
-      url: v1-authentication-scenarios.md
-  - linkListType: concept
-    links:
-    - text: Fluxo de código de autorização do OAuth 2.0
-      url: v1-protocols-oauth-code.md
-    - text: Fluxo de código do OpenID Connect
-      url: v1-protocols-openid-connect-code.md
-    - text: Fluxo de concessão de credenciais de cliente OAuth 2.0
-      url: v1-oauth2-client-creds-grant-flow.md
-- title: Amostras
+    - text: Evolução da plataforma de identidade da Microsoft
+      url: about-microsoft-identity-platform.md
+    - text: Porquê atualizar para o v2.0?
+      url: azure-ad-endpoint-comparison.md
+- title: Plataforma de identidades da Microsoft
   linkLists:
-  - linkListType: download
+  - linkListType: overview
     links:
-    - text: Exemplos de aplicações
-      url: sample-v1-code.md
+    - text: O que é a plataforma de identidades da Microsoft?
+      url: ../develop/v2-overview.md
+    - text: Migrar aplicações do ADAL para o MSAL
+      url: ../develop/msal-migration.md

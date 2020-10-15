@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 4909dde8efd7125a60509bb86b28f069bf6dbb24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5066169951409fa86aa75a64e8fc6d4189947f27
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87903397"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072412"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Como registar eventos para Azure Event Hubs na Azure API Management
 Os Event Hubs do Azure são um serviço de entrada de dados altamente dimensionável, que pode ingerir milhões de eventos por segundo para que possa processar e analisar os quantidades enormes de dados produzidos pelos dispositivos e aplicações ligados. O Event Hubs funciona como a "porta da frente" para um oleoduto de eventos, e uma vez recolhidos dados num centro de eventos, pode ser transformado e armazenado usando qualquer fornecedor de análise em tempo real ou adaptadores de lote/armazenamento. Os Event Hubs desacoplam a produção de um fluxo de eventos do consumo desses eventos, para que os consumidores de eventos possam aceder aos eventos de acordo com seu próprio agendamento.
@@ -32,7 +32,7 @@ Para etapas detalhadas sobre como criar um centro de eventos e obter cordas de c
 ## <a name="create-an-api-management-logger"></a>Criar um madeireiro de gestão da API
 Agora que tem um Centro de Eventos, o próximo passo é configurar um [Logger](/rest/api/apimanagement/2019-12-01/logger) no seu serviço de Gestão API para que possa registar eventos no Centro de Eventos.
 
-Os madeireiros de gestão da API são configurados utilizando a [API Management REST API](https://aka.ms/apimapi). Para exemplos de pedidos detalhados, consulte [como criar madeireiros.](/rest/api/apimanagement/2019-12-01/logger/createorupdate)
+Os madeireiros de gestão da API são configurados utilizando a [API Management REST API](/rest/api/apimanagement/ApiManagementREST/API-Management-REST). Para exemplos de pedidos detalhados, consulte [como criar madeireiros.](/rest/api/apimanagement/2019-12-01/logger/createorupdate)
 
 ## <a name="configure-log-to-eventhub-policies"></a>Configure as políticas de log-to-eventhub
 
