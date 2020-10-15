@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: c30b82e44833e413c1576bf64e8fef263c58b246
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3bc245fa02f57a433a76a316caac67ed5d884fe9
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91264614"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072752"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Utilize a rede kubenet com as suas próprias gamas de endereços IP no Serviço Azure Kubernetes (AKS)
 
@@ -56,7 +56,7 @@ Com *o Azure CNI,* cada pod recebe um endereço IP na sub-rede IP, e pode comuni
 * Ao contrário dos clusters CNI do Azure, vários clusters kubenet não podem partilhar uma sub-rede.
 * As **funcionalidades não suportadas no kubenet** incluem:
    * [Políticas de rede Azure](use-network-policies.md#create-an-aks-cluster-and-enable-network-policy), mas as políticas de rede Calico são apoiadas no kubenet
-   * [Piscinas de nó de janelas](windows-node-limitations.md)
+   * [Piscinas de nó de janelas](./windows-faq.md)
    * [Complemento de nó virtuais](virtual-nodes-portal.md#known-limitations)
 
 ### <a name="ip-address-availability-and-exhaustion"></a>Disponibilidade e exaustão do endereço IP

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/30/2017
 ms.author: tagore
 ms.custom: devx-track-python
-ms.openlocfilehash: 35d0f77d5f4dde9e156d22e64881ba674189d327
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef155116904ee0d3ecab250a254010e2f7664757
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87851516"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073993"
 ---
 # <a name="use-service-management-from-python"></a>Utilize a gestão de serviços da Python
 Este guia mostra-lhe como executar programáticamente tarefas comuns de gestão de serviços a partir de Python. A classe **ServiceManagementService** no [Azure SDK para Python](https://github.com/Azure/azure-sdk-for-python) suporta o acesso programático a grande parte da funcionalidade relacionada com a gestão de serviços que está disponível no [portal Azure.][management-portal] Pode utilizar esta funcionalidade para criar, atualizar e eliminar serviços na nuvem, implementações, serviços de gestão de dados e máquinas virtuais. Esta funcionalidade pode ser útil na construção de aplicações que necessitem de acesso programático à gestão de serviços.
@@ -194,7 +194,7 @@ sms.delete_deployment('myhostedservice', 'v1')
 ```
 
 ## <a name="create-a-storage-service"></a><a name="CreateStorageService"> </a>Criar um serviço de armazenamento
-Um [serviço de armazenamento](../storage/common/storage-create-storage-account.md) dá-lhe acesso a [blobs](../storage/blobs/storage-python-how-to-use-blob-storage.md)Azure, [mesas](../cosmos-db/table-storage-how-to-use-python.md)e [filas.](../storage/queues/storage-python-how-to-use-queue-storage.md) Para criar um serviço de armazenamento, precisa de um nome para o serviço (entre 3 e 24 caracteres minúsculos e único dentro do Azure). Também precisa de uma descrição, uma etiqueta (até 100 caracteres, codificada automaticamente para base64) e uma localização. O exemplo a seguir mostra como criar um serviço de armazenamento especificando uma localização:
+Um [serviço de armazenamento](../storage/common/storage-account-create.md) dá-lhe acesso a [blobs](../storage/blobs/storage-quickstart-blobs-python.md)Azure, [mesas](../cosmos-db/table-storage-how-to-use-python.md)e [filas.](../storage/queues/storage-python-how-to-use-queue-storage.md) Para criar um serviço de armazenamento, precisa de um nome para o serviço (entre 3 e 24 caracteres minúsculos e único dentro do Azure). Também precisa de uma descrição, uma etiqueta (até 100 caracteres, codificada automaticamente para base64) e uma localização. O exemplo a seguir mostra como criar um serviço de armazenamento especificando uma localização:
 
 ```python
 from azure import *
@@ -446,9 +446,9 @@ sms.create_virtual_machine_deployment(service_name=name,
     vm_image_name = image_name)
 ```
 
-Para saber mais sobre como capturar uma máquina virtual Linux no modelo clássico de implementação, consulte [Capture a Linux virtual machine](../virtual-machines/linux/classic/capture-image-classic.md).
+Para saber mais sobre como capturar uma máquina virtual Linux no modelo clássico de implementação, consulte [Capture a Linux virtual machine](/previous-versions/azure/virtual-machines/linux/classic/capture-image-classic).
 
-Para saber mais sobre como capturar uma máquina virtual do Windows no modelo clássico de implementação, consulte [Capture a windows virtual machine](../virtual-machines/windows/classic/capture-image-classic.md).
+Para saber mais sobre como capturar uma máquina virtual do Windows no modelo clássico de implementação, consulte [Capture a windows virtual machine](/previous-versions/azure/virtual-machines/windows/classic/capture-image-classic).
 
 ## <a name="next-steps"></a><a name="What's Next"> </a>Passos seguintes
 Agora que aprendeu o básico da gestão de serviços, pode aceder à documentação de referência completa da [API para o Azure Python SDK](https://azure-sdk-for-python.readthedocs.org/) e executar tarefas complexas facilmente para gerir a sua aplicação Python.
@@ -474,7 +474,7 @@ Para obter mais informações, consulte o [Centro para Programadores do Python](
 [Delete a virtual machine]: #DeleteVM
 [Next steps]: #NextSteps
 [management-portal]: https://portal.azure.com/
-[svc-mgmt-rest-api]: https://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[svc-mgmt-rest-api]: /previous-versions/azure/ee460799(v=azure.100)
 
 
 [cloud service]:/azure/cloud-services/

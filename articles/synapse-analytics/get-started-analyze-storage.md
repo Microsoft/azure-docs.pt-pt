@@ -7,14 +7,15 @@ ms.author: saveenr
 manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
+ms.subservice: overview
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: a0d5c758873413e549b31e3ec4cc41791fc8c371
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b2978335596dd256aa69007245cb86b35a75417
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89667416"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090578"
 ---
 # <a name="analyze-data-in-a-storage-account"></a>Analisar dados numa conta de armazenamento
 

@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: ed371cf230df3070ce1a545895831ae56d320d99
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 22025e7be9a0ff276336511a906055dc31a67230
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92000170"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92089728"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Como configurar cache Azure para Redis
 Este tópico descreve as configurações disponíveis para o seu Azure Cache para instâncias Redis. Este tópico também cobre a configuração padrão do servidor Redis para Azure Cache para instâncias Redis.
@@ -72,7 +72,7 @@ Clique **em Iniciarções de atividades** para ver as ações realizadas no seu 
 
 ### <a name="access-control-iam"></a>Controlo de acesso (IAM)
 
-A secção **de controlo de acesso (IAM)** fornece suporte para o controlo de acesso baseado em funções (RBAC) no portal Azure. Esta configuração ajuda as organizações a cumprir os seus requisitos de gestão de acesso de forma simples e precisa. Para obter mais informações, consulte [o controlo de acesso baseado em funções no portal Azure](../role-based-access-control/role-assignments-portal.md).
+A secção **de controlo de acesso (IAM)** fornece suporte para o controlo de acesso baseado em funções Azure (Azure RBAC) no portal Azure. Esta configuração ajuda as organizações a cumprir os seus requisitos de gestão de acesso de forma simples e precisa. Para obter mais informações, consulte [o controlo de acesso baseado em funções Azure no portal Azure](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="tags"></a>Etiquetas
 
