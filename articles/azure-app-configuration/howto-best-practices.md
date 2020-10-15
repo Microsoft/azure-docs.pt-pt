@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: d532b8aab87840f4b6ad90daedba743597f4fe43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c45d1668ad39e9584a89921f46218ba243978a05
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588063"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078056"
 ---
 # <a name="azure-app-configuration-best-practices"></a>Melhores práticas de Configuração de Aplicativos Azure
 
@@ -69,7 +69,7 @@ Uma melhor opção é utilizar as identidades geridas no Azure Ative Directory. 
 Pode fornecer acesso à Configuração de Aplicações para aplicações web ou funções utilizando qualquer um dos seguintes métodos:
 
 * Através do portal Azure, introduza o fio de ligação à sua loja de Configuração de Aplicações nas definições de Aplicação do Serviço de Aplicações.
-* Guarde o fio de ligação à sua loja de configuração de aplicações no Cofre de Chaves e [refira-o a partir do Serviço de Aplicações.](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references)
+* Guarde o fio de ligação à sua loja de configuração de aplicações no Cofre de Chaves e [refira-o a partir do Serviço de Aplicações.](../app-service/app-service-key-vault-references.md)
 * Utilize identidades geridas pela Azure para aceder à loja de Configuração de Aplicações. Para obter mais informações, consulte [Integrar-se com identidades geridas pelo Azure.](howto-integrate-azure-managed-service-identity.md)
 * Push configuração da Configuração de Aplicação para Serviço de Aplicações. A Configuração de Aplicativos fornece uma função de exportação (no portal Azure e no Azure CLI) que envia dados diretamente para o Serviço de Aplicações. Com este método, não é necessário alterar o código de aplicação.
 
@@ -85,7 +85,7 @@ Pedidos excessivos para a Configuração da Aplicação podem resultar em encarg
 
 ## <a name="importing-configuration-data-into-app-configuration"></a>Importar dados de configuração para configuração de aplicativos
 
-A Configuração da Aplicação oferece a opção de importar em massa [as](https://aka.ms/azconfig-importexport1) suas definições de configuração a partir dos seus ficheiros de configuração atuais usando o portal Azure ou CLI. Também pode utilizar as mesmas opções para exportar valores a partir da Configuração de Aplicações, por exemplo entre lojas relacionadas. Se quiser configurar uma sincronização em curso com o seu repo GitHub, pode utilizar a nossa [Ação GitHub](https://aka.ms/azconfig-gha2) para que possa continuar a utilizar as suas práticas de controlo de origem existentes enquanto recebe os benefícios da Configuração de Aplicações.
+A Configuração da Aplicação oferece a opção de importar em massa [as](./howto-import-export-data.md) suas definições de configuração a partir dos seus ficheiros de configuração atuais usando o portal Azure ou CLI. Também pode utilizar as mesmas opções para exportar valores a partir da Configuração de Aplicações, por exemplo entre lojas relacionadas. Se quiser configurar uma sincronização em curso com o seu repo GitHub, pode utilizar a nossa [Ação GitHub](./concept-github-action.md) para que possa continuar a utilizar as suas práticas de controlo de origem existentes enquanto recebe os benefícios da Configuração de Aplicações.
 
 ## <a name="multi-region-deployment-in-app-configuration"></a>Implementação multi-região na Configuração de Aplicativos
 
