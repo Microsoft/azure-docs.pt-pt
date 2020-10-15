@@ -202,7 +202,7 @@ groups:
     title: JavaScript
   - id: programming-language-curl
     title: REST
-- id: programming-languages-set-eighteen
+- id: programming-languages-set-twenty-three
   title: Linguagens de programação
   prompt: Escolher uma linguagem de programação ou CLI
   pivots:
@@ -210,6 +210,8 @@ groups:
     title: C#
   - id: programming-language-cpp
     title: C++
+  - id: programming-language-go
+    title: Ir
   - id: programming-language-java
     title: Java
   - id: programming-language-javascript
@@ -222,7 +224,7 @@ groups:
     title: REST
   - id: programmer-tool-spx
     title: CLI
-- id: programming-languages-set-twenty-three
+- id: programming-languages-set-twenty-four
   title: Linguagens de programação
   prompt: Escolher uma linguagem de programação ou CLI
   pivots:
@@ -230,8 +232,6 @@ groups:
     title: C#
   - id: programming-language-cpp
     title: C++
-  - id: programming-language-go
-    title: Ir
   - id: programming-language-java
     title: Java
   - id: programming-language-javascript
@@ -835,9 +835,9 @@ groups:
   - id: azure-portal
     title: Páginas do portal do Centro de Segurança
 metadata:
-  ms.openlocfilehash: a7eac55171002b60ed6e002342260cb86665ea05
-  ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+  ms.openlocfilehash: 0aaa233c097bbd87f7b1b7df6e931d5fa768821f
+  ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 10/14/2020
-  ms.locfileid: "92019074"
+  ms.locfileid: "92055584"
