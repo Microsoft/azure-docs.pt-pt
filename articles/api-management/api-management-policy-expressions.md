@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 7117ffcbaf4eba8d83a6e968f4fed7422673610b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab83344f779f93107b59ca28348da3a66f1efc1a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87844245"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076866"
 ---
 # <a name="api-management-policy-expressions"></a>Expressões políticas de gestão da API
 Este artigo discute a sintaxe das expressões políticas em C# 7. Cada expressão tem acesso à variável de [contexto](api-management-policy-expressions.md#ContextVariables) implicitamente fornecida e a um [subconjunto](api-management-policy-expressions.md#CLRTypes) permitido de tipos de quadros .NET.
@@ -156,7 +156,7 @@ A tabela que se segue lista os tipos de quadros .NET e os seus membros que são 
 |System.Security.Cryptography.SymmetricAlgorithm|Todos|
 |System.Security.Cryptography.X509Certificates.PublicKey|Todos|
 |System.Security.Cryptography.X509Certificates.RSACertificateExtensions|Todos|
-|System.Security.Cryptography.X509Certificates.X500DistinguishedName|Nome|
+|System.Security.Cryptography.X509Certificates.X500DistinguishedName|Name|
 |System.Security.Cryptography.X509Certificates.X509Certificate|Todos|
 |System.Security.Cryptography.X509Certificates.X509Certificate2|Todos|
 |System.Security.Cryptography.X509Certificates.X509ContentType|Todos|
@@ -253,4 +253,4 @@ Para obter mais informações sobre as políticas, consulte:
 + [Políticas em Gestão de API](api-management-howto-policies.md)
 + [Transformar APIs](transform-api.md)
 + [Referência política](./api-management-policies.md) para uma lista completa de declarações políticas e suas definições
-+ [Amostras de política](policy-samples.md)
++ [Amostras de política](./policy-reference.md)

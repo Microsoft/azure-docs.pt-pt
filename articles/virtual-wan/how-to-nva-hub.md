@@ -1,6 +1,6 @@
 ---
 title: 'Azure Virtual WAN: Criar um aparelho virtual de rede (NVA) no hub'
-description: Neste tutorial, aprenda a implantar um Aparelho Virtual de Rede no hub VIRTUAL WAN.
+description: Saiba como implantar um aparelho virtual de rede no hub VIRTUAL WAN.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,23 +8,23 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub.
-ms.openlocfilehash: 014339b02167a1bb4cba11cc10c9740b8fa53f2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e174f9b78606e0bea5cded3a176f4207745bb5c
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91773251"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077308"
 ---
 # <a name="how-to-create-a-network-virtual-appliance-in-an-azure-virtual-wan-hub-preview"></a>Como criar um aparelho virtual de rede num hub Azure Virtual WAN (Pré-visualização)
 
-Este tutorial mostra-lhe como utilizar o WAN Virtual para ligar aos seus recursos em Azure através de um **Aparelho Virtual de Rede** (NVA) em Azure. Este tipo de ligação requer um dispositivo VPN localizado no local que tenha um endereço IP público com acesso exterior atribuído ao mesmo. Para obter mais informações sobre a WAN Virtual, veja a [Descrição Geral da WAN Virtual](virtual-wan-about.md).
+Este artigo mostra-lhe como utilizar o WAN Virtual para ligar aos seus recursos em Azure através de um **Aparelho Virtual de Rede** (NVA) em Azure. Este tipo de ligação requer um dispositivo VPN localizado no local que tenha um endereço IP público com acesso exterior atribuído ao mesmo. Para mais informações sobre o VIRTUAL WAN, consulte o [O que é O WAN Virtual?](virtual-wan-about.md)
 
 Os passos deste artigo ajudam-no a criar um aparelho virtual **Barracuda CloudGen WAN** Network no centro virtual WAN. Para completar este exercício, tem de ter um Dispositivo barracuda cloud premise (CPE) e uma licença para o aparelho Barracuda CloudGen WAN que você implanta no centro antes de começar.
 
 Para documentação de implementação da **Cisco SD-WAN** dentro da Azure Virtual WAN, envie um e-mail para a Cisco no seguinte endereço de e-mail: vwan_public_preview@external.cisco.com
 
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de iniciar a configuração, verifique se cumpre os seguintes critérios:
 
@@ -55,7 +55,7 @@ Um hub é uma rede virtual que pode conter gateways para o site-para-site, Expre
    **Detalhes do projeto**
 
    * Região (anteriormente designada por Localização)
-   * Nome
+   * Name
    * Espaço de endereço privado hub. O espaço mínimo de endereço é /24 para criar um hub, o que implica que qualquer coisa varia entre /25 e /32 produzirá um erro durante a criação. Azure Virtual WAN, sendo um serviço gerido pela Microsoft, cria as sub-redes apropriadas no centro virtual para os diferentes gateways/serviços. (Por exemplo: Aparelhos Virtuais de Rede, gateways VPN, gateways ExpressRoute, Gateways VPN/User-to-site, Firewall, Encaminhamento, etc.). Não é necessário que o utilizador planeie explicitamente o espaço de endereço de sub-rede para os serviços no hub Virtual, porque a Microsoft faz isso como parte do serviço.
 1. Selecione **Review + Criar** para validar.
 1. Selecione **Criar** para criar o hub.
@@ -98,5 +98,5 @@ Neste passo, irá criar um Aparelho Virtual de Rede no centro. O procedimento pa
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para saber mais sobre a WAN Virtual, veja a página [Virtual WAN Overview](virtual-wan-about.md) (Descrição Geral da WAN Virtual).
+* Para saber mais sobre o WAN Virtual, consulte a página [O que é Virtual WAN?](virtual-wan-about.md)
 * Para saber mais sobre NVAs num hub VIRTUAL WAN, consulte [Sobre o Aparelho Virtual de Rede no hub VIRTUAL WAN (Preview)](about-nva-hub.md).

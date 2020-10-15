@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: b0435daee7f5bbd1435d5e69fc32f27c21e5e4a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f98ec384876da1d30952d1c4edc1d00049e44682
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89300294"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077002"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Tutorial: Use configuração dinâmica numa aplicação core ASP.NET
 
@@ -34,7 +34,7 @@ Este tutorial mostra como pode implementar atualizações dinâmicas de configur
 
 Você pode usar qualquer editor de código para fazer os passos neste tutorial. [Visual Studio Code](https://code.visualstudio.com/) é uma excelente opção disponível nas plataformas Windows, macOS e Linux.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Configurar a sua aplicação para atualizar a sua configuração em resposta a alterações numa loja de Configuração de Aplicações.
@@ -161,7 +161,7 @@ Uma *chave sentinela* é uma chave especial usada para sinalizar quando a config
     ```
     ---
     > [!Tip]
-    > Para saber mais sobre o padrão de opções ao ler valores de configuração, consulte [Padrões de Opções no ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
+    > Para saber mais sobre o padrão de opções ao ler valores de configuração, consulte [Padrões de Opções no ASP.NET Core](/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1).
 
 4. Atualize o `Configure` método, adicionando o `UseAzureAppConfiguration` middleware para permitir que as definições de configuração registadas para atualização sejam atualizadas enquanto a aplicação web core ASP.NET continua a receber pedidos.
 
@@ -342,7 +342,7 @@ Uma *chave sentinela* é uma chave especial usada para sinalizar quando a config
 
     ![Lançamento de app quickstart atualizada localmente](./media/quickstarts/aspnet-core-app-launch-local-after.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
