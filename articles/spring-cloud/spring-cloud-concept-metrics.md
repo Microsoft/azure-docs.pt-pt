@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: e488f2ddc44f1339d648cd6fe6b1aae18b748679
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f84201de1f63704fefcf5de4041b95ed8c2122cd
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892651"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92094063"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Compreenda as métricas para Azure Spring Cloud
 
@@ -90,13 +90,13 @@ As tabelas que se seguem mostram as métricas e detalhes disponíveis.
 
 ### <a name="error"></a>Erro
 >[!div class="mx-tdCol2BreakAll"]
->| Nome | Nome métrico do actuador de primavera | Unidade | Detalhes |
+>| Name | Nome métrico do actuador de primavera | Unidade | Detalhes |
 >|----|----|----|------------|
 >| tomcat.global.erro | tomcat.global.erro | Contagem | Número de erros ocorridos em pedidos processados |
 
 ### <a name="performance"></a>Desempenho
 >[!div class="mx-tdCol2BreakAll"]
->| Nome | Nome métrico do actuador de primavera | Unidade | Detalhes |
+>| Name | Nome métrico do actuador de primavera | Unidade | Detalhes |
 >|----|----|----|------------|
 >| system.cpu.usage | system.cpu.usage | Percentagem | Uso recente do CPU para todo o sistema. Este valor é um duplo no intervalo [0.0,1.0]. Um valor de 0,0 significa que todos os CPUs estiveram inativos durante o período de tempo observado recentemente, enquanto um valor de 1.0 significa que todas as CPUs estavam a funcionar ativamente a 100% do tempo durante o período recente observado.|
 >| process.cpu.usage | Percentagem de Utilização cpu de aplicação | Percentagem | Utilização recente do CPU para o processo Java Virtual Machine. Este valor é um duplo no intervalo [0.0,1.0]. Um valor de 0.0 significa que nenhum dos CPUs estava a executar fios do processo JVM durante o recente período de tempo observado, enquanto um valor de 1.0 significa que todos os CPUs estavam a executar ativamente fios a partir do JVM 100% do tempo durante o período recente observado. Os fios do JVM incluem os fios de aplicação, bem como os fios internos JVM.|
@@ -114,7 +114,7 @@ As tabelas que se seguem mostram as métricas e detalhes disponíveis.
 ### <a name="performance-net"></a>Desempenho (.NET)
 
 >[!div class="mx-tdCol2BreakAll"]
->| Nome | Nome métrico do actuador de primavera | Unidade | Detalhes |
+>| Name | Nome métrico do actuador de primavera | Unidade | Detalhes |
 >|------|-----------------------------|------|---------|
 >| Utilização da CPU       | cpu-uso      | Milissegundos | Quantidade de tempo que o processo utilizou o CPU. |
 >| Conjunto de trabalho     | conjunto de trabalho    | Megabytes    | Quantidade de conjunto de trabalho utilizado pelo processo. |
@@ -140,7 +140,7 @@ Para mais informações, consulte [os contadores dotnet.](/dotnet/core/diagnosti
 
 ### <a name="request"></a>Pedir
 >[!div class="mx-tdCol2BreakAll"]
->| Nome | Nome métrico do actuador de primavera | Unidade | Detalhes |
+>| Name | Nome métrico do actuador de primavera | Unidade | Detalhes |
 >|----|----|----|------------|
 >| tomcat.global.enviado | tomcat.global.enviado | Bytes | Quantidade de dados que o servidor web tomcat enviado |
 >| tomcat.global.recebeu | tomcat.global.recebeu | Bytes | Quantidade de dados que o servidor web Tomcat recebeu |
@@ -151,7 +151,7 @@ Para mais informações, consulte [os contadores dotnet.](/dotnet/core/diagnosti
 ### <a name="request-net"></a>Pedido (.NET)
 
 >[!div class="mx-tdCol2BreakAll"]
->| Nome | Nome métrico do actuador de primavera | Unidade | Detalhes |
+>| Name | Nome métrico do actuador de primavera | Unidade | Detalhes |
 >|------|-----------------------------|------|---------|
 >| Pedidos por segundo | pedidos por segundo | Contagem | Taxa de pedido. |
 >| Total de pedidos | pedidos totais | Contagem | Número total de pedidos. |
@@ -163,7 +163,7 @@ Para mais informações, consulte [os contadores dotnet.](/dotnet/core/diagnosti
 
 ### <a name="session"></a>Sessão
 >[!div class="mx-tdCol2BreakAll"]
->| Nome | Nome métrico do actuador de primavera | Unidade | Detalhes |
+>| Name | Nome métrico do actuador de primavera | Unidade | Detalhes |
 >|----|----|----|------------|
 >| tomcat.sessions.ative.max | tomcat.sessions.ative.max | Contagem | Número máximo de sessões que estiveram ativas ao mesmo tempo |
 >| tomcat.sessions.alive.max | tomcat.sessions.alive.max | Milissegundos | Mais tempo (em segundos) que uma sessão expirada estava viva |
@@ -172,16 +172,16 @@ Para mais informações, consulte [os contadores dotnet.](/dotnet/core/diagnosti
 >| tomcat.sessions.rejeitado | tomcat.sessions.rejeitado | Contagem | Número de sessões que não foram criadas porque o número máximo de sessões ativas atingiu. |
 >| tomcat.sessions.ative.current | tomcat.sessions.ative.current | Contagem | Contagem ativa da sessão de Tomcat |
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Quickstart: Monitorização de aplicativos Azure Spring Cloud com registos, métricas e rastreio](spring-cloud-quickstart-logs-metrics-tracing.md)
 
-* [Getting started with Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) (Introdução ao Explorador de Métricas do Azure)
+* [Getting started with Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) (Introdução ao Explorador de Métricas do Azure)
 
-* [Analisar registos e métricas com definições de diagnóstico](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
+* [Analisar registos e métricas com definições de diagnóstico](./diagnostic-services.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Tutorial: Monitorar recursos da Nuvem de primavera usando alertas e grupos de ação](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-alerts-action-groups)
+* [Tutorial: Monitorar recursos da Nuvem de primavera usando alertas e grupos de ação](./spring-cloud-tutorial-alerts-action-groups.md)
 
-* [Quotas e Planos de Serviço para Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quotas)
+* [Quotas e Planos de Serviço para Azure Spring Cloud](./spring-cloud-quotas.md)
