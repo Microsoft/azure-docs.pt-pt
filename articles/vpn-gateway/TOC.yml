@@ -5,6 +5,7 @@
     - name: O que é um Gateway de VPN?
       href: vpn-gateway-about-vpngateways.md
 - name: Tutoriais
+  expanded: true
   items:
     - name: Criar e gerir um gateway de VPN
       href: vpn-gateway-tutorial-create-gateway-powershell.md

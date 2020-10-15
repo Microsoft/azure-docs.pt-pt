@@ -555,6 +555,8 @@
           href: client-images.md
         - name: Transferir o disco existente
           href: download-vhd.md
+        - name: Disco gerido a partir da versão de imagem
+          href: ../managed-disk-from-image-version.md
     - name: Proteger VMs
       items:
         - name: Recomendações
