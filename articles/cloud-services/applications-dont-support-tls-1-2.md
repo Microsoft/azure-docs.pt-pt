@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 03/16/2020
 ms.author: tagore
-ms.openlocfilehash: 9338ad86595771c1c70d243250c2d57af5eb7858
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae284a6afa1f2e396aef8177229c344b569be6ec
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83683785"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075676"
 ---
 # <a name="troubleshooting-applications-that-dont-support-tls-12"></a>Aplicações de resolução de problemas que não suportam TLS 1.2
 Este artigo descreve como ativar os protocolos TLS mais antigos (TLS 1.0 e 1.1) bem como aplicar suítes de cifra legado para suportar os protocolos adicionais no serviço de cloud do Windows Server 2019 e funções de trabalhador. 
@@ -25,7 +25,7 @@ Este artigo descreve como ativar os protocolos TLS mais antigos (TLS 1.0 e 1.1) 
 Entendemos que, embora estejamos a tomar medidas para depreciar os TLS 1.0 e TLS 1.1, os nossos clientes poderão ter de suportar os protocolos mais antigos e as suites de cifra até poderem planear a sua depreciação.  Embora não recomendemos a reedição destes valores antigos, estamos a fornecer orientações para ajudar os clientes. Encorajamos os clientes a avaliar o risco de regressão antes de implementar as alterações descritas neste artigo. 
 
 > [!NOTE]
-> O lançamento do Guest OS Family 6 impõe o TLS 1.2 desativando explicitamente os TLS 1.0 e 1.1 e definindo um conjunto específico de suites de cifra. Para mais informações sobre as famílias de Guest OS veja as [notícias de lançamento do Guest OS](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases)
+> O lançamento do Guest OS Family 6 impõe o TLS 1.2 desativando explicitamente os TLS 1.0 e 1.1 e definindo um conjunto específico de suites de cifra. Para mais informações sobre as famílias de Guest OS veja as [notícias de lançamento do Guest OS](./cloud-services-guestos-update-matrix.md#family-6-releases)
 
 
 ## <a name="dropping-support-for-tls-10-tls-11-and-older-cipher-suites"></a>Suporte para suítes TLS 1.0, TLS 1.1 e suites de cifra mais antigas 
@@ -362,4 +362,3 @@ Agora que os passos acima foram concluídos, publique a atualização para o seu
 
 Pode utilizar [SSLLabs](https://www.ssllabs.com/) para validar o estado TLS dos seus pontos finais 
 
- 
