@@ -3,12 +3,12 @@ title: Descrição geral dos cofres dos Serviços de Recuperação
 description: Uma visão geral dos cofres dos Serviços de Recuperação.
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: cc09c1ffa84bc66e8fe2c48c80b8aea0977762ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab6b27bdc7ac9b01385ed43830d0af5900210d43
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975156"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093672"
 ---
 # <a name="recovery-services-vaults-overview"></a>Descrição geral dos Cofres dos Serviços de Recuperação
 
@@ -18,7 +18,7 @@ Este artigo descreve as características de um cofre dos Serviços de Recuperaç
 
 - **Monitorização central para o seu ambiente híbrido de TI**: Com cofres dos Serviços de Recuperação, pode monitorizar não só os seus [VMs Azure IaaS,](backup-azure-manage-vms.md) mas também [os seus ativos no local](backup-azure-manage-windows-server.md#manage-backup-items) a partir de um portal central. [Saiba mais](backup-azure-monitoring-built-in-monitor.md)
 
-- **Controlo de Acesso Baseado em Função (RBAC)**: O RBAC fornece um controlo de gestão de acessos finos em Azure. [O Azure oferece vários papéis incorporados,](../role-based-access-control/built-in-roles.md)e o Azure Backup tem três [funções incorporadas para gerir pontos de recuperação.](backup-rbac-rs-vault.md) Os cofres dos Serviços de Recuperação são compatíveis com o RBAC, que restringe o backup e restaura o acesso ao conjunto definido de funções de utilizador. [Saiba mais](backup-rbac-rs-vault.md)
+- **Controlo de acesso baseado em funções Azure (Azure RBAC)**: O Azure RBAC fornece um controlo de gestão de acessos finos em Azure. [O Azure oferece vários papéis incorporados,](../role-based-access-control/built-in-roles.md)e o Azure Backup tem três [funções incorporadas para gerir pontos de recuperação.](backup-rbac-rs-vault.md) Os cofres dos Serviços de Recuperação são compatíveis com o Azure RBAC, que restringe o backup e restaura o acesso ao conjunto definido de funções de utilizador. [Saiba mais](backup-rbac-rs-vault.md)
 
 - **Soft Delete**: Com a eliminação suave, mesmo que um ator malicioso elimine uma cópia de segurança (ou os dados de cópia de segurança sejam acidentalmente eliminados), os dados de cópia de segurança são retidos por mais 14 dias, permitindo a recuperação desse item de backup sem perda de dados. Os 14 dias adicionais de retenção para dados de backup no estado de "soft delete" não incorrem em qualquer custo para si. [Saiba mais](backup-azure-security-feature-cloud.md).
 

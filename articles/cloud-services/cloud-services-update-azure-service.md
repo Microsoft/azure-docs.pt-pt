@@ -7,12 +7,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
-ms.openlocfilehash: 731f4e8cc8a93f33d6887f44fc8d09585e92a75a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f12e5b6b0b2902d69936b9cf2695b7ee21db88e2
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75360349"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075047"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Como atualizar um serviço de nuvem
 
@@ -21,7 +21,7 @@ Atualizar um serviço de nuvem, incluindo as suas funções e o SO convidado, é
 ## <a name="update-an-azure-service"></a>Atualizar um Serviço Azure
 O Azure organiza os seus exemplos de papel em agrupamentos lógicos chamados domínios de upgrade (UD). Os domínios de atualização (UD) são conjuntos lógicos de instâncias de função que são atualizados como um grupo.  O Azure atualiza um serviço de nuvem um UD de cada vez, o que permite que casos em outras UDs continuem a servir o tráfego.
 
-O número predefinido dos domínios de atualização é 5. Pode especificar um número diferente de domínios de atualização, incluindo o atributo UpgradeDomainCount no ficheiro de definição do serviço (.csdef). Para obter mais informações sobre o atributo UpgradeDomainCount, consulte [Azure Cloud Services Definition Schema (.csdef File)](https://docs.microsoft.com/azure/cloud-services/schema-csdef-file).
+O número predefinido dos domínios de atualização é 5. Pode especificar um número diferente de domínios de atualização, incluindo o atributo UpgradeDomainCount no ficheiro de definição do serviço (.csdef). Para obter mais informações sobre o atributo UpgradeDomainCount, consulte [Azure Cloud Services Definition Schema (.csdef File)](./schema-csdef-file.md).
 
 Quando executa uma atualização in-place de uma ou mais funções no seu serviço, o Azure atualiza conjuntos de instâncias de função de acordo com o domínio de atualização a que pertencem. O Azure atualiza todas as instâncias num determinado domínio de atualização – parando-os, atualizando-os, trazendo-os de volta on-line – e depois passa para o domínio seguinte. Ao parar apenas as instâncias em execução no domínio de upgrade atual, o Azure garante que ocorre uma atualização com o menor impacto possível no serviço de execução. Para mais informações, consulte [como a atualização prossegue](#howanupgradeproceeds) mais tarde neste artigo.
 
@@ -47,18 +47,18 @@ A tabela a seguir mostra as alterações permitidas a um serviço durante uma at
 
 | Alterações permitidas ao alojamento, serviços e funções | Atualização no local | Encenado (troca VIP) | Eliminar e relançar |
 | --- | --- | --- | --- |
-| Versão do sistema operativo |Sim |Sim |Sim |
-| .NET nível de confiança |Sim |Sim |Sim |
-| Tamanho da máquina virtual<sup>1</sup> |Sim<sup>2</sup> |Sim |Sim |
-| Configurações de armazenamento locais |Aumentar apenas<sup>2</sup> |Sim |Sim |
-| Adicionar ou remover funções num serviço |Sim |Sim |Sim |
-| Número de casos de um papel específico |Sim |Sim |Sim |
-| Número ou tipo de pontos finais para um serviço |Sim<sup>2</sup> |Não |Sim |
-| Nomes e valores das definições de configuração |Sim |Sim |Sim |
-| Valores (mas não nomes) das definições de configuração |Sim |Sim |Sim |
-| Adicionar novos certificados |Sim |Sim |Sim |
-| Alterar certificados existentes |Sim |Sim |Sim |
-| Implementar novo código |Sim |Sim |Sim |
+| Versão do sistema operativo |Yes |Yes |Yes |
+| .NET nível de confiança |Yes |Yes |Yes |
+| Tamanho da máquina virtual<sup>1</sup> |Sim<sup>2</sup> |Yes |Yes |
+| Configurações de armazenamento locais |Aumentar apenas<sup>2</sup> |Yes |Yes |
+| Adicionar ou remover funções num serviço |Yes |Yes |Yes |
+| Número de casos de um papel específico |Yes |Yes |Yes |
+| Número ou tipo de pontos finais para um serviço |Sim<sup>2</sup> |No |Yes |
+| Nomes e valores das definições de configuração |Yes |Yes |Yes |
+| Valores (mas não nomes) das definições de configuração |Yes |Yes |Yes |
+| Adicionar novos certificados |Yes |Yes |Yes |
+| Alterar certificados existentes |Yes |Yes |Yes |
+| Implementar novo código |Yes |Yes |Yes |
 
 <sup>1</sup> Alteração de tamanho limitada ao subconjunto de tamanhos disponíveis para o serviço de nuvem.
 
@@ -182,7 +182,4 @@ O diagrama seguinte ilustra como um serviço do que contém duas funções são 
 ## <a name="next-steps"></a>Passos seguintes
 [Como gerir Serviços Cloud](cloud-services-how-to-manage-portal.md)  
 [Como monitorizar os serviços na nuvem](cloud-services-how-to-monitor.md)  
-[Como configurar um Serviços Cloud](cloud-services-how-to-configure-portal.md)  
-
-
-
+[Como configurar um Serviços Cloud](cloud-services-how-to-configure-portal.md)

@@ -10,18 +10,18 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 7f6c7a651e133122dab86d6ed81572f239718b43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7080bd98bda5c4280ff7b06b235458bea0e9103c
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86243244"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093587"
 ---
 # <a name="monitor-published-apis"></a>Monitorizar as APIs publicadas
 
 Com o Azure Monitor, pode visualizar, consultar, encaminhar, arquivar e tomar medidas relativamente a métricas ou registos provenientes de recursos do Azure.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Ver registos de atividades
@@ -75,18 +75,18 @@ Para configurar alertas:
 
 1. Selecione **Alertas** da barra de menus perto da parte inferior da página.
 
-    ![alerts](./media/api-management-azure-monitor/alert-menu-item.png)
+    ![Screenshot que mostra Alertas no menu perto da parte inferior da página.](./media/api-management-azure-monitor/alert-menu-item.png)
 
 2. Clique numa **nova regra de alerta** para este alerta.
 3. Clique na **condição de adicionar**.
 4. Selecione **métricas** no tipo sinal cair para baixo.
 5. Selecione **Pedido de Gateway Não Autorizado** como o sinal para monitorizar.
 
-    ![alerts](./media/api-management-azure-monitor/signal-type.png)
+    ![Screenshot que realça o campo Signal Type e o nome de sinal de gateway não autorizado.](./media/api-management-azure-monitor/signal-type.png)
 
 6. Na **visão lógica do sinal de configuração,** especifique um limiar após o qual o alerta deve ser acionado e clique em **'Fazer'.**
 
-    ![alerts](./media/api-management-azure-monitor/threshold.png)
+    ![Screenshot que mostra a visão lógica do sinal de configuração.](./media/api-management-azure-monitor/threshold.png)
 
 7. Selecione um Grupo de Ação existente ou crie um novo. No exemplo abaixo, será enviado um e-mail para os administradores. 
 
@@ -176,46 +176,46 @@ A API Management fornece atualmente registos de recursos (lotados por hora) sobr
 }  
 ```
 
-| Propriedade  | Tipo | Descrição |
+| Propriedade  | Tipo | Description |
 | ------------- | ------------- | ------------- |
 | isRequestSuccess | boolean | “Verdadeiro” se o pedido HTTP for concluído com o código de estado de resposta no intervalo 2xx ou 3xx |
 | hora | date-time | Timetamp de quando o gateway começa a processar o pedido |
-| operationName | string | Valor constante “Microsoft.ApiManagement/GatewayLogs” |
-| categoria | string | Valor constante “GatewayLogs” |
+| operationName | cadeia | Valor constante “Microsoft.ApiManagement/GatewayLogs” |
+| categoria | cadeia | Valor constante “GatewayLogs” |
 | durationMs | número inteiro | Número de milissegundos a partir do momento em que gateway recebeu pedido até ao momento em que a resposta foi enviada na íntegra. Inclui clienTime, cacheTime e backendTime. |
-| callerIpAddress | string | Endereço IP do chamador de Gateway de imediato (pode ser um intermediário) |
-| correlationId | string | Identificador de pedido http exclusivo atribuído pela Gestão de API |
-| localização | string | Nome da região do Azure em que o Gateway que processou o pedido estava localizado |
-| httpStatusCodeCategory | string | Categoria do código de estado da resposta http: bem-sucedida (301 ou menos ou 304 ou 307), não autorizada (401, 403, 429), Errónea (400, entre 500 e 600), Outro |
-| resourceId | string | ID do recurso de Gestão da API /SUBSCRIÇÕES/ \<subscription> /RESOURCEGROUPS/ \<resource-group> /PROVIDERS/MICROSOFT. APIMANAGEMENT/SERVICE/\<name> |
+| callerIpAddress | cadeia | Endereço IP do chamador de Gateway de imediato (pode ser um intermediário) |
+| correlationId | cadeia | Identificador de pedido http exclusivo atribuído pela Gestão de API |
+| localização | cadeia | Nome da região do Azure em que o Gateway que processou o pedido estava localizado |
+| httpStatusCodeCategory | cadeia | Categoria do código de estado da resposta http: bem-sucedida (301 ou menos ou 304 ou 307), não autorizada (401, 403, 429), Errónea (400, entre 500 e 600), Outro |
+| resourceId | cadeia | ID do recurso de Gestão da API /SUBSCRIÇÕES/ \<subscription> /RESOURCEGROUPS/ \<resource-group> /PROVIDERS/MICROSOFT. APIMANAGEMENT/SERVICE/\<name> |
 | propriedades | objeto | Propriedades do pedido atual |
-| método | string | Método HTTP do pedido a receber |
-| url | string | URL do pedido a receber |
-| clientProtocol | string | Versão do protocolo HTTP do pedido a receber |
+| método | cadeia | Método HTTP do pedido a receber |
+| url | cadeia | URL do pedido a receber |
+| clientProtocol | cadeia | Versão do protocolo HTTP do pedido a receber |
 | responseCode | número inteiro | Código de estado da resposta  HTTP enviada para um cliente |
-| backendMethod | string | Método HTTP do pedido enviado para um back-end |
-| backendUrl | string | URLdo pedido enviado para um back-end |
+| backendMethod | cadeia | Método HTTP do pedido enviado para um back-end |
+| backendUrl | cadeia | URLdo pedido enviado para um back-end |
 | backendResponseCode | número inteiro | Código da resposta HTTP recebido a partir de um back-end |
-| backendProtocol | string | Versão do protocolo HTTP do pedido enviado para um back-end | 
+| backendProtocol | cadeia | Versão do protocolo HTTP do pedido enviado para um back-end | 
 | requestSize | número inteiro | Número de bytes recebidos de um cliente durante o processamento do pedido | 
 | responseSize | número inteiro | Número de bytes enviados para um cliente durante o processamento do pedido | 
-| cache | string | Estado do envolvimento da cache da Gestão de API no processamento do pedido (ou seja, hit, miss, none) | 
+| cache | cadeia | Estado do envolvimento da cache da Gestão de API no processamento do pedido (ou seja, hit, miss, none) | 
 | cacheTime | número inteiro | Número de milissegundos despendidos na E/S de cache da Gestão de API global (ligar, enviar e receber bytes) | 
 | backendTime | número inteiro | Número de milissegundos despendidos na E/S de back-end global (ligar, enviar e receber bytes) | 
 | clientTime | número inteiro | Número de milissegundos despendidos na E/S de cliente global (ligar, enviar e receber bytes) | 
-| apiId | string | Identificador da entidade de API do pedido atual | 
-| operationId | string | Identificador da entidade de operação do pedido atual | 
-| productId | string | Identificador da entidade de produto do pedido atual | 
-| userId | string | Identificador da entidade de utilizador do pedido atual | 
-| apimSubscriptionId | string | Identificador da entidade de subscrição do pedido atual | 
-| backendId | string | Identificador da entidade de back-end do pedido atual | 
+| apiId | cadeia | Identificador da entidade de API do pedido atual | 
+| operationId | cadeia | Identificador da entidade de operação do pedido atual | 
+| productId | cadeia | Identificador da entidade de produto do pedido atual | 
+| userId | cadeia | Identificador da entidade de utilizador do pedido atual | 
+| apimSubscriptionId | cadeia | Identificador da entidade de subscrição do pedido atual | 
+| backendId | cadeia | Identificador da entidade de back-end do pedido atual | 
 | LastError | objeto | Último erro de processamento de pedido | 
 | elapsed | número inteiro | Número de milissegundos decorrido entre quando o portal recebeu o pedido e o momento em que ocorreu o erro | 
-| source | string | Nome da política ou processador interno provocou o erro | 
-| scope | string | Âmbito do documento da política que contém a política que provocou o erro | 
-| section | string | Secção do documento da política que contém a política que provocou o erro | 
-| reason | string | Motivo do erro | 
-| message | string | Mensagem de erro | 
+| source | cadeia | Nome da política ou processador interno provocou o erro | 
+| scope | cadeia | Âmbito do documento da política que contém a política que provocou o erro | 
+| section | cadeia | Secção do documento da política que contém a política que provocou o erro | 
+| reason | cadeia | Motivo do erro | 
+| message | cadeia | Mensagem de erro | 
 
 ## <a name="next-steps"></a>Passos seguintes
 

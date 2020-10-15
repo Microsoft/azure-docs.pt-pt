@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 618e9586e9824e6cea592ff78a1fbd3b991abd83
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 9562cff9fd9ed37cbd4fd94c42acd54e6be3b47c
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945401"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92094012"
 ---
 # <a name="azure-spring-cloud-faq"></a>FAQ de nuvem de primavera de Azure
 
@@ -54,7 +54,7 @@ Qual devo usar e quais são os limites dentro de cada nível?
 
 ### <a name="how-can-i-provide-feedback-and-report-issues"></a>Como posso fornecer feedback e reportar problemas?
 
-Se encontrar algum problema com a Nuvem de primavera de Azure, crie um [Pedido de Apoio Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Para submeter um pedido de recurso ou fornecer feedback, aceda ao [Feedback Azure](https://feedback.azure.com/forums/34192--general-feedback).
+Se encontrar algum problema com a Nuvem de primavera de Azure, crie um [Pedido de Apoio Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). Para submeter um pedido de recurso ou fornecer feedback, aceda ao [Feedback Azure](https://feedback.azure.com/forums/34192--general-feedback).
 
 ## <a name="development"></a>Desenvolvimento
 
@@ -70,13 +70,13 @@ Azure Spring Cloud suporta Java 8 e 11. Ver [versões java runtime e OS](#java-r
 
 ### <a name="where-can-i-view-my-spring-cloud-application-logs-and-metrics"></a>Onde posso ver os registos e métricas da minha aplicação da Cloud Spring Cloud?
 
-Encontre métricas no separador Visão Geral da App e no [separador Azure Monitor.](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#interacting-with-azure-monitor-metrics)
+Encontre métricas no separador Visão Geral da App e no [separador Azure Monitor.](../azure-monitor/platform/data-platform-metrics.md#interacting-with-azure-monitor-metrics)
 
-A Azure Spring Cloud suporta a exportação de registos e métricas de aplicações da Spring Cloud para Azure Storage, EventHub e [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs#log-queries). O nome da tabela no Log Analytics é *AppPlatformLogsforSpring*. Para aprender a capacitá-lo, consulte [os serviços de Diagnóstico.](diagnostic-services.md)
+A Azure Spring Cloud suporta a exportação de registos e métricas de aplicações da Spring Cloud para Azure Storage, EventHub e [Log Analytics](../azure-monitor/platform/data-platform-logs.md#log-queries). O nome da tabela no Log Analytics é *AppPlatformLogsforSpring*. Para aprender a capacitá-lo, consulte [os serviços de Diagnóstico.](diagnostic-services.md)
 
 ### <a name="does-azure-spring-cloud-support-distributed-tracing"></a>O Azure Spring Cloud suporta o rastreio distribuído?
 
-Yes. Para obter mais informações, consulte [Tutorial: Use Rastreio Distribuído com Nuvem de primavera Azure](spring-cloud-tutorial-distributed-tracing.md).
+Sim. Para obter mais informações, consulte [Tutorial: Use Rastreio Distribuído com Nuvem de primavera Azure](spring-cloud-tutorial-distributed-tracing.md).
 
 ::: zone pivot="programming-language-java"
 ### <a name="what-resource-types-does-service-binding-support"></a>Que tipos de recursos suporta o suporte de ligação de serviço?
@@ -89,7 +89,7 @@ Atualmente, três serviços são suportados:
 
 ### <a name="can-i-view-add-or-move-persistent-volumes-from-inside-my-applications"></a>Posso ver, adicionar ou mover volumes persistentes de dentro das minhas aplicações?
 
-Yes.
+Sim.
 
 ### <a name="when-i-deletemove-an-azure-spring-cloud-service-instance-will-its-extension-resources-be-deletedmoved-as-well"></a>Quando apagar/mover uma instância de serviço Azure Spring Cloud, os seus recursos de extensão também serão eliminados/movidos?
 
@@ -106,7 +106,7 @@ Pode eliminar as definições de diagnóstico da Cloud da primavera utilizando o
 
 ### <a name="which-versions-of-java-runtime-are-supported-in-azure-spring-cloud"></a>Que versões de java são suportadas em Azure Spring Cloud?
 
-A azure Spring Cloud suporta versões Java LTS com as construções mais recentes, atualmente junho de 2020, java 8 build 252 e Java 11 build 7 são suportados. Ver [Instalar o JDK para Azure e Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install)
+A azure Spring Cloud suporta versões Java LTS com as construções mais recentes, atualmente junho de 2020, java 8 build 252 e Java 11 build 7 são suportados. Ver [Instalar o JDK para Azure e Azure Stack](/azure/developer/java/fundamentals/java-jdk-install)
 
 ### <a name="who-built-these-java-runtimes"></a>Quem construiu estes tempos de java?
 
@@ -118,14 +118,14 @@ Os lançamentos LTS e MTS JDK têm atualizações trimestrais de segurança, cor
 
 ### <a name="how-long-will-java-8-and-java-11-lts-versions-be-supported"></a>Quanto tempo serão suportadas as versões Java 8 e Java 11 LTS?
 
-Consulte [o suporte a longo prazo de Java para Azure e Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support).
+Consulte [o suporte a longo prazo de Java para Azure e Azure Stack](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 * Java 8 LTS será apoiado até dezembro de 2030.
 * Java 11 LTS será apoiado até setembro de 2027.
 
 ### <a name="how-can-i-download-a-supported-java-runtime-for-local-development"></a>Como posso descarregar um tempo de java suportado para o desenvolvimento local?
 
-Consulte [a Instalação do JDK para Azure e Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install).
+Consulte [a Instalação do JDK para Azure e Azure Stack](/azure/developer/java/fundamentals/java-jdk-install).
 
 ### <a name="what-is-the-retire-policy-for-older-java-runtimes"></a>Qual é a política de aposentação para os tempos mais velhos de Java?
 
@@ -136,7 +136,7 @@ O aviso público será enviado 12 meses antes de qualquer versão antiga do temp
 
 ### <a name="how-can-i-get-support-for-issues-at-the-java-runtime-level"></a>Como posso obter apoio para problemas a nível de tempo de java?
 
-Você pode abrir um bilhete de apoio com suporte Azure.  Ver Como criar um pedido de [apoio Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+Você pode abrir um bilhete de apoio com suporte Azure.  Ver Como criar um pedido de [apoio Azure](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ### <a name="what-is-the-operation-system-to-run-my-apps"></a>Qual é o sistema de operação para executar as minhas aplicações?
 
@@ -151,7 +151,7 @@ Patches de segurança críticos (pontuação CVE >= 9) aplicáveis à Nuvem de p
 ## <a name="deployment"></a>Implementação
 
 ### <a name="does-azure-spring-cloud-support-blue-green-deployment"></a>A Azure Spring Cloud suporta a implantação azul-esverdeado?
-Yes. Para obter mais informações, consulte [Configurar um ambiente de preparação.](spring-cloud-howto-staging-environment.md)
+Sim. Para obter mais informações, consulte [Configurar um ambiente de preparação.](spring-cloud-howto-staging-environment.md)
 
 ### <a name="can-i-access-kubernetes-to-manipulate-my-application-containers"></a>Posso aceder a Kubernetes para manipular os meus recipientes de aplicação?
 
@@ -159,7 +159,7 @@ Não.  Azure Spring Cloud abstrata o desenvolvedor da arquitetura subjacente, pe
 
 ### <a name="does-azure-spring-cloud-support-building-containers-from-source"></a>A Azure Spring Cloud suporta contentores de construção de fonte?
 
-Yes. Para obter mais informações, consulte [lançar a sua aplicação Cloud Spring a partir do código fonte](spring-cloud-quickstart.md).
+Sim. Para obter mais informações, consulte [lançar a sua aplicação Cloud Spring a partir do código fonte](spring-cloud-quickstart.md).
 
 ### <a name="does-azure-spring-cloud-support-autoscaling-in-app-instances"></a>O Azure Spring Cloud suporta autoscaling em instâncias de aplicações?
 
@@ -206,6 +206,6 @@ Não deve haver impactos na experiência do utilizador, o cliente eureka tem sim
 Vamos melhorar esta parte e evitar este erro das aplicações dos utilizadores num futuro curto.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se tiver mais perguntas, consulte o [guia de resolução de problemas da Nuvem de primavera de Azure](spring-cloud-troubleshoot.md).

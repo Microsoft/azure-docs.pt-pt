@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/03/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: d368c938e805164b70c7d3a22f9229b5efd89dde
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 29eb99d9e009d58c44be8f9d2e5d9fa01d117092
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045407"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092958"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>Quickstart: Construa e implemente aplicativos para Azure Spring Cloud
 
@@ -187,10 +187,10 @@ Antes de utilizar o Azure CLI ou o Maven, complete os exemplos que [disposim uma
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Instalar JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true)
+* [Instalar JDK 8](/java/azure/jdk/?preserve-view=true&view=azure-java-stable)
 * [Inscreva-se para uma subscrição do Azure](https://azure.microsoft.com/free/)
-* (Opcional) [Instale a versão Azure CLI 2.0.67 ou superior](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) e instale a extensão Azure Spring Cloud com comando: `az extension add --name spring-cloud`
-* (Opcional) [Instale o Azure Toolkit para IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) e [inscreva-se](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
+* (Opcional) [Instale a versão Azure CLI 2.0.67 ou superior](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) e instale a extensão Azure Spring Cloud com comando: `az extension add --name spring-cloud`
+* (Opcional) [Instale o Azure Toolkit para IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij/) e [inscreva-se](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 
 ## <a name="deployment-procedures"></a>Procedimentos de implantação
 
@@ -304,7 +304,7 @@ Precisamos de uma forma de aceder à aplicação através de um navegador web. A
     ![Projeto de Importação](media/spring-cloud-intellij-howto/revision-import-project-1.png)
 
 ### <a name="deploy-gateway-app-to-azure-spring-cloud"></a>Implementar aplicativo gateway para Azure Spring Cloud
-Para poder implementar no Azure tem de iniciar sôms com a sua conta Azure com o Azure Toolkit para o IntelliJ e escolher a sua subscrição. Para obter informações de insusição, consulte [a Instalação e a inscrição.](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
+Para poder implementar no Azure tem de iniciar sôms com a sua conta Azure com o Azure Toolkit para o IntelliJ e escolher a sua subscrição. Para obter informações de insusição, consulte [a Instalação e a inscrição.](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app#installation-and-sign-in)
 
 1. Clique com o botão direito no seu projeto no explorador de projetos IntelliJ e selecione **Azure**  ->  **Deploy to Azure Spring Cloud**.
 
@@ -313,7 +313,7 @@ Para poder implementar no Azure tem de iniciar sôms com a sua conta Azure com o
 1. No campo **Nome,** *apêndice :porta de entrada* para o **nome**existente .
 1. Na caixa de texto **do Artefacto,** selecione *com.piggymetrics:gateway:1.0-SNAPSHOT*.
 1. Na caixa de texto **de assinatura,** verifique a sua subscrição.
-1. Na caixa de texto **da Nuvem de primavera,** selecione a instância de Azure Spring Cloud que criou no [exemplo de Provision Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-provision-service-instance).
+1. Na caixa de texto **da Nuvem de primavera,** selecione a instância de Azure Spring Cloud que criou no [exemplo de Provision Azure Spring Cloud](./spring-cloud-quickstart-provision-service-instance.md).
 1. Definir **ponto de final público** para *ativar*.
 1. Na **App:** caixa de texto, selecione **Criar app...**.
 1. Insira *o gateway,* em seguida, clique **EM OK**.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 3b86ff205981cfe7bb00ecb3ca58804fba3e80b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e7cd496f031f76320df5127d7e1aa3f2f7b06c7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89460104"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075081"
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Problemas de implementação do serviço de nuvem de resolução de problemas
 Quando implementar um pacote de aplicações de serviço em nuvem para o Azure, pode obter informações sobre a implantação a partir do painel **propriedades** no portal Azure. Pode utilizar os detalhes neste painel para ajudá-lo a resolver problemas com o serviço de nuvem, e pode fornecer estas informações ao Azure Support ao abrir um novo pedido de suporte.
@@ -49,7 +49,7 @@ A cicatrização do serviço ocorre automaticamente quando o Azure deteta nódoa
 2. No painel **propriedades** do portal Azure, reveja as informações e determine se a cicatrização do serviço ocorreu durante o tempo em que observou a reciclagem das funções.
 
 As funções também reciclam aproximadamente uma vez por mês durante as atualizações host-OS e guest-OS.  
-Para mais informações, consulte o blog post [Role Instance Restarts Devido a atualizações de OS](https://docs.microsoft.com/archive/blogs/kwill/role-instance-restarts-due-to-os-upgrades)
+Para mais informações, consulte o blog post [Role Instance Restarts Devido a atualizações de OS](/archive/blogs/kwill/role-instance-restarts-due-to-os-upgrades)
 
 ## <a name="problem-i-cannot-do-a-vip-swap-and-receive-an-error"></a>Problema: Não posso fazer uma troca VIP e receber um erro
 Não é permitida uma troca VIP se uma atualização de implementação estiver em curso. As atualizações de implementação podem ocorrer automaticamente quando:
@@ -67,14 +67,14 @@ Para saber se uma atualização automática está a impedi-lo de fazer uma troca
 ## <a name="problem-a-role-instance-is-looping-between-started-initializing-busy-and-stopped"></a>Problema: Uma instância de função está a circular entre Iniciado, Inicialização, Ocupado e Parado
 Esta condição poderá indicar um problema com o código, o pacote ou o ficheiro de configuração da aplicação. Nesse caso, deverá ser possível ver o estado a mudar a cada poucos minutos e o portal Azure pode dizer algo como **Reciclagem,** **Ocupado**ou **Inicialização.** Isto indica que há algo de errado com a aplicação que está a impedir que a instância de função seja desacorda.
 
-Para obter mais informações sobre como resolver problemas para este problema, consulte o post de blog [Azure PaaS Compute Diagnostics Datas](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data) e [questões comuns que fazem com que as funções reciclem.](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md)
+Para obter mais informações sobre como resolver problemas para este problema, consulte o post de blog [Azure PaaS Compute Diagnostics Datas](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data) e [questões comuns que fazem com que as funções reciclem.](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md)
 
 ## <a name="problem-my-application-stopped-working"></a>Problema: A minha candidatura deixou de funcionar
 1. No portal Azure, clique na instância de função.
 2. No painel **propriedades** do portal Azure, considere as seguintes condições para resolver o seu problema:
    * Se a instância de função tiver parado recentemente (pode verificar o valor da contagem de **Abort),** a implementação poderá estar a ser atualizada. Aguarde para ver se a instância de função retoma o funcionamento por si só.
    * Se a instância de função estiver **ocupada,** verifique o seu código de aplicação para ver se o evento [StatusCheck](/previous-versions/azure/reference/ee758135(v=azure.100)) está tratado. Pode ser necessário adicionar ou corrigir algum código que lide com este evento.
-   * Ver os dados de diagnóstico e os cenários de resolução de problemas no blog post [Azure PaaS Compute Diagnostics Data](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).
+   * Ver os dados de diagnóstico e os cenários de resolução de problemas no blog post [Azure PaaS Compute Diagnostics Data](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).
 
 > [!WARNING]
 > Se reciclar o seu serviço na nuvem, repõe as propriedades para a implantação, apagando efetivamente a informação para o problema original.
@@ -82,6 +82,6 @@ Para obter mais informações sobre como resolver problemas para este problema, 
 >
 
 ## <a name="next-steps"></a>Passos seguintes
-Veja mais [artigos de resolução de problemas](https://docs.microsoft.com/azure/cloud-services/cloud-services-allocation-failures) para serviços na nuvem.
+Veja mais [artigos de resolução de problemas](./cloud-services-allocation-failures.md) para serviços na nuvem.
 
-Para aprender a resolver problemas de problemas de funções de serviço em nuvem utilizando dados de diagnóstico de computador Azure PaaS, consulte a [série de blogs de Kevin Williamson](https://docs.microsoft.com/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).
+Para aprender a resolver problemas de problemas de funções de serviço em nuvem utilizando dados de diagnóstico de computador Azure PaaS, consulte a [série de blogs de Kevin Williamson](/archive/blogs/kwill/windows-azure-paas-compute-diagnostics-data).

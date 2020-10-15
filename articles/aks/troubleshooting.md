@@ -4,12 +4,12 @@ description: Saiba como resolver problemas e resolver problemas comuns ao utiliz
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 930dae7ae163a04fb8b5fc5ae44b9170a7e3c6ce
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: dcbfed4fc83b980b3e54a808406b8d27e1e6c919
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893140"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074418"
 ---
 # <a name="aks-troubleshooting"></a>Resolução de problemas do AKS
 
@@ -206,7 +206,7 @@ Quando um cluster kubernetes em Azure (AKS ou não) faz uma escala frequente par
 Service returned an error. Status=429 Code=\"OperationNotAllowed\" Message=\"The server rejected the request because too many requests have been received for this subscription.\" Details=[{\"code\":\"TooManyRequests\",\"message\":\"{\\\"operationGroup\\\":\\\"HighCostGetVMScaleSet30Min\\\",\\\"startTime\\\":\\\"2020-09-20T07:13:55.2177346+00:00\\\",\\\"endTime\\\":\\\"2020-09-20T07:28:55.2177346+00:00\\\",\\\"allowedRequestCount\\\":1800,\\\"measuredRequestCount\\\":2208}\",\"target\":\"HighCostGetVMScaleSet30Min\"}] InnerError={\"internalErrorCode\":\"TooManyRequestsReceived\"}"}
 ```
 
-Estes erros de estrangulamento são descritos em detalhe [aqui](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling) e [aqui](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshooting-throttling-errors)
+Estes erros de estrangulamento são descritos em detalhe [aqui](../azure-resource-manager/management/request-limits-and-throttling.md) e [aqui](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md)
 
 A recomunicação da AKS Engineering Team é garantir que está a executar a versão pelo menos 1.18.x, que contém muitas melhorias. Mais detalhes podem ser encontrados nestas melhorias [aqui](https://github.com/Azure/AKS/issues/1413) e [aqui.](https://github.com/kubernetes-sigs/cloud-provider-azure/issues/247)
 

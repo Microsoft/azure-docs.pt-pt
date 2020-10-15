@@ -63,9 +63,12 @@
       href: load-balancer-ha-ports-overview.md
     - name: Vários front-ends
       href: load-balancer-multivip-overview.md
-    - name: Ligações de saída
+    - name: Proxy de saída
       href: load-balancer-outbound-connections.md
     - name: Reposição de TCP e tempo limite de inatividade de TCP
+    - name: Regras de saída
+      href: outbound-rules.md
+    - name: Reposição de TCP em tempo limite de inatividade
       href: load-balancer-tcp-reset.md
     - name: Balanceador de Carga Standard e Zonas de Disponibilidade
       href: load-balancer-standard-availability-zones.md
@@ -79,7 +82,7 @@
       href: backend-pool-management.md
     - name: Balanceador de Carga Standard e Conjuntos de Dimensionamento de Máquinas Virtuais
       href: load-balancer-standard-virtual-machine-scale-sets.md
-- name: Procedimento
+- name: Procedimentos
   items:
     - name: Definições do portal
       href: manage.md
