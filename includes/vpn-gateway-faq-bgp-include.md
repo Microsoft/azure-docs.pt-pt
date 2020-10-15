@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 32e4658af48a0ae3bde08de18cf1d8204878d671
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6054fe5f71f54794d4974a71cdfd61a7959534ff
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91025319"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92082221"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>O BGP é suportado em todos os SKUs do VPN Gateway do Azure?
 O BGP é suportado em todos os SKUs Azure VPN Gateway, exceto o Basic SKU.
@@ -108,3 +108,6 @@ Sim.
 
 ### <a name="what-should-i-add-to-my-on-premises-vpn-device-for-the-bgp-peering-session"></a>O que devo adicionar ao meu dispositivo VPN no local para a sessão de peering de BGP?
 Deve adicionar uma rota de anfitrião do endereço IP do Elemento de Rede BGP do Azure no dispositivo VPN para apontar para o túnel VPN S2S IPsec. Por exemplo, se o IP do Elemento VPN do Azure for “10.12.255.30”, deve adicionar no dispositivo VPN uma rota de anfitrião para “10.12.255.30” com uma interface nexthop da interface de túnel IPsec correspondente.
+
+### <a name="does-the-virtual-network-gateway-support-bidirectional-forwarding-detection-bfd-for-site-to-site-connections-with-bgp"></a>O Gateway de Rede Virtual suporta a Deteção bidirecional de encaminhamento (BFD) para ligações site-to-site com BGP?
+Não. O Bidirectional Forwarding Detection (BFD) é um protocolo que pode ser usado ao longo do BGP para detetar o tempo de inatividade do vizinho mais rápido do que usar os keepalives BGP padrão. O BFD utiliza temporizadores de subsegundos concebidos para trabalhar em ambientes LAN, mas não em toda a internet pública ou ligações de rede de ampla área. Para ligações através da Internet pública, ter certos pacotes atrasados ou mesmo largados não é incomum, pelo que a introdução destes temporizadores agressivos acrescentaria instabilidade que poderia acabar por causar potencialmente o amortecimento das rotas pela BGP. Como alternativa, pode configurar o seu dispositivo no local com temporizadores inferiores ao intervalo de 60 segundos padrão e o temporizador de 180 segundos para um tempo de convergência mais rápido.

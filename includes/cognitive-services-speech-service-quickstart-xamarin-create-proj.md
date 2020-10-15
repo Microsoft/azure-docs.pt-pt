@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 35133b64e43ca3814410d7bbf2ac1be9f760b369
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e8837bf7a7196eb5ac86bd7634560c52d1da6c05
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91654468"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92082142"
 ---
 Para criar um projeto visual Studio para o desenvolvimento de aplicativos móveis cross-platform .NET com Xamarin, você precisa:
 - Configurar opções de desenvolvimento do Estúdio Visual.
@@ -50,7 +50,7 @@ Para começar, certifique-se de que está configurado corretamente no Visual Stu
 
 1. Selecione **Criar** para ir à janela do **Projeto New Mobile App Xamarin Forms.**
 
-   ![Screenshot que mostra a nova caixa de diálogo universal do Windows Platform Project em Visual Studio.](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-new-xamarin-project.png)
+   ![Screenshot que mostra a nova caixa de diálogo do Projeto New Mobile App Xamarin Forms Project em Visual Studio.](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-new-xamarin-project.png)
 
 1. Selecione o modelo **Blank.**
 
