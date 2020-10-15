@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: e875eda2a59841d3238a13389768c6fa37cef774
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0b9e2301a8bb9990f88db8d4d55ef7f97946174
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843180"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072174"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que suportam identidades geridas para recursos da Azure
 
@@ -212,6 +212,14 @@ Consulte a seguinte lista para configurar a identidade gerida para Azure Logic A
 - [Portal do Azure](../../logic-apps/create-managed-service-identity.md#enable-system-assigned-identity-in-azure-portal)
 - [Modelo Azure Resource Manager](../../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 
+### <a name="azure-machine-learning"></a>Azure Machine Learning 
+
+Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globais | Azure Government | Azure Alemanha | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Sistema atribuído | Pré-visualizar | Não Disponível | Não disponível | Não disponível |
+| Utilizador atribuído | Pré-visualizar | Não disponível | Não disponível | Não disponível |
+
+Para obter mais informações, consulte [utilizar identidades geridas com Azure Machine Learning](../../machine-learning/how-to-use-managed-identities.md).
 
 ### <a name="azure-policy"></a>Azure Policy
 
@@ -359,7 +367,7 @@ Consulte a seguinte lista para configurar o acesso ao Azure Resource Manager:
 | Azure Alemanha | `https://database.cloudapi.de/` | ![Disponível][check] |
 | Azure China 21Vianet | `https://database.chinacloudapi.cn/` | ![Disponível][check] |
 
-### <a name="azure-event-hubs"></a>Azure Event Hubs
+### <a name="azure-event-hubs"></a>Hubs de Eventos do Azure
 
 | Cloud | ID do Recurso | Estado |
 |--------|------------|:-:|

@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: article
 ms.workload: identity
-ms.date: 05/26/2020
+ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: 8c76bddc0fae024b0dd2bdd27d6b1e10d71dec71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1428a92857f48920c86ed7a3f0719fa42b38b24
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90017477"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072038"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-workday"></a>Tutorial: Configurar a gravação do atributo Azure AD para o Workday
 O objetivo deste tutorial é mostrar os passos que precisa de executar para escrever atributos de Azure AD a Workday. A aplicação de writeback Workday suporta atribuir valores aos seguintes atributos workday:
@@ -144,16 +144,31 @@ Uma vez concluídas as configurações da aplicação de provisionamento workday
 
 1. No **separador Provisioning,** desa fixação do **Estado de Provisionamento** para **On**.
 
+1. No **dropdown Scope,** **selecione Sync todos os utilizadores e grupos**. Com esta opção, a aplicação Writeback irá escrever atributos mapeados de todos os utilizadores de Azure AD a Workday, sujeitos às regras de deteção definidas no Âmbito do Objeto fonte **de Mapeamentos.**  ->  **Source Object Scope** 
+
+   > [!div class="mx-imgBorder"]
+   > ![Selecione o âmbito de writeback](./media/sap-successfactors-inbound-provisioning/select-writeback-scope.png)
+
+   > [!NOTE]
+   > A aplicação de provisionamento workday Writeback não suporta a opção **Sync apenas utilizadores e grupos atribuídos.**
+ 
+
 2. Clique em **Guardar**.
 
 3. Esta operação iniciará a sincronização inicial, que pode demorar um número variável de horas dependendo de quantos utilizadores estão no diretório de origem. Pode verificar a barra de progresso para acompanhar o progresso do ciclo de sincronização. 
 
-4. A qualquer momento, consulte o **separador de registos** de auditoria no portal Azure para ver que ações o serviço de prestação de serviços executou. Os registos de auditoria listam todos os eventos sincronizados individuais realizados pelo serviço de fornecimento, tais como os utilizadores importados da fonte e exportados para a aplicação-alvo.  
+4. A qualquer momento, consulte o **separador De provisionamento** no portal Azure para ver que ações o serviço de fornecimento executou. Os registos de auditoria listam todos os eventos sincronizados individuais realizados pelo serviço de fornecimento, tais como os utilizadores importados da fonte e exportados para a aplicação-alvo.  
 
 5. Uma vez concluída a sincronização inicial, escreverá um relatório sumário no **separador Provisioning,** como mostrado abaixo.
 
      > [!div class="mx-imgBorder"]
      > ![Provisão de barras de progresso](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)
+
+## <a name="known-issues-and-limitations"></a>Limitações e problemas conhecidos
+
+* A aplicação Writeback utiliza um valor pré-definido para parâmetros **Communication_Usage_Type_ID** e **Phone_Device_Type_ID**. Se o seu inquilino workday estiver usando um valor diferente para estes atributos, então a operação Writeback não terá sucesso. Uma solução sugerida é atualizar o Type_IDs no Workday. 
+* Quando a aplicação Writeback está configurada para atualizar os números de telefone secundários, não substitui o número de telefone secundário existente no Workday. Acrescenta mais um número de telefone secundário ao registo do trabalhador. Não há solução para este comportamento. 
+
 
 ## <a name="next-steps"></a>Passos seguintes
 
