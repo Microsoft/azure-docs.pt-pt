@@ -5,16 +5,16 @@ services: synapse-analytics
 author: alehall
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: ''
+ms.subservice: overview
 ms.date: 08/25/2020
 ms.author: alehall
 ms.reviewer: jrasnick
-ms.openlocfilehash: 065e24c12e0750cd7a1f3ce2d4cad5c7ad4b95df
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4606dc1c4daa8e54f8fce03cedd9709a7a5c4367
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91260721"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093910"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-with-azure-cli"></a>Quickstart: Criar um espaço de trabalho sinapse Azure com Azure CLI
 
@@ -59,13 +59,13 @@ az extension add --name synapse
 
 1. Definir variáveis ambientais necessárias para criar recursos para o espaço de trabalho Azure Synapse.
 
-    | Nome da Variável de Ambiente | Descrição |
+    | Nome da Variável de Ambiente | Description |
     |---|---|---|
     |StorageAccountName| Nome da sua conta de armazenamento ADLS Gen2 existente.|
     |StorageAccountResourceGroup| Nome do seu grupo de recursos de conta de armazenamento ADLS Gen2 existente. |
     |Nome de FileShare| Nome do seu sistema de ficheiros de armazenamento existente.|
     |Grupo SynapseResource| Escolha um novo nome para o seu grupo de recursos Azure Synapse. |
-    |Region| Escolha uma das [regiões de Azure.](https://azure.microsoft.com/global-infrastructure/geographies/#overview) |
+    |Região| Escolha uma das [regiões de Azure.](https://azure.microsoft.com/global-infrastructure/geographies/#overview) |
     |SinapseWorkspaceName| Escolha um nome único para o seu novo espaço de trabalho Azure Synapse. |
     |SqlUser| Escolha um valor para um novo nome de utilizador.|
     |SqlPassword| Escolha uma senha segura.|

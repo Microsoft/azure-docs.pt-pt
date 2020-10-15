@@ -1,15 +1,15 @@
 ---
 title: 'Quickstart: Nova atribuição de políticas com Python'
 description: Neste quickstart, você usa Python para criar uma atribuição de Política Azure para identificar recursos não conformes.
-ms.date: 08/10/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.openlocfilehash: a160b9bc389bc0c902f9644887aa478f80822e60
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b2bbe38ce979dd12694908240a6adab317332a35
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88136519"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074095"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-python"></a>Quickstart: Criar uma atribuição de política para identificar recursos não conformes usando Python
 

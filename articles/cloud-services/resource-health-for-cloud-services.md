@@ -7,17 +7,17 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 9/1/2020
 ms.author: tagore
-ms.openlocfilehash: ea25695ddc36571bef3ff61df7de3e71f6f939ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f99dd8131df9f8bc5d3e4013d4438faa8c25e53b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90056064"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072718"
 ---
 # <a name="resource-health-check-rhc-support-for-azure-cloud-services-classic"></a>Suporte para serviços de cloud Azure (Clássico)
 Este artigo fala sobre o Suporte ao Controlo de Saúde de Recursos (RHC) para [os Serviços de Nuvem do Microsoft Azure (Clássico)](https://azure.microsoft.com/services/cloud-services)
 
-[A Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview) para serviços na nuvem ajuda-o a diagnosticar e a obter suporte para problemas de serviço que afetam a sua implementação do Serviço cloud, funções & Exemplos de Função. Relata a saúde atual e passada dos seus serviços em nuvem no nível de Implementação, Role & Role Instance.
+[A Azure Resource Health](../service-health/resource-health-overview.md) para serviços na nuvem ajuda-o a diagnosticar e a obter suporte para problemas de serviço que afetam a sua implementação do Serviço cloud, funções & Exemplos de Função. Relata a saúde atual e passada dos seus serviços em nuvem no nível de Implementação, Role & Role Instance.
 
 Relatórios de estado do Azure sobre problemas que afetam um vasto conjunto de clientes da Azure. A Resource Health dá-lhe um dashboard personalizado da saúde dos seus recursos. A Resource Health mostra todas as vezes que os seus recursos não estiveram disponíveis devido a problemas de serviço da Azure. Estes dados facilitam-lhe a mente ver se um SLA foi violado.
 
@@ -30,7 +30,7 @@ A saúde dos recursos é reportada a um nível de implantação ou de função. 
 Os controlos de saúde dos recursos apenas funcionam para a implantação de faixas horárias de produção. A colocação de slot slot ainda não está suportada. 
 
 ## <a name="does-resource-health-check-also-check-the-health-of-the-application"></a>O Controlo de Saúde dos Recursos também verifica a saúde da aplicação?
-Não, o exame de saúde só acontece em casos de função e não monitoriza a saúde da aplicação. Por exemplo, Mesmo que 1 em 3 instâncias de função não sejam saudáveis, a aplicação ainda pode estar disponível. O RHC não utiliza [sondas de balançadores](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) de carga ou sonda de agente convidado. Por isso, os Clientes devem continuar a utilizar sondas de balançadores de carga para monitorizar a saúde da sua aplicação. 
+Não, o exame de saúde só acontece em casos de função e não monitoriza a saúde da aplicação. Por exemplo, Mesmo que 1 em 3 instâncias de função não sejam saudáveis, a aplicação ainda pode estar disponível. O RHC não utiliza [sondas de balançadores](../load-balancer/load-balancer-custom-probe-overview.md) de carga ou sonda de agente convidado. Por isso, os Clientes devem continuar a utilizar sondas de balançadores de carga para monitorizar a saúde da sua aplicação. 
 
 ## <a name="what-are-the-annotations-for-cloud-services"></a>Quais são as anotações para os Serviços cloud?
 As anotações são o estado de saúde da implantação ou funções. Existem anotações diferentes baseadas no estado de saúde, razão para a mudança de estado, etc. 

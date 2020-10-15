@@ -12,19 +12,19 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 12/20/2019
 ms.author: mblythe
-ms.openlocfilehash: b77c9cfd6e4d1721839acb9db5469b5f0ac73a48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 014463fb0a5af639ff0da5f8db2805f9796fd928
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90561606"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072480"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>A estrutura dos Dashboards do Azure
 Este documento percorre a estrutura de um dashboard Azure, utilizando o seguinte painel de instrumentos como exemplo:
 
 ![dashboard de exemplo](./media/azure-portal-dashboards-structure/sample-dashboard.png)
 
-Uma vez que [os dashboards Azure partilhados são recursos,](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)este dashboard pode ser representado como JSON.  O JSON seguinte representa o painel visualizado acima.
+Uma vez que [os dashboards Azure partilhados são recursos,](../azure-resource-manager/management/overview.md)este dashboard pode ser representado como JSON.  O JSON seguinte representa o painel visualizado acima.
 
 ```json
 
@@ -303,7 +303,7 @@ O nome é o segmento do ID de recurso que não inclui a informação de subscri�
 Todos os dashboards são do tipo __Microsoft.Portal/dashboards__.
 
 ### <a name="the-location-property"></a>A propriedade de localização
-Ao contrário de outros recursos, os dashboards não têm um componente de tempo de execução.  Para os dashboards, a localização indica a localização geográfica primária que armazena a representação JSON do painel de instrumentos. O valor deve ser um dos códigos de localização que podem ser recolhidos utilizando as [localizações API no recurso de subscrições](https://docs.microsoft.com/rest/api/resources/subscriptions).
+Ao contrário de outros recursos, os dashboards não têm um componente de tempo de execução.  Para os dashboards, a localização indica a localização geográfica primária que armazena a representação JSON do painel de instrumentos. O valor deve ser um dos códigos de localização que podem ser recolhidos utilizando as [localizações API no recurso de subscrições](/rest/api/resources/subscriptions).
 
 ### <a name="the-tags-property"></a>A propriedade tags
 As tags são uma característica comum dos recursos Azure que permitem organizar o seu recurso através de pares de valor de nome arbitrário. Para os dashboards, há uma etiqueta especial chamada __título oculto.__ Se o seu dashboard tem esta propriedade povoada, então é usado como o nome de exibição para o seu painel de instrumentos no portal. Os IDs de recursos Azure não podem ser renomeados, mas as etiquetas podem. Esta etiqueta dá-lhe uma forma de ter um nome de exibição renamível para o seu painel de instrumentos.

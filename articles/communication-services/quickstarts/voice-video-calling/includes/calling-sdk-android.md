@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: bed2a4ccbe87aef9afa395ed789da393e885cc89
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 368c594352b59f7ec6d04b12ca44e0cd492dc907
+ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779075"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92082272"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -517,7 +517,7 @@ Objeto de renderização após APIs
 // Create a view for a video stream
 renderer.createView()
 ```
-* Elimine o renderizador e tudo `RendererView` associado a este renderizador
+* Elimine o renderizador e tudo `RendererView` o que está associado a este renderizador. Ser chamado quando tiver removido todas as opiniões associadas da UI.
 ```java
 renderer.dispose()
 ```
