@@ -3,12 +3,12 @@ title: Recuar e recuperar VMs Azure com PowerShell
 description: Descreve como fazer backup e recuperar VMs Azure usando Azure Backup com PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 87d655652d0207a50f8980f18d18e76fea0b1e21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ded2bc8a71bf564e31f40ca9f0d6c8049188768b
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975102"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92094097"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Recuar e restaurar VMs Azure com PowerShell
 
@@ -529,7 +529,7 @@ Depois de restaurar os discos, utilize os seguintes passos para criar e configur
 > [!NOTE]
 >
 > 1. É necessário o módulo AzureAz 3.0.0 ou superior. <br>
-> 2. Para criar VMs encriptados a partir de discos restaurados, a sua função Azure deve ter permissão para executar a ação, **Microsoft.KeyVault/vaults/deploy/action**. Se o seu papel não tiver esta permissão, crie um papel personalizado com esta ação. Para mais informações, consulte [Papéis Personalizados em Azure RBAC](../role-based-access-control/custom-roles.md). <br>
+> 2. Para criar VMs encriptados a partir de discos restaurados, a sua função Azure deve ter permissão para executar a ação, **Microsoft.KeyVault/vaults/deploy/action**. Se o seu papel não tiver esta permissão, crie um papel personalizado com esta ação. Para mais informações, consulte [as funções personalizadas Azure](../role-based-access-control/custom-roles.md). <br>
 > 3. Depois de restaurar os discos, pode agora obter um modelo de implementação que pode utilizar diretamente para criar um novo VM. Não precisa de diferentes cmdlets PowerShell para criar VMs geridos/não geridos que são encriptados/não encriptados.<br>
 > <br>
 

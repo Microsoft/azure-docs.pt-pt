@@ -8,19 +8,19 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: df59d944a15e22e9884b0d177deedb9968ea1aef
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 6bdf008c13a1466ec47134c303902a1f9d19545b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994986"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072769"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do Programador do Azure Key Vault
 
 O Key Vault permite-lhe aceder de forma segura a informações sensíveis a partir das suas aplicações:
 
 - Chaves, segredos e certificados estão protegidos sem ter de escrever o código por si mesmo e você pode facilmente usá-los a partir das suas aplicações.
-- Você é capaz de ter clientes para possuir e gerir suas próprias chaves, segredos e certificados para que você possa se concentrar em fornecer as principais funcionalidades de software. Desta forma, as suas aplicações não serão proprietárias da responsabilidade ou potencial responsabilidade pelas chaves, segredos e certificados dos seus clientes.
+- Permite que os clientes possuam e gerem as suas próprias chaves, segredos e certificados para que possa concentrar-se em fornecer as principais funcionalidades de software. Desta forma, as suas aplicações não serão proprietárias da responsabilidade ou potencial responsabilidade pelas chaves, segredos e certificados dos seus clientes.
 - A sua aplicação pode usar chaves para a assinatura e encriptação, mas mantém a gestão da chave externa da sua aplicação. Para mais informações sobre as chaves, consulte [Sobre Chaves](../keys/about-keys.md)
 - Você pode gerir credenciais como palavras-passe, chaves de acesso, fichas sas armazenando-as em Key Vault como segredos, ver [Sobre Segredos](../secrets/about-secrets.md)
 - Gerir certificados. Para mais informações, consulte [Sobre Certificados](../certificates/about-certificates.md)

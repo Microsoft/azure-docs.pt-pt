@@ -9,12 +9,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 5/21/2017
 ms.author: raiye
-ms.openlocfilehash: c930636f9af45edc66670c3f757333fef8e8756e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6de03969a22c5b699fdfd2be17a6ba65905d23e6
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89458829"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073398"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Aviso de extinção de SO convidado de Família 1
 A reforma da Família OS 1 foi anunciada pela primeira vez em 1 de junho de 2013.
@@ -23,7 +23,7 @@ A reforma da Família OS 1 foi anunciada pela primeira vez em 1 de junho de 2013
 
 **3 de novembro de 2014** O apoio alargado à Família OS 1 terminou e está totalmente reformado. Todos os serviços ainda na Família 1 serão impactados. Podemos parar esses serviços a qualquer momento. Não há garantias de que os seus serviços continuem a funcionar a menos que os atualize manualmente.
 
-Se tiver dúvidas adicionais, visite a [página de perguntas do Microsoft Q&Uma página de perguntas para serviços na Nuvem](https://docs.microsoft.com/answers/topics/azure-cloud-services.html) ou contacte o suporte do [Azure](https://azure.microsoft.com/support/options/).
+Se tiver dúvidas adicionais, visite a [página de perguntas do Microsoft Q&Uma página de perguntas para serviços na Nuvem](/answers/topics/azure-cloud-services.html) ou contacte o suporte do [Azure](https://azure.microsoft.com/support/options/).
 
 ## <a name="are-you-affected"></a>Está afetado?
 Os seus Serviços cloud são afetados se algum dos seguintes se aplicar:
@@ -32,7 +32,7 @@ Os seus Serviços cloud são afetados se algum dos seguintes se aplicar:
 2. Não tem um valor para osFamily explicitamente especificado no ficheiro ServiceConfiguration.cscfg para o seu Serviço cloud. Atualmente, o sistema utiliza o valor padrão de "1" neste caso.
 3. O portal Azure lista o valor familiar do Sistema Operativo convidado como "Windows Server 2008".
 
-Para descobrir qual dos seus serviços na nuvem está a funcionar que o OS Family, pode executar o seguinte script em Azure PowerShell, embora tenha de [configurar o Azure PowerShell](/powershell/azure/) primeiro. Para mais informações sobre o script, consulte [Azure Guest OS Family 1 End of Life: June 2014](https://docs.microsoft.com/archive/blogs/ryberry/azure-guest-os-family-1-end-of-life-june-2014).
+Para descobrir qual dos seus serviços na nuvem está a funcionar que o OS Family, pode executar o seguinte script em Azure PowerShell, embora tenha de [configurar o Azure PowerShell](/powershell/azure/) primeiro. Para mais informações sobre o script, consulte [Azure Guest OS Family 1 End of Life: June 2014](/archive/blogs/ryberry/azure-guest-os-family-1-end-of-life-june-2014).
 
 ```Powershell
 foreach($subscription in Get-AzureSubscription) {

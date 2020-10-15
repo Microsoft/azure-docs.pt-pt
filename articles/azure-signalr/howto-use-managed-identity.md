@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: article
 ms.date: 06/8/2020
 ms.author: chenyl
-ms.openlocfilehash: abe7503e7eb73d533ae901af21de001960173fb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc7082744bc43baad2e26d09a83907540cf6a1df
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85559408"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92094080"
 ---
 # <a name="managed-identities-for-azure-signalr-service"></a>Identidades geridas para o Serviço Azure SignalR
 
@@ -65,7 +65,7 @@ O Serviço Azure SignalR é um serviço totalmente gerido, pelo que não pode ut
     - [ID de recursos de um serviço Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-azure-ad-authentication)
 
     > [!NOTE]
-    > Se validar um token de acesso por si mesmo no seu serviço, pode escolher qualquer um dos formatos de recursos. Certifique-se apenas de que o valor **do recurso** nas definições **de Auth** e a validação são consistentes. Se utilizar o controlo de acesso baseado em funções (RBAC) para um plano de dados, deve utilizar o recurso que o prestador de serviços solicita.
+    > Se validar um token de acesso por si mesmo no seu serviço, pode escolher qualquer um dos formatos de recursos. Certifique-se apenas de que o valor **do recurso** nas definições **de Auth** e a validação são consistentes. Se utilizar o controlo de acesso baseado em funções (Azure RBAC) para um plano de dados, deve utilizar o recurso que o prestador de serviços solicita.
 
 ### <a name="validate-access-tokens"></a>Validar fichas de acesso
 

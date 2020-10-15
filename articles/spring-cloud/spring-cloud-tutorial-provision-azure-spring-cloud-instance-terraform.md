@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 06/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 4ef08ea03cab711901225cab227a0f5f84055d7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed66da991df4dbe89c327a9a28ee28527c3da87b
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906824"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091649"
 ---
 # <a name="tutorial-provision-an-azure-spring-cloud-instance-with-terraform"></a>Tutorial: Provisionar um exemplo de nuvem de primavera azure com Terraform
 
@@ -39,7 +39,7 @@ Este tutorial cria uma instância Azure Spring Cloud usando Terraform. Os proced
 
 1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Abra a [Concha da Nuvem Azure](https://docs.microsoft.com/azure/app-service/quickstart-java#use-azure-cloud-shell).
+1. Abra a [Concha da Nuvem Azure](../app-service/quickstart-java.md#use-azure-cloud-shell).
 
 1. Inicie o editor da Cloud Shell:
 
@@ -157,7 +157,7 @@ Esta secção mostra como atualizar a configuração para ativar o registo e mé
     terraform apply plan.out
     ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, elimine os recursos criados neste artigo.
 
@@ -170,4 +170,4 @@ terraform destroy -auto-approve
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Instale e configuure Terraform para a disponibilização de recursos Azure](https://docs.microsoft.com/azure/developer/terraform/getting-started-cloud-shell).
+> [Instale e configuure Terraform para a disponibilização de recursos Azure](/azure/developer/terraform/getting-started-cloud-shell).

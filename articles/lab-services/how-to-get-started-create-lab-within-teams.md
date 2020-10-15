@@ -1,16 +1,16 @@
 ---
-title: Começar e criar um laboratório de Serviços Azure Lab de Equipas
-description: Aprenda a começar e crie um laboratório de Serviços Azure lab a partir de equipas.
+title: Começar e criar um laboratório de Azure Lab Services dentro de equipas
+description: Aprenda a começar e crie um laboratório de Azure Lab Services dentro das equipas.
 ms.topic: article
 ms.date: 10/08/2020
-ms.openlocfilehash: 0604e2934ff6b011acfa9dd4a4b25fa58193e69b
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 4f8c0e2c5f7b75990460b0a1812d4fec3a758259
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044450"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92092142"
 ---
-# <a name="get-started-and-create-a-lab-services-lab-from-teams"></a>Começar e criar um laboratório de serviços de laboratório de equipas
+# <a name="get-started-and-create-a-lab-services-lab-within-teams"></a>Começar e criar um laboratório de serviços de laboratório dentro de equipas
 
 Este artigo mostra como adicionar a app **Azure Lab Services** a uma Equipa e, em seguida, como criar um laboratório dentro do ambiente das Equipas DE MS.
 
@@ -34,40 +34,38 @@ Você, como dono de uma equipa, pode adicionar a aplicação **Azure Lab Service
 
     > [!NOTE]
     > Só **os donos das** equipas poderão criar laboratórios para a equipa.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/integrate-with-teams/add.png" alt-text="Adicione um separador":::
 1. Selecione uma conta lab services, que você gostaria de usar para criar laboratórios de sala de aula nesta equipa. 
 
     A Azure Lab Services usa um único sinal no site da [Azure Lab Services](https://labs.azure.com) e puxa todas as contas de laboratório a que tem acesso. 
 
     São apresentadas as contas que estão no mesmo arrendatário que as Equipas e para as quais tem **o Proprietário,** **Colaborador**ou **Creator.** 
 
-   ![Bem-vindo à ALS](./media/integrate-with-teams/welcome.png) 
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/integrate-with-teams/welcome.png" alt-text="Adicione um separador":::
 1. Pressione **Save** e a aba é adicionada ao canal.
 
-    Agora pode selecionar o separador **Azure Lab Services** a partir do seu canal e começar a gerir laboratórios como descrito no passo seguinte.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/integrate-with-teams/created.png" alt-text="Adicione um separador":::
+
+    Agora pode selecionar o separador **Azure Lab Services** a partir do seu canal e começar a gerir laboratórios como descrito nos seguintes artigos.
 
 Depois da conta do laboratório ser selecionada, os donos da equipa poderão criar laboratórios para a equipa. Todo o processo de criação de laboratório e todas as tarefas ao nível do laboratório podem ser realizadas dentro das equipas. Os utilizadores terão a opção de criar vários laboratórios dentro da mesma equipa e o dono da Equipa, com acesso adequado ao nível da conta de laboratório, verá apenas os laboratórios associados à equipa específica.
-
-## <a name="deleting-classroom-labs"></a>Eliminação de laboratórios de sala de aula
-
-Um laboratório criado dentro de Equipas pode ser eliminado no site lab [Services](https://labs.azure.com) eliminando o laboratório diretamente, como descrito em [Laboratórios de Gestão em Azure Lab Services](how-to-manage-classroom-labs.md). 
-
-A eliminação do laboratório também é desencadeada quando a equipa é eliminada. Se a equipa em que o laboratório é criado for eliminada, o laboratório será automaticamente eliminado 24 horas após o sincronizamento automático da lista de utilizadores. 
-
-A eliminação do separador ou a desinstalação da aplicação não resultará na eliminação do laboratório. Se o separador for eliminado, os utilizadores da lista de membros da equipa ainda poderão aceder aos VMs no [site dos Lab Services,](https://labs.azure.com) a menos que a eliminação do laboratório seja explicitamente desencadeada pela eliminação do laboratório no site ou pela eliminação da equipa. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Quando um laboratório é criado dentro de Equipas, a lista de utilizadores do laboratório é automaticamente povoada e sincronizada com a associação da equipa. Todos na equipa, incluindo proprietários, membros e convidados serão automaticamente adicionados à lista de utilizadores do laboratório. Os serviços de laboratório da Azure manterão uma sincronização com a equipa e uma sincronização automática é ativada a cada 24 horas. Para obter mais detalhes, veja:
 
-[Gerir listas de utilizadores de Serviços de Laboratório de Equipas](how-to-manage-user-lists-within-teams.md)
+[Gerir listas de utilizadores de Serviços de Laboratório dentro de Equipas](how-to-manage-user-lists-within-teams.md)
 
 ### <a name="see-also"></a>Ver também
 
 Consulte também os seguintes artigos:
 
 - [Use os serviços do Azure Lab dentro da visão geral das equipas](lab-services-within-teams-overview.md)
-- [Gerir listas de utilizadores de laboratório dentro de Equipas](how-to-manage-user-lists-within-teams.md)
 - [Gerir a piscina VM do laboratório dentro das equipas](how-to-manage-vm-pool-within-teams.md)
 - [Criar e gerir horários de laboratório dentro de Equipas](how-to-create-schedules-within-teams.md)
 - [Aceda a um VM dentro de equipas - Vista do aluno](how-to-access-vm-for-students-within-teams.md)
-
+- [Eliminar laboratórios dentro de equipas](how-to-delete-lab-within-teams.md)

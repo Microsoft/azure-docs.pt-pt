@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: f501eb55f72811063ddf1d8e02a0ce2137d598f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9477b11b52431211dc91a0ea6ff0767a9d495be
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80546317"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073602"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>Descrição geral do acelerador de soluções de Monitorização Remota
 
@@ -106,7 +106,7 @@ O serviço fornece um ponto final RESTful para operações CRUD em pares de valo
 
 ### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-As implementações do acelerador de soluções utilizam [o Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) para armazenar regras, alertas, configurações de configuração e todos os outros armazenamentos frios.
+As implementações do acelerador de soluções utilizam [o Azure Cosmos DB](../cosmos-db/index.yml) para armazenar regras, alertas, configurações de configuração e todos os outros armazenamentos frios.
 
 ### <a name="azure-stream-analytics-manager-microservice"></a>Microserviço do gestor Azure Stream Analytics
 
@@ -120,11 +120,11 @@ Os trabalhos da ASA fornecem a telemetria dos dispositivos conectados à Time Se
 
 ### <a name="azure-stream-analytics"></a>Azure Stream Analytics
 
-[O Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) é um motor de processamento de eventos que permite examinar grandes volumes de streaming de dados a partir de dispositivos.
+[O Azure Stream Analytics](../stream-analytics/index.yml) é um motor de processamento de eventos que permite examinar grandes volumes de streaming de dados a partir de dispositivos.
 
 ### <a name="azure-time-series-insights"></a>Azure Time Series Insights
 
-[A Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/) armazena a telemetria dos dispositivos ligados ao acelerador de solução. Também permite visualizar e consultar a telemetria do dispositivo na solução web UI.
+[A Azure Time Series Insights](../time-series-insights/index.yml) armazena a telemetria dos dispositivos ligados ao acelerador de solução. Também permite visualizar e consultar a telemetria do dispositivo na solução web UI.
 
 ### <a name="configuration-microservice"></a>Microserviço de configuração
 
@@ -136,7 +136,7 @@ O [microserviço de autenticação e autorização](https://github.com/Azure/rem
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-As implementações do acelerador de soluções utilizam [o Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/) como fornecedor openID connect. O Azure Ative Directory armazena informações dos utilizadores e fornece certificados para validar assinaturas simbólicas JWT.
+As implementações do acelerador de soluções utilizam [o Azure Ative Directory](../active-directory/index.yml) como fornecedor openID connect. O Azure Ative Directory armazena informações dos utilizadores e fornece certificados para validar assinaturas simbólicas JWT.
 
 ## <a name="presentation"></a>Apresentação
 
