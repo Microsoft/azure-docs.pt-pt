@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 365cb0912d84f0664b2a5432cd54cd553df62466
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98dc9345d2c8b392fd094458b612857d6d454739
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282028"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071494"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Construa e implemente o serviço de gestão de certificados OPC Vault
 
@@ -31,7 +31,7 @@ Este artigo explica como implantar o serviço de gestão de certificados OPC Vau
 
 Atualmente, a operação de construção e implantação está limitada ao Windows.
 As amostras estão todas escritas para C# .NET Standard, que precisa de construir o serviço e amostras para implantação.
-Todas as ferramentas necessárias para .NET Standard vêm com as ferramentas .NET Core. Ver [Começar com .NET Core](https://docs.microsoft.com/dotnet/articles/core/getting-started).
+Todas as ferramentas necessárias para .NET Standard vêm com as ferramentas .NET Core. Ver [Começar com .NET Core](/dotnet/articles/core/getting-started).
 
 1. [Instalar .NET Core 2.1+][dotnet-install].
 2. [Instale o Docker][docker-url] (opcional, apenas se for necessária a construção local do Docker).
