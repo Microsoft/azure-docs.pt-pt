@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: 6253dd616ca184449f3f144d538c1ed20de54cc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d91d896da21d9d96e45c0eab3d5d895364f3e149
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89566425"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077359"
 ---
 # <a name="expressroute-faq"></a>FAQ do ExpressRoute
 
@@ -38,7 +38,7 @@ Verifique [os detalhes dos preços](https://azure.microsoft.com/pricing/details/
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-does-the-vpn-connection-i-purchase-from-my-network-service-provider-have-to-be-the-same-speed"></a>Se eu pagar por um circuito ExpressRoute de uma determinada largura de banda, a ligação VPN que compro ao meu fornecedor de serviços de rede tem de ser a mesma velocidade?
 
-N.º Pode adquirir uma ligação VPN de qualquer velocidade do seu prestador de serviços. No entanto, a sua ligação ao Azure está limitada à largura de banda do circuito ExpressRoute que compra.
+Não. Pode adquirir uma ligação VPN de qualquer velocidade do seu prestador de serviços. No entanto, a sua ligação ao Azure está limitada à largura de banda do circuito ExpressRoute que compra.
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>Se eu pagar por um circuito ExpressRoute de uma determinada largura de banda, tenho a capacidade de explodir a velocidades mais altas, se necessário?
 
@@ -180,7 +180,7 @@ Se o seu fornecedor de serviços pode estabelecer dois circuitos virtuais Ethern
 
 ### <a name="can-i-extend-one-of-my-vlans-to-azure-using-expressroute"></a>Posso estender um dos meus VLANs a Azure usando o ExpressRoute?
 
-N.º Não suportamos extensões de conectividade de camada 2 em Azure.
+Não. Não suportamos extensões de conectividade de camada 2 em Azure.
 
 ### <a name="can-i-have-more-than-one-expressroute-circuit-in-my-subscription"></a>Posso ter mais do que um circuito ExpressRoute na minha assinatura?
 
@@ -229,7 +229,7 @@ Para obter mais informações, consulte [partilhar um circuito ExpressRoute em v
 
 ### <a name="are-virtual-networks-connected-to-the-same-circuit-isolated-from-each-other"></a>As redes virtuais estão ligadas ao mesmo circuito isoladas umas das outras?
 
-N.º Do ponto de vista do encaminhamento, todas as redes virtuais ligadas ao mesmo circuito ExpressRoute fazem parte do mesmo domínio de encaminhamento e não estão isoladas umas das outras. Se precisar de isolamento de rotas, precisa de criar um circuito ExpressRoute separado.
+Não. Do ponto de vista do encaminhamento, todas as redes virtuais ligadas ao mesmo circuito ExpressRoute fazem parte do mesmo domínio de encaminhamento e não estão isoladas umas das outras. Se precisar de isolamento de rotas, precisa de criar um circuito ExpressRoute separado.
 
 ### <a name="can-i-have-one-virtual-network-connected-to-more-than-one-expressroute-circuit"></a>Posso ter uma rede virtual ligada a mais de um circuito ExpressRoute?
 
@@ -242,6 +242,9 @@ Sim. Se não tiver anunciado as rotas predefinidas (0.0.0.0/0) ou as prefixos da
 ### <a name="can-i-block-internet-connectivity-to-virtual-networks-connected-to-expressroute-circuits"></a>Posso bloquear a conectividade da Internet com redes virtuais ligadas aos circuitos ExpressRoute?
 
 Sim. Pode anunciar rotas predefinidas (0.0.0.0/0) para bloquear toda a conectividade da Internet com máquinas virtuais implantadas dentro de uma rede virtual e encaminhar todo o tráfego através do circuito ExpressRoute.
+
+> [!NOTE]
+> Se a rota anunciada de 0.0.0.0/0 for retirada das rotas anunciadas (por exemplo, devido a uma falha ou configuração errada), a Azure fornecerá uma [rota de sistema](../virtual-network/virtual-networks-udr-overview.md#system-routes) para recursos na Rede Virtual conectada para fornecer conectividade à internet.  Para garantir que o tráfego de saída para a internet está bloqueado, é aconselhável colocar um Grupo de Segurança de Rede em todas as sub-redes com uma regra de Outbound Deny para o tráfego de internet.
 
 Se você anunciar rotas predefinidas, forçamos o tráfego para os serviços oferecidos sobre o espremo da Microsoft (como armazenamento Azure e SQL DB) de volta às suas instalações. Terá de configurar os seus routers para devolver o tráfego ao Azure através do caminho de observação da Microsoft ou através da Internet. Se tiver ativado um ponto final de serviço para o serviço, o tráfego para o serviço não é forçado a ir para as suas instalações. O tráfego permanece dentro da rede de espinha dorsal de Azure. Para saber mais sobre os pontos finais de serviço, consulte [os pontos finais do serviço de rede Virtual](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fexpressroute%2ftoc.json)
 
@@ -317,7 +320,7 @@ Pode desativar o prémio ExpressRoute ligando para o CMDE REST ou PowerShell. Te
 
 ### <a name="can-i-pick-and-choose-the-features-i-want-from-the-premium-feature-set"></a>Posso escolher as funcionalidades que quero do conjunto de funcionalidades premium?
 
-N.º Não pode escolher as características. Ativamos todas as funcionalidades quando liga o Prémio ExpressRoute.
+Não. Não pode escolher as características. Ativamos todas as funcionalidades quando liga o Prémio ExpressRoute.
 
 ### <a name="how-much-does-expressroute-premium-cost"></a>Quanto custa o Prémio ExpressRoute?
 

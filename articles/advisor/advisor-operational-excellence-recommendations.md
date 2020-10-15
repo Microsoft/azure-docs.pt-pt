@@ -3,12 +3,12 @@ title: Melhorar a excelência operacional com o Conselheiro
 description: Utilize o Azure Advisor para otimizar e amadurecer a sua excelência operacional para as suas subscrições Azure.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: 036adb7e7d59bd78980c72b210ad41faea277d00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25c470a968f2d31ae1190f765046d593190d697b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88258481"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92077393"
 ---
 # <a name="achieve-operational-excellence-by-using-azure-advisor"></a>Alcançar a excelência operacional utilizando o Azure Advisor
 
@@ -38,7 +38,7 @@ Se a sua piscina estiver a utilizar um componente interno precotado, elimine e r
 
 ## <a name="repair-invalid-log-alert-rules"></a>Reparar regras de alerta de registo inválido
 
-O Azure Advisor deteta regras de alerta que têm consultas inválidas especificadas na sua secção de condições. Pode criar regras de alerta de registo no Azure Monitor e usá-las para executar consultas de análise em intervalos especificados. Os resultados da consulta determinam se um alerta tem de ser acionado. As consultas analíticas podem tornar-se inválidas ao longo do tempo devido a alterações nos recursos, tabelas ou comandos referenciados. O Advisor recomenda que corrija a consulta na regra de alerta para evitar que seja automaticamente desativada e garantir a monitorização da cobertura dos seus recursos em Azure. [Saiba mais sobre regras de alerta de resolução de problemas.](https://aka.ms/aa_logalerts_queryrepair)
+O Azure Advisor deteta regras de alerta que têm consultas inválidas especificadas na sua secção de condições. Pode criar regras de alerta de registo no Azure Monitor e usá-las para executar consultas de análise em intervalos especificados. Os resultados da consulta determinam se um alerta tem de ser acionado. As consultas analíticas podem tornar-se inválidas ao longo do tempo devido a alterações nos recursos, tabelas ou comandos referenciados. O Advisor recomenda que corrija a consulta na regra de alerta para evitar que seja automaticamente desativada e garantir a monitorização da cobertura dos seus recursos em Azure. [Saiba mais sobre regras de alerta de resolução de problemas.](../azure-monitor/platform/alerts-troubleshoot-log.md)
 
 ## <a name="use-azure-policy-recommendations"></a>Use recomendações da Política Azure
 
@@ -55,7 +55,7 @@ A Azure Policy é um serviço em Azure que pode usar para criar, atribuir e geri
 **Ativar *herdar uma etiqueta de grupos de recursos*.** Esta política adiciona ou substitui a etiqueta e o valor especificados do grupo de recursos principal quando cria ou atualiza um recurso. Pode remediar os recursos existentes desencadeando uma tarefa de reparação.
 
 ## <a name="no-validation-environment-enabled"></a>Nenhum ambiente de validação ativado
-O Azure Advisor determina que não tem um ambiente de validação ativado na subscrição atual. Ao criar as suas piscinas hospedeiras, selecionou \" o ambiente Nº \" para \" validação no \" separador propriedades. Ter pelo menos um pool de anfitriões com um ambiente de validação habilitado garante a continuidade do negócio através de implementações de serviços de desktop virtual do Windows com deteção precoce de potenciais problemas. [Saiba mais](https://docs.microsoft.com/azure/virtual-desktop/create-validation-host-pool)
+O Azure Advisor determina que não tem um ambiente de validação ativado na subscrição atual. Ao criar as suas piscinas hospedeiras, selecionou \" o ambiente Nº \" para \" validação no \" separador propriedades. Ter pelo menos um pool de anfitriões com um ambiente de validação habilitado garante a continuidade do negócio através de implementações de serviços de desktop virtual do Windows com deteção precoce de potenciais problemas. [Saiba mais](../virtual-desktop/create-validation-host-pool.md)
 
 ## <a name="ensure-production-non-validation-environment-to-benefit-from-stable-functionality"></a>Garantir que o ambiente de produção (sem validação) beneficia de uma funcionalidade estável
 O Azure Advisor deteta que muitas das suas piscinas de anfitrião têm ambiente de validação ativado. Para que os ambientes de validação sirvam melhor o seu propósito, você deve ter pelo menos um, mas nunca mais de metade das suas piscinas de anfitrião em ambiente de validação. Ao ter um equilíbrio saudável entre as piscinas de anfitrião com ambiente de validação ativado e aqueles com ele desativados, será melhor utilizar os benefícios das implementações multistage que o Windows Virtual Desktop oferece com determinadas atualizações. Para corrigir este problema, abra as propriedades da piscina do anfitrião e selecione \" Não ao lado da \" \" definição de Ambiente de \" Validação.
