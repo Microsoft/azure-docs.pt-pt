@@ -5,16 +5,16 @@ services: synapse-analytics
 author: manojraheja
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: ''
+ms.subservice: overview
 ms.date: 10/07/2020
 ms.author: maraheja
 ms.reviewer: jrasnick
-ms.openlocfilehash: 53092f5c49073098f28d2fd06f38391e858b2b9d
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 99ccc2f4d7e3adbba704f784025abfdfa8b96f52
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946424"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090663"
 ---
 # <a name="connect-to-azure-data-explorer-using-synapse-apache-spark"></a>Ligue-se ao Azure Data Explorer usando a Faísca Apache Sinapse
 
@@ -77,7 +77,7 @@ A partir do Data Object Explorer, siga estes passos para ligar diretamente um cl
 O conector Azure Data Explorer não é suportado atualmente com O VNET gerido Azure Synapse.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Código de amostra com opções avançadas](https://github.com/Azure/azure-kusto-spark/blob/master/samples/src/main/python/SynapseSample.py)
 * [Conector de faísca Azure Data Explorer (Kusto)](https://github.com/Azure/azure-kusto-spark)

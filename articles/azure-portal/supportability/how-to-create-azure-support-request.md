@@ -9,12 +9,12 @@ ms.service: azure-supportability
 ms.topic: how-to
 ms.date: 06/25/2020
 ms.author: mblythe
-ms.openlocfilehash: b44b38e52b50dd7994326f09bebbb775c93c0e2e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 0831cc40c7d6b25e1db78c84a7adfa644497d486
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073704"
+ms.locfileid: "92091445"
 ---
 # <a name="create-an-azure-support-request"></a>Criar um pedido de suporte do Azure
 
@@ -39,7 +39,7 @@ O Azure oferece apoio ilimitado para a gestão de subscrições, que inclui fatu
 
 Pode obter o **suporte Help +** no portal Azure. Está disponível no menu do portal Azure, no cabeçalho global ou no menu de recursos para um serviço. Antes de poder apresentar um pedido de apoio, tem de ter permissões apropriadas.
 
-### <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
+### <a name="azure-role-based-access-control"></a>Controlo de acesso baseado em funções do Azure
 
 Para criar um pedido de apoio, tem de ser [Proprietário,](../../role-based-access-control/built-in-roles.md#owner) [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) ou ser designado para a função [de Contribuinte de Pedido de Apoio](../../role-based-access-control/built-in-roles.md#support-request-contributor) ao nível da subscrição. Para criar um pedido de suporte sem subscrição, por exemplo, um cenário de Diretório Ativo Azure, tem de ser um [Administrador](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 

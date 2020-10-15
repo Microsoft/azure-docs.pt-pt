@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 4a923fd34391137f2064cb338ea180ae3782f5e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ad4724280039f2820611a621186d8174e9af986
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88036849"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091411"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticação com o Azure Maps
 
@@ -51,7 +51,7 @@ Para obter informações gerais sobre a autenticação com Azure AD, veja [o que
 
 ### <a name="managed-identities-for-azure-resources-and-azure-maps"></a>Identidades geridas para recursos Azure e Azure Maps
 
-[Identidades geridas para recursos Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) fornecem aos serviços Azure um principal de segurança baseado em aplicações gerida automaticamente que pode autenticar com Azure AD. Com o controlo de acesso baseado em funções (RBAC), o principal de segurança de identidade gerido pode ser autorizado a aceder aos serviços do Azure Maps. Alguns exemplos de identidades geridas incluem: Azure App Service, Azure Functions e Azure Virtual Machines. Para obter uma lista de identidades geridas, consulte [identidades geridas para os recursos da Azure.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)
+[Identidades geridas para recursos Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) fornecem aos serviços Azure um principal de segurança baseado em aplicações gerida automaticamente que pode autenticar com Azure AD. Com o controlo de acesso baseado em funções Azure (Azure RBAC), o diretor de segurança de identidade gerido pode ser autorizado a aceder aos serviços do Azure Maps. Alguns exemplos de identidades geridas incluem: Azure App Service, Azure Functions e Azure Virtual Machines. Para obter uma lista de identidades geridas, consulte [identidades geridas para os recursos da Azure.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)
 
 ### <a name="configuring-application-azure-ad-authentication"></a>Configuração da aplicação Azure AD autenticação
 
@@ -82,7 +82,7 @@ Para obter informações sobre a visualização do ID do seu cliente, consulte [
 
 O Azure Maps suporta o acesso a todos os tipos principais de [controlo de acesso baseado em funções Azure (Azure RBAC),](https://docs.microsoft.com/azure/role-based-access-control/overview) incluindo: utilizadores individuais de AD Azure, grupos, aplicações, recursos Azure e identidades geridas Azure. Os principais tipos recebem um conjunto de permissões, também conhecidas como definição de função. Uma definição de papel fornece permissões para as ações da API REST. A aplicação de acesso a uma ou mais contas do Azure Maps é conhecida como um âmbito. Ao aplicar um principal, definição de função e âmbito, então uma atribuição de papel é criada. 
 
-As próximas secções discutem conceitos e componentes da integração do Azure Maps com o controlo de acesso baseado em funções Azure. Como parte do processo de criação da sua conta Azure Maps, um diretório AD Azure está associado à subscrição Azure que a conta Azure Maps reside. 
+As próximas secções discutem conceitos e componentes da integração do Azure Maps com o Azure RBAC. Como parte do processo de criação da sua conta Azure Maps, um diretório AD Azure está associado à subscrição Azure que a conta Azure Maps reside. 
 
 Ao configurar o Azure RBAC, escolha um diretor de segurança e aplique-o a uma tarefa de função. Para aprender a adicionar atribuições de funções no portal Azure, consulte [adicionar ou remover atribuições de funções Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
@@ -90,7 +90,7 @@ Ao configurar o Azure RBAC, escolha um diretor de segurança e aplique-o a uma t
 
 Existem os seguintes tipos de definição de função para apoiar cenários de aplicação.
 
-| Definição de papel azul       | Descrição                                                                                              |
+| Definição de papel azul       | Description                                                                                              |
 | :-------------------------- | :------------------------------------------------------------------------------------------------------- |
 | Leitor de dados Azure Maps      | Fornece acesso a APIs de REST Imutável do Azure Maps.                                                       |
 | Colaborador de dados do Azure Maps | Fornece acesso a AZure Maps REST APIs mutáveis. A mutabilidade é definida pelas ações: escrever e apagar. |
@@ -104,7 +104,7 @@ Alguns serviços da Azure Maps podem necessitar de privilégios elevados para ex
 | Creator            | Colaborador de dados do Azure Maps |
 | Espacial            | Colaborador de dados do Azure Maps |
 
-Para obter informações sobre a visualização das suas definições de RBAC, consulte [Como configurar o RBAC para Azure Maps](https://aka.ms/amrbac).
+Para obter informações sobre a visualização das suas definições de RBAC Azure, consulte [Como configurar o Azure RBAC para Azure Maps](https://aka.ms/amrbac).
 
 #### <a name="custom-role-definitions"></a>Definições de função personalizadas
 
@@ -131,9 +131,9 @@ Atribuir uma atribuição de funções a um grupo de recursos pode permitir o ac
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre o RBAC, ver
+Para saber mais sobre o Azure RBAC, veja
 > [!div class="nextstepaction"]
-> [Controlo de acesso baseado em funções](https://docs.microsoft.com/azure/role-based-access-control/overview)
+> [Controlo de acesso baseado em funções do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 Para saber mais sobre a autenticação de uma aplicação com Azure AD e Azure Maps, consulte
 > [!div class="nextstepaction"]

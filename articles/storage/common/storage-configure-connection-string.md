@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 10/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 30e8bd7fda08795ecc1aa78b0d2507e7c915ad0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f2fa6cffd63811df596c8fca80afdc888a0eea9
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87087259"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091615"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configurar Cadeias de Ligação do Storage do Azure
 
@@ -110,9 +110,10 @@ Os valores do ponto final numa cadeia de ligação são utilizados para construi
 
 Se mapeou um ponto final de armazenamento para um domínio personalizado e omite esse ponto final a partir de uma cadeia de ligação, então não poderá utilizar esse fio de ligação para aceder a dados nesse serviço a partir do seu código.
 
+Para obter mais informações sobre a configuração de um domínio personalizado para o Armazenamento Azure, consulte [mapear um domínio personalizado para um ponto final de armazenamento Azure Blob](../blobs/storage-custom-domain-name.md).
+
 > [!IMPORTANT]
-> Os valores do ponto final de serviço nas cordas de ligação devem ser URIs bem formados, incluindo `https://` (recomendado) ou `http://` . Uma vez que o Azure Storage ainda não suporta HTTPS para domínios personalizados, *deve* especificar `http://` para qualquer URI de ponto final que aponte para um domínio personalizado.
->
+> Os valores do ponto final de serviço nas cordas de ligação devem ser URIs bem formados, incluindo `https://` (recomendado) ou `http://` .
 
 ### <a name="create-a-connection-string-with-an-endpoint-suffix"></a>Criar uma cadeia de ligação com um sufixo de ponto final
 

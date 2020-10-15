@@ -10,19 +10,19 @@ ms.date: 10/05/2020
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: b25ac36bc0b424a9d6f76b37b532e52dc56e19e3
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 0420360b70485e49dc6cd06dbeb19400c0f73ef5
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048224"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070355"
 ---
 # <a name="plan-your-telephony-and-sms-solution"></a>Planear a solução de telefonia e SMS
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 
-Os Serviços de Comunicação Azure permitem-lhe utilizar números de telefone para fazer chamadas de voz e enviar mensagens SMS com a rede telefónica comutada pelo público (PSTN). Neste documento, vamos rever os tipos de números de telefone, planos e disponibilidade da região para o planeamento da sua solução de telefonia e SMS utilizando serviços de comunicação.
+Os Serviços de Comunicação Azure permitem-lhe utilizar números de telefone para fazer chamadas de voz e enviar mensagens SMS com a rede telefónica comutada pelo público (PSTN). Neste documento, vamos rever os tipos de números de telefone, opções de configuração e disponibilidade da região para o planeamento da sua solução de telefonia e SMS utilizando serviços de comunicação.
 
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
@@ -51,19 +51,19 @@ A tabela abaixo resume estes tipos de números de telefone:
 | Toll-Free         | +1 *(código*de área sem portagem) XXX XX XX XX XX | EUA                      | Chamada (Saída), SMS (Entrada/Saída)| Atribuir números de telefone a sistemas/Bots de resposta vocal interativa (IVR), aplicações SMS                                        |
 
 
-## <a name="phone-number-plans-in-azure-communication-services"></a>Planos de números de telefone nos Serviços de Comunicação Azure 
+## <a name="phone-number-features-in-azure-communication-services"></a>Características de número de telefone nos Serviços de Comunicação Azure 
 
-Para a maioria dos números de telefone, permitimos que configuure um conjunto de planos "à la carte". Alguns desenvolvedores só precisam de um plano de chamada de saída; alguns podem optar por planos de SMS de saída e de saída. Estes planos podem ser selecionados à medida que aluga os seus números de telefone nos Serviços de Comunicação Azure.
+Para a maioria dos números de telefone, permitimos configurar um conjunto de funcionalidades "à la carte". Estas funcionalidades podem ser selecionadas à medida que aluga os seus números de telefone nos Serviços de Comunicação Azure.
 
-Os planos que lhe estão disponíveis dependem do país em que está a operar, da sua caixa de utilização e do tipo de número de telefone que selecionou. Estes planos variam por país devido aos requisitos regulamentares. A Azure Communication Services oferece os seguintes planos:
+As funcionalidades que lhe estão disponíveis dependem do país em que está a operar, da sua caixa de utilização e do tipo de número de telefone que selecionou. Estas características variam de país para país devido aos requisitos regulamentares. A Azure Communication Services oferece os seguintes recursos de número de telefone:
 
-- **SMS de ida e saída** Este plano permite-lhe enviar mensagens SMS aos seus utilizadores. Este plano é útil para cenários como notificações e alertas de autenticação de dois fatores. 
-- **SMS de entrada e saída bidirecciona** Este plano permite-lhe enviar e receber mensagens dos seus utilizadores utilizando números de telefone. Este plano é útil em cenários de atendimento ao cliente.
-- **Telefone de ida e saída** Este plano permite-lhe fazer chamadas para os seus utilizadores e configurar o ID do autor da chamada para chamadas de saída feitas pelo seu serviço. Este plano é útil em cenários de atendimento ao cliente e notificação de voz.
+- **SMS de ida e saída** Esta opção permite-lhe enviar mensagens SMS aos seus utilizadores. Isto pode ser útil em cenários de notificação e autenticação de dois fatores. 
+- **SMS de entrada e saída bidirecciona** Esta opção permite-lhe enviar e receber mensagens dos seus utilizadores utilizando números de telefone. Isto pode ser útil em cenários de atendimento ao cliente.
+- **Telefone de ida e saída** Esta opção permite-lhe esboçar chamadas para os seus utilizadores e configurar o ID do autor da chamada para chamadas de saída feitas pelo seu serviço. Isto pode ser útil em cenários de atendimento ao cliente e notificação de voz.
 
 ## <a name="countryregion-availability"></a>Disponibilidade país/região
 
-A tabela que se segue mostra onde pode adquirir diferentes tipos de números de telefone, juntamente com as capacidades de chamada de entrada e saída e SMS associadas a estes tipos de números de telefone.
+A tabela que se segue mostra onde pode adquirir diferentes tipos de números de telefone, juntamente com as chamadas de entrada e saída e as funcionalidades de SMS associadas a estes tipos de números de telefone.
 
 |Tipo de número| Adquirir números em | Fazer chamadas para                                        | Receber chamadas de                                    |Enviar mensagens para       | Receber mensagens de |
 |-----------| ------------------ | ---------------------------------------------------  |-------------------------------------------------------|-----------------------|--------|

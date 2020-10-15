@@ -1,14 +1,14 @@
 ---
 title: 'Padrão: Propriedades de campo em uma definição de política'
 description: Este padrão de Política Azure fornece um exemplo de como usar propriedades de campo numa definição de política.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: sample
-ms.openlocfilehash: 87c550e5fb3ef0efbf219efc738a69071d2e89ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 267c687f78f0bbb100843faee40ab6f3d3cbb64c
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85565715"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072973"
 ---
 # <a name="azure-policy-pattern-field-properties"></a>Padrão de política azul: propriedades de campo
 

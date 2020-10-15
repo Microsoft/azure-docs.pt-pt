@@ -26,10 +26,6 @@
       href: get-started-speech-to-text.md
     - name: Guias de procedimentos
       items:
-        - name: Reconhecer a voz armazenada no armazenamento de blobs
-          href: quickstarts/from-blob.md
-        - name: Escolher o modo de reconhecimento de voz
-          href: how-to-choose-recognition-mode.md
         - name: Alterar o idioma de origem do reconhecimento de voz
           href: how-to-specify-source-language.md
         - name: Melhorar a precisão com Discurso Personalizado
@@ -37,8 +33,6 @@
         - name: Utilizar formatos de entrada de áudio comprimido
           href: how-to-use-codec-compressed-audio-input-streams.md
           displayName: 'codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk'
-        - name: Melhorar a precisão com Listas de Expressões
-          href: how-to-phrase-lists.md
         - name: Selecionar um dispositivo de entrada de microfone específico
           href: how-to-select-audio-input-devices.md
         - name: Utilizar a deteção automática de idioma de origem
@@ -47,6 +41,8 @@
           href: batch-transcription.md
     - name: Tutoriais
       items:
+        - name: Reconhecer a voz armazenada no armazenamento de blobs
+          href: quickstarts/from-blob.md
         - name: Melhorar a precisão com modelos de inquilinos
           href: tutorial-tenant-model.md
     - name: Personalização
@@ -508,7 +504,7 @@
           href: 'https://speech.microsoft.com'
         - name: Criar uma aplicação de Comandos Personalizados com o Speech Studio
           href: quickstart-custom-speech-commands-create-new.md
-- name: Implementação
+- name: Implementar
   items:
     - name: Ativar registo
       href: how-to-use-logging.md
