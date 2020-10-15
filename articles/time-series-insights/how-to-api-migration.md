@@ -10,18 +10,21 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.custom: shresha
-ms.openlocfilehash: 30c3fa837f84ff318e9a03a8a11ef6259890f4bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1effb62619f9767cc90c99e037445e7a95981460
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653745"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078243"
 ---
 # <a name="migrating-to-new-azure-time-series-insights-gen2-api-versions"></a>Migrando para novas versões Azure Time Series Insights Gen2 API
 
 ## <a name="overview"></a>Descrição geral
 
-Se criou um ambiente Azure Time Series Insights Gen2 quando esteve em Visualização Pública (antes de 16 de julho de 2020), por favor atualize o seu ambiente de TSI para utilizar as novas versões geralmente disponíveis de APIs seguindo os passos descritos neste artigo.
+Se criou um ambiente Azure Time Series Insights Gen2 quando esteve em Visualização Pública (antes de 16 de julho de 2020), por favor atualize o seu ambiente de TSI para utilizar as novas versões geralmente disponíveis de APIs seguindo os passos descritos neste artigo. Esta alteração não afeta nenhum utilizadores que estejam a utilizar a versão Gen1 do Azure Time Series Insights.
+
+> [!IMPORTANT]
+> As atualizações descritas neste artigo apenas atualizarão as versões API utilizadas pelo seu ambiente TSI. Esta mudança não está relacionada com as novas [regras de achatamento e fuga da JSON](https://docs.microsoft.com/azure/time-series-insights/concepts-json-flattening-escaping-rules) introduzidas para os ambientes da Gen2.
 
 A nova versão API é `2020-07-31` e utiliza uma [sintaxe](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax)de expressão de série sonora atualizada.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Criar um anfitrião Azure Bastion: Windows VM: portal'
+title: 'Tutorial: Criar um anfitrião Azure Bastion: Windows VM: portal'
 description: Neste artigo, aprende-se a criar um hospedeiro Azure Bastion e a ligar-se a um Windows VM.
 services: bastion
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: tutorial
 ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: c5361a777b2fdab20fab70214ddcb3bbf5248acb
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: daf3b6c36b191f52f0d7ac7638ef59695325f541
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015264"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078549"
 ---
 # <a name="tutorial-create-an-azure-bastion-host-and-connect-to-a-windows-vm-through-a-browser"></a>Tutorial: Criar um anfitrião Azure Bastion e ligar-se a um Windows VM através de um browser
 
@@ -87,4 +87,7 @@ Se não continuar a utilizar esta aplicação, elimine os seus recursos utilizan
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, criou um Bastion Host e associou-o a uma rede virtual, e ligou-se a um Windows VM. Pode optar por utilizar grupos de segurança de rede com a sua sub-rede Azure Bastion. Para tal, consulte [Work with NSGs](bastion-nsg.md).
+Neste tutorial, criou um hospedeiro Bastion e associou-o a uma rede virtual, ligando-o depois a um Windows VM. Pode optar por utilizar grupos de segurança de rede com a sua sub-rede Azure Bastion. Para tal, consulte:
+
+> [!div class="nextstepaction"]
+> [Trabalhar com NSGs](bastion-nsg.md)

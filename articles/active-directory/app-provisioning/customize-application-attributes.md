@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: kenwith
-ms.openlocfilehash: e789810240b1a537e8cc3a18351f0b2a066cb4e1
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 159a473b2b164d1f0692864e26f6127d9faf8287
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018870"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92069879"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizar o fornecimento de produtos de fornecimento de mapeamentos de atributos para aplicações SaaS no Azure Ative Directory
 
@@ -129,7 +129,7 @@ Ao editar a lista de atributos suportados, são fornecidas as seguintes propried
 - **Multi-valor?** - Se o atributo suporta vários valores.
 - **Caso exato?** - Se os valores dos atributos são avaliados de forma sensível a casos.
 - **Expressão API** - Não utilize, a menos que seja instruído pela documentação de um conector específico de provisionamento (como o Workday).
-- **Atributo de objeto referenciado** - Se for um atributo do tipo referência, este menu permite selecionar a tabela e atribuir na aplicação-alvo que contém o valor associado ao atributo. Por exemplo, se tiver um atributo chamado "Departamento" cujo valor armazenado referencia um objeto numa tabela separada de "Departamentos", escolherá "Departments.Name". As tabelas de referência e os campos de ID primários suportados para uma determinada aplicação são pré-configurados e atualmente não podem ser editados usando o portal Azure, mas podem ser editados usando a [API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes)do Gráfico microsoft .
+- **Atributo de objeto referenciado** - Se for um atributo do tipo referência, este menu permite selecionar a tabela e atribuir na aplicação-alvo que contém o valor associado ao atributo. Por exemplo, se tiver um atributo chamado "Departamento" cujo valor armazenado referencia um objeto numa tabela separada de "Departamentos", escolherá "Departments.Name". As tabelas de referência e os campos de ID primários suportados para uma determinada aplicação são pré-configurados e atualmente não podem ser editados usando o portal Azure, mas podem ser editados usando a [API](/graph/api/resources/synchronization-configure-with-custom-target-attributes)do Gráfico microsoft .
 
 #### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>Provisionando um atributo de extensão personalizada a uma aplicação compatível com o SCIM
 O SCIM RFC define um esquema de utilizador e grupo principal, ao mesmo tempo que permite extensões ao esquema para atender às necessidades da sua aplicação. Para adicionar um atributo personalizado a uma aplicação SCIM:

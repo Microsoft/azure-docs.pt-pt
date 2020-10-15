@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 2e5f3357baa774c9690e079a82b11d2c651ebe9b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 816cf8d385c12046a5363cf94ab5fa60e5d77e48
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87078870"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078872"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v3"></a>Quickstart: Biblioteca de clientes Azure Key Vault para .NET (SDK v3)
 
@@ -21,15 +21,7 @@ Começa com a biblioteca de clientes Azure Key Vault para .NET. Siga os passos a
 > [!NOTE]
 > Este quickstart utiliza a versão v3.0.4 da biblioteca cliente Microsoft.Azure.KeyVault. Para utilizar a versão mais atualizada da biblioteca do cliente Key Vault, consulte a [biblioteca de clientes Azure Key Vault para .NET (SDK v4)](quick-create-net.md). 
 
-O cofre de chave do Azure ajuda a salvaguardar as chaves criptográficas e os segredos utilizados pelas aplicações em nuvem e pelos serviços. Utilize a biblioteca do cliente Key Vault para .NET para:
-
-- Aumentar a segurança e o controlo sobre chaves e senhas.
-- Criar e importar chaves de encriptação em minutos.
-- Reduza a latência com a escala de nuvens e a redundância global.
-- Simplificar e automatizar tarefas para certificados TLS/SSL.
-- Utilize OS HSMs validados FIPS 140-2.
-
-[Documentação de](/dotnet/api/overview/azure/key-vault?view=azure-dotnet)  |  referência da API [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault)  |  [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/)
+[Documentação de](https://docs.microsoft.com/dotnet/api/overview/azure/keyvault/v3)  |  referência da API [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault/Microsoft.Azure.KeyVault)  |  [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/)
 
 > [!NOTE]
 > Cada cofre deve ter um nome único. Substitua <o seu nome único de teclado> pelo nome do seu cofre-chave nos seguintes exemplos.
@@ -39,11 +31,25 @@ O cofre de chave do Azure ajuda a salvaguardar as chaves criptográficas e os se
 
 * Uma subscrição Azure - [crie uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * O [Núcleo .NET 3.1 SDK ou mais tarde](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/)
+* [CLI do Azure](/cli/azure/install-azure-cli)
 
-Este quickstart pressupõe que está a executar `dotnet` , [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest), e comandos Windows num terminal Windows (como [PowerShell Core,](/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6) [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6)ou [Azure Cloud Shell).](https://shell.azure.com/)
+Este quickstart está a usar `dotnet` e o Azure CLI
 
 ## <a name="setting-up"></a>Configuração
+
+### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+
+1. Execute o comando `login`.
+
+    ```azurecli-interactive
+    az login
+    ```
+
+    Se o CLI conseguir abrir o seu navegador predefinido, fá-lo-á e carregará uma página de inscrição do Azure.
+
+    Caso contrário, abra uma página do navegador [https://aka.ms/devicelogin](https://aka.ms/devicelogin) e introduza o código de autorização exibido no seu terminal.
+
+2. Inicie sessão com as credenciais da sua conta no browser.
 
 ### <a name="create-new-net-console-app"></a>Criar nova aplicação de consola .NET
 
@@ -70,10 +76,11 @@ Build succeeded.
 
 ### <a name="install-the-package"></a>Instale o pacote
 
-A partir da janela da consola, instale a biblioteca cliente Azure Key Vault para .NET:
+A partir da janela da consola, instale a biblioteca cliente Azure Key Vault para biblioteca .NET e [AppAuthentication:](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication)
 
 ```console
 dotnet add package Microsoft.Azure.KeyVault
+dotnet add package Microsoft.Azure.Services.AppAuthentication
 ```
 
 Para este arranque rápido, também terá de instalar os seguintes pacotes:
@@ -88,19 +95,17 @@ dotnet add package Microsoft.Azure.Management.ResourceManager.Fluent
 
 [!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
 
-### <a name="create-a-service-principal"></a>Criar um principal de serviço
+#### <a name="grant-access-to-your-key-vault"></a>Conceder acesso ao seu cofre chave
 
-[!INCLUDE [Create a service principal](../../../includes/key-vault-sp-creation.md)]
+Crie uma política de acesso para o cofre-chave que concede permissão secreta à sua conta de utilizador
 
-#### <a name="give-the-service-principal-access-to-your-key-vault"></a>Dê ao serviço acesso principal ao seu cofre de chaves
-
-[!INCLUDE [Give the service principal access to your key vault](../../../includes/key-vault-sp-kv-access.md)]
+```console
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set
+```
 
 ## <a name="object-model"></a>Modelo de objeto
 
 A biblioteca de clientes Azure Key Vault para .NET permite-lhe gerir chaves e ativos relacionados, tais como certificados e segredos. As amostras de código abaixo mostrar-lhe-ão como definir um segredo e recuperar um segredo.
-
-Toda a aplicação para consolas está disponível em https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/akvdotnet .
 
 ## <a name="code-examples"></a>Exemplos de código
 
@@ -108,38 +113,26 @@ Toda a aplicação para consolas está disponível em https://github.com/Azure-S
 
 Adicione as seguintes diretivas ao topo do seu código:
 
-[!code-csharp[Directives](~/samples-key-vault-dotnet-quickstart/akvdotnet/Program.cs?name=directives)]
+```csharp
+using System;
+using System.Threading.Tasks;
+using Microsoft.Azure.KeyVault;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using Microsoft.Azure.Management.ResourceManager.Fluent;
+using Microsoft.Azure.Management.ResourceManager.Fluent.Authentication;
+using Microsoft.Azure.Services.AppAuthentication;
+```
 
 ### <a name="authenticate-to-your-key-vault"></a>Autenticar para o seu cofre de chaves
 
-Este quickstart .NET baseia-se em variáveis ambientais para armazenar credenciais que não devem ser colocadas em código. 
+Configure a autenticação à sua aplicação na [classe KeyVaultClient](/dotnet/api/microsoft.azure.keyvault.keyvaultclient). No nosso exemplo, utilizará o token fornecido pelo `AzureServiceTokenProvider` utilizador atualmente iniciado:
 
-Antes de construir e executar a sua app, use o `setx` comando para definir as `akvClientId` `akvClientSecret` variáveis , e ambiente para `akvTenantId` os `akvSubscriptionId` valores acima referidos.
-
-**Windows**
-
-```console
-setx akvClientId "<your-clientID>"
-setx akvClientSecret "<your-clientSecret>"
+```csharp
+var azureServiceTokenProvider1 = new AzureServiceTokenProvider();
+var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider1.KeyVaultTokenCallback));
 ```
 
-**Linux**
-
-```bash
-export akvClientId = "<your-clientID>"
-export akvClientSecret = "<your-clientSecret>"
-```
-
-**MacOS**
-
-```bash
-export akvClientId = "<your-clientID>"
-export akvClientSecret = "<your-clientSecret>"
-```
-
-Atribua estas variáveis ambientais a cadeias no seu código e, em seguida, autentique a sua aplicação passando-as para a [classe KeyVaultClient](/dotnet/api/microsoft.azure.keyvault.keyvaultclient):
-
-[!code-csharp[Authentication](~/samples-key-vault-dotnet-quickstart/akvdotnet/Program.cs?name=authentication)]
+Para mais informações `AzureServiceTokenProvider` sobre , consulte [Autenticação nos Serviços Azure](https://docs.microsoft.com/azure/key-vault/general/service-to-service-authentication#authenticating-to-azure-services)
 
 ### <a name="save-a-secret"></a>Salvar um segredo
 
@@ -147,7 +140,7 @@ Agora que a sua aplicação é autenticada, pode colocar um segredo no seu keyva
 
 [!code-csharp[Set secret](~/samples-key-vault-dotnet-quickstart/akvdotnet/Program.cs?name=setsecret)]
 
-Pode verificar se o segredo foi definido com o comando [secreto az keyvault:](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show)
+Pode verificar se o segredo foi definido com o comando [secreto az keyvault:](/cli/azure/keyvault/secret?#az-keyvault-secret-show)
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
@@ -173,9 +166,68 @@ az group delete -g "myResourceGroup"
 Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="sample-code"></a>Código de exemplo
 
-Neste arranque rápido criaste um cofre, armazenaste um segredo e recuperaste esse segredo. Veja toda a [aplicação de consola no GitHub.](https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/akvdotnet)
+Modifique a aplicação de consola .NET Core para interagir com o Cofre de Chaves, completando os seguintes passos:
+
+1. Substitua o código em *Program.cs* pelo seguinte código:
+```csharp
+using System;
+using System.Threading.Tasks;
+using Microsoft.Azure.KeyVault;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using Microsoft.Azure.Services.AppAuthentication;
+using Microsoft.Azure.Management.ResourceManager.Fluent;
+using Microsoft.Azure.Management.ResourceManager.Fluent.Authentication;
+// </directives>
+
+namespace akvdotnet
+{
+    class Program
+    {
+        static async Task Main(string[] args)
+        {
+            Program P = new Program();
+            string secretName = "mySecret";
+
+            // kvURL must be updated to the URL of your key vault
+            string kvURL = "https://myKV.vault.azure.net";
+
+            // <authentication>
+
+            var azureServiceTokenProvider1 = new AzureServiceTokenProvider();
+            var kvClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider1.KeyVaultTokenCallback));        
+            // </authentication>
+
+
+            Console.Write("Input the value of your secret > ");
+            string secretValue = Console.ReadLine();
+
+            Console.WriteLine("Your secret is '" + secretValue + "'.");
+
+            Console.Write("Saving the value of your secret to your key vault ...");
+
+            //set secret
+            await kvClient.SetSecretAsync($"{kvURL}", secretName, secretValue);
+
+            Console.WriteLine("done.");
+
+            Console.WriteLine("Forgetting your secret.");
+            secretValue = "";
+            Console.WriteLine("Your secret is '" + secretValue + "'.");
+            Console.WriteLine("Retrieving your secret from key vault.");
+
+            //retrieve secret
+            var keyvaultSecret = await kvClient.GetSecretAsync($"{kvURL}", secretName).ConfigureAwait(false);
+
+            secretValue = keyvaultSecret.Result;
+            Console.WriteLine("Your secret is " + secretValue);
+        }
+    }
+}
+```
+
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o Key Vault e como integrá-lo com as suas aplicações, continue para os artigos abaixo.
 

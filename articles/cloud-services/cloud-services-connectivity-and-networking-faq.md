@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: 2a27161ca9a218b1f7c0e3fb51c9935438d9778e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8f57cc16cad4c0b081478932f820c983e4bbdc7
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91533422"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070032"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Questões de conectividade e networking para serviços em nuvem Azure: Perguntas frequentes (PERGUNTAS Frequentes)
 
@@ -40,7 +40,7 @@ Não, não usando o protocolo normal "ping"/ICMP. O protocolo ICMP não é permi
 
 Para testar a conectividade, recomendamos que faça um ping de porta. Enquanto Ping.exe utiliza ICMP, pode utilizar outras ferramentas, como PSPing, Nmap e telnet, para testar a conectividade com uma porta TCP específica.
 
-Para obter mais informações, consulte [utilize pings de porta em vez de ICMP para testar a conectividade Azure VM](https://blogs.msdn.microsoft.com/mast/2014/06/22/use-port-pings-instead-of-icmp-to-test-azure-vm-connectivity/).
+Para obter mais informações, consulte [utilize pings de porta em vez de ICMP para testar a conectividade Azure VM](/archive/blogs/mast/use-port-pings-instead-of-icmp-to-test-azure-vm-connectivity).
 
 ## <a name="how-do-i-prevent-receiving-thousands-of-hits-from-unknown-ip-addresses-that-might-indicate-a-malicious-attack-to-the-cloud-service"></a>Como posso evitar receber milhares de acessos de endereços IP desconhecidos que possam indicar um ataque malicioso ao serviço de nuvem?
 O Azure implementa uma segurança de rede multicamadas para proteger os seus serviços de plataforma contra ataques de negação de serviço distribuídos (DDoS). O sistema de defesa Azure DDoS faz parte do processo de monitorização contínua da Azure, que é continuamente melhorado através de testes de penetração. Este sistema de defesa DDoS foi concebido para resistir não só a ataques vindos de fora, mas também de outros inquilinos do Azure. Para mais informações, consulte [a segurança da rede Azure.](https://download.microsoft.com/download/C/A/3/CA3FC5C0-ECE0-4F87-BF4B-D74064A00846/AzureNetworkSecurity_v3_Feb2015.pdf)
@@ -67,7 +67,7 @@ O algoritmo de distribuição utilizado é um haxixe de 5 tuple (origem IP, port
 
 O módulo de reescrita de URL do IIS pode ser usado para redirecionar o tráfego que vem para o URL padrão para o serviço na nuvem (por exemplo, \* .cloudapp.net) para algum nome/URL personalizado. Como o módulo url rewrite é ativado em funções web por padrão e as suas regras estão configuradas na web.config da aplicação, está sempre disponível no VM independentemente de reboots/reimagens. Para mais informações, consulte:
 
-- [Crie regras de reescrita para o módulo de reescrita de URL](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
+- [Crie regras de reescrita para o módulo de reescrita de URL](/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
 - [Remover um link predefinido](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top)
 
 ## <a name="how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>Como posso bloquear/desativar o tráfego de entrada para o URL padrão do meu serviço na nuvem?
