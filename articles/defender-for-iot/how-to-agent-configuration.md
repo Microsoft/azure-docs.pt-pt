@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: c348b800e9587f13e6ff004317a2aa12efb03394
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa863ce556840903d16238d6afef32136ba2b80d
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939400"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090850"
 ---
 # <a name="tutorial-configure-security-agents"></a>Tutorial: Configure agentes de segurança
 
@@ -117,8 +117,8 @@ A tabela seguinte contém as propriedades controláveis do Defender para agentes
 
 Os valores predefinidos estão disponíveis no esquema adequado no [GitHub](https\://aka.ms/iot-security-module-default).
 
-| Nome| Estado | Valores válidos| Valores predefinidos| Descrição |
-|----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
+| Name| Estado | Valores válidos| Valores predefinidos| Description |
+|----------|--------|--|-------|----|
 |altaPriorityMessageFrequency|Obrigatório: falso |Valores válidos: Duração no Formato ISO 8601 |Valor predefinido: PT7M |Intervalo de tempo máximo antes de serem enviadas mensagens de alta prioridade.|
 |baixaPriorityMessageFrequency |Obrigatório: falso|Valores válidos: Duração no Formato ISO 8601 |Valor predefinido: PT5H |Tempo máximo antes de serem enviadas mensagens de baixa prioridade.|
 |snapshotFrequency |Exigir: falso|Valores válidos: Duração no Formato ISO 8601 |Valor predefinido PT13H |Intervalo de tempo para a criação de instantâneos de estado do dispositivo.|
@@ -129,7 +129,7 @@ Os valores predefinidos estão disponíveis no esquema adequado no [GitHub](http
 ### <a name="supported-security-events"></a>Eventos de segurança apoiados
 
 |Nome do evento| PropertyName | Valor Predefinido| Evento Snapshot| Estado dos detalhes  |
-|----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
+|----------|-|---------|----|----|
 |Evento de diagnóstico|eventoPriorityDiagnostic| Desativado| Falso| Eventos de diagnóstico relacionados com agente. Utilize este evento para a extração verbose.|
 |Erro de configuração |eventPriorityConfigurationError |Baixo |Falso |O agente não analisou a configuração. Verifique a configuração contra o esquema.|
 |Estatísticas de eventos abandonadas |eventPriorityDroppedEventsStatistics |Baixo |Verdadeiro|Estatísticas de eventos relacionadas com o agente. |

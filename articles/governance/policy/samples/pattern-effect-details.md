@@ -1,14 +1,14 @@
 ---
 title: 'Padrão: Efeitos de uma definição de política'
 description: Este padrão de Política Azure fornece um exemplo de como utilizar os diferentes efeitos de uma definição de política.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: sample
-ms.openlocfilehash: 9c7e7689aa837a2dba0992112df3cd36ac9affe6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1da9bd153707db35c07ed3c176542797a694d7a
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85565730"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073041"
 ---
 # <a name="azure-policy-pattern-effects"></a>Padrão de política azul: efeitos
 
@@ -24,7 +24,7 @@ Esta definição de política verifica se a etiqueta definida no **nome de parâ
 
 :::code language="json" source="~/policy-templates/patterns/pattern-effect-details-1.json" range="40-50":::
 
-Um efeito **de modificação** requer o **bloco policyRule.then.details** que define **funDefinitionIds** e **operações**. Estes parâmetros informam a Azure Policy quais as funções necessárias para adicionar a etiqueta e remediar o recurso e que **modificam** a operação para executar. Neste exemplo, a **operação** é _acrescentada_ e os parâmetros são usados para definir a etiqueta e o seu valor.
+Um efeito **de modificação** requer o **bloco policyRule.then.details** que define **funDefinitionIds** e **operações**. Estes parâmetros informam a Azure Policy quais as funções necessárias para adicionar a etiqueta e remediar o recurso e que **modificam** a operação a utilizar. Neste exemplo, a **operação** _de adição_ e os parâmetros são utilizados para definir a etiqueta e o seu valor.
 
 ## <a name="sample-2-complex-effect"></a>Amostra 2: Efeito complexo
 

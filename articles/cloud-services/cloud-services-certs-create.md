@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: tagore
-ms.openlocfilehash: 08ce69856dd36b6029297109fcb8610b856c8b98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8650b8670c61cab15b26163dd5108145b8509434
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88142371"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072429"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Certificates overview for Azure Cloud Services (Descrição geral dos certificados para os Serviços Cloud do Azure)
 Os certificados são utilizados no Azure para serviços na nuvem[(certificados](#what-are-service-certificates)de serviço) e para autenticação com a API de gestão[(certificados de gestão).](#what-are-management-certificates) Este tópico dá uma visão geral de [create](#create) ambos os tipos de certificados, como criá-los e implantá-los para Azure.
@@ -76,7 +76,7 @@ Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $pass
 > Se pretender utilizar o certificado com um endereço IP em vez de um domínio, utilize o endereço IP no parâmetro -DnsName.
 
 
-Se pretender utilizar este [certificado com o portal de gestão,](../azure-api-management-certs.md)exporte-o para um ficheiro **.cer:**
+Se pretender utilizar este [certificado com o portal de gestão,](/previous-versions/azure/azure-api-management-certs)exporte-o para um ficheiro **.cer:**
 
 ```powershell
 Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
@@ -91,8 +91,4 @@ Há muitas páginas na internet que cobrem como fazê-lo com o IIS. [Aqui](https
 ## <a name="next-steps"></a>Passos seguintes
 [Faça o upload do seu certificado de serviço para o portal Azure](cloud-services-configure-ssl-certificate-portal.md).
 
-Faça o upload de um [certificado de API](../azure-api-management-certs.md) de gestão para o portal Azure.
-
-
-
-
+Faça o upload de um [certificado de API](/previous-versions/azure/azure-api-management-certs) de gestão para o portal Azure.

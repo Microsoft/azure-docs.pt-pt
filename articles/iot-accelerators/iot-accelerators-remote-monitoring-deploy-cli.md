@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 501ca51a9542229a14e98a56679837950a82891e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9dcf19f5318021df5d9fdde777b8786942e33d8
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80258299"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072259"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Implementar o acelerador de solução de monitorização remota utilizando o CLI
 
@@ -73,12 +73,12 @@ Uma implementação básica cria os seguintes serviços na sua subscrição Azur
 | 1     | [Máquina virtual Linux](https://azure.microsoft.com/services/virtual-machines/) | Padrão D1 V2  | Hospedar microserviços |
 | 1     | [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/)                  | S1 – Nível standard | Gestão e comunicação de dispositivos |
 | 1     | [BD do Cosmos para o Azure](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Armazenar dados de configuração, regras, alertas e outros armazenamentos a frio |  
-| 1     | [Conta de Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | Armazenamento para postos de controlo de VM e streaming |
+| 1     | [Conta de Armazenamento do Azure](../storage/common/storage-introduction.md#types-of-storage-accounts)  | Standard        | Armazenamento para postos de controlo de VM e streaming |
 | 1     | [Aplicação Web](https://azure.microsoft.com/services/app-service/web/)        |                 | Hospedar aplicação web frontal |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Gestão das identidades e segurança dos utilizadores |
 | 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Standard                | Visualização de localizações de ativos |
 | 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 unidades              | Permitir análises em tempo real |
-| 1     | [Serviço de fornecimento de dispositivos Azure](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Dispositivos de provisionamento à escala |
+| 1     | [Serviço de fornecimento de dispositivos Azure](../iot-dps/index.yml)        |       S1          | Dispositivos de provisionamento à escala |
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1 unidade              | Armazenamento para dados de mensagens e permite análise de telemetria de mergulho profundo |
 
 ### <a name="standard"></a>Standard
@@ -94,12 +94,12 @@ Uma implementação padrão cria os seguintes serviços na sua subscrição Azur
 | 1     | [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)| Use um serviço de orquestração de contentores Kubernetes totalmente gerido, incumprimentos para 3 agentes|
 | 1     | [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/)                     | S2 – Nível standard | Gestão, comando e controlo de dispositivos |
 | 1     | [BD do Cosmos para o Azure](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Armazenar dados de configuração e telemetria do dispositivo como regras, alertas e mensagens |
-| 5     | [Contas de armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | 4 para armazenamento em VM e 1 para os postos de controlo de streaming |
+| 5     | [Contas de armazenamento Azure](../storage/common/storage-introduction.md#types-of-storage-accounts)    | Standard        | 4 para armazenamento em VM e 1 para os postos de controlo de streaming |
 | 1     | [Serviço de Aplicações](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Gateway de aplicação sobre TLS |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Gestão das identidades e segurança dos utilizadores |
 | 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Standard                | Visualização de localizações de ativos |
 | 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 unidades              | Permitir análises em tempo real |
-| 1     | [Serviço de fornecimento de dispositivos Azure](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Dispositivos de provisionamento à escala |
+| 1     | [Serviço de fornecimento de dispositivos Azure](../iot-dps/index.yml)        |       S1          | Dispositivos de provisionamento à escala |
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 – 1 unidade              | Armazenamento para dados de mensagens e permite análise de telemetria de mergulho profundo |
 
 > [!NOTE]

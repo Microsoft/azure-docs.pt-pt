@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 8cda46a011ae92f26a15a4e9a918559801ce299c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c90062f1968cc7be5a742a67363f57b9632fdfa
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906862"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92090680"
 ---
 # <a name="java-and-base-os-for-spring-microservice-apps"></a>Java e Base OS para Aplicações de Microsserviços Spring
 
@@ -46,7 +46,7 @@ A Azul Systems irá procurar continuamente alterações nos sistemas operativos 
     * Ubuntu 20.04 LTS (Focal Fossa). As aplicações continuarão a manter-se na mais recente versão LTS do Ubuntu.
     * Ver [Ubuntu 20.04 LTS (Focal Fossa)](http://releases.ubuntu.com/focal/)
 * Como posso descarregar um tempo de java suportado para dev local? 
-    * Ver [Instalar o JDK para Azure e Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install)
+    * Ver [Instalar o JDK para Azure e Azure Stack](/azure/developer/java/fundamentals/java-jdk-install)
 * Como posso obter apoio para problemas a nível de tempo de java?
     * Abra um bilhete de apoio com suporte Azure.
  
@@ -57,4 +57,4 @@ A Azul Systems irá procurar continuamente alterações nos sistemas operativos 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Quickstart: Implemente a sua primeira aplicação Azure Spring Cloud](spring-cloud-quickstart.md)
-* [Suporte a longo prazo de Java para Azure e Azure Stack](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-long-term-support)
+* [Suporte a longo prazo de Java para Azure e Azure Stack](/azure/developer/java/fundamentals/java-jdk-long-term-support)

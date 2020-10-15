@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: duau
-ms.openlocfilehash: e25ebd181d0017885a24310e3dac3ff30a59a21e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c2e0f7736aa5d6779e4ed7cb3824f6606c121565
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973364"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073143"
 ---
 # <a name="quickstart-create-and-modify-an-expressroute-circuit"></a>Quickstart: Criar e modificar um circuito ExpressRoute
 
@@ -172,7 +172,7 @@ Se o estado de prestação do serviço de circuito ExpressRoute for **Provisioni
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Pode eliminar o seu circuito ExpressRoute selecionando o ícone **Eliminar.** 
+Pode eliminar o seu circuito ExpressRoute selecionando o ícone **Eliminar.** Certifique-se de que o estado do fornecedor não é *previsto* antes de prosseguir.
 
 :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/expressroute-circuit-delete.png" alt-text="Criar um circuito do ExpressRoute":::
 

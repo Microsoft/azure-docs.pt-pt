@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: 500131121640026fd3fda5be9eecb376d2db8f0e
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 38c5df6a05d327e0b057501846e70d1f3c6c4896
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999316"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92091156"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Proteger cargas de trabalho do Kubernetes
 
@@ -67,21 +67,21 @@ O Azure Security Center inclui um conjunto de recomendações que estão dispon�
     > 
     > Se não introduzir os parâmetros necessários para as recomendações que requerem configuração, as suas cargas de trabalho serão mostradas como pouco saudáveis.
 
-    | Nome da recomendação                                                                   | Controlo de segurança                         | Configuração necessária |
-    |---------------------------------------------------------------------------------------|------------------------------------------|------------------------|
-    | O CPU do contentor e os limites de memória devem ser aplicados (pré-visualização)                          | Proteja as aplicações contra o ataque do DDoS | Não                     |
-    | Os recipientes privilegiados devem ser evitados (pré-visualização)                                     | Gerir acessos e permissões            | Não                     |
-    | O sistema de ficheiros de raiz imutável (apenas para leitura) deve ser aplicado para os contentores (pré-visualização)     | Gerir acessos e permissões            | Não                     |
-    | O contentor com escalada de privilégio deve ser evitado (pré-visualização)                       | Gerir acessos e permissões            | Não                     |
-    | Devem ser evitados os recipientes de funcionamento como utilizador de raiz (pré-visualização)                           | Gerir acessos e permissões            | Não                     |
-    | Devem ser evitados os recipientes que partilham espaços sensíveis para o nome do hospedeiro (pré-visualização)              | Gerir acessos e permissões            | Não                     |
-    | As capacidades linux menos privilegiadas devem ser aplicadas para contentores (pré-visualização)       | Gerir acessos e permissões            | **Sim**                |
-    | A utilização dos suportes de volume do Pod HostPath deve ser restringida a uma lista conhecida (pré-visualização)    | Gerir acessos e permissões            | **Sim**                |
-    | Os contentores devem ouvir apenas as portas permitidas (pré-visualização)                              | Restringir o acesso não autorizado à rede     | **Sim**                |
-    | Os serviços devem ouvir apenas as portas permitidas (pré-visualização)                                | Restringir o acesso não autorizado à rede     | **Sim**                |
-    | A utilização da rede de anfitriões e das portas deve ser restringida (pré-visualização)                     | Restringir o acesso não autorizado à rede     | **Sim**                |
-    | Sobrevaor ou desativação de contentores O perfil appArmor deve ser restringido (pré-visualização) | Remediar configurações de segurança        | **Sim**                |
-    | As imagens do contentor devem ser implantadas apenas a partir de registos fidedignos (pré-visualização)            | Remediar vulnerabilidades                | **Sim**                |
+    | Nome da recomendação                                                         | Controlo de segurança                         | Configuração necessária |
+    |-----------------------------------------------------------------------------|------------------------------------------|------------------------|
+    | CpU do contentor e limites de memória devem ser aplicados                          | Proteja as aplicações contra o ataque do DDoS | Não                     |
+    | Recipientes privilegiados devem ser evitados                                     | Gerir acessos e permissões            | Não                     |
+    | O sistema de ficheiros de raiz imutável (apenas para leitura) deve ser aplicado para os contentores     | Gerir acessos e permissões            | Não                     |
+    | Contentor com escalada de privilégio deve ser evitado                       | Gerir acessos e permissões            | Não                     |
+    | Os recipientes de funcionamento como utilizador de raiz devem ser evitados                           | Gerir acessos e permissões            | Não                     |
+    | Os recipientes que partilham espaços sensíveis de nome de hospedeiro devem ser evitados              | Gerir acessos e permissões            | Não                     |
+    | Capacidades linux menos privilegiadas devem ser aplicadas para contentores       | Gerir acessos e permissões            | **Sim**                |
+    | O uso dos suportes de volume pod HostPath deve ser restringido a uma lista conhecida    | Gerir acessos e permissões            | **Sim**                |
+    | Os contentores devem ouvir apenas as portas permitidas                              | Restringir o acesso não autorizado à rede     | **Sim**                |
+    | Os serviços devem ouvir apenas os portos permitidos                                | Restringir o acesso não autorizado à rede     | **Sim**                |
+    | A utilização da rede de acolhimento e das portas deve ser restringida                     | Restringir o acesso não autorizado à rede     | **Sim**                |
+    | Sobrevaor ou desativação de contentores O perfil appArmor deve ser restringido | Remediar configurações de segurança        | **Sim**                |
+    | As imagens dos contentores devem ser implantadas apenas a partir de registos fidedignos            | Remediar vulnerabilidades                | **Sim**                |
 
 
 1. Para as recomendações com parâmetros devem ser personalizadas, desagram os parâmetros:

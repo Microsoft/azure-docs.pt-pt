@@ -7,12 +7,12 @@ ms.date: 02/25/2020
 ms.author: barbkess
 ms.reviewer: lcozzens
 ms.service: azure-app-configuration
-ms.openlocfilehash: 560a2df5946b9cfe1160864752595e86cc6eeb65
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 270f8d471a95e67939a31357bc1cc056fe8ea4a1
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82981226"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92072803"
 ---
 # <a name="how-to-use-managed-identities-for-azure-app-configuration"></a>Como utilizar identidades geridas para configuração de aplicações Azure
 
@@ -33,7 +33,7 @@ Para configurar uma identidade gerida utilizando o CLI Azure, utilize o comando 
 
 - Utilize [a Azure Cloud Shell](../cloud-shell/overview.md) a partir do portal Azure.
 - Utilize o Azure Cloud Shell incorporado através do botão "Try It", localizado no canto superior direito de cada bloco de código abaixo.
-- [Instale a versão mais recente do Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.1 ou posterior) se preferir utilizar uma consola CLI local.
+- [Instale a versão mais recente do Azure CLI](/cli/azure/install-azure-cli) (2.1 ou posterior) se preferir utilizar uma consola CLI local.
 
 Os seguintes passos irão acompanhá-lo através da criação de uma loja de Configuração de Aplicações e atribuindo-lhe uma identidade utilizando o CLI:
 
@@ -66,7 +66,7 @@ Para configurar uma identidade gerida utilizando o CLI Azure, utilize o comando 
 
 - Utilize [a Azure Cloud Shell](../cloud-shell/overview.md) a partir do portal Azure.
 - Utilize o Azure Cloud Shell incorporado através do botão "Try It", localizado no canto superior direito de cada bloco de código abaixo.
-- [Instale a versão mais recente do Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 ou posterior) se preferir utilizar uma consola CLI local.
+- [Instale a versão mais recente do Azure CLI](/cli/azure/install-azure-cli) (2.0.31 ou posterior) se preferir utilizar uma consola CLI local.
 
 Os seguintes passos irão acompanhá-lo através da criação de uma identidade atribuída ao utilizador e de uma loja de Configuração de Aplicações, atribuindo a identidade à loja utilizando o CLI:
 

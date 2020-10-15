@@ -3,18 +3,18 @@ title: Como criar implementações de atualização para a Azure Automation Upda
 description: Este artigo descreve como agendar as implementações de atualização e rever o seu estado.
 services: automation
 ms.subservice: update-management
-ms.date: 09/16/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: fa5cabd5410f0cbe7382db0289d98bc69d4a01fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5f7d86ff668a151bdf83908c3199d01a0a53246
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91294721"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92073755"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Como implementar atualizações e rever resultados
 
-Este artigo descreve como agendar uma implementação de atualização e rever o processo após a implementação estar concluída. Pode configurar uma implementação de atualização a partir de uma máquina virtual Azure selecionada, a partir do servidor ativado pelo Arco selecionado, ou da conta Automation em todas as máquinas e servidores configurados. 
+Este artigo descreve como agendar uma implementação de atualização e rever o processo após a implementação estar concluída. Pode configurar uma implementação de atualização a partir de uma máquina virtual Azure selecionada, a partir do servidor ativado pelo Arco selecionado, ou da conta Automation em todas as máquinas e servidores configurados.
 
 Em cada cenário, a implementação cria alvos que selecionou máquina ou servidor, ou no caso de criar uma implementação a partir da sua conta Dem automação, pode visar uma ou mais máquinas. Quando agenda uma atualização a partir de um servidor ativado por Azure VM ou Arco, os passos são os mesmos que a implantação a partir da sua conta Demôm automação, com as seguintes exceções:
 
@@ -59,7 +59,7 @@ Para agendar uma nova implementação de atualização, execute os seguintes pas
     > [!NOTE]
     > Esta opção não está disponível se selecionar um servidor Azure VM ou Arc ativado. A máquina é automaticamente direcionada para a implantação programada.
 
-6. Nas **Máquinas para atualizar a** região, selecione uma pesquisa guardada, um grupo importado ou escolha **Máquinas** do menu suspenso e selecione máquinas individuais. Com esta opção, pode ver a prontidão do agente Log Analytics para cada máquina. Para conhecer os diferentes métodos de criação de grupos informáticos nos registos do Monitor Azure, consulte [grupos de computador nos registos do Azure Monitor](../../azure-monitor/platform/computer-groups.md).
+6. Nas **Máquinas para atualizar a** região, selecione uma pesquisa guardada, um grupo importado ou escolha **Máquinas** do menu suspenso e selecione máquinas individuais. Com esta opção, pode ver a prontidão do agente Log Analytics para cada máquina. Para conhecer os diferentes métodos de criação de grupos informáticos nos registos do Monitor Azure, consulte [grupos de computador nos registos do Azure Monitor](../../azure-monitor/platform/computer-groups.md). Pode incluir até um máximo de 500 máquinas numa atualização programada.
 
     > [!NOTE]
     > Esta opção não está disponível se selecionar um servidor Azure VM ou Arc ativado. A máquina é automaticamente direcionada para a implantação programada.
@@ -89,7 +89,7 @@ Para agendar uma nova implementação de atualização, execute os seguintes pas
 
     * As janelas de manutenção controlam quantas atualizações estão instaladas.
     * A Atualização A Gestão não para de instalar novas atualizações se o fim de uma janela de manutenção estiver a aproximar-se.
-    * A Atualização A Gestão não termina atualizações em curso se a janela de manutenção for excedida.
+    * A Atualização A Gestão não termina atualizações em curso se a janela de manutenção for excedida. Quaisquer atualizações restantes a instalar não são tentadas. Se isto estiver a acontecer de forma consistente, deve reavaliar a duração da sua janela de manutenção.
     * Se a janela de manutenção for excedida no Windows, é frequentemente porque uma atualização do pacote de serviços está a demorar muito tempo a instalar.
 
     > [!NOTE]
