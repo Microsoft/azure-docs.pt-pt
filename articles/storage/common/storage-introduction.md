@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 1f335640eb37f51857fa295298d0a3ca91f2a370
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd45a393081d52985d99fac7ea5dccc5bd2a2712
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714983"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079229"
 ---
 # <a name="introduction-to-the-core-azure-storage-services"></a>Introdução aos principais serviços de armazenamento Azure
 
@@ -121,7 +121,7 @@ Todos os pedidos ao Azure Storage devem ser autorizados. O Azure Storage suporta
 
 Existem dois tipos básicos de encriptação disponíveis para os serviços de armazenamento principal. Para obter mais informações sobre segurança e encriptação, veja o [Guia de segurança do Armazenamento do Azure](../blobs/security-recommendations.md).
 
-### <a name="encryption-at-rest"></a>Encriptação inativa
+### <a name="encryption-at-rest"></a>Encriptação de dados inativos
 
 A encriptação Azure Storage protege e salvaguarda os seus dados para cumprir os seus compromissos de segurança organizacional e conformidade. O Azure Storage encripta automaticamente todos os dados antes de persistir na conta de armazenamento e desencripta-os antes da recuperação. A encriptação, desencriptação e os principais processos de gestão são transparentes para os utilizadores. Os clientes também podem optar por gerir as suas próprias chaves usando o Azure Key Vault. Para obter mais informações, consulte [a encriptação do Azure Storage para obter dados em repouso](storage-service-encryption.md).
 
@@ -173,8 +173,7 @@ Pode aceder a recursos numa conta de armazenamento por qualquer idioma que possa
 - [Cmdlets da CLI do Azure para Armazenamento](https://docs.microsoft.com/cli/azure/storage)
 - [Utilitário da Linha de Comandos do AzCopy](https://aka.ms/downloadazcopy)
 - O [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) é uma aplicação autónoma e gratuita da Microsoft, que lhe permite trabalhar visualmente com dados do Armazenamento do Azure no Windows, macOS e Linux.
-- [Ferramentas de cliente de armazenamento Azure](../storage-explorers.md)
-- [Ferramentas de Programação do Azure](https://azure.microsoft.com/tools/)
+- [Modelos de gestor de recursos Azure para armazenamento Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage)
 
 ## <a name="next-steps"></a>Passos seguintes
 

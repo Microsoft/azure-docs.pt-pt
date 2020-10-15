@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: tagore
 ms.custom: devx-track-python
-ms.openlocfilehash: 503e37d0e339cacc9c21a2b2f3ad739e1385c955
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 955498c663560351c01f1894fb348b89f72d549b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89443199"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92079246"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Funções da Web e de trabalho do Python com Ferramentas de Python para Visual Studio
 
@@ -357,13 +357,10 @@ Para obter mais detalhes sobre a utilização de serviços do Azure a partir das
 <!--External Link references-->
 
 [Python Tools for Visual Studio]: https://aka.ms/ptvs
-[Python Tools for Visual Studio Documentation]: https://aka.ms/ptvsdocs
-[Cloud Service Projects]: https://docs.microsoft.com/visualstudio/python/python-azure-cloud-service-project-template
+[Python Tools for Visual Studio Documentation]: /visualstudio/python/
+[Cloud Service Projects]: /visualstudio/python/python-azure-cloud-service-project-template
 [Azure SDK Tools for VS 2013]: https://go.microsoft.com/fwlink/?LinkId=746482
 [Azure SDK Tools for VS 2015]: https://go.microsoft.com/fwlink/?LinkId=746481
 [Azure SDK Tools for VS 2017]: https://go.microsoft.com/fwlink/?LinkId=746483
 [Python 2.7 32-bit]: https://www.python.org/downloads/
 [Python 3.5 32-bit]: https://www.python.org/downloads/
-
-
-
