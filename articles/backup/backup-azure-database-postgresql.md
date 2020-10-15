@@ -4,12 +4,12 @@ description: Saiba mais sobre a Base de Dados Azure para cópia de segurança p�
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: ae18a5bb40d8993c82b2f3e03f231711ba3beebe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a30f822db134ce82e772602cb2430d7e8d0db23e
+ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997315"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92093893"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Base de Dados Azure para backup pós-SQL com retenção a longo prazo (pré-visualização)
 
@@ -17,7 +17,7 @@ Os Serviços de Backup e Azure Database Services juntaram-se para construir uma 
 
 Além da retenção a longo prazo, a solução também tem muitas outras capacidades como listado abaixo:
 
-- Acesso baseado no RBAC à base de dados utilizando a autenticação do Azure Ative Directory e da Identidade de Serviço Gerido (MSI).
+- Azure controlo de acesso baseado em funções (Azure RBAC) para a base de dados usando a autenticação Azure Ative Directory e Managed Service Identity (MSI).
 - Backup de horários e on-demand controlado pelo cliente a nível de base de dados individual.
 - O nível de base de dados restaura a qualquer servidor de Postgres ou diretamente ao armazenamento de bolhas.
 - Retenção de longa duração.

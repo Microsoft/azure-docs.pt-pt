@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de políticas
 description: Descreve como as definições de política são usadas para estabelecer convenções para recursos Azure na sua organização.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7b6cb1b9e9a57fb3278ec931364bc355258d649d
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 84af781ae58ab45b69d71ebdc22fbced910da246
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019958"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074265"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -111,7 +111,7 @@ O seguinte modo fornecedor de recursos é totalmente suportado:
 Os seguintes modos de Fornecedor de Recursos são atualmente suportados como **pré-visualização:**
 
 - `Microsoft.ContainerService.Data` para gerir as regras do controlador de admissão no [Serviço Azure Kubernetes](../../../aks/intro-kubernetes.md). As definições que utilizam este modo fornecedor de recursos **devem** utilizar o efeito [EnforceRegoPolicy.](./effects.md#enforceregopolicy) Este modo é _precotado._
-- `Microsoft.KeyVault.Data` para a gestão de cofres e certificados em [Azure Key Vault](../../../key-vault/general/overview.md).
+- `Microsoft.KeyVault.Data` para a gestão de cofres e certificados em [Azure Key Vault](../../../key-vault/general/overview.md). Para obter mais informações sobre estas definições políticas, consulte [Integrar o Cofre da Chave Azure com a Política Azure](../../../key-vault/general/azure-policy.md).
 
 > [!NOTE]
 > Os modos fornecedores de recursos apenas suportam definições políticas incorporadas e não suportam [isenções](./exemption-structure.md).
@@ -609,8 +609,20 @@ As seguintes funções só estão disponíveis nas regras políticas:
     "definitionReferenceId": "StorageAccountNetworkACLs"
   }
   ```
-  
-  
+
+
+- `ipRangeContains(range, targetRange)`
+    - **gama**: [Obrigatório] string - Cadeia especificando uma gama de endereços IP.
+    - **targetRange**: [Obrigatório] string - Cadeia especificando uma gama de endereços IP.
+
+    Devolve se o intervalo de endereço IP dado contém o intervalo de endereço IP alvo. Não são permitidas gamas vazias, ou mistura entre famílias ip e resulta em falha de avaliação.
+
+    Formatos suportados:
+    - Endereço IP único (exemplos: `10.0.0.0` `2001:0DB8::3:FFFE` )
+    - Gama CIDR (exemplos: `10.0.0.0/24` `2001:0DB8::/110` , )
+    - Gama definida por endereços IP de início e fim (exemplos: `192.168.0.1-192.168.0.9` `2001:0DB8::-2001:0DB8::3:FFFF` )
+
+
 #### <a name="policy-function-example"></a>Exemplo de função política
 
 Este exemplo de regra de política usa a `resourceGroup` função de recurso para obter a propriedade do **nome,** combinada com a `concat` função de matriz e objeto para construir uma `like` condição que impõe o nome do recurso para começar com o nome do grupo de recursos.
