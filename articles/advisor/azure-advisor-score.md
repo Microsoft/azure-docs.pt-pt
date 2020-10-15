@@ -3,12 +3,12 @@ title: Otimize cargas de trabalho do Azure utilizando a pontuação do Advisor
 description: Use pontuação do Advisor para tirar o máximo partido de Azure
 ms.topic: article
 ms.date: 09/09/2020
-ms.openlocfilehash: 29d8480f501a78c1668b52034f439f998419f9d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4c401a8b532c247806c5fe30728a1f4afd334a4
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335624"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074027"
 ---
 # <a name="optimize-azure-workloads-using-advisor-score"></a>Otimize cargas de trabalho do Azure utilizando a pontuação do Advisor
 
@@ -17,7 +17,7 @@ ms.locfileid: "91335624"
 O Azure Advisor fornece recomendações de boas práticas para as suas cargas de trabalho. Estas recomendações são personalizadas e ações para ajudá-lo:
 * Melhore a postura das suas cargas de trabalho e otimize as suas implementações Azure
 * Proativamente prevenir as principais questões seguindo as melhores práticas
-* Avalie as suas cargas de trabalho do Azure contra os cinco pilares do [Quadro de Well-Architected microsoft Azure](https://docs.microsoft.com/azure/architecture/framework/)
+* Avalie as suas cargas de trabalho do Azure contra os cinco pilares do [Quadro de Well-Architected microsoft Azure](/azure/architecture/framework/)
 
 Como uma característica central do Advisor, a **pontuação do Advisor** é concebida para ajudá-lo a alcançar estes objetivos de forma eficaz e eficiente. 
 
@@ -56,7 +56,7 @@ O cálculo da pontuação do Advisor pode ser resumido em quatro etapas:
   * Os recursos com recomendações de longa data contarão mais contra a sua pontuação.
   * Os recursos que adia ou dispensa no Advisor são totalmente removidos do seu cálculo de pontuação. 
     
-O Advisor aplica este modelo a um nível de categoria Advisor (Security usa o modelo [Secure Score),](https://docs.microsoft.com/azure/security-center/secure-score-security-controls#introduction-to-secure-score) dando-nos pontuação Advisor para cada categoria e ainda uma média simples produz a pontuação final do Advisor.
+O Advisor aplica este modelo a um nível de categoria Advisor (Security usa o modelo [Secure Score),](../security-center/secure-score-security-controls.md#introduction-to-secure-score) dando-nos pontuação Advisor para cada categoria e ainda uma média simples produz a pontuação final do Advisor.
 
 
 ## <a name="advisor-score-faq"></a>Pontuação de assessores FAQ
@@ -72,7 +72,7 @@ Se rejeitar uma recomendação do Advisor, será omitida do cálculo da sua pont
 * **Porque é que a minha pontuação mudou?** A pontuação pode ser alterada se remediar os recursos impactados adotando as melhores práticas que o Advisor recomenda. Se você ou alguém com permissões na sua subscrição tiver modificado ou criado novos recursos, também poderá ver flutuações na sua pontuação porque a sua pontuação baseia-se numa relação entre os recursos impactados pelo custo em relação ao custo total de todos os recursos.
 * **Como calcula o custo de venda a retalho de recursos numa subscrição?**
 O consultor utiliza as tarifas de pagamento à medida que vai, publicada na página de preços Azure.com, que não reflete quaisquer descontos aplicáveis, multiplicados pela quantidade de utilização no último dia em que o recurso foi atribuído. Omitir descontos do cálculo do custo de recurso faz com que a pontuação do Advisor seja comparável entre subscrições, inquilinos e inscrições onde os descontos podem variar. 
-* **Preciso de ver as recomendações do Advisor para conseguir pontos para a minha pontuação?** N.º A sua pontuação reflete se adota as melhores práticas que o Advisor recomenda, mesmo que adote essas melhores práticas proativamente e nunca veja as suas recomendações no Advisor.
+* **Preciso de ver as recomendações do Advisor para conseguir pontos para a minha pontuação?** Não. A sua pontuação reflete se adota as melhores práticas que o Advisor recomenda, mesmo que adote essas melhores práticas proativamente e nunca veja as suas recomendações no Advisor.
 * **A metodologia de pontuação diferencia entre cargas de produção e dev-teste?**
 Não, não por enquanto, mas pode rejeitar recomendações sobre recursos individuais se esses recursos forem utilizados para o desenvolvimento e teste e a recomendação não se aplicar.
 * **Posso comparar pontuações entre uma subscrição com 100 recursos e uma subscrição com 100.000 recursos?**

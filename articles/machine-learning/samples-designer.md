@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.date: 10/14/2020
 ms.custom: designer
-ms.openlocfilehash: 15f8e424529513b2932dcb18de941a8fe1867c1d
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: ecdb011310d8aa5bd63e9b9e9679bb525cb4f7b3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92045453"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074605"
 ---
 # <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>Pipelines de exemplo & conjuntos de dados para o designer de aprendizagem de máquinas Azure
 
@@ -67,8 +67,8 @@ Explore estas amostras de regressão incorporadas.
 
 | Título de exemplo | Descrição | 
 | --- | --- |
-| [Regressão - Previsão dos Preços do Automóvel (Básico)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-regression-automobile-price-basic.md) | Prever os preços dos carros usando a regressão linear. |
-| [Regressão - Previsão do Preço do Automóvel (Avançado)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-regression-automobile-price-compare-algorithms.md) | Prever os preços dos automóveis usando a floresta de decisão e impulsionar os regressores das árvores de decisão. Compare os modelos para encontrar o melhor algoritmo.
+| [Regressão - Previsão dos Preços do Automóvel (Básico)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/regression-automobile-price-prediction-basic.md) | Prever os preços dos carros usando a regressão linear. |
+| [Regressão - Previsão do Preço do Automóvel (Avançado)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/regression-automobile-price-prediction-compare-algorithms.md) | Prever os preços dos automóveis usando a floresta de decisão e impulsionar os regressores das árvores de decisão. Compare os modelos para encontrar o melhor algoritmo.
 
 ## <a name="classification"></a>Classificação
 
@@ -76,10 +76,10 @@ Explore estas amostras de classificação incorporadas. Pode aprender mais sobre
 
 | Título de exemplo | Descrição | 
 | --- | --- |
-| [Classificação Binária com Seleção de Recursos - Previsão de Rendimento](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-predict-income.md) | Prever o rendimento tão alto ou baixo, usando uma árvore de decisão reforçada de duas classes. Use a correlação Pearson para selecionar funcionalidades.
-| [Classificação binária com script pitão personalizado - Previsão do Risco de Crédito](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-credit-risk-cost-sensitive.md) | Classificar os pedidos de crédito como de alto ou baixo risco. Utilize o módulo de script de Python executar para pesar os seus dados.
-| [Classificação Binária - Previsão da Relação do Cliente](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-churn.md) | Prever o churn do cliente usando árvores de decisão reforçadas de duas classes. Utilize o SMOTE para recolher amostras de dados tendenciosos.
-| [Classificação de texto - Wikipedia SP 500 Dataset](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-text-classification.md) | Classifique os tipos de empresas de artigos da Wikipédia com regressão logística multiclasse. |
+| [Classificação Binária com Seleção de Recursos - Previsão de Rendimento](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/binary-classification-feature-selection-income-prediction.md) | Prever o rendimento tão alto ou baixo, usando uma árvore de decisão reforçada de duas classes. Use a correlação Pearson para selecionar funcionalidades.
+| [Classificação binária com script pitão personalizado - Previsão do Risco de Crédito](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/binary-classification-python-credit-prediction.md) | Classificar os pedidos de crédito como de alto ou baixo risco. Utilize o módulo de script de Python executar para pesar os seus dados.
+| [Classificação Binária - Previsão da Relação do Cliente](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/binary-classification-customer-relationship-prediction.md) | Prever o churn do cliente usando árvores de decisão reforçadas de duas classes. Utilize o SMOTE para recolher amostras de dados tendenciosos.
+| [Classificação de texto - Wikipedia SP 500 Dataset](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/text-classification-wiki.md) | Classifique os tipos de empresas de artigos da Wikipédia com regressão logística multiclasse. |
 | Classificação Multiclasse - Reconhecimento de Letras | Crie um conjunto de classificadores binários para classificar letras escritas. |
 
 ## <a name="computer-vision"></a>Imagem digitalizada
@@ -104,7 +104,7 @@ Saiba mais sobre as amostras que demonstram serviços e funcionalidades de apren
 | Título de exemplo | Descrição | 
 | --- | --- |
 | Classificação Binária usando Modelo de Wabbit Vowpal - Previsão do Rendimento de Adultos | Vowpal Wabbit é um sistema de aprendizagem automática que empurra a fronteira da aprendizagem automática com técnicas como online, hashing, allreduce, reduções, learning2search, ative, e interactive learning. Esta amostra mostra como usar o modelo Vowpal Wabbit para construir um modelo de classificação binária. 
-| [Use script R personalizado - Previsão do atraso de voo](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-flight-delay.md) | Use o script R personalizado para prever se um voo de passageiros programado será adiado por mais de 15 minutos.
+| [Use script R personalizado - Previsão do atraso de voo](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/r-script-flight-delay-prediction.md) | Use o script R personalizado para prever se um voo de passageiros programado será adiado por mais de 15 minutos.
 | Validação cruzada para classificação binária - Previsão do Rendimento de Adultos | Utilize validação cruzada para construir um classificador binário para o rendimento de adultos.
 | Importância da funcionalidade de permutação | Utilizar a importância da funcionalidade de permutação para calcular as pontuações de importância para o conjunto de dados do teste. 
 | Parâmetros de sintonização para classificação binária - Previsão do Rendimento de Adultos | Utilize hiperparmetros tune model para encontrar hiperparímetros ideais para construir um classificador binário. |

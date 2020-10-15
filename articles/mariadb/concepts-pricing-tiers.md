@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 8/13/2020
-ms.openlocfilehash: cb785a6d988772ba160806621e44900d630b7e61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/14/2020
+ms.openlocfilehash: 8ac47937650d766a159c53f7390a8f1e355a28c2
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88225721"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92074809"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Base de Dados Azure para os níveis de preços mariaDB
 
@@ -71,7 +71,10 @@ Estamos a aumentar os limites de armazenamento nos nossos níveis otimizados de 
 | IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20.000 IOPS| 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20.000 IOPS |
 
 > [!IMPORTANT]
-> O grande armazenamento está atualmente em pré-visualização pública nas seguintes regiões: Leste dos EUA, Leste dos EUA 2, Central EUA, Eua Ocidental, Eua Central Do Sul, Europa Do Norte, Europa Ocidental, Reino Unido Sul, Reino Unido, Sudeste Asiático, Ásia Oriental, Japão Ocidental, Coreia Central, Coreia do Sul, Austrália Oriental, Austrália Sudeste, Eua Ocidental 2 e Centro Ocidental dos EUA.
+> O grande armazenamento está atualmente em pré-visualização pública nas seguintes regiões: Leste dos EUA, Leste dos EUA 2, Central EUA, Eua Ocidental, Eua Central Do Sul, Europa Do Norte, Europa Ocidental, Reino Unido Sul, Reino Unido, Sudeste Asiático, Leste Asiático, Japão Oriental, Japão Oeste, Coreia Central, Coreia do Sul, Austrália Oriental, Austrália Sudeste, Oeste dos EUA 2, Centro Oeste dos EUA, Canadá Oriental e Canadá Central.
+>
+> Todas as outras regiões suportam até 4TB de armazenamento e até 6000 IOPS.
+>
 
 ### <a name="reaching-the-storage-limit"></a>Atingindo o limite de armazenamento
 
@@ -91,7 +94,7 @@ Por exemplo, se tiver provisionado 1000 GB de armazenamento, e a utilização re
 
 Lembre-se que o armazenamento só pode ser aumentado, não para baixo.
 
-## <a name="backup"></a>Backup
+## <a name="backup"></a>Cópia de segurança
 
 A Azure Database for MariaDB fornece até 100% do armazenamento do servidor a provisionado como armazenamento de backup sem custos adicionais. Qualquer armazenamento de reserva que utilize acima deste valor é cobrado em GB por mês. Por exemplo, se fornecer um servidor com 250 GB de armazenamento, terá 250 GB de armazenamento adicional disponível para cópias de segurança do servidor sem custos. O armazenamento para cópias de segurança superiores aos 250 GB é cobrado de acordo com o [modelo de preços](https://azure.microsoft.com/pricing/details/mariadb/). Para compreender os fatores que influenciam o uso do armazenamento de backup, monitorizando e controlando o custo de armazenamento de backup, pode consultar a [documentação de backup](concepts-backup.md).
 
