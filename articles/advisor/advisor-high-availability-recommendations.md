@@ -3,12 +3,12 @@ title: Melhorar a fiabilidade da sua candidatura com o Advisor
 description: Utilize o Azure Advisor para garantir e melhorar a fiabilidade nas suas implementações Azure críticas ao negócio.
 ms.topic: article
 ms.date: 09/27/2020
-ms.openlocfilehash: 1e256d99f8d78ddff318f963dcb21e9b4537f110
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ced690ae735a281fdf8b1c3a020ff8c63ce469b
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91405195"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92078039"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Melhore a fiabilidade da sua aplicação utilizando o Azure Advisor
 
@@ -44,7 +44,7 @@ Se um perfil de Gestor de Tráfego estiver configurado para o encaminhamento geo
 
 ## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-after-accidental-overwrite-or-deletion"></a>Utilize a eliminação suave na sua conta de armazenamento Azure para guardar e recuperar dados após substituição acidental ou eliminação
 
-Ativar [a eliminação suave](../storage/blobs/soft-delete-overview.md) na sua conta de armazenamento de modo a que as bolhas apagadas transitem para um estado de eliminação suave em vez de serem permanentemente eliminadas. Quando os dados são substituídos, é gerado um instantâneo de eliminação de forma recuperável para guardar o estado dos dados substituídos. A utilização de eliminações suaves permite-lhe recuperar de supressões acidentais ou substituições. O Advisor identifica as contas de armazenamento Azure que não têm exclusão suave ativada e sugere que a ative.
+Ativar [a eliminação suave](../storage/blobs/soft-delete-blob-overview.md) na sua conta de armazenamento de modo a que as bolhas apagadas transitem para um estado de eliminação suave em vez de serem permanentemente eliminadas. Quando os dados são substituídos, é gerado um instantâneo de eliminação de forma recuperável para guardar o estado dos dados substituídos. A utilização de eliminações suaves permite-lhe recuperar de supressões acidentais ou substituições. O Advisor identifica as contas de armazenamento Azure que não têm exclusão suave ativada e sugere que a ative.
 
 ## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>Configure a sua porta de entrada VPN para ativar para a resiliência da conexão
 
@@ -80,23 +80,23 @@ O Azure Advisor deteta regras de alerta de registo que têm consultas inválidas
 
 ## <a name="configure-consistent-indexing-mode-on-your-azure-cosmos-db-collection"></a>Configurar o modo de indexação consistente na sua coleção DB Azure Cosmos
 
-Configurar recipientes DB Azure Cosmos com modo de indexação preguiçoso pode afetar a frescura dos resultados da consulta. O Advisor deteta os recipientes configurados desta forma e recomenda a mudança para o modo Consistente. [Saiba mais sobre a indexação das políticas em Azure Cosmos DB.](https://aka.ms/cosmosdb/how-to-manage-indexing-policy)
+Configurar recipientes DB Azure Cosmos com modo de indexação preguiçoso pode afetar a frescura dos resultados da consulta. O Advisor deteta os recipientes configurados desta forma e recomenda a mudança para o modo Consistente. [Saiba mais sobre a indexação das políticas em Azure Cosmos DB.](../cosmos-db/how-to-manage-indexing-policy.md)
 
 ## <a name="configure-your-azure-cosmos-db-containers-with-a-partition-key"></a>Configurar os contentores do Azure Cosmos DB com uma chave de partição
 
-O Azure Advisor identifica as coleções não divididas da Azure Cosmos que se aproximam da sua quota de armazenamento abastada. Recomenda que migrar estas coleções para novas coleções com uma definição de chave de partição para que possam ser automaticamente dimensionadas pelo serviço. [Saiba mais sobre a escolha de uma chave de partição.](https://aka.ms/cosmosdb/choose-partitionkey)
+O Azure Advisor identifica as coleções não divididas da Azure Cosmos que se aproximam da sua quota de armazenamento abastada. Recomenda que migrar estas coleções para novas coleções com uma definição de chave de partição para que possam ser automaticamente dimensionadas pelo serviço. [Saiba mais sobre a escolha de uma chave de partição.](../cosmos-db/partitioning-overview.md)
 
 ## <a name="upgrade-your-azure-cosmos-db-net-sdk-to-the-latest-version-from-nuget"></a>Atualize o seu Azure Cosmos DB .NET SDK para a versão mais recente do NuGet
 
-O Azure Advisor identifica as contas DB da Azure Cosmos que estão a utilizar versões antigas do .NET SDK. Recomenda que faça o upgrade para a versão mais recente do NuGet para as mais recentes correções, melhorias de desempenho e capacidades de funcionalidade. [Saiba mais sobre a Azure Cosmos DB .NET SDK.](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+O Azure Advisor identifica as contas DB da Azure Cosmos que estão a utilizar versões antigas do .NET SDK. Recomenda que faça o upgrade para a versão mais recente do NuGet para as mais recentes correções, melhorias de desempenho e capacidades de funcionalidade. [Saiba mais sobre a Azure Cosmos DB .NET SDK.](../cosmos-db/sql-api-sdk-dotnet-standard.md)
 
 ## <a name="upgrade-your-azure-cosmos-db-java-sdk-to-the-latest-version-from-maven"></a>Atualizar o SDK Java do Azure Cosmos DB para a versão mais recente a partir do Maven
 
-O Azure Advisor identifica as contas DB da Azure Cosmos que estão a usar versões antigas do SDK Java. Recomenda que atualize para a versão mais recente da Maven para as mais recentes correções, melhorias de desempenho e capacidades de funcionalidade. [Saiba mais sobre a Azure Cosmos DB Java SDK.](https://aka.ms/cosmosdb/sql-api-sdk-async-java)
+O Azure Advisor identifica as contas DB da Azure Cosmos que estão a usar versões antigas do SDK Java. Recomenda que atualize para a versão mais recente da Maven para as mais recentes correções, melhorias de desempenho e capacidades de funcionalidade. [Saiba mais sobre a Azure Cosmos DB Java SDK.](../cosmos-db/sql-api-sdk-java-v4.md)
 
 ## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Atualize o seu conector Azure Cosmos DB Spark para a versão mais recente da Maven
 
-O Azure Advisor identifica as contas DB da Azure Cosmos que estão a utilizar versões antigas do conector Azure Cosmos DB Spark. Recomenda que atualize para a versão mais recente da Maven para as mais recentes correções, melhorias de desempenho e capacidades de funcionalidade. [Saiba mais sobre o conector Azure Cosmos DB Spark.](https://aka.ms/cosmosdb/spark-connector)
+O Azure Advisor identifica as contas DB da Azure Cosmos que estão a utilizar versões antigas do conector Azure Cosmos DB Spark. Recomenda que atualize para a versão mais recente da Maven para as mais recentes correções, melhorias de desempenho e capacidades de funcionalidade. [Saiba mais sobre o conector Azure Cosmos DB Spark.](../cosmos-db/spark-connector.md)
 
 ## <a name="consider-moving-to-kafka-21-on-hdinsight-40"></a>Considere mudar-se para Kafka 2.1 em HDInsight 4.0
 
@@ -110,10 +110,10 @@ A partir de 1 de julho de 2020, não será capaz de criar novos clusters Spark u
 Máquinas virtuais que não têm replicação ativada para outra região não são resistentes a interrupções regionais. A replicação de máquinas virtuais reduz qualquer impacto adverso no negócio durante as interrupções da região de Azure. O Advisor deteta VMs em que a replicação não está ativada e recomenda que a habilita. Quando ativa a replicação, se houver uma paragem, pode rapidamente trazer as suas máquinas virtuais para uma região remota de Azure. [Saiba mais sobre a replicação de máquinas virtuais.](../site-recovery/azure-to-azure-quickstart.md)
 
 ## <a name="upgrade-to-the-latest-version-of-the-azure-connected-machine-agent"></a>Atualizar para a versão mais recente do agente do Azure Connected Machine
-O [agente Azure Connected Machine](https://docs.microsoft.com/azure/azure-arc/servers/manage-agent) é atualizado regularmente com correções de erros, melhorias de estabilidade e novas funcionalidades. Identificámos recursos que não estão a trabalhar na versão mais recente do agente de máquinas e esta recomendação do Advisor sugere que atualize o seu agente para a versão mais recente para a melhor experiência do Azure Arc.
+O [agente Azure Connected Machine](../azure-arc/servers/manage-agent.md) é atualizado regularmente com correções de erros, melhorias de estabilidade e novas funcionalidades. Identificámos recursos que não estão a trabalhar na versão mais recente do agente de máquinas e esta recomendação do Advisor sugere que atualize o seu agente para a versão mais recente para a melhor experiência do Azure Arc.
 
 ## <a name="do-not-override-hostname-to-ensure-website-integrity"></a>Não substituir o nome do anfitrião para garantir a integridade do site
-O Advisor recomenda que tente evitar a sobredição do nome de anfitrião ao configurar o Gateway de Aplicação. Ter um domínio diferente no front-end do Gateway de Aplicação do que o utilizado para aceder ao back-end pode potencialmente levar a cookies ou URLs de redirecionamento quebrados. No entanto, poderá não acontecer em todas as situações e determinadas categorias de back-ends (como APIS REST) em geral são menos sensíveis a tal. Confirme se o back-end é capaz de lidar com esta situação ou atualize a configuração do Gateway de Aplicação para que o nome do anfitrião não precise de ser substituído no back-end. Quando utilizado com o Serviço de Aplicações, anexe um nome de domínio personalizado à Web App e evite a utilização do nome de *anfitrião .azurewebsites.net para o backend.* [Saiba mais sobre o domínio personalizado.](https://aka.ms/appgw-advisor-usecustomdomain)
+O Advisor recomenda que tente evitar a sobredição do nome de anfitrião ao configurar o Gateway de Aplicação. Ter um domínio diferente no front-end do Gateway de Aplicação do que o utilizado para aceder ao back-end pode potencialmente levar a cookies ou URLs de redirecionamento quebrados. No entanto, poderá não acontecer em todas as situações e determinadas categorias de back-ends (como APIS REST) em geral são menos sensíveis a tal. Confirme se o back-end é capaz de lidar com esta situação ou atualize a configuração do Gateway de Aplicação para que o nome do anfitrião não precise de ser substituído no back-end. Quando utilizado com o Serviço de Aplicações, anexe um nome de domínio personalizado à Web App e evite a utilização do nome de *anfitrião .azurewebsites.net para o backend.* [Saiba mais sobre o domínio personalizado.](../application-gateway/troubleshoot-app-service-redirection-app-service-url.md)
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Como aceder a recomendações de elevada disponibilidade no Advisor
 

@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: 8e02a47cd6ae6e4883b5113b07d4049cd723232d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 419de27ad87b113de62dacb0dc384702420afbd6
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86250197"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071120"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Como proteger serviços de back-end com a autenticação de certificados de cliente na Gestão de API do Azure
 
 A API Management permite-lhe garantir o acesso ao serviço back-end de uma API utilizando certificados de cliente. Este guia mostra como gerir certificados na instância de serviço da Azure API Management no portal Azure. Também explica como configurar uma API para usar um certificado para aceder a um serviço de back-end.
 
-Para obter informações sobre a gestão de certificados utilizando a API Management REST API, consulte <a href="https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity">a Azure API Management REST API Certificate entidade</a>.
+Para obter informações sobre a gestão de certificados utilizando a API Management REST API, consulte <a href="/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity">a Azure API Management REST API Certificate entidade</a>.
 
 ## <a name="prerequisites"></a><a name="prerequisites"> </a>Pré-requisitos
 
