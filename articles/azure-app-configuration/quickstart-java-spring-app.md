@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.custom: devx-track-java
 ms.author: lcozzens
-ms.openlocfilehash: e3bc26b8f4d66c95f6f777af06d71172a4b882b9
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: dd2305e13322540e9e30223f200baed9919d1840
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91767637"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075404"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Quickstart: Criar uma aplicação Java Spring com Configuração de Aplicação Azure
 
@@ -25,7 +25,7 @@ Neste arranque rápido, incorpora a Configuração de Aplicações Azure numa ap
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/)
-- Um Kit de [Desenvolvimento java suportado (JDK)](https://docs.microsoft.com/java/azure/jdk) com a versão 8.
+- Um Kit de [Desenvolvimento java suportado (JDK)](/java/azure/jdk) com a versão 8.
 - [Apache Maven](https://maven.apache.org/download.cgi) versão 3.0 ou superior.
 
 ## <a name="create-an-app-configuration-store"></a>Criar uma loja de configuração de aplicativos
@@ -182,13 +182,13 @@ Utilize o [Initializr primavera](https://start.spring.io/) para criar um novo pr
 
     Vê a mensagem que inseriu na loja de Configuração de Aplicações.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste quickstart, criou uma nova loja de Configuração de Aplicações e utilizou-a com uma aplicação Java Spring. Para mais informações, consulte [primavera em Azure.](https://docs.microsoft.com/java/azure/spring-framework/) Para aprender como ativar a sua aplicação Java Spring para atualizar dinamicamente as configurações de configuração, continue para o próximo tutorial.
+Neste quickstart, criou uma nova loja de Configuração de Aplicações e utilizou-a com uma aplicação Java Spring. Para mais informações, consulte [primavera em Azure.](/java/azure/spring-framework/) Para aprender como ativar a sua aplicação Java Spring para atualizar dinamicamente as configurações de configuração, continue para o próximo tutorial.
 
 > [!div class="nextstepaction"]
 > [Ativar a configuração dinâmica](./enable-dynamic-configuration-java-spring-app.md)

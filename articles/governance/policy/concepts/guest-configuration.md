@@ -1,14 +1,14 @@
 ---
 title: Aprenda a auditar o conteúdo das máquinas virtuais
 description: Saiba como a Azure Policy utiliza o agente de Configuração de Convidados para auditar as definições dentro de máquinas virtuais.
-ms.date: 08/07/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: d396403f23df1e0c48ea66e0c2a23866f790d3c5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e941938fce09e8729856322a5b6572b46a3714be
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974724"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075489"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Compreender a Configuração de Convidado do Azure Policy
 
@@ -18,8 +18,7 @@ A Azure Policy pode auditar as definições dentro de uma máquina, tanto para m
 - Presença ou configuração da aplicação
 - Definições do ambiente
 
-Neste momento, a maioria das políticas de Configuração de Convidado do Azure Policy audita apenas as definições na máquina virtual.
-Não se aplica às configurações. A exceção é uma política incorporada [referida abaixo.](#applying-configurations-using-guest-configuration)
+Neste momento, a maioria das definições de política de configuração de convidados de política de política de Azure Policy apenas auditam as definições dentro da máquina. Não se aplica às configurações. A exceção é uma política incorporada [referida abaixo.](#applying-configurations-using-guest-configuration)
 
 ## <a name="enable-guest-configuration"></a>Ativar a configuração do hóspede
 
@@ -59,10 +58,9 @@ O cliente de Configuração de Hóspedes verifica novos conteúdos a cada 5 minu
 
 ## <a name="supported-client-types"></a>Tipos de clientes suportados
 
-As políticas de configuração dos hóspedes incluem novas versões. As versões mais antigas dos sistemas operativos disponíveis no Azure Marketplace estão excluídas se o agente de Configuração de Hóspedes não for compatível.
-A tabela a seguir mostra uma lista de sistemas operativos suportados em imagens Azure:
+As definições de política de configuração de hóspedes incluem novas versões. As versões mais antigas dos sistemas operativos disponíveis no Azure Marketplace estão excluídas se o agente de Configuração de Hóspedes não for compatível. A tabela a seguir mostra uma lista de sistemas operativos suportados em imagens Azure:
 
-|Publisher|Nome|Versões|
+|Publisher|Name|Versões|
 |-|-|-|
 |Canónico|Ubuntu Server|14.04 e mais tarde|
 |Credativ|Debian|8 e mais tarde|
@@ -72,7 +70,7 @@ A tabela a seguir mostra uma lista de sistemas operativos suportados em imagens 
 |Red Hat|Red Hat Enterprise Linux|7.4 - 7.8|
 |Suse|SLES|12 SP3-SP5|
 
-As imagens de máquinas virtuais personalizadas são suportadas pelas políticas de Configuração do Hóspede, desde que sejam um dos sistemas operativos na tabela acima.
+As imagens de máquinas virtuais personalizadas são suportadas pelas definições de política de Configuração de Hóspedes, desde que sejam um dos sistemas operativos da tabela acima.
 
 ## <a name="network-requirements"></a>Requisitos de rede
 
@@ -86,7 +84,7 @@ Máquinas virtuais que utilizam redes virtuais para comunicação exigirão aces
 
 ### <a name="communicate-over-private-link-in-azure"></a>Comunicar sobre ligação privada em Azure
 
-As máquinas virtuais podem utilizar [link privado](../../../private-link/private-link-overview.md) para comunicação ao serviço de Configuração do Hóspede. Aplique a etiqueta com o nome `EnablePrivateNeworkGC` e o valor para `TRUE` ativar esta função. A etiqueta pode ser aplicada antes ou depois das políticas de Configuração do Hóspede serem aplicadas à máquina.
+As máquinas virtuais podem utilizar [link privado](../../../private-link/private-link-overview.md) para comunicação ao serviço de Configuração do Hóspede. Aplique a etiqueta com o nome `EnablePrivateNeworkGC` e o valor para `TRUE` ativar esta função. A etiqueta pode ser aplicada antes ou depois de serem aplicadas definições de política de Configuração de Convidados na máquina.
 
 O tráfego é encaminhado usando o [endereço IP público virtual](../../../virtual-network/what-is-ip-address-168-63-129-16.md) Azure para estabelecer um canal seguro e autenticado com recursos da plataforma Azure.
 
@@ -111,9 +109,9 @@ Se a máquina tiver atualmente uma identidade de sistema atribuída ao utilizado
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisitos de definição de configuração do hóspede
 
-As políticas de configuração do hóspede utilizam o efeito **AuditIfNotExists.** Quando a definição é atribuída, um serviço back-end lida automaticamente com o ciclo de vida de todos os requisitos no fornecedor de `Microsoft.GuestConfiguration` recursos Azure.
+As definições de política de configuração do hóspede utilizam o efeito **AuditIfNotExists.** Quando a definição é atribuída, um serviço back-end lida automaticamente com o ciclo de vida de todos os requisitos no fornecedor de `Microsoft.GuestConfiguration` recursos Azure.
 
-As políticas **auditIfNotExists** não devolverão os resultados de conformidade até que todos os requisitos sejam cumpridos na máquina. As necessidades são descritas na secção [Os requisitos de implantação das máquinas virtuais Azure](#deploy-requirements-for-azure-virtual-machines)
+As definições de política **auditIfNotExists** não devolverão os resultados de conformidade até que todos os requisitos sejam cumpridos na máquina. Os requisitos são descritos na secção [Implementar requisitos para máquinas virtuais Azure](#deploy-requirements-for-azure-virtual-machines)
 
 > [!IMPORTANT]
 > Num lançamento prévio da Configuração de Convidados, foi necessária uma iniciativa para combinar definições **de DeployIfNoteExists** e **AuditIfNotExists.** As definições **de DeployIfNotExists** já não são necessárias. As definições e os intiaitivos estão `[Deprecated]` rotulados, mas as atribuições existentes continuarão a funcionar. Para obter informações consulte o post do blog: [Alteração importante lançada para as políticas de auditoria de Configuração de Hóspedes](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
@@ -138,15 +136,15 @@ Apenas a definição _Configure o fuso horário nas máquinas Windows_ faz alter
 Ao atribuir definições que comecem com _configuração,_ também deve atribuir a definição _Implementar pré-requisitos para ativar a Política de Configuração de Hóspedes nos VMs do Windows_. Pode combinar estas definições numa iniciativa, se quiser.
 
 > [!NOTE]
-> A política de fuso horário incorporado é a única definição que suporta configurações configurantes dentro de máquinas e políticas personalizadas que configuram configurações dentro das máquinas não são suportadas.
+> A política de fuso horário incorporado é a única definição que suporta configurações configurantes dentro de máquinas e definições de política personalizada que configuram configurações dentro das máquinas não são suportadas.
 
 #### <a name="assigning-policies-to-machines-outside-of-azure"></a>Atribuir políticas a máquinas fora de Azure
 
-As políticas de auditoria disponíveis para configuração de hóspedes incluem o tipo de recurso **Microsoft.HybridCompute/machines.** Quaisquer máquinas a bordo do [Azure Arc para servidores](../../../azure-arc/servers/overview.md) que estejam no âmbito da atribuição de políticas são automaticamente incluídas.
+As definições de política de auditoria disponíveis para configuração de hóspedes incluem o tipo de recurso **Microsoft.HybridCompute/machines.** Quaisquer máquinas a bordo do [Azure Arc para servidores](../../../azure-arc/servers/overview.md) que estejam no âmbito da atribuição de políticas são automaticamente incluídas.
 
 ### <a name="multiple-assignments"></a>Múltiplas atribuições
 
-Atualmente, as políticas de configuração dos hóspedes apenas suportam a atribuição da mesma Atribuição de Hóspedes uma vez por máquina, mesmo que a atribuição de Política utilize parâmetros diferentes.
+Atualmente, as definições de política de configuração de hóspedes apenas suportam a atribuição da mesma Atribuição de Hóspedes uma vez por máquina, mesmo que a atribuição de Política utilize parâmetros diferentes.
 
 ## <a name="client-log-files"></a>Ficheiros de registo de clientes
 
