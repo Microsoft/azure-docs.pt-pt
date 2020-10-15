@@ -8,12 +8,12 @@ ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 88255e60593403951db5b984bb9c69b1060a93c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db9ba3efe60af830c0e15310b6127c18130f00b9
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540579"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92076254"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Use Insights de Séries temporais para visualizar a telemetria enviada do acelerador de solução de simulação do dispositivo
 
@@ -113,7 +113,7 @@ Crie uma nova fonte de eventos para ligar ao seu hub IoT. Utilize o grupo de con
 1. Clique em **Criar**.
 
 > [!NOTE]
-> Pode [conceder aos utilizadores acesso adicional](../../articles/time-series-insights/time-series-insights-data-access.md#grant-data-access) ao explorador time series Insights.
+> Pode [conceder aos utilizadores acesso adicional](../time-series-insights/concepts-access-policies.md#grant-data-access) ao explorador time series Insights.
 
 ## <a name="start-a-simulation"></a>Iniciar uma simulação
 
@@ -163,7 +163,7 @@ O explorador time series Insights é uma aplicação web que pode usar para visu
 
     ![Painel de explorador de insights de séries de tempo](./media/iot-accelerators-device-simulation-time-series-insights/time-series-insights-dashboard.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se pretende explorar mais, deixe o acelerador de solução implantado.
 
