@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.author: lcozzens
 ms.custom: devx-track-java
-ms.openlocfilehash: 94f3fd9f9c66082beace47d675539e9f73c21e83
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 9a804bd40635cd039a2c099f98351b2487c554d3
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91824197"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92075540"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Quickstart: Adicione bandeiras de recurso a uma aplicação De Boot de primavera
 
@@ -23,7 +23,7 @@ As bibliotecas de Gestão de Recursos de Arranque de Mola alargam o quadro com s
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/)
-* Um Kit de Desenvolvimento java suportado [SDK](https://docs.microsoft.com/java/azure/jdk) com a versão 8.
+* Um Kit de Desenvolvimento java suportado [SDK](/java/azure/jdk) com a versão 8.
 * [Apache Maven](https://maven.apache.org/download.cgi) versão 3.0 ou superior.
 
 ## <a name="create-an-app-configuration-instance"></a>Criar uma instância de configuração de aplicativo
@@ -298,13 +298,13 @@ Utilize o [Initializr primavera](https://start.spring.io/) para criar um novo pr
 
     ![Quickstart app lançar local](./media/quickstarts/spring-boot-feature-flag-local-after.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste quickstart, criou uma nova loja de Configuração de Aplicações e utilizou-a para gerir funcionalidades numa aplicação web Spring Boot através das [bibliotecas de Gestão de Recursos.](https://go.microsoft.com/fwlink/?linkid=2074664)
+Neste quickstart, criou uma nova loja de Configuração de Aplicações e utilizou-a para gerir funcionalidades numa aplicação web Spring Boot através das [bibliotecas de Gestão de Recursos.](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration)
 
 * Saiba mais sobre [gestão de recursos.](./concept-feature-management.md)
 * [Gerir bandeiras de características](./manage-feature-flags.md).
