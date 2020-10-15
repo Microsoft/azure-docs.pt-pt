@@ -2,14 +2,14 @@
 author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/13/2019
+ms.date: 10/15/2020
 ms.author: erhopf
-ms.openlocfilehash: e8837bf7a7196eb5ac86bd7634560c52d1da6c05
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 6d20df031633df4642ce9fb5cbbc469fd7f0a5da
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/15/2020
-ms.locfileid: "92082142"
+ms.locfileid: "92097240"
 ---
 Para criar um projeto visual Studio para o desenvolvimento de aplicativos móveis cross-platform .NET com Xamarin, você precisa:
 - Configurar opções de desenvolvimento do Estúdio Visual.

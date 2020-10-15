@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 04/04/2020
+ms.date: 10/15/2020
 ms.author: trbye
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 zone_pivot_groups: programming-languages-speech-services-one-nomore
-ms.openlocfilehash: d33b58f987419dcea04545558435ad91ba8e00b4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 53e29d3374f9b5d44c9f46a46bbacc3ed2e12f35
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91324780"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096968"
 ---
 # <a name="quickstart-setup-development-environment"></a>Quickstart: Ambiente de desenvolvimento de configuração
 

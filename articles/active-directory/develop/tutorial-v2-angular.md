@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: ae486ac8ddd233487bb10c897a155337aa815fe5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c93704130e150a7ca26144d4895e82756657fae2
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611253"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096254"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Tutorial: Inscreva-se nos utilizadores e ligue para a Microsoft Graph API a partir de uma aplicação de página única angular
 
@@ -49,7 +49,7 @@ Neste cenário, após a indicação de um utilizador, é solicitado um token de 
 
 Este tutorial utiliza a seguinte biblioteca:
 
-|Biblioteca|Descrição|
+|Biblioteca|Description|
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Biblioteca de autenticação da Microsoft para invólucro angular JavaScript|
 
@@ -194,7 +194,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 }
 ```
 
-Em seguida, fornecer um mapa dos recursos `MsalModule.forRoot()` `protectedResourceMap` protegidos para, como e incluir, esses âmbitos `consentScopes` em :
+Em seguida, fornecer um mapa de recursos protegidos para `MsalModule.forRoot()` como e incluir esses `protectedResourceMap` âmbitos em `consentScopes` . Os URLs que fornece na `protectedResourceMap` coleção são sensíveis a casos.
 
 ```javascript
 @NgModule({

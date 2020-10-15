@@ -6,14 +6,14 @@ ms.service: virtual-machines-linux
 ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 06/15/2020
+ms.date: 10/14/2020
 ms.author: danis
-ms.openlocfilehash: a87c2b571027e0304909e69b252c9e080c4da9c1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 87cb4a233470fadc9cde616790aff0d5cd7b151b
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978633"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096662"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>suporte cloud-init para máquinas virtuais em Azure
 Este artigo explica o suporte que existe para [configurar](https://cloudinit.readthedocs.io) uma máquina virtual (VM) ou uma escala de máquina virtual em tempo de provisionamento em Azure. Estas configurações de cloud-init são executadas na primeira bota uma vez que os recursos foram a provisionados pela Azure.  
@@ -97,10 +97,10 @@ Estas imagens SLES foram atualizadas para a oferta usando o cloud-init, as varia
 ### <a name="debian"></a>Debian
 | Editor / Versão | Oferta | SKU | Versão | imagem nuvem-init pronto | suporte pacote de cloud-init em Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| debian (Gen1) |debian-10 | 10-cloudinit |cloud-init-preview| sim (apenas pré-visualização) | Não, na pré-estreia. |
-| debian (Gen2) |debian-10 | 10-cloudinit-gen2 |cloud-init-preview| sim (apenas pré-visualização) | Não, na pré-estreia. |
-
-
+| debian (Gen1) |debian-10 | 10-cloudinit |cloud-init-preview| sim (nota: esta é uma imagem de pré-visualização, e não **deve** ser usada mais, esta será removida a 1 de janeiro de 2021) | Não, na pré-estreia. |
+| debian (Gen2) |debian-10 | 10-cloudinit-gen2 |cloud-init-preview| sim (nota: esta é uma imagem de pré-visualização, e não **deve** ser usada mais, esta será removida a 1 de janeiro de 2021) | Não, na pré-estreia. |
+| debian (Gen1) |debian-10 | 10-cloudinit |10:0.20201013.422| sim | sim - suporte da versão do pacote: `20.2-2~deb10u1` |
+| debian (Gen2) |debian-10 | 10-cloudinit-gen2 |0.20201013.422| sim | sim - suporte da versão do pacote: `20.2-2~deb10u1` |
 
 
 Atualmente, o Azure Stack irá suportar o fornecimento de imagens ativadas por cloud-in.

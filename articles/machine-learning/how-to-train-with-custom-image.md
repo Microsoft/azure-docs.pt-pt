@@ -10,12 +10,12 @@ author: saachigopal
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 8239d037d6bd68638998cbb36c47c7dac4bce30d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13a88b327b5ba56b52cd4f08d9c7fae5d653ed38
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537621"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92095947"
 ---
 # <a name="train-a-model-using-a-custom-docker-image"></a>Treine um modelo usando uma imagem personalizada do Docker
 
@@ -29,7 +29,7 @@ Enquanto a Azure Machine Learning fornece uma imagem base padrão do Docker, tam
 Executar este código em qualquer um destes ambientes:
 * Exemplo de computação Azure Machine Learning - sem transferências ou instalação necessárias
     * Complete o [Tutorial: Ambiente de configuração e espaço de trabalho](tutorial-1st-experiment-sdk-setup.md) para criar um servidor de caderno dedicado pré-carregado com o SDK e o repositório de amostras.
-    * No [repositório](https://github.com/Azure/azureml-examples)de exemplos de Aprendizagem automática Azure, encontre um caderno completo navegando para este diretório: **como usar-azureml > estruturas ml > fastai > comboio-com-custom-docker** 
+    * No [repositório](https://github.com/Azure/azureml-examples)Azure Machine Learning, encontre um caderno completo navegando para este diretório: **cadernos > fastai > comboio-pets-resnet34.ipynb** 
 
 * O seu próprio servidor de cadernos Jupyter
     * Crie um [ficheiro de configuração do espaço de trabalho.](how-to-configure-environment.md#workspace)

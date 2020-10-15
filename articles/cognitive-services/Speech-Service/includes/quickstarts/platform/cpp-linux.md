@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/14/2019
+ms.date: 10/15/2020
 ms.author: erhopf
-ms.openlocfilehash: 099c835ae2047538c882414660f699341af60b8b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1befc26d6c6d0a12af57c8a0d3d0e6d32f363f19
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83673259"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096900"
 ---
 Este guia mostra como instalar o [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) para o Linux
 

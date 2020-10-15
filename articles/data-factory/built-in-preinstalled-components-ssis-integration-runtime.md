@@ -12,12 +12,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 05/14/2020
-ms.openlocfilehash: 0c3fa3e61f3e35bcd29e923b87ddf68f0860486e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17831f06d4176ae6666bbc7b05a11ee689b842fc
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89483138"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096696"
 ---
 # <a name="built-in-and-preinstalled-components-on-azure-ssis-integration-runtime"></a>Componentes incorporados e pré-instalados no tempo de funcionamento da integração Azure-SSIS
 
@@ -29,7 +29,7 @@ Este artigo lista todos os componentes incorporados e pré-instalados, tais como
 
 | Tipo | Nome - Versão - Plataforma |
 |------|---------------------------|
-| **Clientes/motoristas/fornecedores incorporados** | *Acesso Base de Dados Motor 2016 Redistributável* - RTM - X64<br/><br/>*Microsoft Analysis Management Objects* - 15.0.1000.81 - X64<br/><br/>*Microsoft Analysis Services OLEDB Provider* - 15.0.1000.81 - X64<br/><br/>*Microsoft ODBC Driver 13 para SQL Server* - 14.0.900.902 - X64<br/><br/>*Microsoft OLEDB Driver 18 para SQL Server* - 18.1.0.0 - X64<br/><br/>*Microsoft OLEDB Provider para DB2* - 6.0 - X64<br/><br/>*Componentes do cliente online SharePoint SDK* - 15.4711.1001 - X64 |
+| **Clientes/motoristas/fornecedores incorporados** | *Acesso Base de Dados Motor 2016 Redistributável* - RTM - X64<br/><br/>*Microsoft Analysis Management Objects* - 15.0.1000.81 - X64<br/><br/>*Microsoft Analysis Services OLEDB Provider* - 15.0.1000.81 - X64<br/><br/>*Microsoft SQL Server 2012 Cliente Nativo* - 11.4.7462.6 - X64<br/><br/>*Microsoft ODBC Driver 13 para SQL Server* - 14.0.900.902 - X64<br/><br/>*Microsoft OLEDB Driver 18 para SQL Server* - 18.1.0.0 - X64<br/><br/>*Microsoft OLEDB Provider para DB2* - 6.0 - X64<br/><br/>*Componentes do cliente online SharePoint SDK* - 15.4711.1001 - X64 |
 
 ## <a name="built-in-and-preinstalled-connection-managers-on-azure-ssis-ir"></a>Gestores de ligação integrados e pré-instalados na Azure-SSIS IR
 

@@ -3,12 +3,12 @@ title: Respostas a perguntas comuns
 description: 'Respostas a perguntas comuns sobre: funcionalidades do Azure Backup incluindo os cofres dos Serviços de Recuperação, que cópias de segurança podem criar, como funcionam, a encriptação e os limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 50cbd1d28ca3f04b8963c58b443765d4280b14ed
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 72a4f805b34ba8a536cd398efd5e6809bd66f0d4
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058085"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096628"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – Perguntas frequentes
 
@@ -57,6 +57,10 @@ Se já configurar a cópia de segurança e tiver de passar de GRS para LRS, ent�
 
 - O ILR é suportado nas VMs do Azure com cópia de segurança efetuada pela cópia de segurança da VM do Azure. Para obter mais informações, veja este [artigo](backup-azure-restore-files-from-vm.md)
 - O ILR não é suportado para pontos de recuperação on-line de VMs no local apoiados pelo Azure Backup Server (MABS) ou pelo System Center DPM.
+
+### <a name="how-can-i-move-data-from-the-recovery-services-vault-to-on-premises"></a>Como posso transferir dados do cofre dos Serviços de Recuperação para o local?
+
+Não é suportado a exportação de dados diretamente do cofre dos Serviços de Recuperação para as instalações utilizando a Data Box. Os dados devem ser restaurados numa conta de armazenamento e, em seguida, podem ser transferidos para o local através da [Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) ou [da Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
 
 ## <a name="azure-backup-agent"></a>Agente do Backup do Azure
 

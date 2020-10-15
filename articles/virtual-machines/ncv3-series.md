@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: ab08d23fe7448e50db42ea126e8158ad284b3320
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 854c988346bce9be06811d386b3798d2d0427dd7
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653473"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92095930"
 ---
 # <a name="ncv3-series"></a>Série NCv3
 
@@ -25,8 +25,9 @@ Os VMs da série NCv3 são alimentados por GPUs NVIDIA Tesla V100. Estas GPUs po
 [Suporte de geração VM](generation-2.md): Geração 1 e 2<br>
 
 > [!IMPORTANT]
-> Para esta série VM, a quota vCPU (core) na sua subscrição está inicialmente definida para 0 em cada região. [Solicitar um aumento da quota vCPU](../azure-portal/supportability/resource-manager-core-quotas-request.md) para esta série numa [região disponível](https://azure.microsoft.com/regions/services/).
+> Para esta série VM, a quota vCPU (core) na sua subscrição está inicialmente definida para 0 em cada região. [Solicitar um aumento da quota vCPU](../azure-portal/supportability/resource-manager-core-quotas-request.md) para esta série numa [região disponível](https://azure.microsoft.com/regions/services/). Estes SKUs não estão disponíveis para subscrições de Azure assinantes do Estúdio Visual ou do Visual Studio. O seu nível de subscrição pode não suportar a seleção ou implementação destes SKUs. 
 >
+
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | GPU | Memória gpu: GiB | Discos de dados máximos | Produção de disco não-abacatado por maxilar: IOPS/MBps | NICs máximos |
 |---|---|---|---|---|---|---|---|---|
 | Standard_NC6s_v3    | 6  | 112 | 736  | 1 | 16 | 12 | 20000/200 | 4 |

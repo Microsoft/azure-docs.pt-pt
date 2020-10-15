@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/20/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84850b7d44033a2759c51c5c6b9c53d1c945a99d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27a00c69a4423e45b46b9c3d0340bb7cd1a35d65
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005383"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92095904"
 ---
 # <a name="localization-element"></a>Elemento de localização
 
@@ -45,7 +45,7 @@ O elemento **de localização** contém os seguintes atributos:
 
 O elemento **de localização** contém elementos XML
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Apoio deGuages | 1:n | Lista de línguas apoiadas. |
 | Recursos Localizados | 0:n | Lista de recursos localizados. |
@@ -63,7 +63,7 @@ O elemento **SuportadoLanguages** contém os seguintes atributos:
 
 O elemento **Suportado Deguages** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Apoio àguagem | 1:n | Exibe conteúdo satisfatório em conformidade com uma etiqueta linguística por RFC 5646 - Tags para Identificar Línguas. |
 
@@ -77,7 +77,7 @@ O elemento **Imagens Locais** contém os seguintes atributos:
 
 O elemento **LocaledResources** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Collections localizadas | 0:n | Define coleções inteiras em várias culturas. Uma coleção pode ter um número diferente de itens e diferentes cordas para várias culturas. Exemplos de coleções incluem as enumerações que aparecem nos tipos de reclamações. Por exemplo, uma lista de país/região é mostrada ao utilizador numa lista de abandono. |
 | Padrões Localizados | 0:n | Define todas as cordas, exceto as cordas que aparecem em coleções, em várias culturas. |
@@ -86,7 +86,7 @@ O elemento **LocaledResources** contém os seguintes elementos:
 
 O elemento **LocalizedCollections** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Collecto Localizado | 1:n | Lista de línguas apoiadas. |
 
@@ -102,7 +102,7 @@ O elemento **Decolecção Localizada** contém os seguintes atributos:
 
 O elemento **Decolecção Localizada** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Item | 0:n | Define uma opção disponível para o utilizador selecionar para uma reclamação na interface do utilizador, como um valor numa queda. |
 
@@ -138,7 +138,7 @@ O exemplo a seguir mostra a utilização do elemento **Decollections Localizado.
 
 O elemento **LocalizadoStrings** contém os seguintes elementos:
 
-| Elemento | Ocorrências | Descrição |
+| Elemento | Ocorrências | Description |
 | ------- | ----------- | ----------- |
 | Estamos localizados | 1:n | Uma corda localizada. |
 
@@ -163,6 +163,7 @@ O ElementType refere-se a um tipo de reclamação, a uma transformação de recl
 |Mensagem de utilizador predicado|`Predicate`|O nome do predicado| O atributo do predicado a ser localizado. Valores possíveis: `HelpText` .|
 |Mensagem de utilizador do grupo predicado|`InputValidation`|A identificação do elemento PredicateValidation.|O ID do elemento Grupo Predicate. O grupo predicado deve ser uma criança do elemento de validação predicado, tal como definido no ElementId.|
 |Elementos da interface de utilizador |`UxElement` | | O ID do elemento de interface do utilizador a ser localizado.|
+|[Controlo de exibição](display-controls.md) |`DisplayControl` |A identificação do controlo de visualização. | O ID do elemento de interface do utilizador a ser localizado.|
 
 ## <a name="examples"></a>Exemplos
 
@@ -330,6 +331,23 @@ O valor UxElement é utilizado para localizar um dos elementos de interface do u
 ```xml
 <LocalizedString ElementType="UxElement" StringId="button_continue">Create new account</LocalizedString>
 <LocalizedString ElementType="UxElement" StringId="button_cancel">Cancel</LocalizedString>
+```
+
+### <a name="displaycontrol"></a>DisplayControl
+
+O valor DisplayControl é utilizado para localizar um dos elementos de interface do utilizador do controlo do [ecrã.](display-controls.md) O exemplo a seguir mostra como localizar os botões de envio e verificação. 
+
+```xml
+<LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_code">Send verification code</LocalizedString>
+<LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_verify_code">Verify code</LocalizedString>
+```
+
+Na secção de metadados de um perfil técnico autoafirmado, a definição de conteúdo referenciada necessita de ter DataUri definido para a versão de layout da [página](page-layout.md) 2.1.0 ou superior. Por exemplo:
+
+```xml
+<ContentDefinition Id="api.selfasserted">
+  <DataUri>urn:com:microsoft:aad:b2c:elements:selfasserted:2.1.0</DataUri>
+  ...
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

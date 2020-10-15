@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1106ec63e79d336b740b444a187244de64c03f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 955e77bc947baed889de24ce34e7acec737164f6
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269578"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097308"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como: Planeie o seu Azure Ative Directory híbrido junte-se à implementação
 
@@ -56,7 +56,7 @@ A Hybrid AZure AD junta-se a suportes a uma vasta gama de dispositivos Windows. 
 
 - Windows 10
 - Windows Server 2016
-  - **Nota:** Azure National cloud customers require versão 1809
+  - **Nota:** Azure National cloud customers require versão 1803
 - Windows Server 2019
 
 Para os dispositivos que executam o sistema operativo windows desktop, a versão suportada está listada neste artigo [informações de lançamento do Windows 10](/windows/release-information/). Como uma boa prática, a Microsoft recomenda o upgrade para a versão mais recente do Windows 10.
@@ -162,7 +162,7 @@ Por vezes, os seus utilizadores de AD no local, UPNs, podem ser diferentes dos s
 
 O quadro abaixo fornece detalhes sobre o suporte para estes UPNs AD no local no Windows 10 Hybrid AD
 
-| Tipo de UPN AD no local | Tipo de domínio | Versão do Windows 10 | Descrição |
+| Tipo de UPN AD no local | Tipo de domínio | Versão do Windows 10 | Description |
 | ----- | ----- | ----- | ----- |
 | Roteável | Federados | A partir de 1703 lançamento | Disponível em Geral |
 | Não-encaminhável | Federados | A partir de 1803 lançamento | Disponível em Geral |

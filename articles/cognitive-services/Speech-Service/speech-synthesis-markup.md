@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 0eacddfa56e46363c926aa1e8b35865676209577
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: baa8b1f302c0d8a7355f74b686ffedfb45ac22d3
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058493"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096050"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhorar a síntese com a linguagem de marcação da síntese de fala (SSML)
 
@@ -58,9 +58,9 @@ Cada documento SSML é criado com elementos SSML (ou tags). Estes elementos são
 
 | Atributo | Descrição | Obrigatório / Opcional |
 |-----------|-------------|---------------------|
-| `version` | Indica a versão da especificação SSML utilizada para interpretar a marcação do documento. A versão atual é 1.0. | Necessário |
-| `xml:lang` | Especifica a linguagem do documento raiz. O valor pode conter um código linguístico de duas letras (por exemplo), `en` ou o código linguístico e o país/região de maiúsculas (por exemplo, `en-US` ). | Necessário |
-| `xmlns` | Especifica o URI ao documento que define o vocabulário de marcação (os tipos de elementos e os nomes de atributos) do documento SSML. O URI atual http://www.w3.org/2001/10/synthesis é. | Necessário |
+| `version` | Indica a versão da especificação SSML utilizada para interpretar a marcação do documento. A versão atual é 1.0. | Obrigatório |
+| `xml:lang` | Especifica a linguagem do documento raiz. O valor pode conter um código linguístico de duas letras (por exemplo), `en` ou o código linguístico e o país/região de maiúsculas (por exemplo, `en-US` ). | Obrigatório |
+| `xmlns` | Especifica o URI ao documento que define o vocabulário de marcação (os tipos de elementos e os nomes de atributos) do documento SSML. O URI atual http://www.w3.org/2001/10/synthesis é. | Obrigatório |
 
 ## <a name="choose-a-voice-for-text-to-speech"></a>Escolha uma voz para texto-a-discurso
 
@@ -78,7 +78,7 @@ O `voice` elemento é necessário. É utilizado para especificar a voz que é us
 
 | Atributo | Descrição | Obrigatório / Opcional |
 |-----------|-------------|---------------------|
-| `name` | Identifica a voz utilizada para a saída texto-a-voz. Para obter uma lista completa de vozes apoiadas, consulte [o suporte linguístico](language-support.md#text-to-speech). | Necessário |
+| `name` | Identifica a voz utilizada para a saída texto-a-voz. Para obter uma lista completa de vozes apoiadas, consulte [o suporte linguístico](language-support.md#text-to-speech). | Obrigatório |
 
 **Exemplo**
 
@@ -101,7 +101,7 @@ Dentro do `speak` elemento, pode especificar várias vozes para a saída texto-a
 
 | Atributo | Descrição | Obrigatório / Opcional |
 |-----------|-------------|---------------------|
-| `name` | Identifica a voz utilizada para a saída texto-a-voz. Para obter uma lista completa de vozes apoiadas, consulte [o suporte linguístico](language-support.md#text-to-speech). | Necessário |
+| `name` | Identifica a voz utilizada para a saída texto-a-voz. Para obter uma lista completa de vozes apoiadas, consulte [o suporte linguístico](language-support.md#text-to-speech). | Obrigatório |
 
 > [!IMPORTANT]
 > Várias vozes são incompatíveis com a função de limite da palavra. A função de limite da palavra precisa de ser desativada para utilizar várias vozes.
@@ -222,7 +222,7 @@ Para a voz chinesa XiaoxiaoNeural, a intensidade do estilo de fala pode ser alte
 
 Utilize esta tabela para determinar quais os estilos de fala suportados por cada voz neural.
 
-| Voz                   | Estilo                     | Descrição                                                 |
+| Voz                   | Estilo                     | Description                                                 |
 |-------------------------|---------------------------|-------------------------------------------------------------|
 | `en-US-AriaNeural`      | `style="newscast-formal"` | Expressa um tom formal, confiante e autoritário para a entrega de notícias |
 |                         | `style="newscast-casual"` | Expressa um tom versátil e casual para a entrega de notícias gerais        |
@@ -298,7 +298,7 @@ Utilize o `break` elemento para inserir pausas (ou quebras) entre palavras ou ev
 | `strength` | Especifica a duração relativa de uma pausa utilizando um dos seguintes valores:<ul><li>nenhum</li><li>x-fraco</li><li>fraco</li><li>meio (padrão)</li><li>forte</li><li>x-forte</li></ul> | Opcional |
 | `time` | Especifica a duração absoluta de uma pausa em segundos ou milissegundos. Exemplos de valores válidos são `2s` e `500` | Opcional |
 
-| Força                      | Descrição |
+| Força                      | Description |
 |-------------------------------|-------------|
 | Nenhum, ou se nenhum valor fornecido | 0 ms        |
 | x-fraco                        | 250 ms      |
@@ -534,7 +534,7 @@ Como os valores prosódicos de atributos podem variar em relação a uma ampla g
 
 | Atributo | Descrição | Obrigatório / Opcional |
 |-----------|-------------|---------------------|
-| `pitch` | Indica o tom de base para o texto. Pode expressar o tom como:<ul><li>Um valor absoluto, expresso em número seguido de "Hz" (Hertz). Por exemplo, 600 Hz.</li><li>Um valor relativo, expresso em número precedido por "+" ou "-" e seguido por "Hz" ou "st", que especifica uma quantidade para alterar o tom. Por exemplo: +80 Hz ou -2st. O "st" indica que a unidade de mudança é semitona, que é metade de um tom (meio passo) na escala diatónica padrão.</li><li>Um valor constante:<ul><li>x-baixo</li><li>baixo</li><li>médio</li><li>alta</li><li>x-alto</li><li>predefinição</li></ul></li></ul>. | Opcional |
+| `pitch` | Indica o tom de base para o texto. Pode expressar o tom como:<ul><li>Um valor absoluto, expresso em número seguido de "Hz" (Hertz). Por exemplo, `<prosody pitch="600Hz">some text</prosody>`.</li><li>Um valor relativo, expresso em número precedido por "+" ou "-" e seguido por "Hz" ou "st", que especifica uma quantidade para alterar o tom. Por exemplo: `<prosody pitch="+80Hz">some text</prosody>` ou `<prosody pitch="-2st">some text</prosody>` . . O "st" indica que a unidade de mudança é semitona, que é metade de um tom (meio passo) na escala diatónica padrão.</li><li>Um valor constante:<ul><li>x-baixo</li><li>baixo</li><li>médio</li><li>alta</li><li>x-alto</li><li>predefinição</li></ul></li></ul> | Opcional |
 | `contour` |O contorno suporta agora vozes neurais e padrão. O contorno representa mudanças no tom. Estas alterações são representadas como um conjunto de alvos em posições de tempo especificadas na saída da fala. Cada alvo é definido por conjuntos de pares de parâmetros. Por exemplo: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>O primeiro valor em cada conjunto de parâmetros especifica a localização da alteração do tom em percentagem da duração do texto. O segundo valor especifica a quantidade para elevar ou baixar o tom, utilizando um valor relativo ou um valor de enumeração para o pitch (ver `pitch` ). | Opcional |
 | `range` | Um valor que representa a gama de arremesso para o texto. Pode `range` expressar-se utilizando os mesmos valores absolutos, valores relativos ou valores de enumeração utilizados para descrever `pitch` . | Opcional |
 | `rate` | Indica a taxa de fala do texto. Pode `rate` expressar-se como:<ul><li>Um valor relativo, expresso como um número que atua como um multiplicador do padrão. Por exemplo, um valor de *1* não resulta em nenhuma alteração na taxa. Um valor de *0,5* resulta numa redução para metade da taxa. Um valor de *3* resulta num triplicar da taxa.</li><li>Um valor constante:<ul><li>x-lento</li><li>lento</li><li>médio</li><li>rápido</li><li>x-fast</li><li>predefinição</li></ul></li></ul> | Opcional |
@@ -617,7 +617,7 @@ As alterações de tom podem ser aplicadas às vozes padrão ao nível da palavr
 
 | Atributo | Descrição | Obrigatório / Opcional |
 |-----------|-------------|---------------------|
-| `interpret-as` | Indica o tipo de conteúdo do texto do elemento. Para obter uma lista de tipos, consulte a tabela abaixo. | Necessário |
+| `interpret-as` | Indica o tipo de conteúdo do texto do elemento. Para obter uma lista de tipos, consulte a tabela abaixo. | Obrigatório |
 | `format` | Fornece informações adicionais sobre a formatação precisa do texto do elemento para tipos de conteúdo que podem ter formatos ambíguos. SSML define formatos para tipos de conteúdo que os utilizam (ver tabela abaixo). | Opcional |
 | `detail` | Indica o nível de detalhe a ser falado. Por exemplo, este atributo pode solicitar que o motor de síntese da fala pronuncie marcas de pontuação. Não existem valores padrão definidos para `detail` . | Opcional |
 

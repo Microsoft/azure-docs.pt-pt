@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/10/2019
+ms.date: 10/15/2020
 ms.author: erhopf
-ms.openlocfilehash: f95fd8aa66e83e6be8f4b0eef9635750d83ce55e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 67e08abc9d66d69628e923cdb6b39073a0705b2f
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "78925282"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097019"
 ---
 Este guia mostra como instalar o [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) para C# Universal Windows Platform (UWP). Se só quer que o nome do pacote seja iniciado por conta própria, corra `Install-Package Microsoft.CognitiveServices.Speech` na consola NuGet.
 

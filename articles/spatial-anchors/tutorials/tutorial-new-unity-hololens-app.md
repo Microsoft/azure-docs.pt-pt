@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 08/17/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: ee7a0ca1abedd2f80cd8f5fe66e603315a10966f
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: e94ced70ad17286612328884d03d4d1253b7818b
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939533"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096543"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Tutorial: Instruções passo a passo para criar uma nova app HoloLens Unitity usando âncoras espaciais Azure
 
@@ -25,7 +25,7 @@ Para concluir este tutorial, confirme que tem:
 
 1. Uma máquina Windows com <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017+</a> instalada com a carga de **trabalho de desenvolvimento** da Plataforma Universal Windows e o componente Windows **10 SDK (10.0.18362.0 ou mais recente)** e <a href="https://git-scm.com/download/win" target="_blank">Git para Windows</a>.
 2. A [extensão do estúdio visual C++/WinRT (VSIX)](https://aka.ms/cppwinrt/vsix) para Visual Studio deve ser instalada a partir do [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
-3. Um dispositivo HoloLens com [modo de desenvolvimento](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) ativado. Este artigo requer um dispositivo HoloLens com a [atualização do Windows 10 May 2020](https://docs.microsoft.com/windows/mixed-reality/whats-new/release-notes-may-2020 ). Para atualizar a versão mais recente do HoloLens, abra a aplicação **Definições,** vá a **Update & Security**, selecione o botão Verificar para **atualizações.**
+3. Um dispositivo HoloLens com [modo de desenvolvimento](/windows/mixed-reality/using-visual-studio) ativado. Este artigo requer um dispositivo HoloLens com a [atualização do Windows 10 May 2020](/windows/mixed-reality/whats-new/release-notes-may-2020). Para atualizar a versão mais recente do HoloLens, abra a aplicação **Definições,** vá a **Update & Security**, selecione o botão Verificar para **atualizações.**
 
 ## <a name="getting-started"></a>Introdução
 
@@ -89,7 +89,7 @@ Precisamos configurar a nossa app Unidade com uma visão imersiva, em vez de uma
 Deve agora ter um prefácio de esfera no painel do **projeto.**
 
 ## <a name="trying-it-out"></a>Experimentando
-Para testar que está tudo a funcionar, construa a sua app em **Unidade** e implemente-a a partir do **Visual Studio.** Siga o Capítulo 6 do [ **MR Basics 100: Começar com** ](https://docs.microsoft.com/windows/mixed-reality/holograms-100#chapter-6---build-and-deploy-to-device-from-visual-studio) o curso de Unidade para o fazer. Devias ver o ecrã de partida da Unidade e, em seguida, um ecrã claro.
+Para testar que está tudo a funcionar, construa a sua app em **Unidade** e implemente-a a partir do **Visual Studio.** Siga o Capítulo 6 do [ **MR Basics 100: Começar com** ](/windows/mixed-reality/holograms-100#chapter-6---build-and-deploy-to-device-from-visual-studio) o curso de Unidade para o fazer. Devias ver o ecrã de partida da Unidade e, em seguida, um ecrã claro.
 
 ## <a name="place-an-object-in-the-real-world"></a>Coloque um objeto no mundo real
 Vamos criar & colocar um objeto usando a sua aplicação. Abra a solução Visual Studio que criamos quando [implementamos a nossa aplicação.](#trying-it-out)
@@ -208,7 +208,7 @@ Finalmente, vamos juntar tudo. No seu `CreateAndSaveSphere()` método, adicione 
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=320-397&highlight=26-77)]
 
-Execute o seu aplicativo a partir do **Visual Studio** mais uma vez. Mova-se à volta da cabeça e toque de ar para colocar a esfera. Assim que tivermos quadros suficientes, a esfera ficará amarela, e o upload da nuvem começará. Assim que o upload terminar, a sua esfera ficará azul. Opcionalmente, também pode utilizar a [janela Saída](https://docs.microsoft.com/visualstudio/ide/reference/output-window) enquanto desormes no **Estúdio Visual** para monitorizar as mensagens de registo que a sua aplicação está a enviar. Certifique-se de que implementa a `Debug` configuração da sua aplicação a partir do Visual Studio para ver as mensagens de registo. Pode ver o `RecommendedForCreateProgress` , e assim que o upload estiver completo, poderá ver o identificador de âncora devolvido da nuvem.
+Execute o seu aplicativo a partir do **Visual Studio** mais uma vez. Mova-se à volta da cabeça e toque de ar para colocar a esfera. Assim que tivermos quadros suficientes, a esfera ficará amarela, e o upload da nuvem começará. Assim que o upload terminar, a sua esfera ficará azul. Opcionalmente, também pode utilizar a [janela Saída](/visualstudio/ide/reference/output-window) enquanto desormes no **Estúdio Visual** para monitorizar as mensagens de registo que a sua aplicação está a enviar. Certifique-se de que implementa a `Debug` configuração da sua aplicação a partir do Visual Studio para ver as mensagens de registo. Pode ver o `RecommendedForCreateProgress` , e assim que o upload estiver completo, poderá ver o identificador de âncora devolvido da nuvem.
 
 > [!NOTE]
 > Se obtém "DllNotFoundException: Incapaz de carregar DLL 'AzureSpatialAnchors": O módulo especificado não foi encontrado.» deve **limpar** e construir novamente **a** sua solução.
@@ -236,6 +236,6 @@ Agora permite adicionar código que irá criar & colocar uma esfera verde uma ve
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=234-271)]
 
-Já está. Execute a sua aplicação a partir do **Visual Studio** uma última vez para experimentar todo o cenário de ponta a ponta. Mova-se em torno do seu dispositivo, e coloque a sua esfera branca. Então, continue a mover a cabeça para capturar dados ambientais até que a esfera fique amarela. A tua âncora local será carregada, e a tua esfera ficará azul. Por fim, toque mais uma vez no ecrã para remover a âncora local e inicie uma consulta para a sua contraparte na nuvem. Continue a mover o seu dispositivo até que a sua âncora espacial em nuvem esteja localizada. Uma esfera verde deve aparecer na localização correta, e pode repetir todo o cenário novamente.
+Já está! Execute a sua aplicação a partir do **Visual Studio** uma última vez para experimentar todo o cenário de ponta a ponta. Mova-se em torno do seu dispositivo, e coloque a sua esfera branca. Então, continue a mover a cabeça para capturar dados ambientais até que a esfera fique amarela. A tua âncora local será carregada, e a tua esfera ficará azul. Por fim, toque mais uma vez no ecrã para remover a âncora local e inicie uma consulta para a sua contraparte na nuvem. Continue a mover o seu dispositivo até que a sua âncora espacial em nuvem esteja localizada. Uma esfera verde deve aparecer na localização correta, e pode repetir todo o cenário novamente.
 
 [!INCLUDE [AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md)]

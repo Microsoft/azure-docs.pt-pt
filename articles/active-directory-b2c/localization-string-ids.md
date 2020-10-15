@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/14/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 87d56f32877fbe5b817dab5d9ad98e1f1f71386c
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: f75fbf286741fcc122332574332a30ad7fa23644
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92054751"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92096203"
 ---
 # <a name="localization-string-ids"></a>IDs de cadeia de localização
 
@@ -143,7 +143,7 @@ Seguem-se os IDs para uma definição de conteúdo com identificação ou qualqu
 | **cancel_message** | O utilizador cancelou a introdução de informações autoafirmadas |
 | **preloader_alt** | Aguarde |
 | **ver_but_send** | Enviar código de verificação |
-| **alert_yes** | Yes |
+| **alert_yes** | Sim |
 | **error_fieldIncorrect** | Um ou mais campos são preenchidos incorretamente. Por favor, verifiquem as suas entradas e tentem novamente. |
 | **ano** | Ano |
 | **verifying_blurb** | Por favor, aguarde enquanto processamos a sua informação. |
@@ -161,7 +161,7 @@ Seguem-se os IDs para uma definição de conteúdo com identificação ou qualqu
 | **ver_incorrect_format** | Formato incorreto. |
 | **ver_but_edit** | Alterar e-mail |
 | **ver_but_verify** | Verificar código |
-| **alert_no** | No |
+| **alert_no** | Não |
 | **ver_info_msg** | O código de verificação foi enviado para a sua caixa de entrada. Por favor, copie-o para a caixa de entrada abaixo. |
 | **dia** | Dia |
 | **ver_fail_throttled** | Houve muitos pedidos para verificar este endereço de e-mail. Por favor, espere um pouco, e tente de novo. |
@@ -263,7 +263,7 @@ Seguem-se os IDs para uma definição de conteúdo com identificação `api.phon
 | **invalid_code** | Introduza o código de 6 dígitos que recebeu |
 | **button_cancel** | Cancelar |
 | **local_number_input_placeholder_text** | Número de telefone |
-| **button_retry** | Tentar novamente |
+| **button_retry** | Repetir |
 | **alternative_text** | Não tenho o meu telemóvel. |
 | **intro_phone_p** | Temos os seguintes números registados para si. Escolha um número que podemos telefonar para autenticá-lo. |
 | **intro_phone** | Temos o seguinte número registado para si. Vamos telefonar para autenticá-lo. |
@@ -343,7 +343,42 @@ O exemplo a seguir mostra a utilização de alguns dos elementos de interface de
 
 ## <a name="verification-display-control-user-interface-elements"></a>Elementos de interface do utilizador do controlo do ecrã de verificação
 
-Seguem-se os IDs para um [controlo de visualização de verificação](display-control-verification.md)
+Seguem-se os IDs para um [controlo de visualização de verificação](display-control-verification.md) com [a versão de layout](page-layout.md) da página 2.1.0 ou superior.
+
+| ID | Valor predefinido |
+| -- | ------------- |
+|intro_msg| A verificação é necessária. Clique no botão Enviar por favor.|
+|success_send_code_msg | O código de verificação foi enviado para a sua caixa de entrada. Por favor, copie-o para a caixa de entrada abaixo.|
+|failure_send_code_msg | Estamos com dificuldades em verificar o seu endereço de e-mail. Por favor, insira um endereço de e-mail válido e tente novamente.|
+|success_verify_code_msg | Endereço de e-mail verificado. Agora pode continuar.|
+|failure_verify_code_msg | Estamos com dificuldades em verificar o seu endereço de e-mail. Tente novamente.|
+|but_send_code | Enviar código de verificação|
+|but_verify_code | Verificar código|
+|but_send_new_code | Enviar novo código|
+|but_change_claims | Alterar e-mail|
+
+### <a name="verification-display-control-example"></a>Exemplo de controlo de visualização de verificação
+
+```xml
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+   <!-- Display control UI elements-->
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="intro_msg">Verification is necessary. Please click Send button.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="success_send_code_msg">Verification code has been sent to your inbox. Please copy it to the input box below.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="failure_send_code_msg">We are having trouble verifying your email address. Please enter a valid email address and try again.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="success_verify_code_msg">E-mail address verified. You can now continue.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="failure_verify_code_msg">We are having trouble verifying your email address. Please try again.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_code">Send verification code</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_verify_code">Verify code</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_new_code">Send new code</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_change_claims">Change e-mail</LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+## <a name="verification-display-control-user-interface-elements-deprecated"></a>Elementos de interface do utilizador do controlo do ecrã de verificação (precotados)
+
+Seguem-se os IDs para um [controlo de visualização de verificação](display-control-verification.md) com [a versão layout](page-layout.md) da página 2.0.0.
 
 | ID | Valor predefinido |
 | -- | ------------- |
@@ -355,7 +390,7 @@ Seguem-se os IDs para um [controlo de visualização de verificação](display-c
 |verification_control_but_verify_code |Verificar Código |
 |verification_control_code_sent| O código de verificação foi enviado. Por favor, copie-o para a caixa de entrada abaixo. |
 
-### <a name="verification-display-control-example"></a>Exemplo de controlo de visualização de verificação
+### <a name="verification-display-control-example-deprecated"></a>Exemplo de controlo do ecrã de verificação (precotado)
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
@@ -468,8 +503,8 @@ Seguem-se os IDs para [uma única palavra-passe de](one-time-password-technical-
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
-    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceed the maximum time allowed.</LocalizedString>
-    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceed the number of retries allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidCode">You have entered the wrong code.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">That code is incorrect. Please try again.</LocalizedString>

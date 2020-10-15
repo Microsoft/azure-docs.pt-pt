@@ -3,18 +3,20 @@ title: Descrição Geral do Azure Policy
 description: O Azure Policy é um serviço no Azure utilizado para criar, atribuir e gerir definições de política no seu ambiente do Azure.
 ms.date: 10/05/2020
 ms.topic: overview
-ms.openlocfilehash: 54dce519bfaa8c42afa967fc5c0579f31986aefb
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 8a32e32afb544588bb033cc64ede5ecbe6e2bac2
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873919"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097393"
 ---
 # <a name="what-is-azure-policy"></a>O que é o Azure Policy?
 
 O Azure Policy ajuda a impor normas organizacionais e a avaliar o cumprimento em escala. Através do seu painel de conformidade, proporciona uma visão agregada para avaliar o estado geral do ambiente, com a capacidade de aprofundar a granularidade por recurso, por política. Também ajuda a levar os seus recursos ao cumprimento através da reparação a granel dos recursos existentes e da reparação automática de novos recursos.
 
 Os casos de utilização comum para a Política Azure incluem a implementação da governação para a consistência dos recursos, a conformidade regulamentar, a segurança, os custos e a gestão. As definições de política para estes casos de uso comum já estão disponíveis no seu ambiente Azure como incorporados para ajudá-lo a começar.
+
+Todos os dados e objetos da Azure Policy são encriptados em repouso. Para obter mais informações, consulte [a encriptação de dados do Azure em repouso](../../security/fundamentals/encryption-atrest.md).
 
 ## <a name="overview"></a>Descrição geral
 
@@ -63,7 +65,7 @@ Existem algumas diferenças fundamentais entre a Política Azure e o controlo de
 
 O Azure RBAC foca-se na gestão [das ações dos](../../role-based-access-control/resource-provider-operations.md) utilizadores em diferentes âmbitos. Se for necessário controlar uma ação, então o Azure RBAC é a ferramenta correta a utilizar. Mesmo que um indivíduo tenha acesso a uma ação, se o resultado for um recurso não conforme, a Azure Policy ainda bloqueia a criação ou a atualização.
 
-A combinação entre a Política Azure RBAC e Azure proporciona controlo de âmbito total em Azure.
+A combinação da Azure RBAC e da Política Azure proporciona controlo de âmbito total em Azure.
 
 ### <a name="azure-rbac-permissions-in-azure-policy"></a>Permissões do Azure RBAC na Política Azure
 
@@ -146,7 +148,7 @@ Por exemplo, considere um cenário em que tem uma definição de iniciativa - **
 | Política | Nome do parâmetro |Tipo de parâmetro  |Nota |
 |---|---|---|---|
 | policyA | allowedLocations | matriz  |Este parâmetro espera uma lista de cadeias para um valor, uma vez que o tipo de parâmetro foi definido como uma matriz |
-| policyB | allowedSingleLocation |string |Este parâmetro espera uma palavra para um valor, uma vez que o tipo de parâmetro foi definido como uma cadeia |
+| policyB | allowedSingleLocation |cadeia |Este parâmetro espera uma palavra para um valor, uma vez que o tipo de parâmetro foi definido como uma cadeia |
 
 Neste cenário, quando define os parâmetros da iniciativa para **initiativeC**, tem três opções:
 
