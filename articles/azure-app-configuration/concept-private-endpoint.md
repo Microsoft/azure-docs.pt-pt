@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 3/12/2020
 ms.author: lcozzens
-ms.openlocfilehash: 3ec2a0e38f3bead5fbab8a119099bb5bbc3ded2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a29c8c02093f47807ec71ffcc01e26514976ce79
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87042115"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92071715"
 ---
 # <a name="using-private-endpoints-for-azure-app-configuration"></a>Utilização de pontos finais privados para configuração de aplicações Azure
 
@@ -71,5 +71,5 @@ Saiba mais sobre a criação de um ponto final privado para a sua loja de Config
 
 Aprenda a configurar o seu servidor DNS com pontos finais privados:
 
-- [Name resolution for resources in Azure virtual networks](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server) (Resolução de nomes para recursos em redes virtuais do Azure)
-- [Configuração DNS para Pontos Finais Privados](/azure/private-link/private-endpoint-overview#dns-configuration)
+- [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) (Resolução de nomes para recursos em redes virtuais do Azure)
+- [Configuração DNS para Pontos Finais Privados](../private-link/private-endpoint-overview.md#dns-configuration)
