@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0cc2c04208c4800a883848896a0f1659e8bf72e9
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: d0f8fa313687b3bd45bd95f1c9ea864567821775
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097257"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102362"
 ---
 # <a name="query-azure-cosmos-db-data-using-sql-serverless-in-azure-synapse-link-preview"></a>Consulta dados DB da Azure Cosmos utilizando o sql sem servidor em Azure Synapse Link (pré-visualização)
 
@@ -266,8 +266,10 @@ A lista dos possíveis erros e ações de resolução de problemas consta do qua
 | --- | --- |
 | Erros de sintaxe:<br/> - Sintaxe incorreta perto de 'Openrowset'<br/> - `...` não é uma opção reconhecida de fornecedor DE OPENROWSET A GRANEL.<br/> - Sintaxe incorreta perto `...` | Possíveis causas de raiz<br/> - Não usar o 'CosmosDB' como primeiro parâmetro,<br/> - Utilização literal de cordas em vez de identificador no terceiro parâmetro,<br/> - Não especificar o terceiro parâmetro (nome do recipiente) |
 | Houve um erro na cadeia de ligação CosmosDB | - Conta, Base de Dados, Chave não é especificada <br/> - Existe alguma opção na cadeia de ligação que não é reconhecida.<br/> - O ponto de `;` esmicolon é colocado no fim da cadeia de ligação |
-| A resolução do caminho do CosmosDB falhou com o erro 'Nome de conta/base de dados incorrecto' | O nome de conta especificado ou o nome da base de dados não podem ser encontrados. |
-| A resolução do caminho do CosmosDB falhou com o erro 'Valor secreto incorrecto' 'Segredo é nulo ou vazio' | A chave da conta não é válida ou em falta. |
+| A resolução do caminho do CosmosDB falhou com erro 'Nome de conta incorrecto' ou 'Nome de base de dados incorrecto' | O nome da conta especificada, o nome da base de dados ou o contentor não podem ser encontrados, ou não foi ativado o armazenamento analítico da recolha especificada|
+| A resolução do caminho do CosmosDB falhou com o erro 'Valor secreto incorrecto' ou 'Segredo é nulo ou vazio' | A chave da conta não é válida ou em falta. |
+| Coluna `column name` de tipo não é `type name` compatível com o tipo de dados externo `type name` | O tipo de coluna especificado na `WITH` cláusula não corresponde ao tipo no recipiente Cosmos DB. Tente alterar o tipo de coluna tal como está descrito na secção [Azure Cosmos DB para mapeamentos do tipo SQL](#azure-cosmos-db-to-sql-type-mappings) ou tipo de utilização. `VARCHAR` |
+| A coluna contém `NULL` valores em todas as células. | Possivelmente nome de coluna errado ou expressão de caminho na `WITH` cláusula. O nome da coluna (ou expressão de caminho após o tipo de coluna) na `WITH` cláusula deve corresponder a algum nome de propriedade na coleção Cosmos DB. A comparação é **sensível a casos**  (por exemplo, `productCode` e são propriedades `ProductCode` diferentes). |
 
 Pode relatar sugestões e problemas na [página de feedback do Azure Synapse](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=387862).
 

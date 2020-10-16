@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2019
 ms.author: jeedes
-ms.openlocfilehash: db47849575c097cf56824b623dddbb6e0835d1b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5c641ce9b224aecc3d199427bf27b804f7dd2dd
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543618"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102090"
 ---
 # <a name="tutorial-integrate-runmyprocess-with-azure-active-directory"></a>Tutorial: Integrar RunMyProcess com Diretório Ativo Azure
 
@@ -96,11 +96,11 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No painel de navegação à esquerda, clique em **'Conta'** e selecione **Configuração.**
 
-    ![Configurar Sign-On única no lado da aplicação](./media/runmyprocess-tutorial/tutorial_runmyprocess_001.png)
+    ![A screenshot mostra a configuração selecionada a partir da Conta.](./media/runmyprocess-tutorial/tutorial_runmyprocess_001.png)
 
 1. Aceda à secção **de método de autenticação** e execute abaixo dos passos:
 
-    ![Configurar Sign-On única no lado da aplicação](./media/runmyprocess-tutorial/tutorial_runmyprocess_002.png)
+    ![A screenshot mostra o separador método de autenticação onde pode introduzir os valores descritos.](./media/runmyprocess-tutorial/tutorial_runmyprocess_002.png)
 
     a. Como **Método**, selecione **SSO com Samlv2**.
 

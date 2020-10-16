@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 71207509f20c80cf85311cba7b647aaca0a49e42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68f30079d85e2064b92718c65b38dbb5069d810b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192816"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92101652"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Orientação de afinação de desempenho para storm on HDInsight e Azure Data Lake Storage Gen1
 
@@ -22,8 +22,8 @@ Compreenda os fatores que devem ser considerados quando sintoniza o desempenho d
 * **Uma assinatura Azure**. Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Uma conta Azure Data Lake Storage Gen1**. Para obter instruções sobre como criar um, consulte [Começar com a Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
 * **Um cluster Azure HDInsight** com acesso a uma conta Gen1 de armazenamento de data lake. Consulte [Criar um cluster HDInsight com data lake storage gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Certifique-se de que ativa o Ambiente de Trabalho Remoto para o cluster.
-* **Executando um aglomerado de tempestade na Data Lake Storage Gen1.** Para obter mais informações, consulte [Storm on HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
-* **Diretrizes de afinação de desempenho sobre data lake storage gen1**.  Para obter conceitos gerais de desempenho, consulte [data lake storage Gen1 Performance Afinação de afinação.](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)  
+* **Executando um aglomerado de tempestade na Data Lake Storage Gen1.** Para obter mais informações, consulte [Storm on HDInsight](../hdinsight/storm/apache-storm-overview.md).
+* **Diretrizes de afinação de desempenho sobre data lake storage gen1**.  Para obter conceitos gerais de desempenho, consulte [data lake storage Gen1 Performance Afinação de afinação.](./data-lake-store-performance-tuning-guidance.md)  
 
 ## <a name="tune-the-parallelism-of-the-topology"></a>Sintonize o paralelismo da topologia
 
@@ -130,6 +130,6 @@ Para verificar se está a ser estrangulado, ative o registo de depurar do lado d
 2. Monitorize os registos de topologia da tempestade nos nós dos trabalhadores (em /var/log/storm/worker-artifacts/ &lt; TopologyName &gt; / &lt; port &gt; /worker.log) para as exceções de estrangulamento da Gen1 de armazenamento de dados.
 
 ## <a name="next-steps"></a>Passos seguintes
-A afinação adicional de desempenho para Storm pode ser referenciada [neste blog](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/).
+A afinação adicional de desempenho para Storm pode ser referenciada [neste blog](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs).
 
 Para um exemplo adicional a correr, veja [este no GitHub.](https://github.com/hdinsight/storm-performance-automation)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: cff2e918c7b67f6d3bccb9b56366cbf034ed1bb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7acd287964d25cc7e98c11ec1986c73d8ae265da
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89300107"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104143"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gerir o acesso a dados de registo e áreas de trabalho no Azure Monitor
 
@@ -48,7 +48,7 @@ Pode alterar esta definição a partir da página **Propriedades** do espaço de
 
 ![Alterar o modo de acesso ao espaço de trabalho](media/manage-access/change-access-control-mode.png)
 
-### <a name="using-powershell"></a>Com o PowerShell
+### <a name="using-powershell"></a>Utilizar o PowerShell
 
 Utilize o seguinte comando para examinar o modo de controlo de acesso para todos os espaços de trabalho na subscrição:
 
@@ -162,7 +162,7 @@ Os membros da função *Contribuidor do Log Analytics* podem:
 
 A função de Contribuinte Log Analytics inclui as seguintes ações do Azure:
 
-| Permissão | Descrição |
+| Permissão | Description |
 | ---------- | ----------- |
 | `*/read`     | Capacidade para ver todos os recursos e configuração dos mesmos. Inclui ver: <br> o estado da extensão da máquina virtual <br> a configuração dos diagnósticos do Azure nos recursos <br> Todas as propriedades e configurações de todos os recursos. <br> Para espaços de trabalho, permite que permissões completas e ilimitadas leiam a definição do espaço de trabalho e realizem consultas nos dados. Veja mais opções granulares acima. |
 | `Microsoft.Automation/automationAccounts/*` | Capacidade para criar, e configurar contas de Automatização do Azure, incluindo adicionar e editar runbooks |
@@ -189,7 +189,7 @@ Recomendamos a realização de atribuições ao nível dos recursos (espaço de 
 
 Quando os utilizadores consultam os registos de um espaço de trabalho utilizando o acesso ao contexto de recursos, terão as seguintes permissões no recurso:
 
-| Permissão | Descrição |
+| Permissão | Description |
 | ---------- | ----------- |
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>Exemplos:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Capacidade de visualizar todos os dados de registo para o recurso.  |
 | `Microsoft.Insights/diagnosticSettings/write` | Capacidade de configurar a definição de diagnósticos para permitir a configuração de registos para este recurso. |
@@ -243,7 +243,7 @@ Consulte [a definição do controlo de acesso por tabela](#table-level-rbac) aba
 
 **O RBAC de nível** de tabela permite-lhe definir mais controlo granular aos dados num espaço de trabalho log Analytics, além das outras permissões. Este controlo permite definir tipos de dados específicos que são acessíveis apenas a um conjunto específico de utilizadores.
 
-Implementa o controlo de acesso à mesa com [funções personalizadas Azure](../../role-based-access-control/custom-roles.md) para conceder acesso a [mesas específicas](../log-query/logs-structure.md) no espaço de trabalho. Estas funções são aplicadas em espaços de trabalho com [modos](design-logs-deployment.md#access-control-mode) de controlo de acesso ao espaço de trabalho ou ao contexto de recursos, independentemente do modo de [acesso](design-logs-deployment.md#access-mode)do utilizador.
+Implementa o controlo de acesso à mesa com [funções personalizadas Azure](../../role-based-access-control/custom-roles.md) para conceder acesso a [mesas específicas](./data-platform-logs.md) no espaço de trabalho. Estas funções são aplicadas em espaços de trabalho com [modos](design-logs-deployment.md#access-control-mode) de controlo de acesso ao espaço de trabalho ou ao contexto de recursos, independentemente do modo de [acesso](design-logs-deployment.md#access-mode)do utilizador.
 
 Crie uma [função personalizada](../../role-based-access-control/custom-roles.md) com as seguintes ações para definir o acesso ao controlo de acesso à mesa.
 

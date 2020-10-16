@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 10/05/2020
-ms.openlocfilehash: 3ccc5ab07416f65270a7bd720f1e0884027b1fe7
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.date: 10/14/2020
+ms.openlocfilehash: 1b3804029a4174698ed1e4e4f8d75fbed4fba981
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057727"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102817"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Quickstart: Criar um serviço Azure Cognitive Search no portal
 
@@ -102,9 +102,9 @@ A Azure Cognitive Search está disponível na maioria das regiões. A lista de r
 
 Se estiver a utilizar vários serviços Azure, escolha uma região que também esteja a hospedar os seus dados ou serviço de aplicação. Ao fazê-lo, minimiza ou anula os encargos de largura de banda para os dados de saída (não há encargos para os dados de saída quando os serviços estão na mesma região).
 
-## <a name="choose-a-pricing-tier-sku"></a>Escolha um nível de preços (SKU)
+## <a name="choose-a-pricing-tier"></a>Escolha um nível de preços
 
-[A Azure Cognitive Search é atualmente oferecida em vários níveis de preços](https://azure.microsoft.com/pricing/details/search/): Grátis, Básico ou Standard. Cada escalão tem a sua própria [capacidade e limites](search-limits-quotas-capacity.md). Veja [Escolher um escalão de preço ou SKU](search-sku-tier.md) para obter orientações.
+A Azure Cognitive Search é atualmente oferecida em [vários níveis de preços](https://azure.microsoft.com/pricing/details/search/): Gratuito, Básico, Padrão ou Armazenamento Otimizado. Cada escalão tem a sua própria [capacidade e limites](search-limits-quotas-capacity.md). Consulte [Escolha um nível de preços](search-sku-tier.md) para obter orientação.
 
 A Basic e a Standard são as escolhas mais comuns para cargas de trabalho de produção, mas a maioria dos clientes começa com o serviço Gratuito. As principais diferenças entre os níveis são o tamanho e a velocidade da partição, e os limites do número de objetos que pode criar.
 

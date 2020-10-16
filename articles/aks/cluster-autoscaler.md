@@ -4,12 +4,12 @@ description: Aprenda a utilizar o autoescalador de cluster para escalar automati
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 9f1dcc64569e9822e3703312740450e2528479dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7368745d3b6bf9731f987d6f4fc36b81d354fed8
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88257506"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103871"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Dimensionar automaticamente um cluster para satisfazer as exigências das aplicações no Azure Kubernetes Service (AKS)
 
@@ -135,18 +135,8 @@ Também pode configurar mais detalhes granulares do autoescalador do cluster alt
 
 > [!IMPORTANT]
 > O perfil de autoescalador do cluster afeta todas as piscinas de nós que utilizam o autoescalador do cluster. Não é possível definir um perfil de autoescalador por piscina de nó.
-
-### <a name="install-aks-preview-cli-extension"></a>Instalar a extensão da CLI aks-preview
-
-Para definir o perfil de definições de autoescala do cluster, precisa da versão de extensão CLI *de pré-visualização aks* 0.4.30 ou superior. Instale a extensão Azure CLI *de pré-visualização aks* utilizando o comando [de adicionar extensão az][az-extension-add] e, em seguida, verifique se há atualizações disponíveis utilizando o comando de atualização de [extensão az:][az-extension-update]
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
+>
+> O perfil de autoescalador do cluster requer a versão *2.11.1* ou maior do Azure CLI. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 
 ### <a name="set-the-cluster-autoscaler-profile-on-an-existing-aks-cluster"></a>Desacruque o perfil de autoescalador de cluster num cluster AKS existente
 

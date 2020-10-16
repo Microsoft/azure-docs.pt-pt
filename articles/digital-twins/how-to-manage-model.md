@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5fd297545e7f07844e28a1f56e724a7f61916bee
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 06c4ac3be0e9d1021e64cf1a34bda94ed02c9982
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057744"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102498"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gerir os modelos Azure Digital Twins
 
@@ -174,10 +174,7 @@ Em vez disso, se pretender fazer alterações a um modelo , como atualizar `disp
 
 #### <a name="model-versioning"></a>Controlo de versões de modelos
 
-Para criar uma nova versão de um modelo existente, comece pelo DTDL do modelo original. Atualize os campos que gostaria de alterar.
-
->[!NOTE]
->Durante a pré-visualização, o avanço de uma versão modelo apenas lhe permitirá adicionar novos campos, não remover os existentes. Para remover campos, deve [apenas criar um modelo novo.](#create-models)
+Para criar uma nova versão de um modelo existente, comece pelo DTDL do modelo original. Atualizar, adicionar ou remover os campos que gostaria de alterar.
 
 Em seguida, marque isto como uma versão mais recente do modelo atualizando o `id` campo do modelo. A última secção do ID do modelo, depois `;` do, representa o número do modelo. Para indicar que esta é agora uma versão mais atualizada deste modelo, incremente o número no final do `id` valor para qualquer número maior do que o número de versão atual.
 

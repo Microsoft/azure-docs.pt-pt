@@ -3,12 +3,12 @@ title: Melhores práticas
 description: Aprenda as melhores práticas e dicas úteis para desenvolver a sua solução Azure Batch.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 695f213c0683bd158539b97719f2c2d8c0210edf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0663d1910e2b67b8302e41a96509bdd84cd1a3a0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849494"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102783"
 ---
 # <a name="azure-batch-best-practices"></a>As melhores práticas do Azure Batch
 
@@ -63,7 +63,7 @@ Quando cria um pool Azure Batch utilizando a Configuração da Máquina Virtual,
 
 ### <a name="third-party-images"></a>Imagens de terceiros
 
-As piscinas podem ser criadas usando imagens de terceiros publicadas no Azure Marketplace. Com o modo de subscrição do utilizador As contas de lote, poderá ver o erro "A atribuição falhou devido à verificação de elegibilidade da compra de mercado" ao criar um pool com determinadas imagens de terceiros. Para resolver este erro, aceite os termos definidos pelo editor da imagem. Pode fazê-lo utilizando [a Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) ou [a Azure CLI](https://docs.microsoft.com/cli/azure/vm/image/terms).
+As piscinas podem ser criadas usando imagens de terceiros publicadas no Azure Marketplace. Com o modo de subscrição do utilizador As contas de lote, poderá ver o erro "A atribuição falhou devido à verificação de elegibilidade da compra de mercado" ao criar um pool com determinadas imagens de terceiros. Para resolver este erro, aceite os termos definidos pelo editor da imagem. Pode fazê-lo utilizando [a Azure PowerShell](/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) ou [a Azure CLI](/cli/azure/vm/image/terms).
 
 ### <a name="azure-region-dependency"></a>Dependência da região de Azure
 

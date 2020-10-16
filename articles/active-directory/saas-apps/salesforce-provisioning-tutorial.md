@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
-ms.openlocfilehash: a77fa5702b8ab5728f387eae02cc97f997a406a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e22511717b6a86f9e0cf53986152c4d6bab68780
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273301"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92101771"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutorial: Configure Salesforce para o fornecimento automático de utilizadores
 
@@ -77,15 +77,15 @@ O objetivo desta secção é delinear como permitir o fornecimento de contas de 
 
 6. Para obter o seu token de segurança Salesforce, abra um novo separador e inscreva-se na mesma conta de administração da Salesforce. No canto superior direito da página, clique no seu nome e, em seguida, clique em **Definições**.
 
-    ![Permitir o fornecimento automático do utilizador](./media/salesforce-provisioning-tutorial/sf-my-settings.png "Permitir o fornecimento automático do utilizador")
+    ![A screenshot mostra o link Definições selecionado.](./media/salesforce-provisioning-tutorial/sf-my-settings.png "Permitir o fornecimento automático do utilizador")
 
 7. No painel de navegação à esquerda, clique em **My Personal Information** para expandir a secção relacionada e, em seguida, clique em Redefinir o **Token de Segurança**.
   
-    ![Permitir o fornecimento automático do utilizador](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "Permitir o fornecimento automático do utilizador")
+    ![A screenshot mostra reset My Security Token selecionado a partir de My Personal Information.](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "Permitir o fornecimento automático do utilizador")
 
 8. Na página **reset Security Token,** clique no botão **Reset Security Token.**
 
-    ![Permitir o fornecimento automático do utilizador](./media/salesforce-provisioning-tutorial/sf-reset-token.png "Permitir o fornecimento automático do utilizador")
+    ![O Screenshot mostra a página de Token de Segurança de Repouso, com texto explicativo e a opção de redefinir o token de segurança](./media/salesforce-provisioning-tutorial/sf-reset-token.png "Permitir o fornecimento automático do utilizador")
 
 9. Verifique a caixa de entrada de e-mail associada a esta conta de administração. Procure um e-mail de Salesforce.com que contenha o novo símbolo de segurança.
 

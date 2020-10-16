@@ -13,12 +13,12 @@ ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a1a82d5f2a2e0b5cc9dba4e83fa1063cb6089375
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbfaf52a7c5bb5e44b85513d8e2c2ec5f1cea356
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91611219"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92101988"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-application"></a>Tutorial: Inscreva-se nos utilizadores e ligue para a Microsoft Graph API a partir de uma aplicação Android
 
@@ -102,6 +102,7 @@ Se ainda não tem uma aplicação Android, siga estes passos para criar um novo 
       "client_id" : "0984a7b6-bc13-4141-8b0d-8f767e136bb7",
       "authorization_user_agent" : "DEFAULT",
       "redirect_uri" : "msauth://com.azuresamples.msalandroidapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D",
+      "broker_redirect_uri_registered" : true,
       "account_mode" : "SINGLE",
       "authorities" : [
         {
@@ -151,7 +152,7 @@ Se ainda não tem uma aplicação Android, siga estes passos para criar um novo 
         jcenter()
     }
     dependencies{
-        implementation 'com.microsoft.identity.client:msal:1.+'
+        implementation 'com.microsoft.identity.client:msal:2.+'
         implementation 'com.microsoft.graph:microsoft-graph:1.5.+'
     }
     packagingOptions{
@@ -575,7 +576,7 @@ PR 4
 
 A primeira vez que qualquer utilizador entrar na sua aplicação, será solicitado pela identidade da Microsoft para consentir com as permissões solicitadas. Alguns inquilinos da AD Azure têm o consentimento do utilizador desativado, o que requer que os administradores consintam em nome de todos os utilizadores. Para apoiar este cenário, você precisará criar o seu próprio inquilino ou receber o consentimento administrativo.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, elimine o objeto da aplicação que criou no Passo de Inscrição da [sua aplicação.](#register-your-application)
 

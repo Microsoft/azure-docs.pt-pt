@@ -4,16 +4,16 @@ description: Gerir casos de alerta em Azure
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 1910b3b474012365e8117f584379b2b29f8ce3de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82905cba5f391365ada13f4e5df5ad139f4c121e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77667623"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102875"
 ---
 # <a name="manage-alert-instances-with-unified-alerts"></a>Gerir instâncias de alerta com alertas unificados
 
-Com a [experiência de alertas unificados](https://aka.ms/azure-alerts-overview) no Azure Monitor, você pode ver todos os seus diferentes tipos de alertas em Azure. Isto abrange várias subscrições, num único painel. Este artigo mostra como pode ver as suas instâncias de alerta e como encontrar casos específicos de alerta para a resolução de problemas.
+Com a [experiência de alertas unificados](./alerts-overview.md) no Azure Monitor, você pode ver todos os seus diferentes tipos de alertas em Azure. Isto abrange várias subscrições, num único painel. Este artigo mostra como pode ver as suas instâncias de alerta e como encontrar casos específicos de alerta para a resolução de problemas.
 
 > [!NOTE]
 > Só é possível aceder aos alertas gerados nos últimos 30 dias.
@@ -54,5 +54,4 @@ Além dos filtros disponíveis na página anterior, também pode filtrar com bas
 
 A seleção de qualquer instância de alerta abre a página Detalhes de **Alerta,** permitindo-lhe ver mais detalhes sobre essa instância de alerta específica.   
 
-![Screenshot da página detalhes de alerta](media/alerts-managing-alert-instances/alert-details.jpg)  
-
+![Screenshot da página detalhes de alerta](media/alerts-managing-alert-instances/alert-details.jpg)

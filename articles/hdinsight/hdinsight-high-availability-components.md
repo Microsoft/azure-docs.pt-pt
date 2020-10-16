@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: ac63846e2679e9b4a51cb26b32415eb81a4b76ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26c7029e710479b8785e06b1d65ff7b5270aeab0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842585"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102936"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Serviços de alta disponibilidade suportados pela Azure HDInsight
 
@@ -62,7 +62,7 @@ A Microsoft fornece suporte para os quatro serviços Apache na tabela seguinte e
 | Apache Livy | Cabeçano ativo | Spark | Permite uma interação fácil com um cluster Spark sobre uma interface REST |
 
 >[!Note]
-> Os clusters HDInsight Enterprise Security Package (ESP) atualmente apenas fornecem ao servidor Ambari alta disponibilidade.
+> Os clusters HDInsight Enterprise Security Package (ESP) atualmente apenas fornecem ao servidor Ambari alta disponibilidade. O Servidor de Linha do Tempo de Aplicação, o Job History Server e o Livy estão todos a funcionar apenas em headnode0 e não falham em fazer frente a frente quando o Ambari falha. A base de dados da linha de tempo da aplicação também está no headnode0 e não no servidor Ambari SQL.
 
 ### <a name="architecture"></a>Arquitetura
 

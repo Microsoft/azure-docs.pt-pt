@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: troubleshooting
 ms.date: 10/05/2020
 ms.subservice: alerts
-ms.openlocfilehash: 579729eca8269d75569166a5bda32a979544b164
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0546bd173a5cab456c0ccdafcd5a35c11b0d5ee9
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715327"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102158"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Problemas de resolução de problemas nos alertas métricos do Monitor Azure 
 
@@ -77,14 +77,14 @@ Para obter mais informações sobre a recolha de dados do sistema operativo dos 
 > Se configurar as métricas dos hóspedes para serem enviadas para um espaço de trabalho log Analytics, as métricas aparecem sob o recurso do espaço de trabalho Log Analytics e começarão a mostrar dados **apenas** depois de criar uma regra de alerta que os monitoriza. Para o fazer, siga os passos para [configurar um alerta de métricas para os registos](./alerts-metric-logs.md#configuring-metric-alert-for-logs).
 
 > [!NOTE] 
-> Monitorizar uma métrica de hóspedes para várias máquinas virtuais com uma única regra de alerta não é suportado por alertas métricos atualmente. Pode conseguir isso com uma [regra de alerta de registo.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log) Para tal, certifique-se de que as métricas dos hóspedes são recolhidas num espaço de trabalho do Log Analytics e crie uma regra de alerta de registo no espaço de trabalho.
+> Monitorizar uma métrica de hóspedes para várias máquinas virtuais com uma única regra de alerta não é suportado por alertas métricos atualmente. Pode conseguir isso com uma [regra de alerta de registo.](./alerts-unified-log.md) Para tal, certifique-se de que as métricas dos hóspedes são recolhidas num espaço de trabalho do Log Analytics e crie uma regra de alerta de registo no espaço de trabalho.
 
 ## <a name="cant-find-the-metric-to-alert-on"></a>Não consigo encontrar a métrica para alertar
 
-Se procura alertar uma métrica específica, mas não consegue vê-la ao criar uma regra de alerta, verifique o seguinte:
-- Se não conseguir ver métricas para o recurso, [verifique se o tipo de recurso é suportado para alertas métricos](./alerts-metric-near-real-time.md).
-- Se conseguir ver algumas métricas para o recurso, mas não encontrar uma métrica específica, [verifique se essa métrica está disponível](./metrics-supported.md)– e em caso afirmativo, consulte a descrição métrica para verificar se só está disponível em versões ou edições específicas do recurso.
-- Se a métrica não estiver disponível para o recurso, pode estar disponível nos registos de recursos e pode ser monitorizada usando alertas de registo. Consulte aqui mais informações sobre como [recolher e analisar registos de recursos a partir de um recurso Azure.](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs)
+Se quiser receber um alerta sobre uma métrica específica, mas não o vir ao criar uma regra de alerta, verifique o seguinte:
+- Se não conseguir ver quaisquer métricas para o recurso, [verifique se o tipo de recurso é suportado para alertas de métricas](./alerts-metric-near-real-time.md).
+- Se conseguir ver algumas métricas para o recurso, mas não conseguir encontrar uma métrica específica, [verifique se essa métrica está disponível](./metrics-supported.md) e, em caso afirmativo, consulte a descrição da métrica para verificar se está disponível apenas em versões ou edições específicas do recurso.
+- Se a métrica não estiver disponível para o recurso, poderá estar disponível nos registos de recursos e ser monitorizada através de alertas de registos. Veja aqui para obter mais informações sobre como [recolher e analisar registos de recursos de um recurso do Azure](../learn/tutorial-resource-logs.md).
 
 ## <a name="cant-find-the-metric-dimension-to-alert-on"></a>Não consigo encontrar a dimensão métrica para alertar
 

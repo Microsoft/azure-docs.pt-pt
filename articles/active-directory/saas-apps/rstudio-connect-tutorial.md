@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
-ms.openlocfilehash: f71a9fa1151a1df2ae04fe47afd6bf36861aa2e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6f67d1bb1e4502d918cd7af6d98ce5ed5f76c969
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273777"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102294"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rstudio-connect"></a>Tutorial: Integração do Azure Ative Directory com o RStudio Connect
 
@@ -101,7 +101,7 @@ Para configurar o Azure AD com rStudio Connect, execute os seguintes passos:
 
 4. Na secção **Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos, substituindo `<example.com>` pelo endereço do servidor RStudio Connect e porta:
 
-    ![RStudio Connect Domain e URLs informações únicas de súmis](common/idp-intiated.png)
+    ![A screenshot mostra a Configuração BÁSICA SAML, onde pode introduzir o Identificador, Responder U R L e selecionar Guardar.](common/idp-intiated.png)
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://<example.com>/__login__/saml`
 
@@ -109,7 +109,7 @@ Para configurar o Azure AD com rStudio Connect, execute os seguintes passos:
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    ![RStudio Connect Domain e URLs informações únicas de súmis](common/metadata-upload-additional-signon.png)
+    ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<example.com>/`
 

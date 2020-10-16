@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.date: 10/07/2020
+ms.date: 10/15/2020
 ms.reviewer: ''
-ms.openlocfilehash: 8ed4edb8739758af057276bd21c4ad62bf9ab974
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ae5d5e488a7bbe0e80f5a8960be27fd3de8489a
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91848862"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103004"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Escalões de serviço no modelo de compra baseado em DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,7 +40,7 @@ A escolha de um nível de serviço depende principalmente da continuidade do neg
 |**Uptime SLA**|99,99%|99,99%|99,99%|
 |**Retenção máxima de backup**|7 dias|35 dias|35 dias|
 |**CPU**|Baixo|Baixo, Médio, Alto|Médio, Alto|
-|**IOPS (aproximadamente)**\* |1-5 IOPS por DTU| 1-5 IOPS por DTU | 25 IOPS por DTU|
+|**IOPS (aproximadamente)**\* |1-4 IOPS por DTU| 1-4 IOPS por DTU | 25 IOPS por DTU|
 |**Latência IO (aproximada)**|5 ms (ler), 10 ms (escrever)|5 ms (ler), 10 ms (escrever)|2 ms (ler/escrever)|
 |**Indexação de colunas** |N/D|S3 e acima|Suportado|
 |**OLTP dentro da memória**|N/D|N/D|Suportado|
@@ -73,7 +73,7 @@ Os tamanhos de cálculo são expressos em termos de Unidades de Transação de D
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>EDTU elástico de piscina, armazenamento e limites de base de dados em conjunto
 
-|| **Básica** | **Standard** | **Premium** |
+|| **Básica** | **Padrão** | **Premium** |
 | :-- | --: | --: | --: |
 | **Tamanho máximo de armazenamento por base de dados**  | 2 GB | 1 TB | 1 TB |
 | **Tamanho máximo de armazenamento por piscina** | 156 GB | 4 TB | 4 TB |
@@ -114,7 +114,7 @@ A base de dados é dimensionada com base num "fator de escala". O fator de escal
 
 A carga de trabalho consiste em nove tipos de transações, conforme indicado no quadro abaixo. Cada transação foi concebida para destacar um conjunto específico de características do sistema no motor de base de dados e hardware do sistema, com elevado contraste das outras transações. Esta abordagem facilita a avaliação do impacto dos diferentes componentes no desempenho global. Por exemplo, a transação "Read Heavy" produz um número significativo de operações de leitura a partir do disco.
 
-| Tipo de Transação | Descrição |
+| Tipo de Transação | Description |
 | --- | --- |
 | Ler Lite |SELECIONE; na memória; read-only |
 | Ler Médio |SELECIONE; principalmente na memória; read-only |

@@ -1,25 +1,25 @@
 ---
 title: Permitir o acesso aos intervalos IP indexantes
 titleSuffix: Azure Cognitive Search
-description: Como orientar isso descreve como configurar regras de firewall IP para que os indexantes possam ter acesso.
+description: Configure as regras de firewall IP para permitir o acesso de dados por um indexante de Pesquisa Cognitiva Azure.
 manager: nitinme
 author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/07/2020
-ms.openlocfilehash: f485569caef285601d1dce7acd116f13675da83a
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 10/14/2020
+ms.openlocfilehash: 0be69b72cc068d017202b0694e24fb4573172dba
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91950198"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92101397"
 ---
-# <a name="setting-up-ip-firewall-rules-to-enable-indexer-access"></a>Criação de regras de firewall IP para permitir o acesso do indexante
+# <a name="configure-ip-firewall-rules-to-allow-indexer-connections-azure-cognitive-search"></a>Configure as regras de firewall IP para permitir ligações indexantes (Pesquisa Cognitiva Azure)
 
-As regras de firewall IP sobre recursos Azure, tais como contas de armazenamento, contas Dessos dB e servidores Azure SQL apenas permitem tráfego originário de intervalos IP específicos para aceder a dados.
+As regras de firewall IP sobre recursos Azure, tais como contas de armazenamento, contas Dessos dB e Azure SQL Servers apenas permitem tráfego originário de intervalos IP específicos para aceder a dados.
 
-Este artigo descreverá como configurar as regras ip, através do portal Azure, para uma conta de armazenamento para que os indexantes de Pesquisa Cognitiva Azure possam aceder aos dados de forma segura. Embora específico de armazenamento, este guia pode ser traduzido diretamente para outros recursos Azure que também oferecem regras de firewall IP para garantir o acesso aos dados.
+Este artigo descreve como configurar as regras IP, através do portal Azure, para uma conta de armazenamento para que os indexantes de Pesquisa Cognitiva Azure possam aceder aos dados de forma segura. Embora específica para o Azure Storage, a abordagem também funciona para outros recursos Azure que usam regras de firewall IP para garantir o acesso aos dados.
 
 > [!NOTE]
 > As regras de firewall IP para conta de armazenamento só são eficazes se a conta de armazenamento e o serviço de pesquisa estiverem em diferentes regiões. Se a sua configuração não permitir isto, recomendamos utilizar a [opção de exceção de serviço fidedigno](search-indexer-howto-access-trusted-service-exception.md).
@@ -30,7 +30,7 @@ Obtenha o nome de domínio totalmente qualificado (FQDN) do seu serviço de pesq
 
    ![Obtenha serviço FQDN](media\search-indexer-howto-secure-access\search-service-portal.png "Obtenha serviço FQDN")
 
-O endereço IP do serviço de pesquisa pode ser obtido através da realização de um `nslookup` (ou `ping` a) do FQDN. Este será um dos endereços IP para adicionar às regras de firewall.
+O endereço IP do serviço de pesquisa pode ser obtido através da realização de um `nslookup` (ou `ping` a) do FQDN. No exemplo abaixo, adicionaria "10.50.10.50" a uma regra de entrada na firewall de armazenamento Azure.
 
 ```azurepowershell
 
@@ -45,6 +45,8 @@ Aliases:  contoso.search.windows.net
 ```
 
 ## <a name="get-the-ip-address-ranges-for-azurecognitivesearch-service-tag"></a>Obtenha os intervalos de endereço IP para a etiqueta de serviço "AzureCognitiveSearch"
+
+São utilizados endereços IP adicionais para pedidos originários do [ambiente de execução multi-inquilino](search-indexer-securing-resources.md#indexer-execution-environment)do indexante. Pode obter esta gama de endereços IP a partir da etiqueta de serviço.
 
 Os intervalos de endereço IP para a `AzureCognitiveSearch` etiqueta de serviço podem ser obtidos através da descoberta [API (pré-visualização)](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) ou do [ficheiro JSON transferível](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
@@ -75,20 +77,18 @@ Para /32 endereços IP, deixe cair o "/32" (52.253.133.74/32 -> 52.253.133,74), 
 
 ## <a name="add-the-ip-address-ranges-to-ip-firewall-rules"></a>Adicione as gamas de endereços IP às regras de firewall IP
 
-A forma mais fácil de adicionar intervalos de endereço IP à regra de firewall de uma conta de armazenamento é através do portal Azure. Localize a conta de armazenamento no portal e navegue para o separador "**Firewalls e redes virtuais".**
+A forma mais fácil de adicionar intervalos de endereço IP à regra de firewall de uma conta de armazenamento é através do portal Azure. Localize a conta de armazenamento no portal e navegue para o separador **Firewalls e redes virtuais.**
 
    ![Firewall e redes virtuais](media\search-indexer-howto-secure-access\storage-firewall.png "Firewall e redes virtuais")
 
-Adicione os três endereços IP obtidos anteriormente (1 para o serviço de pesquisa IP, 2 para a `AzureCognitiveSearch` etiqueta de serviço) na gama de endereços e clique em "**Guardar**"
+Adicione os três endereços IP obtidos anteriormente (1 para o serviço de pesquisa IP, 2 para a `AzureCognitiveSearch` etiqueta de serviço) na gama de endereços e selecione **Guardar**.
 
    ![Regras IP de firewall](media\search-indexer-howto-secure-access\storage-firewall-ip.png "Regras IP de firewall")
 
-As regras de firewall demoram 5 a 10 minutos a ser atualizadas após os quais os indexantes poderão aceder aos dados na conta de armazenamento.
+As regras de firewall demoram 5 a 10 minutos a serem atualizadas, após o que os indexantes devem poder aceder aos dados na conta de armazenamento.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que sabe como obter os dois conjuntos de endereços IP para permitir o acesso a índices, use os seguintes links para atualizar as regras de firewall IP para algumas fontes de dados comuns.
-
 - [Configure firewalls de armazenamento Azure](../storage/common/storage-network-security.md)
-- [Configure firewall IP para CosmosDB](../cosmos-db/firewall-support.md)
-- [Configure firewall IP para servidor Azure SQL](../azure-sql/database/firewall-configure.md)
+- [Configure firewall IP para Cosmos DB](../cosmos-db/firewall-support.md)
+- [Configure firewall IP para Azure SQL Server](../azure-sql/database/firewall-configure.md)

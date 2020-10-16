@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 92fd681d05b8e5bd7cf07ecd735acd87698935ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de98e25cf5703a43282e551a0eda20d7767c6ce8
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85985794"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103633"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-cli"></a>Começar com a Azure Data Lake Storage Gen1 usando o Azure CLI
 
@@ -26,7 +26,7 @@ ms.locfileid: "85985794"
 
 Saiba como utilizar o CLI do Azure para criar uma conta Azure Data Lake Storage Gen1 e realizar operações básicas como criar pastas, carregar e descarregar ficheiros de dados, eliminar a sua conta, etc. Para obter mais informações sobre data lake storage gen1, consulte [a visão geral da Data Lake Storage Gen1](data-lake-store-overview.md).
 
-A CLI do Azure é a experiência da linha de comandos do Azure para a gestão de recursos do Azure. Pode ser utilizada no macOS, no Linux e no Windows. Para mais informações, consulte [a visão geral do Azure CLI](https://docs.microsoft.com/cli/azure). Também pode olhar para a [referência Azure Data Lake Storage Gen1 CLI](https://docs.microsoft.com/cli/azure/dls) para uma lista completa de comandos e sintaxe.
+A CLI do Azure é a experiência da linha de comandos do Azure para a gestão de recursos do Azure. Pode ser utilizada no macOS, no Linux e no Windows. Para mais informações, consulte [a visão geral do Azure CLI](/cli/azure). Também pode olhar para a [referência Azure Data Lake Storage Gen1 CLI](/cli/azure/dls) para uma lista completa de comandos e sintaxe.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -34,11 +34,11 @@ Antes de começar este artigo, tem de ter o seguinte:
 
 * **Uma assinatura Azure**. Consulte [Obter versão de avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Azure CLI** - Consulte [a Instalação CLI para](https://docs.microsoft.com/cli/azure/install-azure-cli) obter instruções.
+* **Azure CLI** - Consulte [a Instalação CLI para](/cli/azure/install-azure-cli) obter instruções.
 
 ## <a name="authentication"></a>Autenticação
 
-Este artigo utiliza uma abordagem de autenticação mais simples com a Data Lake Storage Gen1, onde inicia sessão como utilizador final. O nível de acesso à conta e sistema de ficheiros Data Lake Storage Gen1 é então regido pelo nível de acesso do utilizador registado. No entanto, existem outras abordagens também para autenticar com a Data Lake Storage Gen1, que são **a autenticação do utilizador final** ou a **autenticação de serviço-a-serviço.** Para obter instruções e obter mais informações sobre como autenticar, veja [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md) (Autenticação de utilizador final) ou [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md) (Autenticação de serviço a serviço).
+Este artigo utiliza uma abordagem de autenticação mais simples com a Data Lake Storage Gen1, onde inicia sessão como utilizador final. O nível de acesso à conta e sistema de ficheiros Data Lake Storage Gen1 é então regido pelo nível de acesso do utilizador registado. No entanto, existem outras abordagens também para autenticar com a Data Lake Storage Gen1, que são **a autenticação do utilizador final** ou a **autenticação de serviço-a-serviço.** Para obter instruções e obter mais informações sobre como autenticar, veja [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md) (Autenticação de utilizador final) ou [Service-to-service authentication](./data-lake-store-service-to-service-authenticate-using-active-directory.md) (Autenticação de serviço a serviço).
 
 
 ## <a name="log-in-to-your-azure-subscription"></a>Inicie sessão na subscrição do Azure

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/20/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 27fe1a41365d96a4179f8c659b63dc22c7b9fc93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8d898d3825fa40cbfd13337067c24cf14f9a544
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78184253"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102022"
 ---
 # <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Operações do Microsoft Graph disponíveis para Azure AD B2C
 
@@ -33,6 +33,15 @@ Cada link nas seguintes secções tem como alvo a página correspondente na refe
 - [Eliminar um utilizador](https://docs.microsoft.com/graph/api/user-delete)
 
 Para obter mais informações sobre a gestão das contas de utilizadores do Azure AD B2C com a API do Gráfico microsoft, consulte [contas de utilizadores do Ad B2C do Manage AD B2C com o Microsoft Graph](manage-user-accounts-graph-api.md).
+
+## <a name="user-phone-number-management"></a>Gestão de números de telefone do utilizador
+
+- [Adicionar](https://docs.microsoft.com/graph/api/authentication-post-phonemethods)
+- [Obter](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-get)
+- [Atualizar](https://docs.microsoft.com/graph/api/b2cauthenticationmethodspolicy-update)
+- [Eliminar](https://docs.microsoft.com/graph/api/phoneauthenticationmethod-delete)
+
+Para obter mais informações sobre a gestão do número de telefone de inscrição do utilizador com a API do Gráfico Microsoft, consulte [métodos de autenticação B2C](https://docs.microsoft.com/graph/api/resources/b2cauthenticationmethodspolicy).
 
 ## <a name="identity-providers-user-flow"></a>Fornecedores de identidade (fluxo de utilizador)
 
@@ -98,7 +107,7 @@ O recurso de alto nível para chaves de política na API do Gráfico microsoft �
 
 - [Propriedades de extensão de lista](https://docs.microsoft.com/graph/api/application-list-extensionproperty)
 
-O Azure AD B2C fornece um diretório que pode conter 100 atributos personalizados por utilizador. Para os fluxos de utilizador, estas propriedades de extensão são [geridas através do portal Azure](custom-policy-custom-attributes.md). Para políticas personalizadas, o Azure AD B2C cria o imóvel para si na primeira vez que a apólice escreve um valor para a propriedade de extensão.
+O Azure AD B2C fornece um diretório que pode conter 100 atributos personalizados por utilizador. Para os fluxos de utilizador, estas propriedades de extensão são [geridas através do portal Azure](custom-policy-custom-attributes.md). Para políticas personalizadas, o Azure AD B2C cria o imóvel para si, a primeira vez que a apólice escreve um valor para a propriedade de extensão.
 
 ## <a name="audit-logs"></a>Registos de auditoria
 

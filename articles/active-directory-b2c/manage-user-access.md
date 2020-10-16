@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/24/2018
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 084284037b02ce02d1e46a61a69d6e60cc89a36b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 51a66d74750afa6c46dba7fa442477e85effb2d6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85387733"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102056"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gerir o acesso do utilizador em Azure Ative Directory B2C
 
@@ -114,7 +114,7 @@ A imagem a seguir mostra o fluxo recomendado do utilizador:
 
 ![Diagrama do gráfico de fluxo que mostra o fluxo recomendado do utilizador de aceitação](./media/manage-user-access/user-flow.png)
 
-Segue-se um exemplo de um consentimento de utilização baseado em DataTime numa reclamação:
+Segue-se um exemplo de um consentimento de utilização baseado em data numa reclamação. Se a `extension_termsOfUseConsentDateTime` alegação for mais antiga do que `2025-01-15T00:00:00` , force uma nova aceitação verificando a `termsOfUseConsentRequired` reivindicação booleana e exibindo um ecrã autoafirmado. 
 
 ```xml
 <ClaimsTransformations>
@@ -128,7 +128,7 @@ Segue-se um exemplo de um consentimento de utilização baseado em DataTime numa
       <InputClaim ClaimTypeReferenceId="extension_termsOfUseConsentDateTime" TransformationClaimType="termsOfUseConsentDateTime" />
     </InputClaims>
     <InputParameters>
-      <InputParameter Id="termsOfUseTextUpdateDateTime" DataType="dateTime" Value="2098-01-30T23:03:45" />
+      <InputParameter Id="termsOfUseTextUpdateDateTime" DataType="dateTime" Value="2025-01-15T00:00:00" />
     </InputParameters>
     <OutputClaims>
       <OutputClaim ClaimTypeReferenceId="termsOfUseConsentRequired" TransformationClaimType="result" />
@@ -137,7 +137,7 @@ Segue-se um exemplo de um consentimento de utilização baseado em DataTime numa
 </ClaimsTransformations>
 ```
 
-Segue-se um exemplo de um consentimento de utilização baseado em versão numa reclamação:
+Segue-se um exemplo de um consentimento de utilização baseado em versão numa reclamação. Se a `extension_termsOfUseConsentVersion` alegação não for igual a `V1` , force uma nova aceitação verificando a `termsOfUseConsentRequired` reivindicação booleana e exibindo um ecrã autoafirmado.
 
 ```xml
 <ClaimsTransformations>

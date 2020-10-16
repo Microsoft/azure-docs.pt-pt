@@ -1,150 +1,151 @@
 ---
-title: Monitor Azure para redes (pré-visualização)
-description: Uma visão geral rápida para o Azure Monitor for Network que proporciona uma visão abrangente da saúde e métricas para todos os recursos de rede implantados sem qualquer configuração.
+title: Monitor Azure para visualização de redes
+description: Uma visão geral do Azure Monitor for Networks, que proporciona uma visão abrangente da saúde e métricas para todos os recursos de rede implantados sem qualquer configuração.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/24/2020
-ms.openlocfilehash: 0d0e8c4806784cf9b00712ad1bf45bca958a7eb1
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: e2a43c4d0423b286984631fda75e5ff806ae9a57
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995359"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102766"
 ---
-# <a name="azure-monitor-for-networks-preview"></a>Monitor Azure para redes (pré-visualização)
-O Azure Monitor for Network fornece uma visão abrangente da [saúde](../../service-health/resource-health-checks-resource-types.md) e [métricas](../platform/metrics-supported.md) para todos os recursos de rede implantados sem qualquer configuração.  Também fornece acesso a todas as capacidades de monitorização da rede, tais como [Connection Monitor,](../../network-watcher/connection-monitor-preview.md) [registo de fluxos para grupos de segurança de rede (NSGs),](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) [Traffic Analytics](../../network-watcher/traffic-analytics.md)e outras funcionalidades de [diagnóstico de](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) rede.
+# <a name="azure-monitor-for-networks-preview"></a>Monitor Azure para visualização de redes
+O Azure Monitor for Networks proporciona uma visão abrangente da [saúde](../../service-health/resource-health-checks-resource-types.md) e métricas para todos os recursos de rede [implantados,](../platform/metrics-supported.md) sem necessidade de qualquer configuração. Também fornece acesso a capacidades de monitorização de rede como [Connection Monitor,](../../network-watcher/connection-monitor-preview.md) [registo de fluxos para grupos de segurança de rede (NSGs)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)e [Traffic Analytics](../../network-watcher/traffic-analytics.md). E fornece outras funcionalidades [de diagnóstico de](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) rede.
 
-O Monitor Azure para redes está estruturado em torno dos seguintes componentes-chave de monitorização:
+O Azure Monitor for Networks está estruturado em torno destes componentes-chave de monitorização:
 - [Saúde da rede e métricas](#networkhealth)
 - [Conetividade](#connectivity)
 - [Trânsito](#traffic)
 - [Conjunto de ferramentas de diagnóstico](#diagnostictoolkit)
 
-## <a name="network-health-and-metrics"></a><a name="networkhealth"></a>Saúde da Rede e métricas
+## <a name="network-health-and-metrics"></a><a name="networkhealth"></a>Saúde da rede e métricas
 
-A página Azure Monitor for Networks **Overview** fornece uma forma sem esforço de visualizar o inventário dos seus recursos de rede, juntamente com a saúde dos recursos e alertas. Divide-se em quatro áreas funcionais chave - Pesquisa e filtragem, Saúde de Recursos e Métricas, Alertas. e Vista de Dependência
+A página Azure Monitor for Networks **Overview** fornece uma forma fácil de visualizar o inventário dos seus recursos de networking, juntamente com a saúde dos recursos e alertas. Está dividido em quatro áreas funcionais fundamentais: pesquisa e filtragem, saúde de recursos e métricas, alertas e vista de dependência.
 
-![Página geral](media/network-insights-overview/overview.png)
+![Screenshot que mostra a página de visão geral.](media/network-insights-overview/overview.png)
 
 ### <a name="search-and-filtering"></a>Pesquisa e filtragem
-A visão de saúde e alertas de recursos pode ser personalizada usando filtros como **Subscrição,** **Grupo de Recursos** e Tipo de **Recurso.** A caixa de pesquisa fornece a capacidade de pesquisar através de propriedades de recursos.
+Pode personalizar a vista para a saúde dos recursos e alertas utilizando filtros como **Subscrição,** **Grupo de Recursos**e **Tipo**.
 
-A caixa de pesquisa pode ser usada para procurar recursos e recursos associados. Por exemplo, um IP público está associado a um Gateway de aplicação. Procurar o nome DNS do IPs Público identificará tanto o IP público como o Gateway de Aplicação associado.
+Pode utilizar a caixa de pesquisa para procurar recursos e os seus recursos associados. Por exemplo, um IP público está associado a um gateway de aplicação. Uma pesquisa pelo nome DNS do IP público devolverá o IP público e o gateway de aplicações associado:
 
-![Monitor Azure para redes - Pesquisa](media/network-insights-overview/search.png)
+![Screenshot que mostra resultados de pesquisa do Azure Monitor para redes.](media/network-insights-overview/search.png)
 
 
-### <a name="resource-health-and-metric"></a>Saúde e Métrica de Recursos
-Cada azulejo representa um tipo de recurso, com o número de casos implantados em todas as subscrições selecionadas juntamente com o estado de saúde dos recursos. No exemplo abaixo, existem 45 Ligações ER e VPN implantadas, 44 são saudáveis e 1 indisponíveis.
+### <a name="resource-health-and-metrics"></a>Saúde de recursos e métricas
+No exemplo seguinte, cada azulejo representa um tipo de recurso. O azulejo apresenta o número de ocorrências desse tipo de recurso implantado em todas as subscrições selecionadas. Também apresenta o estado de saúde do recurso. Neste exemplo, existem 105 ligações ER e VPN implantadas. 103 são saudáveis, e 2 estão indisponíveis.
 
-![Monitor Azure para redes - Saúde de recursos](media/network-insights-overview/resource-health.png)
+![Screenshot que mostra saúde de recursos e métricas no Azure Monitor for Networks.](media/network-insights-overview/resource-health.png)
 
-Clicando nas ligações Indisponível ER e VPN, lança uma visão métrica. 
+Se selecionar as ligações ER e VPN indisponíveis, verá uma vista métrica: 
 
-![Monitor Azure para redes - vista métrica](media/network-insights-overview/metric-view.png)
+![Screenshot que mostra a vista métrica no Azure Monitor para redes.](media/network-insights-overview/metric-view.png)
 
-Pode clicar em cada elemento na vista da grelha. Clique no ícone Saúde para redirecionar para a saúde dos recursos para essa ligação. Clique em Alertas para redirecionar para a página de alertas e métricas, respectivamente, para essa ligação. 
+Pode selecionar qualquer item na vista da grelha. Selecione o ícone na coluna **Saúde** para obter a saúde dos recursos para essa ligação. Selecione o valor na coluna **Alerta** para ir à página de alertas e métricas para a ligação. 
 
 ### <a name="alerts"></a>Alertas
-A grelha **de Alertas** à direita fornece uma visão de todos os alertas gerados para os recursos selecionados em todas as subscrições. Clique nas contagens de alerta para navegar para a página de alertas detalhados.
+A caixa **de alerta** no lado direito da página fornece uma visão de todos os alertas gerados para os recursos selecionados em todas as subscrições. Selecione as contagens de alerta para ir a uma página de alertas detalhadas.
 
 ### <a name="dependency-view"></a>Vista de dependência
-A visão **de Dependência** ajuda a visualizar como o recurso é configurado. Atualmente a vista de dependência é agora suportada para Application Gateway, Virtual WAN e Load Balancer. Por exemplo, no caso do Gateway de Aplicação, a vista de dependência pode ser acedida clicando no nome do recurso Application Gateway a partir da vista da grelha de métricas. Isto também se aplica a WAN virtual e balanceador de carga.
+A vista de dependência ajuda-o a visualizar como um recurso é configurado. A vista de dependência está atualmente disponível para Azure Application Gateway, Azure Virtual WAN e Azure Load Balancer. Por exemplo, para o Gateway de Aplicações, pode aceder à vista de dependência selecionando o nome do recurso Application Gateway na vista da grelha de métricas. Pode fazer o mesmo para o Virtual WAN e o Balancer de Carga.
 
-![Monitor Azure para redes - Visualização do Gateway de aplicações](media/network-insights-overview/application-gateway.png)
+![Sreenshot que mostra a vista do Gateway de Aplicação no Monitor Azure para redes.](media/network-insights-overview/application-gateway.png)
 
-A visão **de Dependência** para o Gateway de Aplicação proporciona uma visão simplificada de como os IPs front-end estão ligados aos ouvintes, regras e piscina de backend. As bordas de ligação são codificadas por cores e fornecem detalhes adicionais baseados na saúde da piscina de backend. A vista também fornece uma visão detalhada das métricas e métricas do Gateway de Aplicação para todos os pools de backend relacionados, tais como conjunto de escala de máquina virtual e instâncias VM.
+A visão de dependência do Application Gateway proporciona uma visão simplificada de como os IPs front-end estão ligados aos ouvintes, regras e backend pool. As linhas de ligação são codificadas a cores e fornecem detalhes adicionais baseados na saúde da piscina de backend. A vista também fornece uma visão detalhada das métricas e métricas do Gateway de Aplicação para todos os pools de backend relacionados, como conjunto de escala de máquina virtual e instâncias VM.
 
-![Monitor Azure para redes - Vista de dependência](media/network-insights-overview/dependency-view.png)
+![Screenshot que mostra vista de dependência no Azure Monitor para redes.](media/network-insights-overview/dependency-view.png)
 
-O gráfico de dependência permite uma fácil navegação às definições de configuração. Clique com o direito numa piscina de backend para aceder a outras funcionalidades. Por exemplo, se o pool de backend for um VM, pode aceder diretamente a VM Insights e à resolução de problemas de ligação do Observador de Rede para identificar problemas de conectividade.
+O gráfico de dependência proporciona fácil navegação às definições de configuração. Clique com o direito numa piscina de backend para aceder a outras informações. Por exemplo, se o pool de backend for um VM, pode aceder diretamente à resolução de problemas da VM Insights e da ligação Azure Network Watcher para identificar problemas de conectividade:
 
-![Monitor Azure para redes - Menu de visualização de dependência](media/network-insights-overview/dependency-view-menu.png)
+![Screenshot que mostra o menu de visualização de dependência no Azure Monitor for Networks.](media/network-insights-overview/dependency-view-menu.png)
 
-A barra de pesquisa e filtro na vista de dependência fornece uma forma sem esforço de pesquisar através do gráfico. Por exemplo, a procura de *AppGWTestRule* no exemplo abaixo reduzirá a visão gráfica a todos os nós ligados através *do AppGWTestRule*.
+A barra de pesquisa e filtro na vista de dependência proporciona uma maneira fácil de pesquisar através do gráfico. Por exemplo, se pesquisar **por AppGWTestRule** no exemplo anterior, a vista reduzir-se-á a todos os nós ligados através do AppGWTestRule:
 
-![Azure Monitor para Redes - Exemplo de pesquisa](media/network-insights-overview/search-example.png)
+![Screenshot que mostra um exemplo de uma pesquisa no Azure Monitor for Networks.](media/network-insights-overview/search-example.png)
 
-Filtros diferentes ajudam a reduzir-se a um caminho e estado específicos. Por exemplo, selecione *apenas Insalubre* do Estado de **Saúde** descer para mostrar todas as bordas onde o estado não é *saudável*.
+Vários filtros ajudam-no a reduzir para um caminho e estado específicos. Por exemplo, selecione **apenas Insalubre** da lista **de estado da saúde** para mostrar todas as bordas para as quais o estado não é saudável.
 
-Clique em **Métrica Detalhada para** lançar um livro pré-configurado com métricas detalhadas para o Gateway de aplicação, todos os recursos de backend pool e IPs frontais. 
+Selecione **Ver métricas detalhadas** para abrir um livro pré-configurado que fornece métricas detalhadas para o gateway de aplicação, todos os recursos de backend pool e IPs front-end. 
 
 ## <a name="connectivity"></a><a name="connectivity"></a>Conectividade
 
-O separador **Conectividade** proporciona uma forma sem esforço de visualizar todos os testes configurados utilizando o Monitor de Ligação e o Monitor de [Conexão (Preview)](../../network-watcher/connection-monitor-preview.md) para o conjunto de subscrições selecionado.
+O separador **Conectividade** proporciona uma forma fácil de visualizar todos os testes configurados através do Monitor de Ligação e [do Monitor de Conexão (Preview)](../../network-watcher/connection-monitor-preview.md) para o conjunto de subscrições selecionado.
 
-![Separador de conectividade no Monitor Azure para redes](media/network-insights-overview/azure-monitor-for-networks-connectivity-tab.png)
+![Screenshot que mostra o separador conectividade no Monitor Azure para redes.](media/network-insights-overview/azure-monitor-for-networks-connectivity-tab.png)
 
-Os testes são agrupados por telhas De Origem e Destinos e apresentam o estado de alcance de cada teste. As definições alcançáveis proporcionam um fácil acesso para configurar os seus critérios de alcance com base em Verificações falhadas (%) e RTT (ms). Uma vez definidos os valores, o estado de cada teste é atualizado com base nos critérios de seleção.
+Os testes são agrupados por **telhas De Origem** **e Destinos** e apresentam o estado de alcance de cada teste. As definições alcançáveis proporcionam fácil acesso às configurações para os seus critérios de alcance, com base em verificações falhadas (%) e RTT (ms). Depois de definir os valores, o estado de cada teste atualiza com base nos critérios de seleção.
 
-![Testes de conectividade no Azure Monitor para Redes](media/network-insights-overview/azure-monitor-for-networks-connectivity-tests.png)
+![Screenshot que mostra testes de conectividade no Azure Monitor para redes.](media/network-insights-overview/azure-monitor-for-networks-connectivity-tests.png)
 
-Clicar em qualquer fonte ou azulejo de destino lança uma visão métrica.
+Pode selecionar qualquer fonte ou azulejo de destino para abrir uma vista métrica:
 
-![Métricas de conectividade no Monitor Azure para redes](media/network-insights-overview/azure-monitor-for-networks-connectivity-metrics.png)
+![Screenshot que mostra métricas de conectividade no Azure Monitor para redes.](media/network-insights-overview/azure-monitor-for-networks-connectivity-metrics.png)
 
 
-Pode clicar em cada elemento na vista da grelha. Clique no ícone **Reachability** para redirecionar para a página do portal **Connection Monitor** para ver o hop by hop topology e problemas de impacto de conectividade identificados. Clique em **Alertas** para redirecionar para alertas e **verifica o tempo de por cento/ida e volta falhado** para redirecionar para a página de métricas para o monitor de conexão selecionado.
+Pode selecionar qualquer item na vista da grelha. Selecione o ícone na coluna **Reachability** para ir à página do portal Connection Monitor e ver a topologia hop-by-hop e a conectividade que afeta os problemas identificados. Selecione o valor na coluna **Alerta** para ir a alertas. Selecione os gráficos nas colunas **Checks Failed Percent** e **Round-Trip (ms)** para ir à página de métricas para o monitor de ligação selecionado.
 
-A grelha **de alertas**   à direita fornece uma visão de todos os alertas gerados para os testes de conectividade configurados em todas as subscrições. Clique nas contagens de alerta para navegar para a página de alertas detalhados.
+A caixa **de alerta** no lado direito da página fornece uma visão de todos os alertas gerados para os testes de conectividade configurados em todas as subscrições. Selecione as contagens de alerta para ir a uma página de alertas detalhadas.
 
 ## <a name="traffic"></a><a name="traffic"></a>Trânsito
-O separador de tráfego fornece acesso a todos os NSGs configurados para [registos NSG Flow](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) e [Traffic Analytics](../../network-watcher/traffic-analytics.md) para o conjunto selecionado de subscrições e agrupados por locais. A funcionalidade de pesquisa fornecida neste separador permite identificar os NSGs configurados para o endereço IP pesquisado. Pode pesquisar qualquer endereço IP no seu ambiente e a vista regional em azulejo apresentará todos os NSGs juntamente com os registos NSG Flow e o estado de configuração da análise de tráfego.
+O separador **Traffic** fornece acesso a todos os NSGs configurados para [registos de fluxo NSG](../../network-watcher/network-watcher-nsg-flow-logging-overview.md) e [Traffic Analytics](../../network-watcher/traffic-analytics.md) para o conjunto selecionado de subscrições, agrupados por localização. A funcionalidade de pesquisa fornecida neste separador permite identificar os NSGs configurados para o endereço IP pesquisado. Pode pesquisar qualquer endereço IP no seu ambiente. A vista regional em azulejos apresentará todos os NSGs juntamente com os registos de fluxo NSG e o estado de configuração do Traffic Analytics.
 
-![Vista de tráfego no Monitor Azure para redes](media/network-insights-overview/azure-monitor-for-networks-traffic-view.png)
+![Screenshot que mostra o separador traffic em Azure Monitor for Networks.](media/network-insights-overview/azure-monitor-for-networks-traffic-view.png)
 
-Clicar em qualquer azulejo da região lança uma vista de grelha que proporciona fácil visualização e configuração de registos de fluxo NSG e Traffic Analytics.  
+Se selecionar qualquer azulejo da região, aparece uma vista de grelha. A grelha fornece registos de fluxo NSG e Traffic Analytics numa vista fácil de ler e configurar:  
 
-![Vista da região de tráfego em Azure Monitor for Networks](media/network-insights-overview/azure-monitor-for-networks-traffic-region-view.png)
+![Screenshot que mostra a vista da região de tráfego em Azure Monitor for Networks.](media/network-insights-overview/azure-monitor-for-networks-traffic-region-view.png)
 
-Pode clicar em cada elemento na vista da grelha. Clique no estado de configuração para editar o registo de fluxo NSG e a configuração de Traffic Analytics. Clique em alertas para redirecionar para os Alertas de Tráfego configurados para o NSG selecionado. Da mesma forma, pode navegar para a vista Traffic Analytics clicando no espaço de trabalho.  
+Pode selecionar qualquer item na vista da grelha. Selecione o ícone na coluna **Estado de Configuração do Fluxolog** para editar o registo de fluxo NSG e a configuração de Traffic Analytics. Selecione o valor na coluna **Alerta** para ir aos alertas de tráfego configurados para o NSG selecionado. Da mesma forma, pode ir à vista Traffic Analytics selecionando o espaço de **trabalho traffic Analytics**.  
 
-A grelha **de alertas**   à direita fornece uma visão de todos os alertas baseados no espaço de trabalho Traffic Analytics em todas as subscrições. Clique nas contagens de alerta para navegar para a página de alertas detalhados.
+A caixa **de alerta** no lado direito da página fornece uma visão de todos os alertas baseados no espaço de trabalho traffic Analytics em todas as subscrições. Selecione as contagens de alerta para ir a uma página de alertas detalhadas.
 
-## <a name="diagnostic-toolkit"></a><a name="diagnostictoolkit"></a> Kit de ferramentas de diagnóstico
-O Diagnostic Toolkit fornece acesso a todas as funcionalidades de Diagnóstico disponíveis para resolução de problemas na rede. A partir deste dropdown você pode ter acesso a funcionalidades como [Captura de Pacotes,](../../network-watcher/network-watcher-packet-capture-overview.md) [Resolução de Problemas VPN](../../network-watcher/network-watcher-troubleshoot-overview.md), [Resolução de Problemas de Conexão](../../network-watcher/network-watcher-connectivity-overview.md), [Next Hop](../../network-watcher/network-watcher-next-hop-overview.md) e IP Flow [Check](../../network-watcher/network-watcher-ip-flow-verify-overview.md).
+## <a name="diagnostic-toolkit"></a><a name="diagnostictoolkit"></a> Conjunto de ferramentas de diagnóstico
+O Diagnostic Toolkit fornece acesso a todas as funcionalidades de diagnóstico disponíveis para a resolução de problemas da rede. Pode utilizar esta lista de drop-down para aceder a funcionalidades como [captura de pacotes,](../../network-watcher/network-watcher-packet-capture-overview.md) [resolução de problemas VPN,](../../network-watcher/network-watcher-troubleshoot-overview.md) [resolução de problemas de ligação,](../../network-watcher/network-watcher-connectivity-overview.md) [próximo salto](../../network-watcher/network-watcher-next-hop-overview.md)e [verificação do fluxo IP:](../../network-watcher/network-watcher-ip-flow-verify-overview.md)
 
-![Separador de kit de ferramentas de diagnóstico](media/network-insights-overview/azure-monitor-for-networks-diagnostic-toolkit.png)
+![Screenshot que mostra o separador De Diagnóstico Toolkit.](media/network-insights-overview/azure-monitor-for-networks-diagnostic-toolkit.png)
 
 ## <a name="troubleshooting"></a>Resolução de problemas 
 
-Para obter orientações gerais sobre a resolução de problemas, consulte o artigo dedicado de resolução de [problemas](troubleshoot-workbooks.md)baseado em livros de trabalho .
+Para obter orientações gerais sobre a resolução de problemas, consulte o artigo dedicado baseado em insights baseados em [livros.](troubleshoot-workbooks.md)
 
-Esta secção irá ajudá-lo com o diagnóstico e resolução de problemas de algumas das questões comuns que poderá encontrar ao utilizar o Azure Monitor for Networks. Utilize a lista abaixo para localizar as informações relevantes para o seu problema específico.
+Esta secção irá ajudá-lo a diagnosticar e resolver problemas comuns que poderá encontrar quando utilizar o Azure Monitor for Networks. 
 
-### <a name="resolving-performance-issues-or-failures"></a>Resolução de problemas de desempenho ou falhas
+### <a name="how-do-i-resolve-performance-problems-or-failures"></a>Como resolvo problemas de desempenho ou falhas?
 
-Para ajudar a resolver problemas relacionados com a rede que identificar com o Azure Monitor for Networks, consulte a documentação de resolução de problemas do recurso avariado. Os links de resolução de problemas para serviços de alto utilização estão listados abaixo.
-* Rede Virtual (VNET)
-* Gateway de Aplicação
-* Gateway de VPN
-* ExpressRoute 
-* Load balancer 
+Para saber sobre a resolução de problemas relacionados com a rede que identificar com o Azure Monitor for Networks, consulte a documentação de resolução de problemas para o recurso avariado. 
 
-### <a name="why-dont-i-see-the-resources-from-all-the-subscriptions-i-have-selected"></a>Por que não vejo os recursos de todas as assinaturas que selecionei
+Aqui estão algumas ligações para artigos de resolução de problemas para serviços frequentemente utilizados. Para obter mais artigos de resolução de problemas sobre estes serviços, consulte os outros artigos na secção de resolução de problemas da tabela de conteúdos para o serviço.
+* [Rede Virtual do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-peering-issues)
+* [Gateway de Aplicação do Azure](https://docs.microsoft.com/azure/application-gateway/create-gateway-internal-load-balancer-app-service-environment)
+* [Gateway de VPN do Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-troubleshoot)
+* [Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-expressroute-overview) 
+* [Balanceador de Carga do Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-troubleshoot) 
 
-O Network Insights só pode mostrar recursos a partir de 5 subscrições de cada vez. 
+### <a name="why-dont-i-see-the-resources-for-all-the-subscriptions-ive-selected"></a>Por que não vejo os recursos para todas as assinaturas que selecionei?
 
-### <a name="i-want-to-make-changes-or-add-additional-visualizations-to-network-insights-how-do-i-do-so"></a>Quero fazer alterações ou adicionar visualizações adicionais à Network Insights, como faço isso
+O Network Insights pode mostrar recursos para apenas cinco subscrições de cada vez. 
 
-Para escoar alterações, selecione o "Modo de Edição" para modificar o livro, então pode guardar o seu trabalho como um novo livro que está ligado a um grupo de subscrição e recursos designado.
+### <a name="how-do-i-make-changes-or-add-visualizations-to-network-insights"></a>Como faço alterações ou adiciono visualizações a Insights de Rede?
 
-### <a name="what-is-the-time-grain-once-we-pin-any-part-of-the-workbooks"></a>Qual é o grão-tempo uma vez que pinemos qualquer parte dos livros de trabalho
+Para escoar alterações, **selecione Editar Modo** para modificar o livro. Em seguida, pode guardar as suas alterações como um novo livro que está ligado a um grupo de subscrição e recursos designado.
 
-Utilizamos o grão de tempo "Auto", pelo que depende do intervalo de tempo selecionado.
+### <a name="whats-the-time-grain-after-i-pin-any-part-of-the-workbooks"></a>Qual é o grão de tempo depois de eu fixar qualquer parte dos livros?
 
-### <a name="what-is-the-time-range-when-any-part-of-the-workbook-is-pinned"></a>Qual é o intervalo de tempo quando qualquer parte do livro está presa
+O Network Insights utiliza o grão de tempo **Automático,** pelo que o grão de tempo baseia-se na gama de tempo selecionada.
 
-O intervalo de tempo dependerá das definições do painel de instrumentos.
+### <a name="whats-the-time-range-when-any-part-of-a-workbook-is-pinned"></a>Qual é o intervalo de tempo quando qualquer parte de um livro está presa?
 
-### <a name="what-if-i-want-to-see-other-data-or-make-my-own-visualizations-how-can-i-make-changes-to-the-network-insights"></a>E se eu quiser ver outros dados ou fazer as minhas próprias visualizações? Como posso fazer alterações no Network Insights
+O intervalo de tempo depende das definições do painel de instrumentos.
 
-Pode editar o livro que vê em qualquer painel lateral e visão métrica detalhada, através da utilização do modo de edição, e depois guardar o seu trabalho como um novo livro que terá todas as suas novas alterações.
+### <a name="what-if-i-want-to-see-other-data-or-make-my-own-visualizations-how-can-i-make-changes-to-network-insights"></a>E se eu quiser ver outros dados ou fazer as minhas próprias visualizações? Como posso fazer alterações no Network Insights?
 
+Pode editar o livro de trabalho que vê em qualquer painel lateral ou métrica detalhada utilizando o modo de edição. Em seguida, pode guardar as suas alterações como um novo livro.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre a monitorização da rede no [Que é o Observador da Rede Azure?](../../network-watcher/network-watcher-monitoring-overview.md)
-- Saiba os cenários que os livros de trabalho são projetados para apoiar, como autorizar novos e personalizar relatórios existentes, e mais através da revisão [criar relatórios interativos com os livros de trabalho do Azure Monitor.](../platform/workbooks-overview.md)
+- Saiba mais sobre a monitorização da rede: [O que é O Observador de Redes Azure?](../../network-watcher/network-watcher-monitoring-overview.md)
+- Conheça os cenários que os livros de trabalho são projetados para suportar, como criar relatórios e personalizar relatórios existentes, e muito mais: [Criar relatórios interativos com livros de trabalho do Azure Monitor](../platform/workbooks-overview.md)

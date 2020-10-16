@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 10/08/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 75aec9f3509881c35de9309fa1532b961fb2bc03
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 11d2172d085fe9b47587f4084908f99d7b54437e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875583"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92103242"
 ---
-Quando cria vNets clássicos no portal Azure, o nome que vê não é o nome completo que usa para PowerShell. Por exemplo, um VNet que parece ser nomeado **TestVNet1** no portal, pode ter um nome muito mais longo no ficheiro de configuração da rede. O nome pode parecer algo como: **Group ClassicRG TestVNet1**. Quando cria as suas ligações, é importante utilizar os valores que vê no ficheiro de configuração da rede.
+Quando cria vNets clássicos no portal Azure, o nome que vê não é o nome completo que usa para PowerShell. Por exemplo, um VNet que parece ser nomeado **TestVNet1** no portal, pode ter um nome muito mais longo no ficheiro de configuração da rede. Para um VNet no grupo de recursos o nome "ClassicRG" pode parecer algo como: **Group ClassicRG TestVNet1**. Quando cria as suas ligações, é importante utilizar os valores que vê no ficheiro de configuração da rede.
 
 Nos seguintes passos, irá ligar-se à sua conta Azure e descarregar e ver o ficheiro de configuração da rede para obter os valores necessários para as suas ligações.
 
@@ -36,9 +36,10 @@ Nos seguintes passos, irá ligar-se à sua conta Azure e descarregar e ver o fic
    ```powershell
    Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
    ```
-1. Exportar e ver o ficheiro de configuração da rede. Crie um diretório no seu computador e, em seguida, exporte o ficheiro de configuração de rede para o diretório. Neste exemplo, o ficheiro de configuração da rede é exportado para **C:\AzureNet**.
+1. Crie um diretório no seu computador. Por exemplo, C:\AzureVNet
+1. Exporte o ficheiro de configuração da rede para o diretório. Neste exemplo, o ficheiro de configuração da rede é exportado para **C:\AzureNet**.
 
    ```powershell
    Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
    ```
-1. Abra o ficheiro com um editor de texto e veja os nomes dos seus VNets e sites. Estes nomes serão os nomes que usa quando criar as suas ligações.<br>Os nomes VNet estão listados como **Nome VirtualNetworkSite =**<br>Os nomes do site estão listados como **LocalNetworkSiteRef nome =**
+1. Abra o ficheiro com um editor de texto e veja os nomes dos seus VNets e sites. Estes nomes serão os nomes que usa quando criar as suas ligações.<br>Os nomes **VNet** estão listados como **Nome VirtualNetworkSite =**<br>**Os** nomes do site estão listados como **LocalNetworkSiteRef nome =**

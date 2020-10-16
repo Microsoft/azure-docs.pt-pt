@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: 6f34b36d495a2ef326727629d090a0da5260ce10
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: ebd3893f6443edda276bfb3b1e39ae0fe093acb2
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014567"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104109"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Perguntas mais frequentes sobre o Azure Synapse Link para o Azure Cosmos DB
 
@@ -97,6 +97,10 @@ Os dados no arquivo analítico são particionados com base na criação de parti
 ### <a name="can-i-customize-or-override-the-way-transactional-data-is-transformed-into-columnar-format-in-the-analytical-store"></a>Posso personalizar ou sobrepor a forma como os dados transacionais são transformados em formato colunar na loja analítica?
 
 Atualmente não é possível transformar os itens de dados quando são automaticamente propagados da loja transacional para a loja analítica. Se tiver cenários bloqueados por esta limitação, envie um e-mail à equipa DB da [Azure Cosmos](mailto:cosmosdbsynapselink@microsoft.com).
+
+### <a name="is-analytical-store-supported-by-terraform"></a>A loja analítica é suportada pela Terraform?
+
+Atualmente a Terraform não suporta recipientes de lojas analíticas. Verifique os [Problemas do Terraform GitHub](https://github.com/hashicorp/terraform/issues) para obter mais informações.
 
 ## <a name="analytical-time-to-live-ttl"></a>Tempo analítico para viver (TTL)
 

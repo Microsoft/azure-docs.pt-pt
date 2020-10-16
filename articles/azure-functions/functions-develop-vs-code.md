@@ -4,12 +4,12 @@ description: Aprenda a desenvolver e testar funções Azure utilizando a extens�
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 08/21/2019
-ms.openlocfilehash: 610c80dc5552eae4f2ad8442fa11b85f2eab35eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1614ac0711c6a83d7e303b5a4b6ebbdf23ba2e03
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88206727"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104075"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Desenvolver as Funções do Azure com o Visual Studio Code
 
@@ -294,10 +294,10 @@ Para executar o seu projeto Funções localmente, deve cumprir estes requisitos 
 
 * Instale os requisitos específicos para a linguagem escolhida:
 
-    | Idioma | Requisito |
+    | Linguagem | Requisito |
     | -------- | --------- |
     | **C#** | [Extensão C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)<br/>[Ferramentas da CLI de .NET core](/dotnet/core/tools/?tabs=netcore2x)   |
-    | **Java** | [Debugger para extensão de Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 ou mais tarde](https://maven.apache.org/) |
+    | **Java** | [Debugger para extensão de Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)<br/>[Maven 3 ou mais tarde](https://maven.apache.org/) |
     | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> |  
     | **Python** | [Extensão python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python 3.6.8](https://www.python.org/downloads/) recomendado|
 
@@ -410,7 +410,7 @@ Depois de completar estes passos, as chamadas feitas para as Ferramentas Core su
 
 A extensão Azure Functions fornece uma interface gráfica útil na área para interagir com as suas aplicações de função em Azure. A mesma funcionalidade também está disponível como comandos na paleta de comandos (F1). Estes comandos Azure Functions estão disponíveis:
 
-|Comando de Funções Azure  | Descrição  |
+|Comando de Funções Azure  | Description  |
 |---------|---------|
 |**Adicionar novas definições**  |  Cria uma nova definição de aplicação em Azure. Para saber mais, consulte [as definições de aplicação da Publicação](#publish-application-settings). Também poderá ter de [descarregar esta definição para as suas definições locais](#download-settings-from-azure). |
 | **Configure Fonte de Implantação** | Liga a sua aplicação de função em Azure a um repositório local de Git. Para saber mais, consulte [a implementação contínua para Funções Azure](functions-continuous-deployment.md). |

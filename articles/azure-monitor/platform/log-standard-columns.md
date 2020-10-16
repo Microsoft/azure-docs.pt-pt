@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/09/2020
-ms.openlocfilehash: 01c0b6f280b8179760c6ecc55fd7feca3ddf2080
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 695b0b0ac06e63912ca0a471be3d96c148458c29
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90039130"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104245"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Colunas padrão em Registos monitores Azure
-Os dados em Registos monitores Azure são [armazenados como um conjunto de registos num espaço de trabalho do Log Analytics ou na aplicação Application Insights](../log-query/logs-structure.md), cada um com um determinado tipo de dados que tem um conjunto único de colunas. Muitos tipos de dados terão colunas padrão que são comuns em vários tipos. Este artigo descreve estas colunas e fornece exemplos de como pode usá-las em consultas.
+Os dados em Registos monitores Azure são [armazenados como um conjunto de registos num espaço de trabalho do Log Analytics ou na aplicação Application Insights](./data-platform-logs.md), cada um com um determinado tipo de dados que tem um conjunto único de colunas. Muitos tipos de dados terão colunas padrão que são comuns em vários tipos. Este artigo descreve estas colunas e fornece exemplos de como pode usá-las em consultas.
 
 Aplicações baseadas em espaço de trabalho em Application Insights armazenam os seus dados num espaço de trabalho do Log Analytics e utilizam as mesmas colunas padrão que outras tabelas no espaço de trabalho. As aplicações clássicas armazenam os seus dados separadamente e têm diferentes colunas padrão, conforme especificado neste artigo.
 
@@ -212,4 +212,3 @@ union withsource = tt *
 - Leia mais sobre como [os dados de registo do Azure Monitor são armazenados](../log-query/log-query-overview.md).
 - Obtenha uma lição sobre [escrever consultas de registo](../log-query/get-started-queries.md).
 - Obtenha uma lição sobre [juntar mesas em consultas de log](../log-query/joins.md).
-

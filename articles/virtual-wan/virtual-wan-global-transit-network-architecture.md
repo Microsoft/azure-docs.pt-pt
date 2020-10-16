@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 63a9c3a6c23d78411c04250359dac3c3aacde2ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e3a0eaeebbc0659b217051c6e98d67803896f2e1
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212705"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92102328"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Arquitetura global de rede de trânsito e WAN Virtual
 
@@ -43,7 +43,7 @@ O Azure Virtual WAN permite uma arquitetura global de rede de trânsito, permiti
 
 **Figura 2: Rede global de trânsito e WAN Virtual**
 
-Na arquitetura Azure Virtual WAN, os hubs WAN virtuais são a provisionados nas regiões de Azure, às quais pode optar por ligar os seus ramos, VNets e utilizadores remotos. Os sites de ramificações físicas estão ligados ao hub por Premium ExpressRoute ou site-to site-VPNs, VNets estão ligados ao hub por ligações VNet, e os utilizadores remotos podem ligar-se diretamente ao hub usando VPN do utilizador (VPNs ponto a local). O WAN virtual também suporta a ligação VNet entre regiões, onde um VNet numa região pode ser conectado a um hub WAN virtual numa região diferente.
+Na arquitetura Azure Virtual WAN, os hubs WAN virtuais são a provisionados nas regiões de Azure, às quais pode optar por ligar os seus ramos, VNets e utilizadores remotos. Os sites de ramificações físicas estão ligados ao hub por Premium ou Standard ExpressRoute ou site-to site-VPNs, os VNets estão ligados ao hub por ligações VNet, e os utilizadores remotos podem ligar-se diretamente ao hub usando VPN do utilizador (VPNs ponto a local). O WAN virtual também suporta a ligação VNet entre regiões, onde um VNet numa região pode ser conectado a um hub WAN virtual numa região diferente.
 
 Você pode estabelecer um WAN virtual criando um único hub WAN virtual na região que tem o maior número de porta-vozes (ramos, VNets, utilizadores), e, em seguida, conectando os raios que estão em outras regiões ao centro. Esta é uma boa opção quando uma pegada empresarial está principalmente numa região com alguns raios remotos.  
   
@@ -87,7 +87,7 @@ Branch-to-VNet é o caminho principal suportado por Azure Virtual WAN. Este cami
 
 ### <a name="expressroute-global-reach-and-virtual-wan"></a>ExpressRoute Global Reach e Virtual WAN
 
-O ExpressRoute é uma forma privada e resiliente de ligar as suas redes no local à Microsoft Cloud. O WAN virtual suporta as ligações do circuito De Rota Expresso. Ligar um site de filial a Virtual WAN com a Rota Expressa requer 1) Circuito Premium 2) Circuito Premium para estar em uma localização ativada ao Alcance Global.
+O ExpressRoute é uma forma privada e resiliente de ligar as suas redes no local à Microsoft Cloud. O WAN virtual suporta as ligações do circuito De Rota Expresso. Ligar um site de filial a VIRTUAL WAN com a Rota Expressa requer 1) Circuito Premium ou Standard 2) para estar numa localização ativada ao Alcance Global.
 
 ExpressRoute Global Reach é uma funcionalidade de complemento para o ExpressRoute. Com o Global Reach, pode ligar os circuitos ExpressRoute para fazer uma rede privada entre as suas redes no local. Os ramos que estão ligados ao Azure Virtual WAN usando o ExpressRoute exigem que o ExpressRoute Global Reach comunique entre si.
 
