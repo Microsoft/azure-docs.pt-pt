@@ -1,17 +1,17 @@
 ---
-title: Leia réplicas - Base de Dados Azure para MySQL.
+title: Ler réplicas - Azure Database for MySQL
 description: 'Saiba mais sobre réplicas lidas na Base de Dados Azure para o MySQL: escolher regiões, criar réplicas, ligar-se a réplicas, monitorizar a replicação e parar a replicação.'
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/1/2020
-ms.openlocfilehash: 42ca56e33ff0bc8f48c35849480d8094a2be1cb7
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.date: 10/15/2020
+ms.openlocfilehash: de1e0e077eacfe4779834c46da7de4d8c4a2c75f
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876554"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126669"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas de leitura na Base de Dados do Azure para MySQL
 
@@ -38,7 +38,7 @@ Como as réplicas são apenas de leitura, não reduzem diretamente os encargos d
 A funcionalidade de réplica de leitura utiliza a replicação assíncronea mySQL. A funcionalidade não se destina a cenários de replicação sincronizados. Haverá um atraso mensurável entre a fonte e a réplica. Os dados sobre a réplica eventualmente tornam-se consistentes com os dados do mestre. Utilize esta funcionalidade para cargas de trabalho que possam acomodar este atraso.
 
 > [!IMPORTANT]
-> A base de dados Azure para o MySQL utiliza registo binário baseado em **ROW.** Se faltar uma chave primária à mesa, todas as linhas da tabela são digitalizadas para operações de DML. Isto causa um maior atraso de replicação. Para garantir que a réplica é capaz de acompanhar as alterações na origem, recomendamos geralmente adicionar uma chave primária nas tabelas no servidor de origem antes de criar o servidor de réplica ou recriar o servidor de réplica se já tiver uma.
+> A Base de Dados do Azure para MySQL utiliza o registo binário baseado em **LINHA**. Se a sua tabela não tiver uma chave primária, todas as linhas da tabela são analisadas à procura de operações DML. Tal causa um aumento no atraso da replicação. Para garantir que a réplica seja capaz de acompanhar as alterações na origem, geralmente é recomendável adicionar uma chave primária em tabelas no servidor de origem antes de criar ou recriar o servidor de réplica, se já tiver um.
 
 ## <a name="cross-region-replication"></a>Replicação entre regiões
 Pode criar uma réplica de leitura numa região diferente do seu servidor de origem. A replicação transversal pode ser útil para cenários como o planeamento de recuperação de desastres ou a aproximação de dados aos seus utilizadores.
@@ -50,7 +50,7 @@ Pode ter um servidor de origem em qualquer [Base de Dados Azure para a região m
 ### <a name="universal-replica-regions"></a>Regiões réplicas universais
 Pode criar uma réplica de leitura em qualquer uma das seguintes regiões, independentemente do local onde o seu servidor de origem está localizado. As regiões de réplica universal apoiadas incluem:
 
-Austrália Leste, Austrália Sudeste, Eua Central, Leste da Ásia, Leste dos EUA, Leste dos EUA 2, Japão Leste, Japão Oeste, Coreia Central, Coreia do Sul, Norte Central dos EUA, Norte da Europa, Sudeste Asiático, Reino Unido Sul, Reino Unido Oeste, Europa Ocidental, Eua Ocidental, Eua Ocidental 2, West Central EUA.
+Austrália Leste, Austrália Sudeste, Brasil Sul, Canadá Central, Canadá Leste, Eua Central, Leste Asiático, Leste dos EUA, Leste dos EUA 2, Japão Leste, Japão Ocidental, Coreia Central, Coreia do Sul, Norte Central dos EUA, Norte da Europa Central, Eua Central Do Sul, Sudeste Asiático, Reino Unido Sul, Reino Unido Oeste, Europa Ocidental, Eua Ocidental, Eua Ocidental 2, West Central EUA.
 
 ### <a name="paired-regions"></a>Regiões emparelhadas
 Além das regiões de réplica universal, pode criar uma réplica de leitura na região emparelhada Azure do seu servidor de origem. Se não conhece o par da sua região, pode aprender mais com o [artigo Azure Paired Regions](../best-practices-availability-paired-regions.md).

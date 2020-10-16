@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 763fb82e0725e5a98112af3a79856c3703a5c2c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b061a6d3d7d2a6598d8ed7c48428d756db6e97d
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77016090"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126280"
 ---
 # <a name="connected-waste-monitoring-reference-architecture"></a>Arquitetura de referência da monitorização de resíduos associada 
 
@@ -33,7 +33,7 @@ Conceitos:
 Vamos olhar para os componentes-chave que geralmente desempenham um papel numa solução de monitorização do consumo de água.
 
 ## <a name="devices-and-connectivity"></a>Dispositivos e conectividade 
-Os dispositivos utilizados em ambientes abertos, como caixotes de lixo, podem ser ligados através de redes de área de baixa potência (LPWAN), através de um operador de rede de terceiros. Para este tipo de dispositivos, pode utilizar a [Ponte Central de Dispositivos Azure IoT](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge) para enviar os dados do seu dispositivo para a sua aplicação IoT no Azure IoT Central. Em alternativa, pode ter gateways de dispositivos capazes de IP e pode ligar-se diretamente à IoT Central.
+Os dispositivos utilizados em ambientes abertos, como caixotes de lixo, podem ser ligados através de redes de área de baixa potência (LPWAN), através de um operador de rede de terceiros. Para este tipo de dispositivos, pode utilizar a [Ponte Central de Dispositivos Azure IoT](../core/howto-build-iotc-device-bridge.md) para enviar os dados do seu dispositivo para a sua aplicação IoT no Azure IoT Central. Em alternativa, pode ter gateways de dispositivos capazes de IP e pode ligar-se diretamente à IoT Central.
 
 ## <a name="iot-central"></a>IoT Central 
 O Azure IoT Central é uma plataforma IoT App, que o faz começar a funcionar rapidamente na sua solução IoT. Pode marcar, personalizar e integrar a sua solução com serviços de terceiros.
@@ -51,5 +51,4 @@ Os dados IoT podem ser usados para alimentar uma variedade de aplicações empre
 ## <a name="next-steps"></a>Passos seguintes
 * Saiba como criar uma aplicação IoT Central [de gestão de resíduos conectada](./tutorial-connected-waste-management.md)
 * Saiba mais sobre [os modelos do governo central do IoT](./overview-iot-central-government.md)
-* Para saber mais sobre o IoT Central, consulte [a visão geral do IoT Central](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central)
-
+* Para saber mais sobre o IoT Central, consulte [a visão geral do IoT Central](../core/overview-iot-central.md)

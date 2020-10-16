@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/19/2020
 ms.author: jeedes
-ms.openlocfilehash: 9748c772466db73fc49b1291ffe2ce7d13da1d8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f3c5fc8e7ac4e61d44bb6cd54e1690d7c053526
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88540237"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127170"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Tutorial: Azure Ative Directy integração única (SSO) com o ServiceNow
 
@@ -290,11 +290,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
              > [!NOTE]
              > Se a Ligação de Teste estiver a falhar e não conseguir ativar esta ligação, o ServiceNow oferece o interruptor de substituição. Tem que entrar **Sys_properties. LISTA** na **Navegação de Pesquisa** e abrirá a nova página de Propriedades do Sistema. Aqui tem de criar uma nova propriedade com o nome **glide.authenticate.multisso.test.connection.obrigatório** com **o tipo de dados** como **Verdadeiro/Falso** e, em seguida, definir o **valor** como **Falso**.
 
-             > ![Screenshot da página de resultados do teste](./media/servicenow-tutorial/testconnection-fail.png "Configurar o início de sessão único")
+             > ![A screenshot mostra o separador Propriedades do Sistema com uma ligação de teste chamada.](./media/servicenow-tutorial/testconnection-fail.png "Configurar o início de sessão único")
         
           1. Quando pedirem as suas credenciais, insira-as. Verá a seguinte página. Espera-se o erro **de resultados do teste SSO Logout.** Ignore o erro e  **selecione Ativar**.
 
-             ![Screenshot da página de resultados do teste](./media/servicenow-tutorial/servicenowactivate.png "Configurar o início de sessão único")
+             ![A screenshot mostra os resultados do teste de login S S O e os resultados do teste S S O Logout, juntamente com o botão Ativar.](./media/servicenow-tutorial/servicenowactivate.png "Configurar o início de sessão único")
   
 1. Para configurar **o ServiceNow** manualmente, siga estes passos:
 
@@ -347,11 +347,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
           > [!NOTE]
           > Se a Ligação de Teste estiver a falhar e não conseguir ativar esta ligação, o ServiceNow oferece o interruptor de substituição. Tem que entrar **Sys_properties. LISTA** na **Navegação de Pesquisa** e abrirá a nova página de Propriedades do Sistema. Aqui tem de criar uma nova propriedade com o nome **glide.authenticate.multisso.test.connection.obrigatório** com **o tipo de dados** como **Verdadeiro/Falso** e, em seguida, definir o **valor** como **Falso**.
 
-          > ![Screenshot da página de resultados do teste](./media/servicenow-tutorial/testconnection-fail.png "Configurar o início de sessão único")
+          > ![A screenshot mostra o separador Propriedades do Sistema com uma ligação de teste chamada.](./media/servicenow-tutorial/testconnection-fail.png "Configurar o início de sessão único")
 
         * Quando pedirem as suas credenciais, insira-as. Verá a seguinte página. Espera-se o erro **de resultados do teste SSO Logout.** Ignore o erro e  **selecione Ativar**.
 
-          ![Screenshot da página de resultados do teste](./media/servicenow-tutorial/servicenowactivate.png "Configurar o início de sessão único")
+          ![A screenshot mostra os resultados do teste de login S S O e os resultados do teste S S O Logout, juntamente com o botão Ativar.](./media/servicenow-tutorial/servicenowactivate.png "Configurar o início de sessão único")
 
 ### <a name="create-servicenow-test-user"></a>Criar utilizador de teste ServiceNow
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: c960a7b509f365ad7fd6b04267cfec6bf41c4e42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5fddf5cb77cbcb1fb061ffd958fba4bf4ab2c9e7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88542569"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127476"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartrecruiters"></a>Tutorial: Integração do Azure Ative Directory com SmartRecruiters
 
@@ -99,7 +99,7 @@ Para configurar o Azure AD com o SmartRecruiters, execute os seguintes passos:
 
 4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![SmartRecruiters Domain e URLs informações únicas de súmula](common/idp-intiated.png)
+    ![A screenshot mostra a Configuração BÁSICA SAML, onde pode introduzir o Identificador, Responder U R L e selecionar Guardar.](common/idp-intiated.png)
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://www.smartrecruiters.com/web-sso/saml/<companyname>`
 
@@ -107,7 +107,7 @@ Para configurar o Azure AD com o SmartRecruiters, execute os seguintes passos:
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    ![SmartRecruiters Domain e URLs informações únicas de súmula](common/metadata-upload-additional-signon.png)
+    ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://www.smartrecruiters.com/web-sso/saml/<companyname>/login`
 
@@ -134,19 +134,19 @@ Para configurar o Azure AD com o SmartRecruiters, execute os seguintes passos:
 
 1. Ir para **Definições / Administração**.
 
-    ![Configuração SmartRecruiters](./media/smartrecruiters-tutorial/configure.png)
+    ![A screenshot mostra Definições / Administrador selecionados a partir de um menu.](./media/smartrecruiters-tutorial/configure.png)
 
 1. Na secção **Configuração,** clique **em Web SSO**.
 
-    ![Configuração SmartRecruiters](./media/smartrecruiters-tutorial/configure1.png)
+    ![A screenshot mostra Web S S O selecionado a partir da Configuração.](./media/smartrecruiters-tutorial/configure1.png)
 
 1. **Alternar Ativar web SSO**.
 
-    ![Configuração SmartRecruiters](./media/smartrecruiters-tutorial/configure2.png)
+    ![A screenshot mostra o controlo Enable Web S O.](./media/smartrecruiters-tutorial/configure2.png)
 
 1. Na **Configuração do Fornecedor de Identidade,** execute os seguintes passos:
 
-    ![Configuração SmartRecruiters](./media/smartrecruiters-tutorial/configure4.png)
+    ![A screenshot mostra a configuração do fornecedor de identidade onde pode introduzir os valores descritos.](./media/smartrecruiters-tutorial/configure4.png)
 
     a. Na caixa de texto **URL do Fornecedor de Identidade,** cole o valor do URL de **login** que copiou do portal Azure.
 

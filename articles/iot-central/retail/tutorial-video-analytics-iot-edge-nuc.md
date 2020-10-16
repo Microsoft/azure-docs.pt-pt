@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/27/2020
-ms.openlocfilehash: 8d05ab19ff7fee43d91a9620f96699d73bc38a1a
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: c41a6679009f1467c5bcd04d9629ef9256238e00
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873307"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127050"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-intel-nuc"></a>Tutorial: Criar uma instância IoT Edge para análise de vídeo (Intel NUC)
 
@@ -27,7 +27,7 @@ No IoT Edge, estes serviços funcionam diretamente em dispositivos IoT de plataf
 
 Este tutorial mostra-lhe como instalar e configurar o tempo de execução do IoT Edge num dispositivo Intel NUC.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 > [!div class="checklist"]
 > * Atualizar e configurar IoT Edge
 > * Configurar o gateway IoT Edge
@@ -37,13 +37,13 @@ Neste tutorial, ficará a saber como:
 
 * Antes de começar, deverá completar a anterior [Criar uma aplicação de análise de vídeo ao vivo no Azure IoT Central (YOLO v3)](./tutorial-video-analytics-create-app-yolo-v3.md) ou criar uma análise de vídeo no tutorial [Azure IoT Central (OpenVINO). &trade; ](tutorial-video-analytics-create-app-openvino.md)
 * Um dispositivo, como um Intel NUC, que executa o Linux, que pode executar contentores Docker, e tem poder de processamento suficiente para executar análises de vídeo.
-* O [tempo de funcionamento IoT Edge instalado](../../iot-edge/how-to-install-iot-edge-linux.md) e em funcionamento no dispositivo.
+* O [tempo de funcionamento IoT Edge instalado](../../iot-edge/how-to-install-iot-edge.md) e em funcionamento no dispositivo.
 * Seja capaz de ligar ao dispositivo IoT Edge a partir da sua máquina Windows, precisa do [cliente PuTTY SSH](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) ou de um utilitário equivalente.
 * Também precisa de uma assinatura Azure. Se não tiver uma subscrição do Azure, pode criar uma gratuitamente na página de inscrição do [Azure](https://aka.ms/createazuresubscription).
 
 ## <a name="configure-the-iot-edge-device"></a>Configurar o dispositivo do IoT Edge
 
-Se não tiver o tempo de funcionamento IoT Edge instalado na sua máquina Intel NUC, consulte [instalar o tempo de funcionamento do Azure IoT Edge nas instruções dos sistemas Linux baseados em Debian.](../../iot-edge/how-to-install-iot-edge-linux.md)
+Se não tiver o tempo de funcionamento IoT Edge instalado na sua máquina Intel NUC, consulte [instalar o tempo de funcionamento do Azure IoT Edge nas instruções dos sistemas Linux baseados em Debian.](../../iot-edge/how-to-install-iot-edge.md)
 
 Para atualizar o tempo de execução do IoT Edge:
 

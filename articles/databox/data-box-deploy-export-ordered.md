@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 5c3f87620c8a2a2d2438d7a5630541c0f76f9f17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e0a11ef72698d749349cce8dd7eff73e5284a86
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575576"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122471"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Tutorial: Criar ordem de exportação para Azure Data Box (Pré-visualização)
 
@@ -164,7 +164,7 @@ Se selecionar **O ficheiro Utilizar o ficheiro XML,** pode especificar recipient
 2. Selecione **+ Recipiente** para criar um recipiente.
     ![Screenshot da secção de contentores.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-02.png)
 
-3. No **separador New Container** que sai do lado direito do portal Azure, adicione um nome para o recipiente. O nome deve ser em minúscula e pode incluir números e traços '-'. Em seguida, selecione o **nível** de acesso público a partir da caixa de lista de retirada. Recomendamos que escolha **Acesso Privado (não anónimo)** para evitar que outros acedam aos seus dados. Para obter mais informações sobre os níveis de acesso ao contentor, consulte [as permissões de acesso ao contentor.](../storage/blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs)
+3. No **separador New Container** que sai do lado direito do portal Azure, adicione um nome para o recipiente. O nome deve ser em minúscula e pode incluir números e traços '-'. Em seguida, selecione o **nível** de acesso público a partir da caixa de lista de retirada. Recomendamos que escolha **Acesso Privado (não anónimo)** para evitar que outros acedam aos seus dados. Para obter mais informações sobre os níveis de acesso ao contentor, consulte [as permissões de acesso ao contentor.](../storage/blobs/anonymous-read-access-configure.md#set-the-public-access-level-for-a-container)
 
    ![Screenshot do separador novo recipiente mostrando a opção Private (sem acesso anónimo) selecionada.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-04.png)
 

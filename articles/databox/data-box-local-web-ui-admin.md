@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 8455fafe9ce2465df450e9556e8b2442b01e4e23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f4f9f65b562b01466aec69cd541ea77f443f803
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449670"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127529"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Utilize o UI web local para administrar a sua Caixa de Dados e Caixa de Dados Pesada
 
@@ -206,7 +206,7 @@ Para ativar a sessão de SMB no seu Dispositivo Azure:
 
 Os seus utilizadores de UI da web têm privilégios de Backup Operator em ações SMB por padrão. Se não quiser, utilize **os privilégios do Operador De Trás** para desativar ou ativar os privilégios.
 
-Para obter informações, consulte os operadores de backup em [Grupos de Segurança do Diretório Ativo](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups#backup-operators).
+Para obter informações, consulte os operadores de backup em [Grupos de Segurança do Diretório Ativo](/windows/security/identity-protection/access-control/active-directory-security-groups#backup-operators).
 
 Para ativar os privilégios do Operador de Backup no seu Dispositivo Azure:
 

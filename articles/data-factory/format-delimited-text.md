@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 10/16/2020
 ms.author: jingwang
-ms.openlocfilehash: ac6540dfd86430aab518b145ed391d1d6283219e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c491a0b5e4c4fc517368c5947fa6181201a5b5fd
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91276582"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127272"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Formato de textolimtado na Azure Data Factory
 
@@ -34,8 +34,8 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 | localização         | Definições de localização do(s) ficheiros. Cada conector baseado em ficheiros tem o seu próprio tipo de localização e propriedades suportadas em `location` .  | Sim      |
 | columnDelimiter  | O(s) caracterisse usado para separar colunas num ficheiro. <br>O valor predefinido é **vírgula. `,` ** Quando o delimitador da coluna é definido como corda vazia, o que significa que não há delimiter, toda a linha é tomada como uma única coluna.<br>Atualmente, o delimiter de coluna como string vazio ou multi-char é suportado apenas para mapeamento de fluxo de dados, mas não atividade de Cópia.  | Não       |
 | rowDelimiter     | O único carácter ou "\r\n" usado para separar linhas num ficheiro. <br>O valor predefinido é qualquer um dos seguintes valores **na leitura: ["\r\n", "\r", "\n"]** e **"\n" ou "\r\n" na escrita** por mapeamento do fluxo de dados e da atividade copy, respectivamente. <br>Quando o delimiter de linha não estiver definido para nenhum delimiter (corda vazia), olimiter da coluna deve ser definido como nenhum delimiter (cadeia vazia) também, o que significa tratar todo o conteúdo como um único valor.<br>Atualmente, o delimiter de linha como string vazio é suportado apenas para mapeamento de fluxo de dados, mas não atividade de Cópia. | Não       |
-| quoteChar        | O único carácter para citar valores de coluna se contiver delimiter de coluna. <br>O valor predefinido são **cotações duplas.** `"` <br>Para mapear o fluxo de dados, `quoteChar` não pode ser uma corda vazia. <br>Para a atividade copy, quando `quoteChar` é definido como corda vazia, significa que não há cotação char e valor da coluna não é citado, e é usado para escapar do `escapeChar` delimiter da coluna e de si mesmo. | Não       |
-| escapeChar       | O único personagem a escapar citações dentro de um valor citado.<br>O valor **predefinido `\` **é retrocesso. <br>Para mapear o fluxo de dados, `escapeChar` não pode ser uma corda vazia. <br/>Para a atividade copy, quando `escapeChar` é definido como corda vazia, o deve ser definido como corda vazia `quoteChar` também, e nesse caso certifique-se de que todos os valores da coluna não contêm delimiters. | Não       |
+| quoteChar        | O único carácter para citar valores de coluna se contiver delimiter de coluna. <br>O valor predefinido são **cotações duplas.** `"` <br>Quando `quoteChar` é definido como corda vazia, significa que não há citação char e valor da coluna não é citado, e é usado para escapar do `escapeChar` delimiter da coluna e de si mesmo. | Não       |
+| escapeChar       | O único personagem a escapar citações dentro de um valor citado.<br>O valor **predefinido `\` **é retrocesso. <br>Quando `escapeChar` for definido como corda vazia, o deve ser definido como corda vazia `quoteChar` também, e nesse caso certifique-se de que todos os valores da coluna não contêm delimiters. | Não       |
 | firstRowAsHeader | Especifica se deve tratar/fazer a primeira linha como uma linha de cabeçalho com nomes de colunas.<br>Os valores permitidos são **verdadeiros** e **falsos** (padrão).<br>Quando a primeira linha como cabeçalho é falsa, note que a pré-visualização de dados de UI e a produção automática de atividade geram nomes de colunas como Prop_{n} (a partir de 0), a atividade da cópia requer [mapeamento explícito](copy-activity-schema-and-type-mapping.md#explicit-mapping) de origem para afundar e localizar colunas por ordinal (a partir de 1) e mapear listas de fluxos de dados e localizar colunas com nome como Column_{n} (a partir de 1).  | Não       |
 | nullValue        | Especifica a representação de cadeia de valor nulo. <br>O valor predefinido é **a corda vazia.** | Não       |
 | encodingName     | O tipo de codificação utilizado para ler/escrever ficheiros de teste. <br>Allowed values are as follows: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254",.<br>O fluxo de dados de mapeamento de notas não suporta codificação UTF-7. | Não       |
@@ -152,10 +152,10 @@ A tabela abaixo lista as propriedades suportadas por uma fonte de texto delimita
 | Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Caminhos de wild card | Todos os ficheiros correspondentes ao caminho wildcard serão processados. Substitui a pasta e o caminho do ficheiro definido no conjunto de dados. | não | Corda[] | wildcardPaths |
-| Caminho da raiz da partição | Para os dados de ficheiros que são divididos, pode introduzir um caminho de raiz de partição para ler pastas partidas como colunas | não | Cadeia | partitionRootPath |
+| Caminho da raiz da partição | Para os dados de ficheiros que são divididos, pode introduzir um caminho de raiz de partição para ler pastas partidas como colunas | não | String | partitionRootPath |
 | Lista de ficheiros | Se a sua fonte está a apontar para um ficheiro de texto que lista ficheiros para processar | não | `true` ou `false` | fileList |
 | Linhas multiline | O ficheiro de origem contém linhas que abrangem várias linhas. Os valores multiline devem estar em aspas. | não `true` ou `false` | multiLineRow |
-| Coluna para armazenar nome de ficheiro | Criar uma nova coluna com o nome e caminho do ficheiro de origem | não | Cadeia | rowUrlColumn |
+| Coluna para armazenar nome de ficheiro | Criar uma nova coluna com o nome e caminho do ficheiro de origem | não | String | rowUrlColumn |
 | Após a conclusão | Elimine ou mova os ficheiros após o processamento. O caminho do arquivo começa a partir da raiz do recipiente | não | Excluir: `true` ou `false` <br> Mover-se: `['<from>', '<to>']` | purgeFiles <br> moveFiles |
 | Filtrar por última modificação | Opte por filtrar ficheiros com base na última alteração que foram alterados | não | Timestamp | modificado Depois <br> modificadoSForo antes |
 | Não permita que não encontrem ficheiros | Se for verdade, um erro não é jogado se nenhum ficheiro for encontrado | não | `true` ou `false` | ignoreNoFilesFound |

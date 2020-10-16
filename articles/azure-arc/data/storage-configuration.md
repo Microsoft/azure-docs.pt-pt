@@ -9,12 +9,12 @@ ms.author: umajay
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: c1560325f21fd60e6bdb2a64eb987359a7246ff2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c420652a6385be2cade9723c20cff7c32a4a60b0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317332"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127238"
 ---
 # <a name="storage-configuration"></a>Configuração do Armazenamento
 
@@ -238,6 +238,6 @@ Para serviços públicos baseados em nuvem, geridos kubernetes podemos fazer as 
 
 |Serviço público de nuvem|Recomendação|
 |---|---|
-|**Azure Kubernetes Service (AKS)**|O Serviço Azure Kubernetes (AKS) tem dois tipos de armazenamento - Azure Files e Azure Disks. Cada tipo de armazenamento tem dois níveis de preços/desempenho - standard (HDD) e premium (SSD). Assim, as quatro classes de armazenamento fornecidas em AKS são `azurefile` (nível padrão Azure Files), `azurefile-premium` (nível premium Azure Files), `default` (nível padrão Azure Disks) e `managed-premium` (nível premium Azure Disks). A classe de armazenamento predefinida é `default` (nível padrão de Discos Azure). Existem **[diferenças](https://azure.microsoft.com/en-us/pricing/details/storage/)** de preços substanciais entre os tipos e os níveis que devem ser contabilizados na sua decisão. Para cargas de trabalho de produção com requisitos de alto desempenho, recomendamos a utilização `managed-premium` para todas as classes de armazenamento. Para cargas de trabalho dev/teste, provas de conceito, etc. onde o custo é uma consideração, então `azurefile` é a opção menos dispendiosa. Todas as quatro opções podem ser usadas para situações que requerem armazenamento remoto e partilhado, uma vez que são todos dispositivos de armazenamento ligados à rede em Azure. Leia mais sobre [o Armazenamento AKS.](../../aks/concepts-storage.md)|
+|**Azure Kubernetes Service (AKS)**|O Azure Kubernetes Service (AKS) tem dois tipos de armazenamento - Ficheiros Azure e Discos Geridos Azure. Cada tipo de armazenamento tem dois níveis de preços/desempenho - standard (HDD) e premium (SSD). Assim, as quatro classes de armazenamento fornecidas em AKS são `azurefile` (nível padrão Azure Files), `azurefile-premium` (nível premium Azure Files), `default` (nível padrão Azure Disks) e `managed-premium` (nível premium Azure Disks). A classe de armazenamento predefinida é `default` (nível padrão de Discos Azure). Existem **[diferenças](https://azure.microsoft.com/en-us/pricing/details/storage/)** de preços substanciais entre os tipos e os níveis que devem ser contabilizados na sua decisão. Para cargas de trabalho de produção com requisitos de alto desempenho, recomendamos a utilização `managed-premium` para todas as classes de armazenamento. Para cargas de trabalho dev/teste, provas de conceito, etc. onde o custo é uma consideração, então `azurefile` é a opção menos dispendiosa. Todas as quatro opções podem ser usadas para situações que requerem armazenamento remoto e partilhado, uma vez que são todos dispositivos de armazenamento ligados à rede em Azure. Leia mais sobre [o Armazenamento AKS.](../../aks/concepts-storage.md)|
 |**Elastic Kubernetes Service (EKS) do AWS**| O Serviço Elástico Kubernetes da Amazon tem uma classe primária de armazenamento - baseada no [controlador de armazenamento EBS CSI](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html). Isto é recomendado para cargas de trabalho de produção. Existe um novo controlador de armazenamento - [o controlador de armazenamento EFS CSI](https://docs.aws.amazon.com/eks/latest/userguide/efs-csi.html) - que pode ser adicionado a um cluster EKS, mas está atualmente numa fase beta e sujeito a alterações. Embora a AWS diga que este controlador de armazenamento é suportado para produção, não recomendamos a sua utilização porque ainda está em fase beta e sujeita a alterações. A classe de armazenamento EBS é o padrão e é chamada `gp2` . Leia mais sobre [o armazenamento EKS.](https://docs.aws.amazon.com/eks/latest/userguide/storage-classes.html)|
 |**Google Kubernetes Engine (GKE)**|O Google Kubernetes Engine (GKE) tem apenas uma classe de armazenamento chamada `standard` que é usada para discos [persistentes GCE](https://kubernetes.io/docs/concepts/storage/volumes/#gcepersistentdisk). Sendo o único, é também o padrão. Embora exista um [provisionador de volume estático local](https://cloud.google.com/kubernetes-engine/docs/how-to/persistent-volumes/local-ssd#run-local-volume-static-provisioner) para O GKE que pode usar com SSDs ligados diretamente, não recomendamos a sua utilização, uma vez que não é mantida ou suportada pela Google. Leia mais sobre [o armazenamento de GKE.](https://cloud.google.com/kubernetes-engine/docs/concepts/persistent-volumes)

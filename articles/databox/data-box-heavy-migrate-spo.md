@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: how-to
 ms.date: 07/18/2019
 ms.author: alkohli
-ms.openlocfilehash: a87181e7d1c776648781a2672dfd73ac2eaab1b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b00a944b69b8492d4aa00258154bf00f1c66ad33
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91396863"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127119"
 ---
 # <a name="use-the-azure-data-box-heavy-to-migrate-your-file-share-content-to-sharepoint-online"></a>Utilize a Caixa de Dados Azure Heavy para migrar o conteúdo da partilha de ficheiros para o SharePoint Online
 
@@ -21,9 +21,9 @@ Utilize a sua Caixa de Dados Azure Heavy e a Ferramenta de Migração SharePoint
 
 O Microsoft Azure Data Box é um serviço que permite encomendar um dispositivo a partir do portal Microsoft Azure. Em seguida, pode copiar terabytes de dados dos seus servidores para o dispositivo. Depois de enviá-lo de volta para a Microsoft, os seus dados são copiados para o Azure. Dependendo do tamanho dos dados que pretende transferir, pode escolher entre:
 
-- [Disco de caixa de dados](https://docs.microsoft.com/azure/databox/data-box-disk-overview) com capacidade utilizável de 35-TB por encomenda para conjuntos de dados pequenos a médios.
-- [Caixa de dados](https://docs.microsoft.com/azure/databox/data-box-overview) com capacidade utilizável de 80-TB por dispositivo para conjuntos de dados médios a grandes.
-- [Caixa de dados Pesada](https://docs.microsoft.com/azure/databox/data-box-heavy-overview) com capacidade utilizável de 770 TB por dispositivo para grandes conjuntos de dados.
+- [Disco de caixa de dados](./data-box-disk-overview.md) com capacidade utilizável de 35-TB por encomenda para conjuntos de dados pequenos a médios.
+- [Caixa de dados](./data-box-overview.md) com capacidade utilizável de 80-TB por dispositivo para conjuntos de dados médios a grandes.
+- [Caixa de dados Pesada](./data-box-heavy-overview.md) com capacidade utilizável de 770 TB por dispositivo para grandes conjuntos de dados.
 
 Este artigo fala especificamente sobre como usar a Caixa de Dados Pesada para migrar o conteúdo da partilha de ficheiros para o SharePoint Online.
 
@@ -37,7 +37,7 @@ Este artigo fala especificamente sobre como usar a Caixa de Dados Pesada para mi
 
 ### <a name="for-sharepoint-online"></a>Para SharePoint Online
 
-- Reveja os [requisitos mínimos para a Ferramenta de Migração SharePoint (SPMT)](https://docs.microsoft.com/sharepointmigration/how-to-use-the-sharepoint-migration-tool).
+- Reveja os [requisitos mínimos para a Ferramenta de Migração SharePoint (SPMT)](/sharepointmigration/how-to-use-the-sharepoint-migration-tool).
 
 ## <a name="workflow-overview"></a>Visão geral do fluxo de trabalho
 
@@ -84,7 +84,7 @@ Para melhor desempenho e conectividade, recomendamos que crie uma Máquina Virtu
 3. [Descarregue a ferramenta De migração SharePoint](https://spmtreleasescus.blob.core.windows.net/install/default.htm) e instale-a no seu Azure VM.
 4. Inicie a Ferramenta de Migração SharePoint. Clique **em Iniciar sômed** e insira o nome de utilizador e a palavra-passe para o seu trabalho ou conta escolar.
 5. Quando solicitado **Onde estão os seus dados?** **File share** Insira o caminho para a sua partilha de ficheiros Azure onde os seus dados estão localizados.
-6. Siga as indicações restantes normalmente, incluindo a localização do alvo. Para mais informações, [aceda a Como utilizar a Ferramenta de Migração SharePoint](https://docs.microsoft.com/sharepointmigration/how-to-use-the-sharepoint-migration-tool).
+6. Siga as indicações restantes normalmente, incluindo a localização do alvo. Para mais informações, [aceda a Como utilizar a Ferramenta de Migração SharePoint](/sharepointmigration/how-to-use-the-sharepoint-migration-tool).
 
 > [!IMPORTANT]
 > - A velocidade a que os dados são ingeridos no SharePoint Online é afetada por vários fatores, independentemente de já ter os seus dados no Azure. Compreender estes fatores irá ajudá-lo a planear e maximizar a eficiência da sua migração.  Para mais informações, aceda ao [SharePoint Online e à Velocidade de migração OneDrive.](/sharepointmigration/sharepoint-online-and-onedrive-migration-speed)

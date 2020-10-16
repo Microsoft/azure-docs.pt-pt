@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: ed06aef4d494fbdce5a07c5bc50bad9737ba5433
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 957cea854b9894b3149a0e292b8072b73875cae5
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86497051"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127085"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Tutorial: Construir um painel de fornecedores de Power BI
 
@@ -29,7 +29,7 @@ A arquitetura básica seguirá esta estrutura:
 >[!div class="mx-imgBorder"] 
 >![Painel de Triagem fornecedor](media/dashboard-architecture.png)
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Dados de exportação da Azure IoT Central para os Hubs de Eventos Azure
@@ -44,14 +44,14 @@ Neste tutorial, ficará a saber como:
 
 * Um modelo de aplicação contínua de monitorização contínua do paciente Azure IoT Central. Se ainda não tiver um, pode seguir os passos para [implementar um modelo de aplicação.](overview-iot-central-healthcare.md)
 
-* Um espaço de [nome azure Event Hubs e Centro de Eventos.](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
+* Um espaço de [nome azure Event Hubs e Centro de Eventos.](../../event-hubs/event-hubs-create.md)
 
-* A Aplicação Lógica a que pretende aceder ao seu Centro de Eventos. Para iniciar a sua App Lógica com um gatilho Azure Event Hubs, precisa de uma [Aplicação Lógica em branco.](https://docs.microsoft.com/azure/logic-apps/quickstart-create-first-logic-app-workflow)
+* A Aplicação Lógica a que pretende aceder ao seu Centro de Eventos. Para iniciar a sua App Lógica com um gatilho Azure Event Hubs, precisa de uma [Aplicação Lógica em branco.](../../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Uma conta de serviço de POWER BI. Se ainda não tiver um, pode [criar uma conta de teste gratuita para o serviço Power BI](https://app.powerbi.com/). Se ainda não usou o Power BI antes, pode ser útil passar por [Get start with Power BI](https://docs.microsoft.com/power-bi/service-get-started).
+* Uma conta de serviço de POWER BI. Se ainda não tiver um, pode [criar uma conta de teste gratuita para o serviço Power BI](https://app.powerbi.com/). Se ainda não usou o Power BI antes, pode ser útil passar por [Get start with Power BI](/power-bi/service-get-started).
 
 ## <a name="set-up-a-continuous-data-export-to-azure-event-hubs"></a>Criar uma exportação contínua de dados para a Azure Event Hubs
-Primeiro terá de configurar uma exportação contínua de dados do seu modelo de aplicação Azure IoT Central para o Azure Event Hub na sua subscrição. Pode fazê-lo seguindo os passos deste tutorial Azure IoT Central para [exportação para centros de eventos.](https://docs.microsoft.com/azure/iot-central/core/howto-export-data) Só terá de exportar para a telemetria para efeitos deste tutorial.
+Primeiro terá de configurar uma exportação contínua de dados do seu modelo de aplicação Azure IoT Central para o Azure Event Hub na sua subscrição. Pode fazê-lo seguindo os passos deste tutorial Azure IoT Central para [exportação para centros de eventos.](../core/howto-export-data.md) Só terá de exportar para a telemetria para efeitos deste tutorial.
 
 ## <a name="create-a-power-bi-streaming-dataset"></a>Criar um conjunto de dados de streaming Power BI
 
@@ -72,10 +72,10 @@ Primeiro terá de configurar uma exportação contínua de dados do seu modelo d
     >[!div class="mx-imgBorder"] 
     >![Introduza os valores do conjunto de dados](media/enter-dataset-values.png)
 
-Para saber mais sobre conjuntos de dados de streaming no Power BI, pode ler este documento em [streaming em tempo real no Power BI](https://docs.microsoft.com/power-bi/service-real-time-streaming).
+Para saber mais sobre conjuntos de dados de streaming no Power BI, pode ler este documento em [streaming em tempo real no Power BI](/power-bi/service-real-time-streaming).
 
 ## <a name="connect-your-logic-app-to-azure-event-hubs"></a>Ligue a sua App Lógica aos Hubs de Eventos Azure
-Para ligar a sua App Lógica aos Hubs de Eventos Azure, pode seguir as instruções descritas neste documento sobre [o envio de eventos com a Azure Event Hubs e Azure Logic Apps.](https://docs.microsoft.com/azure/connectors/connectors-create-api-azure-event-hubs#add-event-hubs-action) Aqui estão alguns parâmetros sugeridos:
+Para ligar a sua App Lógica aos Hubs de Eventos Azure, pode seguir as instruções descritas neste documento sobre [o envio de eventos com a Azure Event Hubs e Azure Logic Apps.](../../connectors/connectors-create-api-azure-event-hubs.md#add-event-hubs-action) Aqui estão alguns parâmetros sugeridos:
 
 |Parâmetro|Valor|
 |---|---|
@@ -91,7 +91,7 @@ No final deste passo, o seu Designer de Aplicações Lógicas deve ser assim:
 ## <a name="stream-data-to-power-bi-from-your-logic-app"></a>Transmita os dados para Power BI a partir da sua App Lógica
 O próximo passo será analisar os dados provenientes do seu Centro de Eventos para os transmitir para os conjuntos de dados Power BI que criou anteriormente.
 
-1. Antes de o poder fazer, terá de compreender a carga útil JSON que está a ser enviada do seu dispositivo para o seu Centro de Eventos. Pode fazê-lo olhando para este [esquema de amostra](https://docs.microsoft.com/azure/iot-central/core/howto-export-data#telemetry) e modificando-o para combinar com o seu esquema ou usando o explorador de Service [Bus](https://github.com/paolosalvatori/ServiceBusExplorer) para inspecionar as mensagens. Se estiver a utilizar as aplicações de monitorização contínua do paciente, as suas mensagens serão assim:
+1. Antes de o poder fazer, terá de compreender a carga útil JSON que está a ser enviada do seu dispositivo para o seu Centro de Eventos. Pode fazê-lo olhando para este [esquema de amostra](../core/howto-export-data.md#telemetry-format) e modificando-o para combinar com o seu esquema ou usando o explorador de Service [Bus](https://github.com/paolosalvatori/ServiceBusExplorer) para inspecionar as mensagens. Se estiver a utilizar as aplicações de monitorização contínua do paciente, as suas mensagens serão assim:
 
 **Smart Vitals Patch telemetria**
 
@@ -197,7 +197,7 @@ Selecione os três pontos na barra de navegação superior e, em seguida, seleci
 
 Escolha o tipo de azulejo que gostaria de adicionar e personalize a sua aplicação como quiser.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se não continuar a utilizar esta aplicação, elimine os seus recursos com os seguintes passos:
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 2ee2eb7586489527272d92dd1eaef6976bc41f94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 532983f2df6689f840b71673ede3fd86842c1d22
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88524836"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122897"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>Tutorial: Integração do Diretório Ativo Azure com statusPage
 
@@ -138,17 +138,17 @@ Para configurar o Azure AD com statusPage, execute os seguintes passos:
 
 1. Na barra de ferramentas principal, clique em **Gerir Conta.**
 
-    ![Configurar Sign-On Individuais](./media/statuspage-tutorial/tutorial_statuspage_06.png)
+    ![A screenshot mostra a Conta Manage selecionada no site da empresa StatusPage.](./media/statuspage-tutorial/tutorial_statuspage_06.png)
 
 1. Clique no **separador 'S-on's single.**
 
-    ![Configurar Sign-On Individuais](./media/statuspage-tutorial/tutorial_statuspage_07.png)
+    ![A screenshot mostra o separador 'Sign-on' único.](./media/statuspage-tutorial/tutorial_statuspage_07.png)
 
 1. Na página SSO Configuração, execute os seguintes passos:
 
-    ![Configurar Sign-On Individuais](./media/statuspage-tutorial/tutorial_statuspage_08.png)
+    ![A screenshot mostra a página S S O Configuração onde pode introduzir os valores descritos.](./media/statuspage-tutorial/tutorial_statuspage_08.png)
 
-    ![Configurar Sign-On Individuais](./media/statuspage-tutorial/tutorial_statuspage_09.png)
+    ![A screenshot mostra o botão De Configuração de Salvamento.](./media/statuspage-tutorial/tutorial_statuspage_09.png)
 
     a. Na caixa de texto **SSO Target URL,** cole o valor do URL de **login,** que copiou do portal Azure.
 
@@ -219,19 +219,19 @@ O StatusPage suporta o provisionamento just-in-time. Já o ativou no [Configure 
 
 1. No menu em cima, clique em **Gerir Conta.**
 
-    ![Configurar Sign-On Individuais](./media/statuspage-tutorial/tutorial_statuspage_06.png)
+    ![A screenshot mostra a Conta Manage selecionada no site da empresa StatusPage.](./media/statuspage-tutorial/tutorial_statuspage_06.png)
 
 1. Clique no separador Membros da **Equipa.**
   
-    ![Criar um utilizador de teste AZure AD](./media/statuspage-tutorial/tutorial_statuspage_10.png) 
+    ![A screenshot mostra o separador Membros da Equipa.](./media/statuspage-tutorial/tutorial_statuspage_10.png) 
 
 1. CLIQUE **EM ADICIONAR MEMBRO DA EQUIPA.**
   
-    ![Criar um utilizador de teste AZure AD](./media/statuspage-tutorial/tutorial_statuspage_11.png) 
+    ![A screenshot mostra o botão Add Team Member.](./media/statuspage-tutorial/tutorial_statuspage_11.png) 
 
 1. Digite o **Endereço de E-mail,** **Nome próprio**e **Apelido** de um utilizador válido que pretende apresentar nas caixas de texto relacionadas. 
 
-    ![Criar um utilizador de teste AZure AD](./media/statuspage-tutorial/tutorial_statuspage_12.png) 
+    ![A screenshot mostra a caixa de diálogo Adicionar um Utilizador onde pode introduzir os valores descritos.](./media/statuspage-tutorial/tutorial_statuspage_12.png) 
 
 1. Como **Função,** escolha **Administrador de Clientes.**
 

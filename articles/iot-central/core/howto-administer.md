@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 37a3725fb7684a9e87f1936ef0ce8cc79de03894
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ed2756bc11a159bf860c5001af1ecaa942e7e1c
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89594667"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122641"
 ---
 # <a name="change-iot-central-application-settings"></a>Alterar definições de aplicação IoT Central
 
@@ -39,7 +39,7 @@ Se o seu administrador criar um tema personalizado para a sua aplicação, esta 
 Utilize o botão **Eliminar** para eliminar permanentemente a sua aplicação IoT Central. Esta ação elimina permanentemente todos os dados associados à aplicação.
 
 > [!Note]
-> Para eliminar uma aplicação, também deve ter permissões para eliminar recursos na subscrição Azure que escolheu quando criou a aplicação. Para saber mais, consulte [o controlo de acesso baseado em funções para gerir o acesso aos seus recursos de subscrição Azure.](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)
+> Para eliminar uma aplicação, também deve ter permissões para eliminar recursos na subscrição Azure que escolheu quando criou a aplicação. Para saber mais, consulte [o controlo de acesso baseado em funções para gerir o acesso aos seus recursos de subscrição Azure.](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="manage-programmatically"></a>Gerir programaticamente
 
@@ -49,7 +49,7 @@ Pode encontrar exemplos de como utilizar os SDKs do Azure Resource Manager em [h
 
 Para saber mais, consulte os seguintes repositórios e pacotes GitHub:
 
-| Idioma | Repositório | Pacote |
+| Linguagem | Repositório | Pacote |
 | ---------| ---------- | ------- |
 | Nó | [https://github.com/Azure/azure-sdk-for-node](https://github.com/Azure/azure-sdk-for-node) | [https://www.npmjs.com/package/azure-arm-iotcentral](https://www.npmjs.com/package/azure-arm-iotcentral)
 | Python |[https://github.com/Azure/azure-sdk-for-python](https://github.com/Azure/azure-sdk-for-python) | [https://pypi.org/project/azure-mgmt-iotcentral](https://pypi.org/project/azure-mgmt-iotcentral)

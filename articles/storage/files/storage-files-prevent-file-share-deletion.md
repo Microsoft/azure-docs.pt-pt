@@ -8,12 +8,12 @@ ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 11940a43438b72eb8a2e9391d56806744c4c27fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50dbca7e32548380c6dbf338260b98ce59cda715
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86527817"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122420"
 ---
 # <a name="prevent-accidental-deletion-of-azure-file-shares"></a>Evitar a supressão acidental das ações de ficheiros Azure
 
@@ -37,7 +37,7 @@ A eliminação suave para ações de ficheiros Azure (pré-visualização) está
 
 ### <a name="enabling-or-disabling-soft-delete"></a>Ativar ou desativar a eliminação suave
 
-A eliminação suave para ações de ficheiros é ativada ao nível da conta de armazenamento, por isso, as definições de eliminação suave aplicam-se a todas as ações de ficheiros dentro de uma conta de armazenamento. Pode ativar ou desativar a qualquer momento a eliminação suave. Quando cria uma nova conta de armazenamento, a exclusão suave para ações de ficheiros é desativada por padrão. A eliminação suave também é desativada por padrão para as contas de armazenamento existentes. Se tiver configurado [a cópia de segurança da partilha de ficheiros Azure](../../backup/azure-file-share-backup-overview.md) para uma partilha de ficheiros Azure, então a eliminação suave para ações de ficheiros Azure será automaticamente ativada na conta de armazenamento dessa ação.
+A eliminação suave para ações de ficheiros é ativada ao nível da conta de armazenamento, por isso, as definições de eliminação suave aplicam-se a todas as ações de ficheiros dentro de uma conta de armazenamento. Pode ativar ou desativar a qualquer momento a eliminação suave. Quando cria uma nova conta de armazenamento, a exclusão suave das ações de ficheiros é desativada por padrão enquanto a funcionalidade está em pré-visualização pública. Uma vez que a eliminação suave se torne geralmente disponível, será ativado por padrão. A eliminação suave permanecerá desativada por padrão para as contas de armazenamento existentes. Se tiver configurado [a cópia de segurança da partilha de ficheiros Azure](../../backup/azure-file-share-backup-overview.md) para uma partilha de ficheiros Azure, então a eliminação suave para ações de ficheiros Azure será automaticamente ativada na conta de armazenamento dessa ação.
 
 Se ativar a eliminação suave para ações de ficheiros, elimine algumas ações de ficheiros e, em seguida, desative a eliminação suave, se as ações forem guardadas nesse período, ainda pode aceder e recuperar essas ações de ficheiros. Quando ativar a eliminação suave, também precisa de configurar o período de retenção.
 

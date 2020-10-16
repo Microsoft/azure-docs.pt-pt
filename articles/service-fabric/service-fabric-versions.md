@@ -3,12 +3,12 @@ title: Versões de cluster suportadas em Tecido de Serviço Azure
 description: Conheça as versões de cluster no Azure Service Fabric, incluindo um link para os mais recentes lançamentos do blog da equipa do Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: e3194a59607563656f6624dabf51e9369e9258ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0d53c704645fdeb1e68898c4cadf8429bcb5645
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843248"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122437"
 ---
 # <a name="supported-service-fabric-versions"></a>Versões de tecido de serviço suportado
 
@@ -39,11 +39,11 @@ A tabela que se segue lista as versões do Service Fabric e as datas finais de s
 | 6.3.* | 6.1.480.* |Menos ou igual à versão 3.2 |31 de março de 2019  |
 | 6.4.* | 6.2.301.* |Menos ou igual à versão 3.3 |15 de setembro de 2019 |
 | 6.5.* | 6.4.617.* |Menos ou igual à versão 3.4 |1 de agosto de 2020 |
-| 7.0.466.* | 6.4.664.* |Menos ou igual à versão 4.0|1 de novembro de 2020  |
-| 7.0.466.* | 6.5.* |Menos ou igual à versão 4.0|1 de novembro de 2020 |
-| 7.0.470.* | 7.0.466.* |Menos ou igual à versão 4.0 |1 de novembro de 2020  |
-| 7.0.472.* | 7.0.466.* |Menos ou igual à versão 4.0 |1 de novembro de 2020  |
-| 7.0.478.* | 7.0.466.* |Menos ou igual à versão 4.0 |1 de novembro de 2020  |
+| 7.0.466.* | 6.4.664.* |Menos ou igual à versão 4.0|31 de janeiro de 2021  |
+| 7.0.466.* | 6.5.* |Menos ou igual à versão 4.0|31 de janeiro de 2021 |
+| 7.0.470.* | 7.0.466.* |Menos ou igual à versão 4.0 |31 de janeiro de 2021  |
+| 7.0.472.* | 7.0.466.* |Menos ou igual à versão 4.0 |31 de janeiro de 2021  |
+| 7.0.478.* | 7.0.466.* |Menos ou igual à versão 4.0 |31 de janeiro de 2021  |
 | 7.1.409.* | 7.0.466.* |Menos ou igual à versão 4.1 |Versão atual, então sem data de fim |
 | 7.1.417.* | 7.0.466.* |Menos ou igual à versão 4.1 |Versão atual, então sem data de fim |
 | 7.1.428.* | 7.0.466.* |Menos ou igual à versão 4.1 |Versão atual, então sem data de fim |
@@ -59,11 +59,11 @@ A tabela que se segue lista os sistemas operativos suportados para as versões s
 | --- | --- |
 | Windows Server 2012 R2 | Todas as versões |
 | Windows Server 2016 | Todas as versões |
-| Servidor Windows 1709 | 6.0 |
+| Servidor Windows 1709 | 6,0 |
 | Servidor Windows 1803 | 6.4 |
 | Windows Server 1809 | 6.4.654.9590 |
 | Windows Server 2019 | 6.4.654.9590 |
-| Linux Ubuntu 16.04 | 6.0 |
+| Linux Ubuntu 16.04 | 6,0 |
 | Linux Ubuntu 18.04 | 7.1 |
 
 ## <a name="supported-version-names"></a>Nomes de versão suportados

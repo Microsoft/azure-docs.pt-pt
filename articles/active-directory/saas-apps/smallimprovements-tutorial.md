@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: c659af83034a2406449e586723341e1ae535934f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee5927e19dfb6864d7edcde9dceadfd744d7ddbf
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88525404"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126623"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-small-improvements"></a>Tutorial: Integração do Diretório Ativo Azure com Pequenas Melhorias
 
@@ -128,15 +128,15 @@ Para configurar o Azure AD com pequenas melhorias, execute os seguintes passos:
 
 1. A partir da página principal do painel de **instrumentos,** clique no botão De administração à esquerda.
 
-    ![Configurar Sign-On Individuais](./media/smallimprovements-tutorial/tutorial_smallimprovements_06.png) 
+    ![A screenshot mostra o botão de Administração selecionado.](./media/smallimprovements-tutorial/tutorial_smallimprovements_06.png) 
 
 1. Clique no botão **SSO SAML** a partir da secção **Integrações.**
 
-    ![Configurar Sign-On Individuais](./media/smallimprovements-tutorial/tutorial_smallimprovements_07.png) 
+    ![A screenshot mostra o ícone SAML S S O selecionado em Integrações.](./media/smallimprovements-tutorial/tutorial_smallimprovements_07.png) 
 
 1. Na página SSO Configuração, execute os seguintes passos:
 
-    ![Configurar Sign-On Individuais](./media/smallimprovements-tutorial/tutorial_smallimprovements_08.png)  
+    ![A screenshot mostra a página S S O Configuração onde pode introduzir os valores descritos.](./media/smallimprovements-tutorial/tutorial_smallimprovements_08.png)  
 
     a. Na caixa de texto **HTTP Endpoint,** cole o valor do URL de **login,** que copiou do portal Azure.
 
@@ -211,15 +211,15 @@ Para permitir que os utilizadores de Azure AD iniciem sessão em Pequenas Melhor
 
 1. Clique no botão **Diretório** de Utilizador a partir da secção Gestão do Utilizador.
 
-    ![Criar um utilizador de teste AZure AD](./media/smallimprovements-tutorial/tutorial_smallimprovements_10.png) 
+    ![A screenshot mostra o Diretório de Utilizador selecionado a partir de Visão Geral da Administração.](./media/smallimprovements-tutorial/tutorial_smallimprovements_10.png) 
 
 1. Clique **em Adicionar utilizadores**.
 
-    ![Criar um utilizador de teste AZure AD](./media/smallimprovements-tutorial/tutorial_smallimprovements_11.png) 
+    ![A screenshot mostra o botão adicionar utilizadores.](./media/smallimprovements-tutorial/tutorial_smallimprovements_11.png) 
 
 1. No diálogo **'Adicionar utilizadores',** execute os seguintes passos: 
 
-    ![Criar um utilizador de teste AZure AD](./media/smallimprovements-tutorial/tutorial_smallimprovements_12.png)
+    ![A screenshot mostra a caixa de diálogo dos utilizadores Add onde pode introduzir os valores descritos.](./media/smallimprovements-tutorial/tutorial_smallimprovements_12.png)
 
     a. Insira o **primeiro nome** de utilizador como **Britta**.
 

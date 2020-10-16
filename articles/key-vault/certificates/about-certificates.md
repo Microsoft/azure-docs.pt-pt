@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e7bae2ad19aaf4f1c93d8d2bdefa7fa9f0414860
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3e5476b01ac78af992f548efbeb87de5104dead0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88923692"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126778"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Acerca dos certificados do Azure Key Vault
 
@@ -141,42 +141,11 @@ Os objetos emitentes são criados no cofre e só podem ser utilizados com certif
 
 ## <a name="certificate-contacts"></a>Contactos de Certificado
 
-Os contactos do certificado contêm informações de contacto para enviar notificações desencadeadas por eventos de vida de certificado. A informação dos contactos é partilhada por todos os certificados no cofre chave. É enviada uma notificação a todos os contactos especificados para um evento para qualquer certificado no cofre de chaves.  
-
-Se a política de um certificado for definida para a renovação automática, então uma notificação é enviada nos seguintes eventos.  
-
-- Antes da renovação do certificado
-- Após a renovação do certificado, indicando se o certificado foi renovado com sucesso, ou se houve um erro, exigindo a renovação manual do certificado.  
-
-  Quando uma política de certificado que está definida para ser renovada manualmente (apenas por e-mail), é enviada uma notificação quando é hora de renovar o certificado.  
+Os contactos do certificado contêm informações de contacto para enviar notificações desencadeadas por eventos de vida de certificado. A informação dos contactos é partilhada por todos os certificados no cofre chave. É enviada uma notificação a todos os contactos especificados para um evento para qualquer certificado no cofre de chaves. Para obter informações sobre como definir o contacto do Certificado, consulte [aqui](overview-renew-certificate.md#steps-to-set-certificate-notifications)  
 
 ## <a name="certificate-access-control"></a>Controlo de Acesso a Certificados
 
- O controlo de acesso para certificados é gerido pelo Key Vault e é disponibilizado pelo Key Vault que contém esses certificados. A política de controlo de acesso para certificados distingue-se das políticas de controlo de acesso para chaves e segredos no mesmo Cofre-Chave. Os utilizadores podem criar um ou mais cofres para deter certificados, para manter o cenário apropriado segmentação e gestão de certificados.  
-
- As seguintes permissões podem ser utilizadas, numa base por princípio, na entrada de controlo de acesso aos segredos num cofre de chaves, e espelham de perto as operações permitidas num objeto secreto:  
-
-- Permissões para operações de gestão de certificados
-  - *obter*: Obtenha a versão atual do certificado, ou qualquer versão de um certificado 
-  - *lista*: Listar os certificados atuais ou versões de um certificado  
-  - *atualização*: Atualizar um certificado
-  - *criar*: Criar um certificado de Cofre de Chaves
-  - *importação*: Material de certificado de importação num certificado Key Vault
-  - *eliminar*: Eliminar um certificado, a sua política e todas as suas versões  
-  - *recuperar*: Recuperar um certificado eliminado
-  - *backup*: Faça backup de um certificado em um cofre chave
-  - *restaurar*: Restaurar um certificado de apoio para um cofre chave
-  - *contactos de gestão*: Gerir os contactos do certificado key Vault  
-  - *manageissuers*: Gerir as autoridades/emitentes de certificados de cofre-chave
-  - *getissuers*: Obter um certificado autoridades/emitentes
-  - *listissuers*: Listar as autoridades/emitentes de um certificado  
-  - *setissuers*: Criar ou atualizar as autoridades/emitentes de um certificado de cofre-chave  
-  - *deleteissuers*: Eliminar as autoridades/emitentes de um certificado de cofre de chaves  
- 
-- Permissões para operações privilegiadas
-  - *purga:* Purga (eliminar permanentemente) um certificado eliminado
-
-Para obter mais informações, consulte as operações do [Certificado na referência API do Cofre-Chave](/rest/api/keyvault). Para obter informações sobre o estabelecimento de permissões, consulte [Cofres - Criar ou Atualizar](/rest/api/keyvault/vaults/createorupdate) e [Abóbadas - Atualizar a Política de Acesso](/rest/api/keyvault/vaults/updateaccesspolicy).
+ O controlo de acesso para certificados é gerido pelo Key Vault e é disponibilizado pelo Key Vault que contém esses certificados. A política de controlo de acesso para certificados distingue-se das políticas de controlo de acesso para chaves e segredos no mesmo Cofre-Chave. Os utilizadores podem criar um ou mais cofres para deter certificados, para manter o cenário apropriado segmentação e gestão de certificados.  Para obter mais informações sobre o controlo do acesso ao certificado, consulte [aqui](certificate-access-control.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

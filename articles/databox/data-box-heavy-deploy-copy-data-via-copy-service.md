@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 67547db53d2b9ce05838335ffcb5d789b77ecbbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 601e5cf15c47b16c53ff9ca81a56cb613bcfc3f5
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77560225"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127153"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-heavy-preview"></a>Tutorial: Utilize o serviço de cópia de dados para copiar dados em Azure Data Box Heavy (pré-visualização)
 
@@ -24,7 +24,7 @@ Utilize o serviço de cópia de dados:
 - Em ambientes NAS onde hospedeiros intermédios podem não estar disponíveis.
 - Com pequenos ficheiros que demoram semanas para ingestão e upload de dados. O serviço de cópia de dados melhora significativamente o tempo de ingestão e upload para pequenos ficheiros.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Copiar dados para o Data Box Heavy
@@ -64,7 +64,7 @@ Para copiar dados utilizando o serviço de cópia de dados, é necessário criar
     |**Conta de armazenamento de destino**    |Selecione a conta de armazenamento alvo para carregar os dados para a lista.         |
     |**Tipo de destino**       |Selecione o tipo de armazenamento alvo da lista: **Block Blob**, **Page Blob**ou **Azure Files**.        |
     |**Contentor/partilha de destino**    |Insira o nome do recipiente ou partilhe para o mesmo que pretende enviar dados na sua conta de armazenamento de destino. O nome pode ser um nome de partilha ou um nome de recipiente. Por exemplo, utilize `myshare` ou `mycontainer`. Também pode introduzir o nome no formato `sharename\directory_name` ou `containername\virtual_directory_name` .        |
-    |**Padrão de correspondência de ficheiros de cópia**    | Pode introduzir o padrão de correspondência do nome do ficheiro de duas maneiras:<ul><li>**Utilize expressões wildcard:** Apenas `*` e `?` são apoiados em expressões wildcard. Por exemplo, a expressão `*.vhd` corresponde a todos os ficheiros que têm a `.vhd` extensão. Da mesma forma, `*.dl?` corresponde a todos os ficheiros com a extensão ou com , tal como `.dl` `.dl` `.dll` . Da mesma forma, `*foo` corresponde a todos os ficheiros cujos nomes terminam com `foo` .<br>Pode introduzir diretamente a expressão wildcard no campo. Por predefinição, o valor que introduz no campo é tratado como uma expressão wildcard.</li><li>**Utilize expressões regulares:** As expressões regulares baseadas em POSIX são suportadas. Por exemplo, a expressão regular `.*\.vhd` corresponderá a todos os ficheiros que tenham a `.vhd` extensão. Para expressões regulares, forneça `<pattern>` o seguinte diretamente como `regex(<pattern>)` . Para obter mais informações sobre expressões regulares, aceda à [linguagem de expressão regular - uma referência rápida](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
+    |**Padrão de correspondência de ficheiros de cópia**    | Pode introduzir o padrão de correspondência do nome do ficheiro de duas maneiras:<ul><li>**Utilize expressões wildcard:** Apenas `*` e `?` são apoiados em expressões wildcard. Por exemplo, a expressão `*.vhd` corresponde a todos os ficheiros que têm a `.vhd` extensão. Da mesma forma, `*.dl?` corresponde a todos os ficheiros com a extensão ou com , tal como `.dl` `.dl` `.dll` . Da mesma forma, `*foo` corresponde a todos os ficheiros cujos nomes terminam com `foo` .<br>Pode introduzir diretamente a expressão wildcard no campo. Por predefinição, o valor que introduz no campo é tratado como uma expressão wildcard.</li><li>**Utilize expressões regulares:** As expressões regulares baseadas em POSIX são suportadas. Por exemplo, a expressão regular `.*\.vhd` corresponderá a todos os ficheiros que tenham a `.vhd` extensão. Para expressões regulares, forneça `<pattern>` o seguinte diretamente como `regex(<pattern>)` . Para obter mais informações sobre expressões regulares, aceda à [linguagem de expressão regular - uma referência rápida](/dotnet/standard/base-types/regular-expression-language-quick-reference).</li><ul>|
     |**Otimização de ficheiros**              |Quando esta funcionalidade está ativada, os ficheiros inferiores a 1 MB são embalados durante a ingestão. Esta embalagem acelera a cópia de dados para ficheiros pequenos. Também poupa uma quantidade significativa de tempo quando o número de ficheiros excede em muito o número de diretórios.        |
  
 4. Selecione **Iniciar**. As entradas são validadas, e se a validação for bem sucedida, então o trabalho começa. Pode levar alguns minutos para o trabalho começar.
@@ -147,4 +147,3 @@ Avance para o próximo tutorial para aprender a enviar o seu dispositivo Data Bo
 
 > [!div class="nextstepaction"]
 > [Envie o seu dispositivo Azure Data Box Heavy para a Microsoft](./data-box-heavy-deploy-picked-up.md)
-

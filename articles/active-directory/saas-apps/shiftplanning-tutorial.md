@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: d99355a88a52e318b231d9032ede770ee0ba5208
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe3520597ef8c02bc225e6f8a7625e6a961a7e37
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548689"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126931"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-humanity"></a>Tutorial: Azure Ative Directy integração com a Humanidade
 
@@ -131,11 +131,11 @@ Para configurar a Azure AD um único sign-on com a Humanidade, execute os seguin
     ![Administração](./media/shiftplanning-tutorial/iC786619.png "Administrador")
 3. Em **Integração**, clique **em 'Sign-On' único**.
 
-    ![Único sign-on](./media/shiftplanning-tutorial/iC786620.png "Início de Sessão Único")
+    ![O Screenshot mostra single Sign-On selecionados a partir do menu Integração.](./media/shiftplanning-tutorial/iC786620.png "Início de Sessão Único")
 
 4. Na secção **'Sign-On' único,** execute os seguintes passos:
 
-    ![Único sign-on](./media/shiftplanning-tutorial/iC786905.png "Início de Sessão Único")
+    ![A screenshot mostra a secção single Sign-On onde pode introduzir os valores descritos.](./media/shiftplanning-tutorial/iC786905.png "Início de Sessão Único")
 
     a. Selecione **SAML Ativado**.
 

@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: f39efcbfe7f0094e9481049a1678dba8a045888f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f9f8be81c5b90ff5e7172b2aba41a108afc64bd
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91714244"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126846"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Ligar-se ao Azure IoT Central
 
@@ -185,7 +185,7 @@ O fluxo é ligeiramente diferente dependendo se os dispositivos usam fichas SAS 
 
 ## <a name="individual-enrollment-based-device-connectivity"></a>Conectividade individual do dispositivo baseado em matrículas
 
-Para os clientes que ligam dispositivos que cada um tem as suas próprias credenciais de autenticação, utilize matriculas individuais. Uma inscrição individual é uma entrada para um único dispositivo que é permitido ligar. As inscrições individuais podem usar certificados de folha X.509 ou fichas SAS (a partir de um módulo de plataforma de confiança física ou virtual) como mecanismos de atestação. O ID do dispositivo (também conhecido como ID de registo) numa matrícula individual é alfanumérico, minúsculo, e pode conter hífenes. Para mais informações, consulte [a inscrição individual do DPS.](https://docs.microsoft.com/azure/iot-dps/concepts-service#individual-enrollment)
+Para os clientes que ligam dispositivos que cada um tem as suas próprias credenciais de autenticação, utilize matriculas individuais. Uma inscrição individual é uma entrada para um único dispositivo que é permitido ligar. As inscrições individuais podem usar certificados de folha X.509 ou fichas SAS (a partir de um módulo de plataforma de confiança física ou virtual) como mecanismos de atestação. O ID do dispositivo (também conhecido como ID de registo) numa matrícula individual é alfanumérico, minúsculo, e pode conter hífenes. Para mais informações, consulte [a inscrição individual do DPS.](../../iot-dps/concepts-service.md#individual-enrollment)
 
 > [!NOTE]
 > Quando cria uma inscrição individual para um dispositivo, tem precedência sobre as opções de inscrição em grupo predefinido na sua aplicação IoT Central.
@@ -204,7 +204,7 @@ A IoT Central apoia os seguintes mecanismos de atestação para as matrículas i
     > [!TIP]
     > Para testes, pode utilizar [ferramentas para o dispositivo de provisionamento do dispositivo Azure IoT SDK para Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools) gerar um certificado auto-assinado: `node create_test_cert.js device "mytestdevice"`
 
-- **Atestado de Módulo de Plataforma Fidedigna (TPM):** Um [TPM](https://docs.microsoft.com/azure/iot-dps/concepts-tpm-attestation) é um tipo de módulo de segurança de hardware. A utilização de um TPM é uma das formas mais seguras de ligar um dispositivo. Este artigo pressupõe que está a usar um TPM discreto, firmware ou integrado. Os TPMs emulados por software são adequados para prototipagem ou teste, mas não fornecem o mesmo nível de segurança que tPMs discretos, firmware ou TPMs integrados. Não utilize TPMs de software em produção. Para criar uma inscrição individual que utilize um TPM, abra a página **de Ligação** do Dispositivo, selecione **a inscrição individual** como método de ligação e **TPM** como mecanismo. Introduza a chave de endosso TPM e guarde as informações de ligação do dispositivo.
+- **Atestado de Módulo de Plataforma Fidedigna (TPM):** Um [TPM](../../iot-dps/concepts-tpm-attestation.md) é um tipo de módulo de segurança de hardware. A utilização de um TPM é uma das formas mais seguras de ligar um dispositivo. Este artigo pressupõe que está a usar um TPM discreto, firmware ou integrado. Os TPMs emulados por software são adequados para prototipagem ou teste, mas não fornecem o mesmo nível de segurança que tPMs discretos, firmware ou TPMs integrados. Não utilize TPMs de software em produção. Para criar uma inscrição individual que utilize um TPM, abra a página **de Ligação** do Dispositivo, selecione **a inscrição individual** como método de ligação e **TPM** como mecanismo. Introduza a chave de endosso TPM e guarde as informações de ligação do dispositivo.
 
 ## <a name="automatically-associate-with-a-device-template"></a>Associar automaticamente a um modelo de dispositivo
 

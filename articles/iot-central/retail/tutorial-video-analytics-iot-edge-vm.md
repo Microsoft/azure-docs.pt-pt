@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: db3d4bb7f4b32c07e75487764acc5e7ba7d05915
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: aa4ddfc773e2226fe155b563c237f1c533d52311
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873283"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127033"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>Tutorial: Criar uma instância IoT Edge para análise de vídeo (Linux VM)
 
@@ -27,7 +27,7 @@ No IoT Edge, estes serviços funcionam diretamente em dispositivos IoT de plataf
 
 Este tutorial mostra-lhe como preparar um dispositivo IoT Edge num VM Azure. A instância IoT Edge executa os módulos de análise de vídeo ao vivo que o Azure IoT Central video analytics - objeto e modelo de aplicação de deteção de movimentos usa.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 > [!div class="checklist"]
 > * Criar um VM Azure com o tempo de execução Azure IoT Edge instalado
 > * Prepare a instalação IoT Edge para hospedar o módulo de análise de vídeo ao vivo e ligue-se à IoT Central
@@ -50,7 +50,7 @@ Utilize as informações na tabela seguinte para completar o **formulário de im
 | ----- | ----- |
 | Subscrição | Selecione a sua subscrição do Azure. |
 | Grupo de recursos | *Lva-rg* - o grupo de recursos que criou no tutorial anterior. |
-| Region       | *E.U.A. Leste* |
+| Região       | *E.U.A. Leste* |
 | Prefixo da etiqueta do rótulo de DNS | Escolha um prefixo DNS único para o VM. |
 | Nome de utilizador Admin | *AzureUser* |
 | Palavra-passe de Administrador | Introduza uma senha. Tome nota da palavra-passe no ficheiro *scratchpad.txt, * use-a mais tarde. |
@@ -94,7 +94,7 @@ A implementação configura os seguintes cinco módulos IoT Edge a executar:
 
 A implementação criou um ambiente IoT Edge personalizado com os módulos necessários para análise de vídeo ao vivo. A implementação atualizou o **config.yaml padrão** para garantir que o tempo de funcionamento do IoT Edge usou o Serviço de Provisionamento de Dispositivos IoT para ligar à IoT Central. A implementação também criou um ficheiro chamado **state.jsna** pasta **/dados/armazenamento** para fornecer dados de configuração adicionais aos módulos. Para obter mais informações, consulte o tutorial [Criar uma instância IoT Edge para análise de vídeo (Intel NUC).](./tutorial-video-analytics-iot-edge-nuc.md)
 
-Para resolver problemas no dispositivo IoT Edge, consulte [Troubleshoot o seu dispositivo IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot)
+Para resolver problemas no dispositivo IoT Edge, consulte [Troubleshoot o seu dispositivo IoT Edge](../../iot-edge/troubleshoot.md)
 
 ## <a name="use-the-rtsp-simulator"></a>Utilize o simulador RTSP
 

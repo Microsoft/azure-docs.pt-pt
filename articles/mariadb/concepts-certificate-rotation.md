@@ -6,16 +6,19 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 3182f7fa913cd61e6c51ea91be6b46e83a1ab949
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73fa10b2170024760fe20d6ed037353b12a0a9e7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540107"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127255"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Compreender as alterações na alteração do CA raiz para a Base de Dados Azure para MariaDB
 
-A Azure Database for MariaDB irá alterar o certificado de raiz para a aplicação/controlador do cliente ativado com SSL, utilizar para [ligar ao servidor de base de dados](concepts-connectivity-architecture.md). O certificado raiz atualmente disponível está previsto para expirar a 26 de outubro de 2020 (10/26/2020) como parte das melhores práticas de manutenção e segurança. Este artigo dá-lhe mais detalhes sobre as próximas alterações, os recursos que serão afetados e os passos necessários para garantir que a sua aplicação mantém a conectividade com o servidor da sua base de dados.
+A Azure Database for MariaDB irá alterar o certificado de raiz para a aplicação/controlador do cliente ativado com SSL, utilizar para [ligar ao servidor de base de dados](concepts-connectivity-architecture.md). O certificado raiz atualmente disponível está previsto para expirar a 15 de fevereiro de 2021 (02/15/2021) como parte das melhores práticas de manutenção e segurança. Este artigo dá-lhe mais detalhes sobre as próximas alterações, os recursos que serão afetados e os passos necessários para garantir que a sua aplicação mantém a conectividade com o servidor da sua base de dados.
+
+>[!NOTE]
+> Com base no feedback dos clientes, alargamos a depreciação do certificado de raiz para a nossa ca raiz de Baltimore existente de 26 de outubro de 2020 até 15 de fevereiro de 2021. Esperamos que esta extensão proporcione tempo suficiente para que os nossos utilizadores implementem as alterações do cliente se forem impactadas.
 
 ## <a name="what-update-is-going-to-happen"></a>Que atualização vai acontecer?
 
@@ -24,12 +27,12 @@ Em alguns casos, os pedidos utilizam um ficheiro de certificado local gerado a p
 De acordo com os requisitos de conformidade da indústria, os fornecedores de CA começaram a revogar os certificados de CA para CAs não conformes, exigindo que os servidores usassem certificados emitidos por AA em conformidade, e assinados por certificados ca desses CAs em conformidade. Uma vez que a Azure Database for MariaDB utiliza atualmente um destes certificados não conformes, que as aplicações do cliente utilizam para validar as suas ligações SSL, precisamos de garantir que sejam tomadas medidas adequadas (descritas abaixo) para minimizar o impacto potencial nos seus servidores MariaDB.
 
 
-O novo certificado será usado a partir de 26 de outubro de 2020 (10/26/2020). Se utilizar a validação ca ou a validação completa do certificado do servidor ao ligar-se a um cliente MySQL (sslmode=check-ca ou sslmode=check-full), tem de atualizar a configuração da sua aplicação antes de 26 de outubro de 2020 (10/26/2020).
+O novo certificado será usado a partir de 15 de fevereiro de 2021 (02/15/2021). Se utilizar a validação ca ou a validação completa do certificado do servidor ao ligar-se a um cliente MySQL (sslmode=check-ca ou sslmode=check-full), tem de atualizar a configuração da sua aplicação antes de 15 de fevereiro de 2021 (02/15/2021).
 
 ## <a name="how-do-i-know-if-my-database-is-going-to-be-affected"></a>Como sei se a minha base de dados vai ser afetada?
 
 Todas as aplicações que utilizam SSL/TLS e verificam o certificado raiz precisam de atualizar o certificado raiz. Pode identificar se as suas ligações verificam o certificado raiz, revendo a sua cadeia de ligação.
--   Se a sua cadeia de ligação incluir `sslmode=verify-ca` `sslmode=verify-full` ou, tem de atualizar o certificado.
+-   Se a sua cadeia de ligação incluir `sslmode=verify-ca` `sslmode=verify-identity` ou, tem de atualizar o certificado.
 -   Se a sua cadeia de ligação incluir `sslmode=disable` , ou , não precisa de atualizar `sslmode=allow` `sslmode=prefer` `sslmode=require` certificados. 
 -   Se o seu fio de ligação não especificar sslmode, não precisa de atualizar certificados.
 
@@ -83,6 +86,9 @@ Se estiver a utilizar o certificado emitido pela Base de Dados Azure para MariaD
 *   Certificado inválido/certificado revogado
 *   Excedido o limite de tempo da ligação
 
+> [!NOTE]
+> Por favor, não largue ou **altere** o certificado de Baltimore até que a alteração do certificado seja feita. Enviaremos uma comunicação assim que a mudança estiver feita, após a qual é seguro que eles larguem o certificado de Baltimore. 
+
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 ### <a name="1-if-i-am-not-using-ssltls-do-i-still-need-to-update-the-root-ca"></a>1. Se não estiver a utilizar sSL/TLS, ainda preciso de atualizar a raiz ca?
@@ -91,8 +97,8 @@ Não são necessárias ações se não estiver a utilizar o SSL/TLS.
 ### <a name="2-if-i-am-using-ssltls-do-i-need-to-restart-my-database-server-to-update-the-root-ca"></a>2. Se estiver a utilizar o SSL/TLS, preciso de reiniciar o meu servidor de base de dados para atualizar o CA raiz?
 Não, não precisa de reiniciar o servidor de base de dados para começar a usar o novo certificado. A atualização do certificado é uma alteração do lado do cliente e as ligações do cliente que chegam precisam de usar o novo certificado para garantir que podem ligar-se ao servidor de base de dados.
 
-### <a name="3-what-will-happen-if-i-do-not-update-the-root-certificate-before-october-26-2020-10262020"></a>3. O que acontecerá se eu não atualizar o certificado de raiz antes de 26 de outubro de 2020 (10/26/2020)?
-Se não atualizar o certificado de raiz antes de 26 de outubro de 2020, as suas aplicações que se ligam via SSL/TLS e que faz a verificação do certificado raiz não poderão comunicar ao servidor de base de dados MariaDB e a aplicação experimentará problemas de conectividade com o seu servidor de base de dados MariaDB.
+### <a name="3-what-will-happen-if-i-do-not-update-the-root-certificate-before-february-15-2021-02152021"></a>3. O que acontecerá se eu não atualizar o certificado de raiz antes de 15 de fevereiro de 2021 (02/15/2021)?
+Se não atualizar o certificado de raiz antes de 15 de fevereiro de 2021 (02/15/2021), as suas aplicações que se ligam via SSL/TLS e fazem a verificação do certificado raiz não poderão comunicar ao servidor de base de dados MariaDB e a aplicação experimentará problemas de conectividade no seu servidor de base de dados MariaDB.
 
 ### <a name="4-what-is-the-impact-if-using-app-service-with-azure-database-for-mariadb"></a>4. Qual é o impacto se utilizar o Serviço de Aplicações com Base de Dados Azure para a MariaDB?
 Para os serviços de aplicações Azure, conectando-se à Base de Dados Azure para MariaDB, podemos ter dois cenários possíveis e depende de como você está usando SSL com a sua aplicação.
@@ -108,13 +114,13 @@ Para o conector que utiliza o Tempo de Execução da Integração Azure, os cert
 Para o conector que utiliza o Tempo de Execução de Integração Auto-hospedado, onde inclui explicitamente o caminho para o ficheiro cert SSL na sua cadeia de ligação, terá de descarregar o [novo certificado](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) e atualizar o fio de ligação para o utilizar.
 
 ### <a name="7-do-i-need-to-plan-a-database-server-maintenance-downtime-for-this-change"></a>7. Preciso de planear um tempo de inatividade de manutenção do servidor de bases de dados para esta mudança?
-N.º Uma vez que a mudança aqui está apenas do lado do cliente para ligar ao servidor de base de dados, não há tempo de inatividade de manutenção necessário para o servidor de base de dados para esta alteração.
+Não. Uma vez que a mudança aqui está apenas do lado do cliente para ligar ao servidor de base de dados, não há tempo de inatividade de manutenção necessário para o servidor de base de dados para esta alteração.
 
-### <a name="8--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-october-26-2020-10262020"></a>8. E se eu não conseguir um tempo de paragem programado para esta mudança antes de 26 de outubro de 2020 (10/26/2020)?
+### <a name="8--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-february-15-2021-02152021"></a>8. E se eu não conseguir um tempo de paragem programado para esta mudança antes de 15 de fevereiro de 2021 (02/15/2021)?
 Uma vez que os clientes utilizados para a ligação ao servidor precisam de estar a atualizar as informações do certificado tal como descrito na secção de correção [aqui,](./concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity)não precisamos de um tempo de inatividade para o servidor neste caso.
 
-### <a name="9-if-i-create-a-new-server-after-october-26-2020-will-i-be-impacted"></a>9. Se eu criar um novo servidor depois de 26 de outubro de 2020, serei impactado?
-Para servidores criados após 26 de outubro de 2020 (10/26/2020), pode utilizar o certificado recém-emitido para as suas aplicações para se conectar através do SSL.
+### <a name="9-if-i-create-a-new-server-after-february-15-2021-02152021-will-i-be-impacted"></a>9. Se eu criar um novo servidor depois de 15 de fevereiro de 2021 (02/15/2021), serei impactado?
+Para servidores criados após 15 de fevereiro de 2021 (02/15/2021), pode utilizar o certificado recém-emitido para as suas aplicações para se conectar através do SSL.
 
 ### <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10. Com que frequência a Microsoft atualiza os seus certificados ou qual é a política de caducidade?
 Estes certificados utilizados pela Base de Dados Azure para MariaDB são fornecidos pelas Autoridades de Certificados Fidedignos (CA). Assim, o apoio destes certificados na Base de Dados Azure para MariaDB está ligado ao apoio destes certificados pela AC. No entanto, como neste caso, podem existir bugs imprevistos nestes certificados predefinidos, que precisam de ser corrigidos o mais cedo possível.
@@ -143,7 +149,7 @@ Se estiver a utilizar a [replicação de dados](concepts-data-in-replication.md)
 Para verificar se está a utilizar a ligação SSL para ligar ao servidor, consulte a [verificação SSL](howto-configure-ssl.md#verify-the-ssl-connection).
 
 ### <a name="14-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>14. É necessária alguma ação se já tiver o DigiCertGlobalRootG2 no meu ficheiro de certificado?
-N.º Não é necessária qualquer ação se o seu ficheiro de certificado já tiver o **DigiCertGlobalRootG2**.
+Não. Não é necessária qualquer ação se o seu ficheiro de certificado já tiver o **DigiCertGlobalRootG2**.
 
 ### <a name="15-what-if-i-have-further-questions"></a>15. E se eu tiver mais perguntas?
 Se tiver dúvidas, obtenha respostas de especialistas comunitários no [Microsoft Q&A](mailto:AzureDatabaseformariadb@service.microsoft.com). Se tiver um plano de apoio e precisar de ajuda técnica, [contacte-nos](mailto:AzureDatabaseformariadb@service.microsoft.com).

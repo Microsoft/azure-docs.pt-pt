@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.openlocfilehash: c8d0ce5031dc5972cac81b92477d3de049bc1f2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6efb96448cc99df95b8f898c9fb7dd3ef166c5ea
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543117"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126999"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sequr"></a>Tutorial: Integração do Diretório Ativo Azure com Sequr
 
@@ -131,15 +131,15 @@ Para configurar o Azure AD com o Sequr, execute os seguintes passos:
 
 1. Clique nas **Integrações** a partir do painel de navegação esquerdo.
 
-    ![Configuração sequr](./media/sequr-tutorial/configure1.png)
+    ![Screenshot mostra integração selecionada a partir do painel de navegação.](./media/sequr-tutorial/configure1.png)
 
 1. Desloque-se para baixo para a secção **'Iniciar's** e clique em **Gerir**.
 
-    ![Configuração sequr](./media/sequr-tutorial/configure2.png)
+    ![A screenshot mostra a secção 'Sign-on' única com o botão 'Gerir' selecionado.](./media/sequr-tutorial/configure2.png)
 
 1. Na secção **Gestão de Um Único Sinal,** execute os seguintes passos:
 
-    ![Configuração sequr](./media/sequr-tutorial/configure3.png)
+    ![A screenshot mostra a secção 'Gerir Sign-On' onde pode introduzir os valores descritos.](./media/sequr-tutorial/configure3.png)
 
     a. Na caixa de texto **de URL do Fornecedor de Identidade Single Sign-On,** cole o valor URL de **login,** que copiou a partir do portal Azure.
 

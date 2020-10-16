@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 2e3b2ee35352c2af4ae8196ba7c9699da761f83e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a203bbd65c07d21c7d96b59c57b441748ed5b9a9
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372515"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92127563"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>Tutorial: Integração do Diretório Ativo Azure com Springer Link
 
@@ -97,7 +97,7 @@ Para configurar o Azure AD com springer link, execute os seguintes passos:
 
 4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![Springer Link Domain e URLs informações únicas de súmis](common/idp-relay.png)
+    ![A screenshot mostra a Configuração BÁSICA SAML, onde pode introduzir o Identificador, Responder U R L e selecionar Guardar.](common/idp-relay.png)
 
     a. Na caixa de texto **identifier,** digite um URL: `https://fsso.springer.com`
 
@@ -109,7 +109,7 @@ Para configurar o Azure AD com springer link, execute os seguintes passos:
 
 5. Se desejar configurar a aplicação no modo iniciado pela **SP,** execute o seguinte passo:
 
-    ![Springer Link Domain e URLs informações únicas de súmis](common/both-signonurl.png)
+    ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/both-signonurl.png)
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://fsso.springer.com/saml/login?idp=<entityID>&targetUrl=https://link.springer.com`
 

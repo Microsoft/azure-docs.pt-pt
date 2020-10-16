@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: c00f9d8baa55ef0d0cf6322ee71f22e739e6acdc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6c45b8d9804f16c4e59d259f562cc03f187e6a0
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80365503"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122982"
 ---
 # <a name="manage-users-and-roles-in-your-iot-central-application"></a>Gerir utilizadores e funções na sua aplicação IoT Central
 
@@ -25,7 +25,7 @@ Para aceder e utilizar a secção **Administração,** deve estar na função **
 
 Todos os utilizadores devem ter uma conta de utilizador antes de poderem iniciar sôm e aceder a uma aplicação Azure IoT Central. As contas microsoft accounts e Azure Ative Directory são suportadas no Azure IoT Central. Os grupos de Diretório Ativo Azure não são atualmente apoiados na Azure IoT Central.
 
-Para obter mais informações, consulte [a ajuda da conta da Microsoft](https://support.microsoft.com/products/microsoft-account?category=manage-account) e  [quickstart: Adicione novos utilizadores ao Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
+Para obter mais informações, consulte [a ajuda da conta da Microsoft](https://support.microsoft.com/products/microsoft-account?category=manage-account) e  [quickstart: Adicione novos utilizadores ao Azure Ative Directory](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 
 1. Para adicionar um utilizador a uma aplicação IoT Central, aceda à página **de Utilizadores** na secção **Administração.**
     

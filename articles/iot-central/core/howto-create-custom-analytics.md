@@ -9,16 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: e04da10d71eed3706b87fc728a13927aeae82826
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e261e8d5d9cd147f3157303b7a2a50db7c33e58
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84660122"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123050"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Estenda a Azure IoT Central com análises personalizadas usando Azure Databricks
 
-Este guia de como fazer mostra-lhe, como um desenvolvedor de soluções, como estender a sua aplicação IoT Central com análises e visualizações personalizadas. O exemplo utiliza um espaço de trabalho [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) para analisar o fluxo de telemetria IoT Central e gerar visualizações como [parcelas de caixa.](https://wikipedia.org/wiki/Box_plot)
+Este guia de como fazer mostra-lhe, como um desenvolvedor de soluções, como estender a sua aplicação IoT Central com análises e visualizações personalizadas. O exemplo utiliza um espaço de trabalho [Azure Databricks](/azure/azure-databricks/) para analisar o fluxo de telemetria IoT Central e gerar visualizações como [parcelas de caixa.](https://wikipedia.org/wiki/Box_plot)
 
 Este guia de como fazer mostra-lhe como estender a IoT Central para além do que já pode fazer com as [ferramentas de análise incorporadas.](./howto-create-custom-analytics.md)
 
@@ -45,7 +45,7 @@ Crie uma aplicação IoT Central no site do [gestor de aplicações Azure IoT Ce
 | URL | Aceite o prefixo padrão ou escolha o seu próprio prefixo URL único |
 | Diretório | Seu inquilino do Diretório Ativo Azure |
 | Subscrição do Azure | A sua subscrição do Azure |
-| Region | A sua região mais próxima |
+| Região | A sua região mais próxima |
 
 Os exemplos e imagens deste artigo utilizam a região **dos Estados Unidos.** Escolha um local próximo de si e certifique-se de criar todos os seus recursos na mesma região.
 
