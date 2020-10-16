@@ -1,18 +1,18 @@
 ---
-title: Compreender conceitos do Repositório de Modelos de Dispositivos Microsoft Docs
-description: Como desenvolvedor de soluções ou profissional de TI, conheça os conceitos básicos do Repositório de Modelos de Dispositivo.
+title: Compreender conceitos do repositório do modelo do dispositivo Microsoft Docs
+description: Como desenvolvedor de soluções ou profissional de TI, conheça os conceitos básicos do repositório do modelo do dispositivo.
 author: rido-min
 ms.author: rmpablos
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 95c9b6dee402bc0c2dd2cab8ef3200cfd9213d61
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 4e15ef5256c1552fc8ab7fb9bd84f15bb3433834
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126829"
+ms.locfileid: "92131365"
 ---
 # <a name="device-model-repository"></a>Repositório de modelo de dispositivo
 
@@ -24,20 +24,20 @@ O DMR define um padrão para armazenar interfaces DTDL numa estrutura de pasta b
 
 A Microsoft acolhe um DMR público com estas características:
 
-- Modelos com curadoria. A Microsoft analisa e aprova todas as interfaces disponíveis utilizando um fluxo de trabalho de validação de PR gitHub aberto.
+- Modelos com curadoria. A Microsoft analisa e aprova todas as interfaces disponíveis utilizando um fluxo de trabalho de validação de pedido de pedido de solicitação (PR) do GitHub.
 - Imutabilidade.  Depois de publicado, uma interface não pode ser atualizada.
-- Hiperescala. A Microsoft fornece todas as infraestruturas necessárias para criar um ponto final seguro e altamente escalável.
+- Hiperescala. A Microsoft fornece a infraestrutura necessária para criar um ponto final seguro e escalável onde pode publicar e consumir modelos de dispositivos.
 
 ## <a name="custom-device-model-repository"></a>Repositório de modelo de dispositivo personalizado
 
-Pode utilizar o mesmo padrão DMR em qualquer meio de armazenamento, como sistema de ficheiros local ou servidores web HTTP personalizados, para criar um DMR personalizado. Pode obter os modelos a partir do DMR personalizado da mesma forma que a partir do DMR público simplesmente alterando o URL base utilizado para aceder ao DMR.
+Pode utilizar o mesmo padrão DMR em qualquer meio de armazenamento, como sistema de ficheiros local ou servidores web HTTP personalizados, para criar um DMR personalizado. Pode recuperar os modelos do dispositivo a partir do DMR personalizado da mesma forma que a partir do DMR público simplesmente alterando o URL base utilizado para aceder ao DMR.
 
 > [!NOTE]
-> As ferramentas utilizadas para validar os modelos no DMR público podem ser reutilizadas em repositórios personalizados.
+> A Microsoft fornece ferramentas para validar modelos de dispositivos no DMR público. Pode reutilizar estas ferramentas em repositórios personalizados.
 
 ## <a name="public-models"></a>Modelos públicos
 
-Os modelos digitais digitais de twin armazenados no repositório de modelos estão disponíveis para todos consumirem e integrarem nas suas aplicações. Os modelos públicos permitem um ecossistema aberto para os construtores de dispositivos e desenvolvedores de soluções partilharem e reutilizarem os seus modelos de dispositivos IoT Plug e Play.
+Os modelos de dispositivos públicos armazenados no repositório de modelos estão disponíveis para todos consumirem e integrarem nas suas aplicações. Os modelos de dispositivos públicos permitem um ecossistema aberto para os construtores de dispositivos e desenvolvedores de soluções partilharem e reutilizarem os seus modelos de dispositivos IoT Plug e Play.
 
 Consulte a secção de [modelos](#publish-a-model) para obter instruções sobre como publicar um modelo no repositório do modelo para torná-lo público.
 
@@ -47,7 +47,7 @@ Todas as interfaces nas `dtmi` pastas também estão disponíveis a partir do po
 
 ### <a name="resolve-models"></a>Resolver modelos
 
-Para aceder programaticamente a estas interfaces, é necessário converter um dtmi num caminho relativo que pode utilizar para consultar o ponto final do público. A seguinte amostra de código mostra-lhe como fazê-lo:
+Para aceder programaticamente a estas interfaces, é necessário converter um DTMI num caminho relativo que pode utilizar para consultar o ponto final do público. A seguinte amostra de código mostra-lhe como fazê-lo:
 
 Para converter um DTMI num caminho absoluto usamos a `DtmiToPath` função, `IsValidDtmi` com:
 
@@ -88,14 +88,14 @@ string modelContent = await _httpClient.GetStringAsync(fullyQualifiedPath);
 1. Fork o público GitHub repo: [https://github.com/Azure/iot-plugandplay-models](https://github.com/Azure/iot-plugandplay-models) .
 1. Clone o repo forcado. Opcionalmente criar um novo ramo para manter as suas alterações isoladas do `main` ramo.
 1. Adicione as novas interfaces à `dtmi` pasta utilizando a convenção de pasta/nome de ficheiro. Consulte a ferramenta [de modelo de adicionar.](#add-model)
-1. Valide os modelos localmente utilizando os [scripts para validar a secção de alterações.](#validate-files)
+1. Valide os modelos do dispositivo localmente utilizando os [scripts para validar a secção de alterações.](#validate-files)
 1. Cometa as alterações localmente e empurre para o seu garfo.
-1. Do seu garfo, crie um pr que visa o `main` ramo. Consulte [a criação de um problema ou puxe](https://docs.github.com/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request) os docs de pedido.
-1. Reveja os [requisitos de Relações Públicas.](https://github.com/Azure/iot-plugandplay-models/blob/main/pr-reqs.md)
+1. Do seu garfo, crie um pedido de puxar que visa o `main` ramo. Consulte [a criação de um problema ou puxe](https://docs.github.com/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request) os docs de pedido.
+1. Reveja os [requisitos de pedido de puxar](https://github.com/Azure/iot-plugandplay-models/blob/main/pr-reqs.md).
 
-O PR desencadeia uma série de ações do GitHub que validarão as novas interfaces submetidas e certifique-se de que o seu RP satisfaz todas as verificações.
+O pedido de pull desencadeia uma série de ações do GitHub que validarão as novas interfaces submetidas e certifique-se de que o seu pedido de pull satisfaz todas as verificações.
 
-A Microsoft responderá a um Pr com todos os cheques em três dias úteis.
+A Microsoft responderá a um pedido de retirada com todos os cheques em três dias úteis.
 
 ### <a name="add-model"></a>adicionar modelo
 
@@ -109,7 +109,7 @@ Observe a saída da consola para obter eventuais mensagens de erro.
 
 ### <a name="local-validation"></a>Validação local
 
-Pode executar os mesmos controlos de validação localmente antes de submeter o Pr para ajudar a diagnosticar problemas com antecedência.
+Pode executar os mesmos controlos de validação localmente antes de submeter o pedido de pull para ajudar a diagnosticar problemas com antecedência.
 
 #### <a name="validate-files"></a>validar ficheiros
 
@@ -125,7 +125,7 @@ Pode executar os mesmos controlos de validação localmente antes de submeter o 
 
 #### <a name="validate-models"></a>validar modelos
 
-Pode executar a [Amostra de Validação DTDL](https://github.com/Azure-Samples/DTDL-Validator) para validar os seus modelos localmente.
+Pode executar a [Amostra de Validação DTDL](https://github.com/Azure-Samples/DTDL-Validator) para validar os modelos do seu dispositivo localmente.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 09/02/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: fd23cab844d40f75aa0034096be1bca897d54ff6
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: cba67e571370d48a04a4e95198462953acdd4d59
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108359"
+ms.locfileid: "92131552"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Integre as Gémeas Digitais Azure com o Serviço Azure SignalR
 
@@ -39,8 +39,8 @@ Irá anexar o Serviço Azure SignalR às Gémeas Digitais Azure através do cami
 ## <a name="download-the-sample-applications"></a>Descarregue as aplicações da amostra
 
 Primeiro, descarregue as aplicações de amostras necessárias. Vai precisar de ambos os seguintes:
-* [**Amostras de Azure Digital Twins**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/): Esta amostra contém um *AdtSampleApp* que contém duas funções Azure para mover dados em torno de uma instância Azure Digital Twins (pode aprender sobre este cenário mais detalhadamente em [*Tutorial: Conecte uma solução de ponta a ponta).*](tutorial-end-to-end.md) Também contém uma aplicação de amostra *de DeviceSimulator* que simula um dispositivo IoT, gerando um novo valor de temperatura a cada segundo. 
-    - Navegue no link de amostra e apere no botão *Download ZIP* para transferir uma cópia da amostra para a sua máquina, como _**Azure_Digital_Twins_samples.zip**_. Deszipe a pasta.
+* [**Amostras de ponta a ponta da Azure Digital Twins**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/): Esta amostra contém um *AdtSampleApp* que contém duas funções Azure para mover dados em torno de uma instância Azure Digital Twins (pode aprender sobre este cenário com mais detalhes no [*Tutorial: Conecte uma solução de ponta a ponta).*](tutorial-end-to-end.md) Também contém uma aplicação de amostra *de DeviceSimulator* que simula um dispositivo IoT, gerando um novo valor de temperatura a cada segundo. 
+    - Navegue no link de amostra e apere no botão *Download ZIP* para transferir uma cópia da amostra para a sua máquina, como _**Azure_Digital_Twins_end_to_end_samples.zip**_. Deszipe a pasta.
 * Amostra de [**aplicações web de integração SignalR**](/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/): Esta é uma amostra React web app que irá consumir dados de telemetria Azure Digital Twins a partir de um serviço Azure SignalR.
     -  Navegue no link de amostra e apere no botão *Download ZIP* para transferir uma cópia da amostra para a sua máquina, como _**Azure_Digital_Twins_SignalR_integration_web_app_sample.zip**_. Deszipe a pasta.
 
@@ -63,7 +63,7 @@ Primeiro, vá ao navegador onde o portal Azure é aberto e complete os seguintes
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="Uma visão dos serviços da Azure num cenário de ponta a ponta. Retrata dados que fluem de um dispositivo para o IoT Hub, através de uma função Azure (seta B) para uma instância Azure Digital Twins (secção A), depois através da Grade de Evento para outra função Azure para processamento (seta C). A secção D mostra dados que fluem da mesma grelha de eventos na seta C para uma Função Azure rotulada de &quot;transmissão&quot;. A 'difusão' comunica com outra função Azure rotulada de &quot;negociar&quot;, e tanto &quot;difusão&quot; como &quot;negociar&quot; comunicam com dispositivos informáticos." lightbox="media/how-to-integrate-azure-signalr/signalr-keys.png":::
 
-Em seguida, inicie o Visual Studio (ou outro editor de código à sua escolha) e abra a solução de código na pasta *Azure_Digital_Twins_samples > ADTSampleApp.* Em seguida, faça os seguintes passos para criar as funções:
+Em seguida, inicie o Visual Studio (ou outro editor de código à sua escolha) e abra a solução de código na pasta *Azure_Digital_Twins_end_to_end_samples > ADTSampleApp.* Em seguida, faça os seguintes passos para criar as funções:
 
 1. Crie uma nova classe C# afiada chamada **SignalRFunctions.cs** no projeto *SampleFunctionsApp.*
 
@@ -129,7 +129,7 @@ Em seguida, inicie o Visual Studio (ou outro editor de código à sua escolha) e
     }
     ```
 
-1. Na janela da consola do Gestor de *Pacotes* do Estúdio Visual, ou em qualquer janela de comando da sua máquina na pasta *Azure_Digital_Twins_samples\AdtSampleApp\SampleFunctionsApp,* execute o seguinte comando para instalar o `SignalRService` pacote NuGet no projeto:
+1. Na janela da consola do Gestor de *Pacotes* do Estúdio Visual, ou em qualquer janela de comando da sua máquina na pasta *Azure_Digital_Twins_end_to_end_samples\AdtSampleApp\SampleFunctionsApp,* execute o seguinte comando para instalar o `SignalRService` pacote NuGet no projeto:
     ```cmd
     dotnet add package Microsoft.Azure.WebJobs.Extensions.SignalRService --version 1.2.0
     ```
@@ -145,7 +145,7 @@ Em seguida, publique a sua função no Azure, utilizando os passos descritos na 
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Uma visão dos serviços da Azure num cenário de ponta a ponta. Retrata dados que fluem de um dispositivo para o IoT Hub, através de uma função Azure (seta B) para uma instância Azure Digital Twins (secção A), depois através da Grade de Evento para outra função Azure para processamento (seta C). A secção D mostra dados que fluem da mesma grelha de eventos na seta C para uma Função Azure rotulada de &quot;transmissão&quot;. A 'difusão' comunica com outra função Azure rotulada de &quot;negociar&quot;, e tanto &quot;difusão&quot; como &quot;negociar&quot; comunicam com dispositivos informáticos.":::
 
-1. Por fim, adicione a sua cadeia de **ligação** Azure SignalR de anteriormente às definições de aplicação da função, utilizando o seguinte comando Azure CLI. O comando pode ser executado em [Azure Cloud Shell,](https://shell.azure.com)ou localmente se tiver o Azure CLI [instalado na sua máquina:](/cli/azure/install-azure-cli?view=azure-cli-latest)
+1. Por fim, adicione a sua cadeia de **ligação** Azure SignalR de anteriormente às definições de aplicação da função, utilizando o seguinte comando Azure CLI. O comando pode ser executado em [Azure Cloud Shell,](https://shell.azure.com)ou localmente se tiver o Azure CLI [instalado na sua máquina:](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
  
     ```azurecli
     az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "AzureSignalRConnectionString=<your-Azure-SignalR-ConnectionString>"
@@ -184,7 +184,7 @@ Nesta secção, verá o resultado em ação. Em primeiro lugar, iniciará a **ap
 
 Durante o pré-requisito tutorial de ponta a ponta, [configuraste o simulador do dispositivo](tutorial-end-to-end.md#configure-and-run-the-simulation) para enviar dados através de um Hub IoT e para a tua instância Azure Digital Twins.
 
-Agora, tudo o que tem de fazer é iniciar o projeto de simulador, localizado no *Azure_Digital_Twins_samples > DeviceSimulator > DeviceSimulator.sln*. Se estiver a utilizar o Visual Studio, pode abrir o projeto e executá-lo com este botão na barra de ferramentas:
+Agora, tudo o que tem de fazer é iniciar o projeto de simulador, localizado no *Azure_Digital_Twins_end_to_end_samples > DeviceSimulator > DeviceSimulator.sln*. Se estiver a utilizar o Visual Studio, pode abrir o projeto e executá-lo com este botão na barra de ferramentas:
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/start-button-simulator.png" alt-text="Uma visão dos serviços da Azure num cenário de ponta a ponta. Retrata dados que fluem de um dispositivo para o IoT Hub, através de uma função Azure (seta B) para uma instância Azure Digital Twins (secção A), depois através da Grade de Evento para outra função Azure para processamento (seta C). A secção D mostra dados que fluem da mesma grelha de eventos na seta C para uma Função Azure rotulada de &quot;transmissão&quot;. A 'difusão' comunica com outra função Azure rotulada de &quot;negociar&quot;, e tanto &quot;difusão&quot; como &quot;negociar&quot; comunicam com dispositivos informáticos.":::
 
@@ -232,7 +232,7 @@ Isto abrirá uma janela do navegador que executa a aplicação da amostra, que e
 
 Se já não necessitar dos recursos criados neste artigo, siga estes passos para os eliminar. 
 
-Utilizando o Azure Cloud Shell ou o Azure CLI local, pode eliminar todos os recursos Azure num grupo de recursos com o comando de eliminação do [grupo Az.](/cli/azure/group?view=azure-cli-latest#az-group-delete) A remoção do grupo de recursos também removerá...
+Utilizando o Azure Cloud Shell ou o Azure CLI local, pode eliminar todos os recursos Azure num grupo de recursos com o comando de eliminação do [grupo Az.](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-delete) A remoção do grupo de recursos também removerá...
 * o exemplo das Gémeas Digitais Azure (do tutorial de ponta a ponta)
 * o hub IoT e o registo do dispositivo do hub (do tutorial de ponta a ponta)
 * o tópico da grelha de eventos e subscrições associadas
@@ -252,7 +252,7 @@ Se estiver a apagar o seu exemplo de Azure Digital Twins, também pode eliminar 
 az ad app delete --id <your-application-ID>
 ```
 
-Por fim, elimine as pastas de amostra de projeto que descarregou para a sua máquina local* (Azure_Digital_Twins_samples.zip* e *Azure_Digital_Twins_SignalR_integration_web_app_sample.zip). *
+Por fim, elimine as pastas de amostra de projeto que descarregou para a sua máquina local* (Azure_Digital_Twins_end_to_end_samples.zip* e *Azure_Digital_Twins_SignalR_integration_web_app_sample.zip). *
 
 ## <a name="next-steps"></a>Passos seguintes
 

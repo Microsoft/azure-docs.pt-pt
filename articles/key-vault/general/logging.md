@@ -10,18 +10,16 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a51e9a628f67269357d42bd1d3af10c1d86f301a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 162e40555e11dff716b58eec4b1168728257693e
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91739787"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131178"
 ---
 # <a name="azure-key-vault-logging"></a>Registo do Azure Key Vault
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-Depois de criar um ou mais cofres chave, provavelmente vai querer monitorizar como e quando os seus cofres chave são acedidos, e por quem. Pode fazê-lo ativando o registo do Azure Key Vault, que guarda informações numa conta de armazenamento Azure que fornece. Um novo recipiente denominado **insights-logs-auditevent** é automaticamente criado para a sua conta de armazenamento especificada. Pode utilizar esta mesma conta de armazenamento para recolher registos para vários cofres chave.
+Depois de criar um ou mais cofres chave, provavelmente vai querer monitorizar como e quando os seus cofres chave são acedidos, e por quem. Pode fazê-lo ativando o registo do Azure Key Vault, que guarda informações numa conta de armazenamento Azure que fornece. Para obter orientação passo a passo sobre a configuração deste problema, consulte [como ativar a marcação do Cofre de Chaves](howto-logging.md).
 
 Pode aceder à sua informação de registo 10 minutos (no máximo) após a operação do cofre da chave. Na maioria dos casos, o processo será ainda mais rápido.  Cabe-lhe gerir os seus registos na sua conta de armazenamento:
 
@@ -31,6 +29,8 @@ Pode aceder à sua informação de registo 10 minutos (no máximo) após a opera
 Para obter informações gerais sobre o Key Vault, veja [o que é o Cofre da Chave Azure?](overview.md) Para obter informações sobre onde o Cofre-Chave está disponível, consulte [a página de preços](https://azure.microsoft.com/pricing/details/key-vault/). Para obter informações sobre a utilização [do Monitor Azure para o Cofre de Chaves](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview).
 
 ## <a name="interpret-your-key-vault-logs"></a>Interpretar os registos do seu Cofre de Chaves
+
+Quando ativa o registo, um novo contentor chamado **insights-logs-auditevent** é automaticamente criado para a sua conta de armazenamento especificada. Pode utilizar esta mesma conta de armazenamento para recolher registos para vários cofres chave.
 
 Os blobs individuais são armazenadas como texto, formatados como um blob JSON. Vamos ver um registo de exemplo. 
 
@@ -61,7 +61,7 @@ A tabela que se segue lista os nomes e descrições do campo:
 
 | Nome do campo | Descrição |
 | --- | --- |
-| **Hora** |Data e hora na UTC. |
+| **hora** |Data e hora na UTC. |
 | **recursosId** |Identificação de recursos do Azure Resource Manager. Para os registos do Cofre de Chaves, este é sempre o ID de recurso key Vault. |
 | **operaçãoName** |Nome da operação, conforme documentada na tabela seguinte. |
 | **operaçãoVer** |Versão REST API solicitada pelo cliente. |
@@ -122,16 +122,15 @@ A tabela a seguir lista os valores do nome de **operação** e os comandos corre
 | **CertificadoNearExpiryEventGridNotification** |Certificado perto do evento de validade publicado |
 | **CertificadoExpiredEventGridNotification** |Certificado vencida evento publicado |
 
-## <a name="use-azure-monitor-logs"></a><a id="loganalytics"></a>Utilize registos do Monitor Azure
+## <a name="use-azure-monitor-logs"></a>Utilizar os registos do Azure Monitor
 
 Pode utilizar a solução Key Vault nos registos do Azure Monitor para rever os registos do Key `AuditEvent` Vault. Nos registos do Azure Monitor, utiliza consultas de registo para analisar dados e obter a informação de que necessita. 
 
 Para obter mais informações, incluindo como configurar isto, consulte [o Azure Key Vault no Azure Monitor](../../azure-monitor/insights/key-vault-insights-overview.md).
 
-## <a name="next-steps"></a><a id="next"></a>Passos seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para um tutorial que utilize o Azure Key Vault numa aplicação web .NET, consulte [Use Azure Key Vault a partir de uma aplicação web](tutorial-net-create-vault-azure-web-app.md).
-
-Para as referências de programação, consulte o [Guia para programadores do Cofre de Chaves do Azure](developers-guide.md).
-
-Para obter uma lista de Azure PowerShell 1.0 cmdlets para Azure Key Vault, consulte [as cmdlets do Cofre da Chave Azure](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault).
+- [Como permitir a exploração do Cofre de Chaves](howto-logging.md)
+- Para um tutorial que utilize o Azure Key Vault numa aplicação web .NET, consulte [Use Azure Key Vault a partir de uma aplicação web](tutorial-net-create-vault-azure-web-app.md).
+- Para as referências de programação, consulte o [Guia para programadores do Cofre de Chaves do Azure](developers-guide.md).
+- Para obter uma lista de Azure PowerShell 1.0 cmdlets para Azure Key Vault, consulte [as cmdlets do Cofre da Chave Azure](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault).

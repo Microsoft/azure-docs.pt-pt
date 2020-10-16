@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 10/12/2020
+ms.date: 10/16/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ddc0dc433a5d8c09c692e6304647fb391694e8c8
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 1628d78c9d1e4db1f59982d696dcc886646fe604
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993161"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132062"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Recolher registos B2C do Diretório Ativo Azure com Insights de Aplicação
 
@@ -26,7 +26,7 @@ Este artigo fornece passos para a recolha de registos do Ative Directory B2C (Az
 Os registos de atividades detalhados aqui descritos devem ser ativados **apenas** durante o desenvolvimento das suas políticas personalizadas.
 
 > [!WARNING]
-> Não ative o modo de desenvolvimento na produção. Os registos recolhem todas as reclamações enviadas de e para fornecedores de identidade. O desenvolvedor assume a responsabilidade por quaisquer dados pessoais recolhidos nos registos do Application Insights. Estes registos detalhados só são recolhidos quando a política é colocada em **MODO DEVELOPER**.
+> Não coloque o `DeploymentMode` ponto `Developer` em ambientes de produção. Os registos recolhem todas as reclamações enviadas de e para fornecedores de identidade. O desenvolvedor assume a responsabilidade por quaisquer dados pessoais recolhidos nos registos do Application Insights. Estes registos detalhados só são recolhidos quando a política é colocada em **MODO DEVELOPER**.
 
 ## <a name="set-up-application-insights"></a>Configurar Insights de Aplicação
 
@@ -58,7 +58,7 @@ Se ainda não tiver um, crie uma instância de Application Insights na sua subsc
     <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
     ```
 
-    * `DeveloperMode="true"` diz à ApplicationInsights para acelerar a telemetria através do gasoduto de processamento. Bom para o desenvolvimento, mas limitado em grandes volumes.
+    * `DeveloperMode="true"` diz à ApplicationInsights para acelerar a telemetria através do gasoduto de processamento. Bom para o desenvolvimento, mas limitado em grandes volumes. Em produção, definir `DeveloperMode` o `false` .
     * `ClientEnabled="true"` envia o script do lado do cliente ApplicationInsights para visualização da página de rastreio e erros do lado do cliente. Pode vê-las na tabela **browserTimings** no portal Application Insights. Ao `ClientEnabled= "true"` configurar, adicione Application Insights ao seu script de página e obtém os horários das cargas de página e chamadas AJAX, contagens, detalhes das exceções do navegador e falhas do AJAX, e contagens de utilizador e sessão. Este campo é **opcional**, e está definido `false` por padrão.
     * `ServerEnabled="true"` envia o Atual UserJourneyRecorder JSON como um evento personalizado para a Application Insights.
 
@@ -94,7 +94,7 @@ Há um curto atraso, normalmente menos de cinco minutos, antes de poder ver novo
 
 Aqui está uma lista de consultas que pode usar para ver os registos:
 
-| Consulta | Description |
+| Consulta | Descrição |
 |---------------------|--------------------|
 `traces` | Veja todos os registos gerados por Azure AD B2C |
 `traces | where timestamp > ago(1d)` | Veja todos os registos gerados pela Azure AD B2C para o último dia
@@ -102,6 +102,31 @@ Aqui está uma lista de consultas que pode usar para ver os registos:
 As entradas podem ser longas. Exportar para CSV para um olhar mais atento.
 
 Para obter mais informações sobre consultas, consulte [a visão geral das consultas de registo no Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+
+## <a name="configure-application-insights-in-production"></a>Configure insights de aplicação na produção
+
+Para melhorar o desempenho do seu ambiente de produção e uma melhor experiência do utilizador, é importante configurar a sua política para ignorar mensagens que não são importantes. Utilize a seguinte configuração para enviar apenas mensagens de erro críticas para o seu Insights de Aplicação. 
+
+1. Desconfiem do `DeploymentMode` atributo da [TrustFrameworkPolicy](trustframeworkpolicy.md) para `Production` . 
+
+   ```xml
+   <TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0"
+   TenantId="yourtenant.onmicrosoft.com"
+   PolicyId="B2C_1A_signup_signin"
+   PublicPolicyUri="http://yourtenant.onmicrosoft.com/B2C_1A_signup_signin"
+   DeploymentMode="Production"
+   UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights">
+   ```
+
+1. Defina `DeveloperMode` o [journeyInsights](relyingparty.md#journeyinsights) para `false` .
+
+   ```xml
+   <UserJourneyBehaviors>
+     <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="false" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
+   </UserJourneyBehaviors>
+   ```
+   
+1. Faça upload e teste a sua política.
 
 ## <a name="next-steps"></a>Passos seguintes
 

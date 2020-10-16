@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de políticas
 description: Descreve como as definições de política são usadas para estabelecer convenções para recursos Azure na sua organização.
 ms.date: 10/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 84af781ae58ab45b69d71ebdc22fbced910da246
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 8e7cea1d03b0a236b9a485c2e640d7bf3f4e8e7e
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074265"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132487"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -438,7 +438,7 @@ Em vez disso, utilize a função [se()](../../../azure-resource-manager/template
 
 Com a regra da política revista, `if()` verifica o comprimento do **nome** antes de tentar obter um valor com menos de `substring()` três caracteres. Se o **nome** for demasiado curto, o valor "não começando pelo ABC" é devolvido e comparado com **o ABC**. Um recurso com um nome curto que não começa com o **ABC** ainda falha a regra da política, mas já não causa um erro durante a avaliação.
 
-### <a name="count"></a>Contagem
+### <a name="count"></a>de palavras
 
 As condições que contam quantos membros de uma matriz na carga útil do recurso satisfazem uma expressão da condição podem ser formadas usando a expressão **da contagem.** Cenários comuns estão a verificar se "pelo menos um", "exatamente um dos", "todos", ou "nenhum dos" membros da matriz satisfazem a condição. **contagem** avalia cada membro da matriz [ \[ \* \] de pseudónimo para](#understanding-the--alias) uma expressão de condição e resume os _verdadeiros_ resultados, que é então comparado com o operador de expressão. **As** expressões de contagem podem ser adicionadas até três vezes a uma única definição **de regra de política.**
 
@@ -589,8 +589,8 @@ A função a seguir está disponível para ser utilizada numa regra de política
 As seguintes funções só estão disponíveis nas regras políticas:
 
 - `addDays(dateTime, numberOfDaysToAdd)`
-  - **dataTime**: [Required] string - String in the Universal ISO 8601 DateTime format `yyyy-MM-ddTHH:mm:ss.fffffffZ` .
-  - **númeroOfDaysToAdd**: [Necessário] inteiro - Número de dias a adicionar.
+  - **dataTime**: [Required] string - String in the Universal ISO 8601 DateTime format 'yyyy-MM-ddTHH:mm:mms. FFFFFZ'
+  - **númeroOfDaysToAdd**: [Necessário] inteiro - Número de dias a adicionar
 - `field(fieldName)`
   - **nome de campo**: [Obrigatório] cadeia - Nome do [campo](#fields) para recuperar
   - Devolve o valor desse campo do recurso que está a ser avaliado pela condição "Se".

@@ -11,22 +11,22 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 4e14bd6365ce53d98d6e0b0d1f2601ff3b3e59b4
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: d3fd553e6903951de64c301df94ea9f2fc3eb471
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91997311"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132096"
 ---
-# <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>Entenda como o Provisioning se integra com os registos do Azure Monitor
+# <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>Entenda como o provisionamento se integra com os registos do Azure Monitor
 
-O provisionamento integra-se com os registos do Azure Monitor e com o Log Analytics. Com o Azure Monitoring pode fazer coisas como criar livros de trabalho, também conhecidos como dashboards, armazenar registos de fornecimento por mais de 30 dias, e criar consultas e alertas personalizados. Este artigo discute como os registos de provisionamento se integram com os registos do Azure Monitor. Para saber mais sobre como os registos de provisionamento funcionam em geral, consulte [os registos de Provisionamento](../reports-monitoring/concept-provisioning-logs.md).
+O provisionamento integra-se com os registos do Azure Monitor e com o Log Analytics. Com a monitorização do Azure pode fazer coisas como criar livros de trabalho, também conhecidos como dashboards, armazenar registos de fornecimento por mais de 30 dias, e criar consultas e alertas personalizados. Este artigo discute como os registos de provisionamento se integram com os registos do Azure Monitor. Para saber mais sobre como os registos de provisionamento funcionam em geral, consulte [os registos de provisionamento](../reports-monitoring/concept-provisioning-logs.md).
 
 ## <a name="enabling-provisioning-logs"></a>Habilitação de registos de provisionamento
 
-Já deve estar familiarizado com a Azure Monitoring e Log Analytics. Caso contrário, salte para saber sobre eles e volte a aprender sobre os registos de Provisionamento de Aplicações. Para saber mais sobre o Azure Monitoring, consulte [a visão geral do Azure Monitor](../../azure-monitor/overview.md). Para saber mais sobre os registos do Azure Monitor e o Log Analytics, consulte [a visão geral das consultas de registo no Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+Já deve estar familiarizado com a monitorização do Azure e com o Log Analytics. Caso contrário, salte para saber sobre eles e volte a aprender sobre registos de fornecimento de aplicações. Para saber mais sobre a monitorização do Azure, consulte [a visão geral do Azure Monitor](../../azure-monitor/overview.md). Para saber mais sobre os registos do Azure Monitor e o Log Analytics, consulte [a visão geral das consultas de registo no Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
 
-Uma vez configurado na Monitorização do Azure, pode ativar registos para Provisionamento de Aplicações. A opção está localizada na página **de definições de Diagnóstico.**
+Uma vez configurado na monitorização do Azure, pode ativar registos para o provisionamento de aplicações. A opção está localizada na página **de definições de Diagnóstico.**
 
 :::image type="content" source="media/application-provisioning-log-analytics/diagnostic-settings.png" alt-text="Aceder às definições de diagnóstico" lightbox="media/application-provisioning-log-analytics/diagnostic-settings.png":::
 
@@ -49,7 +49,7 @@ O fluxo de dados subjacente que o Provisioning envia aos espectadores de registo
 
 Os livros de trabalho do Azure Monitor fornecem uma tela flexível para análise de dados. Também prevêem a criação de ricos relatórios visuais dentro do portal Azure. Para saber mais, consulte [a visão geral dos livros de trabalho do Monitor Azure.](../../azure-monitor/platform/workbooks-overview.md)
 
-O Provisionamento de Aplicações vem com um conjunto de livros pré-construídos. Pode encontrá-los na página de Livros de Trabalho. Para visualizar os dados, terá de garantir que todos os filtros (timeRange, jobID, appName) são preenchidos. Também terá de se certificar de que aprovisionou uma aplicação, caso contrário não haverá dados nos registos.
+O fornecimento de aplicações vem com um conjunto de livros pré-construídos. Pode encontrá-los na página de Livros de Trabalho. Para visualizar os dados, terá de garantir que todos os filtros (timeRange, jobID, appName) são preenchidos. Também terá de se certificar de que aprovisionou uma aplicação, caso contrário não haverá dados nos registos.
 
 :::image type="content" source="media/application-provisioning-log-analytics/workbooks.png" alt-text="Aceder às definições de diagnóstico" lightbox="media/application-provisioning-log-analytics/workbooks.png":::
 
@@ -59,7 +59,7 @@ O Provisionamento de Aplicações vem com um conjunto de livros pré-construído
 
 Pode criar consultas personalizadas e mostrar os dados nos dashboards Azure. Para saber como, consulte [Criar e partilhar dashboards de dados do Log Analytics](../../azure-monitor/log-query/get-started-queries.md). Além disso, certifique-se de verificar a [visão geral das consultas de registo no Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
 
-Aqui estão algumas amostras para começar com o Provisionamento de Aplicações.
+Aqui estão algumas amostras para começar com o provisionamento de aplicações.
 
 Consultar os registos de um utilizador com base no seu ID no sistema de origem:
 ```kusto
@@ -113,7 +113,7 @@ Alerta quando há um pico em desativações ou exclusões.
 
 ## <a name="community-contributions"></a>Contribuições da comunidade
 
-Estamos a fazer uma abordagem aberta e baseada na comunidade para consultas de provisionamento de aplicações e dashboards. Se construiu uma consulta, alerta ou livro que acha que outros achariam útil, certifique-se de publicá-lo para o [AzureMonitorCommunity GitHub repo](https://github.com/microsoft/AzureMonitorCommunity). Então atire em nós um e-mail com um link. Vamos revê-lo e publicá-lo ao serviço para que outros possam beneficiar também. Pode contactar-nos em provisioningfeedback@microsoft.com .
+Estamos a tomar uma abordagem de código aberto e baseado na comunidade para aplicações que fornecem consultas e dashboards. Se construiu uma consulta, alerta ou livro que acha que outros achariam útil, certifique-se de publicá-lo para o [AzureMonitorCommunity GitHub repo](https://github.com/microsoft/AzureMonitorCommunity). Então atire em nós um e-mail com um link. Vamos revê-lo e publicá-lo ao serviço para que outros possam beneficiar também. Pode contactar-nos em provisioningfeedback@microsoft.com .
 
 ## <a name="next-steps"></a>Passos seguintes
 

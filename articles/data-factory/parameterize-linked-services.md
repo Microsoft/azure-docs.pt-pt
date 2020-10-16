@@ -6,16 +6,16 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 10/16/2020
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 081d19cc845750f1392e2c1a14229a51d0df4cbc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1bb523c1b5aa595a714930962bbbe4e7e04de517
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91276470"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131399"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Parametrizar serviços ligados na Azure Data Factory
 
@@ -38,6 +38,7 @@ Pode parametrizar qualquer tipo de serviço ligado.
 Ao autorizar o serviço ligado na UI, a Data Factory fornece experiência de parametrização incorporada para os seguintes tipos de conectores. Na lâmina de criação/edição de serviços ligados, pode encontrar opções para novos parâmetros e adicionar conteúdo dinâmico.
 
 - Amazon Redshift
+- Amazon S3
 - Azure Cosmos DB (SQL API)
 - Base de Dados do Azure para MySQL
 - Base de Dados SQL do Azure

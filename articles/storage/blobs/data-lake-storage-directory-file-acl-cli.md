@@ -10,16 +10,16 @@ ms.date: 05/18/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6140260b75580270b365e59358d97e0a54c7b4a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 22d048b15cc097cd8a24e5ed57bbe4d5a6183e2f
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503944"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131603"
 ---
 # <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Use o Azure CLI para gerir diretórios, ficheiros e ACLs em Azure Data Lake Storage Gen2
 
-Este artigo mostra-lhe como usar a [Interface Command-Line (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) para criar e gerir diretórios, ficheiros e permissões em contas de armazenamento que têm um espaço hierárquico de nomes. 
+Este artigo mostra-lhe como usar a [Interface Command-Line (CLI)](https://docs.microsoft.com/cli/azure/) para criar e gerir diretórios, ficheiros e permissões em contas de armazenamento que têm um espaço hierárquico de nomes. 
 
 [Amostras](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)  |  [Dar feedback](https://github.com/Azure/azure-cli-extensions/issues)
 
@@ -32,14 +32,14 @@ Este artigo mostra-lhe como usar a [Interface Command-Line (CLI)](https://docs.m
 
 ## <a name="ensure-that-you-have-the-correct-version-of-azure-cli-installed"></a>Certifique-se de que tem a versão correta do Azure CLI instalada
 
-1. Abra o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest), ou se [instalou](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) o Azure CLI localmente, abra uma aplicação de consola de comando como o Windows PowerShell.
+1. Abra o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), ou se [instalou](https://docs.microsoft.com/cli/azure/install-azure-cli) o Azure CLI localmente, abra uma aplicação de consola de comando como o Windows PowerShell.
 
 2. Verifique se a versão do Azure CLI que foi instalada é `2.6.0` ou superior utilizando o seguinte comando.
 
    ```azurecli
     az --version
    ```
-   Se a sua versão do Azure CLI for inferior `2.6.0` a , então instale uma versão posterior. Consulte [a Instalação do Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+   Se a sua versão do Azure CLI for inferior `2.6.0` a , então instale uma versão posterior. Consulte [a Instalação do Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="connect-to-the-account"></a>Ligar à conta
 
@@ -216,7 +216,7 @@ Este exemplo elimina um ficheiro chamado `my-file.txt`
 az storage fs file delete -p my-directory/my-file.txt -f my-file-system  --account-name mystorageaccount --auth-mode login 
 ```
 
-## <a name="manage-permissions"></a>Gerir permissões
+## <a name="manage-access-control-lists-acls"></a>Gerir listas de controlo de acesso (ACLs)
 
 Pode obter, definir e atualizar permissões de acesso de diretórios e ficheiros.
 
@@ -273,7 +273,7 @@ az storage fs access set --acl "user::rw-,group::rw-,other::-wx" -p my-directory
 
 A imagem a seguir mostra a saída após a definição do ACL de um ficheiro.
 
-![Obtenha a saída ACL](./media/data-lake-storage-directory-file-acl-cli/set-acl-file.png)
+![Obtenha saída ACL 2](./media/data-lake-storage-directory-file-acl-cli/set-acl-file.png)
 
 Neste exemplo, o próprio utilizador e o grupo de proprietária apenas leram e escreveram permissões. Todos os outros utilizadores têm permissões de escrita e execução. Para obter mais informações sobre as listas de controlo de acesso, consulte [o controlo de acesso no Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 

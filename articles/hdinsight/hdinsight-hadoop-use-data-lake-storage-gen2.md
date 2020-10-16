@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/24/2020
-ms.openlocfilehash: 4ef53b2249f8ce57255c13126c9310f1c889d64f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94a84220b276edf8eaf539151964715675693dec
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855060"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131382"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Utilizar o Azure Data Lake Storage Gen2 com clusters do Azure HDInsight
 
@@ -46,9 +46,9 @@ Data Lake Storage Gen2 utiliza um modelo de controlo de acesso que suporta tanto
 
 O RBAC utiliza atribuições de funções para aplicar eficazmente conjuntos de permissões aos utilizadores, grupos e princípios de serviço para recursos Azure. Tipicamente, esses recursos Azure estão limitados a recursos de alto nível (por exemplo, contas de armazenamento Azure Blob). Para o armazenamento de Azure Blob, e também data lake storage gen2, este mecanismo foi estendido ao recurso do sistema de ficheiros.
 
-Para obter mais informações sobre permissões de ficheiros com o RBAC, consulte [o controlo de acesso baseado em funções Azure (Azure RBAC)](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control-rbac).
+Para obter mais informações sobre permissões de ficheiros com o RBAC, consulte [o controlo de acesso baseado em funções Azure (Azure RBAC)](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control).
 
-Para obter mais informações sobre permissões de ficheiros com ACLs, consulte [as listas de controlo do Access em ficheiros e diretórios.](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)
+Para obter mais informações sobre permissões de ficheiros com ACLs, consulte [as listas de controlo do Access em ficheiros e diretórios.](../storage/blobs/data-lake-storage-access-control.md)
 
 ### <a name="how-do-i-control-access-to-my-data-in-data-lake-storage-gen2"></a>Como controlo o acesso aos meus dados na Data Lake Storage Gen2?
 

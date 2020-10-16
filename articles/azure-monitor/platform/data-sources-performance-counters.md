@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: 49f944aa98bf0bf8090b10d2feeb50af4a2d42b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf744e4edc9e631ce1efd04688611fb78fb6fce2
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85955493"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131195"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Fontes de dados de desempenho do Windows e Linux no Azure Monitor
 Os contadores de desempenho no Windows e linux fornecem informações sobre o desempenho de componentes de hardware, sistemas operativos e aplicações.  O Azure Monitor pode recolher contadores de desempenho em intervalos frequentes para análises de Tempo Real Próximo (NRT), além de agregar dados de desempenho para análise e reporte a longo prazo.
@@ -156,7 +156,7 @@ Segue-se a configuração padrão para métricas de desempenho.
 <source>
     type oms_omi
     object_name "Logical Disk"
-    instance_regex ".*
+    instance_regex ".*"
     counter_name_regex ".*"
     interval 5m
 </source>
@@ -164,7 +164,7 @@ Segue-se a configuração padrão para métricas de desempenho.
 <source>
     type oms_omi
     object_name "Processor"
-    instance_regex ".*
+    instance_regex ".*"
     counter_name_regex ".*"
     interval 30s
 </source>

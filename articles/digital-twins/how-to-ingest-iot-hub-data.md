@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e53a7f5e76a6161016cbbb6b3566de4cad923f6a
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: ba19b7255be5ae24b3c4475f4195b84441b6c777
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048054"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131501"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Ingesteia IoT Hub em Azure Digital Twins
 
@@ -242,7 +242,7 @@ Selecione _Criar_ o botão para criar a subscrição do evento.
 
 ## <a name="send-simulated-iot-data"></a>Enviar dados IoT simulados
 
-Para testar a sua nova função de entrada, utilize o simulador do dispositivo a partir do [*Tutorial: Ligue uma solução de ponta a ponta*](./tutorial-end-to-end.md). Este tutorial é conduzido por um projeto de amostra escrito em C#. O código de amostra está localizado aqui: [amostras de Gémeos Digitais Azure](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Vais usar o projeto **DeviceSimulator** nesse repositório.
+Para testar a sua nova função de entrada, utilize o simulador do dispositivo a partir do [*Tutorial: Ligue uma solução de ponta a ponta*](./tutorial-end-to-end.md). Este tutorial é conduzido por um projeto de amostra escrito em C#. O código de amostra está localizado aqui: [Azure Digital Twins amostras de ponta a ponta](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Vais usar o projeto **DeviceSimulator** nesse repositório.
 
 No tutorial de ponta a ponta, complete os seguintes passos:
 1. [*Registar o dispositivo simulado com ioT Hub*](./tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)

@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 10/14/2020
 ms.author: sebansal
-ms.openlocfilehash: 5f8c1436b7e1a4155a99b20ced5c35614f1966f9
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 55641dacf8f7efb18b479dd4b4253787df540341
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128670"
+ms.locfileid: "92132453"
 ---
-# <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template"></a>Quickstart: Crie um cofre de chave Azure e uma chave usando o modelo ARM 
+# <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template-preview"></a>Quickstart: Criar um cofre de chave Azure e uma chave utilizando o modelo ARM (Pré-visualização)
 
 [Azure Key Vault](../general/overview.md) é um serviço de nuvem que fornece uma loja segura para segredos, tais como chaves, senhas, certificados e outros segredos. Este quickstart foca-se no processo de implantação de um modelo de Gestor de Recursos Azure (modelo ARM) para criar um cofre chave e uma chave.
 
@@ -210,7 +210,7 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, criou um cofre chave e um segredo usando um modelo ARM, e validou a implementação. Para saber mais sobre Key Vault e Azure Resource Manager, continue para os artigos abaixo.
+Neste arranque rápido, criou um cofre de chaves e uma chave usando um modelo ARM e validou a implementação. Para saber mais sobre Key Vault e Azure Resource Manager, continue para os artigos abaixo.
 
 - Leia uma [visão geral do cofre da chave Azure](../general/overview.md)
 - Saiba mais sobre o [Azure Resource Manager](../../azure-resource-manager/management/overview.md)

@@ -1,6 +1,6 @@
 ---
-title: Atualizar a Extensão do Observador de Rede para a versão mais recente
-description: Saiba como atualizar a extensão do Observador de Rede para a versão mais recente
+title: Atualizar a extensão do Observador de Rede para a versão mais recente
+description: Saiba como atualizar a extensão do Observador de Rede Azure para a versão mais recente.
 services: virtual-machines-windows
 documentationcenter: ''
 author: damendo
@@ -12,58 +12,68 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 09/23/2020
 ms.author: damendo
-ms.openlocfilehash: fd3fff2d438bbf804e35f04db0cfae15eea5e782
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e367c348364d03cec6914c99e7ff112803fc58f6
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973344"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132436"
 ---
-# <a name="how-to-update-the-network-watcher-extension-to-the-latest-the-version"></a>Como atualizar a Extensão do Observador de Rede para a versão mais recente 
+# <a name="update-the-network-watcher-extension-to-the-latest-version"></a>Atualizar a extensão do Observador de Rede para a versão mais recente
 
-## <a name="overview"></a>Overview (Descrição geral)
+## <a name="overview"></a>Descrição geral
 
-[O Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) é um serviço de monitorização, diagnóstico e análise de desempenho de rede que permite a monitorização das redes Azure. A extensão da máquina virtual do Network Watcher Agent é um requisito para capturar o tráfego de rede a pedido, e outras funcionalidades avançadas em máquinas virtuais Azure. A extensão do Observador de Rede é utilizada por funcionalidades como Monitor de Ligação, Monitor de Ligação (Pré-visualização), Resolução de Problemas de Ligação e Captura de Pacotes.   
+[O Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) é um serviço de monitorização, diagnóstico e análise de desempenho de rede que monitoriza as redes Azure. A extensão da máquina virtual do Network Watcher Agent (VM) é um requisito para capturar o tráfego de rede a pedido e utilizar outra funcionalidade avançada em VMs Azure. A extensão do Observador de Rede é utilizada por funcionalidades como Monitor de Ligação, Monitor de Ligação (pré-visualização), resolução de problemas de ligação e captura de pacotes.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este documento pressupõe que tem a Extensão do Observador de Rede instalada na sua máquina virtual e fornece instruções para a sua atualização para a versão mais recente. 
+
+Este artigo pressupõe que tem a extensão do Observador de Rede instalada no seu VM.
 
 ## <a name="latest-version"></a>Versão mais recente
+
 A versão mais recente da extensão do Observador de Rede encontra-se atualmente `1.4.1654.1` .
 
-## <a name="updating-your-extension"></a>Atualizar a sua extensão 
+## <a name="update-your-extension"></a>Atualize a sua extensão
 
-### <a name="check-your-extension-version"></a>Verifique a sua versão de extensão  
+Para atualizar a sua extensão, precisa de saber a sua versão de extensão.
 
-**Usando o portal Azure**
+### <a name="check-your-extension-version"></a>Verifique a sua versão de extensão
 
-1. Aceda à lâmina 'Extensões' do seu VM no portal Azure.   
-2. Clique na extensão 'AzureNetworkWatcher' para ver o painel de detalhes.  
-3. Localize o número da versão no campo 'Versão'.  
+Pode verificar a sua versão de extensão utilizando o portal Azure, o Azure CLI ou o PowerShell.
 
-**Usando O Azure CLI** Executar o comando abaixo a partir de um pedido de Azure CLI.   
+#### <a name="usetheazureportal"></a>Use o portal Azure
+
+1. Vá ao painel **de extensões** do seu VM no portal Azure.
+1. Selecione a extensão **AzureNetworkWatcher** para ver o painel de detalhes.
+1. Localize o número da versão no campo **Versão.**  
+
+#### <a name="use-the-azure-cli"></a>Utilizar a CLI do Azure
+
+Executar o seguinte comando a partir de um pedido do Azure CLI:
 
 ```azurecli
 az vm extension list --resource-group  <ResourceGroupName> --vm-name <VMName>
 ```
 
-Localize a extensão AzureNetworkWatcher na saída e identifique o número de versão do campo "TypeHandlerVersion" na saída.  
+Localizar a extensão AzureNetworkWatcher na saída. Identifique o número da versão no campo "TypeHandlerVersion" na saída.  
 
+#### <a name="usepowershell"></a>Use PowerShell
 
-**Usando PowerShell** Executar os seguintes comandos a partir de um pedido PowerShell:   
+Executar os seguintes comandos a partir de um pedido PowerShell:
 
 ```powershell
 Get-AzVMExtension -ResourceGroupName <ResourceGroupName> -VMName <VMName>  
 ```
 
-Localize a extensão AzureNetworkWatcher na saída e identifique o número de versão do campo "TypeHandlerVersion" na saída.   
-
+Localizar a extensão AzureNetworkWatcher na saída. Identifique o número da versão no campo "TypeHandlerVersion" na saída.
 
 ### <a name="update-your-extension"></a>Atualize a sua extensão
 
-Caso a sua versão seja inferior `1.4.1654.1` à (a versão mais recente), atualize a sua extensão utilizando qualquer uma das seguintes opções. 
+Se a sua versão for mais cedo do `1.4.1654.1` que – que é a versão mais recente, atualize a sua extensão utilizando qualquer uma das seguintes opções.
 
-**Opção 1: Utilizar PowerShell**
+#### <a name="option-1-use-powershell"></a>Opção 1: Utilizar PowerShell
+
+Executar os seguintes comandos:
 
 ```powershell
 #Linux command
@@ -73,10 +83,9 @@ Set-AzVMExtension `  -ResourceGroupName "myResourceGroup1" `  -Location "WestUS"
 Set-AzVMExtension `  -ResourceGroupName "myResourceGroup1" `  -Location "WestUS" `  -VMName "myVM1" `  -Name "AzureNetworkWatcherExtension" `  -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentWindows"   
 ```
 
+#### <a name="option-2-use-the-azure-cli"></a>Opção 2: Utilizar o Azure CLI
 
-**Opção 2: Utilizar Azure CLI**  
-
-Atualização de força 
+Forçar uma atualização.
 
 ```azurecli
 #Linux command
@@ -86,9 +95,9 @@ az vm extension set --resource-group "myResourceGroup1" --vm-name "myVM1" --name
 az vm extension set --resource-group "myResourceGroup1" --vm-name "myVM1" --name "NetworkWatcherAgentWindows" --publisher "Microsoft.Azure.NetworkWatcher" --force-update
 ```
 
-Se não funcionar. Retire e instale novamente a extensão, utilizando os passos abaixo. Isto irá automaticamente adicionar a versão mais recente. 
+Se isso não funcionar, remova e instale novamente a extensão e siga estes passos para adicionar automaticamente a versão mais recente.
 
-Remoção da extensão 
+Retire a extensão.
 
 ```azurecli
 #Same for Linux and Windows
@@ -96,7 +105,7 @@ az vm extension delete --resource-group "myResourceGroup1" --vm-name "myVM1" -n 
 
 ```
 
-Instalação da extensão novamente
+Volte a instalar a extensão.
 
 ```azurecli
 #Linux command
@@ -107,11 +116,10 @@ az vm extension set --resource-group "DALANDEMO" --vm-name "Linux-01" --name "Ne
 
 ```
 
-**Opção 3: Reiniciar os seus VMs**
+#### <a name="option-3-reboot-your-vms"></a>Opção 3: Reiniciar os seus VMs
 
-Se tiver uma atualização automática definida para ser verdadeira para a extensão NetworkWatcher. Reiniciando o seu VM instale a última extensão.
-
+Se tiver uma atualização automática definida para a extensão do Observador de Rede, reinicie a sua instalação VM para a extensão mais recente.
 
 ## <a name="support"></a>Suporte
 
-Se precisar de mais ajuda em qualquer ponto deste artigo, pode consultar a documentação da Extensão do Observador de Rede[(Linux,](./network-watcher-linux.md) [Windows)](./network-watcher-windows.md)ou contactar os especialistas do Azure nos [fóruns msdn Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode apresentar um incidente de suporte Azure. Vá ao [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione Obter suporte. Para obter informações sobre a utilização do Suporte Azure, leia o [suporte do Microsoft Azure FAQ](https://azure.microsoft.com/support/faq/).
+Se precisar de mais ajuda em qualquer ponto deste artigo, consulte a documentação de extensão do Observador de Rede para [Linux](./network-watcher-linux.md) ou [Windows](./network-watcher-windows.md). Também pode contactar os especialistas do Azure nos [fóruns MSDN Azure e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, apresente um incidente de suporte Azure. Vá ao [site de suporte do Azure](https://azure.microsoft.com/support/options/)e selecione Obter **suporte**. Para obter informações sobre a utilização do Suporte Azure, leia o [suporte do Microsoft Azure FAQ](https://azure.microsoft.com/support/faq/).

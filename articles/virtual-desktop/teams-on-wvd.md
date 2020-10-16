@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/28/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 049b962740abc98a6ac7d029c1419d40aa722165
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cae40b9aeed4058ab2082a1d1360558c1c656e1d
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88922570"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131773"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Utilize equipas da Microsoft no ambiente de trabalho virtual do Windows
 
@@ -92,7 +92,7 @@ Pode implementar a aplicação de ambiente de trabalho Teams utilizando uma inst
         msiexec /i <path_to_msi> /l*v <install_logfile_name> ALLUSER=1
         ```
 
-        Isto instala equipas para a pasta Ficheiros de Programa (x86) num sistema operativo de 64 bits e para a pasta Ficheiros de Programa num sistema operativo de 32 bits. Neste ponto, a configuração da imagem dourada está completa. A instalação de Equipas por máquina é necessária para configurações não persistentes.
+        Isto instala equipas para a pasta Ficheiros de Programa (x86) num sistema operativo de 32 bits e para a pasta Ficheiros de Programa num sistema operativo de 64 bits. Neste ponto, a configuração da imagem dourada está completa. A instalação de Equipas por máquina é necessária para configurações não persistentes.
 
         Existem duas bandeiras que podem ser definidas ao instalar equipas, **ALLUSER=1** e **ALLUSERS=1**. É importante compreender a diferença entre estes parâmetros. O parâmetro **ALLUSER=1** é utilizado apenas em ambientes VDI para especificar uma instalação por máquina. O parâmetro **ALLUSERS=1** pode ser utilizado em ambientes não-VDI e VDI. Quando define este parâmetro, o Machine-Wide Instalador de Equipas aparece no Programa e funcionalidades no Painel de Controlo, bem como aplicações & funcionalidades nas Definições do Windows. Todos os utilizadores com credenciais de administração na máquina podem desinstalar equipas.
 

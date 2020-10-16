@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 4b6f2db8a8245db7dddbabc3a31a0de0d8963b84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da8dc11212d33627a165dc5e11acc64087fb6c43
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776090"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131824"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Use o estúdio Azure Machine Learning numa rede virtual Azure
 
@@ -106,7 +106,7 @@ Para __o armazenamento de Azure Blob,__ a identidade gerida pelo espaço de trab
 
 Pode utilizar as listas de controlo de acesso ao estilo RBAC e POSIX (ACLs) para controlar o acesso de dados dentro de uma rede virtual.
 
-Para utilizar o RBAC, adicione a identidade gerida pelo espaço de trabalho à função [Blob Data Reader.](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) Para obter mais informações, consulte [o controlo de acesso baseado em funções da Azure.](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control)
+Para utilizar o RBAC, adicione a identidade gerida pelo espaço de trabalho à função [Blob Data Reader.](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) Para obter mais informações, consulte [o controlo de acesso baseado em funções da Azure.](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control)
 
 Para utilizar ACLs, a identidade gerida pelo espaço de trabalho pode ser atribuída ao acesso como qualquer outro princípio de segurança. Para obter mais informações, consulte [as listas de controlo do Access em ficheiros e diretórios.](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)
 

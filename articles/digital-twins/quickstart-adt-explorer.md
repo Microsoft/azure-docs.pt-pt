@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 0d6d543e1f7d68f1312b6531b798cf7f9a0cf3b8
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 848894518077ca41d3166570bf0dc39914f1c439
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048513"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92131161"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Quickstart - Explore uma amostra do cenário Azure Digital Twins usando o ADT Explorer
 
@@ -39,7 +39,7 @@ Também vai precisar de **Node.js** na sua máquina. Pode obter a versão mais r
 
 Finalmente, também terá de descarregar duas amostras para utilizar durante o arranque rápido:
 * A aplicação de amostra **do ADT Explorer.** Esta amostra contém a aplicação principal que utiliza no arranque rápido para carregar e explorar um cenário Azure Digital Twins. Para obter a aplicação, navegue aqui: [Azure Digital Twins (ADT) explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Aperda no botão *Baixar ZIP* para descarregar um *. Ficheiro ZIP* deste código de amostra para a sua máquina. Isto irá descarregar um . Pasta ZIP para a sua máquina _** comoAzure_Digital_Twins__ADT__explorer.zip**_. Desaperte a pasta e extraa os ficheiros.
-* O **cenário do exemplo Azure Digital Twins**. Isto inclui um gráfico pré-construído da Azure Digital Twins que você vai carregar no ADT Explorer para trabalhar. Para obter o cenário, navegue aqui: [amostras de Azure Digital Twins](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Aperda no botão *Baixar ZIP* para descarregar um *. Ficheiro ZIP* deste código de amostra para a sua máquina. Isto irá descarregar um . Pasta ZIP para a sua máquina _** comoAzure_Digital_Twins_samples.zip**_. Desaperte a pasta e extraa os ficheiros.
+* O **cenário do exemplo Azure Digital Twins**. Isto inclui um gráfico pré-construído da Azure Digital Twins que você vai carregar no ADT Explorer para trabalhar. Para obter o cenário, navegue aqui: [Azure Digital Twins amostras de ponta a ponta](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Aperda no botão *Baixar ZIP* para descarregar um *. Ficheiro ZIP* deste código de amostra para a sua máquina. Isto irá descarregar um . Pasta ZIP para a sua máquina _** comoAzure_Digital_Twins_end_to_end_samples.zip**_. Desaperte a pasta e extraa os ficheiros.
 
 ## <a name="set-up-azure-digital-twins-and-adt-explorer"></a>Configurar gémeos digitais Azure e ADT Explorer
 
@@ -118,7 +118,7 @@ Se vir uma janela pop-up *solicitada pela Microsoft,* conceda o consentimento pa
 
 Em seguida, importará o cenário da amostra e gráfico para o ADT Explorer.
 
-O cenário da amostra está localizado na sua pasta descarregada e desapertado  _**Azure_Digital_Twins_samples,**_ pelo que deverá navegar agora para a pasta.
+O cenário da amostra está localizado na sua pasta de  _**Azure_Digital_Twins_end_to_end_samples**_ descarregada e desapertado, pelo que deverá navegar agora para a pasta.
 
 ### <a name="models"></a>Modelos
 
@@ -141,7 +141,7 @@ Na caixa *MODEL VIEW,* bata no ícone *Upload a Model.*
 
 :::image type="content" source="media/quickstart-adt-explorer/upload-model.png" alt-text="Vista de um gráfico feito de 4 nós circulares ligados por setas. Um círculo com a marca «Piso1» é ligado por uma seta com a etiqueta «contém» a um círculo com a etiqueta «Sala1»; um círculo com a marca 'Floor0' é ligado por uma seta com a etiqueta 'contém' a um círculo com a indicação 'Sala0'. 'Floor1' e 'Floor0' não estão ligados." lightbox="media/quickstart-adt-explorer/upload-model.png":::
  
-1. Na caixa de seletor de ficheiros que aparece, navegue para a pasta *Azure_Digital_Twins_samples/AdtSampleApp/SampleClientApp/modelos* no repositório descarregado.
+1. Na caixa de seletor de ficheiros que aparece, navegue para a pasta *Azure_Digital_Twins_end_to_end_samples/AdtSampleApp/SampleClientApp/modelos* no repositório descarregado.
 2. Selecione *Room.js* e *Floor.js*e bata OK. (Pode fazer o upload dos outros modelos se quiser, mas não serão usados neste arranque rápido.)
 3. Siga o diálogo popup pedindo-lhe para assinar na sua conta Azure.
 
@@ -179,7 +179,7 @@ Na caixa *GRAPH VIEW,* bata no ícone *Import Graph.*
 
 :::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="Vista de um gráfico feito de 4 nós circulares ligados por setas. Um círculo com a marca «Piso1» é ligado por uma seta com a etiqueta «contém» a um círculo com a etiqueta «Sala1»; um círculo com a marca 'Floor0' é ligado por uma seta com a etiqueta 'contém' a um círculo com a indicação 'Sala0'. 'Floor1' e 'Floor0' não estão ligados." lightbox="media/quickstart-adt-explorer/import-graph.png":::
 
-Na caixa de seletor de ficheiros, navegue na pasta *Azure_Digital_Twins_samples/AdtSampleApp/SampleClientApp* e escolha o ficheiro _**buildingScenario.xlsx**_ folha de cálculo. Este ficheiro contém uma descrição do gráfico da amostra. Bata bem.
+Na caixa de seletor de ficheiros, navegue na pasta *Azure_Digital_Twins_end_to_end_samples/AdtSampleApp/SampleClientApp* e escolha o ficheiro _**buildingScenario.xlsx**_ folha de cálculo. Este ficheiro contém uma descrição do gráfico da amostra. Bata bem.
 
 Após alguns segundos, o ADT Explorer abrirá uma vista *de Importação* exibindo uma pré-visualização do gráfico que vai ser carregado.
 
@@ -321,7 +321,7 @@ Se planeia continuar com os tutoriais do Azure Digital Twins, a instância usada
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Por fim, elimine as pastas de amostra de projeto que descarregou para a sua máquina local_**(Azure_Digital_Twins__ADT__explorer**_ e _**Azure_Digital_Twins_samples).**_ Pode ter de eliminar as versões com fecho e desapertado.
+Por fim, elimine as pastas de amostra de projeto que descarregou para a sua máquina local_**(Azure_Digital_Twins__ADT__explorer**_ e _**Azure_Digital_Twins_end_to_end_samples).**_ Pode ter de eliminar as versões com fecho e desapertado.
 
 ## <a name="next-steps"></a>Passos seguintes 
 
