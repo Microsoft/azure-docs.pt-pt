@@ -1,6 +1,6 @@
 ---
-title: Filtros de ligação IP Azure IoT DPS / Microsoft Docs
-description: Como utilizar a filtragem IP para bloquear ligações de endereços IP específicos para a sua instância DPS Azure IoT. Pode bloquear ligações a partir de endereços IP individuais ou de gamas de endereços IP.
+title: Filtros de ligação de IP do Azure IoT DPS | Microsoft Docs
+description: Como utilizar a filtragem de IP para bloquear ligações de endereços IP específicos à sua instância do Azure IoT DPS. Pode bloquear ligações de endereços IP individuais ou de intervalos de endereços.
 author: wesmc7777
 ms.author: wesmc
 ms.service: iot-dps
@@ -8,79 +8,79 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.openlocfilehash: 580c378df5fc3912aa540b5d85adf99bc42605e0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
+ms.lasthandoff: 10/09/2020
 ms.locfileid: "86511947"
 ---
-# <a name="use-azure-iot-dps-ip-connection-filters"></a>Utilize filtros de conexão IP Azure IoT DPS
+# <a name="use-azure-iot-dps-ip-connection-filters"></a>Utilizar os filtros de ligação IP do Azure IoT DPS
 
-A segurança é um aspeto importante de qualquer solução IoT. Por vezes, é necessário especificar explicitamente os endereços IP a partir dos quais os dispositivos podem ligar-se como parte da sua configuração de segurança. A funcionalidade *de filtro IP* para um Serviço de Provisionamento de Dispositivos IoT Hub (DPS) permite-lhe configurar regras para rejeitar ou aceitar tráfego a partir de endereços IPv4 específicos.
+A segurança é um aspeto importante de qualquer solução IoT. Por vezes, como parte da sua configuração de segurança, tem de especificar explicitamente os endereços IP a partir dos quais os dispositivos se podem ligar. A funcionalidade de *filtro de IP* do Serviço Aprovisionamento de Dispositivos no Hub IoT (DPS) permite-lhe configurar regras para rejeitar ou aceitar o tráfego de endereços IPv4 específicos.
 
 ## <a name="when-to-use"></a>Quando utilizar
 
-Existem dois casos específicos de utilização em que é útil bloquear ligações a um ponto final DPS a partir de certos endereços IP:
+Há dois casos de utilização nos quais é útil bloquear as ligações a um ponto final do DPS a partir de determinados endereços IP:
 
-* O seu DPS só deve receber tráfego a partir de uma gama especificada de endereços IP e rejeitar tudo o resto. Por exemplo, está a utilizar o seu DPS com [Azure Express Route](https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services) para criar ligações privadas entre um DPS e os seus dispositivos.
+* O seu DPS só deve receber tráfego de um intervalo especificado de endereços IP e rejeitar tudo o resto. Por exemplo, está a utilizar o DPS com o [Azure ExpressRoute](https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services) para criar ligações privadas entre um DPS e os seus dispositivos.
 
-* Tem de rejeitar o tráfego de endereços IP que tenham sido identificados como suspeitos pelo administrador do DPS.
+* Tem de rejeitar o tráfego de endereços IP que o administrador do DPS identificou como sendo suspeitos.
 
-## <a name="how-filter-rules-are-applied"></a>Como as regras do filtro são aplicadas
+## <a name="how-filter-rules-are-applied"></a>Como são aplicadas as regras de filtro
 
-As regras do filtro IP são aplicadas ao nível da instância DPS. Por isso, as regras do filtro IP aplicam-se a todas as ligações de dispositivos e aplicações de back-end utilizando qualquer protocolo suportado.
+As regras de filtro de IPs são aplicadas ao nível das instâncias do DPS. Dessa forma, essas regras são aplicadas a todas as ligações de dispositivos e aplicações de back-end que utilizem qualquer protocolo suportado.
 
-Qualquer tentativa de ligação a partir de um endereço IP que corresponda a uma regra IP rejeitada no seu caso DPS recebe um código de estado 401 não autorizado e descrição. A mensagem de resposta não menciona a regra ip.
+Qualquer tentativa de ligação de um endereço IP que corresponda a uma regra de IP de rejeição na sua instância do DPS recebe o código de estado 401 não autorizado e uma descrição. A mensagem da resposta não menciona a regra de IP.
 
 ## <a name="default-setting"></a>Definição predefinida
 
-Por predefinição, a grelha **de filtro IP** no portal para DPS está vazia. Esta definição predefinida significa que o seu DPS aceita ligações a partir de qualquer endereço IP. Esta definição predefinida é equivalente a uma regra que aceita o intervalo de endereço IP 0.0.0.0/0.
+Por predefinição, a grelha **Filtro de IP** no portal do DPS está vazia. Esta predefinição significa que o DPS aceita ligações de todos os endereços IP. Esta predefinição é equivalente a uma regra que aceita o intervalo de endereços IP 0.0.0.0/0.
 
-![Definições de filtro IP padrão IoT DPS](./media/iot-dps-ip-filtering/ip-filter-default.png)
+![Predefinições do filtro de IP do IoT DPS](./media/iot-dps-ip-filtering/ip-filter-default.png)
 
-## <a name="add-or-edit-an-ip-filter-rule"></a>Adicione ou edite uma regra de filtro IP
+## <a name="add-or-edit-an-ip-filter-rule"></a>Adicionar ou editar uma regra de filtro de IP
 
-Para adicionar uma regra do filtro IP, selecione **+ Adicionar regra do filtro IP**.
+Para adicionar uma regra de filtro de IP, selecione **+ Adicionar Regra de Filtro de IP**.
 
-![Adicione uma regra do filtro IP a um DPS IoT](./media/iot-dps-ip-filtering/ip-filter-add-rule.png)
+![Adicionar uma regra de filtro de IP a um IoT DPS](./media/iot-dps-ip-filtering/ip-filter-add-rule.png)
 
-Depois de selecionar **a Regra do Filtro IP,** preencha os campos.
+Depois de selecionar **Adicionar Regra de Filtro de IP**, preencha os campos.
 
-![Depois de selecionar Adicione uma regra de filtro IP](./media/iot-dps-ip-filtering/ip-filter-after-selecting-add.png)
+![Depois de selecionar Adicionar uma regra de Filtro de IP](./media/iot-dps-ip-filtering/ip-filter-after-selecting-add.png)
 
-* Forneça um **nome** para a regra do filtro IP. Esta deve ser uma corda alfanumérica única, insensível até 128 caracteres. Apenas os caracteres alfanuméricos ASCII de 7 bits mais `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` são aceites.
+* Indique um **nome** para a regra de Filtro de IP. O nome tem de ser uma cadeia alfanumérica exclusiva, sensível a maiúsculas e minúsculas com um máximo de 128 carateres. Só são aceites os carateres alfanuméricos ASCII 7-bit mais `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`.
 
-* Forneça um único endereço IPv4 ou um bloco de endereços IP na notação CIDR. Por exemplo, na notação CIDR 192.168.100.0/22 representa os endereços 1024 IPv4 de 192.168.100.0 a 192.168.103.255.
+* Indique um endereço IPv4 individual ou um bloco de endereços IP em notação CIDR. Por exemplo, em notação CIDR, 192.168.100.0/22 representa os endereços IPv4 1024 de 192.168.100.0 a 192.168.103.255.
 
-* Selecione **Permitir** ou **Bloquear** como **ação** para a regra do filtro IP.
+* Selecione **Permitir** ou **Bloquear** como a **ação** da regra de filtro de IP.
 
-Depois de preencher os campos, **selecione Guardar** para guardar a regra. Vê um alerta a notificá-lo de que a atualização está em andamento.
+Depois de preencher os campos, selecione **Guardar** para guardar a regra. Pode ver um alerta que o notifica que a atualização está em curso.
 
-![Notificação sobre a poupança de uma regra de filtro IP](./media/iot-dps-ip-filtering/ip-filter-save-new-rule.png)
+![Notificação relativa a guardar uma regra de filtro de IP](./media/iot-dps-ip-filtering/ip-filter-save-new-rule.png)
 
-A opção **Adicionar** é desativada quando atinge o máximo de 10 regras de filtro IP.
+Quando alcança o máximo de dez regras de filtros de IP, a opção **Adicionar** é desativada.
 
-Para editar uma regra existente, selecione os dados que pretende alterar, faça a alteração e, em seguida, **selecione Guardar** para guardar a sua edição.
+Para editar uma regra existente, selecione os dados que pretende alterar, faça a alteração e selecione **Guardar** para guardar a edição.
 
 > [!NOTE]
-> Rejeitar endereços IP pode impedir que outros Serviços Azure interajam com a instância DPS.
+> A rejeição de endereços IP pode impedir que outros serviços do Azure interajam com a instância do DPS.
 
-## <a name="delete-an-ip-filter-rule"></a>Eliminar uma regra de filtro IP
+## <a name="delete-an-ip-filter-rule"></a>Eliminar uma regra de filtro de IP
 
-Para eliminar uma regra do filtro IP, selecione o ícone do caixote do lixo nessa linha e, em seguida, **selecione Guardar**. A regra é removida e a mudança é guardada.
+Para eliminar uma regra de filtro de IP, selecione o ícone de caixote do lixo nessa linha e selecione **Guardar**. A regra é removida e a alteração guardada.
 
-![Eliminar uma regra de filtro IP IoT DPS](./media/iot-dps-ip-filtering/ip-filter-delete-rule.png)
+![Eliminar uma regra de filtro de IP do IoT DPS](./media/iot-dps-ip-filtering/ip-filter-delete-rule.png)
 
 
-## <a name="update-ip-filter-rules-in-code"></a>Atualizar regras do filtro IP em código
+## <a name="update-ip-filter-rules-in-code"></a>Atualizar as regras de filtro de IP no código
 
-Pode recuperar e modificar o filtro IP DPS utilizando o ponto final REST do Fornecedor de Recursos Azure. Ver `properties.ipFilterRules` no [método createorupdate](https://docs.microsoft.com/rest/api/iot-dps/iotdpsresource/createorupdate).
+Pode obter e modificar o filtro de IP do DPS com o ponto final REST do fornecedor de recursos do Azure. Veja `properties.ipFilterRules` no [método createorupdate](https://docs.microsoft.com/rest/api/iot-dps/iotdpsresource/createorupdate).
 
-Atualmente, a atualização das regras do filtro IP não é suportada com Azure CLI ou Azure PowerShell, mas pode ser realizada com modelos do Azure Resource Manager. Consulte os [modelos do Gestor de Recursos Azure](../azure-resource-manager/templates/overview.md) para obter orientação sobre a utilização de modelos de Gestor de Recursos. Os exemplos do modelo que se seguem mostram como criar, editar e eliminar as regras do filtro IP DPS.
+A atualização das regras de filtros de IP do DPS não é suportada atualmente com a CLI do Azure nem com o Azure PowerShell, mas pode ser feita com os modelos do Azure Resource Manager. Veja [Modelos do Azure Resource Manager](../azure-resource-manager/templates/overview.md) para obter orientações sobre a utilização destes modelos. Os exemplos de modelos seguintes mostram como criar, editar e eliminar regras de filtros de IP do DPS.
 
-### <a name="add-an-ip-filter-rule"></a>Adicione uma regra de filtro IP
+### <a name="add-an-ip-filter-rule"></a>Adicionar uma regra de filtro IP
 
-O exemplo do modelo a seguir cria uma nova regra do filtro IP chamada "AllowAll" que aceita todo o tráfego.
+O exemplo de modelo seguinte cria uma regra de filtro de IP nova com o nome "AllowAll", que aceita todo o tráfego.
 
 ```json
 {
@@ -131,18 +131,18 @@ O exemplo do modelo a seguir cria uma nova regra do filtro IP chamada "AllowAll"
 }
 ```
 
-Atualize os atributos de regra do filtro IP do modelo com base nos seus requisitos.
+Atualize os atributos da regra de filtro de IP do modelo de acordo com os seus requisitos.
 
 | Atributo                | Descrição |
 | ------------------------ | ----------- |
-| **Nome de filtro**           | Forneça um nome para a regra do filtro IP. Esta deve ser uma corda alfanumérica única, insensível até 128 caracteres. Apenas os caracteres alfanuméricos ASCII de 7 bits mais {'-', ':', '/', \' '.', '.', '+', '%', '_', '#', '*', '!', '!', '',', '', '', '=', '@', '', '', ''' |
-| **Ação**               | Os valores aceites são **Aceitar**   ou **Rejeitar**   como ação para a regra do filtro IP. |
-| **ipMask**               | Forneça um único endereço IPv4 ou um bloco de endereços IP na notação CIDR. Por exemplo, na notação CIDR 192.168.100.0/22 representa os endereços 1024 IPv4 de 192.168.100.0 a 192.168.103.255. |
+| **FilterName**           | Indique um nome para a regra de Filtro de IP. O nome tem de ser uma cadeia alfanumérica exclusiva, sensível a maiúsculas e minúsculas com um máximo de 128 carateres. Só são aceites os carateres alfanuméricos ASCII 7-bit mais {"-", ":", "/", "\', ".", "+", "%", "_", "#", "*", "?", "!", "(", ")", ",", "=", "@", ";", "'"}. |
+| **Ação**               | Os valores aceites como a ação da regra de filtro de IP são **Aceitar** ou **Rejeitar** . |
+| **ipMask**               | Indique um endereço IPv4 individual ou um bloco de endereços IP em notação CIDR. Por exemplo, em notação CIDR, 192.168.100.0/22 representa os endereços IPv4 1024 de 192.168.100.0 a 192.168.103.255. |
 
 
-### <a name="update-an-ip-filter-rule"></a>Atualizar uma regra do filtro IP
+### <a name="update-an-ip-filter-rule"></a>Atualizar uma regra de filtro de IP
 
-O exemplo do modelo a seguir atualiza a regra do filtro IP denominada "AllowAll", mostrada anteriormente, para rejeitar todo o tráfego.
+O exemplo de modelo seguinte atualiza a regra de filtro de IP denominada "AllowAll", mostrada acima, para rejeitar todo o tráfego.
 
 ```json
 { 
@@ -193,9 +193,9 @@ O exemplo do modelo a seguir atualiza a regra do filtro IP denominada "AllowAll"
 }
 ```
 
-### <a name="delete-an-ip-filter-rule"></a>Eliminar uma regra de filtro IP
+### <a name="delete-an-ip-filter-rule"></a>Eliminar uma regra de filtro de IP
 
-O exemplo do modelo a seguir elimina todas as regras do filtro IP para a instância DPS.
+O exemplo de modelo seguinte elimina todas as regras de filtro de IP da instância do DPS.
 
 ```json
 { 
@@ -241,22 +241,22 @@ O exemplo do modelo a seguir elimina todas as regras do filtro IP para a instân
 
 
 
-## <a name="ip-filter-rule-evaluation"></a>Avaliação da regra do filtro IP
+## <a name="ip-filter-rule-evaluation"></a>Avaliação das regras de filtros de IP
 
-As regras do filtro IP são aplicadas por ordem e a primeira regra que corresponde ao endereço IP determina a ação de aceitação ou rejeição.
+As regras de filtros de IP são aplicadas por ordem e a primeira regra que corresponde ao endereço IP determina a ação de aceitar ou rejeitar.
 
-Por exemplo, se pretender aceitar endereços no intervalo 192.168.100.0/22 e rejeitar tudo o resto, a primeira regra da grelha deve aceitar o intervalo de endereços 192.168.100.0/22. A próxima regra deve rejeitar todos os endereços utilizando o intervalo 0.0.0.0/0.
+Por exemplo, se quiser aceitar os endereços no intervalo 192.168.100.0/22 e rejeitar todos os outros, a primeira regra na grelha deve aceitar o intervalo de endereços 192.168.100.0/22. A regra seguinte deve rejeitar todos os endereços mediante a utilização do intervalo 0.0.0.0/0.
 
-Pode alterar a ordem das regras do filtro IP na grelha clicando nos três pontos verticais no início de uma linha e utilizando arrasto e gota.
+Pode alterar a ordem das regras dos filtros de IP na grelha ao clicar nos três pontos verticais no início de uma linha e arrastar e largar.
 
-Para guardar a nova ordem de regra do filtro IP, clique em **Guardar**.
+Para guardar a ordem nova das regras dos filtros de IP, clique em **Guardar**.
 
-![Altere a ordem das suas regras de filtro IP DPS](./media/iot-dps-ip-filtering/ip-filter-rule-order.png)
+![Alterar a ordem das regra dos filtros de IP do DPS](./media/iot-dps-ip-filtering/ip-filter-rule-order.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Para explorar ainda mais o DPS de gestão, consulte:
+Para explorar ainda mais a gestão do DPS, veja:
 
-* [Compreender endereços IP DPS do IoT](iot-dps-understand-ip-address.md)
-* [Configure DPS usando o CLI Azure](how-to-manage-dps-with-cli.md)
-* [Controlo do acesso ao DPS](how-to-control-access.md)
+* [Compreender os endereços IP do IoT DPS](iot-dps-understand-ip-address.md)
+* [Configurar o DPS com a CLI do Azure](how-to-manage-dps-with-cli.md)
+* [Controlar o acesso ao DPS](how-to-control-access.md)
