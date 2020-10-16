@@ -4,12 +4,12 @@ description: Compreender o esquema de alerta comum, por que deve usá-lo e como 
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: faf9975e2795623305583d061d1af7f5eb0cfbe0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb182f88a896be436e3981ff4e361010ee2655f6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86539487"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108835"
 ---
 # <a name="common-alert-schema"></a>Esquema de alertas comuns
 
@@ -39,7 +39,7 @@ O esquema de alerta comum manifestar-se-á principalmente nas suas notificaçõe
 
 O novo esquema também permitirá uma experiência de consumo de alerta mais rica, tanto no portal Azure como na aplicação móvel Azure, num futuro imediato. 
 
-[Saiba mais sobre as definições de esquema para Webhooks/Logic Apps/Azure Functions/Automation Runbooks.](https://aka.ms/commonAlertSchemaDefinitions)
+[Saiba mais sobre as definições de esquema para Webhooks/Logic Apps/Azure Functions/Automation Runbooks.](./alerts-common-schema-definitions.md)
 
 > [!NOTE]
 > As seguintes ações não suportam o esquema comum de alerta: CONECTOR ITSM.
@@ -120,5 +120,5 @@ Por exemplo, o seguinte órgão de pedidos feito à [API de criação ou atualiz
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Definições comuns de esquema de alerta para Webhooks/Logic Apps/Azure Functions/Automation Runbooks.](https://aka.ms/commonAlertSchemaDefinitions)
-- [Saiba como criar uma aplicação lógica que aproveite o esquema de alerta comum para lidar com todos os seus alertas.](./alerts-common-schema-integrations.md) 
+- [Definições comuns de esquema de alerta para Webhooks/Logic Apps/Azure Functions/Automation Runbooks.](./alerts-common-schema-definitions.md)
+- [Saiba como criar uma aplicação lógica que aproveite o esquema de alerta comum para lidar com todos os seus alertas.](./alerts-common-schema-integrations.md)

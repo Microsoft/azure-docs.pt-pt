@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: a8fa14999c75528171fbe811ee64f65b913ed820
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0a11cf3bfac7d1e8fd2d117e13532e2ce49caa0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399810"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107815"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco passos para garantir a sua infraestrutura de identidade
 
-Se está a ler este documento, está ciente da importância da segurança. Provavelmente já tem a responsabilidade de assegurar a sua organização. Se precisar de convencer os outros da importância da segurança, envie-os para ler o mais recente [relatório da Microsoft Security Intelligence](https://go.microsoft.com/fwlink/p/?linkid=2073747).
+Se está a ler este documento, está ciente da importância da segurança. Provavelmente já tem a responsabilidade de assegurar a sua organização. Se precisar de convencer os outros da importância da segurança, envie-os para ler o mais recente [relatório da Microsoft Security Intelligence](https://www.microsoft.com/security/business/security-intelligence-report).
 
 Este documento irá ajudá-lo a obter uma postura mais segura usando as capacidades do Azure Ative Directory usando uma lista de verificação de cinco etapas para inocular a sua organização contra ciberataques.
 

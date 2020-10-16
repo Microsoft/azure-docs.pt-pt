@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: 8dfc1471955a6d10199a078922151ff3aeda4294
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 094449ddcbfc2baf41657d00de030ef3c1cddbb5
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88929499"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108495"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com o Azure Functions Core Tools
 
@@ -166,7 +166,7 @@ func init MyFunctionProj
 ```
 
 >[!IMPORTANT]
-> Java usa um arquétipo Maven para criar o projeto Funções locais, juntamente com a sua primeira função http desencadeada. Utilize o seguinte comando para criar o seu projeto Java: `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype` . Por exemplo, utilizando o arquétipo Maven, consulte a [linha de comando de arranque rápido](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java).  
+> Java usa um arquétipo Maven para criar o projeto Funções locais, juntamente com a sua primeira função http desencadeada. Utilize o seguinte comando para criar o seu projeto Java: `mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype` . Por exemplo, utilizando o arquétipo Maven, consulte a [linha de comando de arranque rápido](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java).  
 
 Quando fornece um nome de projeto, uma nova pasta com esse nome é criada e inicializada. Caso contrário, a pasta atual é inicializada.  
 Na versão 3.x/2.x, quando executar o comando, deve escolher um tempo de execução para o seu projeto. 
@@ -309,7 +309,7 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 
 Também pode especificar estas opções no comando utilizando os seguintes argumentos:
 
-| Argumento     | Descrição                            |
+| Argumento     | Description                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (Versão 2.x e versões posteriores.) Gera os mesmos modelos de script C# (.csx) utilizados na versão 1.x e no portal. |
 | **`--language`**, **`-l`**| A linguagem de programação do modelo, como C#, F#ou JavaScript. Esta opção é necessária na versão 1.x. Nas versões 2.x e posteriores, não utilize esta opção nem escolha um idioma que corresponda ao tempo de funcionação do trabalhador. |

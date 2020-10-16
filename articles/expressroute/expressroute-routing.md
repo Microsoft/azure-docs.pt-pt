@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: duau
-ms.openlocfilehash: 5b7af755c9843456c25c8d18b78be48d83b96acd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ddc15e9da3eaa3609b039f2f92e424b9d9449c1
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89569616"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92106319"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de encaminhamento do ExpressRoute
 Para ligar aos serviços em nuvem da Microsoft com o ExpressRoute, terá de configurar e gerir o encaminhamento. Alguns fornecedores de conectividade oferecem a configuração e a gestão do encaminhamento como um serviço gerido. Contacte o seu fornecedor de conectividade para ver se oferece este serviço. Caso contrário, terá de cumprir os seguintes requisitos:
@@ -189,7 +189,7 @@ Pode comprar mais do que um circuito do ExpressRoute por região geopolítica. T
 | Oeste do Japão | 12076:51013 | 12076:52013 | 12076:53013 | 12076:54013 | 12076:55013 |
 | **Austrália** | |
 | Leste da Austrália | 12076:51015 | 12076:52015 | 12076:53015 | 12076:54015 | 12076:55015 |
-| Sudeste da Austrália | 12076:51016 | 12076:52016 | 12076:53016 | 12076:54016 | 12076:55016 |
+| Austrália Sudeste | 12076:51016 | 12076:52016 | 12076:53016 | 12076:54016 | 12076:55016 |
 | **Governo da Austrália** | |
 | Austrália Central | 12076:51032 | 12076:52032 | 12076:53032 | 12076:54032 | 12076:55032 |
 | Austrália Central 2 | 12076:51033 | 12076:52033 | 12076:53033 | 12076:54033 | 12076:55033 |
@@ -201,8 +201,8 @@ Pode comprar mais do que um circuito do ExpressRoute por região geopolítica. T
 | Sul da Coreia do Sul | 12076:51028 | 12076:52028 | 12076:53028 | 12076:54028 | 12076:55028 |
 | Coreia do Sul Central | 12076:51029 | 12076:52029 | 12076:53029 | 12076:54029 | 12076:55029 |
 | **África do Sul**| |
-| África do Sul Norte | 12076:51034 | 12076:52034 | 12076:53034 | 12076:54034 | 12076:55034 |
-| África do Sul | 12076:51035 | 12076:52035 | 12076:53035 | 12076:54035 | 12076:55035 |
+| Norte da África do Sul | 12076:51034 | 12076:52034 | 12076:53034 | 12076:54034 | 12076:55034 |
+| Oeste da África do Sul | 12076:51035 | 12076:52035 | 12076:53035 | 12076:54035 | 12076:55035 |
 | **E.A.U.**| |
 | Uae Norte | 12076:51036 | 12076:52036 | 12076:53036 | 12076:54036 | 12076:55036 |
 | Centro dos Emirados Árabes Unidos | 12076:51037 | 12076:52037 | 12076:53037 | 12076:54037 | 12076:55037 |
@@ -258,6 +258,7 @@ Para além do que foi dito acima, a Microsoft também marcará prefixos baseados
 | Exchange Online |12076:5110 |
 | SharePoint Online |12076:5120 |
 | Skype para Empresas Online |12076:5130 |
+| Azure Active Directory |12076:5160 |
 | Outros serviços do Office 365 Online |12076:5200 |
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -4,12 +4,12 @@ description: Como escolher entre os tamanhos VM disponíveis para nóns computac
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2819bb5e4000f18653e47b616a551d69ec525d2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6dc1b3cf708a6dbaacc87e6c9fc00ae6f0ff3440
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91271312"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107509"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Escolha um tamanho VM para nó de computação numa piscina Azure Batch
 
@@ -24,14 +24,14 @@ Existem algumas exceções e limitações à escolha de um tamanho VM:
 
 ### <a name="pools-in-virtual-machine-configuration"></a>Piscinas na configuração da Máquina Virtual
 
-As piscinas de lote na configuração da Máquina Virtual suportam quase todos os tamanhos VM[(Linux,](../virtual-machines/linux/sizes.md) [Windows](../virtual-machines/windows/sizes.md)). Consulte a tabela seguinte para saber mais sobre tamanhos e restrições suportados.
+As piscinas de lote na configuração da Máquina Virtual suportam quase todos os tamanhos VM[(Linux,](../virtual-machines/sizes.md) [Windows](../virtual-machines/sizes.md)). Consulte a tabela seguinte para saber mais sobre tamanhos e restrições suportados.
 
 | Série das VMs  | Tamanhos suportados |
 |------------|---------|
 | Básico A | Todos os *tamanhos, exceto* Basic_A0 (A0) |
 | A | Todos os *tamanhos, exceto* Standard_A0 |
 | Av2 | Todos os tamanhos |
-| B | Nenhum |
+| N | Nenhum |
 | DC | Nenhum |
 | Dv2, DSv2 | Todos os tamanhos |
 | Dv3 | Todos os tamanhos |

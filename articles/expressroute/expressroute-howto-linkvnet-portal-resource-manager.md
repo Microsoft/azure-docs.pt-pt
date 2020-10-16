@@ -5,15 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/06/2020
+ms.date: 10/15/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: f46ad0d45967f94191732f472b44a47de930a3a4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ffc9c2ee17862497d3fd986da8e003f7a497056
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855358"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107288"
 ---
 # <a name="tutorial-connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Tutorial: Ligue uma rede virtual a um circuito ExpressRoute utilizando o portal
 
@@ -27,7 +27,7 @@ ms.locfileid: "91855358"
 
 Este tutorial ajuda-o a criar uma ligação para ligar uma rede virtual a um circuito Azure ExpressRoute utilizando o portal Azure. As redes virtuais que liga ao circuito Azure ExpressRoute podem estar na mesma subscrição ou fazer parte de outra subscrição.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 > [!div class="checklist"]
 > - Ligue uma rede virtual a um circuito na mesma subscrição.
 > - Ligue uma rede virtual a um circuito numa subscrição diferente.
@@ -63,11 +63,19 @@ Neste tutorial, ficará a saber como:
 
     :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/express-route-circuit.png" alt-text="Screenshot do circuito ExpressRoute":::
 
-2. Pode agora iniciar a disponibilização de uma ligação para ligar a sua porta de entrada de rede virtual ao circuito ExpressRoute. Selecione **'Ligação**  >  **Adicionar'** para abrir a página **de ligação Adicionar** e, em seguida, configurar os valores.
+1. Pode agora iniciar a disponibilização de uma ligação para ligar a sua porta de entrada de rede virtual ao circuito ExpressRoute. Selecione **Connection**  >  **Ligação Adicione** para abrir a página **de ligação Adicionar.**
 
     :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/add-connection.png" alt-text="Screenshot do circuito ExpressRoute":::
 
-3. Depois de a sua ligação ter sido configurada com sucesso, o seu objeto de ligação mostrará as informações para a ligação.
+1. Introduza um nome para a ligação e, em seguida, selecione **Seguinte: Definições >**.
+
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/create-connection-basic.png" alt-text="Screenshot do circuito ExpressRoute":::
+
+1. Selecione o gateway que pertence à rede virtual que pretende ligar ao circuito e selecione **Review + create**. Em seguida, **selecione Criar** após a validação concluída.
+
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/create-connection-settings.png" alt-text="Screenshot do circuito ExpressRoute":::
+
+1. Depois de a sua ligação ter sido configurada com sucesso, o seu objeto de ligação mostrará as informações para a ligação.
 
     :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-object.png" alt-text="Screenshot do circuito ExpressRoute":::
 
@@ -109,7 +117,13 @@ O proprietário do circuito cria uma autorização, que cria uma chave de autori
 
 **Para eliminar uma autorização de ligação**
 
-Pode eliminar uma ligação selecionando o ícone **Eliminar** na página para a sua ligação.
+Pode eliminar uma ligação selecionando o ícone **Eliminar** para a chave de autorização para a sua ligação.
+
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-authorization-key.png" alt-text="Screenshot do circuito ExpressRoute":::
+
+Se pretender eliminar a ligação mas reter a chave de autorização, pode eliminar a ligação da página de ligação do circuito.
+
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-connection-owning-circuit.png" alt-text="Screenshot do circuito ExpressRoute":::
 
 ### <a name="circuit-user-operations"></a>Operações de utilizador de circuitos
 
@@ -117,33 +131,33 @@ O utilizador do circuito precisa do ID do recurso e de uma chave de autorizaçã
 
 **Para resgatar uma autorização de ligação**
 
-1. Selecione o botão **+Novo.**
+1. Selecione o + Criar um botão **de recurso.** Procure por **Conexão** e selecione **Criar**.
 
     :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/create-new-resources.png" alt-text="Screenshot do circuito ExpressRoute":::
 
-2. Procure **por "Conexão"** no Mercado, selecione-o e selecione **Criar**.
+1. Certifique-se de que o *tipo de Ligação* está definido para **ExpressRoute**. Selecione o *grupo de Recursos* e *localização*e, em seguida, selecione **OK** na página Basics.
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/search-connection.png" alt-text="Screenshot do circuito ExpressRoute":::
-
-3. Certifique-se de que o **tipo de Ligação** está definido como "ExpressRoute".
-4. Preencha os detalhes e, em seguida, selecione **OK** na página Basics.
+    > [!NOTE]
+    > A localização *deve* coincidir com a localização virtual do gateway de rede para a qual está a criar a ligação.
 
     :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-basics.png" alt-text="Screenshot do circuito ExpressRoute":::
 
-5. Na página **Definições,** selecione o **gateway de rede Virtual** e verifique a caixa de verificação de autorização **Redentor.**
-6. Introduza a **tecla de Autorização** e o **circuito peer URI** e dê à ligação um nome. Selecione **OK**. O **Circuito Par URI** é o ID de recursos do circuito ExpressRoute (que pode encontrar sob o painel de definição de propriedades do Circuito ExpressRoute).
+1. Na página **Definições,** selecione o *gateway de rede Virtual* e verifique a caixa de verificação de autorização **Redentor.** Introduza a *tecla de Autorização* e o *circuito peer URI* e dê à ligação um nome. Selecione **OK**. 
+ 
+    > [!NOTE]
+    > O *Circuito Par URI* é o ID de recursos do circuito ExpressRoute (que pode encontrar sob o painel de definição de propriedades do Circuito ExpressRoute).
 
     :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-settings.png" alt-text="Screenshot do circuito ExpressRoute":::
 
-7. Reveja as informações na página **Resumo** e selecione **OK**.
+1. Reveja as informações na página **Resumo** e selecione **OK**.
 
-**Para libertar uma autorização de ligação**
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-summary.png" alt-text="Screenshot do circuito ExpressRoute":::
 
-Pode libertar uma autorização eliminando a ligação que liga o circuito ExpressRoute à rede virtual.
-
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Pode eliminar uma ligação e desvincular o seu VNet a um circuito ExpressRoute selecionando o ícone **Eliminar** na página para a sua ligação.
+
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-connection.png" alt-text="Screenshot do circuito ExpressRoute":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

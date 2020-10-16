@@ -1,6 +1,6 @@
 ---
-title: Copiar dados de e para Azure SQL Caso Gerido
-description: Saiba como mover dados de e para a Azure SQL Managed Instance utilizando a Azure Data Factory.
+title: Copiar e transformar dados em Azure SQL Gestded Instance
+description: Saiba como copiar e transformar dados em Azure SQL Managed Instance utilizando a Azure Data Factory.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -10,31 +10,30 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 09/21/2020
-ms.openlocfilehash: 3a9216c665cfdcdaf07980ace0399fd927885262
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/15/2020
+ms.openlocfilehash: a8b79cea8d502222d08dd3f1f0fb40d1982f565d
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332122"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107747"
 ---
-# <a name="copy-data-to-and-from-azure-sql-managed-instance-by-using-azure-data-factory"></a>Copiar dados de e para Azure SQL Caso Gerido através da Azure Data Factory
+# <a name="copy-and-transform-data-in-azure-sql-managed-instance-by-using-azure-data-factory"></a>Copiar e transformar dados em Azure SQL Managed Instance usando Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Este artigo descreve como utilizar a atividade de cópia na Azure Data Factory para copiar dados de e para Azure SQL Managed Instance. Baseia-se no artigo [de visão geral](copy-activity-overview.md) da atividade da Cópia que apresenta uma visão geral da atividade da cópia.
+Este artigo descreve como utilizar a Copy Activity in Azure Data Factory para copiar dados de e para Azure SQL Managed Instance, e usar o Fluxo de Dados para transformar dados em Azure SQL Managed Instance. Para saber mais sobre a Azure Data Factory, leia o [artigo introdutório](introduction.md).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
 Este conector SQL Managed Instance é suportado para as seguintes atividades:
 
 - [Atividade de cópia](copy-activity-overview.md) com [matriz de fonte/pia suportada](copy-activity-overview.md)
+- [Fluxo de dados de mapeamento](concepts-data-flow-overview.md)
 - [Atividade de procura](control-flow-lookup-activity.md)
 - [Atividade getMetadata](control-flow-get-metadata-activity.md)
 
-Pode copiar dados da SQL Managed Instance para qualquer loja de dados de lavatórios suportados. Também pode copiar dados de qualquer loja de dados de origem suportada para a SQL Managed Instance. Para obter uma lista de lojas de dados que são suportadas como fontes e sumidouros pela atividade de cópia, consulte a tabela [de lojas de dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
-
-Especificamente, este conector sql Managed Instance suporta:
+Para a atividade copy, este conector Azure SQL Database suporta estas funções:
 
 - Copiar dados utilizando a autenticação SQL e o Azure Ative Directory (Azure AD) A autenticação de fichas de aplicação com um principal serviço ou identidades geridas para recursos Azure.
 - Como fonte, recuperar dados utilizando uma consulta SQL ou um procedimento armazenado. Também pode optar por copiar paralelamente da fonte SQL MI, ver a cópia paralela da secção [SQL MI](#parallel-copy-from-sql-mi) para obter mais detalhes.
@@ -638,9 +637,77 @@ A amostra que se segue mostra como utilizar um procedimento armazenado para faze
     }
     ```
 
+## <a name="mapping-data-flow-properties"></a>Mapeamento de propriedades de fluxo de dados
+
+Ao transformar dados no fluxo de dados de mapeamento, pode ler e escrever para tabelas a partir de Azure SQL Managed Instance. Para obter mais informações, consulte a [transformação](data-flow-source.md) da fonte e [a transformação do sumidouro](data-flow-sink.md) nos fluxos de dados de mapeamento.
+
+> [!NOTE]
+> O conector Azure SQL Managed Instance no Mapping Data Flow está atualmente disponível como pré-visualização pública. Pode ligar-se ao ponto final público da SQL Managed Instance, mas ainda não é privado.
+
+### <a name="source-transformation"></a>Transformação de origem
+
+A tabela abaixo lista as propriedades suportadas pela fonte de Instância Gerida Azure SQL. Pode editar estas propriedades no separador **Opções Fonte.**
+
+| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Tabela | Se selecionar tabela como entrada, o fluxo de dados recolhe todos os dados da tabela especificada no conjunto de dados. | Não | - |- |
+| Consulta | Se selecionar a Consulta como entrada, especifique uma consulta SQL para obter dados da fonte, que substitui qualquer tabela que especifique no conjunto de dados. Usar consultas é uma ótima maneira de reduzir linhas para testes ou análises.<br><br>**A** cláusula Por cláusula não é suportada, mas pode definir uma declaração completa SELECT FROM. Também pode utilizar funções de tabela definidas pelo utilizador. **selecionar * do udfGetData()** é um UDF em SQL que devolve uma tabela que pode usar no fluxo de dados.<br>Exemplo de consulta: `Select * from MyTable where customerId > 1000 and customerId < 2000`| Não | String | consulta |
+| Tamanho do lote | Especifique o tamanho do lote para colar dados grandes em leituras. | Não | Número inteiro | batchSize |
+| Nível de Isolamento | Escolha um dos seguintes níveis de isolamento:<br>- Ler Comprometido<br>- Ler Não Comprometido (padrão)<br>- Leitura Repetível<br>- Serializável<br>- Nenhum (ignorar o nível de isolamento) | Não | <small>READ_COMMITTED<br/>READ_UNCOMMITTED<br/>REPEATABLE_READ<br/>SERIALIZÁVEL<br/>NENHUMA</small> |isolamentoLevel |
+
+#### <a name="azure-sql-managed-instance-source-script-example"></a>Exemplo de script de origem de origem de exemplo de origem de exemplo de origem Azure SQL
+
+Quando utiliza a Instância Gerida Azure SQL como tipo de origem, o script de fluxo de dados associado é:
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    isolationLevel: 'READ_UNCOMMITTED',
+    query: 'select * from MYTABLE',
+    format: 'query') ~> SQLMISource
+```
+
+### <a name="sink-transformation"></a>Transformação do sumidouro
+
+A tabela abaixo lista as propriedades suportadas por Azure SQL Managed Instance sink. Pode editar estas propriedades no **separador Opções De Sumidouro.**
+
+| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Método de atualização | Especifique quais as operações permitidas no seu destino de base de dados. O padrão é apenas permitir inserções.<br>Para atualizar, intensificar ou apagar linhas, é necessária uma [transformação de linha Alter](data-flow-alter-row.md) para marcar linhas para essas ações. | Sim | `true` ou `false` | deletable <br/>inserível <br/>atualizável <br/>upsertable |
+| Colunas-chave | Para atualizações, atualizações e eliminações, as colunas-chave devem ser definidas para determinar qual a linha a alterar.<br>O nome da coluna que escolher como chave será utilizado como parte da atualização subsequente, atualizar, eliminar. Portanto, deve escolher uma coluna que exista no mapeamento da Pia. | Não | Matriz | keys |
+| Salte a escrita de colunas-chave | Se não pretender não escrever o valor na coluna-chave, selecione "Salte as colunas-chave de escrita". | Não | `true` ou `false` | skipKeyWrites |
+| Ação de mesa |Determina se deve recriar ou remover todas as linhas da tabela de destino antes de escrever.<br>- **Nenhuma:** nenhuma ação será feita à mesa.<br>- **Recriar:** A mesa será largada e recriada. Necessário se criar uma nova tabela dinamicamente.<br>- **Truncato**: Todas as linhas da mesa-alvo serão removidas. | Não | `true` ou `false` | recriar<br/>truncato |
+| Tamanho do lote | Especifique quantas linhas estão a ser escritas em cada lote. Tamanhos maiores do lote melhoram a compressão e a otimização da memória, mas arriscam-se a sair das exceções de memória ao caching dados. | Não | Número inteiro | batchSize |
+| Scripts pré e post SQL | Especifique scripts SQL de várias linhas que serão executados antes (pré-processamento) e depois (pós-processamento) os dados são escritos na sua base de dados de Sink. | Não | String | pré-QLs<br>postSQLs |
+
+#### <a name="azure-sql-managed-instance-sink-script-example"></a>Exemplo de script de pia de instância gerida Azure SQL
+
+Quando utiliza a Instância Gerida Azure SQL como tipo de pia, o script de fluxo de dados associado é:
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+    validateSchema: false,
+    deletable:false,
+    insertable:true,
+    updateable:true,
+    upsertable:true,
+    keys:['keyColumn'],
+    format: 'table',
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> SQLMISink
+```
+
+## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
+
+Para obter detalhes sobre as propriedades, consulte [a atividade de Lookup](control-flow-lookup-activity.md).
+
+## <a name="getmetadata-activity-properties"></a>Propriedades de atividade getMetadata
+
+Para saber mais detalhes sobre as propriedades, consulte a [atividade da GetMetadata](control-flow-get-metadata-activity.md) 
+
 ## <a name="data-type-mapping-for-sql-managed-instance"></a>Mapeamento do tipo de dados para sql gestão instância
 
-Quando os dados são copiados de e para a SQL Managed Instance, os seguintes mapeamentos são usados desde os tipos de dados de instância gerida sql para tipos de dados provisórios da Azure Data Factory. Para saber como a atividade da cópia mapeia do esquema de origem e do tipo de dados para a pia, consulte [o Schema e os mapeamentos do tipo de dados](copy-activity-schema-and-type-mapping.md).
+Quando os dados são copiados de e para a SQL Managed Instance usando a atividade de cópia, os seguintes mapeamentos são usados de tipos de dados de instância gerida SQL para tipos de dados provisórios Azure Data Factory. Para saber como a atividade da cópia mapeia do esquema de origem e do tipo de dados para a pia, consulte [o Schema e os mapeamentos do tipo de dados](copy-activity-schema-and-type-mapping.md).
 
 | Tipo de dados de instância gerida SQL | Tipo de dados provisórios da Azure Data Factory |
 |:--- |:--- |
@@ -648,7 +715,7 @@ Quando os dados são copiados de e para a SQL Managed Instance, os seguintes map
 | binary |Byte[] |
 | bit |Booleano |
 | char |String, Char[] |
-| date |DateTime |
+| data |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
 | Datatimeoff |Início de execução de tempo de data |
@@ -675,18 +742,10 @@ Quando os dados são copiados de e para a SQL Managed Instance, os seguintes map
 | uniqueidentifier |GUID |
 | varbinário |Byte[] |
 | varchar |String, Char[] |
-| xml |Cadeia |
+| xml |String |
 
 >[!NOTE]
 > Para tipos de dados que mapeiam para o tipo decimal provisório, atualmente a atividade Copy suporta precisão até 28. Se tiver dados que exijam precisão superior a 28, considere converter-se a uma cadeia numa consulta SQL.
-
-## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura
-
-Para obter detalhes sobre as propriedades, consulte [a atividade de Lookup](control-flow-lookup-activity.md).
-
-## <a name="getmetadata-activity-properties"></a>Propriedades de atividade getMetadata
-
-Para saber mais detalhes sobre as propriedades, consulte a [atividade da GetMetadata](control-flow-get-metadata-activity.md) 
 
 ## <a name="using-always-encrypted"></a>Usando sempre encriptado
 

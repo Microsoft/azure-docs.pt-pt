@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 37005176452ba75f6b79af7ab1bf9faab5402f51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c75e2f635c14556cfd08ab73a66d8ebc30aeb8e2
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548941"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108648"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qumu-cloud"></a>Tutorial: Integração do Diretório Ativo Azure com Qumu Cloud
 
@@ -101,7 +101,7 @@ Para configurar o Azure AD com o Qumu Cloud, execute os seguintes passos:
 
 4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![Qumu Cloud Domain e URLs informações únicas de súmis](common/idp-intiated.png)
+    ![A screenshot mostra a Configuração BÁSICA SAML, onde pode introduzir o Identificador, Responder U R L e selecionar Guardar.](common/idp-intiated.png)
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://<subdomain>.qumucloud.com/saml/SSO`
 
@@ -109,7 +109,7 @@ Para configurar o Azure AD com o Qumu Cloud, execute os seguintes passos:
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    ![Qumu Cloud Domain e URLs informações únicas de súmis](common/metadata-upload-additional-signon.png)
+    ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<subdomain>.qumucloud.com`
 
@@ -118,7 +118,7 @@ Para configurar o Azure AD com o Qumu Cloud, execute os seguintes passos:
 
 6. A aplicação Qumu Cloud espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos. Clique **em Editar** o ícone para abrir o diálogo **dos Atributos do Utilizador.**
 
-    ![image](common/edit-attribute.png)
+    ![A screenshot mostra atributos do utilizador com o ícone editar selecionado.](common/edit-attribute.png)
 
 7. Além de acima, a aplicação Qumu Cloud espera que alguns mais atributos sejam repercutidos na resposta SAML. Na secção **'Reclamações** de Utilizador' no diálogo **'Atributos do Utilizador',** execute os seguintes passos para adicionar o atributoken SAML, tal como mostrado na tabela abaixo:
 
@@ -131,9 +131,9 @@ Para configurar o Azure AD com o Qumu Cloud, execute os seguintes passos:
 
     a. Clique **Em Adicionar nova reivindicação** para abrir o diálogo de reclamações do utilizador **Gerir.**
 
-    ![image](common/new-save-attribute.png)
+    ![A Screenshot mostra as reclamações do Utilizador com a opção de adicionar uma nova reclamação.](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![A screenshot mostra a caixa de diálogo de reclamações do utilizador Manage onde pode introduzir os valores descritos.](common/new-attribute-details.png)
 
     b. Na caixa de texto **'Nome',** digite o nome do atributo indicado para esta linha.
 

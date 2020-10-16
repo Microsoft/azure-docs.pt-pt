@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 10803a16a2ceb84e084070d899b50360446710fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55ab6b339d6cb71bf46340e458bcc93cd73e2ba9
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548938"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108665"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>Tutorial: Integração do Azure Ative Directory com QuickHelp
 
@@ -130,17 +130,17 @@ Para configurar o Azure AD com quickHelp, execute os seguintes passos:
 
 2. No menu em cima, clique em **Administração.**
    
-    ![Configurar Sign-On Individuais][21]
+    ![A screenshot mostra o item do menu Admin para Brainstorm.][21]
 
 3. No menu **QuickHelp Admin,** clique em **Definições**.
    
-    ![Configurar Sign-On Individuais][22]
+    ![A screenshot mostra definições selecionadas a partir do menu QuickHelp Admin.][22]
 
 4. Clique em **Definições de Autenticação**.
 
 5. Na página **Definições de Autenticação,** execute os seguintes passos
    
-    ![Configurar Sign-On Individuais][23]
+    ![A screenshot mostra a página Definições de Autenticação onde pode introduzir os valores descritos.][23]
    
     a. Como **Tipo SSO,** selecione **WSFederation**.
    

@@ -1,19 +1,19 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 05/21/2020
+ms.date: 10/15/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 8172e0e208d9a780c7676d7cb0e77dbc1c16f493
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df3d1c34fe0fc045e829c2ea9166664f06fd3127
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90606274"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92116699"
 ---
 ## <a name="1-create-the-azure-ad-tenant"></a><a name="tenant"></a>1. Criar o inquilino AZURE AD
 
@@ -70,6 +70,10 @@ Registe o cliente VPN no inquilino da Ad Azure.
     ```
     https://https://login.chinacloudapi.cn/common/oauth2/authorize?client_id=49f817b6-84ae-4cc0-928c-73f27289b3aa&response_type=code&redirect_uri=https://portal.azure.cn&nonce=1234&prompt=admin_consent
     ```
+
+> [!NOTE]
+> Se utilizar uma conta de administração global que não seja nativa do inquilino da Azure AD para dar o seu consentimento, por favor substitua o id "comum" com o id do diretório AD Azure no URL. Também pode ter de substituir o "comum" pelo seu id de diretório em certos outros casos.
+>
 
 5. Selecione a conta **Global Admin** se solicitado.
 

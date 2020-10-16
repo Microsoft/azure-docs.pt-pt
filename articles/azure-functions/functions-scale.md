@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c5dd703851054b058d96440a3a994b9d10eecfa3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88e9d16a205df16a2be63e67f45cdbcf9144b30f
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372668"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108461"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Dimensionamento e alojamento de Funções do Azure
 
@@ -26,7 +26,7 @@ Tanto os planos Consumption como Premium adicionam automaticamente energia de co
 
 O plano premium fornece funcionalidades adicionais, tais como instâncias de computação premium, a capacidade de manter as instâncias quentes indefinidamente, e a conectividade VNet.
 
-O plano de Serviço de Aplicações permite-lhe tirar partido de infraestruturas dedicadas, que gere. A sua aplicação de função não escala com base em eventos, o que significa que nunca é escala em zero. (Requer que [sempre ligado](#always-on) esteja ativado.)
+O plano de Serviço de Aplicações permite-lhe tirar partido de infraestruturas dedicadas, que gere. A sua aplicação de função não escala com base em eventos, o que significa que nunca escala para zero. (Requer que [sempre ligado](#always-on) esteja ativado.)
 
 Para uma comparação detalhada entre os vários planos de hospedagem (incluindo hospedagem baseada em Kubernetes), consulte a secção de [comparação dos planos de hospedagem](#hosting-plans-comparison).
 
@@ -168,7 +168,7 @@ az resource update --resource-type Microsoft.Web/sites -g <resource_group> -n <f
 
 Existem muitos aspetos de uma aplicação de função que impactará a sua escala, incluindo a configuração do anfitrião, a pegada de tempo de execução e a eficiência dos recursos.  Para mais informações, consulte a [secção de escalabilidade do artigo de considerações de desempenho](functions-best-practices.md#scalability-best-practices). Também deve estar ciente de como as ligações se comportam à medida que as escalas de aplicações da sua função. Para obter mais informações, consulte [Como gerir as ligações em Funções Azure](manage-connections.md).
 
-Para obter mais informações sobre a escala em Python e Node.js, consulte [o guia de desenvolvimento python do Azure Functions Python - Escala e concurrency](functions-reference-python.md#scaling-and-concurrency) e [Azure Functions Node.js developer guide - Escala e conúnência](functions-reference-node.md#scaling-and-concurrency).
+Para obter mais informações sobre a escala em Python e Node.js, consulte [o guia de desenvolvimento python do Azure Functions Python - Escala e concurrency](functions-reference-python.md#scaling-and-performance) e [Azure Functions Node.js developer guide - Escala e conúnência](functions-reference-node.md#scaling-and-concurrency).
 
 ### <a name="billing-model"></a>Modelo de faturação
 

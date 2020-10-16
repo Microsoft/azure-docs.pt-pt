@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/14/2020
-ms.openlocfilehash: 40f688d6acd1714999210e67567d25faa14c5d6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 94abc54c63b7d2a9998cffe7cf1396f81a26a5a1
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87384859"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107985"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Envie dados de registo para O Monitor de Azure com a API do Colecionador de Dados HTTP (pré-visualização pública)
 Este artigo mostra-lhe como utilizar a API de Retorno de Dados HTTP para enviar dados de registo para o Azure Monitor a partir de um cliente REST API.  Descreve como formatar dados recolhidos pelo seu script ou aplicação, incluí-lo num pedido, e ter esse pedido autorizado pelo Azure Monitor.  Exemplos são fornecidos para PowerShell, C#e Python.
@@ -49,12 +49,12 @@ Para utilizar a API do Recotor de Dados HTTP, cria um pedido DE POST que inclui 
 | Versão da API |A versão da API para usar com este pedido. Atualmente, é 2016-04-01. |
 
 ### <a name="request-headers"></a>Cabeçalhos do pedido
-| Cabeçalho | Descrição |
+| Cabeçalho | Description |
 |:--- |:--- |
 | Autorização |A assinatura da autorização. Mais tarde no artigo, pode ler sobre como criar um cabeçalho HMAC-SHA256. |
 | Log-Type |Especifique o tipo de registo dos dados que estão a ser submetidos. Só pode conter letras, números e sublinhar (_), e não pode exceder 100 caracteres. |
 | x-ms-data |A data em que o pedido foi processado, no formato RFC 1123. |
-| x-ms-AzureResourceId | ID de recursos do recurso Azure os dados devem ser associados. Isto povoa a [propriedade _ResourceId](log-standard-properties.md#_resourceid) e permite que os dados sejam incluídos em consultas de contexto [de recursos.](design-logs-deployment.md#access-mode) Se este campo não for especificado, os dados não serão incluídos em consultas de contexto de recursos. |
+| x-ms-AzureResourceId | ID de recursos do recurso Azure os dados devem ser associados. Isto povoa a [propriedade _ResourceId](./log-standard-columns.md#_resourceid) e permite que os dados sejam incluídos em consultas de contexto [de recursos.](design-logs-deployment.md#access-mode) Se este campo não for especificado, os dados não serão incluídos em consultas de contexto de recursos. |
 | campo gerado pelo tempo | O nome de um campo nos dados que contém o tempotad do item de dados. Se especificar um campo, o seu conteúdo é utilizado para **o TimeGenerated**. Se este campo não for especificado, o padrão para **TimeGenerated** é o momento em que a mensagem é ingerida. O conteúdo do campo de mensagens deve seguir o formato ISO 8601 YYYY-MM-DDThh:mm:ssZ. |
 
 ## <a name="authorization"></a>Autorização
@@ -134,7 +134,7 @@ Para identificar o tipo de dados de uma propriedade, o Azure Monitor adiciona um
 
 | Tipo de dados de propriedade | Sufixo |
 |:--- |:--- |
-| Cadeia |_s |
+| String |_s |
 | Booleano |_b |
 | Double (Duplo) |_d |
 | Data/hora |_t |
@@ -183,7 +183,7 @@ O código de estado HTTP 200 significa que o pedido foi recebido para processame
 
 Esta tabela lista o conjunto completo de códigos de estado que o serviço pode devolver:
 
-| Código | Estado | Código de erro | Descrição |
+| Código | Estado | Código de erro | Description |
 |:--- |:--- |:--- |:--- |
 | 200 |OK | |O pedido foi aceite com sucesso. |
 | 400 |Mau pedido |InactiveCustomer |O espaço de trabalho foi fechado. |
@@ -555,7 +555,7 @@ post_data(customer_id, shared_key, body, log_type)
 ## <a name="alternatives-and-considerations"></a>Alternativas e considerações
 Embora a API do Colecionador de Dados deva cobrir a maioria das suas necessidades de recolher dados de formulário livre em Registos Azure, existem casos em que uma alternativa pode ser necessária para superar algumas das limitações da API. Todas as suas opções são as seguintes, considerações importantes incluídas:
 
-| Alternativa | Descrição | Mais adequado para |
+| Alternativa | Description | Mais adequado para |
 |---|---|---|
 | [Eventos personalizados](../app/api-custom-events-metrics.md?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Ingestão baseada em SDK nativo em Insights de Aplicação | O Application Insights, tipicamente instrumentado através de um SDK dentro da sua aplicação, oferece a capacidade de enviar dados personalizados através de Eventos Personalizados. | <ul><li> Dados que são gerados dentro da sua aplicação, mas não recolhidos pela SDK através de um dos tipos de dados predefinidos (pedidos, dependências, exceções, e assim por diante).</li><li> Dados que são mais frequentemente correlacionados com outros dados de aplicações em Insights de Aplicação </li></ul> |
 | API do Colecionador de Dados em Registos monitores Azure | A API do Colecionador de Dados em Registos monitores Azure é uma forma completamente aberta de ingerir dados. Qualquer dado formatado num objeto JSON pode ser enviado aqui. Uma vez enviado, será processado e disponível em Logs para ser correlacionado com outros dados em Logs ou contra outros dados de Insights de Aplicação. <br/><br/> É bastante fácil fazer o upload dos dados como ficheiros para uma bolha Azure Blob, de onde estes ficheiros serão processados e enviados para o Log Analytics. Consulte [este](./create-pipeline-datacollector-api.md) artigo para obter uma amostra de tal oleoduto. | <ul><li> Dados que não são necessariamente gerados dentro de uma aplicação instrumentada no Application Insights.</li><li> Exemplos incluem tabelas de procura e de factos, dados de referência, estatísticas pré-agregadas, e assim por diante. </li><li> Destina-se a dados que serão cruzados com outros dados do Azure Monitor (Application Insights, outros tipos de dados de Registos, Centro de Segurança, Monitor Azure para Contentores/VMs, e assim por diante). </li></ul> |

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: 6bdc7a087e60791ba3e3367aca3ea3a4500478ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21da883867da41e81ed1787faa0ebe0e6dd25d99
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91534204"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107883"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Criar a implementação de Registos do Azure Monitor
 
@@ -64,7 +64,7 @@ Com o controlo de acesso baseado em funções (RBAC), pode conceder aos utilizad
 
 Os dados a que um utilizador tem acesso são determinados por uma combinação de fatores listados na tabela seguinte. Cada um é descrito nas secções abaixo.
 
-| Fator | Descrição |
+| Fator | Description |
 |:---|:---|
 | [Modo de acesso](#access-mode) | Método que o utilizador utiliza para aceder ao espaço de trabalho.  Define o âmbito dos dados disponíveis e o modo de controlo de acesso que é aplicado. |
 | [Modo de controlo de acesso](#access-control-mode) | Definição no espaço de trabalho que define se as permissões são aplicadas no espaço de trabalho ou no nível de recursos. |
@@ -91,7 +91,7 @@ Os utilizadores têm duas opções para aceder aos dados:
     > - Service Fabric
     > - Application Insights
     >
-    > Pode testar se os registos estão devidamente associados ao seu recurso, executando uma consulta e inspecionando os registos em que está interessado. Se o ID de recurso correto estiver na propriedade [_ResourceId,](log-standard-properties.md#_resourceid) então os dados estão disponíveis para consultas centradas em recursos.
+    > Pode testar se os registos estão devidamente associados ao seu recurso, executando uma consulta e inspecionando os registos em que está interessado. Se o ID de recurso correto estiver na propriedade [_ResourceId,](./log-standard-columns.md#_resourceid) então os dados estão disponíveis para consultas centradas em recursos.
 
 O Azure Monitor determina automaticamente o modo certo, dependendo do contexto a partir do qual realiza a pesquisa de registo. O âmbito é sempre apresentado na secção superior esquerda do Log Analytics.
 
@@ -164,4 +164,3 @@ Enquanto planeia a sua migração para este modelo, considere o seguinte:
 ## <a name="next-steps"></a>Passos seguintes
 
 Para implementar as permissões e controlos de segurança recomendados neste guia, [reveja o acesso aos registos](manage-access.md).
-

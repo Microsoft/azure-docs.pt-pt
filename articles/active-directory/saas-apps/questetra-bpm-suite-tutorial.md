@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 11a6df348ae623ccf75e61bc1abbb5e28c832237
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 943aba9c25df6cd279dc651cfad343a6509c069b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548976"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108682"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>Tutorial: Integração do Azure Ative Directory com a Suite Questetra BPM
 
@@ -128,11 +128,11 @@ Para configurar o Azure AD single sign-on com questetra BPM Suite, execute os se
 
 2. No menu em cima, clique em **Definições de Sistema**. 
    
-    ![Azure AD Single Sign-On][10]
+    ![A screenshot mostra as definições do sistema selecionadas a partir do site da empresa Questetra BPM Suite.][10]
 
 3. Para abrir a página **SingleSignOnSAML,** clique em **SSO (SAML)**. 
    
-    ![Azure AD Single Sign-On][11]
+    ![A screenshot mostra S S O (SAML) selecionado.][11]
 
 4. No seu site da empresa **Questetra BPM Suite,** na secção **de Informação SP,** execute os seguintes passos:
 

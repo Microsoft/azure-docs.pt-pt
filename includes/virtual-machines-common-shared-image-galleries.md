@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 10/14/2020
 ms.author: olayemio
 ms.custom: include file
-ms.openlocfilehash: a5c06d0beeb76193c2b8ddba9413878dbf428819
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 3d5b57330775af60341cd65fddc65c10645f2573
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071783"
+ms.locfileid: "92116770"
 ---
 A Shared Image Gallery é um serviço que o ajuda a construir estrutura e organização em torno das suas imagens. As Galerias de Imagem Partilhadas fornecem:
 
@@ -56,10 +56,11 @@ Existem três parâmetros para cada definição de imagem que são usados em com
 
 Todos estes três têm conjuntos únicos de valores. O formato é semelhante ao que pode especificar atualmente as imagens de editor, oferta e SKU para [Azure Marketplace](../articles/virtual-machines/windows/cli-ps-findimage.md) em Azure PowerShell para obter a versão mais recente de uma imagem do Marketplace. Cada definição de imagem precisa de ter um conjunto único destes valores.
 
-As definições de imagem devem definir os seguintes parâmetros que determinam quais os tipos de versões de imagem que podem conter:
--   Estado do sistema operativo - Pode definir o estado de SO para [generalizado ou especializado](#generalized-and-specialized-images).
-- Sistema operativo - pode ser Windows ou Linux.
+Os seguintes parâmetros determinam quais os tipos de versões de imagem que podem conter:
 
+- Estado do sistema operativo - Pode definir o estado de SO para [generalizado ou especializado](#generalized-and-specialized-images). Este campo é obrigatório.
+- Sistema operativo - pode ser Windows ou Linux. Este campo é obrigatório.
+-   Geração Hyper-V - especifique se a imagem foi criada a partir de uma geração 1 ou [geração 2](../articles/virtual-machines/generation-2.md) Hyper-V VHD. O padrão é a geração 1.
 
 
 Seguem-se outros parâmetros que podem ser definidos na definição de imagem para que possa acompanhar mais facilmente os seus recursos:
@@ -71,7 +72,6 @@ Seguem-se outros parâmetros que podem ser definidos na definição de imagem pa
 - Tag - pode adicionar tags quando criar a definição de imagem. Para obter mais informações sobre tags, consulte [Usando tags para organizar os seus recursos](../articles/azure-resource-manager/management/tag-resources.md)
 - Recomendações mínimas e máximas de vCPU e memória - se a sua imagem tiver vCPU e recomendações de memória, pode anexar essa informação à sua definição de imagem.
 - Tipos de disco não permitidos - pode fornecer informações sobre as necessidades de armazenamento para o seu VM. Por exemplo, se a imagem não for adequada para discos HDD padrão, adicione-os à lista de não-adesecedores.
--   Geração Hyper-V - especifique se a imagem foi criada a partir de uma geração 1 ou [geração 2](../articles/virtual-machines/generation-2.md) Hyper-V VHD. O padrão é a geração 1.
 - Informação do plano de compra para imagens do Marketplace - `-PurchasePlanPublisher` `-PurchasePlanName` , e `-PurchasePlanProduct` . Para obter mais informações sobre informações sobre planos de compra, consulte [encontrar imagens no Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) e fornecer informações do [plano de compra do Azure Marketplace ao criar imagens.](../articles/virtual-machines/marketplace-images.md)
 
 
@@ -146,8 +146,8 @@ Como a Galeria de Imagens Partilhada, Definição de Imagem e Versão Image são
 
 | Partilhado com o Utilizador     | Galeria de Imagens Partilhada | Definição da Imagem | Versão da imagem |
 |----------------------|----------------------|--------------|----------------------|
-| Galeria de Imagens Partilhada | Yes                  | Yes          | Yes                  |
-| Definição da Imagem     | No                   | Yes          | Yes                  |
+| Galeria de Imagens Partilhada | Sim                  | Sim          | Sim                  |
+| Definição da Imagem     | Não                   | Sim          | Sim                  |
 
 Recomendamos a partilha ao nível da Galeria para obter a melhor experiência. Não recomendamos a partilha de versões de imagem individuais. Para obter mais informações sobre o RBAC, consulte [Gerir o acesso aos recursos do Azure utilizando o RBAC.](../articles/role-based-access-control/role-assignments-portal.md)
 
@@ -163,12 +163,12 @@ Não existe qualquer custo extra para a utilização do serviço Image Gallery P
 Uma vez criado, pode fazer algumas alterações nos recursos da galeria de imagens. Estes limitam-se a:
  
 Galeria de imagens partilhada:
-- Descrição
+- Description
 
 Definição de imagem:
 - VCPUs recomendados
 - Memória recomendada
-- Descrição
+- Description
 - Data de fim de vida
 
 Versão de imagem:

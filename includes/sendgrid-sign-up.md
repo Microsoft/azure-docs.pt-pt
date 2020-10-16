@@ -4,12 +4,12 @@ ms.service: multiple
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: gwallace
-ms.openlocfilehash: 4eb1a6f351cdf129611949049f762fe51cac4b16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3590b8fdb67b25e0d4389e814aefcc4d18b1193c
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91376950"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92116721"
 ---
 Os clientes do Azure podem desbloquear 25 000 mensagens de e-mail gratuitas por mês. Estes 25.000 e-mails mensais gratuitos dar-lhe-ão acesso a relatórios e análises avançados e [a todas as APIs][all APIs] (Web, SMTP, Event, Parse, entre outras). Para obter informações sobre os serviços adicionais fornecidos pela SendGrid, visite a página [Soluções SendGrid][SendGrid Solutions].
 
@@ -69,7 +69,7 @@ Os clientes do Azure podem desbloquear 25 000 mensagens de e-mail gratuitas por 
 ### <a name="to-find-your-sendgrid-credentials"></a>Para localizar as credenciais do SendGrid
 1. Clique no ícone de chave para localizar o **Nome de utilizador**.
 
-    ! Screenshot da página de conta ContosoSendGrid com o ícone chave em destaque.] [chave]
+    ![Screenshot da página de conta ContosoSendGrid com o ícone Chave em destaque.][key]
 2. A palavra-passe é aquela que escolheu na configuração. Pode selecionar **Alterar palavra-passe** ou **Repor palavra-passe** para fazer alterações.
 
 Para gerir as definições de capacidade de entrega de mensagens de e-mail, clique no **botão Gerir**. Isto irá redirecionar para o seu painel SendGrid.
@@ -90,7 +90,7 @@ Para mais informações sobre o envio de e-mail através do SendGrid, visite a V
 [api-keys]: ./media/sendgrid-sign-up/api-keys.png
 [general-api-key]: ./media/sendgrid-sign-up/general-api-key.png
 [access]: ./media/sendgrid-sign-up/access.png
-[chave]: ./media/sendgrid-sign-up/key.png
+[key]: ./media/sendgrid-sign-up/key.png
 
 <!--Links-->
 

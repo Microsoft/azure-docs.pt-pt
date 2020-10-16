@@ -5,16 +5,16 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/07/2020
+ms.date: 10/15/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cedb6d162829d63aaac1a36b35abee1faeae3f1b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb227ab955ca2ec9ec72b4a86fd321a45dee997f
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843401"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107662"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Definir listas de controlo de acesso (ACLs) recursivamente para Azure Data Lake Storage Gen2
 
@@ -94,6 +94,37 @@ Instale as bibliotecas necessárias.
    using System.Collections.Generic;
    using System.Threading.Tasks;
     ```
+
+### <a name="java"></a>[Java](#tab/java)
+
+Para começar, abra [esta página](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) e encontre a versão mais recente da biblioteca Java. Em seguida, abra o ficheiro *pom.xml* no seu editor de texto. Adicione um elemento de dependência que faz referência a essa versão.
+
+Se planeia autenticar a sua aplicação de cliente utilizando o Azure Ative Directory (AD), adicione uma dependência à Biblioteca de Clientes Secretos Azure. Consulte [a adição do pacote secret Client Library ao seu projeto.](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity#adding-the-package-to-your-project)
+
+Em seguida, adicione estas declarações de importação ao seu ficheiro de código.
+
+```java
+import com.azure.identity.ClientSecretCredential;
+import com.azure.identity.ClientSecretCredentialBuilder;
+import com.azure.core.http.rest.PagedIterable;
+import com.azure.core.http.rest.Response;
+import com.azure.storage.common.StorageSharedKeyCredential;
+import com.azure.storage.file.datalake.DataLakeDirectoryClient;
+import com.azure.storage.file.datalake.DataLakeFileClient;
+import com.azure.storage.file.datalake.DataLakeFileSystemClient;
+import com.azure.storage.file.datalake.DataLakeServiceClient;
+import com.azure.storage.file.datalake.DataLakeServiceClientBuilder;
+import com.azure.storage.file.datalake.models.AccessControlChangeResult;
+import com.azure.storage.file.datalake.models.AccessControlType;
+import com.azure.storage.file.datalake.models.ListPathsOptions;
+import com.azure.storage.file.datalake.models.PathAccessControl;
+import com.azure.storage.file.datalake.models.PathAccessControlEntry;
+import com.azure.storage.file.datalake.models.PathItem;
+import com.azure.storage.file.datalake.models.PathPermissions;
+import com.azure.storage.file.datalake.models.PathRemoveAccessControlEntry;
+import com.azure.storage.file.datalake.models.RolePermissions;
+import com.azure.storage.file.datalake.options.PathSetAccessControlRecursiveOptions;
+```
 
 ### <a name="python"></a>[Python](#tab/python)
 
@@ -220,6 +251,59 @@ public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceCl
 
 > [!NOTE]
 > Para mais exemplos, consulte a biblioteca do [cliente de identidade Azure para obter](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity) documentação .NET.
+
+### <a name="java"></a>[Java](#tab/java)
+
+Para utilizar os snippets neste artigo, terá de criar uma instância **DataLakeServiceClient** que represente a conta de armazenamento. 
+
+#### <a name="connect-by-using-an-account-key"></a>Conecte-se usando uma chave de conta
+
+Esta é a maneira mais fácil de ligar a uma conta. 
+
+Este exemplo cria uma instância **DataLakeServiceClient** utilizando uma chave de conta.
+
+```java
+
+static public DataLakeServiceClient GetDataLakeServiceClient
+(String accountName, String accountKey){
+
+    StorageSharedKeyCredential sharedKeyCredential =
+        new StorageSharedKeyCredential(accountName, accountKey);
+
+    DataLakeServiceClientBuilder builder = new DataLakeServiceClientBuilder();
+
+    builder.credential(sharedKeyCredential);
+    builder.endpoint("https://" + accountName + ".dfs.core.windows.net");
+
+    return builder.buildClient();
+}      
+```
+
+#### <a name="connect-by-using-azure-active-directory-azure-ad"></a>Conecte-se utilizando o Azure Ative Directory (Azure AD)
+
+Pode utilizar a biblioteca de [clientes de identidade Azure para a Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity) para autenticar a sua aplicação com Azure AD.
+
+Este exemplo cria um exemplo **de DataLakeServiceClient** usando um ID de cliente, um segredo de cliente e uma identificação de inquilino.  Para obter estes valores, consulte [Adquirir um token da Azure AD para autorizar pedidos de uma aplicação do cliente.](../common/storage-auth-aad-app.md)
+
+```java
+static public DataLakeServiceClient GetDataLakeServiceClient
+    (String accountName, String clientId, String ClientSecret, String tenantID){
+
+    String endpoint = "https://" + accountName + ".dfs.core.windows.net";
+        
+    ClientSecretCredential clientSecretCredential = new ClientSecretCredentialBuilder()
+    .clientId(clientId)
+    .clientSecret(ClientSecret)
+    .tenantId(tenantID)
+    .build();
+           
+    DataLakeServiceClientBuilder builder = new DataLakeServiceClientBuilder();
+    return builder.credential(clientSecretCredential).endpoint(endpoint).buildClient();
+ } 
+```
+
+> [!NOTE]
+> Para mais exemplos, consulte a biblioteca de [clientes de identidade Azure para](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/identity/azure-identity) documentação java.
 
 ### <a name="python"></a>[Python](#tab/python)
 
@@ -348,6 +432,77 @@ public async void SetACLRecursively(DataLakeServiceClient serviceClient, bool is
 
 ```
 
+### <a name="java"></a>[Java](#tab/java)
+
+Desenre um ACL de forma recorrente, chamando o método **DataLakeDirectoryClient.setAccessControlRecursive.** Passe este método uma [Lista](https://docs.oracle.com/javase/8/docs/api/java/util/List.html) de [objetos PathAccessControlEntry.](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) Cada [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) define uma entrada ACL. 
+
+Se pretender definir uma entrada ACL **predefinida,** pode ligar para o método **setDefaultScope** do [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) e passar num valor **de verdade**. 
+
+Este exemplo define a ACL de um diretório chamado `my-parent-directory` . Este método aceita um parâmetro booleano nomeado `isDefaultScope` que especifica se deve definir o ACL predefinido. Este parâmetro é utilizado em cada chamada para o método **setDefaultScope** do [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html). As entradas da ACL dão ao utilizador que leia, escreva e execute permissões, dá ao grupo que só lê e executa permissões, e não dá acesso a todos os outros. A última entrada ACL neste exemplo dá a um utilizador específico com o objeto ID "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" ler e executar permissões.
+
+```java
+static public void SetACLRecursively(DataLakeFileSystemClient fileSystemClient, Boolean isDefaultScope){
+    
+    DataLakeDirectoryClient directoryClient =
+        fileSystemClient.getDirectoryClient("my-parent-directory");
+
+    List<PathAccessControlEntry> pathAccessControlEntries = 
+        new ArrayList<PathAccessControlEntry>();
+
+    // Create owner entry.
+    PathAccessControlEntry ownerEntry = new PathAccessControlEntry();
+
+    RolePermissions ownerPermission = new RolePermissions();
+    ownerPermission.setExecutePermission(true).setReadPermission(true).setWritePermission(true);
+
+    ownerEntry.setDefaultScope(isDefaultScope);
+    ownerEntry.setAccessControlType(AccessControlType.USER);
+    ownerEntry.setPermissions(ownerPermission);
+
+    pathAccessControlEntries.add(ownerEntry);
+
+    // Create group entry.
+    PathAccessControlEntry groupEntry = new PathAccessControlEntry();
+
+    RolePermissions groupPermission = new RolePermissions();
+    groupPermission.setExecutePermission(true).setReadPermission(true).setWritePermission(false);
+
+    groupEntry.setDefaultScope(isDefaultScope);
+    groupEntry.setAccessControlType(AccessControlType.GROUP);
+    groupEntry.setPermissions(groupPermission);
+
+    pathAccessControlEntries.add(groupEntry);
+
+    // Create other entry.
+    PathAccessControlEntry otherEntry = new PathAccessControlEntry();
+
+    RolePermissions otherPermission = new RolePermissions();
+    otherPermission.setExecutePermission(false).setReadPermission(false).setWritePermission(false);
+
+    otherEntry.setDefaultScope(isDefaultScope);
+    otherEntry.setAccessControlType(AccessControlType.OTHER);
+    otherEntry.setPermissions(otherPermission);
+
+    pathAccessControlEntries.add(otherEntry);
+
+    // Create named user entry.
+    PathAccessControlEntry userEntry = new PathAccessControlEntry();
+
+    RolePermissions userPermission = new RolePermissions();
+    userPermission.setExecutePermission(true).setReadPermission(true).setWritePermission(false);
+
+    userEntry.setDefaultScope(isDefaultScope);
+    userEntry.setAccessControlType(AccessControlType.USER);
+    userEntry.setEntityId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx");
+    userEntry.setPermissions(userPermission);    
+    
+    pathAccessControlEntries.add(userEntry);
+    
+    directoryClient.setAccessControlRecursive(pathAccessControlEntries);        
+
+}
+```
+
 ### <a name="python"></a>[Python](#tab/python)
 
 Desaprote um ACL de forma recorrente, chamando o método **DataLakeDirectoryClient.set_access_control_recursive.**
@@ -368,10 +523,10 @@ def set_permission_recursively(is_default_scope):
 
         directory_client = file_system_client.get_directory_client("my-parent-directory")
               
-        acl = 'user::rwx,group::rwx,other::rwx,user:4a9028cf-f779-4032-b09d-970ebe3db258:r--'   
+        acl = 'user::rwx,group::rwx,other::rwx,user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:r--'   
 
         if is_default_scope:
-           acl = 'default:user::rwx,default:group::rwx,default:other::rwx,default:user:4a9028cf-f779-4032-b09d-970ebe3db258:r--'
+           acl = 'default:user::rwx,default:group::rwx,default:other::rwx,default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:r--'
 
         directory_client.set_access_control_recursive(acl=acl)
         
@@ -437,6 +592,40 @@ public async void UpdateACLsRecursively(DataLakeServiceClient serviceClient, boo
     await directoryClient.UpdateAccessControlRecursiveAsync
         (accessControlListUpdate, null);
 
+}
+```
+
+### <a name="java"></a>[Java](#tab/java)
+
+Atualize um ACL recursivamente chamando o método **DataLakeDirectoryClient.updateAccessControlRecursive.**  Passe este método uma [Lista](https://docs.oracle.com/javase/8/docs/api/java/util/List.html) de [objetos PathAccessControlEntry.](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) Cada [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) define uma entrada ACL. 
+
+Se pretender atualizar uma entrada ACL **predefinida,** pode então o método **setDefaultScope** do [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) e passar num valor **de verdade**. 
+
+Este exemplo atualiza uma entrada ACL com permissão de escrita. Este método aceita um parâmetro booleano nomeado `isDefaultScope` que especifica se deve atualizar o ACL predefinido. Este parâmetro é utilizado na chamada para o método **setDefaultScope** do [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html). 
+
+```java
+static public void UpdateACLRecursively(DataLakeFileSystemClient fileSystemClient, Boolean isDefaultScope){
+
+    DataLakeDirectoryClient directoryClient =
+    fileSystemClient.getDirectoryClient("my-parent-directory");
+
+    List<PathAccessControlEntry> pathAccessControlEntries = 
+        new ArrayList<PathAccessControlEntry>();
+
+    // Create named user entry.
+    PathAccessControlEntry userEntry = new PathAccessControlEntry();
+
+    RolePermissions userPermission = new RolePermissions();
+    userPermission.setExecutePermission(true).setReadPermission(true).setWritePermission(true);
+
+    userEntry.setDefaultScope(isDefaultScope);
+    userEntry.setAccessControlType(AccessControlType.USER);
+    userEntry.setEntityId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx");
+    userEntry.setPermissions(userPermission);    
+    
+    pathAccessControlEntries.add(userEntry);
+    
+    directoryClient.updateAccessControlRecursive(pathAccessControlEntries);          
 }
 ```
 
@@ -525,6 +714,41 @@ public async void RemoveACLsRecursively(DataLakeServiceClient serviceClient, isD
 }
 ```
 
+### <a name="java"></a>[Java](#tab/java)
+
+Remova as entradas ACL chamando o método **DataLakeDirectoryClient.removeAccessControlRecursive.** Passe este método uma [Lista](https://docs.oracle.com/javase/8/docs/api/java/util/List.html) de [objetos PathAccessControlEntry.](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) Cada [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) define uma entrada ACL. 
+
+Se pretender remover uma entrada ACL **predefinida,** pode então o método **setDefaultScope** do [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) e passar num valor **de verdade**.  
+
+Este exemplo remove uma entrada ACL da ACL do diretório denominado `my-parent-directory` . Este método aceita um parâmetro booleano nomeado `isDefaultScope` que especifica se deve remover a entrada do ACL predefinido. Este parâmetro é utilizado na chamada para o método **setDefaultScope** do [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html).
+
+
+```java
+static public void RemoveACLRecursively(DataLakeFileSystemClient fileSystemClient, Boolean isDefaultScope){
+
+    DataLakeDirectoryClient directoryClient =
+    fileSystemClient.getDirectoryClient("my-parent-directory");
+
+    List<PathRemoveAccessControlEntry> pathRemoveAccessControlEntries = 
+        new ArrayList<PathRemoveAccessControlEntry>();
+
+    // Create named user entry.
+    PathRemoveAccessControlEntry userEntry = new PathRemoveAccessControlEntry();
+
+    RolePermissions userPermission = new RolePermissions();
+    userPermission.setExecutePermission(true).setReadPermission(true).setWritePermission(true);
+
+    userEntry.setDefaultScope(isDefaultScope);
+    userEntry.setAccessControlType(AccessControlType.USER);
+    userEntry.setEntityId("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"); 
+    
+    pathRemoveAccessControlEntries.add(userEntry);
+    
+    directoryClient.removeAccessControlRecursive(pathRemoveAccessControlEntries);      
+
+}
+```
+
 ### <a name="python"></a>[Python](#tab/python)
 
 Remova as entradas ACL chamando o método **DataLakeDirectoryClient.remove_access_control_recursive.** Se pretender remover uma entrada ACL **predefinida,** adicione a cadeia `default:` ao início da cadeia de entrada ACL. 
@@ -539,10 +763,10 @@ def remove_permission_recursively(is_default_scope):
 
         directory_client = file_system_client.get_directory_client("my-parent-directory")
               
-        acl = 'user:4a9028cf-f779-4032-b09d-970ebe3db258'
+        acl = 'user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 
         if is_default_scope:
-           acl = 'default:user:4a9028cf-f779-4032-b09d-970ebe3db258'
+           acl = 'default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
 
         directory_client.remove_access_control_recursive(acl=acl)
 
@@ -576,7 +800,7 @@ $result
 
 ## <a name="net"></a>[.NET](#tab/dotnet)
 
-Este exemplo devolve um sinal de continuação em caso de falha. A aplicação pode voltar a chamar este método de exemplo depois de o erro ter sido abordado, e passar no token de continuação. Se este método de exemplo for chamado pela primeira vez, a aplicação pode passar num valor para ``null`` o parâmetro simbólico de continuação. 
+Este exemplo devolve um sinal de continuação em caso de falha. A aplicação pode voltar a chamar este método de exemplo depois de o erro ter sido abordado, e passar no token de continuação. Se este método de exemplo for chamado pela primeira vez, a aplicação pode passar num valor para `null` o parâmetro simbólico de continuação. 
 
 ```cs
 public async Task<string> ResumeAsync(DataLakeServiceClient serviceClient,
@@ -604,6 +828,41 @@ public async Task<string> ResumeAsync(DataLakeServiceClient serviceClient,
         return continuationToken;
     }
 
+}
+```
+
+### <a name="java"></a>[Java](#tab/java)
+
+Este exemplo devolve um sinal de continuação em caso de falha. A aplicação pode voltar a chamar este método de exemplo depois de o erro ter sido abordado, e passar no token de continuação. Se este método de exemplo for chamado pela primeira vez, a aplicação pode passar num valor para `null` o parâmetro simbólico de continuação. 
+
+```java
+static public String ResumeSetACLRecursively(DataLakeFileSystemClient fileSystemClient,
+DataLakeDirectoryClient directoryClient,
+List<PathAccessControlEntry> accessControlList, 
+String continuationToken){
+
+    try{
+        PathSetAccessControlRecursiveOptions options = new PathSetAccessControlRecursiveOptions(accessControlList);
+        
+        options.setContinuationToken(continuationToken);
+    
+        Response<AccessControlChangeResult> accessControlChangeResult =  
+            directoryClient.setAccessControlRecursiveWithResponse(options, null, null);
+
+        if (accessControlChangeResult.getValue().getCounters().getFailedChangesCount() > 0)
+        {
+            continuationToken =
+                accessControlChangeResult.getValue().getContinuationToken();
+        }
+    
+        return continuationToken;
+
+    }
+    catch(Exception ex){
+    
+        System.out.println(ex.toString());
+        return continuationToken;
+    }
 }
 ```
 
@@ -642,6 +901,7 @@ Esta secção contém ligações a bibliotecas e amostras de código.
 
 - [PowerShell](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.powershellgallery.com%2Fpackages%2FAz.Storage%2F2.5.2-preview&data=02%7C01%7Cnormesta%40microsoft.com%7Ccdabce06132c42132b4008d849a2dfb1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637340311173215017&sdata=FWynO9UKTt7ESMCFgkWaL7J%2F%2BjODaRo5BD6G6yCx9os%3D&reserved=0)
 - [.NET](https://pkgs.dev.azure.com/azure-sdk/public/_packaging/azure-sdk-for-net/nuget/v3/index.json)
+- [Java](/java/api/overview/azure/storage-file-datalake-readme)
 - [Python](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2Fazure_storage_file_datalake-12.1.0b99-py2.py3-none-any.whl%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A47%253A01Z%26se%3D2021-08-25T07%253A47%253A00Z%26sr%3Db%26sp%3Dr%26sig%3DH1XYw4FTLJse%252BYQ%252BfamVL21UPVIKRnnh2mfudA%252BfI0I%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C95a5966d938a4902560e08d84912fe32%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637339693209725909&sdata=acv4KWZdzkITw1lP0%2FiA3lZuW7NF5JObjY26IXttfGI%3D&reserved=0)
 
 #### <a name="code-samples"></a>Exemplos de código
@@ -682,7 +942,7 @@ O número máximo de ACLs que pode aplicar a um diretório ou ficheiro é de 32 
 
 Pode fornecer o seu feedback ou reportar um problema em  [recursiveACLfeedback@microsoft.com](mailto:recursiveACLfeedback@microsoft.com) .
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Access control in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) (Controlo de acesso no Azure Data Lake Storage Gen2)
 - [Problemas conhecidos](data-lake-storage-known-issues.md)

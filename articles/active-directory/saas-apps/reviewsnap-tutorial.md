@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 354aeca01cb2d5244c68e1691642e4d2b41869dc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 559053bba48d559032993d8047931d1fab0d8e33
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88534528"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105503"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reviewsnap"></a>Tutorial: Integração do Diretório Ativo Azure com Reviewsnap
 
@@ -99,7 +99,7 @@ Para configurar o Azure AD um único sign-on com reviewsnap, execute os seguinte
 
 4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![Comentários sobre o domínio do snap e as informações de assinatura única](common/idp-intiated.png)
+    ![A screenshot mostra a Configuração BÁSICA SAML, onde pode introduzir o Identificador, Responder U R L e selecionar Guardar.](common/idp-intiated.png)
 
     a. Na caixa de texto **identifier,** digite um URL: `https://app.reviewsnap.com`
 
@@ -107,7 +107,7 @@ Para configurar o Azure AD um único sign-on com reviewsnap, execute os seguinte
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    ![Comentários sobre o domínio do snap e as informações de assinatura única](common/metadata-upload-additional-signon.png)
+    ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL:  `https://app.reviewsnap.com/login`
 

@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
-ms.openlocfilehash: 1da4154530f823d391aea779011a34a35edfd070
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 796aca02e6f70da8f5b94f6bbdbd2fd1d535bd77
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89071164"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108478"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia de desenvolvedores powershell de funções Azure Functions
 
@@ -77,8 +77,8 @@ $TriggerMetadata.sys
 | Propriedade   | Descrição                                     | Tipo     |
 |------------|-------------------------------------------------|----------|
 | UtcNow     | Quando, na UTC, a função foi desencadeada        | DateTime |
-| Nome metóddio | O nome da Função que foi desencadeada     | string   |
-| Rio RandGuid   | um guia único para esta execução da função | string   |
+| Nome metóddio | O nome da Função que foi desencadeada     | cadeia   |
+| Rio RandGuid   | um guia único para esta execução da função | cadeia   |
 
 Cada tipo de gatilho tem um conjunto diferente de metadados. Por exemplo, o `$TriggerMetadata` for contém o , , , , entre `QueueTrigger` `InsertionTime` `Id` `DequeueCount` outras coisas. Para obter mais informações sobre os metadados do gatilho da fila, aceda à [documentação oficial para os gatilhos da fila](functions-bindings-storage-queue-trigger.md#message-metadata). Verifique a documentação dos [gatilhos](functions-triggers-bindings.md) com que está a trabalhar para ver o que vem dentro dos metadados do gatilho.
 
@@ -126,9 +126,9 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Seguem-se os seguintes parâmetros válidos para a `Push-OutputBinding` chamada:
 
-| Nome | Tipo | Posição | Descrição |
+| Nome | Tipo | Posição | Description |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | Cadeia | 1 | O nome da vinculação de saída que pretende definir. |
+| **`-Name`** | String | 1 | O nome da vinculação de saída que pretende definir. |
 | **`-Value`** | Objeto | 2 | O valor da vinculação de saída que pretende definir, que é aceite a partir do pipeline ByValue. |
 | **`-Clobber`** | ParâmetroOpcional | Nomeado | (Opcional) Quando especificado, força o valor a ser definido para uma ligação de saída especificada. | 
 
@@ -143,7 +143,7 @@ São também suportados os seguintes parâmetros comuns:
 * `PipelineVariable`
 * `OutVariable` 
 
-Para mais informações, consulte [Os CommonParameters.](https://go.microsoft.com/fwlink/?LinkID=113216)
+Para mais informações, consulte [Os CommonParameters.](/powershell/module/microsoft.powershell.core/about/about_commonparameters)
 
 #### <a name="push-outputbinding-example-http-responses"></a>Push-OutputBinding exemplo: RESPOSTAS HTTP
 
@@ -276,7 +276,7 @@ Existem vários gatilhos e encadernações disponíveis para utilizar com a sua 
 Todos os gatilhos e encadernações são representados em código como alguns tipos reais de dados:
 
 * Haxixe
-* string
+* cadeia
 * byte[]
 * int
 * double
@@ -299,10 +299,10 @@ O objeto de pedido que é passado para o script é do `HttpRequestContext` tipo,
 |-----------|----------------------------------------------------------------|---------------------------|
 | **`Body`**    | Um objeto que contém o corpo do pedido. `Body` é serializado para o melhor tipo com base nos dados. Por exemplo, se os dados são JSON, é passado como um haxixe. Se os dados são uma corda, é passado como uma corda. | objeto |
 | **`Headers`** | Um dicionário que contém os cabeçalhos de pedido.                | Cadeia de<do dicionário,>de cordas <sup>*</sup> |
-| **`Method`** | O método HTTP do pedido.                                | string                    |
+| **`Method`** | O método HTTP do pedido.                                | cadeia                    |
 | **`Params`**  | Um objeto que contém os parâmetros de encaminhamento do pedido. | Cadeia de<do dicionário,>de cordas <sup>*</sup> |
 | **`Query`** | Um objeto que contém os parâmetros de consulta.                  | Cadeia de<do dicionário,>de cordas <sup>*</sup> |
-| **`Url`** | A URL do pedido.                                        | string                    |
+| **`Url`** | A URL do pedido.                                        | cadeia                    |
 
 <sup>*</sup> Todas `Dictionary<string,string>` as chaves são insensíveis.
 
@@ -313,7 +313,7 @@ O objeto de resposta que deve enviar de volta é do `HttpResponseContext` tipo, 
 | Propriedade      | Descrição                                                 | Tipo                      |
 |---------------|-------------------------------------------------------------|---------------------------|
 | **`Body`**  | Um objeto que contém o corpo da resposta.           | objeto                    |
-| **`ContentType`** | Uma mão curta para definir o tipo de conteúdo para a resposta. | string                    |
+| **`ContentType`** | Uma mão curta para definir o tipo de conteúdo para a resposta. | cadeia                    |
 | **`Headers`** | Um objeto que contém os cabeçalhos de resposta.               | Dicionário ou Hashtable   |
 | **`StatusCode`**  | O código de estado HTTP da resposta.                       | corda ou int             |
 
@@ -470,7 +470,7 @@ Quando atualiza o ficheiro requirements.psd1, os módulos atualizados são insta
 
 As seguintes definições de aplicação podem ser usadas para alterar a forma como as dependências geridas são descarregadas e instaladas. A atualização da sua aplicação começa dentro `MDMaxBackgroundUpgradePeriod` de , e o processo de atualização completa dentro de aproximadamente o `MDNewSnapshotCheckPeriod` .
 
-| Definição de aplicativo de função              | Valor predefinido             | Descrição                                         |
+| Definição de aplicativo de função              | Valor predefinido             | Description                                         |
 |   -----------------------------   |   -------------------     |  -----------------------------------------------    |
 | **`MDMaxBackgroundUpgradePeriod`**      | `7.00:00:00` (7 dias)     | Cada processo de trabalhador PowerShell inicia a verificação de atualizações de módulos na PowerShell Gallery no início do processo e em todas as `MDMaxBackgroundUpgradePeriod` seguintes. Quando uma nova versão do módulo está disponível na PowerShell Gallery, é instalada no sistema de ficheiros e disponibilizada aos trabalhadores do PowerShell. Diminuir este valor permite que a sua aplicação de função obtenha versões de módulos mais recentes mais cedo, mas também aumenta o uso de recursos da aplicação (rede I/O, CPU, armazenamento). O aumento deste valor diminui o uso de recursos da app, mas também pode atrasar a entrega de novas versões de módulos à sua app. | 
 | **`MDNewSnapshotCheckPeriod`**         | `01:00:00` (1 hora)       | Depois de serem instaladas novas versões de módulos no sistema de ficheiros, todos os processos de trabalhadores powerShell devem ser reiniciados. Reiniciar os trabalhadores do PowerShell afeta a disponibilidade da sua aplicação, uma vez que pode interromper a execução da função atual. Até que todos os processos do trabalhador powerShell sejam reiniciados, as invocações de função podem usar as versões antigas ou novas do módulo. Reiniciar todos os trabalhadores da PowerShell completos dentro `MDNewSnapshotCheckPeriod` de . Aumentar este valor diminui a frequência de interrupções, mas também pode aumentar o período de tempo em que as invocações de função usam as versões antigas ou novas do módulo não deterministicamente. |
@@ -560,7 +560,7 @@ Existem alguns modelos de concordância que você poderia explorar dependendo do
 
 Você define estas variáveis ambientais nas definições de [aplicação](functions-app-settings.md) da sua aplicação de função.
 
-Dependendo do seu caso de utilização, as funções duráveis podem melhorar significativamente a escalabilidade. Para saber mais, consulte [os padrões de aplicação de Funções Duráveis](/azure/azure-functions/durable/durable-functions-overview?tabs=powershell#application-patterns).
+Dependendo do seu caso de utilização, as funções duráveis podem melhorar significativamente a escalabilidade. Para saber mais, consulte [os padrões de aplicação de Funções Duráveis](./durable/durable-functions-overview.md?tabs=powershell#application-patterns).
 
 >[!NOTE]
 > Poderá receber "pedidos que estão a ser solicitados devido a nenhum espaço de funcionamento disponível", por favor tenha em atenção que isto não é um erro. A mensagem diz-lhe que os pedidos estão a ser preenchidos e que serão tratados quando os pedidos anteriores estiverem concluídos.

@@ -3,17 +3,17 @@ title: 'Quickstart: Biblioteca de armazenamento Azure Blob v12 - Xamarin'
 description: Neste arranque rápido, aprende-se a usar a versão 12 da biblioteca de clientes de armazenamento Azure Blob com Xamarin para criar um recipiente e uma bolha no armazenamento blob (objeto). Em seguida, você aprende a baixar a bolha para o seu dispositivo móvel, e como listar todas as bolhas em um recipiente.
 author: codemillmatt
 ms.author: masoucou
-ms.date: 05/08/2020
+ms.date: 10/09/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 60381d68dc2c1bae5afb2655558e8a35b65c965d
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 434f112e78938c94d887423316fccea270059b6b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093961"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109022"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-with-xamarin"></a>Quickstart: Azure Blob storage client library v12 com Xamarin
 

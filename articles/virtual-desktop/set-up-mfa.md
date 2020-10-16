@@ -3,15 +3,15 @@ title: Configurar a autenticação multi-factor Azure para o Windows Virtual Des
 description: Como configurar a autenticação multi-factor Azure para uma maior segurança no Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 10/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e31693eafcf32de1460cfa5b74ae35ffd05b5a67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e67e3d391ba69bacb82a9154f577942a017e5795
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089926"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108988"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Ativar o Multi-Factor Authentication do Microsoft Azure para o Windows Virtual Desktop
 
@@ -64,6 +64,8 @@ Eis como criar uma política de acesso condicional que requer autenticação de 
 
    >[!IMPORTANT]
    > Não selecione a aplicação chamada Fornecedor de Gestor de Recursos Virtual Desktop Azure (50e95039-b200-4007-bc97-8d5790743a63). Esta aplicação é usada apenas para recuperar o feed do utilizador e não deve ter MFA.
+   > 
+   > Se estiver a utilizar o Windows Virtual Desktop (clássico), se a política de Acesso Condicional bloquear todos os acessos e excluir apenas iDs de aplicações virtuais do Windows Desktop, pode corrigi-lo adicionando a aplicação ID 9cdead84-a844-4324-93f2-b2e6bb768d07 à apólice. Não adicionar este ID de aplicação bloqueará a descoberta de feed de recursos do Windows Virtual Desktop (clássico).
 
 10. Vá às aplicações do Cliente **condições,**  >  **Client apps**em seguida, selecione onde pretende aplicar a política para:
     

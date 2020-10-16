@@ -1,5 +1,5 @@
 ---
-title: Azure AD Application Proxy frequentemente fez perguntas Microsoft Docs
+title: Azure Ative Directory Application Proxy frequentemente fez perguntas
 description: Aprenda respostas a perguntas frequentes (FAQ) sobre a utilização de Proxy da Aplicação AD Azure para publicar aplicações internas e no local para utilizadores remotos.
 services: active-directory
 author: kenwith
@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: edf51dad768e8d8b5ea5dc6c1eff88f43f0f6b70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28c34e97fa340b6fb95877ebece740897ae72e7a
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589168"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104568"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Diretório Ativo (Azure AD) Aplicação Proxy frequentemente perguntas
 
@@ -84,7 +84,6 @@ O Proxy da aplicação requer o Windows Server 2012 R2 ou mais tarde. Existe atu
     HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
     ```
 
-
 ## <a name="application-configuration"></a>Configuração da aplicação
 
 ### <a name="i-am-receiving-an-error-about-an-invalid-certificate-or-possible-wrong-password"></a>Estou a receber um erro sobre um certificado inválido ou uma possível senha errada
@@ -124,6 +123,12 @@ Para mais informações, consulte a delegação restrita de papel branco [Kerber
 ### <a name="does-ntlm-authentication-work-with-azure-ad-application-proxy"></a>A autenticação da NTLM funciona com o Azure AD Application Proxy?
 
 A autenticação NTLM não pode ser utilizada como um método de pré-autenticação ou de um único sinal. A autenticação NTLM só pode ser utilizada quando pode ser negociada diretamente entre o cliente e a aplicação web publicada. A utilização da autenticação NTLM geralmente faz com que um pedido de inscrição apareça no navegador.
+
+### <a name="can-i-use-the-logon-identity-on-premises-user-principal-name-or-on-premises-sam-account-name-in-a-b2b-iwa-single-sign-on-scenario"></a>Posso utilizar a identidade do logon "Nome principal do utilizador no local" ou "Nome da conta SAM no local" num cenário de inscrição única da IWA B2B?
+
+Não, isto não vai funcionar, porque um utilizador convidado em Azure AD não tem o atributo que é exigido por qualquer uma das identidades de início de súm mencionado acima.
+
+Neste caso, haverá uma recaída para "Nome principal do utilizador". Para mais detalhes sobre o cenário B2B, leia [os utilizadores do Grant B2B no Azure AD acesso às suas aplicações no local.](../external-identities/hybrid-cloud-to-on-premises.md)
 
 ## <a name="pass-through-authentication"></a>Autenticação pass-through
 
@@ -171,7 +176,7 @@ A [aplicação móvel SharePoint](https://docs.microsoft.com/sharepoint/administ
 
 ### <a name="can-i-use-azure-ad-application-proxy-as-ad-fs-proxy-like-web-application-proxy"></a>Posso usar o Azure AD Application Proxy como proxy AD FS (como o Proxy de Aplicações Web)?
 
-N.º O Azure AD Application Proxy foi concebido para trabalhar com a Azure AD e não preenche os requisitos para agir como um representante da AD FS.
+Não. O Azure AD Application Proxy foi concebido para trabalhar com a Azure AD e não preenche os requisitos para agir como um representante da AD FS.
 
 ## <a name="websocket"></a>WebSocket
 
@@ -198,5 +203,5 @@ Este cenário não é apoiado diretamente. As suas opções para este cenário s
 1. Publique os URLs HTTP e HTTPS como aplicações separadas com um wildcard, mas dê a cada um deles um domínio personalizado diferente. Esta configuração funcionará uma vez que têm DIFERENTES URLS externos.
 
 2. Publique o URL HTTPS através de uma aplicação wildcard. Publique as aplicações HTTP utilizando separadamente estes cmdlets Proxy PowerShell de aplicação:
-   - [Gestão de aplicações proxy](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
-   - [Gestão de Conector de Proxy de Aplicação](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management)
+   - [Gestão de aplicações proxy](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management&preserve-view=true)
+   - [Gestão de Conector de Proxy de Aplicação](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_connector_management&preserve-view=true)

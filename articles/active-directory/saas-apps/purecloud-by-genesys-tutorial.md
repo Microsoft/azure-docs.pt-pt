@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 0d2953710c559deb094761410e6d46401e103d8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab63e54589f68516b0106a1c96edced38539d252
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88553296"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108546"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-purecloud-by-genesys"></a>Tutorial: Azure Ative Directory single sign-on (SSO) integração com PureCloud by Genesys
 
@@ -167,11 +167,11 @@ Nesta secção, você vai configurar B.Simon para usar a Azure single sign-on, c
 
 1. Selecione **O Administrador** no topo e, em seguida, vá para **Single Sign-on em** **Integrações**.
 
-    ![Configurar Sign-On Individuais](./media/purecloud-by-genesys-tutorial/configure01.png)
+    ![A screenshot mostra a janela PureCloud Admin onde pode selecionar Single Sign-on.](./media/purecloud-by-genesys-tutorial/configure01.png)
 
 1. Mude para o separador **ADFS/Azure AD (Premium)** e siga estes passos:
 
-    ![Configurar Sign-On Individuais](./media/purecloud-by-genesys-tutorial/configure02.png)
+    ![A screenshot mostra a página Integrações onde pode introduzir os valores descritos.](./media/purecloud-by-genesys-tutorial/configure02.png)
 
     a. **Selecione Procurar** para carregar o certificado codificado base-64 que descarregou do portal Azure para o **Certificado ADFS.**
 
@@ -181,7 +181,7 @@ Nesta secção, você vai configurar B.Simon para usar a Azure single sign-on, c
 
     d. Para o valor **do identificador de partidos de suporte,** vá ao portal Azure e, em seguida, na página de integração da aplicação **PureCloud by Genesys,** selecione o separador **Propriedades** e copie o valor do ID da **aplicação.** Cole-o na caixa de **identificação do Partido De Relying.**
 
-    ![Configurar Sign-On Individuais](./media/purecloud-by-genesys-tutorial/configure06.png)
+    ![A screenshot mostra o painel de propriedades onde pode encontrar o valor I D da aplicação.](./media/purecloud-by-genesys-tutorial/configure06.png)
 
     e. Selecione **Guardar**.
 
@@ -195,15 +195,15 @@ Para permitir que os utilizadores de Azure AD inscrevam-se no PureCloud by Genes
 
 1. Selecione **Admin** no topo e vá para **People** under **People & Permisses**.
 
-    ![Configurar Sign-On Individuais](./media/purecloud-by-genesys-tutorial/configure03.png)
+    ![A screenshot mostra a janela PureCloud Admin onde pode selecionar Pessoas.](./media/purecloud-by-genesys-tutorial/configure03.png)
 
 1. Na página **Pessoas,** **selecione Adicionar Pessoa.**
 
-    ![Configurar Sign-On Individuais](./media/purecloud-by-genesys-tutorial/configure04.png)
+    ![A screenshot mostra a página Pessoas onde pode adicionar uma pessoa.](./media/purecloud-by-genesys-tutorial/configure04.png)
 
 1. Na caixa de diálogo **Add People to the Organization,** siga estes passos:
 
-    ![Configurar Sign-On Individuais](./media/purecloud-by-genesys-tutorial/configure05.png)
+    ![A screenshot mostra a página onde pode introduzir os valores descritos.](./media/purecloud-by-genesys-tutorial/configure05.png)
 
     a. Na caixa **Nome Completo,** insira o nome de um utilizador. Por exemplo: **B.simon**.
 
