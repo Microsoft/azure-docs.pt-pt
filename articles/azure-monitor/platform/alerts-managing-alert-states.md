@@ -5,16 +5,16 @@ ms.subservice: alerts
 ms.topic: conceptual
 author: anantr
 ms.date: 09/24/2018
-ms.openlocfilehash: a53390dee8eb504f92e66bb3573814bd411be0b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b91c3d59a5a37457d67fdfbc646334fccb331df5
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91358969"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104806"
 ---
 # <a name="manage-alert-and-smart-group-states"></a>Gerir estados de alertas e de grupos inteligentes
 
-Os alertas no Azure Monitor têm agora um [estado de alerta e uma condição de monitor](https://aka.ms/azure-alerts-overview) e, da mesma forma, os Grupos Inteligentes têm um estado de grupo [inteligente](https://aka.ms/smart-groups). As alterações ao estado são agora capturadas na história associadas ao respetivo grupo de alerta ou inteligente. Este artigo acompanha-o através do processo de mudança de estado, tanto para um alerta como para um grupo inteligente.
+Os alertas no Azure Monitor têm agora um [estado de alerta e uma condição de monitor](./alerts-overview.md) e, da mesma forma, os Grupos Inteligentes têm um estado de grupo [inteligente](./alerts-smartgroups-overview.md?toc=%252fazure%252fazure-monitor%252ftoc.json). As alterações ao estado são agora capturadas na história associadas ao respetivo grupo de alerta ou inteligente. Este artigo acompanha-o através do processo de mudança de estado, tanto para um alerta como para um grupo inteligente.
 
 ## <a name="change-the-state-of-an-alert"></a>Alterar o estado de alerta
 
@@ -46,4 +46,3 @@ Os alertas no Azure Monitor têm agora um [estado de alerta e uma condição de 
 
 1. Uma vez feito isto, a mudança de estado é registada na história do respetivo grupo inteligente. Isto pode ser visto abrindo a respetiva página Detalhes e verificando a secção de histórico.     
 ![A screenshot mostra o histórico de mudanças para o grupo inteligente.](./media/alerts-managing-alert-states/state-sg-history.jpg)
-

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/15/2019
 ms.author: jeedes
-ms.openlocfilehash: d99d11f6cffa42aa706a863c3061583eab3f98f6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4cb4e23a9d5334af5ebdaab2ef15a5c39f232095
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552259"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108597"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quantum-workplace"></a>Tutorial: Integração do Diretório Ativo Azure com o Local de Trabalho Quântico
 
@@ -99,11 +99,11 @@ Para configurar o Azure AD com quantum Workplace, execute os seguintes passos:
 
 4. Na secção **de Configuração Básica SAML,** a aplicação está pré-configurada e os URLs necessários já estão pré-povoados com Azure. O utilizador precisa de guardar a configuração clicando no botão **Guardar.**
 
-    ![Quantum Workplace Domain e URLs informações únicas de entrada](common/preintegrated.png)
+    ![A screenshot mostra a Configuração Básica SAML.](common/preintegrated.png)
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    ![Quantum Workplace Domain e URLs informações únicas de entrada](common/metadata-upload-additional-signon.png)
+    ![Screenshot mostra Definir U R Ls adicionais onde pode introduzir um sinal em U R L.](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL:  `https://auth.quantumworkplace.com/Account/Login`
 

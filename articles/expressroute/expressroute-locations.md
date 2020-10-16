@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: d9bf37a132b4af0e6a17c0ab850a7b82c56c5f6d
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 931794dba3266301dd9bb873ff68cacfcb3cac07
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093162"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92106370"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Parceiros de conectividade e localizações de peering do ExpressRoute
 
@@ -114,7 +114,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **GTT** |Suportado |Suportado |Londres2 |
 | **[Global Cloud Xchange (GCX)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | Suportado| Suportado | Chennai, Mumbai |
 | **Intelsat** | Suportado | Suportado | Washington DC2 |
-| **[InterCloud](https://www.intercloud.com/)** |Suportado |Suportado |Amesterdão, Chicago, Hong Kong, Londres, Nova Iorque, Paris, Silicon Valley, Singapura, Washington DC, Zurique |
+| **[InterCloud](https://www.intercloud.com/)** |Suportado |Suportado |Amesterdão, Chicago, Frankfurt, Hong Kong, Londres, Nova Iorque, Paris, Silicon Valley, Singapura, Washington DC, Zurique |
 | **[Internet2](https://www.internet2.edu/products-services/cloud-services-applications/microsoft-azure/#service-cloud-connect)** |Suportado |Suportado |Chicago, Dallas, Silicon Valley, Washington DC |
 | **[Internet Initiative Japan Inc. – IIJ](https://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Suportado |Suportado |Osaka, Tóquio |
 | **[Soluções de Internet - Cloud Connect](https://www.is.co.za/solution/cloud-connect/)** |Suportado |Suportado |Cidade do Cabo, Joanesburgo, Londres |

@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: fb628df5151f9124d7b7f319ff109ffca030ee90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fdc367e3db298b60dc9a15453d58a738c13274a
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317349"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108308"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Criar um grupo de servidores do PostgreSQL Hyperscale preparado para o Azure Arc
 
@@ -130,7 +130,7 @@ Por exemplo:
 ]
 ```
 
-Pode utilizar o ponto final de Instância PostgreSQL para ligar ao grupo de servidores de hiperescala PostgreSQL a partir da sua ferramenta preferida:  [Azure Data Studio](https://aka.ms/getazuredatastudio), [pgcli](https://www.pgcli.com/) psql, pgAdmin, etc.
+Pode utilizar o ponto final de Instância PostgreSQL para ligar ao grupo de servidores de hiperescala PostgreSQL a partir da sua ferramenta preferida:  [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), [pgcli](https://www.pgcli.com/) psql, pgAdmin, etc.
 
 Se estiver a utilizar um Azure VM para testar, siga as instruções abaixo:
 

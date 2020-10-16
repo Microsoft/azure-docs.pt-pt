@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: 9066c53fce750b1c8402c5a0ccbd10debd5ec431
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 716e3766fdd7c1999efa12456346862a9902d7a0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85855718"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108716"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Integração de rede virtual para Azure Data Lake Storage Gen1
 
@@ -33,7 +33,7 @@ A integração da rede virtual para o Data Lake Storage Gen1 utiliza a seguranç
 
 ## <a name="scenarios-for-virtual-network-integration-for-data-lake-storage-gen1"></a>Cenários para a integração da rede virtual para o Data Lake Storage Gen1
 
-Com a integração da rede virtual do Data Lake Storage Gen1, pode limitar o acesso à sua conta do Data Lake Storage Gen1 a partir de redes virtuais e sub-redes específicas. Quando a conta estiver limitada à sub-rede da rede virtual especificada, as outras redes virtuais/VMs no Azure deixam de ter permissão de acesso. Em termos funcionais, a integração da rede virtual do Data Lake Storage Gen1 proporciona o mesmo cenário dos [pontos finais de serviço de rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). As secções abaixo descrevem algumas diferenças. 
+Com a integração da rede virtual do Data Lake Storage Gen1, pode limitar o acesso à sua conta do Data Lake Storage Gen1 a partir de redes virtuais e sub-redes específicas. Quando a conta estiver limitada à sub-rede da rede virtual especificada, as outras redes virtuais/VMs no Azure deixam de ter permissão de acesso. Em termos funcionais, a integração da rede virtual do Data Lake Storage Gen1 proporciona o mesmo cenário dos [pontos finais de serviço de rede virtual](../virtual-network/virtual-network-service-endpoints-overview.md). As secções abaixo descrevem algumas diferenças. 
 
 ![Diagrama de cenário da integração da rede virtual do Data Lake Storage Gen1](media/data-lake-store-network-security/scenario-diagram.png)
 
@@ -42,9 +42,9 @@ Com a integração da rede virtual do Data Lake Storage Gen1, pode limitar o ace
 
 ## <a name="optimal-routing-with-data-lake-storage-gen1-virtual-network-integration"></a>Encaminhamento ideal com a integração da rede virtual do Data Lake Storage Gen1
 
-Uma das principais vantagens dos pontos finais de serviço de rede virtual é o [encaminhamento ideal](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview#key-benefits) a partir da sua rede virtual. Pode efetuar a mesma otimização de rota para as contas do Data Lake Storage Gen1. Utilize as [rotas definidas pelo utilizador](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) seguintes da rede virtual para a conta do Data Lake Storage Gen1.
+Uma das principais vantagens dos pontos finais de serviço de rede virtual é o [encaminhamento ideal](../virtual-network/virtual-network-service-endpoints-overview.md#key-benefits) a partir da sua rede virtual. Pode efetuar a mesma otimização de rota para as contas do Data Lake Storage Gen1. Utilize as [rotas definidas pelo utilizador](../virtual-network/virtual-networks-udr-overview.md#user-defined) seguintes da rede virtual para a conta do Data Lake Storage Gen1.
 
-**Endereço IP público do Data Lake Storage** – utilize o endereço IP público das suas contas do Data Lake Storage Gen1. Para identificar os endereços IP das contas do Data Lake Storage Gen1, [resolva os nomes DNS](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-connectivity-from-vnets#enabling-connectivity-to-azure-data-lake-storage-gen1-from-vms-with-restricted-connectivity) das suas contas. Crie uma entrada separada para cada endereço.
+**Endereço IP público do Data Lake Storage** – utilize o endereço IP público das suas contas do Data Lake Storage Gen1. Para identificar os endereços IP das contas do Data Lake Storage Gen1, [resolva os nomes DNS](./data-lake-store-connectivity-from-vnets.md#enabling-connectivity-to-azure-data-lake-storage-gen1-from-vms-with-restricted-connectivity) das suas contas. Crie uma entrada separada para cada endereço.
 
 ```azurecli
 # Create a route table for your resource group.
@@ -65,7 +65,7 @@ Para além de proteger as contas do Data Lake Storage para acesso a partir da re
 Utilize uma solução de firewall na rede virtual para filtrar o tráfego de saída com base no URL da conta de destino. Permita o acesso apenas a contas do Data Lake Storage Gen1 aprovadas.
 
 Algumas opções disponíveis são:
-- [Azure Firewall](https://docs.microsoft.com/azure/firewall/overview): [implemente e configure uma firewall do Azure firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) para a sua rede virtual. Proteja o tráfego de saída do Data Lake Storage e limite-o ao URL conhecido e aprovado.
+- [Azure Firewall](../firewall/overview.md): [implemente e configure uma firewall do Azure firewall](../firewall/tutorial-firewall-deploy-portal.md) para a sua rede virtual. Proteja o tráfego de saída do Data Lake Storage e limite-o ao URL conhecido e aprovado.
 - [firewall de aplicação virtual de rede](https://azure.microsoft.com/solutions/network-appliances/): o seu administrador poderá permitir que só sejam utilizados determinados fornecedores de firewall comerciais. Utilize uma solução de firewall de aplicação virtual de rede que esteja disponível no Azure Marketplace para realizar a mesma função.
 
 > [!NOTE]
@@ -77,7 +77,7 @@ Algumas opções disponíveis são:
  
 - Quando cria um cluster do HDInsight novo e seleciona uma conta do Data Lake Storage Gen1 com a integração de rede virtual ativada, o processo falha. Primeiro, desative a regra de rede virtual. No painel **Firewall and virtual networks** (Firewall e redes virtuais) da conta do Data Lake Storage, selecione **Allow access from all networks and services** (Permitir acesso a partir de todas as redes e serviços). Em seguida, crie o cluster HDInsight antes de, finalmente, voltar a permitir a regra da rede virtual ou desescodionar **Permitir o acesso de todas as redes e serviços**. Para obter mais informações, veja a secção [Exceções](#exceptions).
 
-- A integração virtual da rede de armazenamento de dados Gen1 não funciona com [identidades geridas para recursos Azure.](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+- A integração virtual da rede de armazenamento de dados Gen1 não funciona com [identidades geridas para recursos Azure.](../active-directory/managed-identities-azure-resources/overview.md)
   
 - Os dados de ficheiros e pastas na conta do Data Lake Storage Gen1 com a rede virtual ativada não estão acessíveis a partir do portal. Esta restrição inclui acesso a partir de uma VM que esteja dentro da rede virtual, bem como atividades como a utilização do Data Explorer. As atividades de gestão da conta continuam a funcionar. Os dados de ficheiros e pastas na conta do Data Lake Storage com a rede virtual ativada estão acessíveis a partir de todos os recursos externos ao portal. Esses recursos incluem acesso de SDK, scripts do PowerShell e outros serviços do Azure quando não tenham origem no portal. 
 
@@ -87,7 +87,7 @@ Algumas opções disponíveis são:
 
 1.  Aceda ao portal do Azure e inicie sessão na sua conta.
  
-2.  [Crie uma nova rede virtual](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)na sua subscrição. Em alternativa, pode aceder a uma rede virtual já existente. A rede virtual tem de estar na mesma região que a conta do Data Lake Storage Gen1.
+2.  [Crie uma nova rede virtual](../virtual-network/quick-create-portal.md)na sua subscrição. Em alternativa, pode aceder a uma rede virtual já existente. A rede virtual tem de estar na mesma região que a conta do Data Lake Storage Gen1.
  
 3.  No painel **Virtual network** (Rede virtual), selecione **Service endpoints** (Pontos finais de serviço).
  

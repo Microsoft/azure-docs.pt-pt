@@ -3,15 +3,15 @@ title: Conexão de serviço de resolução de problemas Windows Virtual Desktop 
 description: Como resolver problemas ao configurar ligações de serviço num ambiente de inquilino virtual do Windows Desktop.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 09/14/2020
+ms.date: 10/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5eb5602b8330906311df4a0d1f59bc5e5130237e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a9eb99ae7af88e77fa597fa92ff8e6278c307e6
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089909"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108954"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Conexões de serviço de desktop virtual do Windows
 
@@ -45,6 +45,13 @@ Um utilizador pode iniciar clientes remote desktop e é capaz de autenticar, no 
 Este erro geralmente aparece depois de um utilizador ter mudado a sua subscrição de um inquilino Azure AD para outro. Como resultado, o serviço perde o rasto das suas atribuições de utilizador, uma vez que estas ainda estão ligadas ao antigo inquilino da AD Azure.
 
 Para resolver isto, tudo o que precisa de fazer é transferir os utilizadores para os seus grupos de aplicações.
+
+Isto também pode acontecer se um Fornecedor CSP criou a subscrição e depois foi transferido para o cliente. Para resolver este reencamíssitão, o Fornecedor de Recursos.
+
+1. Inicie sessão no Portal do Azure.
+2. Vá à **Subscrição**e, em seguida, selecione a sua subscrição.
+3. No menu do lado esquerdo da página, selecione **Fornecedor de Recursos**.
+4. Localizar e selecionar **Microsoft.DesktopVirtualization**e, em seguida, selecionar **Re-registrar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

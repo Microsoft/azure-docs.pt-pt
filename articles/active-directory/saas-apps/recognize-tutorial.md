@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 86c2c7383f3850b0c51831f94e673c3941894a08
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66e415cbec3b2e8c834ee02630d7f849ccf3e1e2
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548897"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105928"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-recognize"></a>Tutorial: Integração do Diretório Ativo Azure com Reconhecimento
 
@@ -139,15 +139,15 @@ Para configurar o Azure AD um único sinal de inscrição com o Recognise, execu
 
 2. No canto superior direito, clique no **Menu**. Vá ao **Administrador da Empresa.**
    
-    ![Configurar Sign-On única no lado da app](./media/recognize-tutorial/tutorial_recognize_000.png)
+    ![O Screenshot mostra o Administrador da Empresa selecionado a partir do menu Definições.](./media/recognize-tutorial/tutorial_recognize_000.png)
 
 3. No painel de navegação à esquerda, clique em **Definições**.
    
-    ![Configurar Sign-On única no lado da app](./media/recognize-tutorial/tutorial_recognize_001.png)
+    ![A screenshot mostra definições selecionadas a partir da página de navegação.](./media/recognize-tutorial/tutorial_recognize_001.png)
 
 4. Execute os seguintes passos na secção **Definições SSO.**
    
-    ![Configurar Sign-On única no lado da app](./media/recognize-tutorial/tutorial_recognize_002.png)
+    ![A screenshot mostra as definições S S O onde pode introduzir os valores descritos.](./media/recognize-tutorial/tutorial_recognize_002.png)
     
     a. Como **Enable SSO**, selecione **ON**.
 
@@ -163,11 +163,11 @@ Para configurar o Azure AD um único sinal de inscrição com o Recognise, execu
 
 5. Ao lado da secção **definições SSO,** copie o URL no **url do fornecedor de serviços metadados**.
    
-    ![Configurar Sign-On única no lado da app](./media/recognize-tutorial/tutorial_recognize_003.png)
+    ![A screenshot mostra notas, onde pode copiar os metadados do Fornecedor de Serviços.](./media/recognize-tutorial/tutorial_recognize_003.png)
 
 6. Abra a **ligação URL dos metadados** num browser em branco para descarregar o documento de metadados. Em seguida, copie o valor do EntityDescriptor (entidadeID) a partir do ficheiro e cole-o na caixa de texto **Identifier** na **Configuração Básica DO SAML** no portal Azure.
     
-    ![Configurar Sign-On única no lado da app](./media/recognize-tutorial/tutorial_recognize_004.png)
+    ![A screenshot mostra uma caixa de texto com texto simples X M L onde você pode obter a entidade I D.](./media/recognize-tutorial/tutorial_recognize_004.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 

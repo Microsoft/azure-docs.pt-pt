@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
-ms.openlocfilehash: 177b79e0a33f4d43d07da9d0dea26df40e2ef11e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64dfc7400380505c882979e68a3bf0adcb8942a0
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88723865"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107968"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Regras de recolha de dados no Azure Monitor (pré-visualização)
 As Regras de Recolha de Dados (DCR) definem os dados que entram no Azure Monitor e especificam para onde esses dados devem ser enviados ou armazenados. Este artigo fornece uma visão geral das regras de recolha de dados, incluindo o seu conteúdo e estrutura e como pode criar e trabalhar com eles.
@@ -40,7 +40,7 @@ O diagrama seguinte mostra os componentes de uma regra de recolha de dados e a s
 ### <a name="data-source-types"></a>Tipos de origem de dados
 Cada fonte de dados tem um tipo de fonte de dados. Cada tipo define um conjunto único de propriedades que devem ser especificadas para cada fonte de dados. Os tipos de fonte de dados atualmente disponíveis são apresentados na tabela seguinte.
 
-| Tipo de fonte de dados | Descrição | 
+| Tipo de fonte de dados | Description | 
 |:---|:---|
 | extensão | Fonte de dados baseada em extensão VM |
 | performanceCounters | Contadores de desempenho tanto para Windows como Linux |
@@ -68,7 +68,7 @@ O quadro que se segue lista os limites que atualmente se aplicam a cada regra de
 Existem atualmente dois métodos disponíveis para criar um DCR:
 
 - [Utilize o portal Azure](data-collection-rule-azure-monitor-agent.md) para criar uma regra de recolha de dados e associá-la a uma ou mais máquinas virtuais.
-- Editar diretamente a regra de recolha de dados em JSON e [submeter-se através da API REST](https://docs.microsoft.com/rest/api/monitor/datacollectionrules).
+- Editar diretamente a regra de recolha de dados em JSON e [submeter-se através da API REST](/rest/api/monitor/datacollectionrules).
 
 ## <a name="sample-data-collection-rule"></a>Regra de recolha de dados de amostra
 A regra de recolha de dados da amostra abaixo é para máquinas virtuais com o agente da Azure Management e tem os seguintes detalhes:

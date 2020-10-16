@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: d18440b27d9429a2638a58be40e1ec583b9a85ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c9cb1d0496fe05c208cfd446a51cbf4ef8e8d4e
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88190240"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108614"
 ---
 # <a name="tune-azure-data-lake-storage-gen1-for-performance"></a>Tune Azure Data Lake Storage Gen1 para desempenho
 
@@ -39,15 +39,15 @@ A conectividade da rede entre os dados de origem e a Rede de Armazenamento de Da
 
 ### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>Configure ferramentas de ingestão de dados para a máxima paralelização
 
-Depois de ter abordado os estrangulamentos de hardware de origem e conectividade da rede, está pronto para configurar as suas ferramentas de ingestão. A tabela seguinte resume as definições-chave para várias ferramentas de ingestão populares e fornece artigos de afinação de desempenho aprofundados para eles. Para saber mais sobre qual ferramenta usar para o seu cenário, visite este [artigo.](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-scenarios)
+Depois de ter abordado os estrangulamentos de hardware de origem e conectividade da rede, está pronto para configurar as suas ferramentas de ingestão. A tabela seguinte resume as definições-chave para várias ferramentas de ingestão populares e fornece artigos de afinação de desempenho aprofundados para eles. Para saber mais sobre qual ferramenta usar para o seu cenário, visite este [artigo.](./data-lake-store-data-scenarios.md)
 
 | Ferramenta          | Definições | Mais detalhes                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| PowerShell       | PerFileThreadCount, ConcurrentFileCount | [Ligação](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-powershell) |
-| AdlCopy    | Unidades Azure Data Lake Analytics | [Ligação](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
-| DistCp            | -m (mapper) | [Ligação](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
+| PowerShell       | PerFileThreadCount, ConcurrentFileCount | [Ligação](./data-lake-store-get-started-powershell.md) |
+| AdlCopy    | Unidades Azure Data Lake Analytics | [Ligação](./data-lake-store-copy-data-azure-storage-blob.md#performance-considerations-for-using-adlcopy)         |
+| DistCp            | -m (mapper) | [Ligação](./data-lake-store-copy-data-wasb-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| paralelosCopias | [Ligação](../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | fs.azure.block.size, -m (mapper) | [Ligação](https://docs.microsoft.com/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
+| Sqoop           | fs.azure.block.size, -m (mapper) | [Ligação](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
 
 ## <a name="structure-your-data-set"></a>Estruturar o seu conjunto de dados
 
@@ -131,7 +131,7 @@ Além das diretrizes gerais acima, cada aplicação tem diferentes parâmetros d
 | [MapReduce em HDInsight](data-lake-store-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduzir.memória</li><li>Mapreduce.job.reduz</li></ul> |
 | [Storm no HDInsight](data-lake-store-performance-tuning-storm.md)| <ul><li>Número de processos de trabalhadores</li><li>Número de casos de executor de bico</li><li>Número de instâncias executores de parafusos </li><li>Número de tarefas de bico</li><li>Número de tarefas de parafuso</li></ul>|
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Visão geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Introdução ao Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

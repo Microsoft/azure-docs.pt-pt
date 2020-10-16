@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: eead2d6ae2860bf06f1b878c1bb1692d74c06df6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e56d1add36d4296526348d12d7c0b6eb03108f27
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87055981"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104364"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions-overview"></a>Encadernações de armazenamento Azure Blob para visão geral das funções Azure
 
@@ -28,7 +28,7 @@ As funções Azure integram-se com [o Azure Storage](../storage/index.yml) atrav
 
 Trabalhar com o gatilho e as ligações requer que você refira o pacote apropriado. O pacote NuGet é utilizado para bibliotecas de classe .NET enquanto o pacote de extensão é utilizado para todos os outros tipos de aplicação.
 
-| Idioma                                        | Adicione por...                                   | Observações 
+| Linguagem                                        | Adicione por...                                   | Observações 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Instalação do [pacote NuGet], versão 3.x | |
 | C# Script, Java, JavaScript, Python, PowerShell | Registar o [pacote de extensão]          | Recomenda-se a utilização da [extensão Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) com Código de Estúdio Visual. |
@@ -37,7 +37,7 @@ Trabalhar com o gatilho e as ligações requer que você refira o pacote apropri
 [core tools]: ./functions-run-local.md
 [pacote de extensão]: ./functions-bindings-register.md#extension-bundles
 [Pacote NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage
-[Atualize as suas extensões]: ./install-update-binding-extensions-manual.md
+[Atualize as suas extensões]: ./functions-bindings-register.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### <a name="functions-1x"></a>Funções 1.x

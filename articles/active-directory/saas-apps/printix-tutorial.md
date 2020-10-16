@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.openlocfilehash: e9bc7969c5fee83944dab7cb35832f82b57c5595
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de4962326a06080ff2bf81954cf85d3b6bbfefd5
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88552348"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104789"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-printix"></a>Tutorial: Integração do Diretório Ativo Azure com a Printix
 
@@ -61,19 +61,19 @@ Para configurar a integração do Printix no Azure AD, é necessário adicionar 
 
 1. Navegue para **aplicações da Enterprise.** Em seguida, vá a **Todas as aplicações**.
 
-    ![Aplicações][2]
+    ![O Screenshot mostra o portal Azure Enterprise Applications selecionado em Manage, com todas as aplicações selecionadas.][2]
     
 1. Para adicionar nova aplicação, clique em Novo botão de **aplicação** no topo do diálogo.
 
-    ![Aplicações][3]
+    ![A screenshot mostra nova aplicação selecionada.][3]
 
 1. Na caixa de pesquisa, **escreva Printix.**
 
-    ![Criar um utilizador de teste AZure AD](./media/printix-tutorial/tutorial_printix_search.png)
+    ![A screenshot mostra a procura de Printix na Caixa de Diálogo da galeria.](./media/printix-tutorial/tutorial_printix_search.png)
 
 1. No painel de resultados, selecione **Printix**e, em seguida, clique em Adicionar o botão **Adicionar** a aplicação.
 
-    ![Criar um utilizador de teste AZure AD](./media/printix-tutorial/tutorial_printix_addfromgallery.png)
+    ![A screenshot mostra a opção Printix selecionada.](./media/printix-tutorial/tutorial_printix_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD único sinal de acesso
 Nesta secção, configura e testa o Azure AD com printix com base num utilizador de teste chamado "Britta Simon".
@@ -98,15 +98,15 @@ Nesta secção, ativa o único sinal de Azure AD no portal Azure e configura um 
 
 1. No portal Azure, na página de integração da aplicação **Printix,** clique **em 'SÚM'.**
 
-    ![Configurar Sign-On Individuais][4]
+    ![A screenshot mostra um único sinal selecionado sob o comando de Manage no portal Azure.][4]
 
 1. No diálogo **de assinatura único,** selecione **Mode** como **Sign-on baseado em SAML** para ativar um único sinal de súplica.
  
-    ![Configurar Sign-On Individuais](./media/printix-tutorial/tutorial_printix_samlbase.png)
+    ![A screenshot mostra o modo de inscrição baseado em SAML selecionado.](./media/printix-tutorial/tutorial_printix_samlbase.png)
 
 1. Na secção **Domínio printix e URLs,** execute os seguintes passos:
 
-    ![Configurar Sign-On Individuais](./media/printix-tutorial/tutorial_printix_url.png)
+    ![A screenshot mostra a secção de Domínio printix e URLs onde pode especificar um U R L para iniciar sposição.](./media/printix-tutorial/tutorial_printix_url.png)
 
     Na caixa de texto **url de entrada de sinais,** digite um URL utilizando o seguinte padrão: `https://<subdomain>.printix.net`
 
@@ -115,33 +115,33 @@ Nesta secção, ativa o único sinal de Azure AD no portal Azure e configura um 
  
 1. Na secção **Certificado de Assinatura SAML,** clique em **Metadata XML** e, em seguida, guarde o ficheiro de metadados no seu computador.
 
-    ![Configurar Sign-On Individuais](./media/printix-tutorial/tutorial_printix_certificate.png) 
+    ![A screenshot mostra o painel de certificado de assinatura SAML onde pode descarregar um certificado.](./media/printix-tutorial/tutorial_printix_certificate.png) 
 
 1. Clique no botão **Guardar.**
 
-    ![Configurar Sign-On Individuais](./media/printix-tutorial/tutorial_general_400.png)
+    ![Captura de ecrã a mostrar o botão Guardar.](./media/printix-tutorial/tutorial_general_400.png)
 
 1. Inscreva-se no seu inquilino printix como administrador.
 
 1. No menu em cima, clique no ícone no canto superior direito e selecione "**Autenticação**".
    
-    ![Configurar Sign-On Individuais](./media/printix-tutorial/tutorial_printix_06.png)
+    ![A screenshot mostra autenticação selecionada no menu.](./media/printix-tutorial/tutorial_printix_06.png)
 
 1. No **separador Configuração,** selecione **Ativar a autenticação Azure/Office 365**
    
-    ![Configurar Sign-On Individuais](./media/printix-tutorial/tutorial_printix_07.png)
+    ![A screenshot mostra a página Printix.net onde pode selecionar a autenticação Enable Azure/Office 365.](./media/printix-tutorial/tutorial_printix_07.png)
 
 1. No **separador Azure,** introduza o URL de metadados da federação para a caixa de texto do " documento de**metadados da Federação**". 
 
     Anexe o ficheiro xml de metadados que descarregou da equipa de suporte AZure AD para [a equipa de suporte printix](mailto:support@printix.net). Depois carregam o ficheiro XML e fornecem um URL de metadados da federação.
    
-    ![Configurar Sign-On Individuais](./media/printix-tutorial/tutorial_printix_08.png)
+    ![A screenshot mostra a página Printix.net onde pode especificar um documento de metadados da Federação.](./media/printix-tutorial/tutorial_printix_08.png)
    
 1. Clique no botão "**Test**" e clique no botão "**OK**" se o teste tiver sido bem sucedido.
    
      A página de diretório ativo Azure mostrará depois de clicar no botão **de teste.** "O teste foi bem sucedido" aqui significa que depois de introduzir as credenciais da sua conta de teste Azure, aparecerá uma mensagem "Definições testadas OK". Em seguida, clique no botão **OK.**
    
-    ![Configurar Sign-On Individuais](./media/printix-tutorial/tutorial_printix_09.png)
+    ![A imagem mostra os resultados do teste.](./media/printix-tutorial/tutorial_printix_09.png)
 
 1. Clique no botão **Guardar** na página "**Autenticação".**
 
@@ -159,19 +159,19 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 1. No **portal Azure**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
-    ![Criar um utilizador de teste AZure AD](./media/printix-tutorial/create_aaduser_01.png) 
+    ![A screenshot mostra um nome e nome de utilizador a ser criado.](./media/printix-tutorial/create_aaduser_01.png) 
 
 1. Para apresentar a lista de utilizadores, vá aos **Utilizadores e aos grupos** e clique em **Todos os utilizadores**.
     
-    ![Criar um utilizador de teste AZure AD](./media/printix-tutorial/create_aaduser_02.png) 
+    ![A screenshot mostra o ícone Azure A D no portal Azure.](./media/printix-tutorial/create_aaduser_02.png) 
 
 1. Para abrir o diálogo **do Utilizador,** clique em **Adicionar** na parte superior do diálogo.
  
-    ![Criar um utilizador de teste AZure AD](./media/printix-tutorial/create_aaduser_03.png) 
+    ![O Screenshot mostra utilizadores e grupos selecionados a partir do menu Gerir, com todos os utilizadores selecionados.](./media/printix-tutorial/create_aaduser_03.png) 
 
 1. Na página de diálogo do **Utilizador,** execute os seguintes passos:
  
-    ![Criar um utilizador de teste AZure AD](./media/printix-tutorial/create_aaduser_04.png) 
+    ![A screenshot mostra a caixa de diálogo do utilizador onde pode introduzir os valores descritos.](./media/printix-tutorial/create_aaduser_04.png) 
 
     a. Na caixa de texto **Name,** **digite BrittaSimon**.
 
@@ -195,25 +195,25 @@ Não há nenhum item de ação para si nesta secção. Um novo utilizador é cri
 
 Nesta secção, você permite que Britta Simon utilize a Azure single sign-on, concedendo acesso ao Printix.
 
-![Atribuir Utilizador][200] 
+![A screenshot mostra um utilizador com acesso predefinido.][200] 
 
 **Para atribuir Britta Simon à Printix, execute os seguintes passos:**
 
 1. No portal Azure, abra a vista das aplicações e, em seguida, navegue para a vista do diretório e vá para **as aplicações da Enterprise** e, em seguida, clique em Todas as **aplicações**.
 
-    ![Atribuir Utilizador][201] 
+    ![O Screenshot mostra aplicações empresariais selecionadas em Manage, com todas as aplicações selecionadas.][201] 
 
 1. Na lista de candidaturas, selecione **Printix**.
 
-    ![Configurar Sign-On Individuais](./media/printix-tutorial/tutorial_printix_app.png) 
+    ![A screenshot mostra a lista de aplicações onde pode selecionar Printix.](./media/printix-tutorial/tutorial_printix_app.png) 
 
 1. No menu à esquerda, clique em **Utilizadores e grupos**.
 
-    ![Atribuir Utilizador][202] 
+    ![A screenshot mostra utilizadores e grupos selecionados a partir do menu Gerir.][202] 
 
 1. Clique no botão **Adicionar.** Em seguida, selecione **Utilizadores e grupos** no diálogo De Atribuição de **Adicionar.**
 
-    ![Atribuir Utilizador][203]
+    ![A screenshot mostra o botão Adicionar e a página 'Adicionar Atribuição', onde pode selecionar Utilizadores e Grupos.][203]
 
 1. No **diálogo de Utilizadores e grupos,** selecione **Britta Simon** na lista de Utilizadores.
 

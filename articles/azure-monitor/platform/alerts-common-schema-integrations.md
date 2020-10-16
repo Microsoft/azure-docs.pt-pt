@@ -4,12 +4,12 @@ description: Saiba como criar uma aplicação lógica que aproveite o esquema de
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/27/2019
-ms.openlocfilehash: a7893f41e3e4cce737853fc168c1931f3bf7b532
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1eb96248f68923da5ff5223f57fac1bffaf4ed04
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322096"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108886"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Como integrar o esquema de alerta comum com apps lógicas
 
@@ -17,7 +17,7 @@ Este artigo mostra-lhe como criar uma aplicação lógica que aproveita o esquem
 
 ## <a name="overview"></a>Descrição geral
 
-O [esquema de alerta comum](https://aka.ms/commonAlertSchemaDocs) fornece um esquema JSON padronizado e extensível em todos os seus diferentes tipos de alerta. O esquema de alerta comum é mais útil quando alavancado programáticamente – através de webhooks, runbooks e aplicações lógicas. Neste artigo, demonstramos como uma única aplicação lógica pode ser da autoria de todos os seus alertas. Os mesmos princípios podem ser aplicados a outros métodos programáticos. A aplicação lógica descrita neste artigo cria variáveis bem definidas para os [campos 'essenciais'](alerts-common-schema-definitions.md#essentials)e também descreve como pode lidar com a lógica específica [do tipo de alerta.](alerts-common-schema-definitions.md#alert-context)
+O [esquema de alerta comum](./alerts-common-schema.md) fornece um esquema JSON padronizado e extensível em todos os seus diferentes tipos de alerta. O esquema de alerta comum é mais útil quando alavancado programáticamente – através de webhooks, runbooks e aplicações lógicas. Neste artigo, demonstramos como uma única aplicação lógica pode ser da autoria de todos os seus alertas. Os mesmos princípios podem ser aplicados a outros métodos programáticos. A aplicação lógica descrita neste artigo cria variáveis bem definidas para os [campos 'essenciais'](alerts-common-schema-definitions.md#essentials)e também descreve como pode lidar com a lógica específica [do tipo de alerta.](alerts-common-schema-definitions.md#alert-context)
 
 
 ## <a name="prerequisites"></a>Pré-requisitos 
@@ -138,5 +138,4 @@ Este artigo assume que o leitor está familiarizado com
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba mais sobre grupos de ação.](./action-groups.md)
-* [Saiba mais sobre o esquema de alerta comum.](https://aka.ms/commonAlertSchemaDocs)
-
+* [Saiba mais sobre o esquema de alerta comum.](./alerts-common-schema.md)

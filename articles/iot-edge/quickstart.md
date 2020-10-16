@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: acd2f12150155efbccc668b99dcc4683d81b87e0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 7b732537d5b0ba517c5d638381c07f229c500081
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047034"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107798"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>Quickstart: Implemente o seu primeiro módulo IoT Edge num dispositivo Virtual Windows
 
@@ -78,9 +78,9 @@ Dispositivo IoT Edge
 >
 > Este arranque rápido utiliza uma máquina virtual de ambiente de trabalho do Windows para simplificar. Para obter informações sobre quais os sistemas operativos Windows geralmente disponíveis para cenários de produção, consulte [os sistemas suportados pelo Azure IoT Edge](support.md).
 >
-> Se pretender configurar o seu próprio dispositivo Windows para IoT Edge, siga os passos na [Instalação do tempo de execução Azure IoT Edge](how-to-install-iot-edge.md).
+> Se pretender configurar o seu próprio dispositivo Windows para ioT Edge, incluindo dispositivos que executam o IoT Core, siga os passos na [Instalação do tempo de execução do Azure IoT Edge](how-to-install-iot-edge.md).
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 Inicie o quickstart criando um hub IoT com Azure CLI.
 

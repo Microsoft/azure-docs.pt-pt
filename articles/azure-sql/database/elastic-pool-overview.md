@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, sstein
 ms.date: 07/28/2020
-ms.openlocfilehash: 7be0b5f2688198da8926f2039f60bf9ba592e2f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b76af2c6c949f2591cee880a1991c6f240806a2
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330794"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92107900"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Piscinas elásticas ajudam a gerir e escalar várias bases de dados na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -56,7 +56,7 @@ A figura seguinte mostra um exemplo de uma base de dados que está inativa muito
 
    ![uma base de dados individual adequada para um conjunto](./media/elastic-pool-overview/one-database.png)
 
-Para o período de cinco minutos ilustrado, DB1 tem um pico até 90 DTUs, mas a utilização média global é inferior a cinco DTUs. Um tamanho de cálculo S3 é necessário para executar esta carga de trabalho numa única base de dados, mas isso deixa a maioria dos recursos não uusados durante períodos de baixa atividade.
+O gráfico ilustra o uso do DTU durante um período de 1 hora das 12:00 às 1:00 onde cada ponto de dados tem 1 minuto de granularidade. Às 12:10 DB1 atinge os 90 DTUs, mas a sua média global é inferior a cinco DTUs. Um tamanho de cálculo S3 é necessário para executar esta carga de trabalho numa única base de dados, mas isso deixa a maioria dos recursos não uusados durante períodos de baixa atividade.
 
 Um conjunto permite que estas DTUs não utilizadas sejam partilhadas entre várias bases de dados, pelo que reduz as DTUs necessárias e os custos gerais.
 

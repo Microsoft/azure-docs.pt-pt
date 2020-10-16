@@ -7,12 +7,12 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure
-ms.openlocfilehash: 4bb40cc1f5d1ae2563ddd802cd8b7de11427503b
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: bdc236c3ba4c70ba44e61457e2bade7df65f3153
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893225"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108053"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Implementar para o Serviço de Aplicações usando ações do GitHub
 
@@ -30,8 +30,6 @@ Começa com [as ações do GitHub](https://help.github.com/en/articles/about-git
     - Python: [Crie uma aplicação Python no Azure App Service](quickstart-python.md)
 
 ## <a name="workflow-file-overview"></a>Visão geral do ficheiro do fluxo de trabalho
-
-Os ficheiros de fluxo de trabalho do Azure App Service têm três secções:
 
 Um fluxo de trabalho é definido por um ficheiro YAML (.yml) no caminho do `/.github/workflows/` seu repositório. Esta definição contém os vários passos e parâmetros que compõem o fluxo de trabalho.
 
@@ -141,7 +139,7 @@ Quando configurar o ficheiro de fluxo de trabalho mais tarde, utilize o segredo 
 
 A configuração do ambiente pode ser feita utilizando uma das ações de configuração.
 
-|**Idioma**  |**Ação de configuração**  |
+|**Linguagem**  |**Ação de configuração**  |
 |---------|---------|
 |**.NET**     | `actions/setup-dotnet` |
 |**ASP.NET**     | `actions/setup-dotnet` |

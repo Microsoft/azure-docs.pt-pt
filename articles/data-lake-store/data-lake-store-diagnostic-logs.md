@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: cd1b03c8cecf84e75bac32be0570c2f4f3db9b2e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4476e20772c0736f35c074b200ea9fd47a0ae81c
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91575542"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109175"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Aceder a registos de diagnóstico para Azure Data Lake Storage Gen1
 Aprenda a ativar o registo de diagnóstico para a sua conta Azure Data Lake Storage Gen1 e como ver os registos recolhidos para a sua conta.
@@ -46,7 +46,7 @@ As organizações podem permitir o registo de diagnóstico da sua conta Azure Da
         
         * Selecione a opção **de streaming para um centro de eventos** para transmitir dados de registo para um Azure Event Hub. O mais provável é que utilize esta opção se tiver um pipeline de processamento a jusante para analisar os registos de entrada em tempo real. Se selecionar esta opção, deve fornecer os detalhes para o Azure Event Hub que pretende utilizar.
 
-        * Selecione a opção **de Enviar para Registar Analytics** para utilizar o serviço Azure Monitor para analisar os dados de registo gerados. Se selecionar esta opção, deve fornecer os detalhes do espaço de trabalho Log Analytics que utilizaria a análise de registo de desempenho. Consulte [ou analise os dados recolhidos com os registos do Azure Monitor, procure](../azure-monitor/learn/tutorial-viewdata.md) por detalhes sobre a utilização de registos do Monitor Azure.
+        * Selecione a opção **de Enviar para Registar Analytics** para utilizar o serviço Azure Monitor para analisar os dados de registo gerados. Se selecionar esta opção, deve fornecer os detalhes do espaço de trabalho Log Analytics que utilizaria a análise de registo de desempenho. Consulte [ou analise os dados recolhidos com os registos do Azure Monitor, procure](../azure-monitor/log-query/get-started-portal.md) por detalhes sobre a utilização de registos do Monitor Azure.
      
    * Especificar se pretende obter registos de auditoria ou registos de pedidos ou ambos.
    * Especificar o número de dias para os quais os dados devem ser conservados. A retenção só é aplicável se estiver a utilizar a conta de armazenamento Azure para arquivar dados de registo.
@@ -115,27 +115,27 @@ Aqui está uma amostra de entrada no registo de pedidos formatados pela JSON. Ca
 ```
 
 #### <a name="request-log-schema"></a>Solicitar esquema de registo
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 | --- | --- | --- |
-| hora |Cadeia |A horatampia (em UTC) do log |
-| resourceId |Cadeia |O ID do recurso que a operação teve lugar em |
-| categoria |Cadeia |A categoria de registo. Por exemplo, **Pedidos**. |
-| operationName |Cadeia |Nome da operação que está registada. Por exemplo, getfilestatus. |
-| resultType |Cadeia |O estado da operação, por exemplo, 200. |
-| callerIpAddress |Cadeia |O endereço IP do cliente fazendo o pedido |
-| correlationId |Cadeia |O ID do log que pode ser usado para agrupar um conjunto de entradas de registo relacionadas |
+| hora |String |A horatampia (em UTC) do log |
+| resourceId |String |O ID do recurso que a operação teve lugar em |
+| categoria |String |A categoria de registo. Por exemplo, **Pedidos**. |
+| operationName |String |Nome da operação que está registada. Por exemplo, getfilestatus. |
+| resultType |String |O estado da operação, por exemplo, 200. |
+| callerIpAddress |String |O endereço IP do cliente fazendo o pedido |
+| correlationId |String |O ID do log que pode ser usado para agrupar um conjunto de entradas de registo relacionadas |
 | identidade |Objeto |A identidade que gerou o log |
 | propriedades |JSON |Veja abaixo os detalhes |
 
 #### <a name="request-log-properties-schema"></a>Solicite esquema de propriedades de registo
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 | --- | --- | --- |
-| HttpMethod |Cadeia |O método HTTP utilizado para a operação. Por exemplo, GET. |
-| Caminho |Cadeia |O caminho em que a operação foi realizada |
+| HttpMethod |String |O método HTTP utilizado para a operação. Por exemplo, GET. |
+| Caminho |String |O caminho em que a operação foi realizada |
 | PedidoContentLength |int |O comprimento do conteúdo do pedido HTTP |
-| ClientRequestId |Cadeia |O ID que identifica exclusivamente este pedido |
-| StartTime |Cadeia |O momento em que o servidor recebeu o pedido |
-| EndTime |Cadeia |O momento em que o servidor enviou uma resposta |
+| ClientRequestId |String |O ID que identifica exclusivamente este pedido |
+| StartTime |String |O momento em que o servidor recebeu o pedido |
+| EndTime |String |O momento em que o servidor enviou uma resposta |
 
 ### <a name="audit-logs"></a>Registos de auditoria
 Aqui está uma amostra de entrada no registo de auditoria formatado pela JSON. Cada bolha tem um objeto raiz chamado **registos** que contém uma variedade de objetos de log
@@ -164,25 +164,25 @@ Aqui está uma amostra de entrada no registo de auditoria formatado pela JSON. C
 ```
 
 #### <a name="audit-log-schema"></a>Esquema de registo de auditoria
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 | --- | --- | --- |
-| hora |Cadeia |A horatampia (em UTC) do log |
-| resourceId |Cadeia |O ID do recurso que a operação teve lugar em |
-| categoria |Cadeia |A categoria de registo. Por exemplo, **Auditoria**. |
-| operationName |Cadeia |Nome da operação que está registada. Por exemplo, getfilestatus. |
-| resultType |Cadeia |O estado da operação, por exemplo, 200. |
-| resultSignature |Cadeia |Detalhes adicionais sobre a operação. |
-| correlationId |Cadeia |O ID do log que pode ser usado para agrupar um conjunto de entradas de registo relacionadas |
+| hora |String |A horatampia (em UTC) do log |
+| resourceId |String |O ID do recurso que a operação teve lugar em |
+| categoria |String |A categoria de registo. Por exemplo, **Auditoria**. |
+| operationName |String |Nome da operação que está registada. Por exemplo, getfilestatus. |
+| resultType |String |O estado da operação, por exemplo, 200. |
+| resultSignature |String |Detalhes adicionais sobre a operação. |
+| correlationId |String |O ID do log que pode ser usado para agrupar um conjunto de entradas de registo relacionadas |
 | identidade |Objeto |A identidade que gerou o log |
 | propriedades |JSON |Veja abaixo os detalhes |
 
 #### <a name="audit-log-properties-schema"></a>Esquema de propriedades de registo de auditoria
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 | --- | --- | --- |
-| Nome de stream |Cadeia |O caminho em que a operação foi realizada |
+| Nome de stream |String |O caminho em que a operação foi realizada |
 
 ## <a name="samples-to-process-the-log-data"></a>Amostras para processar os dados do registo
-Ao enviar registos de Azure Data Lake Storage Gen1 para Azure Monitor (ver [ver ou analisar dados recolhidos com registos do Azure Monitor procurar](../azure-monitor/learn/tutorial-viewdata.md) detalhes sobre a utilização de registos do Monitor Azure), a seguinte consulta devolverá uma tabela contendo uma lista de nomes de visualização do utilizador, a hora dos eventos e a contagem de eventos para a hora do evento juntamente com um gráfico visual. Pode ser facilmente modificado para mostrar ao utilizador GUID ou outros atributos:
+Ao enviar registos de Azure Data Lake Storage Gen1 para Azure Monitor (ver [ver ou analisar dados recolhidos com registos do Azure Monitor procurar](../azure-monitor/log-query/get-started-portal.md) detalhes sobre a utilização de registos do Monitor Azure), a seguinte consulta devolverá uma tabela contendo uma lista de nomes de visualização do utilizador, a hora dos eventos e a contagem de eventos para a hora do evento juntamente com um gráfico visual. Pode ser facilmente modificado para mostrar ao utilizador GUID ou outros atributos:
 
 ```
 search *
@@ -193,7 +193,6 @@ search *
 
 A Azure Data Lake Storage Gen1 fornece uma amostra sobre como processar e analisar os dados de registo. Pode encontrar a amostra [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample) em. 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 * [Visão geral do Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Proteger dados no Armazenamento do Data Lake Ger1](data-lake-store-secure-data.md)
-

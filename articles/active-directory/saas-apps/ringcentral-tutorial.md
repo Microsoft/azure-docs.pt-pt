@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 6bdbb68e8d8748bc8851720588f8748d788e0cc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8539f3f2a5882f12f131c95b0c17efd3acba3cf
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88542586"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92105180"
 ---
 # <a name="tutorial-integrate-ringcentral-with-azure-active-directory"></a>Tutorial: Integrar RingCentral com Diretório Ativo Azure
 
@@ -151,19 +151,19 @@ Nesta secção, você permitirá que Britta Simon use a Azure single sign-on, co
 
 1. Em cima, clique em **Ferramentas.**
 
-    ![image](./media/ringcentral-tutorial/ringcentral1.png)
+    ![A screenshot mostra ferramentas selecionadas a partir do site da empresa RingCentral.](./media/ringcentral-tutorial/ringcentral1.png)
 
 1. Navegue para **um único sign-on**.
 
-    ![image](./media/ringcentral-tutorial/ringcentral2.png)
+    ![A screenshot mostra single Sign-On selecionados a partir do menu Ferramentas.](./media/ringcentral-tutorial/ringcentral2.png)
 
 1. Na página **'Sign-on' único,** na secção **de Configuração SSO,** a partir do **passo 1** clique em **Editar** e execute os seguintes passos:
 
-    ![image](./media/ringcentral-tutorial/ringcentral3.png)
+    ![A screenshot mostra a página de configuração S S O onde pode selecionar Editar.](./media/ringcentral-tutorial/ringcentral3.png)
 
 1. Na página **de inscrição única,** execute os seguintes passos:
 
-    ![image](./media/ringcentral-tutorial/ringcentral4.png)
+    ![A screenshot mostra a página De Sign-On Único configurado onde pode carregar metadados I D P.](./media/ringcentral-tutorial/ringcentral4.png)
 
     a. Clique **em Procurar** para carregar o ficheiro de metadados que descarregou a partir do portal Azure.
 
@@ -175,11 +175,11 @@ Nesta secção, você permitirá que Britta Simon use a Azure single sign-on, co
 
     e. A partir do **passo 2** clique **em baixar** o ficheiro **de metadados do Fornecedor de Serviço** e carregá-lo na secção de **Configuração Sudeste SAML** para preencher automaticamente os valores **de URL** de **identificação** e resposta no portal Azure.
 
-    ![image](./media/ringcentral-tutorial/ringcentral6.png) 
+    ![A screenshot mostra a página de Configuração S O onde pode selecionar Download.](./media/ringcentral-tutorial/ringcentral6.png) 
 
     f. Na mesma página, navegue para ativar a secção **SSO** e execute os seguintes passos:
 
-    ![image](./media/ringcentral-tutorial/ringcentral5.png)
+    ![A screenshot mostra a secção Enable S S O onde pode terminar a configuração.](./media/ringcentral-tutorial/ringcentral5.png)
 
     * **Selecione Ative O serviço SSO**.
 

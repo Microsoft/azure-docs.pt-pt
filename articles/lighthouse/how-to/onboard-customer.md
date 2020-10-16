@@ -3,12 +3,12 @@ title: Incluir um cliente no Azure Lighthouse
 description: Saiba como embarcar um cliente no Farol Azure, permitindo que os seus recursos sejam acedidos e geridos através do seu próprio inquilino utilizando a gestão de recursos delegada da Azure.
 ms.date: 09/24/2020
 ms.topic: how-to
-ms.openlocfilehash: 6902fb787b14c4443e28852b9aaf2533da9b49d3
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 926e9bc5302403063d536e31fe304d837bca8ec5
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873218"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109073"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Incluir um cliente no Azure Lighthouse
 
@@ -242,18 +242,18 @@ New-AzSubscriptionDeployment -Name <deploymentName> `
 # Log in first with az login if you're not using Cloud Shell
 
 # Deploy Azure Resource Manager template using template and parameter file locally
-az deployment create --name <deploymentName> \
-                     --location <AzureRegion> \
-                     --template-file <pathToTemplateFile> \
-                     --parameters <parameters/parameterFile> \
-                     --verbose
+az deployment sub create --name <deploymentName> \
+                         --location <AzureRegion> \
+                         --template-file <pathToTemplateFile> \
+                         --parameters <parameters/parameterFile> \
+                         --verbose
 
 # Deploy external Azure Resource Manager template, with local parameter file
-az deployment create --name <deploymentName> \
-                     --location <AzureRegion> \
-                     --template-uri <templateUri> \
-                     --parameters <parameterFile> \
-                     --verbose
+az deployment sub create --name <deploymentName> \
+                         --location <AzureRegion> \
+                         --template-uri <templateUri> \
+                         --parameters <parameterFile> \
+                         --verbose
 ```
 
 ## <a name="confirm-successful-onboarding"></a>Confirme o sucesso do embarque

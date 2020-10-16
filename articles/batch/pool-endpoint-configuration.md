@@ -3,12 +3,12 @@ title: Pontos finais de nó de configuração na piscina Azure Batch
 description: Como configurar ou desativar o acesso às portas SSH ou RDP em nós computativos numa piscina do Azure Batch.
 ms.topic: how-to
 ms.date: 02/13/2018
-ms.openlocfilehash: 1713637a9aba937525e64e1c4146589fca443461
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e7df7da539be75ef1befdff4b4e1fe5244c1702
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83780295"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109311"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Configure ou desative o acesso remoto aos nóns computacional numa piscina do Azure Batch
 
@@ -19,7 +19,7 @@ No seu ambiente, poderá ser necessário restringir ou desativar estas definiç�
 ## <a name="about-the-pool-endpoint-configuration"></a>Sobre a configuração do ponto final da piscina
 A configuração do ponto final consiste em uma ou mais piscinas de tradução de endereços de [rede (NAT)](/rest/api/batchservice/pool/add#inboundnatpool) de portas frontend. (Não confunda uma piscina NAT com o lote de nós computacional.) Configurar cada piscina NAT para anular as definições de ligação predefinidos nos nós de cálculo da piscina. 
 
-Cada configuração da piscina NAT inclui uma ou mais [regras do grupo de segurança de rede (NSG).](/rest/api/batchservice/pool/add#networksecuritygrouprule) Cada regra NSG permite ou nega determinado tráfego de rede para o ponto final. Pode optar por permitir ou negar todo o tráfego, tráfego identificado por uma etiqueta de [serviço](../virtual-network/security-overview.md#service-tags) (como "Internet"), ou tráfego a partir de endereços IP específicos ou sub-redes.
+Cada configuração da piscina NAT inclui uma ou mais [regras do grupo de segurança de rede (NSG).](/rest/api/batchservice/pool/add#networksecuritygrouprule) Cada regra NSG permite ou nega determinado tráfego de rede para o ponto final. Pode optar por permitir ou negar todo o tráfego, tráfego identificado por uma etiqueta de [serviço](../virtual-network/network-security-groups-overview.md#service-tags) (como "Internet"), ou tráfego a partir de endereços IP específicos ou sub-redes.
 
 ### <a name="considerations"></a>Considerações
 * A configuração do ponto final da piscina faz parte da [configuração](/rest/api/batchservice/pool/add#networkconfiguration)de rede da piscina. A configuração da rede pode opcionalmente incluir configurações para juntar a piscina a uma [rede virtual Azure.](batch-virtual-network.md) Se configurar o pool numa rede virtual, pode criar regras NSG que utilizam definições de endereços na rede virtual.
@@ -121,4 +121,4 @@ pool.network_configuration = batchmodels.NetworkConfiguration(
 ## <a name="next-steps"></a>Passos seguintes
 
 - Conheça o fluxo de trabalho do [serviço Batch e os recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
-- Para obter mais informações sobre as regras da NSG em Azure, consulte [o tráfego da rede Filter com grupos de segurança de rede.](../virtual-network/security-overview.md)
+- Para obter mais informações sobre as regras da NSG em Azure, consulte [o tráfego da rede Filter com grupos de segurança de rede.](../virtual-network/network-security-groups-overview.md)

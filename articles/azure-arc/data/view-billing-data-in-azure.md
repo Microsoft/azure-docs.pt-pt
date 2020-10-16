@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 55269b45159210eec2ec7a6dd8eaea661ff13ebd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5335442c7ffcdca950ba0e9c5f3b6bc9e4be9f63
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760311"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108155"
 ---
 # <a name="upload-billing-data-to-azure-and-view-it-in-the-azure-portal"></a>Faça upload de dados de faturação para a Azure e veja-os no portal Azure
 
@@ -30,7 +30,7 @@ No futuro, haverá dois modos em que poderá executar os seus serviços de dados
 - **Indiretamente ligado** - Não existe ligação direta ao Azure. Os dados são enviados para a Azure apenas através de um processo de exportação/upload. Todas as implementações de serviços de dados Azure Arc funcionam neste modo hoje em pré-visualização.
 - **Conectado diretamente** - Neste modo, haverá uma dependência do Arco Azure que permitiu que o serviço Kubernetes fornecesse uma ligação direta entre a Azure e o cluster Kubernetes em que os serviços de dados ativados pelo Arco Azure estão a funcionar. Isto irá permitir-lhe mais capacidades e também permitir-lhe-á utilizar o portal Azure e o CLI Azure para gerir os seus serviços de dados habilitados a Azure Arc, tal como gere os seus serviços de dados em Azure PaaS.  Este modo de conectividade ainda não está disponível na pré-visualização, mas será em breve.
 
-Pode ler mais sobre a diferença entre os [modos de conectividade](https://docs.microsoft.com/azure/azure-arc/data/connectivity).
+Pode ler mais sobre a diferença entre os [modos de conectividade](./connectivity.md).
 
 No modo indireto ligado, os dados de faturação são periodicamente exportados para fora do controlador de dados do Arco Azure para um ficheiro seguro e depois enviados para Azure e processados.  No próximo modo ligado diretamente, os dados de faturação serão automaticamente enviados para a Azure aproximadamente 1/hora para dar uma visão quase em tempo real sobre os custos dos seus serviços. O processo de exportação e upload dos dados no modo indiretamente conectado também pode ser automatizado usando scripts ou podemos construir um serviço que o fará por si.
 

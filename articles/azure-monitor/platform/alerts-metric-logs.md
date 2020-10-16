@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.subservice: alerts
-ms.openlocfilehash: 7085dd601499004a91fc77a9181f0b097d0b543a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23ebb513e55e6b61f608354ae1cb3bf3864a54ae
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87446170"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108852"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Criar alertas métricos para registos no Monitor Azure
 
@@ -62,7 +62,7 @@ Antes da métrica de registos recolhidos nos trabalhos de dados do Log Analytics
 
  Os alertas métricos podem ser criados e geridos utilizando o portal Azure, Modelos de Gestor de Recursos, API REST, PowerShell e Azure CLI. Uma vez que os Alertas Métricos para Registos, é uma variante de alertas métricos - uma vez que os pré-requisitos são feitos, o alerta métrico para registos pode ser criado para o espaço de trabalho especificado Log Analytics. Todas as características e funcionalidades dos [alertas métricos](./alerts-metric-near-real-time.md) serão aplicáveis aos alertas métricos para registos, bem como; incluindo esquema de carga útil, limites de quota aplicáveis e preço cobrado.
 
-Para obter detalhes e amostras passo a passo - consulte [a criação e gestão de alertas métricos](https://aka.ms/createmetricalert). Especificamente, para Alertas Métricos para Registos - siga as instruções para gerir os alertas métricos e certifique-se de:
+Para obter detalhes e amostras passo a passo - consulte [a criação e gestão de alertas métricos](./alerts-metric.md). Especificamente, para Alertas Métricos para Registos - siga as instruções para gerir os alertas métricos e certifique-se de:
 
 - O alvo para alerta métrico é um espaço de trabalho válido *do Log Analytics*
 - Sinal escolhido para alerta métrico para o espaço de trabalho do *Log Analytics* selecionado é do tipo **Métrico**
@@ -690,4 +690,3 @@ az group deployment create --resource-group myRG --template-file metricfromLogsA
 - Saiba mais sobre os [alertas métricos.](alerts-metric.md)
 - Saiba mais sobre [os alertas de registo em Azure](./alerts-unified-log.md).
 - Conheça os [alertas em Azure.](alerts-overview.md)
-

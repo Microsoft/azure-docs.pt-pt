@@ -2,90 +2,94 @@
 title: Implementar modelos de gestor de recursos utilizando ações do GitHub
 description: Descreve como implementar modelos de Gestor de Recursos Azure utilizando ações do GitHub.
 ms.topic: conceptual
-ms.date: 07/02/2020
-ms.custom: github-actions-azure
-ms.openlocfilehash: cea099088005fa91e1b3e9a793105df4796a66ee
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.date: 10/13/2020
+ms.custom: github-actions-azure,subject-armqs
+ms.openlocfilehash: b5852a65b4ed3c7cc73352fed37eeff035f8563c
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018581"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92106795"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Implemente modelos de gestor de recursos Azure usando ações do GitHub
 
-[As Ações GitHub](https://help.github.com/en/actions) permitem-lhe criar fluxos de trabalho personalizados para desenvolvimento de software no seu repositório GitHub onde os seus modelos de Gestor de Recursos Azure (ARM) estão armazenados. Um [fluxo de trabalho](https://help.github.com/actions/reference/workflow-syntax-for-github-actions) é definido por um ficheiro YAML. Os fluxos de trabalho têm um ou mais empregos em cada trabalho contendo um conjunto de passos que executam tarefas individuais. Os passos podem executar comandos ou usar uma ação. Pode criar as suas próprias ações ou usar ações partilhadas pela [comunidade GitHub](https://github.com/marketplace?type=actions) e personalizá-las conforme necessário. Este artigo mostra como usar a [Azure CLI Action](https://github.com/marketplace/actions/azure-cli-action) para implementar modelos de Gestor de Recursos.
+[GitHub Actions](https://help.github.com/actions/getting-started-with-github-actions/about-github-actions) é um conjunto de funcionalidades no GitHub para automatizar os fluxos de trabalho de desenvolvimento de software no mesmo local onde armazena código e colabora em pedidos e problemas de puxar.
 
-A Azure CLI Action tem duas ações dependentes:
-
-- **[Check-out](https://github.com/marketplace/actions/checkout)**: Verifique o seu repositório para que o fluxo de trabalho possa aceder a qualquer modelo especificado de Gestor de Recursos.
-- **[Azure Login](https://github.com/marketplace/actions/azure-login)**: Faça login com as suas credenciais Azure
-
-Um fluxo de trabalho básico para a implementação de um modelo de Gestor de Recursos pode ter três etapas:
-
-1. Verifique um ficheiro de modelo.
-2. Inicie sessão no Azure.
-3. Implemente um modelo de gestor de recursos
+Utilize a [Ação do Gestor de Recursos do Azure](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) para automatizar a implementação de um modelo de Gestor de Recursos para Azure. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisa de um repositório GitHub para armazenar os seus modelos de Gestor de Recursos e os seus ficheiros de fluxo de trabalho. Para criar um, consulte [criar um novo repositório.](https://help.github.com/en/enterprise/2.14/user/articles/creating-a-new-repository)
+- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- Uma conta do GitHub. Se não tiver um, inscreva-se [de graça.](https://github.com/join)  
+    - Um repositório GitHub para armazenar os seus modelos de Gestor de Recursos e os seus ficheiros de fluxo de trabalho. Para criar um, consulte [criar um novo repositório.](https://help.github.com/en/enterprise/2.14/user/articles/creating-a-new-repository)
 
-## <a name="configure-deployment-credentials"></a>Configurar as credenciais de implementação
 
-A ação de login da Azure utiliza um principal de serviço para autenticar contra o Azure. O principal de um fluxo de trabalho CI/CD normalmente precisa do direito do contribuinte incorporado para implantar recursos Azure.
+## <a name="workflow-file-overview"></a>Visão geral do ficheiro do fluxo de trabalho
 
-O seguinte script Azure CLI mostra como gerar um Diretor de Serviço Azure com permissões de contribuinte num grupo de recursos Azure. Este grupo de recursos é onde o fluxo de trabalho implementa os recursos definidos no seu modelo de Gestor de Recursos.
+Um fluxo de trabalho é definido por um ficheiro YAML (.yml) no caminho do `/.github/workflows/` seu repositório. Esta definição contém os vários passos e parâmetros que compõem o fluxo de trabalho.
 
-```azurecli
-$projectName="[EnterAProjectName]"
-$location="centralus"
-$resourceGroupName="${projectName}rg"
-$appName="http://${projectName}"
-$scope=$(az group create --name $resourceGroupName --location $location --query 'id')
-az ad sp create-for-rbac --name $appName --role Contributor --scopes $scope --sdk-auth
+O ficheiro tem duas secções:
+
+|Section  |Tarefas  |
+|---------|---------|
+|**Autenticação** | 1. Defina um diretor de serviço. <br /> 2. Criar um segredo do GitHub. |
+|**Implementar** | 1. Implementar o modelo de Gestor de Recursos. |
+
+## <a name="generate-deployment-credentials"></a>Gerar credenciais de implantação
+
+
+Pode criar um [principal de serviço](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) com o comando [ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) no [Azure CLI](/cli/azure/). Executar este comando com [Azure Cloud Shell](https://shell.azure.com/) no portal Azure ou selecionando o botão **Try it.**
+
+Substitua o espaço reservado `myApp` pelo nome da sua aplicação. 
+
+```azurecli-interactive
+   az ad sp create-for-rbac --name {myApp} --role contributor --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} --sdk-auth
 ```
 
-Personalize o valor de **$projectName** e **$location** no script. O nome do grupo de recursos é o nome do projeto com **rg** anexado. Tem de especificar o nome do grupo de recursos no seu fluxo de trabalho.
+No exemplo acima, substitua os espaços reservados pelo seu ID de subscrição e nome de grupo de recursos. A saída é um objeto JSON com as credenciais de atribuição de funções que fornecem acesso à sua aplicação de Serviço de Aplicações semelhante abaixo. Copie este objeto JSON para mais tarde.
 
-O script produz um objeto JSON semelhante a este:
-
-```json
-{
-   "clientId": "<GUID>",
-   "clientSecret": "<GUID>",
-   "subscriptionId": "<GUID>",
-   "tenantId": "<GUID>",
-   (...)
-}
+```output 
+  {
+    "clientId": "<GUID>",
+    "clientSecret": "<GUID>",
+    "subscriptionId": "<GUID>",
+    "tenantId": "<GUID>",
+    (...)
+  }
 ```
 
-Copie a saída JSON e guarde-a como um segredo do GitHub dentro do seu repositório GitHub. Consulte [o Pré-requisito](#prerequisites) se ainda não tem um repositório.
+> [!IMPORTANT]
+> É sempre uma boa prática conceder o mínimo acesso. O âmbito do exemplo anterior limita-se ao grupo de recursos.
 
-1. A partir do seu repositório GitHub, selecione o **separador Definições.**
-1. Selecione **Segredos** do menu esquerdo.
-1. Introduza os seguintes valores:
 
-    - **Nome**: AZURE_CREDENTIALS
-    - **Valor**: (Colar a saída JSON)
-1. **Selecione Adicionar segredo**.
 
-Precisa especificar o nome secreto no fluxo de trabalho.
+## <a name="configure-the-github-secrets"></a>Configure os segredos do GitHub
+
+Você precisa criar segredos para as suas credenciais Azure, grupo de recursos e subscrições. 
+
+1. No [GitHub,](https://github.com/)navegue no seu repositório.
+
+1. Selecione **Definições > Segredos > Novo segredo**.
+
+1. Cole toda a saída JSON do comando Azure CLI para o campo de valor do segredo. Dê o nome ao `AZURE_CREDENTIALS` segredo.
+
+1. Criar outro segredo chamado `AZURE_RG` . Adicione o nome do seu grupo de recursos ao campo de valor do segredo. 
+
+1. Crie um segredo adicional chamado `AZURE_SUBSCRIPTION` . Adicione o seu ID de subscrição ao campo de valor do segredo. 
 
 ## <a name="add-resource-manager-template"></a>Adicionar modelo de gestor de recursos
 
-Adicione um modelo de Gestor de Recursos ao repositório GitHub. Se não tiver um, pode usar o seguinte modelo. O modelo cria uma conta de armazenamento.
+Adicione um modelo de Gestor de Recursos ao seu repositório GitHub. Este modelo cria uma conta de armazenamento.
 
 ```url
 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-Pode colocar o ficheiro em qualquer lugar do repositório. A amostra de fluxo de trabalho na secção seguinte pressupõe que o ficheiro do modelo é nomeado **azuredeploy.jsem**, e é armazenado numa pasta chamada **modelos** na raiz do seu repositório.
+Pode colocar o ficheiro em qualquer lugar do repositório. A amostra de fluxo de trabalho na secção seguinte pressupõe que o ficheiro do modelo é nomeado **azuredeploy.js,** e é armazenado na raiz do seu repositório.
 
 ## <a name="create-workflow"></a>Criar fluxo de trabalho
 
 O ficheiro de fluxo de trabalho deve ser armazenado na pasta **.github/workflows** na raiz do seu repositório. A extensão do ficheiro workflow pode ser **.yml** ou **.yaml**.
-
-Pode criar um ficheiro de fluxo de trabalho e, em seguida, empurrar/carregar o ficheiro para o repositório, ou utilizar o seguinte procedimento:
 
 1. A partir do seu repositório GitHub, selecione **Actions** from the top menu.
 1. Selecione **Novo fluxo de trabalho**.
@@ -94,51 +98,38 @@ Pode criar um ficheiro de fluxo de trabalho e, em seguida, empurrar/carregar o f
 1. Substitua o conteúdo do ficheiro yml pelo seguinte:
 
     ```yml
-    name: Deploy ARM Template
-
-    on:
-      push:
-        branches:
-          - master
-        paths:
-          - ".github/workflows/deployStorageAccount.yml"
-          - "templates/azuredeploy.json"
-
+    on: [push]
+    name: Azure ARM
     jobs:
-      deploy-storage-account-template:
+      build-and-deploy:
         runs-on: ubuntu-latest
         steps:
-          - name: Checkout source code
-            uses: actions/checkout@master
 
-          - name: Login to Azure
-            uses: azure/login@v1
-            with:
-              creds: ${{ secrets.AZURE_CREDENTIALS }}
+          # Checkout code
+        - uses: actions/checkout@master
 
-
-          - name: Deploy ARM Template
-            uses: azure/CLI@v1
-            with:
-              inlineScript: |
-                az deployment group create --resource-group myResourceGroup --template-file ./templates/azuredeploy.json
+          # Log into Azure
+        - uses: azure/login@v1
+          with:
+            creds: ${{ secrets.AZURE_CREDENTIALS }}
+     
+          # Deploy ARM template
+        - uses: azure/arm-deploy@v1
+        - name: Run ARM deploy
+          with:
+            subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+            resourceGroupName: ${{ secrets.AZURE_RG }}
+            template: ./azuredeploy.json
+            parameters: storageAccountType=Standard_LRS
+        
+          # output containerName variable from template
+        - run: echo ${{ steps.deploy.outputs.containerName }}
     ```
 
-    O ficheiro workflow tem três secções:
+    A primeira secção do ficheiro de fluxo de trabalho inclui:
 
     - **nome**: O nome do fluxo de trabalho.
     - **em**: O nome dos eventos do GitHub que desencadeia o fluxo de trabalho. O fluxo de trabalho é desencadeado quando há um evento de impulso no ramo principal, que modifica pelo menos um dos dois ficheiros especificados. Os dois ficheiros são o ficheiro de fluxo de trabalho e o ficheiro de modelo.
-
-        > [!IMPORTANT]
-        > Verifique se os dois ficheiros e os seus caminhos coincidem com os seus.
-    - **empregos**: Uma corrida ao fluxo de trabalho é constituída por um ou mais postos de trabalho. Há apenas um trabalho chamado **modelo de conta de armazenamento de implementação.**  Este trabalho tem três passos:
-
-        - **Código fonte de saída**.
-        - **Faça login no Azure**.
-
-            > [!IMPORTANT]
-            > Verifique se o nome secreto corresponde ao que guardou no seu repositório. Consulte [as credenciais de implantação Configure](#configure-deployment-credentials).
-        - **Implementar o modelo ARM**. Substitua o valor do **recursoGroupName**.  Se usou o script Azure CLI em [credenciais de implantação Configure,](#configure-deployment-credentials)o nome do grupo de recursos gerados é o nome do projeto com **rg** anexado. Verifique o valor do **modeloLocation**.
 
 1. Selecione **Iniciar o compromisso**.
 1. **Selecione Comprometa-se diretamente com o ramo principal**.
@@ -150,9 +141,13 @@ Uma vez que o fluxo de trabalho está configurado para ser acionado pelo ficheir
 
 1. Selecione o **separador Ações.** Você verá um **Create deployStorageAccount.yml** workflow listado. Leva 1-2 minutos para executar o fluxo de trabalho.
 1. Selecione o fluxo de trabalho para abri-lo.
-1. Selecione **o modelo de conta de armazenamento de implementação** (nome de trabalho) a partir do menu esquerdo. O nome do trabalho é definido no fluxo de trabalho.
-1. Selecione **implementar o modelo ARM** (nome de passo) para expandi-lo. Pode ver a resposta da API REST.
+1. Selecione **executar a implementação** DO ARM a partir do menu para verificar a implementação.
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando o seu grupo de recursos e repositório já não forem necessários, limpe os recursos que implementou eliminando o grupo de recursos e o seu repositório GitHub. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para um tutorial passo a passo que o guia através do processo de criação de um modelo, consulte [Tutorial: Crie e implemente o seu primeiro modelo ARM](template-tutorial-create-first-template.md).
+> [!div class="nextstepaction"]
+> [Crie o seu primeiro modelo ARM](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)

@@ -4,12 +4,12 @@ description: Saiba como evitar problemas de desempenho em Funções Azure utiliz
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 02/25/2018
-ms.openlocfilehash: 7ce933511532fdb1bfb5189e5a900e87f3d83fa2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a305c692c63f278c4edc4240f7adf9de22b22c56
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88213966"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92106098"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Gerir ligações em Funções Azure
 
@@ -103,7 +103,25 @@ public static async Task Run(string input)
     // Rest of function
 }
 ```
+Se estiver a trabalhar com funções v3.x, precisa de uma referência a Microsoft.Azure.DocumentDB.Core. Adicione uma referência no código:
 
+```cs
+#r "Microsoft.Azure.DocumentDB.Core"
+```
+Além disso, crie um ficheiro chamado "function.proj" para o seu gatilho e adicione o conteúdo abaixo:
+
+```cs
+
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.0</TargetFramework>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Azure.DocumentDB.Core" Version="2.12.0" />
+    </ItemGroup>
+</Project>
+
+```
 ### <a name="cosmosclient-code-example-javascript"></a>Exemplo de código CosmosClient (JavaScript)
 [CosmosClient](/javascript/api/@azure/cosmos/cosmosclient) conecta-se a um exemplo de Azure Cosmos DB. A documentação da Azure Cosmos DB recomenda que [utilize um cliente singleton Azure Cosmos DB para o tempo de vida da sua aplicação.](../cosmos-db/performance-tips.md#sdk-usage) O exemplo a seguir mostra um padrão para fazer isso numa função:
 

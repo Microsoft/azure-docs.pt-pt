@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
-ms.openlocfilehash: 29b5e9c7673b4a730a41bf7cf2b1c4a2a86209ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5236a3be9f8908d886274764dfc0c0da5b3565bc
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77462110"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92104483"
 ---
 # <a name="azure-functions-http-triggers-and-bindings-overview"></a>Funções Azure HTTP dispara e encaderna mente geral
 
@@ -29,7 +29,7 @@ O código deste artigo é predefinido para a sintaxe .NET Core, utilizada na ver
 
 Trabalhar com o gatilho e as ligações requer que você refira o pacote apropriado. O pacote NuGet é utilizado para bibliotecas de classe .NET enquanto o pacote de extensão é utilizado para todos os outros tipos de aplicação.
 
-| Idioma                                        | Adicione por...                                   | Observações 
+| Linguagem                                        | Adicione por...                                   | Observações 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Instalação do [pacote NuGet], versão 3.x | |
 | C# Script, Java, JavaScript, Python, PowerShell | Registar o [pacote de extensão]          | Recomenda-se a utilização da [extensão Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) com Código de Estúdio Visual. |
@@ -38,7 +38,7 @@ Trabalhar com o gatilho e as ligações requer que você refira o pacote apropri
 [core tools]: ./functions-run-local.md
 [pacote de extensão]: ./functions-bindings-register.md#extension-bundles
 [Pacote NuGet]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http
-[Atualize as suas extensões]: ./install-update-binding-extensions-manual.md
+[Atualize as suas extensões]: ./functions-bindings-register.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
 ### <a name="functions-1x"></a>Funções 1.x

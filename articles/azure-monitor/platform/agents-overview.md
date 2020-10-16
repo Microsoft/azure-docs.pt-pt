@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/02/2020
-ms.openlocfilehash: ab37fcdb4012394f1c5131a23f7c67063d3d6e37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de9623eb0eb14957c1554b7b0f74baa256a15d47
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825770"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92108393"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Visão geral dos agentes do Monitor Azure
 
@@ -60,7 +60,7 @@ Utilize o agente Azure Monitor se for necessário:
 - Envie dados para Azure Monitor Logs e Azure Monitor Metrics para análise com o Azure Monitor. 
 - Envie dados para o Azure Storage para arquivar.
 - Enviar dados para ferramentas de terceiros utilizando [hubs de eventos Azure](diagnostics-extension-stream-event-hubs.md).
-- Gerencie a segurança das suas máquinas virtuais utilizando o [Azure Security Center](../../security-center/security-center-intro.md)  ou [o Azure Sentinel](../../sentinel/overview.md). (Não disponível em pré-visualização.)
+- Gerencie a segurança das suas máquinas virtuais utilizando o [Azure Security Center](../../security-center/security-center-introduction.md)  ou [o Azure Sentinel](../../sentinel/overview.md). (Não disponível em pré-visualização.)
 
 As limitações do agente Azure Monitor incluem:
 
@@ -81,7 +81,7 @@ Utilize o agente Log Analytics se for necessário:
 * Recolher registos e dados de desempenho de máquinas virtuais ou físicas dentro ou fora de Azure. 
 * Envie dados para um espaço de trabalho log analytics para tirar partido das funcionalidades suportadas por [Registos do Monitor Azure,](data-platform-logs.md) tais como [consultas de registo .](../log-query/log-query-overview.md)
 * Utilize [o Azure Monitor para VMs](../insights/vminsights-overview.md) que lhe permite monitorizar as suas máquinas virtuais em escala e monitorizar os seus processos e dependências de outros recursos e processos externos..  
-* Gerencie a segurança das suas máquinas virtuais utilizando o [Azure Security Center](../../security-center/security-center-intro.md)  ou [o Azure Sentinel](../../sentinel/overview.md).
+* Gerencie a segurança das suas máquinas virtuais utilizando o [Azure Security Center](../../security-center/security-center-introduction.md)  ou [o Azure Sentinel](../../sentinel/overview.md).
 * Utilize [a gestão de Azure Automation Update](../../automation/update-management/update-mgmt-overview.md), [Azure Automation State Configuration](../../automation/automation-dsc-overview.md), ou [Azure Automation Change Tracking and Inventory](../../automation/change-tracking.md) para fornecer uma gestão abrangente dos seus VMs Azure
 * Utilize [diferentes soluções](../monitor-reference.md#insights-and-core-solutions) para monitorizar um determinado serviço ou aplicação.
 
@@ -212,4 +212,3 @@ Obtenha mais detalhes sobre cada um dos agentes no seguinte:
 - [Visão geral do agente Log Analytics](log-analytics-agent.md)
 - [Descrição geral da extensão do Diagnóstico do Azure](diagnostics-extension-overview.md)
 - [Colete métricas personalizadas para um Linux VM com o agente InfluxData Telegraf](collect-custom-metrics-linux-telegraf.md)
-

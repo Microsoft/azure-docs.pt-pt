@@ -8,12 +8,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: a187b31657ec2a67c306d817a75150d19a5cf9b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f924cb7462f7f8c9939ec261b7ef200ceb8ea70b
+ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86497187"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92109158"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Encriptação de dados em Azure Data Lake Storage Gen1
 
@@ -33,7 +33,7 @@ Os dados em trânsito (também conhecidos como dados em movimento) também são 
 
 A encriptação para data lake storage gen1 é configurada durante a criação de conta, e é sempre ativada por padrão. Pode gerir as chaves por si mesmo, ou permitir que a Data Lake Storage Gen1 as gere (este é o padrão).
 
-Para obter mais informações, veja o artigo [Introdução](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
+Para obter mais informações, veja o artigo [Introdução](./data-lake-store-get-started-portal.md).
 
 ## <a name="how-encryption-works-in-data-lake-storage-gen1"></a>Como a encriptação funciona na Data Lake Storage Gen1
 
@@ -57,7 +57,7 @@ Segue-se uma breve comparação das capacidades proporcionadas pelos dois modos 
 |Como são armazenados os dados?|São sempre encriptados antes de serem armazenados.|São sempre encriptados antes de serem armazenados.|
 |Onde é armazenada a Chave de Encriptação Mestra?|Cofre de Chaves|Cofre de Chaves|
 |As chaves de encriptação são armazenadas de forma desprotegida, fora do Key Vault? |Não|Não|
-|É possível obter a MEK a partir do Key Vault?|N.º Depois de a MEK ser armazenada no Key Vault, só pode ser utilizada para encriptação e desencriptação.|N.º Depois de a MEK ser armazenada no Key Vault, só pode ser utilizada para encriptação e desencriptação.|
+|É possível obter a MEK a partir do Key Vault?|Não. Depois de a MEK ser armazenada no Key Vault, só pode ser utilizada para encriptação e desencriptação.|Não. Depois de a MEK ser armazenada no Key Vault, só pode ser utilizada para encriptação e desencriptação.|
 |Quem é o proprietário da instância do Key Vault e da MEK?|O serviço de armazenamento de dados Lake Gen1|O utilizador é o proprietário da instância do Key Vault, que pertence à sua própria subscrição do Azure. A MEK no Key Vault pode ser gerida por software ou hardware.|
 |Pode revogar o acesso ao MEK para o serviço Desarrumação gen1 do Data Lake?|Não|Yes. Pode gerir as listas de controlo de acesso no Key Vault e remover as entradas de controlo de acesso à identidade do serviço para o serviço Data Lake Storage Gen1.|
 |Pode eliminar permanentemente a MEK?|Não|Yes. Se eliminar o MEK do Key Vault, os dados da conta Descodificar a Gen1 de Armazenamento de Dados não podem ser desencriptados por ninguém, incluindo o serviço Desemboado Desembose de Armazenamento de Dados Gen1. <br><br> Se tiver criado explicitamente uma cópia de segurança da MEK antes de a eliminar do Key Vault, a MEK pode ser restaurada e os dados recuperados. No entanto, se não tiver feito o back up do MEK antes de o eliminar do Key Vault, os dados na conta de Data Lake Storage Gen1 nunca poderão ser desencriptados posteriormente.|
@@ -105,7 +105,7 @@ O diagrama seguinte ilustra estes conceitos:
 
 ## <a name="key-rotation"></a>Rotação de chaves
 
-Quando estiver a utilizar chaves geridas pelo cliente, pode rodar a MEK. Para aprender a configurar uma conta Desagérido de Armazenamento de Dados Gen1 com chaves geridas pelo cliente, consulte [Começar](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal).
+Quando estiver a utilizar chaves geridas pelo cliente, pode rodar a MEK. Para aprender a configurar uma conta Desagérido de Armazenamento de Dados Gen1 com chaves geridas pelo cliente, consulte [Começar](./data-lake-store-get-started-portal.md).
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
@@ -135,4 +135,4 @@ Note que se utilizar as opções padrão para encriptação, os seus dados são 
 Esta operação deve demorar menos de dois minutos e não se prevê qualquer período de indisponibilidade durante a rotação de chaves. Depois de a operação estar concluída, a versão nova da chave estará em uso.
 
 > [!IMPORTANT]
-> Depois de concluída a operação de rotação da chave, a versão antiga da chave já não é utilizada ativamente para encriptar os dados.  No entanto, em situações raras de falha inesperada em que até as cópias redundantes dos seus dados são afetadas, os dados podem ser restaurados a partir de uma cópia de segurança que ainda está a utilizar a chave antiga. Para garantir que os dados estão acessíveis nestas circunstâncias raras, mantenha uma cópia da versão anterior da sua chave de encriptação. Consulte [a orientação de recuperação de desastres para obter dados na Data Lake Storage Gen1](data-lake-store-disaster-recovery-guidance.md) para obter as melhores práticas para o seu planeamento de recuperação de desastres. 
+> Depois de concluída a operação de rotação da chave, a versão antiga da chave já não é utilizada ativamente para encriptar os dados.  No entanto, em situações raras de falha inesperada em que até as cópias redundantes dos seus dados são afetadas, os dados podem ser restaurados a partir de uma cópia de segurança que ainda está a utilizar a chave antiga. Para garantir que os dados estão acessíveis nestas circunstâncias raras, mantenha uma cópia da versão anterior da sua chave de encriptação. Consulte [a orientação de recuperação de desastres para obter dados na Data Lake Storage Gen1](data-lake-store-disaster-recovery-guidance.md) para obter as melhores práticas para o seu planeamento de recuperação de desastres.
